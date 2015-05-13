@@ -1400,7 +1400,7 @@ the PC-BSD® system to not automatically start X. To do so, add this temporary l
  pcdm_enable="NO"
 
 The system will reboot to a login prompt. After logging in, try the instructions in the
-`FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
+`FreeBSD Handbook <http://www.freebsd.org/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
 for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that temporary line from :file:`/etc/rc.conf` and start PCDM::
 
  service pcdm start
@@ -1425,7 +1425,7 @@ If that fixes the problem, add that line to the :file:`.xprofile` file in your h
 Mount Tray
 ==========
 
-The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks USB storage devices, and optical
+The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks, USB storage devices, and optical
 media. It is included in the system tray, meaning that in can be used within any window manager that provides a system tray. If you remove the icon from the
 system tray, you can re-add it using :menuselection:`Control Panel --> Mount Tray` or by typing :command:`pc-mounttray &`.
 
@@ -1449,15 +1449,17 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 .. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the  application will
-open so that you can play the contents of the disk.
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the
+`SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
+the "Play" button shown in figure 8.12a to restart it.
 
 The following options are available in the "More Options" menu: 
 
-* **Open Media Directory:** click this if the default file manager does not automatically open. If the desktop does not provide a default file manager, Mount
-  Tray will provide an "open with" dialogue so that you can select the utility to use to browse the contents of the USB device.
+* **Open Media Directory:** this will only appear if a filesystem has been mounted and can be used to open the default file manager if it does not automatically open.
+  If the desktop does not provide a default file manager, Mount Tray will provide an "open with" dialogue so that you can select the utility to use to browse the
+  contents of the USB device.
 
-* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS formatted USB device is mounted at :file:`/usr/home/dru/Media/STECH-1d`. The amount of disk
+* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS-formatted USB device is mounted at :file:`/Media/STECH-1d`. The amount of disk
   space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space. The Mount Tray will turn yellow if
   disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in
   Mount Tray.
@@ -1472,7 +1474,7 @@ The following options are available in the "More Options" menu:
 * **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices. Leave
   the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
 
-- **Close Tray:** click this option to remove Mount Tray from the system tray.
+* **Close Tray:** click this option to remove Mount Tray from the system tray.
 
 **Figure 8.12b: View Disk Usage Using Mount Tray**
 
@@ -1546,7 +1548,7 @@ For example, to see a listed of the supported filesystems, use::
 PC-BSD Keyboard Settings
 ========================
 
-Beginning with version 10.1.1, PC-BSD® includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
+The PC-BSD® control panel includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
 icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in Figure 8.13a. 
 
 **Figure 8.13a: Configuring Keyboard Settings**
@@ -1557,7 +1559,7 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
    will not be saved.
 
-Click the "Keyboard model" drop-down menu to select the type of keyboard. Note that the default model of "Generic 104-key PC" does **not** enable support for special keys
+Click the "Keyboard model" drop-down menu to select the type of keyboard. Note that the default model of "Generic 104-key PC" does **not** support special keys
 such as multimedia or Windows keys. You will need to change this default to enable support for hot keys.
 
 To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
@@ -1570,7 +1572,7 @@ To add another keyboard layout, click the "+" button, which will open the screen
 To edit an existing layout, highlight it then click the icon that looks like a pencil. You can then either change the "Layout variant" for that layout or
 select a different layout entirely. Selecting a different layout will replace the current layout.
 
-If you there are multiple layout entries defined in the "Keyboard layouts" screen, you can delete a layout by highlighting it and clicking the "-" icon. Note
+If there are multiple layout entries defined in the "Keyboard layouts" screen, you can delete a layout by highlighting it and clicking the "-" icon. Note
 that this icon is greyed out when there is only one entry as at least one keyboard layout must be defined.
 
 After creating or editing a layout, you can test it by typing some text into the "Test here" field.
@@ -1644,13 +1646,13 @@ network sound devices and mixer levels.
 For command line only systems, type :command:`mixer` from the command line to see the current sound settings::
 
  mixer
- Mixer vol is currently set to 0:0
- Mixer pcm is currently set to 100:100
- Mixer mic is currently set to 50:50
- Mixer mix is currently set to 60:60
- Mixer rec is currently set to 75:75
- Mixer igain is currently set to 100:100
- Mixer ogain is currently set to 100:100
+ Mixer vol      is currently set to   0:0
+ Mixer pcm      is currently set to 100:100
+ Mixer speaker  is currently set to 100:100
+ Mixer mic      is currently set to  50:50
+ Mixer rec      is currently set to   1:1
+ Mixer monitor  is currently set to  42:42
+ Recording source: monitor
 
 If any of these settings are set to *0*, set them to a higher value, by specifying the name of the mixer setting and a percentage value up to *100*::
 
@@ -1675,7 +1677,7 @@ To see if that changed to the correct channel, type :command:`mixer` again. If y
 Once you have all of the mixer settings and none are set to *0*, your sound should work. If it still doesn't, these resources may help you to pinpoint the
 problem: 
 
-* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/sound-setup.html>`_
+* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/handbook/sound-setup.html>`_
 
 * `FreeBSD Sound Wiki <http://wiki.freebsd.org/Sound>`_
 
@@ -1764,7 +1766,7 @@ Once the printer is created, a screen will open where you can set the properties
 
 .. image:: images/print7.png
 
-You may wish to take a few minutes to review the settings in "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
+You may wish to take a few minutes to review the settings in the "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
 configure options such as print banners, permissions, the default paper size, and double-sided printing. The available settings will vary, depending upon the
 capabilities of the print driver.
 
@@ -1799,7 +1801,7 @@ select the hostname and queue name from the drop-down menus.
 Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
 If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.15g
-instead of the the "Describe Printer" screen.
+instead of the "Describe Printer" screen.
 
 **Figure 8.15g: Manually Select the Manufacturer**
 
@@ -1889,7 +1891,7 @@ your password. Figure 8.17a shows the initial screen when you launch this utilit
 
 .. image:: images/firewall1.png
 
-The "General Settings" tab of this utility allows you to: 
+The "General" tab of this utility allows you to: 
 
 * Determine whether or not the firewall starts when the system boots. Unless you have a reason to do so and understand the security implications, the
   "Enable Firewall on startup" box should be checked so that your system is protected by the firewall.
@@ -1915,7 +1917,7 @@ the custom rules list.
 .. note:: whenever you add or delete a custom rule, the rule will not be used until you click the "Restart" button shown in Figure 8.17a. Also, your custom
    rules are not used whenever the system is in :ref:`Tor Mode`.
 
-Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow an SSH connection, try connecting
+Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow incoming SSH connections, try connecting
 to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
 
 .. index:: network
@@ -1938,7 +1940,7 @@ connection strength, connection speed, MAC address, and type of wireless device.
 If you right-click the wireless icon, you will see a list of detected wireless networks. Simply click the name of a network to associate with it. The
 right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP
 address), and to close the Network Monitor so that the icon no longer shows in the system tray. If you have multiple wireless devices, each will have its own
-icon in the system tray. If you do not use one of the devices, click "Close the Network Monitor" to remove it from the tray.
+icon in the system tray. If you do not use one of the devices, click its "Close the Network Monitor" to remove it from the tray.
 
 To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
 :command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network
@@ -1986,7 +1988,7 @@ to select the network and to input the authentication values required by the net
 By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
 network. The interface will remain inactive until this checkbox is unchecked.
 
-The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ and to use DHCP to
+The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ or to
 automatically obtain an `IPv6 address <http://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
 a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
@@ -2043,15 +2045,15 @@ This screen allows you to configure the following types of wireless security:
 
 * **Disabled:** if the network is open, no additional configuration is required.
 
-* **WEP:** this type of network can be configured to use either a hex or a plaintext key. If you click "WEP" then the "Configure" button, you will see the
-  screen shown in Figure 8.18h. Type the key into both network key boxes. If the key is complex, check the "Show Key" box to make sure that the passwords are
-  correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the * symbol. A wireless access point that
-  uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
+* **WEP:** this type of network can be configured to use either a hex or a plaintext key and Network Manager will automatically select the type of key that it has detected.
+  If you click "WEP" then the "Configure" button, you will see the screen shown in Figure 8.18h. Type the key into both network key boxes. If the key is complex, check the
+  "Show Key" box to make sure that the passwords are correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the "*"
+  symbol. A wireless access point that uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
 
 * **WPA Personal:** this type of network uses a plaintext key. If you click "WPA Personal" then the "Configure" button, you will see the screen shown in
   Figure 8.18i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
 
-- **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.18j. Select the authentication
+* **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.18j. Select the authentication
   method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
   verify the password.
 
@@ -2060,7 +2062,7 @@ This screen allows you to configure the following types of wireless security:
 
 **Figure 8.18h: WEP Security Settings** 
 
-.. image:: images/network8.jpg
+.. image:: images/network8.png
 
 **Figure 8.18i: WPA Personal Security Settings** 
 
@@ -2140,7 +2142,7 @@ interface. If you want this functionality, check this box.
 .. note:: some users experience problems using lagg. If you have problems connecting to a network using an interface that previously worked, uncheck this box
    and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
 
-If you make any changes within this window, click the "Save" button to apply them.
+If you make any changes within this window, click the "Apply" button to apply them.
 
 .. index:: network
 .. _Proxy Settings:
@@ -2171,7 +2173,7 @@ application that uses :command:`fetch`.
 Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's
 configuration utility.
 
-If you save any changes to this tab, a pop-up message will warn that you may have to logout and back in in order for the proxy settings to take effect.
+If you apply any changes to this tab, a pop-up message will warn that you may have to logout and back in in order for the proxy settings to take effect.
 
 .. index:: network
 .. _Configuring a Wireless Access Point:
@@ -2179,8 +2181,7 @@ If you save any changes to this tab, a pop-up message will warn that you may hav
 Configuring a Wireless Access Point
 -----------------------------------
 
-Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.18o, the right-click menu has an option to "Setup Access
-Point". 
+If you click the entry for a wireless device, as seen in Figure 8.18o, the right-click menu has an option to "Setup Access Point". 
 
 **Figure 8.18o: Setup Access Point Option**
 
@@ -2227,12 +2228,6 @@ While Ethernet networking usually "just works" on a PC-BSD® system, users somet
 Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available. This section is meant to help you pinpoint the
 problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
 
-.. index:: network
-.. _Useful Files and Commands:
-
-Useful Files and Commands 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 When troubleshooting your network configuration, use the following files and commands.
 
 The :file:`/etc/rc.conf` file is read when the system boots up. In order for the system to configure an interface at boot time, an entry must exist for it in
@@ -2249,7 +2244,7 @@ When reading through your own file, look for lines that begin with *ifconfig*. F
 
 .. note:: unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset. Each driver name has an associated man
    page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver. When reading the man
-   page, do not include the interface number. In the above example, you could read :command:`man em` and :command:`man run`.
+   page, do not include the interface number. For the above example, you could read :command:`man em` and :command:`man run`.
 
 
 The :file:`/etc/wpa_supplicant.conf` file is used by wireless interfaces and contains the information needed to connect to a WPA network. If this file does
@@ -2317,7 +2312,7 @@ In this example, there is a built-in Ethernet device that uses a driver that sup
 RTL8191SE" will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being
 developed.
 
-The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/doc//books/handbook/network-wireless.html>`_ provides a good overview of how
+The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/handbook/network-wireless.html>`_ provides a good overview of how
 wireless works and offers some troubleshooting suggestions.
 
 .. index:: backup
