@@ -297,6 +297,11 @@ void ServiceManager::populateList()
 		  QString cDir = sDirs.at(z);
 		  if ( ! wDir.isEmpty() )
 		    cDir.replace(wDir, "");
+		  if ( ServiceTag.indexOf("$") == 0 )
+		  	ServiceTag = ServiceDir + "_enable";
+		  if ( ServiceName.indexOf("$") == 0 )
+		  	ServiceName = ServiceDir;
+
                   cols << cDir + "/" + ServiceDir << ServiceTag << ServiceName << tr("Unknown") << tr("Unknown");
 		  (void) new QTreeWidgetItem(listServices, cols );
 		  qDebug() << "Added Service:" << cDir << ServiceDir << ServiceName << ServiceTag;
