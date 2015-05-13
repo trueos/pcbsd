@@ -394,19 +394,14 @@ Due to its schedule, the automatic updater will never check for new updates more
 Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
 will appear, as seen in the example in Figure 7.3g. If no updates are available, of if the system is currently updating, this tab will not appear.
 
-**Figure 7.3g: System Updates are Available**
+**Figure 7.3g: Updates are Available**
 
 .. image:: images/update12.png
 
-In this example, the system has been configured to automatically update "Security & Packages" and a security update is available. Click the "Start Updates"
-button to manually start the update. When prompted, reboot so that the system can boot into the newly patched operating system.
+In this example, a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
+boot into the newly patched operating system.
 
-Figure 7.3h shown an example of a system that has package updates available. The user has clicked the "View Package Updates" box to see which packages will be
-upgraded.
-
-**Figure 7.3h: Package Updates are Available**
-
-.. image:: images/update13.png
+When package updates are available a "View Package Updates" box can be clicked to see which packages will be upgraded.
 
 .. note:: how often package updates are available depends upon the "Repository Settings" set in :menuselection:`AppCafe® --> Configure`. The default setting
    of "Production" will only provide package updates every 3 months whereas a setting of "Edge" will provide package updates as soon as a new version is

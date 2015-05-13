@@ -209,9 +209,6 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The ability to :ref:`Configure Audio Output` has been added as a post-installation configuration screen.
 
-* The :command:`lumina-xconfig` utility has been added to Lumina for adding, removing, and re-arranging screens in the current X session. This utility can be accessed
-  from :menuselection:`Desktop Preferences --> Screen Configuration` while logged into the Lumina desktop.
-
 * The "Lock" and "Suspend" buttons have been added to the Lumina "Log Out" screen.
 
 * A "Settings" menu has been added to the right-click menu of the Lumina desktop.
