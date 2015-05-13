@@ -109,7 +109,7 @@ The following components are available for installation.
 
 * **Drivers:** if you have an NVIDIA video card, the correct driver should already be checked for you.
 
-* **Editors:** check the bpx to install `LibreOffice <http://www.libreoffice.org/>`_. 
+* **Editors:** check the box to install `LibreOffice <http://www.libreoffice.org/>`_. 
 
 * **Emulators:** if you expand the ► you can select to install `VirtualBox <http://www.virtualbox.org/>`_ and `Wine <https://www.winehq.org/>`_. 
 
