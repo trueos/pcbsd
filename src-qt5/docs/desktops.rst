@@ -918,9 +918,7 @@ XFCE Plugins
 -------------
 
 XFCE supports many plugins which provide additional applications that are separate from the official XFCE distribution. You can browse for plugins and read
-descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_. If you find a plugin that is not available within
-:ref:`AppCafe®`, this `README <https://forums.pcbsd.org/thread-12244.html>`_ explains how to determine if a FreeBSD port is available, how to request a
-PBI if a port is available, and how to request a port if one does not already exist.
+descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_.
 
 After installing a plugin, go to :menuselection:`Settings --> Panel --> Items` and click the "+" button in the right column to see the "Add New Items" screen
 shown in Figure 6.17e. 
