@@ -4,19 +4,7 @@
 Supporting PC-BSD®
 *******************
 
-PC-BSD® is a community project and relies on involvement from its users and supporters. This section lists some ideas for becoming involved.
-
-* :ref:`Become a Beta Tester`
-
-* :ref:`Become a Translator`
-
-* :ref:`Become a Developer`
-
-* :ref:`Make Minor Modifications to a PBI Module`
-
-* :ref:`Purchase PC-BSD® Swag`
-
-* :ref:`Become an Advocate`
+PC-BSD® is a community project which relies on involvement from its users and supporters. This section lists some ideas for becoming involved.
 
 .. index:: testing
 .. _Become a Beta Tester:
@@ -28,9 +16,9 @@ If you like playing around with operating systems and have a bit of spare time, 
 reporting problems you encounter while using PC-BSD®. 
 
 If you have a spare system or virtual machine, you can also download and try out the latest release candidate snapshots. These versions are still in testing
-and have not been officially released yet. Having as many people as possible using PC-BSD® on many different hardware configurations assists the project in
+and have not been officially released yet. Having as many people as possible using PC-BSD® on many different hardware configurations assists the Project in
 finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <http://blog.pcbsd.org/>`_ is a good way to keep
-up-to-date on the availability of testing snapshots and any major bugs that are found within a snapshot.
+up-to-date on the availability of testing snapshots and any major bugs that affect users.
 
 If becoming a tester interests you, subscribe to the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_. As new testing versions become
 available they will be announced on this list. You will also be able to see what problems other testers are finding and can check to see if the problem exists
@@ -73,7 +61,7 @@ This section describes each of these translation areas in more detail and how to
 Regardless of the type of translation you are interested in, you should first join the
 `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_. When you join, send an email to introduce yourself and indicate which
 language(s) and which type(s) of translations you can assist with. This will allow you to meet other volunteers as well as keep abreast of any notices or
-updates that may affect translators.
+updates that affect translators.
 
 .. index:: translations
 .. _Interface Translation:
@@ -132,24 +120,20 @@ If you need help with a translation or using the Pootle system, you can ask for 
 Documentation Translation
 -------------------------
 
-Beginning with version 10.1.2, the source for the PC-BSD® Users Handbook is stored in the
-`PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the the documentation and its translations can be built
+Beginning with version 10.1.2, the source for the PC-BSD® Users Handbook has moved from the wiki and is now stored in the
+`PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the documentation and any translations can be built
 with the operating system and updates to this documentation can be automatically installed when the system is updated using :ref:`Update Manager`. This has the
 added advantage of making sure that the installed version of the Handbook always matches the operating system version and that, as new features are added,
 that they are documented and appear as a local copy on the user's system. The local copy is stored in :file:`/usr/local/share/pcbsd/doc/html` and a desktop shortcut
 provides easy access to the documentation.
 
+At this time, the PC-BSD® build server has been configured to automatically build the HTML version of the PC-BSD® Users Handbook. Over time, additional
+:file:`Makefiles` will be tested and added to provide the documentation in other formats, such as single HTML, PDF, and EPUB. Instructions for building your own
+HTML or PDF version can be found in this `README.md <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_.
 
-
-
-When translating, make sure to adhere to the following rules. This is important as it ensures that the translations are consistent
-across all translated languages.
-
-* Do not translate any formatting tags.
-
-* Do not translate the names of a command (such as :command:`pc-updatemanager`) or application (such as "AppCafe®").
-
-* Do not translate the output of a command unless it appears differently in a localized version of PC-BSD®. 
+Once 10.1.2 is released, the PC-BSD® developers will integrate the documentation source files into the Pootle translation system so that the PC-BSD® documentation
+can be translated using a web browser. Once the doc Pootle system is ready for translators to use, an announcement will be made on the PC-BSD® blog and to the
+translations mailing list and translations forum so that translators can start translating the documentation into their native language. 
 
 .. index:: translations
 .. _Website Translation:
@@ -173,7 +157,7 @@ Currently, the following translated websites are available:
 Become a Developer
 ==================
 
-If you like programming, and especially coding on FreeBSD, we would love to see you join the as a PC-BSD® committer. Developers who want to help improve the
+If you like programming, and especially coding on FreeBSD, we would love to see you join the PC-BSD® team as a PC-BSD® committer. Developers who want to help improve the
 PC-BSD® codebase are always welcome! If you would like to participate in core development, subscribe to the
 `developers mailing list <http://lists.pcbsd.org/mailman/listinfo/dev>`_. Once you have signed up, feel free to browse the active tickets in the PC-BSD®
 `bug tracker <https://bugs.pcbsd.org/projects/pcbsd/>`_. If you see something that you want to work on, or have a proposal for a project you wish to add to
@@ -200,15 +184,13 @@ This will create a directory named :file:`pcbsd/` which contains the local copy 
 repository, run :command:`git pull` within the :file:`pcbsd` directory.
 
 PC-BSD® graphical applications use Qt version 5 and their source is located in :file:`pcbsd/src-qt5/`. In order to compile the applications in this
-directory, install the "pcbsd-toolchain" package using :ref:`AppCafe®`; when searching for this package, check the box to "Search all available PBI and packages".
-To instead install this PBI from the command line, type :command:`pkg install pcbsd-toolchain`.
+directory, install the "PC-BSD Build Toolchain" PBI using :ref:`AppCafe®`. To instead install this PBI from the command line, type :command:`pkg install pcbsd-toolchain`.
 
 Most of the PC-BSD® source code is divided into two sub-categories: 
 
-* :file:`src-sh/` contains shell and C programs which do not include GUIs. These are the command line utilities used in TrueOS® and PC-BSD® and which are
-  installed by the FreeBSD sysutils/pcbsd-utils port.
+* :file:`src-sh/` contains shell and C programs which do not include GUIs. These are the command line utilities used in TrueOS® and PC-BSD®.
 
-* :file:`src-qt5/` contains the Qt5-based GUIs seen in PC-BSD® and which are installed by the FreeBSD sysutils/pcbsd-utils-qt5 port 
+* :file:`src-qt5/` contains the Qt5-based GUIs seen in PC-BSD®.
 
 To compile the command line utilities::
 
@@ -224,13 +206,13 @@ To compile the graphical utilities::
 
  make
 
-Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://qt-project.org/wiki/Category:Tools::QtCreator>`_ PBI is a full featured IDE designed
+Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://qt-project.org/wiki/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
 to help new Qt users get up and running faster while boosting the productivity of experienced Qt developers.
 `Qt Designer <http://qt-project.org/doc/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
 other IDE functionality. To install this package, check the "Search all available PBI and packages" in the "App Search" tab of AppCafe® and search for "qt5-designer".
 Alternately, install it using :command:`pkg install qt5-designer`.
 
-If you plan to submit changes so that they can be included in PC-BSD®, fork the repository using the instructions at
+If you plan to submit changes so that they can be included in PC-BSD®, fork the repository using the instructions in
 `fork a repo <https://help.github.com/articles/fork-a-repo>`_. Make your changes to the fork, then submit them by issuing a
 `git pull request <https://help.github.com/articles/using-pull-requests>`_. Once your changes have been reviewed, they will be committed or sent back with
 suggestions.
@@ -242,19 +224,14 @@ Design Guidelines
 -----------------
 
 PC-BSD® is a community driven project that relies on the support of developers in the community to help in the design and implementation of new utilities and
-tools for PC-BSD®. Going forward, we aim to present a unified design so that programs feel familiar to users. As an example, while programs could have
-"File", "Main", or "System" as their first entry on the "File" menu, "File" is used as the accepted norm for the first category on the menu bar.
+tools for PC-BSD®. The Project aims to present a unified design so that programs feel familiar to users. As an example, while programs could have
+"File", "Main", or "System" as their first entry in a menu bar, "File" is used as the accepted norm for the first category on the menu bar.
 
-This section describes a small list of guidelines to menu and program design in PC-BSD®. Since most programs designed for the last couple of decades have
-followed this structure, it makes sense for us to follow the same standard.
+This section describes a small list of guidelines for menu and program design in PC-BSD®.
 
-Any graphical program that is a full-featured utility, such as :ref:`Warden®` or :ref:`AppCafe®`, should have a "File" menu. However, file menus are not
+Any graphical program that is a full-featured utility, such as :ref:`Warden®` or :ref:`Life Preserver`, should have a "File" menu. However, file menus are not
 necessary for small widget programs or dialogue boxes. When making a file menu, a good rule of thumb is keep it simple. Most PC-BSD® utilities do not need
-more than two or three items on the file menu. An example of a well laid out "File" menu is :ref:`AppCafe®`, shown in Figure 11.3a. 
-
-**Figure 11.3a: AppCafe® File Menu**
-
-.. image:: images/dev1.png
+more than two or three items on the file menu.
 
 "Configure" is our adopted standard for the category that contains settings or configuration-related settings. If additional categories are needed, check to
 see what other PC-BSD® utilities are using.
@@ -282,11 +259,11 @@ PC-BSD® utilities use these buttons as follows:
 
 * **OK:** closes dialogue window and saves settings.
 
-* **Cancel:** closes dialogue window without applying settings.
+* **Cancel:** closes dialog window without applying settings.
 
 * **Save:** saves settings and closes window.
 
-Fully functional programs like :ref:`AppCafe®` and :ref:`Warden®` do not use close buttons on the front of the application. Basically, whenever there is a
+Fully functional programs like :ref:`Life Preserver` and :ref:`Warden®` do not use close buttons on the front of the application. Basically, whenever there is a
 "File" menu, that and an "x" in the top right corner of the application are used instead. Dialogues and widget programs are exceptions to this rule. A good
 example of a widget program would be :ref:`Update Manager`. 
 
@@ -359,18 +336,18 @@ Make Minor Modifications to a PBI Module
 
 If you have a GitHub account and are logged in, you can contribute minor PBI changes to the
 `pbi-modules repository <https://github.com/pcbsd/pcbsd/tree/master/pbi-modules>`_ using a web browser. If you do not have a GitHub account,
-`create one <https://github.com/>`_ and use a valid email address as you will need to confirm your email address.
+`create one <https://github.com/>`_ using a valid email address as you will need to confirm your email address.
 
 For example, to add a screenshot for an application, upload the screenshot file to a publicly accessible site, then add the URL to the screenshot in between
 the quotes of the *PBI_SCREENSHOTS=""* line in the :file:`pbi.conf` file for that module. Or, to add a similar application, put the package category and
 package name in between the *PBI_PLUGINS=""* line in the :file:`pbi.conf` file for that module. As an example, refer to the
-`pbi.conf for the www/firefox PBI module <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. More information about the the
+`pbi.conf for the www/firefox PBI module <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. More information about the
 available :file:`pbi.conf` variables can be found in Table 8.1a. 
 
 To make the edit, click on the :file:`pbi.conf` file for the module, click the "Edit" button, make the change, then click the "Commit changes" button. This
 will issue a "git pull" request which will be reviewed by a developer who will either approve it or contact you if more information about the edit is needed.
 Once the request is approved, you will receive an email about the approval and the change will appear in :ref:`AppCafe®` when the next package set becomes
-available. How long that takes depends upon whether the system is set to use the PRODUCTION or EDGE package set.
+available. How long that takes depends upon whether the user's system is set to use the PRODUCTION or EDGE package set.
 
 .. index:: advocacy
 .. _Purchase PC-BSD® Swag:
@@ -382,7 +359,7 @@ While PC-BSD® is free, some users may wish to purchase media or other items to 
 the following websites: 
 
 * `FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
-  PC-BSD® DVDs and subscriptions, stickers, The Definitive Guide to PC-BSD®, and apparel. 
+  PC-BSD® DVDs and subscriptions, stickers, and apparel. 
 
 * Amazon: sells The Definitive Guide to PC-BSD® (hard copy and Kindle formats) as well as the Kindle versions of the PC-BSD® Handbook. Items available for
   purchase in your country may vary. 
