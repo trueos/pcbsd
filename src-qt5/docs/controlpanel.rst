@@ -895,7 +895,7 @@ The "Misc" tab is shown in Figure 8.6c.
 
 This screen provides the following options:
 
-**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.9a, "*" characters are displayed as the password is
+**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
 typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
 the typed password in the login screen, the asterisks will change to reveal the password.
 
@@ -1156,7 +1156,7 @@ The following options are now available:
 * **Disable Key (Import Data):** in addition to uninitializing the PersonaCrypt device on this system, copy the contents of the user's home directory to this system.
 
 Once a user has been initialized for PersonaCrypt on the system, their user account will no longer be displayed when :ref:`Logging In` **unless** their PersonaCrypt device is
-inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in the example shown in Figure 4.9b.
+inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in the example shown in Figure 4.8b.
 
 .. note:: if the "Allow Stealth Sessions" checkbox has been checked in :menuselection:`Control Panel --> Login Manager --> Misc`, PersonaCrypt users will still be displayed in the
    login menu, even if their USB device is not inserted. This is to allow those users the option to instead login using a stealth session. See :ref:`Login Manager` for more information
