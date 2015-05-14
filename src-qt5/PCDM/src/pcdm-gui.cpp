@@ -22,6 +22,7 @@ PCDMgui::PCDMgui() : QMainWindow()
     this->setObjectName("PCDM-background");
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
     this->setCentralWidget(new QWidget(this));
+    QApplication::setActiveWindow(this);
     //Load the Theme
     loadTheme();
     //Create the base widgets for the window and make sure they cover one screen at a time
@@ -29,7 +30,8 @@ PCDMgui::PCDMgui() : QMainWindow()
     //Create the GUI based upon the current Theme
     createGUIfromTheme();
     //Now make sure that the login widget has keyboard focus
-    loginW->resetFocus();
+    //loginW->resetFocus();
+    loginW->activateWindow();
     pcTimer = new QTimer(this);
 	pcTimer->setInterval(15000); //every 15 seconds
 	connect(pcTimer, SIGNAL(timeout()), this, SLOT(LoadAvailableUsers()) );
@@ -322,6 +324,7 @@ void PCDMgui::fillScreens(){
       }*/
     }
     this->setGeometry(0,0,wid,high);
+    this->activateWindow();
     QCursor::setPos( DE->screenGeometry(0).center() );	  
 }
 
