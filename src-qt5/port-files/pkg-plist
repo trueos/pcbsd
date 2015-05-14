@@ -98,7 +98,6 @@ share/applications/pcbugreport.desktop
 share/applications/pccontrol.desktop
 share/applications/pc-pdfviewer.desktop
 share/applications/pcsyskeyboard.desktop
-share/applications/softmanager.desktop
 share/applications/warden.desktop
 share/apps/ksplash/Themes/pcbsd10/1024x768/background.png
 share/apps/ksplash/Themes/pcbsd10/1280x1024/background.png
