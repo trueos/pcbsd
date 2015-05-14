@@ -4,48 +4,10 @@
 Desktops
 ********
 
-Once you have installed PC-BSD®, you will want to become familiar with your desktop environment. This section discusses the desktops which can be selected
-during the installation of PC-BSD® or installed afterwards using :ref:`AppCafe®`.
+Once you have installed PC-BSD®, you will want to become familiar with your desktop environment. This chapter provides an overview of the desktops which can be selected
+during the installation of PC-BSD® or installed afterwards using :ref:`AppCafe®`. Desktops, when installed, will appear in the list of available desktops when a user logs in.
 
 .. note:: Fluxbox is always installed and available in the login menu of a PC-BSD® system.
-
-The following desktops, when installed, will appear in the list of available desktops when a user logs in: 
-
-* :ref:`Awesome`
-
-* :ref:`Cinnamon`
-
-* :ref:`Fluxbox`
-
-* :ref:`FVWM`
-
-* :ref:`GNOME`
-
-* :ref:`i3`
-
-* :ref:`IceWM`
-
-* :ref:`KDE4`
-
-* :ref:`Lumina`
-
-* :ref:`LXDE`
-
-* :ref:`Mate`
-
-* :ref:`Openbox`
-
-* :ref:`Ratpoison`
-
-* :ref:`spectrwm`
-
-* :ref:`XFCE4`
-
-* :ref:`WindowLab`
-
-* :ref:`Window Maker`
-
-The rest of this chapter provides an overview of each of these desktops.
 
 For the desktops that support desktop icons, three PC-BSD® icons will appear on the desktop: 
 
@@ -62,7 +24,7 @@ For the desktops that support desktop icons, three PC-BSD® icons will appear on
 **PC-BSD® Handbook:** the HTML version of the PC-BSD® 10.1.2 Users Handbook (this document).
 
 Even more desktops are available for installation from :ref:`AppCafe®`. These can be browsed in the "X11 - Window Managers" category. Note that if the
-desktop is not listed above, it will not automatically be added to the login menu.
+desktop is not described in this chapter, it will not automatically be added to the login menu.
 
 .. index:: Awesome
 .. _Awesome:
@@ -84,9 +46,8 @@ If you click :menuselection:`awesome --> manual`, the man page for awesome will 
 awesome configuration file will open in the :command:`nano` text editor. The numbers in the upper left corner represent virtual desktops. For example, you can
 have different terminals open in each virtual desktop.
 
-:ref:`Update Manager`, Wireless Configuration Manager (if your wireless card is detected), and :ref:`Life Preserver` are located in the system tray near the
-clock in the upper right corner. If you wish to access :ref:`Control Panel` type :command:`pc-controlpanel` in a terminal. To launch :ref:`AppCafe®`, type
-:command:`pc-su appcafe` in a terminal.
+If you wish to access :ref:`Control Panel`, open a terminal and type :command:`pc-controlpanel`. To launch :ref:`AppCafe®`, type :command:`appcafe` in a terminal. To
+exit this desktop and return to the login screen, use :menuselection:`awesome --> quit`.
 
 .. index:: Cinnamon
 .. _Cinnamon:
@@ -138,7 +99,7 @@ The following resources are useful when customizing Fluxbox:
 
 * `Fluxbox wiki <http://fluxbox-wiki.org/>`_
 
-* `FAQ <http://fluxbox-wiki.org/FAQ_en.html>`_
+* `Fluxbox FAQ <http://fluxbox-wiki.org/FAQ_en.html>`_
 
 .. index:: FVWM
 .. _FVWM:
@@ -210,7 +171,7 @@ If you are new to GNOME, take some time to discover which applications best suit
 * `Evolution <http://projects.gnome.org/evolution/>`_: email client with address book and calendar.
   
 
-* `Files <:http://live.gnome.org/Nautilus>`_ Nautilus file manager.
+* `Files: <http://live.gnome.org/Nautilus>`_ Nautilus file manager.
 
 .. note:: some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
    able to launch those games.
@@ -225,11 +186,8 @@ Additional tips can be found at the `PC-BSD® GNOME Tips and Tricks page <http:/
 i3
 ==
 
-The `i3 tiling window manager <http://gnome-look.org/>`_ is lightweight. Keyboard shortcuts are provided to open xterms in order to start applications from
-the command line.
-
-i3 provides a panel and on PC-BSD® that panel will contain icons for :ref:`Update Manager`, Wireless Configuration Manager (if your wireless card is
-detected), and :ref:`Life Preserver`.
+The `i3 tiling window manager <http://i3wm.org/>`_ is extremely lightweight and designed for users who prefer to work from the command line. Keyboard shortcuts are
+provided to open xterms in order to start applications from the command line.
 
 Figure 6.6a shows a screenshot of i3 running on PC-BSD® 10.1.2. 
 
@@ -249,14 +207,14 @@ IceWM
 =====
 
 The `IceWM window manager <http://www.icewm.org/>`_ is light-weight. Figure 6.7a shows a screenshot of IceWM running on PC-BSD®. In this example, the
-user has launched the "Application" menu by clicking on the "IceWM" button in the lower left corner. This menu can also be launched by right-clicking
+user has launched the "Application" menu by clicking on the "BSD" button in the lower left corner. This menu can also be launched by right-clicking
 anywhere on the desktop.
 
 **Figure 6.7a: IceWM on PC-BSD®**
 
 .. image:: images/icewm.png
 
-If you are new to IceWM, see the `IceWM FAQ and Howto <http://www.sosst.sk/doc/icewm/FAQ/>`_ for more information about configuration, customization, and
+If you are new to IceWM, refer to the `IceWM FAQ and Howto <http://www.sosst.sk/doc/icewm/FAQ/>`_ for more information about configuration, customization, and
 keyboard shortcuts.
 
 .. index:: KDE
@@ -314,7 +272,7 @@ Lumina's features include:
 
 * Intelligent "favorites" system for creating quick shortcuts to applications, files, and directories.
 
-* ZFS file restore functionality through the "Insight" file manager.
+* ZFS file restore functionality through the :ref:`Insight File Manager`.
 
 * Desktop system is plugin-based, which is similar to Android or other modern operating systems.
 
@@ -574,7 +532,7 @@ Insight, right-click the desktop and select "Browse System" or type :command:`lu
 
 .. image:: images/lumina10.png
 
-It is possible to open up additional directories through the tab system (use :kbd:`Ctrl-T` or click :menuselection:`File --> New Tab`), allowing the user to
+It is possible to open up additional directories through the tab system using :kbd:`Ctrl-T` or click :menuselection:`File --> New Tab`, allowing the user to
 easily manage multiple locations on the system. Insight also features the ability to "bookmark" locations on the system for instant access via the "star"
 button. Once a location has been bookmarked, it will be available via the "Bookmarks" menu at the top of the window. Any removable devices that are available
 on the system will show up in the "External Devices" menu, if supported by the operating system. When an item is selected, the options on the left side of the
@@ -779,7 +737,7 @@ A list of websites containing additional themes is available from the `Openbox w
 Ratpoison
 =========
 
-The `simple Ratpoison window manager <http://www.nongnu.org/ratpoison/>`_ has no fat library dependencies, no fancy graphics, or window decorations.
+The `simple Ratpoison window manager <http://www.nongnu.org/ratpoison/>`_ has no fat library dependencies, fancy graphics, nor window decorations.
 
 Figure 6.13a provides a screenshot of Ratpoison running on a PC-BSD® system:
 
@@ -804,7 +762,7 @@ The `spectrwm minimalist window manager <http://opensource.conformal.com/wiki/sp
 provides keyboard shortcuts, a configuration file, and assumes that the user prefers to use the command line. If you have not used spectrwm before, spend some
 time reading through its `man page <https://opensource.conformal.com/cgi-bin/man-cgi?spectrwm>`_ first.
 
-To launch applications within spectrwm, start an xterm by pressing :kbd:`Alt+Shift+Return`. Once you have an xterm, you can start any program you wish. For
+To launch applications within spectrwm, start an xterm by pressing :kbd:`Alt+Shift+Enter`. Once you have an xterm, you can start any program you wish. For
 example, to start :ref:`Control Panel` type :command:`pc-controlpanel`. spectrwm does not provide minimize, maximize, or close buttons within its windows. To
 close a GUI application, use :kbd:`CTRL-c` within the xterm you used to launch the application. To leave this desktop, type :command:`killall spectrwm` from
 an xterm.
@@ -832,7 +790,7 @@ To leave the WindowLab session, select "Quit" from the menubar.
 Window Maker
 ============
 
-The `Window Maker window manager <http://www.windowmaker.info/>`_ is light-weight and designed to reproduce the elegant look and feel of the
+The `Window Maker window manager <http://www.windowmaker.info/>`_ is light-weight and designed to reproduce the look and feel of the
 `NEXTSTEP <http://en.wikipedia.org/wiki/Nextstep>`_ user interface.
 
 Figure 6.16a shows a screenshot of Window Maker running on PC-BSD®. In this example, the user launched the "Application" menu by right-clicking an area of
@@ -885,7 +843,8 @@ DockApps
 
 Window Maker supports dockapps which are applications that were designed to work with Window Maker but which are separate from the Window Maker project.
 Dockapps tend to be small and designed to perform a particular function. For example, there are clocks, weather applications, and CPU monitors. Most dockapps
-have been ported to FreeBSD and the port always begins with "wm". You can search for these at  by entering a "Short Description" containing "dockapp". 
+have been ported to FreeBSD and the port name always begins with "wm". You can search for these at `freshports.org <http://freshports.org>`_ by entering a
+"Short Description" containing "dockapp". 
 
 If your favorite dockapp has not been ported to FreeBSD, you can request that a port be created on the Ports Requests forum using these
 `instructions <https://forums.pcbsd.org/thread-12336.html>`_. 
@@ -905,17 +864,16 @@ The first time you start XFCE4, you will see the message shown in Figure 6.17a.
 
 .. image:: images/xfce1.png
 
-In XFCE, a  is a bar which can hold many items such as application launchers, window lists, a clock, a notification area, and application menus. Your initial
-panel setup options are: 
+In XFCE, a `panel <http://www.xfce.org/projects/xfce4-panel>`_ is a bar which can hold many items such as application launchers, window lists, a clock, a
+notification area, and application menus. Your initial panel setup options are: 
 
 * **Migrate old config:** select this option if you wish to have a single panel with an application launcher and other icons as shown in Figure 6.17b. The
   application launcher menu may be accessed by the fireball icon in the lower left, or by right-clicking the desktop.
 
 * **Use default config:** this option will install a small, minimal panel centered on the bottom. The application launcher menu may be accessed by the
-  fireball icon in the lower left, or by a right-click on the desktop.
+  fireball icon in the top bar, or by a right-click on the desktop.
 
-* **One empty panel:** this option will install a panel with no icons. The application menu is available by right-clicking the desktop as shown in Figures
-  6.17b. 
+* **One empty panel:** this option will install a panel with no icons. The application menu is available by right-clicking the desktop.
 
 If you wish to change your configuration choice at a later time, reset the panel using :menuselection:`Applications --> Settings --> Settings Editor`, shown
 in Figure 6.17d. Right-click the entry for "xfce4-panel" and click "Reset Channel". 
@@ -960,9 +918,7 @@ XFCE Plugins
 -------------
 
 XFCE supports many plugins which provide additional applications that are separate from the official XFCE distribution. You can browse for plugins and read
-descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_. If you find a plugin that is not available within
-:ref:`AppCafe®`, this `README <http://forums.pcbsd.org/showthread.php?t=13642>`_ explains how to determine if a FreeBSD port is available, how to request a
-PBI if a port is available, and how to request a port if one does not already exist.
+descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_.
 
 After installing a plugin, go to :menuselection:`Settings --> Panel --> Items` and click the "+" button in the right column to see the "Add New Items" screen
 shown in Figure 6.17e. 

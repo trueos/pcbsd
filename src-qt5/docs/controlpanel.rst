@@ -42,7 +42,7 @@ Switching between the icons in the selector changes the icons displayed within t
 is set by the desktop selector, you will see every utility that is available, depending upon which desktops are currently installed. You can change which
 desktops are installed using :ref:`AppCafe®`.
 
-The following utilities are found in the Control Panel of a PC-BSD® system, regardless of the desktop that is installed: 
+The following utilities are found in the Control Panel of a PC-BSD® system, regardless of which desktops are installed: 
 
 **Software and updates** 
 
@@ -100,22 +100,24 @@ The following utilities are found in the Control Panel of a PC-BSD® system, reg
 
 * :ref:`Warden®`
 
+This chapter describes these utilities in more detail.
+
 .. index:: configuration
 .. _EasyPBI:
 
 EasyPBI
 =======
 
-PBIng provides an information wrapper around existing FreeBSD packages. This wrapper, known as a PBI module, contains the metadata which displays information
-about the PBI in :ref:`AppCafe®`, such as screenshots, similar applications, search terms, and plugins. With PBIng, you no longer have to build PBIs.
-Instead, you can modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules
+The PBI format provides an information wrapper around existing packages. This wrapper, known as a PBI module, contains the metadata which displays information
+about the PBI in :ref:`AppCafe®`, such as screenshots, similar applications, search terms, and plugins. The EasyPBI utility can be used to
+modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules
 are comprised of ASCII text files, they can be easily edited using the graphical EasyPBI utility or manually with a text editor.
 
 This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
 module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
 custom modules, refer to :ref:`Create Your Own PBI Repository` for instructions on how to add the custom repository to AppCafe®. 
 
-.. note:: if your goal is to make a change to a single PBI, not a custom repository, refer to :ref:`Make Minor Modifications to a PBI Module`. 
+.. note:: if your goal is to make a change to a single PBI, rather than an entire custom package repository, use the instructions in :ref:`Make Minor Modifications to a PBI Module`. 
 
 .. index:: EasyPBI
 .. _Creating a PBI Module:
@@ -145,9 +147,9 @@ The following options are available when creating a new module:
 * **FreeBSD Package:** click the "Find" button to browse the available categories and to select the package to convert into a PBI.
 
 * **Icon File:** by default, a generic PBI icon will be used. If the application has its own icon, use the "Select" button to browse to the location of the
-  icon. When selecting a custom icon, use a 64x64 .png file with a transparent background.
+  icon. When selecting a custom icon, use a 64x64 :file:`.png` file with a transparent background.
 
-* **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package in order to
+* **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package from the official repository in order to
   automatically fill in the module's information. This information can be filled in manually, as described in the next screen.
 
 After making your selections, click "OK". The information for the module will appear as seen in the example in Figure 8.1c. In this example, the
@@ -166,7 +168,7 @@ The other items in the "PBI Configuration" tab are optional:
 * **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Search all available PBI and packages" is checked in the "App Search" tab. Otherwise,
   click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection. 
 
-* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
+* **Search Tags:** a comma delimited, with no spaces, list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
 
 * **Plugins:** if the application, such as a web browser, has associated plugins, click the "+" button to browse to the location of the plugin packages. These
   will be added to the "Plugins" tab for the PBI in AppCafe®. 
@@ -191,7 +193,7 @@ Advanced Module Configuration
 -----------------------------
 
 The "XDG Shortcuts" tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop
-environment. This is important step for graphical applications as it configures the primary method for interacting with the program.
+environment. This is important for graphical applications as it configures the primary method for interacting with the program.
 
 **Figure 8.1d: XDG Shortcuts Configuration**
 
@@ -250,8 +252,7 @@ If you add or remove any scripts in this tab, click the "Save" button to save th
 
 The "Service Configuration" tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application. This is generally
 used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
-configuration options or starting, stopping, and restarting the service. Any configurations will appear in the new AppCafe® web interface
-(:command:`pc-softweb`), which allows the user to manage those services from remote systems or phones.
+configuration options or starting, stopping, and restarting the service. Any configurations will appear in the "Configuration" tab of AppCafe®.
 
 **Figure 8.1f: Service Configuration**
 
@@ -264,8 +265,15 @@ screen shown in Figure 8.1g.
 
 .. image:: images/easypbi7.png
 
-The following fields are available when adding a visual option. Examples for values to use in these fields can be found in the
-`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. 
+Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
+`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. A screenshot of
+the "Configuration" tab for Bitlbee can be seen in Figure 8.1h.
+
+**Figure 8.1h: Example Configuration Tab**
+
+.. image:: images/bitlbee.png
+
+The following fields are available when adding a visual option:
 
 * **Key:** the option to set.
 
@@ -299,7 +307,7 @@ Since none of the configuration scripts are created by default, you will need to
 version of the template. Each template includes a description of the script, how it is run, and lists its input variables. Edit the template as needed and
 click the "Save Script" button to save the script. Repeat for each of the three required scripts.
 
-Once you have configured a PBI module, you can create additional modules by clicking the "New" button. To edit an existing module, click the "Load" button and
+Once you have finished configuring a PBI module, you can create additional modules by clicking the "New" button. To edit an existing module, click the "Load" button and
 select the module name.
 
 .. index:: EasyPBI
@@ -308,10 +316,10 @@ select the module name.
 Bulk Module Creator
 -------------------
 
-When creating a custom repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
-To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in Figure 8.1h.
+When creating a custom package repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
+To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in Figure 8.1i.
 
-**Figure 8.1h: Bulk Module Creator**
+**Figure 8.1i: Bulk Module Creator**
 
 .. image:: images/easypbi8.png
 
@@ -330,10 +338,10 @@ If you only want to create certain types of applications, check or uncheck the b
 does not install any files into :file:`/usr/local/etc/rc.d/`. This generally occurs with packages that just install libraries or plugins, and meta-packages
 which do not install anything and just have a bunch of dependencies.
 
-After making your selections, click the "Start" button. A progress bar will indicate the status, which goes by quickly, and then summarize the number of
-modules built. An example is shown in Figure 8.1i. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
+After making your selections, click the "Start" button. A progress bar will indicate the status and summarize the number of
+modules built. An example is shown in Figure 8.1j. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
 
-**Figure 8.1i: Summary of Modules**
+**Figure 8.1j: Summary of Modules**
 
 .. image:: images/easypbi9.png
 
@@ -343,9 +351,9 @@ When creating modules, Bulk Creator will skip the following:
 
 * any package types which were unchecked
 
-* if the package is not found in the repository
+* any packages not found in the repository
 
-.. note:: if all modules are skipped, check the Internet connection as Bulk Creator needs Internet access to get the package information.
+.. note:: if all modules are skipped, check the Internet connection as Bulk Creator requires Internet access to get the package information it needs.
 
 Repeat for each category that you want to include in the custom repository.
 
@@ -355,9 +363,9 @@ Repeat for each category that you want to include in the custom repository.
 EasyPBI Settings
 ----------------
 
-To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1j. 
+To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1k. 
 
-**Figure 8.1j: EasyPBI Settings** 
+**Figure 8.1k: EasyPBI Settings** 
 
 .. image:: images/easypbi10.png
 
@@ -410,29 +418,37 @@ If the application requires the user to read a license agreement, save that lice
 file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
 
 The :file:`pbi.conf` file is mandatory. It is a simple shell script that contains the information needed to build the PBI. Here is an example of the
-:file:`pbi.conf` file for firefox. When creating your file, modify the text in red to meet the needs of the PBI.
+`pbi.conf file for firefox <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. When creating your file, modify the PBI-specific
+values to meet the needs of the PBI.
 ::
 
  #!/bin/sh
  # PBING Module Config
+
  # -- Program Base Information --
  PBI_ORIGIN="www/firefox"
  PBI_PROGNAME="Firefox"
  PBI_PROGWEB=""
- PBI_PROGAUTHOR="Firefox Team"
+ PBI_PROGAUTHOR="Mozilla"
+
  # -- Additional repo information (optional) --
  PBI_LICENSE="MPL"
  PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
  PBI_PROGTYPE="Graphical"
  PBI_CATEGORY="Web"
+
  # -- Additional package to install along with ORIGIN
  PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
+
  # -- Optional related packages to show user
  PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
+
  # -- Space delimited list of URLs to screenshots
  PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
+
  # -- Other PBIs which are similar to this PBI
  PBI_RELATED="www/chromium www/opera www/seamonkey"
+
  export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
  export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
  export PBI_OTHERPKGS PBI_PLUGINS
@@ -445,7 +461,7 @@ Table 8.1a describes the most commonly used variables.
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | Variable         | Description                                                                                                         |
 +==================+=====================================================================================================================+
-| PBI_ORIGIN=      | mandatory; the category/portname of the FreeBSD package                                                             |
+| PBI_ORIGIN=      | mandatory; the "category/portname" of the FreeBSD package                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_PROGNAME=    | mandatory; name of the application                                                                                  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
@@ -461,15 +477,15 @@ Table 8.1a describes the most commonly used variables.
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_OTHERPKGS=   | a space separated list in the format *category/portname* of other applications to bundle into the PBI               |
+| PBI_OTHERPKGS=   | a space separated list in the format "category/portname" of other applications to bundle into the PBI               |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar packages                                        |
+| PBI_PLUGINS=     | a space separated list in the format "category/portname" of similar packages                                        |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in *.png* or *.jpg* format                                            |
+| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in :file:`.png` or :file:`.jpg` format                                |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_RELATED=     | a space separated list in the format *category/portname* of similar PBIs                                            |
+| PBI_RELATED=     | a space separated list in the format "category/portname" of similar PBIs                                            |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| export           | mandatory; followed by a list of all of the variables that will be included when the PBI is built                   |
+| export           | mandatory; followed by a list of all of the variables used in the file                                              |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 
 
@@ -502,6 +518,7 @@ directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows 
  Path=
  Icon=share/pixmaps/FireFox-128.png 
  StartupNotify=true 
+ Categories=Network;
  Name=Firefox
 
 *Exec=* should reference the PBI's executable and any required switches.
@@ -511,8 +528,9 @@ If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located
 For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
 
 The :file:`xdg-mime/` directory is used to register file associations according to the
-`freedesktop MIME specs <service configuration file for irc/bitlbee>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
-MIME information for gimp, so that it can be available as an application choice in a web browser: 
+`freedesktop MIME specs <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
+`MIME information for gimp <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/graphics/gimp/xdg-mime/gimp-xdg.xml>`_, so that it can be available as an application choice
+in a web browser: 
 
 **Example 8.1b: Gimp MIME Info**::
 
@@ -595,7 +613,7 @@ the screen, allowing you to configure the following:
 
 * **Administrator Name:** input the name of the Active Directory Administrator account.
 
-- **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
+* **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
 
 The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf` and :file:`/usr/local/etc/smb4.conf`.
 
@@ -633,7 +651,7 @@ of the screen, allowing you to configure the following:
 * **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting. The input value will be added to the name
   when a system is added to the LDAP directory.
 
-* **Encryption Mode:** choices are "Off", "SSL", or "TLS". The selected type must be supported by the LDAP server.
+* **Encryption Mode:** choices are "NONE", "SSL", or "TLS". The selected type must be supported by the LDAP server.
 
 * **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used. Paste the output of the command 
   :command:`openssl s_client -connect server:port -showcerts`.
@@ -656,17 +674,17 @@ PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs). Wi
 low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system. If needed, you also have the
 option of booting into a backup boot environment. For example: 
 
-* if you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
+* If you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
 
-* you can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
+* You can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
   software packages on each.
 
-* you can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
+* You can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
 
-* you can move a boot environment to another machine, physical or virtual, in order to check hardware support.
+* You can move a boot environment to another machine, physical or virtual, in order to check hardware support.
 
 .. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
-   you create multiple boot environments, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+   boot environments are created, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
@@ -674,7 +692,7 @@ To create and manage boot environments using a graphical interface, go to :menus
 :command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
 PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in Figure 8.4a, there
-is an entry named *default* that represents the original installation and an entry for an operating system update to patch level 14.
+is an entry named *default* that represents the original installation and an entry that was created when the operating system was updated to patch level 20.
 
 **Figure 8.4a: Managing Boot Environments**
 
@@ -715,7 +733,7 @@ that was set as the "Default".
 
 .. image:: images/be4.png
 
-The "Boot Environment Menu" indicates that multiple boot environments are available. To browse the available boot environments, press the :kbd:`spacebar` to pause the screen,
+The "Boot Environment Menu" entry indicates that multiple boot environments are available. To browse the available boot environments, press the :kbd:`spacebar` to pause the screen,
 arrow down to "Boot Environment Menu" and press :kbd:`Enter`. In the example shown in Figure 8.4c, two boot environments are available. The entry with "default" in the
 name indicates the date and time of the initial installation. The first boot entry indicates the operating system's current patch level and the date the system was updated.
 It is first in the boot order and since it is highlighted in blue, it is the active boot environment, or the one the system will boot into unless another BE is manually
@@ -769,9 +787,10 @@ example, this command creates a boot environment named *beforeupgrade*::
 To view all boot environments, use the :command:`list` command::
 
  beadm list
- BE             Active Mountpoint Space Created
- default        NR     /          9.1G  2013-12-05 09:03
- beforeupgrade  -      -          2.1M  2013-12-06 10:14
+ BE                                  Active Mountpoint  Space Created             Nickname
+ default                             -      -            8.4G 2015-05-07 10:14    default
+ 10.1-RELEASE-p20-up-20150512_114505 NR     /           33.1G 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
+ beforeupgrade                       -      -            8.2M 2015-05-12 17:30    beforeupgrade
 
 The possible flags in the "Active" field are as follows: 
 
@@ -781,17 +800,20 @@ The possible flags in the "Active" field are as follows:
 
 * **-:** inactive 
 
-In this example, the current boot environment is called *default*, it is active now, will be used at next reboot, and it is mounted. The newly created
+In this example, the current boot environment is called *10.1-RELEASE-p20-up-20150512_114505*, it is active now, will be used at next reboot, and it is mounted. The newly created
 *beforeupgrade* boot environment exists, but is inactive and unmounted. To activate the new boot environment::
 
  beadm activate beforeupgrade
+ GRUB configuration updated successfully
  Activated successfully
- beadm list
- BE            Active Mountpoint Space Created
- default       N      /          3.1M  2013-12-05 09:03
- beforeupgrade R      -          9.1G  2013-12-06 10:14
 
-The flags now indicate that the system is currently booted into *default*, but at next boot the system will boot into *beforeupgrade*.
+ beadm list
+ BE                                  Active Mountpoint  Space Created             Nickname
+ default                             -      -            8.4G 2015-05-07 10:14    default
+ 10.1-RELEASE-p20-up-20150512_114505 N      /           12.6M 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
+ beforeupgrade                       R      -           33.1G 2015-05-12 17:30    beforeupgrade
+
+The flags now indicate that the system is currently booted into *10.1-RELEASE-p20-up-20150512_114505*, but at next boot the system will boot into *beforeupgrade*.
 
 The boot menu configuration can be found in the ASCII text file :file:`/usr/local/etc/default/grub`::
 
@@ -851,9 +873,9 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
    until this setting is changed again in Login Manager.
 
 The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
-`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. You will be prompted for
-the name and password of the user. Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using
-:ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
+`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
+be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will
+also need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
 
 .. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
    a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
@@ -884,7 +906,7 @@ this box. For security reasons, the Login Manager will refuse logins from the *r
 that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
 zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without leaving any data from their login session
 on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also allows you to login and run
-applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the onetime key is lost, rendering the data useless.
+applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the one-time key is lost, rendering the data useless.
 A stealth session is similar to a web browser's private mode, except for your entire desktop session.
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
@@ -934,7 +956,7 @@ System Manager
 ==============
 
 This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
-:menuselection:`Control Panel --> System Manager` or by typing pc-su :command:`pc-sysmanager`. You will be prompted to input your password.
+:menuselection:`Control Panel --> System Manager` or by typing :command:`pc-su pc-sysmanager`. You will be prompted to input your password.
 
 The "General" tab, shown in Figure 8.8a, displays the following system information: 
 
@@ -982,7 +1004,7 @@ During the installation of PC-BSD® you had an opportunity to install FreeBSD so
 
 This tab provides a graphical interface for installing system source or the ports tree using :command:`git`.
 
-If you click the "Fetch PC-BSD System Source" button, a progress screen will indicate that sources are being downloaded to :file:`/usr/src/`. Once the
+If you click the "Fetch PC-BSD System Source" button, a pop-up menu will display the download process. The source will be saved to :file:`/usr/src/`. Once the
 download is complete, a "Finished!" message will appear and you can click the "Close" button to exit this screen.
 
 If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
@@ -1039,7 +1061,7 @@ example is seen in Figure 8.9b.
 
 .. image:: images/user2.png
 
-The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. You should **not** delete
+The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. Do **not** delete
 any accounts that you did not create yourself as doing so may cause a previously working application to stop working. "Advanced View" provides additional
 information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group. System
 accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
@@ -1103,10 +1125,10 @@ new user, named *dlavigne*, has been created and the entry for that user has bee
 .. image:: images/user5.png
 
 Before a user is configured to use PersonaCrypt on a PC-BSD® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
-if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user.
+if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user to display these options:
 
 * **Import Key:** if the user has already created a PersonaCrypt device on another PC-BSD® system, click this button to import a previously saved copy of the key associated with
-  the device. Once the key is imported, the user can now login using PersonaCrypt.
+  the device. Once the key is imported, the user can now login to this computer using PersonaCrypt.
 
 * **Initialize Device:** used to prepare the USB device that will be used as the user's home directory.
 
@@ -1125,7 +1147,7 @@ display the device's key options, as seen in Figure 8.9e.
 
 .. image:: images/user6.png
 
-The following options are available:
+The following options are now available:
 
 * **Export Key:** used to create a copy of the encryption key so that it can be imported for use on another PC-BSD® system.
 
@@ -1134,11 +1156,7 @@ The following options are available:
 * **Disable Key (Import Data):** in addition to uninitializing the PersonaCrypt device on this system, copy the contents of the user's home directory to this system.
 
 Once a user has been initialized for PersonaCrypt on the system, their user account will no longer be displayed when :ref:`Logging In` **unless** their PersonaCrypt device is
-inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in Figure 8.9f.
-
-**Figure 8.9f: Logging in as a PersonaCrypt User** 
-
-.. image:: images/user7.png
+inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in the example shown in Figure 4.8b.
 
 .. note:: if the "Allow Stealth Sessions" checkbox has been checked in :menuselection:`Control Panel --> Login Manager --> Misc`, PersonaCrypt users will still be displayed in the
    login menu, even if their USB device is not inserted. This is to allow those users the option to instead login using a stealth session. See :ref:`Login Manager` for more information
@@ -1156,9 +1174,9 @@ PersonaCrypt device.
 Managing Groups
 ---------------
 
-If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9g. 
+If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9f. 
 
-**Figure 8.9g: Managing Groups Using User Manager** 
+**Figure 8.9f: Managing Groups Using User Manager** 
 
 .. image:: images/user4.png
 
@@ -1170,7 +1188,7 @@ This screen has 3 columns:
 
 **Members:** indicates if the highlighted group contains any user accounts.
 
-To add an account to a group, highlight the group name in the first column. Then, highlight the account name in the "Available" column. Click the right arrow
+To add an account to a group, highlight the group name in the "Groups" column. Then, highlight the account name in the "Available" column. Click the right arrow
 and the selected account will appear in the "Members" column. You should only add user accounts to groups that you create yourself or when an application's
 installation instructions indicate that an account needs to be added to a group.
 
@@ -1178,7 +1196,7 @@ If you click the "Add" button, a pop-up menu will prompt you for the name of the
 column.
 
 If you click the "Remove" button, the highlighted group will automatically be deleted after you press the "Apply" button, so be sure to do this with care.
-Again, do not remove any groups that you did not create yourself or applications that used to work may stop working.
+Again, do **not** remove any groups that you did not create yourself or applications that used to work may stop working.
 
 .. index:: configuration
 .. _Disk Manager:
@@ -1190,16 +1208,16 @@ The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well a
 :menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
 access this utility.
 
-As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets, the amount of space
+As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets and their snapshots, the amount of space
 available to each dataset, and the amount of space each dataset is using.
 
 **Figure 8.10a: Viewing the System's ZFS Datasets**
 
 .. image:: images/disk1.png
 
-The name of the pool in this example is *tank*. If the system has multiple pools, click the green arrow to select the desired pool.
+The name of the pool in this example is *tank1*. If the system has multiple pools, click the green arrow to select the desired pool.
 
-If you right-click the pool name, the following options are available: 
+If you right-click the pool name under "Filesystems", the following options are available: 
 
 * **Mount:** whether or not the filesystem can be mounted depends upon the value of the "canmount" property of the dataset.
 
@@ -1208,7 +1226,7 @@ If you right-click the pool name, the following options are available:
 * **Create a clone dataset:** creates a copy of the dataset.
 
 * **Take a snapshot:** will prompt for the name of the snapshot. The field is pink to remind you to type the snapshot name in immediately after the pool name
-  and *@* symbol. In this example, *tank@* will be displayed in the name field. An example snapshot name could be *tank@snapshot1* or *tank@201312031353* to
+  and *@* symbol. In this example, *tank1@* will be displayed in the name field. An example snapshot name could be *tan1k@snapshot1* or *tank1@201505181353* to
   denote the date and time the snapshot was created. The snapshot creation will be instantaneous and the new snapshot will be added to the list of datasets
   and will have a camera icon. Click the entry for the snapshot entry if you wish to rename it, clone it, destroy it, rollback the system to that point in
   time, or edit its properties. If you forget when you made the snapshot, pick "Edit properties" from the snapshot's right-click menu as it will show its
@@ -1240,31 +1258,31 @@ any options unless you are familiar with the ramifications of doing so.
 * **Unicode normalization:** if checked, indicate whether unicode normalization should occur when comparing filenames, and if so, which normalization
   algorithm to use. Choices are *none*, *formD*, or *formKCF*.
 
-* **Copies:** if checked, indicates the number of copies (0 to 3) of data to store in the dataset. The copies are in addition to any redundancy and are stored
+* **Copies:** if checked, indicates the number of copies (1 to 3) of data to store in the dataset. The copies are in addition to any redundancy and are stored
   on different disks when possible.
 
 * **Deduplication:** enables deduplication.
   **Do not** enable this option if the system has less than the minimum recommended 5GB of RAM per TB of storage to be deduplicated.
 
-- **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and
+* **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and
   uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
 
-To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank*
+To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank1*
 was created from one disk. The state of "Online" indicates that the pool is healthy.
 
 **Figure 8.10d: Viewing the Status of the ZFS Pool** 
 
 .. image:: images/disk4.png
 
-If you right-click the pool, which is named *tank* in this example, the following options are available: 
+If you right-click the pool name, the following options are available: 
 
 * **Create new pool:** use this option if additional disks are available and you would like to create another pool instead of adding them to the existing
   pool. This will open a screen that allows you to name the new pool, select which additional disks will go into it, and select how to configure the disks.
 
 * **Rename pool:** will prompt you to input the new name for the pool.
 
-* **Destroy pool:** **do not select this option unless you want to destroy all of the data on the disks.**
+* **Destroy pool:** **do not select this option unless your intent is to destroy all of the data on the disks!**
 
 * **Add devices:** depending upon the type of disk configuration, you may be able to extend the size of the pool by adding an equal number of disks.
 
@@ -1281,7 +1299,7 @@ If you right-click the pool, which is named *tank* in this example, the followin
 * **Properties:** used to manage the default properties of the pool. Datasets inherit the default properties, unless a property is set to a different value on
   the dataset.
 
-If you right-click a disk entry, such as *ad0s1a* in this example, the following options are available: 
+If you right-click a disk entry, such as *ada0p2* in this example, the following options are available: 
 
 * **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
 
@@ -1293,7 +1311,7 @@ An example of the "Disks" tab is seen in Figure 8.10e.
 
 .. image:: images/disk5.png
 
-This screen shows the size of each disk as well as the partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
+This screen shows the size of each disk as well as its partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
 format it.
 
 .. index:: configuration
@@ -1382,7 +1400,7 @@ the PC-BSD® system to not automatically start X. To do so, add this temporary l
  pcdm_enable="NO"
 
 The system will reboot to a login prompt. After logging in, try the instructions in the
-`FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
+`FreeBSD Handbook <http://www.freebsd.org/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
 for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that temporary line from :file:`/etc/rc.conf` and start PCDM::
 
  service pcdm start
@@ -1407,7 +1425,7 @@ If that fixes the problem, add that line to the :file:`.xprofile` file in your h
 Mount Tray
 ==========
 
-The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks USB storage devices, and optical
+The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks, USB storage devices, and optical
 media. It is included in the system tray, meaning that in can be used within any window manager that provides a system tray. If you remove the icon from the
 system tray, you can re-add it using :menuselection:`Control Panel --> Mount Tray` or by typing :command:`pc-mounttray &`.
 
@@ -1423,7 +1441,7 @@ options.
 When you first insert a USB drive, a "New Device" message should appear in the system tray. If you click Mount Tray and the filesystem on the device is
 recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop. Alternately, right-click
 Mount Tray and click the "Mount" button to mount the device and its contents. A list of available file managers can be found in
-:ref:`File Managers and File Structure` and Table 1.3a lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
+:ref:`Files and File Sharing` and Table 1.3a lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
 *?* will appear next to the device. When the device is mounted, its "Mount" button changes to "Eject". When you are finished using the device, press this
 "Eject" button and wait for the message indicating that it is safe to remove the device before physically removing the device. Note that you will receive a
 "Device Busy" message if the file manager is still open with the device's contents. If you receive this message, press "No" to close it, close the file
@@ -1431,15 +1449,17 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 .. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the  application will
-open so that you can play the contents of the disk.
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the
+`SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
+the "Play" button shown in figure 8.12a to restart it.
 
 The following options are available in the "More Options" menu: 
 
-* **Open Media Directory:** click this if the default file manager does not automatically open. If the desktop does not provide a default file manager, Mount
-  Tray will provide an "open with" dialogue so that you can select the utility to use to browse the contents of the USB device.
+* **Open Media Directory:** this will only appear if a filesystem has been mounted and can be used to open the default file manager if it does not automatically open.
+  If the desktop does not provide a default file manager, Mount Tray will provide an "open with" dialogue so that you can select the utility to use to browse the
+  contents of the USB device.
 
-* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS formatted USB device is mounted at :file:`/usr/home/dru/Media/STECH-1d`. The amount of disk
+* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS-formatted USB device is mounted at :file:`/Media/STECH-1d`. The amount of disk
   space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space. The Mount Tray will turn yellow if
   disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in
   Mount Tray.
@@ -1454,7 +1474,7 @@ The following options are available in the "More Options" menu:
 * **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices. Leave
   the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
 
-- **Close Tray:** click this option to remove Mount Tray from the system tray.
+* **Close Tray:** click this option to remove Mount Tray from the system tray.
 
 **Figure 8.12b: View Disk Usage Using Mount Tray**
 
@@ -1528,7 +1548,7 @@ For example, to see a listed of the supported filesystems, use::
 PC-BSD Keyboard Settings
 ========================
 
-Beginning with version 10.1.1, PC-BSD® includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
+The PC-BSD® control panel includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
 icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in Figure 8.13a. 
 
 **Figure 8.13a: Configuring Keyboard Settings**
@@ -1539,7 +1559,7 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
    will not be saved.
 
-Click the "Keyboard model" drop-down menu to select the type of keyboard. Note that the default model of "Generic 104-key PC" does **not** enable support for special keys
+Click the "Keyboard model" drop-down menu to select the type of keyboard. Note that the default model of "Generic 104-key PC" does **not** support special keys
 such as multimedia or Windows keys. You will need to change this default to enable support for hot keys.
 
 To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
@@ -1552,7 +1572,7 @@ To add another keyboard layout, click the "+" button, which will open the screen
 To edit an existing layout, highlight it then click the icon that looks like a pencil. You can then either change the "Layout variant" for that layout or
 select a different layout entirely. Selecting a different layout will replace the current layout.
 
-If you there are multiple layout entries defined in the "Keyboard layouts" screen, you can delete a layout by highlighting it and clicking the "-" icon. Note
+If there are multiple layout entries defined in the "Keyboard layouts" screen, you can delete a layout by highlighting it and clicking the "-" icon. Note
 that this icon is greyed out when there is only one entry as at least one keyboard layout must be defined.
 
 After creating or editing a layout, you can test it by typing some text into the "Test here" field.
@@ -1626,13 +1646,13 @@ network sound devices and mixer levels.
 For command line only systems, type :command:`mixer` from the command line to see the current sound settings::
 
  mixer
- Mixer vol is currently set to 0:0
- Mixer pcm is currently set to 100:100
- Mixer mic is currently set to 50:50
- Mixer mix is currently set to 60:60
- Mixer rec is currently set to 75:75
- Mixer igain is currently set to 100:100
- Mixer ogain is currently set to 100:100
+ Mixer vol      is currently set to   0:0
+ Mixer pcm      is currently set to 100:100
+ Mixer speaker  is currently set to 100:100
+ Mixer mic      is currently set to  50:50
+ Mixer rec      is currently set to   1:1
+ Mixer monitor  is currently set to  42:42
+ Recording source: monitor
 
 If any of these settings are set to *0*, set them to a higher value, by specifying the name of the mixer setting and a percentage value up to *100*::
 
@@ -1657,7 +1677,7 @@ To see if that changed to the correct channel, type :command:`mixer` again. If y
 Once you have all of the mixer settings and none are set to *0*, your sound should work. If it still doesn't, these resources may help you to pinpoint the
 problem: 
 
-* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/sound-setup.html>`_
+* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/handbook/sound-setup.html>`_
 
 * `FreeBSD Sound Wiki <http://wiki.freebsd.org/Sound>`_
 
@@ -1746,7 +1766,7 @@ Once the printer is created, a screen will open where you can set the properties
 
 .. image:: images/print7.png
 
-You may wish to take a few minutes to review the settings in "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
+You may wish to take a few minutes to review the settings in the "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
 configure options such as print banners, permissions, the default paper size, and double-sided printing. The available settings will vary, depending upon the
 capabilities of the print driver.
 
@@ -1781,7 +1801,7 @@ select the hostname and queue name from the drop-down menus.
 Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
 If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.15g
-instead of the the "Describe Printer" screen.
+instead of the "Describe Printer" screen.
 
 **Figure 8.15g: Manually Select the Manufacturer**
 
@@ -1871,7 +1891,7 @@ your password. Figure 8.17a shows the initial screen when you launch this utilit
 
 .. image:: images/firewall1.png
 
-The "General Settings" tab of this utility allows you to: 
+The "General" tab of this utility allows you to: 
 
 * Determine whether or not the firewall starts when the system boots. Unless you have a reason to do so and understand the security implications, the
   "Enable Firewall on startup" box should be checked so that your system is protected by the firewall.
@@ -1897,7 +1917,7 @@ the custom rules list.
 .. note:: whenever you add or delete a custom rule, the rule will not be used until you click the "Restart" button shown in Figure 8.17a. Also, your custom
    rules are not used whenever the system is in :ref:`Tor Mode`.
 
-Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow an SSH connection, try connecting
+Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow incoming SSH connections, try connecting
 to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
 
 .. index:: network
@@ -1920,7 +1940,7 @@ connection strength, connection speed, MAC address, and type of wireless device.
 If you right-click the wireless icon, you will see a list of detected wireless networks. Simply click the name of a network to associate with it. The
 right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP
 address), and to close the Network Monitor so that the icon no longer shows in the system tray. If you have multiple wireless devices, each will have its own
-icon in the system tray. If you do not use one of the devices, click "Close the Network Monitor" to remove it from the tray.
+icon in the system tray. If you do not use one of the devices, click its "Close the Network Monitor" to remove it from the tray.
 
 To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
 :command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network
@@ -1968,7 +1988,7 @@ to select the network and to input the authentication values required by the net
 By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
 network. The interface will remain inactive until this checkbox is unchecked.
 
-The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ and to use DHCP to
+The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ or to
 automatically obtain an `IPv6 address <http://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
 a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
@@ -2025,15 +2045,15 @@ This screen allows you to configure the following types of wireless security:
 
 * **Disabled:** if the network is open, no additional configuration is required.
 
-* **WEP:** this type of network can be configured to use either a hex or a plaintext key. If you click "WEP" then the "Configure" button, you will see the
-  screen shown in Figure 8.18h. Type the key into both network key boxes. If the key is complex, check the "Show Key" box to make sure that the passwords are
-  correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the * symbol. A wireless access point that
-  uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
+* **WEP:** this type of network can be configured to use either a hex or a plaintext key and Network Manager will automatically select the type of key that it has detected.
+  If you click "WEP" then the "Configure" button, you will see the screen shown in Figure 8.18h. Type the key into both network key boxes. If the key is complex, check the
+  "Show Key" box to make sure that the passwords are correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the "*"
+  symbol. A wireless access point that uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
 
 * **WPA Personal:** this type of network uses a plaintext key. If you click "WPA Personal" then the "Configure" button, you will see the screen shown in
   Figure 8.18i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
 
-- **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.18j. Select the authentication
+* **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.18j. Select the authentication
   method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
   verify the password.
 
@@ -2042,7 +2062,7 @@ This screen allows you to configure the following types of wireless security:
 
 **Figure 8.18h: WEP Security Settings** 
 
-.. image:: images/network8.jpg
+.. image:: images/network8.png
 
 **Figure 8.18i: WPA Personal Security Settings** 
 
@@ -2122,7 +2142,7 @@ interface. If you want this functionality, check this box.
 .. note:: some users experience problems using lagg. If you have problems connecting to a network using an interface that previously worked, uncheck this box
    and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
 
-If you make any changes within this window, click the "Save" button to apply them.
+If you make any changes within this window, click the "Apply" button to apply them.
 
 .. index:: network
 .. _Proxy Settings:
@@ -2153,7 +2173,7 @@ application that uses :command:`fetch`.
 Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's
 configuration utility.
 
-If you save any changes to this tab, a pop-up message will warn that you may have to logout and back in in order for the proxy settings to take effect.
+If you apply any changes to this tab, a pop-up message will warn that you may have to logout and back in in order for the proxy settings to take effect.
 
 .. index:: network
 .. _Configuring a Wireless Access Point:
@@ -2161,8 +2181,7 @@ If you save any changes to this tab, a pop-up message will warn that you may hav
 Configuring a Wireless Access Point
 -----------------------------------
 
-Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.18o, the right-click menu has an option to "Setup Access
-Point". 
+If you click the entry for a wireless device, as seen in Figure 8.18o, the right-click menu has an option to "Setup Access Point". 
 
 **Figure 8.18o: Setup Access Point Option**
 
@@ -2209,12 +2228,6 @@ While Ethernet networking usually "just works" on a PC-BSD® system, users somet
 Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available. This section is meant to help you pinpoint the
 problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
 
-.. index:: network
-.. _Useful Files and Commands:
-
-Useful Files and Commands 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 When troubleshooting your network configuration, use the following files and commands.
 
 The :file:`/etc/rc.conf` file is read when the system boots up. In order for the system to configure an interface at boot time, an entry must exist for it in
@@ -2231,7 +2244,7 @@ When reading through your own file, look for lines that begin with *ifconfig*. F
 
 .. note:: unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset. Each driver name has an associated man
    page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver. When reading the man
-   page, do not include the interface number. In the above example, you could read :command:`man em` and :command:`man run`.
+   page, do not include the interface number. For the above example, you could read :command:`man em` and :command:`man run`.
 
 
 The :file:`/etc/wpa_supplicant.conf` file is used by wireless interfaces and contains the information needed to connect to a WPA network. If this file does
@@ -2299,7 +2312,7 @@ In this example, there is a built-in Ethernet device that uses a driver that sup
 RTL8191SE" will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being
 developed.
 
-The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/doc//books/handbook/network-wireless.html>`_ provides a good overview of how
+The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/handbook/network-wireless.html>`_ provides a good overview of how
 wireless works and offers some troubleshooting suggestions.
 
 .. index:: backup
@@ -2331,12 +2344,13 @@ If you decide to replicate the snapshots to a backup server, keep the following 
 * The backup server **must be formatted with the latest version of ZFS,** also known as ZFS feature flags or ZFSv5000. Operating systems that support this
   version of ZFS include PC-BSD® and FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
 
-* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD, SSH is already installed and you can start
+* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD®, SSH is already installed and you can start
   SSH using :ref:`Service Manager`. If that system is running FreeNAS®, SSH is already installed and how to configure this service is described in
   :ref:`Backing Up to a FreeNAS System`. If the system is running FreeBSD, SSH is already installed, but you will need to start SSH.
 
-* If the backup server is running PC-BSD, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
-  firewall has been configured, add rules to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default.
+* If the backup server is running PC-BSD®, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
+  firewall has been configured, add a rule to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default. Also, if there is a
+  network firewall between the PC-BSD® system and the backup system, make sure it has a rule to allow SSH.
 
 .. index:: backup
 .. _Scheduling a Backup:
@@ -2399,7 +2413,7 @@ Snapshots can be configured to be pruned after the specified number of days or a
 "Automatic" as it has its own pruning schedule, as explained in the previous paragraph.
 
 .. note:: auto-pruning only occurs on the snapshots generated by Life Preserver according to the configured schedule. Auto-pruning will not delete any
-   snapshots you create manually from the "Snapshots" tab.
+   snapshots you create manually using the "Snapshots" tab in Life Preserver.
 
 After making your selection, press "Next" to see the screen shown in Figure 8.19e.
 
@@ -2411,6 +2425,9 @@ If you wish to keep a copy of the snapshots on another system, this screen is us
 If you have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
 following information. **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
 demonstrated in :ref:`Backing Up to a FreeNAS System`.
+
+* **Scan Network:** click this button to scan for systems listening on port 22 (SSH). If the scan is successful, a pop-up menu will show the available systems.
+  Select one to add it to the "Host Name" field. Note that this scan requires UDP port 5353 to be open on any firewalls on or between the PC-BSD® and the remote system. 
 
 * **Host Name:** of the remote system that will store your backup. If the backup server is on your local network, the host name must be in your hosts file or
   in the database of the local DNS server. You may find it easier to instead input the IP address of the backup server as this will eliminate any host name
@@ -2439,8 +2456,8 @@ check the box "Enable scheduled scrub" which will activate the configurable opti
 "Weekly", or "Monthly". If you select "Daily", you can configure the "Hour". If you select "Weekly", you can configure the "Day of week" and the "Hour". If you
 select "Monthly", you can configure the "Day of month", "Day of week", and "Hour". Since a scrub can be disk I/O intensive, it is recommended to pick a time when
 the system will not be in heavy use. When you are finished, click "Finish". If you configured replication, Life Preserver will check that it can connect to the backup
-server and will prompt for the password of "User Name". A second pop-up message will remind you to save the SSH key to a USB stick (as described below) as this key is required
-for :ref:`Restoring the Operating System`.
+server and will prompt for the password of "User Name". A second pop-up message will remind you to save the SSH key to a USB stick (as described in
+:ref:`Life Preserver Options`) as this key is required for :ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
    not preventing access to the configured "SSH Port".
@@ -2460,7 +2477,7 @@ The rest of this section demonstrates the tasks that can be performed from the L
 Life Preserver Options
 ----------------------
 
-Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
+Once the backup schedule has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
 "View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19g. 
 
 **Figure 8.19g: Life Preserver in Advanced View**
@@ -2522,7 +2539,7 @@ To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Di
 
 .. image:: images/lpreserver9.png
 
-If you want, you can change the name of the archive to create. By default it will be in the format *username-YYYYMMDD-HHMM*. This screen also allows you to
+If you want, you can change the filename of the archive to create. By default it will be in the format *username-YYYYMMDD-HHMM*. This screen also allows you to
 define which files to exclude from the backup. By default, it will exclude PBI shortcuts and, if it exists, the :file:`/bin` directory in the user's home
 directory. To exclude a specific file, click the white file icon to browse to the location of the file. To exclude a specific directory, click the blue
 directory icon to browse to the location of the directory.
@@ -2534,11 +2551,11 @@ Use :menuselection:`Classic Backups --> Extract Home Dir` to restore a previousl
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
 restore files without destroying the current versions, use the "Restore Data" tab instead.
 
-The "Snapshots" menu allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
+The "Snapshots" menu allows you to manage snapshots and replication outside of their configured schedules. This tab contains these options: 
 
 * **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
   changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
-  system or upgrade software. When creating a snapshot, a pop-up message will prompt you to input a name for the snapshot, allowing you to choose a name that
+  system configuration. When creating a snapshot, a pop-up message will prompt you to input a name for the snapshot, allowing you to choose a name that
   is useful in helping you remember why you took the snapshot.
 
 * **Delete Snapshot:** selecting this option will display the list of locally stored snapshots, listed in order from the oldest to the newest. If you select a
@@ -2549,8 +2566,8 @@ The "Snapshots" menu allows you to create or delete snapshots outside of the con
   replication now, rather than waiting for the scheduled time.
 
 * **Re-Initialize Replications:** if a replication fails, it may prevent subsequent replications from completing successfully. In this case, select this option and
-  select the IP address of the remote system in order to reset replication. After performing this re-initialization, use "Start Replication" to confirm that the replication issue has
-  been resolved and snapshots are being replicated.
+  select the IP address of the remote system in order to reset replication. After performing this re-initialization, click "Start Replication" to confirm that the
+  replication issue has been resolved and snapshots are successfully replicating.
 
 The "Disks" menu provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
@@ -2568,8 +2585,8 @@ The options available in this menu are:
 * **Set Disk Online/Offline:** if you need to temporarily disconnect or reconnect an attached external USB drive, select the appropriate option. This is the
   GUI equivalent to running :command:`lpreserver zpool offline` or :command:`lpreserver zpool online`.
 
-* **Start/Stop Scrub:** it is a good idea to regularly perform a ZFS scrub to verify the integrity of the ZFS pool. Typically, a scrub is run once a week or
-  before performing operations such as adding more disks to a pool. The status and results of the scrub can be viewed from the command line by typing
+* **Start/Stop Scrub:** it is a good idea to regularly perform a ZFS scrub to verify the integrity of the ZFS pool. Typically, it is recommended to run a scrub once a week or
+  before adding more disks to a pool. The status and results of the scrub can be viewed from the command line by typing
   :command:`zpool status`. When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing
   disk. If you are getting errors, consider backing up your data and replacing the failing disk. Since a scrub is I/O intensive, it is recommended to start
   the scrub when the system is not in use, such as before going to bed. Depending upon the size of the pool, the scrub may take some time.
@@ -2784,7 +2801,7 @@ next to the name of the dataset, then click "Change Permissions" for the expande
 
 Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
- zfs allow -u dru atime,canmount,clone,compression,create,destroy,hold,mount,mountpoint,promote,receive,rename,send,userprop volume1/backups
+ zfs allow -u dru atime,canmount,clone,compression,create,destroy,hold,mount,mountpoint,promote,receive,rename,send,userprop volume1/backups  
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
 Figure 8.19n. 
@@ -2813,7 +2830,7 @@ Configuring Encrypted Backups
 
 For some time, Life Preserver has provided the ability to securely replicate to another system over SSH, meaning that the data is encrypted while it is being transferred
 over the network. Beginning with version 10.1.2, Life Preserver provides an extra measure of security to replicated backups by adding support for fully-encrypted backups,
-using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volumes. This means that the data stored on the remote side is encrypted and only accessibly with
+using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volumes. This means that the data stored on the remote side is encrypted and only accessible with
 the key file stored on the PC-BSD® client. The backup server must understand kernel iSCSI, meaning that it must be running FreeBSD 9.1 or higher, PC-BSD®/TrueOS® 10.1.2, or
 FreeNAS® 9.3. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
 for creating encrypted backups.
@@ -2888,9 +2905,6 @@ this example::
  Starting stunnel.
  Created mybackups.lps
 
-Once you have successfully created the :file:`.lps` file and copied it to the PC-BSD® system, you are ready to configure the PC-BSD® system using the instructions in
-:ref:`Running the Encrypted Backup Wizard`.
-
 **Table 8.19b: Configuration Options** 
 
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
@@ -2914,6 +2928,9 @@ Once you have successfully created the :file:`.lps` file and copied it to the PC
 | ZVOL size        | **must be at least the same size as the pool to be backed up**                                                            |
 |                  |                                                                                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
+
+Once you have successfully created the :file:`.lps` file, copy it to the PC-BSD® system. You are now ready to configure the PC-BSD® system using the instructions in
+:ref:`Running the Encrypted Backup Wizard`.
 
 .. _Using FreeNAS as the Backup System:
 
@@ -2940,7 +2957,7 @@ the following values in these fields then press "OK" to create the account:
 
 .. image:: images/iscsi4.png
 
-Next, create a zvol by using the tree menu to go to :menuselection:`Storage --> Volumes --> click the plus to expand name of volume -> Create zvol`. In the example
+Next, create a zvol using the tree menu. Go to :menuselection:`Storage --> Volumes --> click the plus to expand name of volume --> Create zvol`. In the example
 shown in Figure 8.19p, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
 
 **Figure 8.19p: Create the zvol** 
@@ -2955,7 +2972,7 @@ default "Base Name" to *iqn.2012-06.com.lpreserver*.
 .. image:: images/iscsi6.png
 
 Click the "Portals" tab then the "Add Portal" button. Verify that the "IP Address" drop-down menu is set to *0.0.0.0* and that the "Port" field is set to
-*3260*, add a "Comment" if it is useful to you, then click "OK" in order to add an entry to the "Portals" tab. In the example shown in Figure 8.19r, this is
+*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19r, this is
 the first time iSCSI has been configured on this system, so it has a "Portal Group ID" of *1*. If you have already created other iSCSI targets, note the
 "Portal Group ID" you just created.
 
@@ -2964,14 +2981,14 @@ the first time iSCSI has been configured on this system, so it has a "Portal Gro
 .. image:: images/iscsi7.png
 
 In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initiators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
-it is useful to you, and press "OK" in order to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19s,
+it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19s,
 it is *1*.
 
 **Figure 8.19s: Configure the Initiator** 
 
 .. image:: images/iscsi8.png
 
-In the "Authorized Access" tab, click the "Add Authorized Access" button. Input a value for the "User" that is between 8 and 12 characters and the "Secret" and
+In the "Authorized Access" tab, click the "Add Authorized Access" button. Input a value for the "User" that is between 8 and 12 characters and a value in the "Secret" and
 "Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19t, the "User" has a value of *mybackups*, the
 secret is *pcbsdbackups*, and the "Group ID" is
 *1*. Make note of the "Group ID" that is created for you.
@@ -2984,9 +3001,9 @@ In the "Targets" tab, click the "Add Target" button. In the screen shown in Figu
 
 * **Target Name:** target0
 
-* **Portal Group ID:** select the group ID you created in the drop-down menu
+* **Portal Group ID:** select the portal group ID you created in the drop-down menu
 
-* **Initiator Group ID:** select the group ID you created in the drop-down menu
+* **Initiator Group ID:** select the initiator group ID you created in the drop-down menu
 
 * **Auth Method:** select CHAP from the drop-down menu
 
@@ -2994,7 +3011,7 @@ In the "Targets" tab, click the "Add Target" button. In the screen shown in Figu
 
 .. image:: images/iscsi10.png
 
-In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19v, input an "Extent Name", in this case it is *pcbsd-backup* and make sure that
+In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19v, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
 the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
 
 **Figure 8.19v: Configure the Extent** 
@@ -3008,7 +3025,7 @@ and the "Extent" that you created.
 
 .. image:: images/iscsi12.png
 
-Next, go to :ref:`Services` and click the red "OFF" next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
+Next, go to :ref:`Services` and click the red "OFF" button next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
 
 To configure the stunnel service, open :ref:`Shell` and type the following::
 
@@ -3057,7 +3074,7 @@ Running the Encrypted Backup Wizard
 
 Once you have configured the backup system and the PC-BSD® system has a copy of the :file:`*.lps` file, you are ready to run the encrypted backup wizard on the
 PC-BSD® system. If you have not yet managed a pool in Life Preserver, click :menuselection:`File --> Manage Pool` and follow the initial configuration wizard
-described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, click "Next" as you will be using a zvol rather than a dataset to
+described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, just click "Next" as you will instead be using a zvol to
 backup to. Next, start the encrypted backup wizard by clicking :menuselection:`File --> Enable Offsite Backups` and select the pool to backup. This will start
 the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19x.
 
@@ -3078,7 +3095,7 @@ This screen lets you configure the following:
   another field will appear so that you can set the time.
 
 * **Re-use existing data on the host:** by default, this box is unchecked as the encryption key will be automatically generated for you and stored in
-  :file:`/var/db/lpreserver/keys`. If you have configured an encrypted backup to the remote backup system in the past and still have a copy of the encryption key for that
+  :file:`/var/db/lpreserver/keys`. If you have previously configured an encrypted backup to this remote backup system and still have a copy of the encryption key for that
   system, check this box and use the browse button to add the key to the "GELI Encryption File" field.
   
 When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
@@ -3191,10 +3208,10 @@ In the example shown in Figure 8.20b, the user has selected "PC-BSD base system"
 
 If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
 web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is
-your first bug and that you must be logged in in order to create a new bug.
+your first bug report on that project's bug tracker and that you must be logged in in order to create a new bug.
 
 If the development team has a mailing list, its email address will be listed. The URL to the mailing list will also be displayed so that you can search its
-archives and subscribe to the list. Note that you will need to be subscribed to a mailing list before you can report a bug on that list. To report the bug,
+archives and subscribe to the list. Note that you will need to be subscribed to a mailing list before you can report a bug using that list. To report the bug,
 click the "Compose email" button to open the default mail application. To subscribe to or read the archives of the list, click the "Launch web browser"
 button.
 
@@ -3215,18 +3232,18 @@ If you click an entry in the menu, the results will be displayed in a window so 
 
 If you click the second icon, it will generate a PCI devices list. This is useful information if your built-in wireless card is not working.
 
-If you click the third icon, the default snapshot utility for the desktop will open so that you can include a snapshot in your bug report.
+If you click the third icon, the default snapshot utility for the desktop will open so that you can include a screenshot in your bug report.
 
 While this utility makes it easy to find the correct place to send a bug report, it is still up to you to make sure that your report includes the information
 that developers need to recreate and eventually fix the bug. The following resources contain useful tips for the various development teams for the bugs you
-may encounter when using PC-BSD®: Before reporting:
+may encounter when using PC-BSD®. Before reporting:
 
 * a bug about the "FreeBSD base system" or "FreeBSD software (ports/packages)", read through 
   `the FreeBSD bug reports page <http://www.freebsd.org/support/bugreports.html>`_. 
 
 * a bug about the "Xorg server", read through the `Xorg FAQ <http://www.x.org/wiki/FAQ/>`_. 
 
-* a KDE bug, read through `how to file a bug-free report in KDE <http://www.muktware.com/5457/how-file-bug-free-bug-report-kde>`_. 
+* a KDE bug, read through `General Troubleshooting <https://forum.kde.org/viewtopic.php?f=14&t=38828>`_. 
 
 * a GNOME bug, read through `how to file a bug in GNOME's bugzilla <http://askubuntu.com/questions/43487/how-to-file-a-bug-on-gnomes-bugzilla>`_. 
 
@@ -3301,8 +3318,8 @@ There are three types of jails supported by Warden®:
 
 **Traditional Jail:** select this type if you are creating the jail in order to install and run network services. For example, this type of jail is
 appropriate if you wish to run a web server or a database which is accessible to other systems on a network or over the Internet. This is the most secure type
-of jail as it is separate from the PC-BSD® host and any other jails that you create using Warden®. By default, FreeBSD's next generation of package
-management, known as pkgng, and the command line versions of the PC-BSD® utilities are added to a default FreeBSD installation. If you do not plan to use
+of jail as it is separate from the PC-BSD® host and any other jails that you create using Warden®. By default, FreeBSD's package
+management tools and the command line versions of the PC-BSD® utilities are added to a default FreeBSD installation. If you do not plan to use
 these tools, uncheck the box "Install PKGNG and PC-BSD utilities". If you have already created a jail template using :ref:`Template Manager`, select the
 desired operating system version from the "Jail Version" drop-down menu.
 
@@ -3329,7 +3346,7 @@ see the screen shown in Figure 8.21e. If you instead select to create a "Ports J
 
 This screen allows you to install the following options: 
 
-**Include system source:** if you check this box, make sure that :file:`/usr/src/` exists on the PC-BSD system as the source is copied to the jail from this
+**Include system source:** if you check this box, make sure that :file:`/usr/src/` exists on the PC-BSD® system as the source is copied to the jail from this
 location. If it is not installed, use :menuselection:`Control Panel --> System Manager --> Tasks --> Fetch PC-BSD System Source` to install it.
 
 **Include ports tree:** if you check this box, the latest version of the ports tree will be downloaded into :file:`/usr/ports/` of the jail. This will allow
@@ -3371,11 +3388,11 @@ Managing Jails
 --------------
 
 Once a jail is created, an entry for the jail will be added to the "Installed Jails" box and the tabs within Warden® will become available. Each entry
-indicates the jail's hostname, whether or not it is currently running, and whether or not any updates are available for the meta-packages installed within the
+indicates the jail's hostname, whether or not it is currently running, and whether or not any updates are available for the software installed within the
 jail. The buttons beneath the "Installed Jails" box can be used to start/stop the highlighted jail, configure the jail, add a new jail, or delete the
 highlighted jail.
 
-If you highlight a jail and click “Jail Configuration”, the screen shown in Figure 8.21h will open.
+If you highlight a jail and click "Jail Configuration", the screen shown in Figure 8.21h will open.
 
 **Figure 8.21h: Jail Configuration Options** 
 
@@ -3573,7 +3590,7 @@ If you highlight a jail, its right-click menu contains the following options:
 Importing a Jail 
 ----------------
 
-The "File" menu can be used to create a new jail, import a jail, create templates, or exit Warden®. 
+The "File" menu can be used to create a new jail, import a jail, manage templates, or exit Warden®. 
 
 If you click :menuselection:`File --> Import Jail` you will be prompted to browse to the location of a previously created :file:`.wdn` file. After selecting
 the file, you will then see the screen shown in Figure 8.21q. 
@@ -3608,11 +3625,9 @@ To create a template, click :menuselection:`File --> Template Manager` to see th
 The default icon will indicate the version of TrueOS® used by the underlying PC-BSD® system. To create a new template, click the "+" button. In the "System
 Type" drop-down menu select either: 
 
-- **TrueOS:** adds the command line versions of the PC-BSD® utilities to the FreeBSD base.
+* **TrueOS:** adds the command line versions of the PC-BSD® utilities to the FreeBSD base, or
 
-or
-
-- **FreeBSD:** uses only the FreeBSD base without any of the PC-BSD® utilities.
+* **FreeBSD:** uses only the FreeBSD base without any of the PC-BSD® utilities
 
 Press "OK" to see the screen shown in Figure 8.21s. 
 
@@ -3621,7 +3636,7 @@ Press "OK" to see the screen shown in Figure 8.21s.
 .. image:: images/warden19.png
 
 If desired, change the *10.0* in this example to the release number to use. If you selected *FreeBSD* as the system type, a list of available release numbers
-can be found `here <http://wiki.freebsd.org/releases/>`_. If you selected *TrueOS*, the list of available release numbers is currently limited to 9.0, 9.1,
+can be found `here <https://www.freebsd.org/releases/>`_. If you selected *TrueOS*, the list of available release numbers is currently limited to 9.0, 9.1,
 9.2, 9.3, 10.0, and 10.1.
 
 Press "OK". In the "System Architecture" drop-down menu, select either "amd64" (for 64-bit) or "i386" (for 32-bit). Press "OK" and input a nickname for the
@@ -3663,9 +3678,9 @@ If you type :command:`warden` at the command line, you will receive a summary of
      details - Display usage details about a jail
       delete - Deletes a jail
       export - Exports a jail to a .wdn file
-       fstab - Start users $EDITOR on jails custom fstab
   fbsdupdate - Update the FreeBSD world inside a jail
  fbsdupgrade - Upgrade the version of FreeBSD inside a jail
+       fstab - Start users $EDITOR on jails custom fstab
          get - Gets options list for a jail
       import - Imports a jail from a .wdn file
         list - Lists the installed jails
@@ -3691,23 +3706,23 @@ Each command has its own help text that describes its parameters and provides a 
  Help create
  Creates a new jail, with options for system source, ports and autostarting.
  Available Flags:
- -32 Create 32bit jail on 64bit system
- --autoipv4 Use the next available IPv4 address from the pool
- --ipv4=<ip/mask> Set primary IPv4 address for jail
- --ipv6=<ip/mask> Set primary IPv6 address for jail
- --archive <tar> Use specified tar file for BSD jail creation
- --bulk <number> Create <number> of new jails, using default IP4 pool or  address pool specified with --ip4pool
- --ip4pool <address> Starting IPv4 address to use when creating jails in bulk
- --linuxjail <script> Make this a linux jail and use supplied script for  installation
- --linuxarchive <tar> Use specified tar file for Linux jail creation
- --pluginjail Make this a pluginjail
- --ports Includes the ports tree
- --portjail Make this a portjail
- --src Includes /usr/src system source
- --startauto Start this jail at system boot
- --template <string> Specify a jail template to build with
- --vanilla Don't install PC-BSD pkgng repo and utilities
- --version <string> Use this instead of /etc/version
+  -32                  Create 32bit jail on 64bit system
+ --autoipv4            Use the next available IPv4 address from the pool
+ --ipv4=<ip/mask>      Set primary IPv4 address for jail
+ --ipv6=<ip/mask>      Set primary IPv6 address for jail
+ --archive <tar>       Use specified tar file for BSD jail creation
+ --bulk <number>       Create <number> of new jails, using default IP4 pool or  address pool specified with --ip4pool
+ --ip4pool <address>   Starting IPv4 address to use when creating jails in bulk
+ --linuxjail <script>  Make this a linux jail and use supplied script for  installation
+ --linuxarchive <tar>  Use specified tar file for Linux jail creation
+ --pluginjail          Make this a pluginjail
+ --ports               Includes the ports tree
+ --portjail            Make this a portjail
+ --src                 Includes /usr/src system source
+ --startauto           Start this jail at system boot
+ --template <string>   Specify a jail template to build with
+ --vanilla             Don't install PC-BSD pkgng repo and utilities
+ --version <string>    Use this instead of /etc/version
 
  Usage:
  warden create <JAILNAME> <flags>
@@ -3725,15 +3740,23 @@ Before creating a jail, verify the network settings in :file:`/usr/local/etc/war
  #!/bin/sh
  # Configuration options for the Warden
  ######################################################################
+
  # Network Interface for the jails to use
  NIC:
+
  # Directory to use for compressing / decompressing files 
  WTMP: /usr/jails
+
  # Location of the jails
  JDIR: /usr/jails
+
  # When automatically creating jails with unspecified IPv4 addresses, use this
  # address at the starting point for new addresses
- IP4POOL: 192.168.0.220 
+ IP4POOL: 192.168.0.220
+
+ # To enable NAT routing for VIMAGE jails (e.g. make the jail host a NAT
+ # router), set this to "true"
+ NAT_ENABLE: false
 
 You can either specify the FreeBSD interface name to use in the *NIC* field or specify the IP address range starting point with the *IP4POOL* field. When
 using *IP4POOL* on a network containing a DHCP server, ensure that the DHCP server has reserved the range of addresses to be used by jails in order to prevent
@@ -3786,7 +3809,7 @@ available from the command line.
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **Command Line**  | **GUI**                                                              | **Description**                                                 |
 +===================+======================================================================+=================================================================+
-| **auto**          | right-click highlighted jail and click Autostart                     | toggles the jail's autostart between Enabled and Disabled       |
+| **auto**          | right-click highlighted jail and click "Autostart"                   | toggles the jail's autostart between "Enabled" and "Disabled"   |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **bspkgng**       | in the GUI, this happens automatically during jail creation unless   | adds the PC-BSD utilities to an existing jail                   |
 |                   | "Install PKGNG and PC-BSD utilities" is unchecked                    |                                                                 |
@@ -3798,11 +3821,11 @@ available from the command line.
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **create**        | "+" button or :menuselection:`File --> New Jail`                     | creates a new jail with specified attributes                    |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| **details**       | Info tab                                                             | provides an overview of specified jail's configuration          |
+| **details**       | "Info" tab                                                           | provides an overview of specified jail's configuration          |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| **delete**        | "-" button or right-click jail --> Delete Jail                       | deletes the specified jail                                      |
+| **delete**        | "-" button or :menuselection:`right-click jail --> Delete Jail`      | deletes the specified jail                                      |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| **export**        | right-click --> Export jail to :file:`.wdn` file                     | saves the specified jail and all of its software, configuration,|
+| **export**        | :menuselection:`right-click --> Export jail`                         | saves the specified jail and all of its software, configuration,|
 |                   |                                                                      | and files as a :file:`.wdn` file                                |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **fbsdupdate**    | :menuselection:`Tools --> Check for Updates`                         | upgrades FreeBSD world with security fixes as well as any       |
@@ -3830,19 +3853,19 @@ available from the command line.
 | **unset**         | right-click jail                                                     | used to unset options, addresses, aliases, and permissions in   |
 |                   |                                                                      | specified jail                                                  |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| **start**         | right-click jail --> Start this Jail                                 | starts the specified jail                                       |
+| **start**         | :menuselection:`right-click jail --> Start this Jail`                | starts the specified jail                                       |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| **stop**          | right-click jail --> Stop this Jail                                  | stops the specified jail                                        |
+| **stop**          | :menuselection:`right-click jail --> Stop this Jail`                 | stops the specified jail                                        |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **type**          | "Jail Type" during jail creation                                     | types differ as choices are *pbibox*, *portjail*, *pluginjail*, |
 |                   |                                                                      | or *standard*; to create a Linux jail, instead use the          |
-|                   |                                                                      | *linuxjail* option with the **create** command                  |
+|                   |                                                                      | *linuxjail* option with the :command:`create` command           |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **template**      | :menuselection:`File --> Template Manager`                           | used to create, delete, or list templates                       |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **snap**          | Snapshots                                                            | snapshot management for specified jail                          |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| **clone**         | right-click --> Clone this Jail                                      | clones an existing jail                                         |
+| **clone**         | :menuselection:`right-click --> Clone this Jail`                     | clones an existing jail                                         |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **cronsnap**      | :menuselection:`Snapshots --> Scheduled Snapshots`                   | schedules ZFS snapshot creation                                 |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+

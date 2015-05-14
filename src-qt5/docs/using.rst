@@ -3,26 +3,7 @@
 Using PC-BSD®
 **************
 
-This section discusses how to perform common tasks that were not discussed in the :ref:`Control Panel` section. This section contains the following
-categories: 
-
-* :ref:`Java and Flash`
-
-* :ref:`Installing Custom Fonts`
-
-* :ref:`Multimedia`
-
-* :ref:`Files and File Sharing`
-
-* :ref:`Windows Emulation`
-
-* :ref:`Remote Desktop`
-
-* :ref:`Thin Client`
-
-* :ref:`Security`
-
-* :ref:`Accessibility`
+This section discusses how to perform common tasks that were not discussed in the :ref:`Control Panel` section.
 
 .. index:: configuration
 .. _Java and Flash:
@@ -142,7 +123,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
   video podcasts.
 
 * `SMPlayer <http://smplayer.sourceforge.net/>`_: universal media player that can handle any media format and play audio CDs, DVDs, (S)VCDs, TV/radio cards,
-  YouTube™ and SHOUTcast™ streams.
+  YouTube™ and SHOUTcast™ streams. This is the default player used by :ref:`Mount Tray`.
 
 .. index:: multimedia
 .. _Kodi:
@@ -174,22 +155,19 @@ During the installation of PC-BSD®, the installer provided an option to install
 available PBI and packages" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
 of your desktop. You can also start this application by typing :command:`plexhometheater` from a command prompt. 
 
+Once installed, an entry for "Plex Home Theater" will also be added to the login manager so that you can login directly to the home theater instead of a desktop.
+
+The first time you run or log into Plex Home Theater, a wizard will check your audio settings and sign into your Plex account. If you do not have a Plex account yet,
+create one at `plex.tv <http://www.plex.tv>`_. The wizard will give you a PIN code and an URL to enter the code. Once you enter the PIN, the wizard will connect and sign you in.
+You can now search for and watch media. To exit Plex, click the "<" then "Quit".
+
 .. index:: files
 .. _Files and File Sharing:
 
 Files and File Sharing
 ======================
 
-This section describes the various file managers that are available for managing the files on your PC-BSD® system and the utilities that are available for
-accessing files over the network using the CIFS protocol.
-
-.. index:: files
-.. _File Managers and File Structure:
-
-File Managers and File Structure
---------------------------------
-
-Depending upon which window managers you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
+Depending upon which :ref:`Desktops` you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
 logged into a specific window manager to use an installed file manager. For example, if KDE is installed, you can run its file manager from any window manager
 by typing :command:`dolphin`. KDE, GNOME, LXDE, and XFCE install their own file managers while most of the other desktops assume that you will install your
 favorite file manager. Table 9.4a summarizes the available file managers and indicates which desktop they are installed with. Some file managers can be
@@ -201,7 +179,7 @@ another desktop.
 +---------------+--------------+--------------------------------------------------------------------+
 | File Manager  | Desktop/PBI  | Screenshots                                                        |
 +===============+==============+====================================================================+
-| dolphin       | KDE          | `<https://userbase.kde.org/Dolphin#Feature_Overview>`_             |
+| dolphin       | KDE          | `<https://userbase.kde.org/Dolphin>`_                              |
 +---------------+--------------+--------------------------------------------------------------------+
 | emelfm2       | PBI          | `<http://emelfm2.net/wiki/ScreenShots>`_                           |
 +---------------+--------------+--------------------------------------------------------------------+
@@ -269,8 +247,6 @@ Table 9.4b summarizes the directory structure found on a PC-BSD® system. :comma
 | /usr/local/              | contains the binaries, libraries, startup scripts, documentation, and configuration files used by applications installed from   |
 |                          | ports or packages                                                                                                               |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| /usr/pbi/                | contains the binaries, libraries, startup scripts, documentation, and configuration files used by installed PBIs                |
-+--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | /usr/local/share/fonts/  | system wide fonts for graphical applications                                                                                    |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | /usr/local/share/icons/  | system wide icons                                                                                                               |
@@ -286,13 +262,7 @@ Table 9.4b summarizes the directory structure found on a PC-BSD® system. :comma
 | /var/                    | files that change (vary), such as log files and print jobs                                                                      |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
-.. index:: sharing
-.. _Accessing Windows Shares:
-
-Accessing Windows Shares
-------------------------
-
-PC-BSD® installs built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
+PC-BSD® provides built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
 your network. If a desktop is installed, you do not have to be logged into that desktop in order to use that utility.
 
 Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with and whether or not a
@@ -352,13 +322,12 @@ To install the application, click the Winefile desktop icon or type :command:`wi
 
 .. image:: images/wine2.jpg
 
-Click the button representing the drive containing the installer (in this example, :file:`D:\`) and double click on the installation file (e.g. :file:`setup.exe`).
+Click the button representing the drive containing the installer and double-click on the installation file (e.g. :file:`setup.exe`).
 The installer should launch and you can proceed to install the application as you would on a Windows system.
 
 .. note:: if you had to manually mount the CD/DVD, you will need to unmount it before it will eject. As the superuser, use the command :command:`umount /mnt`.
 
-Once the installation is complete, browse to :file:`C:\` and find the application's location. Figure 9.5c shows an example of running Internet Explorer within
-:command:`winefile`.
+Once the installation is complete, browse to the application's location. Figure 9.5c shows an example of running Internet Explorer within :command:`winefile`.
 
 **Figure 9.5c: Running the Installed Application** 
 
@@ -391,16 +360,15 @@ Depending upon the operating system, you may have to first install or enable RDP
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
   the full version of RDP is included, remote access may or may not be enabled by default. If you have trouble connecting using RDP, do a web search for
   "remote desktop" and the name of the version of Windows you are using to find out how to configure its remote desktop settings. If you still can not
-  connect, you will need to download, install and configure `VNC <http://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ server software on the system.
+  connect, you can instead download, install, and configure `VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
 
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
   repository for the operating system or use a web search to find out how to install and configure one of these applications on that operating system. If you
-  are connecting to another PC-BSD® system, the :command:`krfb` VNC server is automatically installed with KDE and additional VNC server software is
-  available in :ref:`AppCafe®`. 
+  are connecting to another PC-BSD® system, use :ref:`AppCafe®`, check the box "Search all available PBI and packages", and search for "rdp" or "vnc".
 
-If the remote system is protected by a firewall, you will need to check that it allows connections to the TCP port required by the type of connection that you
-will be using: 
+If there is a firewall on either system or a network firewall between the two systems, check that it allows connections to the TCP port required by the type
+of connection that you will be using: 
 
 - **RDP:** uses port 3389 
 
@@ -420,8 +388,8 @@ KRDC can be used to initiate a connection request. This application can be insta
 "App Search" tab to install this package.
 
 To launch this application, go to :menuselection:`Applications --> Internet --> Remote Desktop Client` within KDE or type :command:`krdc` at the command line
-within any desktop. If you click :kbd:`F1` while in KRDC you can access the Remote Connection Desktop Handbook to learn more about how to use this
-application.
+within any desktop. If you click :kbd:`F1` while in KRDC you can access the
+`Remote Connection Desktop Handbook <https://docs.kde.org/stable4/en/kdenetwork/krdc/index.html>`_ to learn more about how to use this application.
 
 Figure 9.6a shows the initial KRDC screen which allows you to specify which system you wish to connect to.
 
@@ -453,7 +421,7 @@ disable sound during the connection.
 
 **Performance:** select the option that best matches the network speed to the remote host. Choices are "Modem", "Broadband", or "LAN".
 
-**RemoteFX:** check this box if the remote system supports  and hardware acceleration is desired.
+**RemoteFX:** check this box if the remote system supports RemoteFX and hardware acceleration is desired.
 
 **Share Media:** specifies a mount point for data to be shared between the systems.
 
@@ -485,8 +453,8 @@ behavior. When you are finished your session, you can click the "Disconnect" but
 Connecting with VNC 
 -------------------
 
-If you prefer to install VNC software instead of using KDE's KRDC, use :ref:`AppCafe®` to install a VNC client such as TightVNC. If you use VNC, the VNC
-server must be installed on the remote desktop.
+If you prefer to use VNC for the connection, use :ref:`AppCafe®` to install a VNC client such as TightVNC. Before using the VNC client, ensure that the VNC
+server is installed and running on the remote desktop.
 
 Once TightVNC is installed, type :command:`vncviewer` to start the VNC client. A small window will appear, allowing you to type in the IP address of the
 remote system in the format *IP_ADDRESS:5801*. Change the *5801* if the VNC server is listening on a different port.
@@ -501,7 +469,8 @@ If you wish another user to connect to your computer, the KDE Desktop Sharing ap
 application can be installed using :ref:`AppCafe®`. Check the "Search all available PBI and packages" box within "App Search" to search for this application.
 
 To launch this application within KDE, go to :menuselection:`Applications --> Internet --> Desktop Sharing` or type :command:`krfb` from the command prompt of
-any desktop. If you press :kbd:`F1` while in this application, it will open the Desktop Sharing Handbook where you can learn more about using this utility.
+any desktop. If you press :kbd:`F1` while in this application, it will open the
+`Desktop Sharing Handbook <https://docs.kde.org/stable4/en/kdenetwork/krfb/index.html>`_ where you can learn more about using this utility.
 Figure 9.6c shows the initial screen for this application.
 
 **Figure 9.6c: Initiating a Connection Request Using krfb** 
@@ -767,21 +736,21 @@ The security features built into PC-BSD® include:
   ordinary user any program executed will only be granted the abilities and access of that user. A user that is not a member of the *wheel* group can not
   switch to administrative access and can not enter or list the contents of a directory that has not been set for universal access.
 
-* **Built-in firewall:** the default firewall ruleset allows you to access the Internet and the shares available on your network. If there are no shared
-  resources on your network, you can use :ref:`Firewall Manager` to further tighten the default ruleset. In addition,
+* **Built-in firewall:** the default firewall ruleset allows you to access the Internet and the shares available on your network but does not allow
+  any inbound connections to your computer. In addition,
   `Fail2ban <http://www.fail2ban.org/wiki/>`_ is installed. This service can be configured to identify possible break-in attempts and to respond with an
   action such as creating a firewall rule to ban the intruder. Instructions for configuring fail2ban can be found on the
   `fail2ban wiki <http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Usage>`_. 
 
-* **Very few services are enabled by default:** you can easily view which services are started at boot time using "ref:`Service Manager` or by reading through
-  :file:`/etc/rc.conf`. You can also disable the services that you do not use by disabling that service in :ref:`Service Manager` or by commenting out that
+* **Very few services are enabled by default:** you can easily view which services are started at boot time using :ref:`Service Manager` or by reading through
+  :file:`/etc/rc.conf`. You can disable the services that you do not use by disabling that service in :ref:`Service Manager` or by commenting out that
   line with a *#* in :file:`/etc/rc.conf`.
 
 * **SSH is disabled by default:** and can only be enabled by the superuser. This setting prevents bots and other users from trying to access your system. If
-  you do need to use SSH, add the line *sshd_enable=NO* to the file :file:`/etc/rc.conf`. You can start the service right away by typing
-  :command:`/service sshd start`. You will need to add a firewall rule to allow SSH connections from the systems that require SSH access.
+  you do need to use SSH, add the line *sshd_enable=YES* to :file:`/etc/rc.conf`. You can then start the service by typing
+  :command:`service sshd start`. You will need to add a firewall rule using :ref:`Firewall Manager` to allow SSH connections over TCP port 22.
 
-* **SSH root logins are disabled by default:** if you enable SSH, you must login as a regular user and can use :command:`su` or :command:`sudo` when you need
+* **SSH root logins are disabled by default:** if you enable SSH, you must login as a regular user and use :command:`su` or :command:`sudo` when you need
   to perform administrative actions. You should not change this default as this prevents an unwanted user from having complete access to your system.
 
 * **sudo is installed:** and configured to allow users in the *wheel* group permission to run an administrative command after typing their password. By
@@ -795,12 +764,22 @@ The security features built into PC-BSD® include:
   `security advisory <http://www.freebsd.org/security/advisories.html>`_ that affects PC-BSD®. This allows you to keep your operating system fully patched
   with just the click of a mouse.
 
+* PC-BSD® packages are built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
+
+* :ref:`PersonaCrypt` allows a user to use a removable, encrypted device as their home directory.
+
+* Logging into a stealth session creates an encrypted zvol as a temporary home directory for that login session.
+  When the user logs out of a stealth session, the zvol is destroyed, along with the contents of the temporary home directory. 
+
+* :ref:`Tor Mode` can be used to anonymously access Internet sites as this mode automatically forwards all Internet traffic through the
+  `Tor Project's <https://www.torproject.org/>`_ transparent proxy service.
+
 If you would like to learn more about security on FreeBSD/PC-BSD® systems, :command:`man security` is a good place to start. These resources provide more
 information about security on FreeBSD-based operating systems: 
 
 * `FreeBSD Security Information <http://www.freebsd.org/security/>`_
 
-* `Security Section of FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/security.html>`_
+* `Security Section of FreeBSD Handbook <http://www.freebsd.org/handbook/security.html>`_
 
 * `Hardening FreeBSD <http://www.bsdguides.org/2005/hardening-freebsd/>`_
 
@@ -891,18 +870,17 @@ The KDE-Accessibility component installs the following software:
   text you wish to magnify or click its "Settings" button to view the shortcuts for its various modes. Click :kbd:`F1` while the application is open to access
   the Kmagnifier Handbook.
 
-* **KMouseTool:** clicks the mouse whenever the mouse cursor pauses briefly. It can also drag the mouse, although this takes a bit more practice. To start
-  this utility in KDE, click :menuselection:`Applications --> Utilities --> Automatic Mouse Click` or type :command:`kmousetool` from the command line. In the
-  screen shown in Figure 9.9c, check the settings you wish to use, click the "Apply" button, then click the "Start" button. If you quit this screen, it will
-  be added to the system tray and will continue to run until you launch its icon and click the "Stop" button. A PDF of the KMouseTool Handbook can be
-  downloaded from `here <http://docs.kde.org/stable/en/kdeaccessibility/kmousetool/kmousetool.pdf>`_. 
+* `KMouseTool <https://docs.kde.org/stable4/en/kdeaccessibility/kmousetool/>`_: clicks the mouse whenever the mouse cursor pauses briefly. It can also drag the
+  mouse, although this takes a bit more practice. To start this utility in KDE, click :menuselection:`Applications --> Utilities --> Automatic Mouse Click` or
+  type :command:`kmousetool` from the command line. In the screen shown in Figure 9.9c, check the settings you wish to use, click the "Apply" button, then click
+  the "Start" button. If you quit this screen, it will be added to the system tray and will continue to run until you launch its icon and click the "Stop" button.
 
 **Figure 9.9c: Configuring KMouseTool** 
 
 .. image:: images/access3.png
 
-* **KMouth:** enables persons that cannot speak to speak through their computer. It keeps a history of spoken sentences from which the user can select to be
-  re-spoken. To start this program, click :menuselection:`Applications --> Utilities --> Speech Synthesizer Frontend` or type :command:`kmouth` from the
-  command line. The first time you run this application, a configuration wizard will prompt you to set the command to use for speaking texts (such as
-  :file:`/usr/local/bin/espeak`) and the character encoding. Refer to the `KMouth Handbook <http://docs.kde.org/stable/en/kdeaccessibility/kmouth/>`_ for more
-  information about configuring and using this tool.
+* `KMouth <http://docs.kde.org/stable/en/kdeaccessibility/kmouth/>`_: enables persons that cannot speak to speak through their computer. It keeps a
+  history of spoken sentences from which the user can select to be re-spoken. To start this program, click
+  :menuselection:`Applications --> Utilities --> Speech Synthesizer Frontend` or type :command:`kmouth` from the command line. The first time you run
+  this application, a configuration wizard will prompt you to set the command to use for speaking texts (such as :file:`/usr/local/bin/espeak`) and the
+  character encoding.

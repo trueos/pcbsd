@@ -13,9 +13,6 @@ PROGDIR="${LB}/share/warden"
 
 mkdir -p ${PROGDIR} >/dev/null 2>/dev/null
 
-mkdir ${PROGDIR}/tmp >/dev/null 2>/dev/null
-mkdir ${PROGDIR}/export >/dev/null 2>/dev/null
-
 DIR=`dirname $0`
 cd ${DIR}
 
@@ -43,7 +40,5 @@ chmod 755 ${LB}/etc/rc.d/wardenrc
 
 cp agent.png ${PROGDIR}/
 cp agent.png ${PROGDIR}/warden.png
-
-mkdir ${PROGDIR}/bin >/dev/null 2>/dev/null
 
 exit 0

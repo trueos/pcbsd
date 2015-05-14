@@ -51,5 +51,6 @@ ldap-lexer.lex.c: ldap-lexer.l
 install:
 	$(MKDIR) -p $(FILESDIR)
 	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
+	strip $(FILESDIR)/$(PROG)
 
 .include <bsd.prog.mk>
