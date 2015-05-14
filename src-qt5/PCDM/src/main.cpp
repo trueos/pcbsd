@@ -151,6 +151,7 @@ int runSingleSession(int argc, char *argv[]){
 	  loginDelay dlg(Config::autoLoginDelay(), user);
 	  //splash.close();
 	  dlg.start();
+	    dlg.activateWindow();
 	  dlg.exec();
 	  goodAL = dlg.continueLogin;
 	}else{
