@@ -552,15 +552,23 @@ void Backend::readSystemUsers(){
     uList = QString( p.readAllStandardOutput() ).split("\n");
     
     //Remove all users that have:
+   QStringList filter; filter << "server" << "daemon" << "database" << "system"<< "account"<<"pseudo";
    for(int i=0; i<uList.length(); i++){
     bool bad = false;
+    QString dispcheck = uList[i].section(":",4,4).toLower();
     // Shell Checks
     if(uList[i].section(":",6,6).contains("nologin") || uList[i].section(":",6,6).isEmpty() || !QFile::exists(uList[i].section(":",6,6)) ){bad=true;}
     // User Home Dir
     else if(uList[i].section(":",5,5).contains("nonexistent") || uList[i].section(":",5,5).contains("/empty") || uList[i].section(":",5,5).isEmpty() ){bad=true;}
     // uid > 0
     else if(uList[i].section(":",2,2).toInt() < 1){bad=true;} //don't show the root user
-
+    //Check that the name/description does not contain "server"
+    else if(uList[i].section(":",2,2).toInt() <= 1000){
+	for(int f=0;f<filter.length(); f++){
+	  if(dispcheck.contains(filter[f])){ bad = true; break;}
+        }
+    }
+    
     //See if it failed any checks
     if(bad){ uList.removeAt(i); i--; }
     else{
@@ -570,7 +578,7 @@ void Backend::readSystemUsers(){
       homedirList << uList[i].section(":",5,5).simplified();
       usershellList << uList[i].section(":",6,6).simplified();
     }
-   }
+   } //end loop over uList
   }else{ 
     //Get all the users from the file "/etc/passwd"
     QFile PWF("/etc/passwd");
