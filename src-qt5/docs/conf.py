@@ -20,6 +20,10 @@ import sys, os
 
 # -- General configuration -----------------------------------------------------
 
+# If true, Sphinx will warn about all references where the target cannot be
+# found. Default is False.
+nitpicky = True
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
@@ -38,10 +42,10 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = u'2011-2015, iXsystems'
+copyright = '2011-2015, iXsystems'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -65,7 +69,7 @@ release = '10.1.2'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 project = 'PC-BSD User Guide'
-master_doc = 'pcbsd'
+master_doc = 'pcbsd_handbook'
 exclude_patterns = ['_build _static']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
@@ -87,6 +91,8 @@ pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
+
+pcbsd = 'PC-BSD&#x000AE;'
 
 
 # -- Options for HTML output ---------------------------------------------------
@@ -147,7 +153,7 @@ html_static_path = ['_static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
