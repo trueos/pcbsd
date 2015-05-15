@@ -87,7 +87,7 @@ QStringList Backend::getPkgInfo(QString port){
   //Get the general info
   QStringList out = Backend::getCmdOutput(cmd);//.join("\n").split("::::");
   for(int i=0; i<5; i++){
-    if(i < out.length()){ info << out[i]; }
+    if(i < out.length()){ info << out[i].replace("<br>","\n"); }
     else{ info << ""; }
   }
   //Now get the licence
