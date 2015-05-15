@@ -68,7 +68,7 @@ bool SysStatus::changedFrom(SysStatus old){
   else if(updating){ return false; } //both updating - no real difference
   else if(sys != old.sys){ return true; }
   else{
-    return ((pkg || sec || jail) == (old.pkg || old.sec || old.jail)); //if update availability changed (don't care which type)
+    return ((pkg || sec || jail) != (old.pkg || old.sec || old.jail)); //if update availability changed (don't care which type)
   }
 }
 	
