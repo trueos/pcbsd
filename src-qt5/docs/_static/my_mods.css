@@ -1,0 +1,19 @@
+div.bodywrapper {
+    margin: 30 0 0 {{ theme_sidebarwidth|toint }}px!important;
+}
+
+div.related {
+    width: 100%;
+    font-size: 90%;
+position:fixed!important; //adjustment
+   z-index: 40!important; //adjustment
+}
+
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    background-color: red!important;
+}
