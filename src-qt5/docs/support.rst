@@ -120,7 +120,7 @@ If you need help with a translation or using the Pootle system, you can ask for 
 Documentation Translation
 -------------------------
 
-Beginning with version 10.1.2, the source for the PC-BSD® Users Handbook has moved from the wiki and is now stored in the
+Beginning with version |version|, the source for the PC-BSD® Users Handbook has moved from the wiki and is now stored in the
 `PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the documentation and any translations can be built
 with the operating system and updates to this documentation can be automatically installed when the system is updated using :ref:`Update Manager`. This has the
 added advantage of making sure that the installed version of the Handbook always matches the operating system version and that, as new features are added,
@@ -131,7 +131,7 @@ At this time, the PC-BSD® build server has been configured to automatically bui
 :file:`Makefiles` will be tested and added to provide the documentation in other formats, such as single HTML, PDF, and EPUB. Instructions for building your own
 HTML or PDF version can be found in this `README.md <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_.
 
-Once 10.1.2 is released, the PC-BSD® developers will integrate the documentation source files into the Pootle translation system so that the PC-BSD® documentation
+Once |version| is released, the PC-BSD® developers will integrate the documentation source files into the Pootle translation system so that the PC-BSD® documentation
 can be translated using a web browser. Once the doc Pootle system is ready for translators to use, an announcement will be made on the PC-BSD® blog and to the
 translations mailing list and translations forum so that translators can start translating the documentation into their native language. 
 

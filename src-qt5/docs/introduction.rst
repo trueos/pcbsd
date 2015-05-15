@@ -1,12 +1,14 @@
+.. include global.rst
+
 **Preface** 
 
 Written by users of the PC-BSD® operating system.
 
-Version 10.1.2
+Version |version|
 
 Copyright © 2005 - 2015 The PC-BSD® Project.
 
-Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® 10.1.2. This Handbook is a work in progress and relies on the contributions of
+Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of
 many individuals. If you are interested in assisting with the Handbook, refer to the documentation
 `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will
 find other PC-BSD® users.
@@ -164,12 +166,12 @@ PC-BSD® provides the following features:
   `iXsystems <https://www.ixsystems.com/ix/support/software/pc-bsd-support>`_.
 
 .. index:: What's New
-.. _What's New in 10.1.2:
+.. _What's New in |version|:
 
-What's New in 10.1.2
-====================
+What's New in |version|
+=======================
 
-The following features or enhancements were introduced for PC-BSD® 10.1.2:
+The following features or enhancements were introduced for PC-BSD® |version|:
 
 * PC-BSD® packages are now built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
 

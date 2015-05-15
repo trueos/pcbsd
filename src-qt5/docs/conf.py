@@ -20,6 +20,10 @@ import sys, os
 
 # -- General configuration -----------------------------------------------------
 
+# If true, Sphinx will warn about all references where the target cannot be
+# found. Default is False.
+nitpicky = True
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
@@ -38,10 +42,10 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = u'2011-2015, iXsystems'
+copyright = '2011-2015, iXsystems'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -64,9 +68,9 @@ release = '10.1.2'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-project = u'PC-BSD User Guide'
-master_doc = 'pcbsd'
-exclude_patterns = ['_build']
+project = 'PC-BSD User Guide'
+master_doc = 'pcbsd_handbook'
+exclude_patterns = ['_build _static']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -88,6 +92,8 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+pcbsd = 'PC-BSD&#x000AE;'
+
 
 # -- Options for HTML output ---------------------------------------------------
 
@@ -101,26 +107,28 @@ pygments_style = 'sphinx'
 # documentation.
 
 html_theme_options = {
-    "stickysidebar": "true"
-}
-
-#html_theme_options = {
+    "stickysidebar": "true",
+    "rightsidebar": "false",
 #    "pagewidth" : "60em",
 #    "documentwidth" : "45em",
-#    "sidebarwidth" : "15em",
+    "sidebarwidth" : "240",
 #    "linkcolor" : "#b90009",
 #   "headerlinkcolor" : "#b90009",
-#    "headerbg" : "#A3C2C2"
-#    #"bgcolor"
-#    #"headercolor1"
-#}
+    "headbgcolor" : "#fff",
+    "relbarbgcolor" : "#696969",
+    "sidebarbgcolor" : "#696969",
+    "bgcolor" : "#fff"
+#    "headercolor1"
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'PC-BSD User Guide 10.1.2'
+#html_title = 'PC-BSD User Guide 10.1.2'
+# Below uses prior defined variables to construct commented title above.
+html_title = project + " " + release
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -145,7 +153,7 @@ html_static_path = ['_static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
@@ -181,7 +189,7 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'FreeNASdoc'
+htmlhelp_basename = 'PC-BSDdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
