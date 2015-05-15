@@ -99,4 +99,4 @@ symlnk.extra=ln -fs /usr/local/bin/pc-softweb $(INSTALL_ROOT)/usr/local/bin/appc
 desktop.path=/usr/local/share/applications/
 desktop.files=softmanager.desktop
 
-INSTALLS += target icons symlnk
+INSTALLS += target icons symlnk desktop
