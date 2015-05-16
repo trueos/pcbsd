@@ -157,6 +157,10 @@ html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
+html_sidebars = {
+   '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
+   'using/windows': ['windowssidebar.html', 'searchbox.html'],
+}  # This is a test, but may keep it.
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
