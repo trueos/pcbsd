@@ -13,6 +13,298 @@
 
 /* -- page layout ----------------------------------------------------------- */
 
+# the oldstyle css (from html doc 9.2)
+/* ############# */
+  .wip {
+  text-align: right;
+  font-size:x-small;
+         }
+  table.spiffy_table, table.simple_table {
+        border: 2px solid rgb(186, 186, 186);
+        border-collapse: collapse;
+        }
+
+  .spiffy_table tr:nth-child(odd) > td {
+        background-color:#ECECEC;
+        }
+
+  .spiffy_table tr:nth-child(even) > td {
+        background-color:#FFFFFF;
+        }
+
+  .spiffy_table th {
+        background-color:#FFFFD9;
+        border-color: #BABFA3;
+        border-style: solid;
+        border-width: 0 1px 2px 1px;
+        font-weight: bold;
+        padding: 5px;
+        text-align: center;
+        }
+
+  .simple_table th {
+        border-color: rgb(186, 186, 186);
+        border-style: solid;
+        border-width: 0 1px 2px 1px;
+        font-weight: bold;
+        padding: 5px;
+        text-align: center;
+        }
+
+  .spiffy_table caption, .simple_table caption {
+        font-weight: bold;
+        text-align: left;
+        }
+
+  .spiffy_table td, .simple_table td {
+        padding: 5px;
+        border-style: solid;
+        border-color:#BABFA3;
+        border-width: 1px 1px 1px 1px;
+        }
+
+  .redtxt {
+        background: inherit;
+        color:rgb(255,0,0);
+        }
+
+  .highlight {
+        background: yellow;
+        color: #000000;
+        }
+
+  .orangelight {
+        background: #8B5A00;
+        color: #FFFFFF;
+        }
+
+  .redlight {
+        background: crimson;
+        color: #FFFFFF;
+        }
+
+  .smalltext {
+        font-size:small;
+        }
+
+  .strike {
+        text-decoration:line-through;
+        }
+
+  .keysymbol {
+        font-size: x-small;
+        vertical-align:super;
+        }
+
+  .charmono {
+        font-family: Courier New, Courier, monospace;
+        }
+
+  .traverse {
+    background-color:#E2E2E2;
+    color: inherit;
+    display: inline-block;
+    font-size: 97%;
+    vertical-align:10%;
+    padding-right:3px;
+    padding-left:3px;
+    border-radius:5px;
+    border: thin solid #000000;
+    }
+
+  .boxed {
+    display: inline-block;
+    font-size: 97%;
+    font-weight:800;
+    vertical-align:20%;
+    line-height:82%;
+    border: thin solid #000000;
+    }
+
+  .rarr {
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 150%;
+    vertical-align:-9%;
+    letter-spacing:-1px;
+    }
+
+  .boldtxt {
+        font-weight:bold;
+        width: 97%;
+        }
+
+  .bolditalictxt {
+        font-weight:bold;
+        font-style:italic;
+        }
+
+  .italictxt {
+        font-style:italic;
+        }
+  .txtbox {
+        display: inline-block;
+        align: center;
+        position:relative;
+        margin: 0px 0px 8px;
+        width:auto;
+        }
+
+  .txtbox_box {
+        font-family: Courier New, Courier, monospace;
+        font-size: 98%;
+        border: thin dashed #a1a1a1;
+        background: #f6f6f6;
+        text-align:left;
+        white-space: pre;
+        display: inline-block;
+        position:relative;
+        margin-right: 6px;
+        padding:0px 5px 0px 5px;
+        }
+
+  .txtbox_txt {
+        display: inline-block;
+        font-size: 98%;
+        position:relative;
+        padding:0px 5px 0px 5px;
+        }
+
+  .refheading, .grouplist {
+        border-bottom: thin solid #000000;
+        font-size: 130%;
+        }
+  dt {
+    font-family: Courier New, Courier, monospace;
+    color: inherit;
+    background-color:#DFDFDF;
+    display: inline-block;
+    }
+
+  h1 .regmk,
+  h2 .regmk,
+  h3 .regmk,
+  h4 .regmk {
+    font-size:50%;
+    vertical-align:super;
+    }
+
+  .bg9p2 {
+       background-repeat:no-repeat;
+       background-image:url('http://wiki.pcbsd.org/images/c/cb/Wallpaper9.2-1280x1024.png');
+       }
+  .bg10p0 {
+       background-repeat:no-repeat;
+       background-image:url('http://wiki.pcbsd.org/images/4/46/Wallpaper10.0-1280x1024.png');
+       }
+  .bgcenter {
+       background-position:center center;
+       }
+  .bgcover {
+       background-size:cover;
+       }
+
+
+  .ltborder {
+  border-style:solid;
+  border-width: thin;
+  border-color:Gainsboro;
+  }
+
+  .ltframe {
+  border-spacing:10px 50px;
+  border-style:solid;
+  border-width: thick;
+  border-color:DarkGray;
+  padding: 5px;
+  }
+
+  // .framed {
+  //-webkit-border-image:url(borderimg.png) 30 30 stretch; /* Safari 5 */
+  //-o-border-image:url(borderimg.png) 30 30 stretch; /* Opera */
+  //border-image:url(borderimg.png) 30 30 stretch;
+  //padding: 5px;
+  //width: 665px;
+  //}
+
+  .header {                                                                                                  
+  position: fixed;                                                                                           
+  top: 0;                                                                                                    
+  height: 45px;                                                                                               
+  left: 0;                                                                                                 
+  right: 0;                                                                                                    
+  z-index: -2;                                                                                                 
+  background: dimgrey;                                                                                          
+  }                                                                                                             
+                                                                                                              
+  .footer {                                                                                                     
+  position: fixed;                                                                                              
+  bottom: 0;                                                                                                    
+  width: 100%;                                                                                                  
+  left: 0;                                                                                                      
+  height: 27px;
+  z-index: -2; 
+  background: dimgrey; 
+  }
+
+  .coverimage {
+  position: relative;
+  top: 90px;
+  bottom: 0;
+  right: 0;
+  }
+
+  .arrowlogo {
+  position: relative;
+  left: 70px;
+  }
+
+  .watermark {
+  position: relative;
+  top: 150px;
+  }
+
+  .overlaptext {
+  position: absolute;
+  top: 54%;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  z-axis: -1;
+  }
+
+div.document {
+    background-color: {{ theme_sidebarbgcolor }};
+  position: fixed;
+  left: {{ theme_sidebarwidth|toint + 8}}px;            /* this should be at least 8px wider than .sidebarmenu width */
+  top: 27px;
+  bottom: 27px;
+  right: 8px;
+  z-index: -1;
+  background: white;
+  }
+
+div.bodywrapper {
+#    margin: -3px 0 0 {{ theme_sidebarwidth|toint }}px;
+  position: relative;
+  background: inherit;
+  margin-right: 8px;
+  }
+
+div.documentwrapper {
+    float: left;
+    width: 100%;
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  margin-left: 8px;
+  left: 0; 
+  right: 0; 
+  z-index: 1; 
+  overflow: scroll; 
+  background: inherit;
+  }
+
 body {
     font-family: {{ theme_bodyfont }};
     font-size: 100%;
@@ -20,20 +312,23 @@ body {
     color: #000;
     margin: 0;
     padding: 0;
-}
+  height: 0;
+  width: 0;
+  background: none; 
+  color: black;
+  }
 
-div.document {
-    background-color: {{ theme_sidebarbgcolor }};
-}
-
-div.documentwrapper {
-    float: left;
-    width: 100%;
-}
-
-div.bodywrapper {
-    margin: -3px 0 0 {{ theme_sidebarwidth|toint }}px;
-}
+  div.sphinxsidebar {
+  position: fixed; 
+  top: 8;
+  bottom: 45;
+  padding-left: 5px;
+  background: dimgrey;
+  width: {{ theme_sidebarwidth|toint }}px;
+  z-index: 1;
+  left: 0; 
+  right: 0;
+  }
 
 div.body {
     background-color: {{ theme_bgcolor }};
@@ -54,7 +349,7 @@ div.bodywrapper {
 div.footer {
     color: {{ theme_footertextcolor }};
     width: 100%;
-    padding: 9px 0 9px 0;
+ #   padding: 9px 0 9px 0;
     text-align: center;
     font-size: 75%;
 }
@@ -100,7 +395,7 @@ div.related {
 }
 
 div.documentwrapper {
-    margin-top: 30px;
+#    margin-top: 30px;
 }
 {%- endif %}
 
@@ -311,3 +606,4 @@ div.viewcode-block:target {
     border-top: 1px solid #ac9;
     border-bottom: 1px solid #ac9;
 }
+
