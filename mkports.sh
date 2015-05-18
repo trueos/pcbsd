@@ -99,7 +99,7 @@ do
   # Make the dist files
   rm ${distdir}/${dfile}-* 2>/dev/null
   echo "Creating $tdir dist file for version: $REV"
-  tar cvJf ${distdir}/${dfile}-${REV}.tar.xz $tOps 2>/dev/null >/dev/null
+  tar cvJf ${distdir}/${dfile}-${REV}.tar.xz --exclude .git $tOps 2>/dev/null >/dev/null
   if [ $? -ne 0 ] ; then
      echo "Error creating distfile..."
      exit 1
