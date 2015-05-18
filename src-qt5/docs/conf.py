@@ -69,7 +69,7 @@ release = '10.1.2'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 project = 'PC-BSD User Guide'
-master_doc = 'pcbsd_handbook'
+master_doc = 'pcbsd'
 exclude_patterns = ['_build _static']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
