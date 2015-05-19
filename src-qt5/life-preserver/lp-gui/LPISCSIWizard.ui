@@ -49,7 +49,39 @@
     <item>
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Required:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;A Life Preserver configuration file for the remote system. (*.lps) &lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;If you do not have this file available, please contact the administrator(s) of the backup server and request one. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>A Life Preserver configuration file for the remote system is required. (*.lps)</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_19">
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>If you do not have this file available, please contact the administrator(s) of the backup server and request one.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -194,7 +226,7 @@
     <item>
      <widget class="QLabel" name="label_12">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If these settings don't look right, please contact the administrator of the backup server.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>If these settings don't look right, please contact the administrator of the backup server.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -335,18 +367,28 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>78</height>
+        <height>130</height>
        </size>
       </property>
      </spacer>
     </item>
     <item>
      <widget class="QLabel" name="label_17">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Please Wait&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Enabling off-site backup....&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>Please Wait.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -365,6 +407,32 @@
        <size>
         <width>20</width>
         <height>77</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_20">
+      <property name="text">
+       <string>Enabling off-site backup....</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
        </size>
       </property>
      </spacer>
@@ -400,7 +468,7 @@
     <item>
      <widget class="QLabel" name="label_13">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This key file is &lt;span style=&quot; text-decoration: underline;&quot;&gt;required&lt;/span&gt; to access/decrypt your saved data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>This key file is required to access/decrypt your saved data</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -525,8 +593,44 @@
     </item>
     <item>
      <widget class="QLabel" name="label_15">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Make sure to save this key file to a safe location off-disk (like a USB stick you keep locked up). The administrator(s) of the backup server are &lt;span style=&quot; font-style:italic;&quot;&gt;not&lt;/span&gt; responsible for a lost key.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>WARNING</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_21">
+      <property name="text">
+       <string>Make sure to save this key file to a safe location off-disk (like a USB stick you keep locked up). The administrator(s) of the backup server are not responsible for a lost key.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
