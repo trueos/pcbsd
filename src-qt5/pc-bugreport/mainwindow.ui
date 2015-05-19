@@ -157,7 +157,7 @@
          <x>0</x>
          <y>0</y>
          <width>596</width>
-         <height>329</height>
+         <height>339</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -191,7 +191,7 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -226,7 +226,7 @@
          <x>0</x>
          <y>0</y>
          <width>596</width>
-         <height>329</height>
+         <height>339</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -299,7 +299,7 @@ Visit the following web page to subscribe to or read the archives of this list</
          <x>0</x>
          <y>0</y>
          <width>596</width>
-         <height>329</height>
+         <height>339</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -438,7 +438,7 @@ Visit the following web page to subscribe to or read the archives of this list</
          <x>0</x>
          <y>0</y>
          <width>596</width>
-         <height>329</height>
+         <height>339</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -513,8 +513,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>581</width>
-         <height>339</height>
+         <width>98</width>
+         <height>417</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -615,8 +615,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>581</width>
-         <height>339</height>
+         <width>215</width>
+         <height>337</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -714,8 +714,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>581</width>
-         <height>339</height>
+         <width>98</width>
+         <height>387</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -796,8 +796,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>581</width>
-         <height>352</height>
+         <width>380</width>
+         <height>330</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_25">
@@ -875,8 +875,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>581</width>
-         <height>352</height>
+         <width>299</width>
+         <height>330</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_27">
@@ -954,8 +954,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>596</width>
-         <height>329</height>
+         <width>448</width>
+         <height>63</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -1020,8 +1020,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>596</width>
-         <height>329</height>
+         <width>280</width>
+         <height>49</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -1112,8 +1112,8 @@ Visit the following web page to subscribe to or read the archives of this list</
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>596</width>
-         <height>329</height>
+         <width>220</width>
+         <height>321</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_23">
