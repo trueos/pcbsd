@@ -69,8 +69,8 @@ bool Backend::writeFile(QString filepath, QStringList contents){
 QStringList Backend::getPkgList(){
   //Generate an alphabetized list of all available packages/ports on the repo
   //format: <category>/<pkgname> (port format)
-  QString cmd = "pkg rquery -aU %o";
-  QStringList result = getCmdOutput(cmd);
+  QString cmd = "syscache \"pkg #system remotelist\""; //"pkg rquery -aU %o";
+  QStringList result = getCmdOutput(cmd).join("").split(", ");
   result.sort();
   result.removeAll(""); //get rid of empty items
   return result;
@@ -79,26 +79,28 @@ QStringList Backend::getPkgList(){
 QStringList Backend::getPkgInfo(QString port){
   //Function to query the package repository and pull down information about a particular package
   //Output: <name>, <website>, <comment>, <description>, <license>
-  QString cmd = "pkg rquery \"%n::::%w::::%c::::%e\" -e %o "+port; //general info
-  QString cmd2 = "pkg rquery %L -e %o "+port; //License info
+  QString tmp = " \"pkg #system remote "+port+" %1\"";
+  QString cmd = "syscache "+tmp.arg("name")+tmp.arg("website")+tmp.arg("comment")+tmp.arg("description")+tmp.arg("license");
+  //QString cmd = "pkg rquery \"%n::::%w::::%c::::%e\" -e %o "+port; //general info
+  //QString cmd2 = "pkg rquery %L -e %o "+port; //License info
   QStringList info;
   //Get the general info
-  QStringList out = Backend::getCmdOutput(cmd).join("\n").split("::::");
-  for(int i=0; i<4; i++){
-    if(i < out.length()){ info << out[i]; }
+  QStringList out = Backend::getCmdOutput(cmd);//.join("\n").split("::::");
+  for(int i=0; i<5; i++){
+    if(i < out.length()){ info << out[i].replace("<br>","\n"); }
     else{ info << ""; }
   }
   //Now get the licence
-  QString lic = Backend::getCmdOutput(cmd2).join(" ");
-  info << lic;
+  //QString lic = Backend::getCmdOutput(cmd2).join(" ");
+  //info << lic;
   return info;
 }
 
 QStringList Backend::getPkgOpts(QString port){
   //Function to query the package repository and pull down information about a particular package
   //Output: <option>=<on/off>
-  QString cmd = "pkg rquery -U \"%Ok=%Ov\" -e %o "+port;
-  QStringList out = Backend::getCmdOutput(cmd);
+  QString cmd = "syscache \"pkg #system remote "+port+" options\"";//"pkg rquery -U \"%Ok=%Ov\" -e %o "+port;
+  QStringList out = Backend::getCmdOutput(cmd).join("").split(", ");
   out.removeAll(""); //get rid of empty items
   return out;
 }
@@ -106,7 +108,8 @@ QStringList Backend::getPkgOpts(QString port){
 QStringList Backend::getPkgPList(QString port){
   QStringList out;
   //Check if the pkg is already installed
-  out = Backend::getCmdOutput("pkg query %Fp -e %o "+port);
+  QString cmd = "syscache \"pkg #system local "+port+" files\"";
+  out = Backend::getCmdOutput(cmd).join("").split(", "); //"pkg query %Fp -e %o "+port);
   out.removeAll("");
   //qDebug() << "Local Pkg plist:" << out;
   //No local copy - need to download the pkg as user

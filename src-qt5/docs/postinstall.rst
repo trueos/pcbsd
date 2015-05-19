@@ -180,7 +180,7 @@ The "User Details" tab is used to create a login user. This screen requires you 
 * **Specify UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
   cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
   
-A new feature in 10.1.2 is the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
+A new feature in |version| is the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
 or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use :ref:`PersonaCrypt`, their username
 will only appear in the login menu if the removable media associated with that PC-BSD® system is inserted and they must input the password associated with the
 removable device in order to login.
@@ -237,9 +237,9 @@ If you would like to set the default wireless connection, highlight the network 
 to input it and will indicate the type of security used on the network. If the network you wish to connect to does not appear, try clicking the "Rescan" button. If you are
 unable to connect, or you wish to configure the connection at a later time, refer to the instructions in :ref:`Network Configuration`.
 
-When finished, click the "Next" button. The screen in Figure 4.8a indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
+When finished, click the "Next" button. The screen in Figure 4.7b indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
 
-**Figure 4.8a: Setup is Complete** 
+**Figure 4.7b: Setup is Complete** 
 
 .. image:: images/config6.png
 
@@ -249,9 +249,9 @@ When finished, click the "Next" button. The screen in Figure 4.8a indicates that
 Logging In
 ==========
 
-Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen. An example is seen in Figure 4.9a.
+Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen. An example is seen in Figure 4.8a.
 
-**Figure 4.9a: PC-BSD® Login Screen** 
+**Figure 4.8a: PC-BSD® Login Screen** 
 
 .. image:: images/login1.png
 
@@ -268,10 +268,10 @@ the following:
 * **desktop:** if you installed any desktops, use the drop-down menu to select the desktop to log into. If you did not install any desktops, :ref:`Fluxbox`
   will be the only available desktop. You can install or uninstall desktops using :ref:`AppCafe®`.
 
-.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in Figure 4.9b, this will
+.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in Figure 4.8b, this will
    add an extra field to the login screen so that you can input the password associated with the PersonaCrypt device.
 
-**Figure 4.9b: PC-BSD® PersonaCrypt Login Screen** 
+**Figure 4.8b: PC-BSD® PersonaCrypt Login Screen** 
 
 .. image:: images/login5.png
 
@@ -287,9 +287,9 @@ Once you have made your selections, input the password associated with the selec
 
 .. index:: welcome
 
-The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.9c. 
+The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.8c. 
 
-**Figure 4.9c: PC-BSD® Getting Started Screen** 
+**Figure 4.8c: PC-BSD® Getting Started Screen** 
 
 .. image:: images/welcome1.png
 

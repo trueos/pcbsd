@@ -21,7 +21,7 @@ For the desktops that support desktop icons, three PC-BSD® icons will appear on
 
 .. image:: images/pcbsd-handbook.png
 
-**PC-BSD® Handbook:** the HTML version of the PC-BSD® 10.1.2 Users Handbook (this document).
+**PC-BSD® Handbook:** the HTML version of the PC-BSD® |version| Users Handbook (this document).
 
 Even more desktops are available for installation from :ref:`AppCafe®`. These can be browsed in the "X11 - Window Managers" category. Note that if the
 desktop is not described in this chapter, it will not automatically be added to the login menu.
@@ -35,7 +35,7 @@ Awesome
 The `awesome window manager <http://awesome.naquadah.org/>`_ is highly configurable and primarily targeted at power users who prefer to use the command line
 within their graphical environment.
 
-Figure 6.1a shows a screenshot of Awesome running on PC-BSD® 10.1.2. The user has right-clicked the desktop in order to launch the awesome application
+Figure 6.1a shows a screenshot of Awesome running on PC-BSD® |version|. The user has right-clicked the desktop in order to launch the awesome application
 manager.
 
 **Figure 6.1a: Awesome Window Manager on PC-BSD®** 
@@ -58,7 +58,7 @@ Cinnamon
 .. note:: Cinnamon requires 3D acceleration. If your video driver does not support this, you should not install Cinnamon.
 
 The `Cinnamon desktop environment <http://cinnamon.linuxmint.com/>`_ is developed by the Linux Mint project. Figure 6.2a shows a screenshot of Cinnamon on a
-PC-BSD® 10.1.2 system with the applications "Menu" open.
+PC-BSD® |version| system with the applications "Menu" open.
 
 **Figure 6.2a: Cinnamon Desktop on a PC-BSD® System**
 
@@ -141,14 +141,14 @@ the login menu as "GNOME".
 .. note:: GNOME3 requires 3D acceleration. If your video driver does not support this, you should use GNOME2 instead.
 
 `GNOME3 <http://www.gnome.org/>`_ is a popular desktop environment that provides many built-in utilities. Figure 6.5a shows a screenshot of GNOME3 on a
-PC-BSD® 10.1.2 system. To access the icons shown in this screen, click "Activities" then the 9-dot icon at the bottom of the left-hand panel. Alternately, if
+PC-BSD® |version| system. To access the icons shown in this screen, click "Activities" then the 9-dot icon at the bottom of the left-hand panel. Alternately, if
 you know the name of an application to open, click "Activities" and type the application's name into the search bar.
 
 **Figure 6.5a: GNOME3 Desktop on a PC-BSD® System**
 
 .. image:: images/gnome1.png
 
-Figure 6.5b shows a screenshot of GNOME2 on a PC-BSD® 10.1.2 system with the "Applications" menu open.
+Figure 6.5b shows a screenshot of GNOME2 on a PC-BSD® |version| system with the "Applications" menu open.
 
 **Figure 6.5b: GNOME2 Desktop on a PC-BSD® System**
 
@@ -189,7 +189,7 @@ i3
 The `i3 tiling window manager <http://i3wm.org/>`_ is extremely lightweight and designed for users who prefer to work from the command line. Keyboard shortcuts are
 provided to open xterms in order to start applications from the command line.
 
-Figure 6.6a shows a screenshot of i3 running on PC-BSD® 10.1.2. 
+Figure 6.6a shows a screenshot of i3 running on PC-BSD® |version|. 
 
 **Figure 6.6a: i3 Window Manager on PC-BSD®** 
 
@@ -224,7 +224,7 @@ KDE4
 ====
 
 The `KDE <http://kde.org/>`_ desktop environment provides many features and applications. However, it is hardware intensive and may run slowly on a computer
-with an older processor or a small amount of RAM. Figure 6.8a shows a screenshot of KDE4 running on PC-BSD® 10.1.2 with the "Applications" menu open.
+with an older processor or a small amount of RAM. Figure 6.8a shows a screenshot of KDE4 running on PC-BSD® |version| with the "Applications" menu open.
 
 **Figure 6.8a: Applications Menu of KDE4**
 
@@ -278,7 +278,7 @@ Lumina's features include:
 
 * Simple access to operating system-specific functionality such as screen brightness, audio volume, and battery status.
 
-Figure 6.9a shows a screenshot of Lumina on a PC-BSD® 10.1.2 system with the "User" button clicked.
+Figure 6.9a shows a screenshot of Lumina on a PC-BSD® |version| system with the "User" button clicked.
 
 **Figure 6.9a: Lumina Desktop**
 
@@ -686,7 +686,7 @@ MATE
 
 The `MATE desktop <http://mate-desktop.org/>`_ is a fork of the popular, but now unmaintained, GNOME2 desktop environment. MATE is under active development to
 add support for new technologies while preserving the traditional GNOME desktop experience and its many built-in utilities. Figure 6.11a shows a screenshot of
-MATE on a PC-BSD® 10.1.2 system with the "Applications" menu open.
+MATE on a PC-BSD® |version| system with the "Applications" menu open.
 
 **Figure 6.11a: MATE Desktop on a PC-BSD® System**
 
@@ -918,9 +918,7 @@ XFCE Plugins
 -------------
 
 XFCE supports many plugins which provide additional applications that are separate from the official XFCE distribution. You can browse for plugins and read
-descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_. If you find a plugin that is not available within
-:ref:`AppCafe®`, this `README <https://forums.pcbsd.org/thread-12244.html>`_ explains how to determine if a FreeBSD port is available, how to request a
-PBI if a port is available, and how to request a port if one does not already exist.
+descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_.
 
 After installing a plugin, go to :menuselection:`Settings --> Panel --> Items` and click the "+" button in the right column to see the "Add New Items" screen
 shown in Figure 6.17e. 

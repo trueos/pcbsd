@@ -35,3 +35,17 @@ src-sh/
 
 src-webui/
   All the code for the AppCafe WEB interface.
+
+
+Contacting Us
+---------------------------------
+
+IRC (FreeNode)
+#pcbsd-dev (Developer questions / talk)
+#pcbsd (General user information)
+
+Mailing Lists
+http://lists.pcbsd.org
+
+Bug Tracker
+http://bugs.pcbsd.org

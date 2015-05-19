@@ -243,7 +243,13 @@ get_autosize()
   done <${CFGF}
 
   # Pad the size a bit
-  _aSize=`expr $_aSize - 2`
+  _aSize=`expr $_aSize - 5`
+
+  # If installing to UEFI, save 100MB for UEFI partition
+  BOOTMODE=`kenv grub.platform`
+  if [ "$BOOTMODE" = "efi" ]; then
+    _aSize=`expr $_aSize - 100`
+  fi
 
   VAL="$_aSize"
   export VAL

@@ -1,3 +1,4 @@
+.. include global.rst
 
 PC-BSD User Guide |release|
 ============================
@@ -24,10 +25,4 @@ PC-BSD User Guide |release|
    =====
 
    * :ref:`genindex`
-
-
-
-
-
-
 

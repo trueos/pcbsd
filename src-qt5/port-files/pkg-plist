@@ -87,7 +87,6 @@ share/PCDM/themes/default/system.png
 share/PCDM/themes/default/virtualkeyboard.png
 share/applications/EasyPBI.desktop
 share/applications/about.desktop
-share/applications/appcafe.desktop
 share/applications/fwmanager.desktop
 share/applications/handbook.desktop
 share/applications/pc-dmconf.desktop
@@ -98,8 +97,8 @@ share/applications/pcbugreport.desktop
 share/applications/pccontrol.desktop
 share/applications/pc-pdfviewer.desktop
 share/applications/pcsyskeyboard.desktop
-share/applications/softmanager.desktop
 share/applications/warden.desktop
+share/applications/softmanager.desktop
 share/apps/ksplash/Themes/pcbsd10/1024x768/background.png
 share/apps/ksplash/Themes/pcbsd10/1280x1024/background.png
 share/apps/ksplash/Themes/pcbsd10/1280x800/background.png

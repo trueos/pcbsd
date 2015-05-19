@@ -394,19 +394,14 @@ Due to its schedule, the automatic updater will never check for new updates more
 Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
 will appear, as seen in the example in Figure 7.3g. If no updates are available, of if the system is currently updating, this tab will not appear.
 
-**Figure 7.3g: System Updates are Available**
+**Figure 7.3g: Updates are Available**
 
 .. image:: images/update12.png
 
-In this example, the system has been configured to automatically update "Security & Packages" and a security update is available. Click the "Start Updates"
-button to manually start the update. When prompted, reboot so that the system can boot into the newly patched operating system.
+In this example, a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
+boot into the newly patched operating system.
 
-Figure 7.3h shown an example of a system that has package updates available. The user has clicked the "View Package Updates" box to see which packages will be
-upgraded.
-
-**Figure 7.3h: Package Updates are Available**
-
-.. image:: images/update13.png
+When package updates are available a "View Package Updates" box can be clicked to see which packages will be upgraded.
 
 .. note:: how often package updates are available depends upon the "Repository Settings" set in :menuselection:`AppCafe® --> Configure`. The default setting
    of "Production" will only provide package updates every 3 months whereas a setting of "Edge" will provide package updates as soon as a new version is
@@ -597,12 +592,12 @@ The boot loader and default ZFS layout has changed to support :ref:`Boot Manager
 users should backup their important data to another system or external drive and then perform a new installation which will create the required ZFS layout.
 
 .. index:: updates
-.. _Upgrading from 10.x to 10.1.2:
+.. _Upgrading from 10.x to |version|:
 
-Upgrading from 10.x to 10.1.2
------------------------------
+Upgrading from 10.x to |version|
+--------------------------------
 
-Upgrading from any 10.x version to 10.1.2 is the same as applying any package update. This means that the update to 10.1.2 will either appear in Update
+Upgrading from any 10.x version to |version| is the same as applying any package update. This means that the update to |version| will either appear in Update
 Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
 
 .. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
