@@ -17,6 +17,7 @@
 QStringList displaynameList,usernameList,homedirList,usershellList,instXNameList,instXBinList,instXCommentList,instXIconList,instXDEList;
 QString logFile;
 QString saveX,saveUsername, lastUser, lastDE;
+bool Over1K = true;
 
 QStringList Backend::getAvailableDesktops(){  
   if(instXNameList.isEmpty()){ loadXSessionsData(); }
@@ -51,6 +52,12 @@ QString Backend::getDesktopBinary(QString xName){
   int index = instXNameList.indexOf(xName);
   if(index == -1){ Backend::log("PCDM: Invalid Desktop Name: " + xName); return ""; }
   return instXBinList[index];
+}
+
+void Backend::allowUidUnder1K(bool allow){
+  Over1K = !allow;
+  //Make sure to re0load the user list if necessary
+  readSystemUsers();
 }
 
 QStringList Backend::getSystemUsers(bool realnames){
@@ -564,8 +571,12 @@ void Backend::readSystemUsers(){
     else if(uList[i].section(":",2,2).toInt() < 1){bad=true;} //don't show the root user
     //Check that the name/description does not contain "server"
     else if(uList[i].section(":",2,2).toInt() <= 1000){
-	for(int f=0;f<filter.length(); f++){
-	  if(dispcheck.contains(filter[f])){ bad = true; break;}
+	if(Over1K){ bad = true;} //ignore anything under UID 1001
+	else{
+	  //Apply the special <1000 filters
+	  for(int f=0;f<filter.length(); f++){
+	    if(dispcheck.contains(filter[f])){ bad = true; break;}
+          }
         }
     }
     
