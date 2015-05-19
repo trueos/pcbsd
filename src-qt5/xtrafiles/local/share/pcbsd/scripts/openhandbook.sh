@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pc-webkitviewer -t "PC-BSD Handbook" -i /usr/local/share/pcbsd/icons/pcbsd-handbook.png /usr/local/share/pcbsd/docs/html/pcbsd.html
+pc-webkitviewer -t "PC-BSD Handbook" -i /usr/local/share/pcbsd/icons/pcbsd-handbook.png /usr/local/share/pcbsd/doc/html/pcbsd.html
 
 #hDir="/usr/local/share/pcbsd/doc"
 #hFile="handbook"
