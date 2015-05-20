@@ -69,7 +69,10 @@ get_fs_line_xvars()
        do
           echo $i | grep -q '/dev/'
           if [ $? -ne 0 ] ; then
-             ZFSVARS="$ZFSVARS /dev/${i}"
+	     case $i in
+		disk|file|mirror|raidz1|raidz2|raidz3|spare|log|cache) ZFSVARS="$ZFSVARS ${i}" ;;
+		*) ZFSVARS="$ZFSVARS /dev/${i}" ;;
+	     esac
           else
              ZFSVARS="$ZFSVARS $i"
           fi
