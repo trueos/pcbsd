@@ -1,5 +1,3 @@
-.. include global.rst
-
 **Preface** 
 
 Written by users of the PC-BSD® operating system.
@@ -196,7 +194,7 @@ The following features or enhancements were introduced for PC-BSD® |version|:
   print or provide a print preview of the PDF.
 
 * The source for the PC-BSD® documentation and its translations has been moved from the documentation wiki to the
-  `PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the
+  `PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that
   the documentation and its translations can be built with the operating system and documentation updates can be installed using :ref:`Update Manager`.
 
 * The `zsh shell <http://www.zsh.org/>`_ has been added to the base system and is available for setting as a user's default shell in :ref:`User Manager`.
