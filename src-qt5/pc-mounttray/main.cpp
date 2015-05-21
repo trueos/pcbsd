@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QtGui>
 #include <QTextCodec>
+#include <QSystemTrayIcon>
 
 #include <QProcessEnvironment>
 #include <pcbsd-SingleApplication.h>
@@ -51,9 +52,24 @@ int  main(int argc, char ** argv)
        exit(1);
      }
    }*/
+
+   
    PCSingleApplication a(argc, argv);
    if ( !a.isPrimaryProcess() ){ return 0; }
 
+   bool ready = false;
+   for(int i=0; i<60 && !ready; i++){
+      ready = QSystemTrayIcon::isSystemTrayAvailable();
+      if(!ready){
+	//Pause for 5 seconds
+        sleep(5); //don't worry about stopping event handling - nothing running yet
+      }
+   }
+   if(!ready){
+     qDebug() << "Could not find any available system tray after 5 minutes: exiting....";
+     return 1;
+   }
+   
    QTranslator translator;
    QLocale mylocale;
    QString langCode = mylocale.name();
