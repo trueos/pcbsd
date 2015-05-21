@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# FreeNAS documentation build configuration file, created by
-# sphinx-quickstart on Mon Sep  9 10:34:28 2013.
+# PC-BSD documentation build configuration file 
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -19,10 +18,6 @@ import sys, os
 #sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration -----------------------------------------------------
-
-# If true, Sphinx will warn about all references where the target cannot be
-# found. Default is False.
-nitpicky = True
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
@@ -42,10 +37,10 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-source_encoding = 'utf-8-sig'
+#source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2015, iXsystems'
+copyright = u'2011-2015, iXsystems'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -68,9 +63,9 @@ release = '10.1.2'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-project = 'PC-BSD User Guide'
-master_doc = 'pcbsd_handbook'
-exclude_patterns = ['_build _static']
+project = u'PC-BSD User Guide'
+master_doc = 'pcbsd'
+exclude_patterns = ['_build']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -92,14 +87,12 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-pcbsd = 'PC-BSD&#x000AE;'
-
 
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default'
+html_theme = 'default'
 #html_theme = 'agogo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -157,10 +150,6 @@ html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
-html_sidebars = {
-   '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
-   'using/windows': ['windowssidebar.html', 'searchbox.html'],
-}  # This is a test, but may keep it.
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -200,10 +189,10 @@ htmlhelp_basename = 'PC-BSDdoc'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'letterpaper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
@@ -218,7 +207,7 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-#latex_logo = None
+latex_logo = 'pcbsdlogo.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
@@ -228,7 +217,7 @@ latex_documents = [
 #latex_show_pagerefs = False
 
 # If true, show URL addresses after external links.
-#latex_show_urls = False
+latex_show_urls = True
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
@@ -256,8 +245,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'FreeNAS', u'FreeNAS Documentation',
-   u'iXsystems', 'FreeNAS', 'One line description of project.',
+  ('index', 'PC-BSD', u'PC-BSD Documentation',
+   u'iXsystems', 'PC-BSD', 'a user friendly desktop Operating System based on FreeBSD.',
    'Miscellaneous'),
 ]
 
@@ -268,7 +257,12 @@ texinfo_documents = [
 #texinfo_domain_indices = True
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
-#texinfo_show_urls = 'footnote'
+texinfo_show_urls = 'footnote'
 
 # -- Options for translations
 locale_dirs = ['locale/']
+
+# -- Epilogue additions ----------------------------------------------------------
+rst_epilog = """
+.. |keyword| replace:: text to replace it with
+"""
