@@ -159,7 +159,9 @@ post_extract_setup()
 
     # If the default firewall rules are missing, create them now
     if [ ! -e "/etc/ipfw.rules" ] ; then
-       /usr/local/share/pcbsd/scripts/reset-firewall
+       if [ "`sysrc -n firewall_enable`" = "YES" ] ; then
+         /usr/local/share/pcbsd/scripts/reset-firewall
+       fi
     fi
 
     # Make sure freebsd-update ignores rc.conf.pcbsd
