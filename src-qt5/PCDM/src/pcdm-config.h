@@ -27,6 +27,7 @@ public:
   static QString xSessionsImageDir();
   static QString loginScriptsDir();
   static bool useAutoLogin(); 		//returns whether auto-login is enabled
+  static bool allowUnder1KUsers();
   static QString autoLoginUsername();	//returns username to log into automatically
   static QString autoLoginDesktop();	//return *.desktop file to startup automatically
   static QString autoLoginPassword();	//returns password to log in automatically

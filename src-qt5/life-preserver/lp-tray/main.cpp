@@ -24,6 +24,19 @@ int main( int argc, char ** argv )
       qDebug() << "Life-Preserver Tray must not be started as root!";
       return 1;
     }
+ 
+   bool ready = false;
+   for(int i=0; i<60 && !ready; i++){
+      ready = QSystemTrayIcon::isSystemTrayAvailable();
+      if(!ready){
+	//Pause for 5 seconds
+        sleep(5); //don't worry about stopping event handling - nothing running yet
+      }
+   }
+   if(!ready){
+     qDebug() << "Could not find any available system tray after 5 minutes: exiting....";
+     return 1;
+   }    
     
     QTranslator translator;
     QLocale mylocale;

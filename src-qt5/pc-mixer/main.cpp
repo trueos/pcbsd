@@ -45,6 +45,20 @@ int main( int argc, char ** argv )
       w->show();
       QObject::connect( &a, SIGNAL( InputsAvailable(QStringList) ), w, SLOT( slotSingleInstance() ) );
     }else{
+       //Wait a bit until a system tray is available
+       bool ready = false;
+       for(int i=0; i<60 && !ready; i++){
+         ready = QSystemTrayIcon::isSystemTrayAvailable();
+         if(!ready){
+	   //Pause for 5 seconds
+           sleep(5); //don't worry about stopping event handling - nothing running yet
+         }
+      }
+      if(!ready){
+        qDebug() << "Could not find any available system tray after 5 minutes: exiting....";
+        return 1;
+      }
+	    
       //Start up the tray
       MixerTray *w = new MixerTray(); 
       w->show();

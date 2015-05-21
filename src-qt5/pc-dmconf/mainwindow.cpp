@@ -122,6 +122,11 @@ void MainWindow::initUI()
       ui->checkAllowStealth->setChecked(true);
     }
     
+    ui->checkAllowUnder1K->setChecked(false); //PCDM defaults to false
+    QString allowU1K = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ALLOW_UID_UNDER_1K");
+    if(allowU1K.toLower() == "true"){
+      ui->checkAllowUnder1K->setChecked(true);
+    }   
     //Update the UI appropriately
     itemChanged();
     ui->SaveButton->setEnabled(false); //re-disable the save button because nothing has changed yet
@@ -134,7 +139,7 @@ void MainWindow::initUI()
     connect( ui->checkShowPW, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     connect( ui->checkShowUsers, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     connect( ui->checkAllowStealth, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
-    
+    connect( ui->checkAllowUnder1K, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -231,6 +236,11 @@ void MainWindow::on_SaveButton_clicked()
 	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_STEALTH_LOGIN", "ALLOW_STEALTH_LOGIN=TRUE", -1);
     }else{
 	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_STEALTH_LOGIN", "ALLOW_STEALTH_LOGIN=FALSE", -1);
+    }
+    if(ui->checkAllowUnder1K->isChecked()){
+	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_UID_UNDER_1K", "ALLOW_UID_UNDER_1K=TRUE", -1);
+    }else{
+	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_UID_UNDER_1K", "ALLOW_UID_UNDER_1K=FALSE", -1);
     }
     // Lastly make sure we set perms
     system("chmod 600 " + DM_CONFIG_FILE.toLatin1());

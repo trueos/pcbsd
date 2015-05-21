@@ -18,6 +18,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   QToolBar *tb = this->addToolBar("");
     tb->setMovable(false);
     tb->setFloatable(false);
+    tb->setContextMenuPolicy(Qt::CustomContextMenu); //disable the built-in visibility context menu
     backA = tb->addAction(QIcon(":icons/back.png"), tr("Back"), this, SLOT(GoBack()) );
     forA = tb->addAction(QIcon(":icons/forward.png"), tr("Forward"), this, SLOT(GoForward()) );
     refA = tb->addAction(QIcon(":icons/refresh.png"), tr("Refresh"), this, SLOT(GoRefresh()) );

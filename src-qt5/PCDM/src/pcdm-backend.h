@@ -36,6 +36,7 @@ public:
     static QString getNLDesktopName(QString);
     static QString getDesktopIcon(QString);
     static QString getDesktopBinary(QString);
+    static void allowUidUnder1K(bool allow);
     static QStringList getSystemUsers(bool realnames = true);
     static QString getUsernameFromDisplayname(QString);
     static QString getDisplayNameFromUsername(QString);
