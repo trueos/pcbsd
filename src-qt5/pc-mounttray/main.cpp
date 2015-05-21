@@ -17,6 +17,8 @@
 #include "mountTray.h"
 #include "../config.h"
 
+#include <unistd.h>
+
 bool DEBUG_MODE;
 QString DEVICEDIR;
 //QString MOUNTDIR;
