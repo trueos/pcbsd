@@ -72,6 +72,14 @@ fi
 
 ODIR=`pwd`
 
+echo "Sanity checking the repo..."
+OBJS=`find . | grep '\.o$'`
+if [ -n "$OBJS" ] ; then
+   echo "Found the following .o files, remove them first!"
+   echo $OBJS
+   exit 1
+fi
+
 # Read the list of ports and build them now
 while read pline
 do
