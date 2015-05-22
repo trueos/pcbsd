@@ -17,7 +17,6 @@ RUN_DEPENDS=	syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
 		warden:${PORTSDIR}/sysutils/warden \
 		nginx:${PORTSDIR}/www/nginx
 
-DEFAULT_PHP_VER=55
 IGNORE_WITH_PHP=54
 USE_PHP=	gd filter session
 WRKSRC=		${WRKDIR}/src-webui
