@@ -6,5 +6,5 @@
 export PCBSDVERSION="master"
 
 # When rolling ISOs, what package set to use on fresh installs?
-# {PRODUCTION|EDGE}
+# {PRODUCTION|EDGE|ENTERPRISE}
 export INSTALLPACKAGESET="EDGE"

@@ -91,7 +91,7 @@ if [ -n "${_upChk}" ] ; then AUTO_UPDATE="$_upChk" ; fi
 
 # Check the PACKAGE_SET variable
 case $PACKAGE_SET in
-   PRODUCTION|EDGE) ;;
+  ENTERPRISE|PRODUCTION|EDGE) ;;
   CUSTOM) # Using a custom package set?
           # Lets check that we have a URL provided
 	  _urlChk="`sed -n 's/^PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
@@ -188,6 +188,9 @@ setup_pkgng_conf() {
   case $PACKAGE_SET in
        EDGE) FBSDVER="$FBSDVER/edge"
 	     MAJORVER="$MAJORVER/edge"
+	     ;;
+ ENTERPRISE) FBSDVER="$FBSDVER/enterprise"
+	     MAJORVER="$MAJORVER/enterprise"
 	     ;;
           *) ;;
   esac
