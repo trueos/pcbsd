@@ -187,13 +187,20 @@ bool MainWindow::checkUserGroup()
    QStringList gNames;
    if ( loginName == "root" )
      return true;
-    
-   QString tmp;
+   
+   QStringList info = runQuickCmd("getent group"); //need to support AD/LDAP settings
+   /*QString tmp;
    QFile iFile("/etc/group");
    if ( ! iFile.open(QIODevice::ReadOnly | QIODevice::Text))
-     return true; //or FALSE?
+     return true; //or FALSE?*/
  
-   while ( !iFile.atEnd() ) {
+   for(int i=0; i<info.length(); i++){
+     if(info[i].section(":",0,0)==groupName){
+       gNames = info[i].section(":",3,3).split(",");
+       break;
+     }	     
+   }
+   /*while ( !iFile.atEnd() ) {
      tmp = iFile.readLine().simplified();
      if ( tmp.indexOf(groupName) == 0 ) {
         gNames = tmp.section(":", 3, 3).split(",");
@@ -203,12 +210,13 @@ bool MainWindow::checkUserGroup()
    iFile.close();
 
    if ( gNames.isEmpty() )
-      return false;
+      return false;*/
 
-   for ( int i = 0; i < gNames.size(); ++i )
-      if ( gNames.at(i).indexOf(loginName) == 0 )
-            return true;
-
+   for ( int i = 0; i < gNames.size(); ++i ){
+      if ( gNames.at(i) == loginName ){
+	return true;
+      }
+   }
    return false;
 }
 
