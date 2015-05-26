@@ -186,11 +186,15 @@ void pcADSLDAP::exportSettings()
     // Restart AD service if enabled   
     qDebug() << "Enabling AD";
     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", "pc_activedirectory_enable=\"YES\"", -1);
+    pcbsd::Utils::setConfFileValue("/etc/rc.conf", "samba_server_enable=", "samba_server_enable=\"YES\"", -1);
+    pcbsd::Utils::setConfFileValue("/etc/rc.conf", "winbindd_enable=", "winbindd_enable=\"YES\"", -1);
     pcbsd::Utils::runShellCommand("/usr/local/bin/pc-adctl start");
   } else {
      qDebug() << "Disabling AD";
      pcbsd::Utils::runShellCommand("/usr/local/bin/pc-adctl stop");
      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", "pc_activedirectory_enable=\"NO\"", -1);
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "samba_server_enable=", "samba_server_enable=\"NO\"", -1);
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "winbindd_enable=", "winbindd_enable=\"NO\"", -1);
   }
   
   // Enable the LDAP service
