@@ -155,8 +155,10 @@ bool pdfUI::OpenPDF(QString filepath){
 
 QImage pdfUI::OpenPage(int page, bool loadonly){
   bool needload = !pageImages.contains(page);
+  qDebug() <<"Open Page:" << page;
   if(needload){
     //Now load the image for this page and show it
+    qDebug() << " - Loading Page:" << page;
     Poppler::Page *DOCPAGE = DOC->page(page);
     if(DOCPAGE==0){
       //Error - could not load page
@@ -293,10 +295,10 @@ void pdfUI::ShowPage(int page){
     spin_page->setValue(page+1);
     QApplication::processEvents();
     LOADINGFILE = false;
-    QTimer::singleShot(10, this, SLOT(PreLoadPages()) ); 
   }
   ui->actionPrev->setEnabled(page>0);
   ui->actionNext->setEnabled(page < (spin_page->maximum()-1) );
+  QTimer::singleShot(10, this, SLOT(PreLoadPages()) ); 
 }
 
 void pdfUI::PageChanged(){
@@ -318,6 +320,7 @@ void pdfUI::ScreenChanged(){
 }
 
 void pdfUI::PreLoadPages(){
+  qDebug() << "Pre-loading pages...";
   //Go through and pre-load a couple pages (previous/next)
   int cpage = CurrentPage();
   //First clean out any pages outside the current range (prev/current/next)
@@ -325,6 +328,7 @@ void pdfUI::PreLoadPages(){
     for(int i=0; i<loaded.length(); i++){
       //Allow 2 pages each way to be saved for future reference
       if(loaded[i] < cpage-2 || loaded[i]>cpage+2){
+	qDebug() << "Removing page from the cache:" << loaded[i];
         pageImages.remove(loaded[i]);
       }
       QApplication::processEvents();
