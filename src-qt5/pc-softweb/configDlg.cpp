@@ -147,6 +147,7 @@ void ConfigDlg::loadPbiConf(){ //fill the UI with the current settings
     if(contents[i].startsWith("PACKAGE_SET:")){
       QString val = contents[i].section(":",1,50).simplified();
       if(val=="EDGE"){ ui->radio_edge->setChecked(true); cRepo = val;}
+      if(val=="ENTERPRISE"){ ui->radio_enterprise->setChecked(true); cRepo = val;}
       else if(val=="PRODUCTION"){ ui->radio_production->setChecked(true); cRepo = val;}
       else if(val=="CUSTOM"){ ui->radio_custom->setChecked(true); cRepo = val;}
       else{ ui->radio_production->setChecked(true); cRepo = "PRODUCTION"; } //default to PRODUCTION
@@ -183,6 +184,7 @@ void ConfigDlg::savePbiConf(){ //save the current settings to file
   contents << "";
   QString pkgset = "PRODUCTION"; //default value (just in case)
   if(ui->radio_edge->isChecked()){ pkgset = "EDGE"; }
+  else if(ui->radio_enterprise->isChecked()){ pkgset = "ENTERPRISE"; }
   else if(ui->radio_production->isChecked()){ pkgset = "PRODUCTION"; }
   else if(ui->radio_custom->isChecked()){ pkgset = "CUSTOM"; }
   contents << "PACKAGE_SET: "+pkgset;
@@ -199,6 +201,7 @@ void ConfigDlg::checkOptions(){
   remoteChanged = repoChanged = false;
   //Check for changes to the Repository config
   if(cRepo=="PRODUCTION" && !ui->radio_production->isChecked()){ repoChanged = true; }
+  else if(cRepo=="ENTERPRISE" && !ui->radio_enterprise->isChecked()){ repoChanged = true; }
   else if(cRepo=="EDGE" && !ui->radio_edge->isChecked()){ repoChanged = true; }
   else if(cRepo.startsWith("CUSTOM::::") && !ui->radio_custom->isChecked()){ repoChanged = true; }
   else if(cRepo.startsWith("CUSTOM::::")){

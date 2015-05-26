@@ -106,4 +106,3 @@ fi
 
 # Start IPFW now
 service ipfw restart
-sh ${rules}
