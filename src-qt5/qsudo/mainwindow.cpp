@@ -188,7 +188,7 @@ bool MainWindow::checkUserGroup()
    if ( loginName == "root" )
      return true;
    
-   QStringList info = runQuickCmd("getent group"); //need to support AD/LDAP settings
+   QStringList info = runQuickCmd("getent group").filter(groupName); //need to support AD/LDAP settings
    /*QString tmp;
    QFile iFile("/etc/group");
    if ( ! iFile.open(QIODevice::ReadOnly | QIODevice::Text))
