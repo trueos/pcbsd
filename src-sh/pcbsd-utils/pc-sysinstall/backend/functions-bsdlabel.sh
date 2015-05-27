@@ -59,7 +59,7 @@ get_fs_line_xvars()
     ZTYPE="NONE"
     ZFSVARS="`echo $LINE | cut -d ' ' -f 4-20 |cut -d '(' -f 2- | cut -d ')' -f 1 | xargs`"
 
-    echo $ZFSVARS | grep -qE "^(disk|file|mirror|raidz(1|2|3)?|spare|log|cache):" 2>/dev/null
+    echo $ZFSVARS | grep -qE "^(disk|file|mirror|raidz(1|2|3)?|spare|stripe|log|cache):" 2>/dev/null
     if [ $? -eq 0 ] ; then
        ZTYPE=`echo $ZFSVARS | cut -f1 -d:`
        tmpVars=`echo $ZFSVARS | sed "s|$ZTYPE: ||g" | sed "s|$ZTYPE:||g"`
@@ -70,7 +70,7 @@ get_fs_line_xvars()
           echo $i | grep -q '/dev/'
           if [ $? -ne 0 ] ; then
 	     case $i in
-		disk|file|mirror|raidz1|raidz2|raidz3|spare|log|cache) ZFSVARS="$ZFSVARS ${i}" ;;
+		disk|file|mirror|raidz1|raidz2|raidz3|spare|log|cache|stripe) ZFSVARS="$ZFSVARS ${i}" ;;
 		*) ZFSVARS="$ZFSVARS /dev/${i}" ;;
 	     esac
           else
@@ -80,7 +80,7 @@ get_fs_line_xvars()
     fi
 
     # Return the ZFS options
-    if [ "${ZTYPE}" = "NONE" ] ; then
+    if [ "${ZTYPE}" = "NONE" -o "${ZTYPE}" = "stripe" ] ; then
       VAR="${ACTIVEDEV} ${ZFSVARS}"
     else
       VAR="${ZTYPE} ${ACTIVEDEV} ${ZFSVARS}"
