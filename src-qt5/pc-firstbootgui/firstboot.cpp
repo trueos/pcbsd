@@ -98,6 +98,9 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     // Load the hostname
     lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
 
+    //Load the available Services into the UI
+    LoadServices();
+    
     // Start on the first screen
     installStackWidget->setCurrentIndex(0);
     backButton->setVisible(false);
@@ -314,18 +317,24 @@ void Installer::slotNext()
 
    // If not doing a wireless connection
    if ( installStackWidget->currentIndex() == 4 && ! haveWifi) {
-      installStackWidget->setCurrentIndex(6);
-      // Save the settings
+      installStackWidget->setCurrentIndex(6); //skip the wifi page
+   }
+
+    /*  // Save the settings
       saveSettings();
       nextButton->setText(tr("&Finish"));
       backButton->setVisible(false);
       nextButton->disconnect();
       connect(nextButton, SIGNAL(clicked()), this, SLOT(slotFinished()));
       return;
+   }*/
+   //Check that there are services available to be enabled
+   if( installStackWidget->currentIndex()==6 && SERVICELIST.isEmpty() ){
+     installStackWidget->setCurrentIndex(7); //skip the services page
    }
-
+   
    // Finished screen
-   if ( installStackWidget->currentIndex() == 4 ) {
+   if ( installStackWidget->currentIndex() == 7 ) {
       // Save the settings
       saveSettings();
       nextButton->setText(tr("&Finish"));
@@ -378,7 +387,7 @@ void Installer::slotChangeLanguage()
       QCoreApplication::installTranslator(translator);
       this->retranslateUi(this);
     }
-
+    LoadServices(); //need to re-fetch the translations for the services
 }
 
 void Installer::changeLang(QString code)
@@ -562,6 +571,19 @@ void Installer::slotPlayAudioTest(){
   QProcess::startDetached("mplayer /usr/local/share/sounds/testsound.ogg");
 }
 
+void Installer::LoadServices(){
+  SERVICELIST = Services::getServiceList();
+    list_services->clear();
+    for(int i=0; i<SERVICELIST.length(); i++){
+      QListWidgetItem *it = new QListWidgetItem(SERVICELIST[i].name);
+	it->setToolTip(SERVICELIST[i].description);
+	it->setWhatsThis(SERVICELIST[i].ID);
+	it->setCheckState(Qt::Unchecked);
+      list_services->addItem(it);
+    }
+    list_services->sortItems(); //arrange alphabetically (by translated name)
+}
+
 void Installer::saveSettings()
 {
   // Check if we need to change the language
@@ -681,6 +703,20 @@ void Installer::saveSettings()
     pcdmfile.close();
   } else {
     qDebug() << "Error opening /var/db/pcdm/defaultInputs";
+  }
+  
+  //Now enable any selected services
+  for(int i=0; i<list_services->count(); i++){
+    if(list_services->item(i)->checkState() != Qt::Unchecked){
+      QString ID = list_services->item(i)->whatsThis();
+      //Find the data structure and enable the service 
+      for(int s=0; s<SERVICELIST.length(); s++){
+        if(SERVICELIST[s].ID == ID){
+          Services::enableService(SERVICELIST[s]);
+	  break;
+	}
+      }
+    }
   }
 }
 
