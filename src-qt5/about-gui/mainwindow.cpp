@@ -109,6 +109,7 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         PkgSet="ENTERPRISE";
         PkgSet+=QString(" ") + tr("(LTS)");
+    }
     if (PkgSet.toUpper().trimmed() == "EDGE")
     {
         PkgSet="EDGE";
