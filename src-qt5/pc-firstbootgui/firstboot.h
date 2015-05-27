@@ -12,6 +12,7 @@
 #include "dialogKeyboard.h"
 #include "dialogInfoBox.h"
 #include "netKey.h"
+#include "services.h"
 
 #include "backend.h"
 
@@ -75,6 +76,9 @@ private:
     // Get network pass
     void addNetworkProfile(QString ssid);
 
+    // Load the available services
+    void LoadServices();
+
     // Apply the settings
     void saveSettings(); 
 
@@ -99,7 +103,8 @@ private:
     QString kbVar;
 
     QTranslator *translator;
-
+    QList<service> SERVICELIST;
+    
 protected:
     void closeEvent(QCloseEvent *event);
 
