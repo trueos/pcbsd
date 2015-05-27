@@ -595,7 +595,7 @@ void wizardDisk::generateDiskLayout()
     fileSystem.clear();
 
   // If installing to a specific GPT slice, we can't create a 2nd swap partition
-  if ( targetType != "ALL" || radioGPT->isChecked() ) {
+  if ( (targetType != "ALL" || radioGPT->isChecked()) && swapsize > 0 ) {
     // Now add swap space
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
     sysFinalDiskLayout << fileSystem;
@@ -1121,7 +1121,7 @@ void wizardDisk::generateCustomDiskLayout()
   sysFinalDiskLayout << fileSystem;
 
   // If installing to a specific GPT slice, we can't create a 2nd swap partition
-  if ( targetType != "ALL" || radioGPT->isChecked() ) {
+  if ( ( targetType != "ALL" || radioGPT->isChecked() ) && swapsize > 0 ) {
     // Now add swap space 
     fileSystem.clear();
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
