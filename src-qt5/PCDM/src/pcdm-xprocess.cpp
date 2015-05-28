@@ -163,8 +163,9 @@ bool XProcess::startXSession(){
   QTextStream tOut(tFile);
 
   // Configure the DE startup command
-  cmd.append("dbus-launch --exit-with-session "+xcmd);
-
+  if(QFile::exists("/usr/local/bin/dbus-launch")){
+    cmd.append("dbus-launch --exit-with-session "+xcmd);
+  }
   //Need to run a couple commands in sequence: so put them in a script file
   tOut << "#!/bin/sh\n\n";
   tOut << "if [ -e '"+xhome+"/.xprofile' ] ; then\n";
