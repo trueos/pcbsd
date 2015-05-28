@@ -538,9 +538,9 @@ button. Once a location has been bookmarked, it will be available via the "Bookm
 on the system will show up in the "External Devices" menu, if supported by the operating system. When an item is selected, the options on the left side of the
 screen will show the possible actions that may be taken with regards to that item. Possible actions include: "open", "open with" (will prompt for the
 application to use), "add to favorites", "rename", "cut", "copy", "paste", and "delete". By default, the actions buttons are visible. They can be made
-invisible by clicking :menuselection:`View --> Show Action Buttons`. To disable thumbnails, uncheck :menuselection:`View --> Load Thumbnails. Note that
+invisible by clicking :menuselection:`View --> Show Action Buttons`. To disable thumbnails, uncheck :menuselection:`View --> Load Thumbnails`. Note that
 this option does not retroactively remove thumbnails that have already been loaded, it only prevents loading thumbnails in new directories. Hidden files are
-not shown by default; this can be changed by checking :menuselection:`View --> Show Hidden Files.
+not shown by default; this can be changed by checking :menuselection:`View --> Show Hidden Files`.
 
 If you select a file or directory and right-click it, the following options become available: "Open", "Open With" (where you select the application to use), "Rename",
 "View Checksums" (shows the MD5 checksum), "Cut Selection", "Copy Selection", "Paste", "Delete Selection", or "File Properties" (such as file type, size,
