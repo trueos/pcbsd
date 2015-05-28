@@ -495,6 +495,9 @@ void PCDMgui::slotLocaleChanged(QString langCode){
   if(m_translator->load(translationFile)){
     Backend::log("Install the new translator: "+translationFile);
     QCoreApplication::installTranslator(m_translator);	  
+  }else if(langCode=="en_US"){
+    m_translator = new QTranslator(); //make sure it is completely empty
+    QCoreApplication::installTranslator(m_translator);
   }
   //Re-draw the interface
   retranslateUi();
