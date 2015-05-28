@@ -3025,9 +3025,9 @@ and the "Extent" that you created.
 
 .. image:: images/iscsi12.png
 
-Next, go to :ref:`Services` and click the red "OFF" button next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
+Next, go to :menuselection:`Services` and click the red "OFF" button next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
 
-To configure the stunnel service, open :ref:`Shell` and type the following::
+To configure the stunnel service, open :menuselection:`Shell` and type the following::
 
  openssl genrsa -out /usr/local/etc/stunnel/key.pem 2048
  openssl req -new -x509 -key /usr/local/etc/stunnel/key.pem -out /usr/local/etc/stunnel/cert.pem -days 1095
