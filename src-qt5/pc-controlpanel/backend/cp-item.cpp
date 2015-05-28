@@ -351,28 +351,22 @@ void CControlPanelItem::launch(bool useInternalLaunch)
     }
     else
     {
-        /*pid_t RetVal = fork();
-        if (!RetVal)
-        {*/
-	    QProcess proc;
-            if (mExecPath.length())
-            {
-                //chdir(qPrintable(mExecPath));
-		proc.setWorkingPath(mExecPath);
-            }
-            QString Str = mExecCommand;
-            Str.replace("%i", QString(" --icon ") + mIconFile);
-            Str.replace("%c", QString("\"") + displayName().toLocal8Bit() + QString("\""));
-            Str.replace("%k", mFile);
-            Str.replace("%f","");
-            Str.replace("%F","");
-            Str.replace("%u","");
-            Str.replace("%U","");
-            //exit (system(Str.toLatin1()));
-	    proc.startDetached(Str);
-         }
+        QProcess proc;
+        if (! mExecPath.isEmpty() )
+        {
+           proc.setWorkingDirectory(mExecPath);
+        }
+        QString Str = mExecCommand;
+        Str.replace("%i", QString(" --icon ") + mIconFile);
+        Str.replace("%c", QString("\"") + displayName().toLocal8Bit() + QString("\""));
+        Str.replace("%k", mFile);
+        Str.replace("%f","");
+        Str.replace("%F","");
+        Str.replace("%u","");
+        Str.replace("%U","");
+        //exit (system(Str.toLatin1()));
+        proc.startDetached(Str);
     }//if internal launch
-
     
 }
 
