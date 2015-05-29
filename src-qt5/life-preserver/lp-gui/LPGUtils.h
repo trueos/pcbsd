@@ -14,6 +14,7 @@
 class LPGUtils{
 public:
 	static LPDataset loadPoolData(QString zpool); //Load backend data into container
+	static void loadSnapshotInfo(LPDataset*); //Load the backend snapshot info into container
 	static QString generateReversionFileName(QString filename, QString destDir);
 	static bool revertFile(QString oldPath, QString newPath); //copy a file out of a snapshot
 	static QStringList revertDir(QString oldPath, QString newPath); //copy a dir out of a snapshot

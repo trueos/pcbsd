@@ -14,7 +14,8 @@ HEADERS	+= LPBackend.h \
 		LPMain.h \
 		LPGUtils.h \
 		LPClassic.h \
-		LPISCSIWizard.h
+		LPISCSIWizard.h \
+		BackgroundWorker.h
 		
 SOURCES	+= main.cpp \
 		LPBackend.cpp \

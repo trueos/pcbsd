@@ -18,6 +18,11 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
       dir.mkpath("/var/log/lpreserver");
     }
     watcher->addPath("/var/log/lpreserver/");
+  WorkThread = new QThread();
+  WORKER = new BackgroundWorker();
+    WORKER->moveToThread(WorkThread);
+    connect(this, SIGNAL(loadSnaps(LPDataset*)), WORKER, SLOT(loadSnapshotInfo(LPDataset*)) );
+    WorkThread->start();
   //Initialize the waitbox pointer
   waitBox = 0;
   //Initialize the classic dialog pointer
@@ -74,10 +79,13 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   ui->tabWidget->setCurrentWidget(ui->tab_status);
   //Now connect the watcher to the update slot
   connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(autoRefresh()) );
+  //Connect the worker process to the update routine
+  connect(WORKER, SIGNAL(SnapshotsLoaded()), this, SLOT(updateSnapshots()) );
 }
 
 LPMain::~LPMain(){
-	
+  WorkThread->exit(0);
+  delete WorkThread;
 }
 
 // ==============
@@ -144,6 +152,7 @@ void LPMain::updatePoolList(){
     if(!cpoolList.contains(pools[i])){ cPool = pools[i]; break; } //new managed pool, activate this one instead
   }
   //Now put the lists into the UI
+  poolSelected = false; //disable for the moment while changing lists
   ui->combo_pools->clear();
   if(!pools.isEmpty()){ ui->combo_pools->addItems(pools); }
   //Now set the currently selected pools
@@ -209,6 +218,10 @@ void LPMain::viewChanged(){
 }
 
 void LPMain::updateTabs(){
+  static bool updating = false;
+  if(updating){ return; } //prevent double-taps on this function
+  updating = true;
+  QApplication::processEvents();
   //qDebug() << "Update Tabs" << poolSelected;
   qDebug() << "[DEBUG] start updateTabs():" << poolSelected;
   viewChanged();
@@ -218,6 +231,13 @@ void LPMain::updateTabs(){
   ui->menuSnapshots->setEnabled(poolSelected);
   ui->push_configure->setVisible(poolSelected);
   ui->action_SaveKeyToUSB->setEnabled(poolSelected);
+  //No Pool selected (yet)
+    ui->label_numdisks->clear();
+    ui->label_latestsnapshot->clear();
+    ui->label_status->clear();
+	  ui->label_errorstat->setVisible(false);
+	  ui->label_runningstat->setVisible(false);
+	  ui->label_finishedstat->setVisible(false);
   if(poolSelected){
     showWaitBox(tr("Loading zpool information"));
     qDebug() << "[DEBUG] loadPoolData:" << ui->combo_pools->currentText();
@@ -248,38 +268,9 @@ void LPMain::updateTabs(){
     else{
       ui->label_errorstat->setText(POOLDATA.errorStatus);
       ui->label_errorstat->setVisible(true);
-    }	    
-    //Now list the data restore options
-    QString cds = ui->combo_datasets->currentText();
-    ui->combo_datasets->clear();
-    QStringList dslist = POOLDATA.subsets();
-    dslist.sort();
-    //Now move the home directories to the top of the list
-    int moved = 0;
-    for(int i=0; i<dslist.length(); i++){  //make sure it stays in alphabetical order
-      if(dslist[i].startsWith("/usr/home/")){
-        dslist.move(i,moved);
-	moved++; 
-	i--; //make sure to not miss any items from moving
-      }
     }
-    ui->combo_datasets->addItems(dslist);
-    int dsin = dslist.indexOf(cds);
-    if(dsin >= 0){ ui->combo_datasets->setCurrentIndex(dsin); }
-    else if( !dslist.isEmpty() ){ ui->combo_datasets->setCurrentIndex(0); }
-    else{ ui->combo_datasets->addItem(tr("No datasets available")); }
-    //NOTE: this automatically calls the "updateDataset()" function in a new thread
     
-    //Now update the snapshot removal menu list
-    //QStringList snapComments;
-    QStringList snaps = POOLDATA.allSnapshots(); //LPBackend::listLPSnapshots(ui->combo_pools->currentText(), snapComments);
-    ui->menuDelete_Snapshot->clear();
-    for(int i=0; i<snaps.length(); i++){
-       QString comment = POOLDATA.snapshotComment(snaps[i]).simplified();
-	if(comment.isEmpty()){ ui->menuDelete_Snapshot->addAction(snaps[i]); }
-	else{ ui->menuDelete_Snapshot->addAction(snaps[i] + " (" + comment + ")" ); }
-    }
-    ui->menuDelete_Snapshot->setEnabled( !ui->menuDelete_Snapshot->isEmpty() );
+    //Update the replication/disk menus
     QStringList repHosts = POOLDATA.repHost;
     ui->menuStart_Replication->clear();
     ui->menuInit_Replications->clear();
@@ -304,15 +295,49 @@ void LPMain::updateTabs(){
     ui->menuRemove_Disk->setEnabled(!ui->menuRemove_Disk->isEmpty());
     ui->menuSet_Disk_Offline->setEnabled(!ui->menuSet_Disk_Offline->isEmpty());
     ui->menuSet_Disk_Online->setEnabled(!ui->menuSet_Disk_Online->isEmpty());
-  }else{
-    //No Pool selected
-    ui->label_numdisks->clear();
-    ui->label_latestsnapshot->clear();
-    ui->label_status->clear();
-	  ui->label_errorstat->setVisible(false);
-	  ui->label_runningstat->setVisible(false);
-	  ui->label_finishedstat->setVisible(false);
+    
+    //Now list the data restore options
+    QString cds = ui->combo_datasets->currentText();
+    ui->combo_datasets->clear();
+    
+    ui->menuDelete_Snapshot->clear();
+    
+    emit loadSnaps(&POOLDATA); //kickoff the snapshot loading in the background
   }
+  QApplication::processEvents();
+  updating = false;
+}
+    
+void LPMain::updateSnapshots(){
+    qDebug() << "Snapshot data Available";
+    QStringList dslist = POOLDATA.subsets();
+    dslist.sort();
+    //Now move the home directories to the top of the list
+    int moved = 0;
+    for(int i=0; i<dslist.length(); i++){  //make sure it stays in alphabetical order
+      if(dslist[i].startsWith("/usr/home/")){
+        dslist.move(i,moved);
+	moved++; 
+	i--; //make sure to not miss any items from moving
+      }
+    }
+    ui->combo_datasets->addItems(dslist);
+    int dsin = dslist.indexOf(cds);
+    if(dsin >= 0){ ui->combo_datasets->setCurrentIndex(dsin); }
+    else if( !dslist.isEmpty() ){ ui->combo_datasets->setCurrentIndex(0); }
+    else{ ui->combo_datasets->addItem(tr("No datasets available")); }
+    //NOTE: this automatically calls the "updateDataset()" function
+    
+    //Now update the snapshot removal menu list
+    //QStringList snapComments;
+    QStringList snaps = POOLDATA.allSnapshots(); //LPBackend::listLPSnapshots(ui->combo_pools->currentText(), snapComments);
+    ui->menuDelete_Snapshot->clear();
+    for(int i=0; i<snaps.length(); i++){
+       QString comment = POOLDATA.snapshotComment(snaps[i]).simplified();
+	if(comment.isEmpty()){ ui->menuDelete_Snapshot->addAction(snaps[i]); }
+	else{ ui->menuDelete_Snapshot->addAction(snaps[i] + " (" + comment + ")" ); }
+    }
+    ui->menuDelete_Snapshot->setEnabled( !ui->menuDelete_Snapshot->isEmpty() );
 
 }
 

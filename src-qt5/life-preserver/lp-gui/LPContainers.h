@@ -11,6 +11,7 @@ public:
 	~LPDataset(){}
 
 	//Information needed on each dataset
+	QString zpool;
 	QString finishedStatus, runningStatus, errorStatus;
 	QString latestSnapshot;
 	QStringList harddisks;
