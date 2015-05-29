@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
-    <height>346</height>
+    <width>351</width>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_local">
       <attribute name="title">
@@ -200,13 +200,30 @@
           </widget>
          </item>
          <item>
+          <widget class="QToolButton" name="tool_rep_addiscsi">
+           <property name="text">
+            <string>ISCSI</string>
+           </property>
+           <property name="icon">
+            <iconset resource="lPreserve.qrc">
+             <normaloff>:/images/list-add.png</normaloff>:/images/list-add.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QToolButton" name="tool_rep_remhost">
            <property name="text">
-            <string>...</string>
+            <string notr="true"/>
            </property>
            <property name="icon">
             <iconset resource="lPreserve.qrc">
              <normaloff>:/images/list-remove.png</normaloff>:/images/list-remove.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonIconOnly</enum>
            </property>
           </widget>
          </item>

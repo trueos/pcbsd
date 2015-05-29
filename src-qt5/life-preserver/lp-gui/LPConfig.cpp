@@ -1,6 +1,9 @@
 #include "LPConfig.h"
 #include "ui_LPConfig.h"
 
+#include "LPISCSIWizard.h"
+#include <unistd.h>
+
 LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   ui->setupUi(this); //initialize the designer UI
   qDebug() << "Initializing Configuration Dialog";
@@ -24,6 +27,7 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   connect(ui->combo_rep_hosts, SIGNAL(currentIndexChanged(int)), this, SLOT(UpdateRepHostInfo()) );
   connect(ui->tool_rep_remhost, SIGNAL(clicked()), this, SLOT(RemRepHost()) );
   connect(ui->tool_rep_addhost, SIGNAL(clicked()), this, SLOT(AddRepHost()) );
+  connect(ui->tool_rep_addiscsi, SIGNAL(clicked()), this, SLOT(AddRepISCSI()) );
 }
 
 LPConfig::~LPConfig(){
@@ -374,6 +378,12 @@ void LPConfig::AddRepHost(){
   for(int i=0; i<targs.length(); i++){
     targets << targs[i].section(":::",0,0);
   }
+  targets.removeDuplicates(); //remove any duplicates
+  char chost[_POSIX_HOST_NAME_MAX];
+  gethostname(chost, _POSIX_HOST_NAME_MAX);
+  QString host = QString::fromLocal8Bit( chost );
+  //qDebug() << "Hostname:" << host;
+  targets.removeAll( host ); //remove the local system from the list
   if(targets.isEmpty()){ targets << ""; }
   bool ok;
   QString target = QInputDialog::getItem(this, tr("Identify Replication Target"), tr("Detected Hostname or custom IP:"), targets, 0, true, &ok);
@@ -396,6 +406,27 @@ void LPConfig::AddRepHost(){
   remoteHosts << H;
   ui->combo_rep_hosts->addItem( H.host() );
   ui->combo_rep_hosts->setCurrentIndex( ui->combo_rep_hosts->count()-1 ); //go to the new item
+}
+
+void LPConfig::AddRepISCSI(){
+  LPISCSIWizard dlg(this, ui->label_dataset->text());
+  //this->hide();
+  dlg.show();
+  dlg.exec();
+  //Done with the new dialog
+  //this->show();
+  if(dlg.success){
+    //need to re-load the replication targets/list (but don't change the original rep list)
+    remoteHosts = LPBackend::replicationInfo(ui->label_dataset->text());
+    // - Replication settings
+    ui->combo_rep_hosts->clear();
+    for(int i=0; i<remoteHosts.length(); i++){
+      ui->combo_rep_hosts->addItem(remoteHosts[i].host());
+    }
+    //Now update the visibility of items appropriately
+    on_combo_local_schedule_currentIndexChanged(ui->combo_local_schedule->currentIndex());
+    UpdateRepHostInfo();
+  }
 }
 
 void LPConfig::RemRepHost(){

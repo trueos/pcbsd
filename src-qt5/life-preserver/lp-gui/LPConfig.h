@@ -48,6 +48,7 @@ private slots:
 
 	void UpdateRepHostInfo();
 	void AddRepHost();
+	void AddRepISCSI();
 	void RemRepHost();
 };
 
