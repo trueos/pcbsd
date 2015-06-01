@@ -17,8 +17,15 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   scrubChanged = false;
   remoteChanged = false;
   cRepHost = -1; //internal flag
+  
+  //init the menus
+  snapExMenu = new QMenu(this);
+    ui->tool_snap_addexclude->setMenu(snapExMenu);
+  repExMenu = new QMenu(this);
+    ui->tool_rep_addexclude->setMenu(repExMenu);
   //Variables that will be changed when loading the dataset properties
-	
+
+  
   //now connect the buttons
   connect(ui->tool_apply,SIGNAL(clicked()), this,SLOT(slotApplyChanges()) );
   connect(ui->tool_cancel,SIGNAL(clicked()), this, SLOT(slotCancelConfig()) );
@@ -28,6 +35,9 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   connect(ui->tool_rep_remhost, SIGNAL(clicked()), this, SLOT(RemRepHost()) );
   connect(ui->tool_rep_addhost, SIGNAL(clicked()), this, SLOT(AddRepHost()) );
   connect(ui->tool_rep_addiscsi, SIGNAL(clicked()), this, SLOT(AddRepISCSI()) );
+  connect(snapExMenu, SIGNAL(triggered(QAction*)), this, SLOT(addSnapExclude(QAction*)) );
+  connect(repExMenu, SIGNAL(triggered(QAction*)), this, SLOT(addRepExclude(QAction*)) );
+  connect(ui->tool_snap_remexclude, SIGNAL(clicked()), this, SLOT(rmSnapExcludes()) );
 }
 
 LPConfig::~LPConfig(){
@@ -44,6 +54,15 @@ void LPConfig::loadDataset(QString ds, bool replicated, bool scrubsched){
 // ==========
 void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool scrubsched){
   qDebug() <<" - Loading dataset configuration:" << dataset << replicated << scrubsched;
+  QStringList subsets = LPBackend::listPoolDatasets(dataset);
+  //qDebug() << "Subsets:" << dataset << subsets;
+  snapExMenu->clear();
+  repExMenu->clear();
+  for(int i=0; i<subsets.length(); i++){
+    snapExMenu->addAction(subsets[i]);
+    repExMenu->addAction(subsets[i]);
+  }
+	
   //Load the dataset values
   isReplicated = replicated;
   isScrubSched = scrubsched;
@@ -86,7 +105,10 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
     ui->combo_local_schedule->setCurrentIndex(0);
   }
   setLocalKeepNumber();
-
+  snapExcludes = LPBackend::getDatasetExcludes(dataset, "snap");
+  ui->list_snap_excludes->clear();
+  ui->list_snap_excludes->addItems(snapExcludes);
+  
   // - Scrub settings
   ui->groupScrub->setChecked(isScrubSched);
   if(scrubSchedule == "daily"){
@@ -105,6 +127,7 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
     ui->spin_scrub_day_month->setValue(scrubDay);
   }
   ui->time_scrub->setTime( QTime(scrubTime, 0) );
+
   
   // - Replication settings
   ui->combo_rep_hosts->clear();
@@ -113,7 +136,10 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
     ui->combo_rep_hosts->addItem(remoteHosts[i].host());
     origHosts << remoteHosts[i].host(); //save this for comparison later
   }
-
+  repExcludes = LPBackend::getDatasetExcludes(dataset, "rep");
+  ui->list_rep_excludes->clear();
+  ui->list_rep_excludes->addItems(repExcludes);
+  
   //Now update the visibility of items appropriately
   on_combo_local_schedule_currentIndexChanged(ui->combo_local_schedule->currentIndex());
   UpdateRepHostInfo();
@@ -199,6 +225,18 @@ void LPConfig::checkForChanges(){
     if( !origHosts.contains(remoteHosts[j].host()) ){ newHosts << remoteHosts[j].host(); }
   }
   newHosts.removeDuplicates();
+  
+  //Now apply any changes to the exclude lists
+  QStringList tmp;
+  for(int i=0; i<ui->list_snap_excludes->count(); i++){
+    tmp << ui->list_snap_excludes->item(i)->text();
+  }
+  if(tmp!=snapExcludes){ LPBackend::setDatasetExcludes(ui->label_dataset->text(), "snap", tmp); }
+  tmp.clear();
+  for(int i=0; i<ui->list_rep_excludes->count(); i++){
+    tmp << ui->list_rep_excludes->item(i)->text();
+  }
+  if(tmp!=repExcludes){ LPBackend::setDatasetExcludes(ui->label_dataset->text(), "rep", tmp); }
   
   /*for(int i=0; i<newHosts.length(); i++){
     //Get the settings for this new host
@@ -442,5 +480,27 @@ void LPConfig::RemRepHost(){
   if(!found){ return; } //did not do anything
   cRepHost = -1; //Make sure we don't save any of the settings being removed
   ui->combo_rep_hosts->removeItem(ui->combo_rep_hosts->currentIndex());
+}
+
+void LPConfig::addRepExclude(QAction *act){
+  if(ui->list_rep_excludes->findItems(act->text(), Qt::MatchExactly).isEmpty()){
+    ui->list_rep_excludes->addItem(act->text());	
+  }  
+}
+
+void LPConfig::rmRepExcludes(){
+  QList<QListWidgetItem*> sel = ui->list_rep_excludes->selectedItems();
+  for(int i=0; i<sel.length(); i++){ delete sel[i]; }	
+}
+
+void LPConfig::addSnapExclude(QAction *act){
+  if(ui->list_snap_excludes->findItems(act->text(), Qt::MatchExactly).isEmpty()){
+    ui->list_snap_excludes->addItem(act->text());	
+  }
+}
+
+void LPConfig::rmSnapExcludes(){
+  QList<QListWidgetItem*> sel = ui->list_snap_excludes->selectedItems();
+  for(int i=0; i<sel.length(); i++){ delete sel[i]; }
 }
 

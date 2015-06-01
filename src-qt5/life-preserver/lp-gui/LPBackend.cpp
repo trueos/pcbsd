@@ -1,6 +1,7 @@
 #include "LPBackend.h"
 #include <QInputDialog>
 #include <QObject>
+#include <pcbsd-utils.h>
 
 // ==============
 //     Informational
@@ -17,6 +18,21 @@ QStringList LPBackend::listPossibleDatasets(){
   list.removeDuplicates();
    
   return list;	
+}
+
+QStringList LPBackend::listPoolDatasets(QString pool){
+  QString cmd = "zfs list -H -o name";
+  QStringList out = LPBackend::getCmdOutput(cmd).filter(pool);
+  //qDebug() << "out - " << out;
+  //Now process the output (one dataset per line - no headers)
+  QStringList list;
+  for(int i=0; i<out.length(); i++){
+    if(out[i].startsWith(pool+"/") && !out[i].contains("/ROOT/") ){ list << out[i].simplified(); }
+  }
+  //qDebug() << "list - " << list;
+  list.removeDuplicates();
+  
+  return list;		
 }
 
 QStringList LPBackend::listDatasets(){
@@ -181,6 +197,25 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
   }
   //qDebug() << "lpreserver cronsnap:\n" << out << QString::number(time) << QString::number(numToKeep);
    
+  return ok;
+}
+
+QStringList LPBackend::getDatasetExcludes(QString pool, QString type){
+  //type=[snap,rep]
+  type = type.toLower();
+  if(type !="snap" && type != "rep"){ return QStringList(); }// error in the type
+  QString filename = "/var/db/lpreserver/excludes/"+pool+"-"+type;
+  QStringList list = pcbsd::Utils::readTextFile(filename).split("\n");;
+  list.removeAll(""); //remove any empty lines
+  return list;
+}
+
+bool LPBackend::setDatasetExcludes(QString pool, QString type, QStringList list){
+  //type=[snap,rep]	
+  type = type.toLower();
+  if(type !="snap" && type != "rep"){ return false; }// error in the type
+  QString filename = "/var/db/lpreserver/excludes/"+pool+"-"+type;
+  bool ok = pcbsd::Utils::writeTextFile(filename, list.join("\n"), true); //overwrite this file
   return ok;
 }
 

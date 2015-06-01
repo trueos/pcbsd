@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QInputDialog>
-
+#include <QMenu>
 #include "LPBackend.h"
 #include "LPGUtils.h"
 #include "LPContainers.h"
@@ -32,6 +32,9 @@ public:
 
 private:
 	Ui::LPConfig *ui;
+
+	QMenu *snapExMenu, *repExMenu;
+	QStringList snapExcludes, repExcludes;
 	void loadDatasetConfiguration(QString, bool, bool);
 	void checkForChanges();
 	void setLocalKeepNumber();
@@ -50,6 +53,12 @@ private slots:
 	void AddRepHost();
 	void AddRepISCSI();
 	void RemRepHost();
+
+	void addRepExclude(QAction*);
+	void rmRepExcludes();
+	void addSnapExclude(QAction*);
+	void rmSnapExcludes();
+
 };
 
 #endif

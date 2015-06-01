@@ -17,6 +17,7 @@ class LPBackend{
 public:	
 	//Informational
 	static QStringList listPossibleDatasets(); //list all possible datasets on the system
+	static QStringList listPoolDatasets(QString pool); //list all subsets of the zpool
 	static QStringList listDatasets(); //list all current lifepreserver datasets
 	static QStringList listDatasetSubsets(QString dataset); //list all subsets of the main dataset
 	static QStringList listSnapshots(QString dsmountpoint); //list all snapshots for a particular dataset mountpoint
@@ -28,6 +29,8 @@ public:
 	static bool setupDataset(QString dataset, int time, int numToKeep); //add or configure dataset
 	static bool removeDataset(QString dataset);
 	static bool datasetInfo(QString dataset, int& time, int& numToKeep); //get current settings for a dataset
+	static QStringList getDatasetExcludes(QString pool, QString type); //type=[snap,rep]
+	static bool setDatasetExcludes(QString pool, QString type, QStringList list); //type=[snap/rep]
 	//Snapshop Management
 	static void newSnapshot(QString dataset, QString snapshotname, QString snapshotcomment = "");
 	static bool removeSnapshot(QString dataset, QString snapshot);
