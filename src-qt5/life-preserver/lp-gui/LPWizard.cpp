@@ -5,9 +5,9 @@ LPWizard::LPWizard(QWidget *parent) : QWizard(parent), ui(new Ui::LPWizard){
   //Initialize the graphical items
   ui->setupUi(this);  //load the mainUI.ui file
   cancelled = true; //Make sure this is always set by default
+  openAdvancedConfig = false;
   connect(this,SIGNAL(accepted()), this,SLOT(slotFinished()) );
   connect(this,SIGNAL(rejected()),this,SLOT(slotCancelled()) );
-  connect(ui->push_scanNetwork, SIGNAL(clicked()), this, SLOT(scanNetwork()) );
   connect(ui->combo_scrub_schedule, SIGNAL(currentIndexChanged(int)), this, SLOT(UpdateScrubUI()) );
   connect(ui->groupScrub, SIGNAL(toggled(bool)), this, SLOT(UpdateScrubUI()) );
   UpdateScrubUI();
@@ -25,22 +25,7 @@ void LPWizard::slotFinished(){
   qDebug() << "Wizard Finished";
   cancelled = false; //use the values from the UI
   //Now load the information from the UI
-  enableReplication = ui->groupReplicate->isChecked();
-  if(enableReplication){
-    remotePort = ui->spinPort->value();
-    int remoteTime = ui->combo_remote_freq->currentIndex();
-    if(remoteTime==0){ remoteTime = -999; } //Sync
-    else if(remoteTime==1){ remoteTime =  ui->time_replicate->time().hour(); } //Daily @
-    else if(remoteTime==2){ remoteTime = -60; } //hourly
-    else if(remoteTime==3){ remoteTime = -30; } //30min
-    else if(remoteTime==5){ remoteTime = -2; } // Manual mode
-    else{ remoteTime = -10; } //10min
-    remoteHost = ui->lineHostName->text();
-    remoteUser = ui->lineUserName->text();
-    remoteDataset = ui->lineRemoteDataset->text();
-    //Prompt for the SSH key generation
-    LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
-  }
+  openAdvancedConfig = ui->check_openAdvanced->isChecked();
   if(ui->radio_automatic->isChecked()){ localTime = -999; }
   else{
     if(ui->radioDaily->isChecked()){ localTime = ui->timeEdit->time().hour(); }
@@ -87,30 +72,6 @@ void LPWizard::slotCancelled(){
   this->close();
 }
 
-void LPWizard::scanNetwork(){
-  QStringList targs = LPGUtils::scanNetworkSSH(); // <name>:::<address>:::<port>
-  if(targs.isEmpty()){
-    QMessageBox::warning(this,tr("No Network Targets"), tr("We could not find any systems on the local network with SSH availability (port 22)") );
-    return;
-  }
-  //Ask the user to select a target
-  QStringList targets;
-  for(int i=0; i<targs.length(); i++){
-    targets << targs[i].section(":::",0,0);
-  }
-  bool ok;
-  QString target = QInputDialog::getItem(this, tr("Select Replication Target"), tr("Hostname:"), targets, 0, false, &ok);
-  if(!ok || target.isEmpty() ){ return; } //cancelled
-  //Now look for that target in the list of info
-  for(int i=0; i<targs.length(); i++){
-    if(targs[i].startsWith(target+":::")){
-      ui->lineHostName->setText(targs[i].section(":::",1,1));
-      ui->spinPort->setValue( targs[i].section(":::",2,2).toInt() );
-      break;
-    }
-  }
-}
-
 void LPWizard::UpdateScrubUI(){
   int index = ui->combo_scrub_schedule->currentIndex();
   bool active = ui->groupScrub->isChecked();
@@ -120,11 +81,6 @@ void LPWizard::UpdateScrubUI(){
   ui->spin_scrub_day_month->setEnabled( (index == 2) && active);
   // Always make time box enabled
   ui->time_scrub->setEnabled(active);
-}
-
-void LPWizard::on_combo_remote_freq_currentIndexChanged(int index){
-  //Adjust the visibility of the replication time selector
-  ui->time_replicate->setVisible( (index == 1) );
 }
 
 int LPWizard::nextId() const{

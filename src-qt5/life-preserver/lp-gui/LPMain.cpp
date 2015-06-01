@@ -540,11 +540,11 @@ void LPMain::menuAddPool(QAction *act){
     //run the proper commands to get the dataset enabled
     qDebug() << "Setup Snapshots:" << dataset << " Frequency:" << wiz.localTime;
     if( LPBackend::setupDataset(dataset, wiz.localTime, wiz.totalSnapshots) ){
-      if(wiz.enableReplication){
+      /*if(wiz.enableReplication){
       	 qDebug() << "Setting up replication:" << dataset << " Frequency:" << wiz.remoteTime;
 	 LPBackend::setupReplication(dataset, wiz.remoteHost, wiz.remoteUser, wiz.remotePort, wiz.remoteDataset, wiz.remoteTime);     
 	 QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
-      }
+      }*/
       if(wiz.enableScrub){
       qDebug() << "Settings up scrub:" << dataset << "Frequency:" << wiz.scrubSchedule << "Day:" << wiz.scrubDay << "Time:" << wiz.scrubTime;
       LPBackend::setupScrub(dataset, wiz.scrubTime, wiz.scrubDay, wiz.scrubSchedule);
@@ -553,6 +553,9 @@ void LPMain::menuAddPool(QAction *act){
     ui->statusbar->clearMessage();
     //Now update the list of pools
     updatePoolList();
+    if(wiz.openAdvancedConfig){
+      QTimer::singleShot(100,this, SLOT(openConfigGUI()) );
+    }
   }	
 }
 
