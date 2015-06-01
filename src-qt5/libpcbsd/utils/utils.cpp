@@ -645,6 +645,20 @@ QString Utils::readTextFile(QString filepath){
   return out;
 }
 
+bool writeTextFile(QString filepath, QString contents, bool replace){
+  QFile file(filepath);
+  if(file.exists() && !replace){ return false; } // cannot overwrite
+  if(!contents.endsWith("\n")){ contents.append("\n"); } //always end with a newline
+  bool ok = false;
+  if(file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)){
+    QTextStream stream(&file);
+    stream << contents;
+    file.close();
+    ok = true;
+  }
+  return ok;
+}
+
 // Function which displays a info box and restarts networking
 void Utils::restartNetworking()
 {
