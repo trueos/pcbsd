@@ -105,6 +105,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QString PkgSet="PRODUCTION";
     PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
+    if (PkgSet.toUpper().trimmed() == "ENTERPRISE")
+    {
+        PkgSet="ENTERPRISE";
+        PkgSet+=QString(" ") + tr("(LTS)");
+    }
     if (PkgSet.toUpper().trimmed() == "EDGE")
     {
         PkgSet="EDGE";
