@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>473</width>
-    <height>287</height>
+    <height>334</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Configure AppCafe</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="SoftwareManager.qrc">
+   <iconset resource="SoftwareWeb.qrc">
     <normaloff>:/icons/appcafe.png</normaloff>:/icons/appcafe.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -37,6 +37,13 @@
           <set>Qt::AlignCenter</set>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QRadioButton" name="radio_enterprise">
+            <property name="text">
+             <string>Enterprise (Long Term Support)</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QRadioButton" name="radio_production">
             <property name="text">
@@ -78,7 +85,7 @@
                   <string>...</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="SoftwareManager.qrc">
+                  <iconset resource="SoftwareWeb.qrc">
                    <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
                  </property>
                 </widget>
@@ -105,7 +112,7 @@
                   <string>...</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="SoftwareManager.qrc">
+                  <iconset resource="SoftwareWeb.qrc">
                    <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
                  </property>
                 </widget>
@@ -269,7 +276,7 @@
         <string>Cancel</string>
        </property>
        <property name="icon">
-        <iconset resource="SoftwareManager.qrc">
+        <iconset resource="SoftwareWeb.qrc">
          <normaloff>:/icons/stop.png</normaloff>:/icons/stop.png</iconset>
        </property>
       </widget>
@@ -280,7 +287,7 @@
         <string>Apply</string>
        </property>
        <property name="icon">
-        <iconset resource="SoftwareManager.qrc">
+        <iconset resource="SoftwareWeb.qrc">
          <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
        </property>
       </widget>
@@ -290,7 +297,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="SoftwareManager.qrc"/>
+  <include location="SoftwareWeb.qrc"/>
   <include location="../pc-softwaremanager/SoftwareManager.qrc"/>
  </resources>
  <connections/>
