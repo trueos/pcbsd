@@ -30,6 +30,13 @@ void MountTray::programInit()
   trayIconMenu = new QMenu();
     trayIcon->setContextMenu(trayIconMenu);
 	
+  //Generate the Network Drive Menu
+  netMenu = new QMenu( tr("Network Shares") );
+    netMenu->setIcon( QIcon(":icons/netshare.png") );
+  menuline = trayIconMenu->addSeparator();
+  trayIconMenu->addMenu(netMenu);
+  connect(netMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotOpenDir(QAction*)) );
+	
   //Generate the system menu options (these don't change)
   sysMenu = new QMenu( tr("More Options") );
     sysMenu->setIcon( QIcon(":icons/config.png") );
@@ -45,7 +52,7 @@ void MountTray::programInit()
     sysMenu->addSeparator();
     sysMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
   
-    menuline = trayIconMenu->addSeparator();
+    trayIconMenu->addSeparator();
     trayIconMenu->addMenu(sysMenu);
     
   // Tie the left-click signal to open the context menu
@@ -365,6 +372,21 @@ void MountTray::UpdateDeviceMenu(bool fast, bool refresh){
     trayIconMenu->insertAction(menuline, item->action()); //put them above the line
     item->UpdateDevice( mounted.contains(avail[i]) ); //need the full update to start
   }
+  
+  //Now update the list of available network shares
+  netMenu->clear();
+  QStringList info = pcbsd::Utils::runShellCommand("pc-sysconfig list-mountednetdrives").join("").split(", ");
+  qDebug() << "Net Info:" << info;
+  //Syntax for the list: [<name> (<IP>) on <directory>]
+  for(int i=0; i<info.length(); i++){
+    if(info[i].startsWith("[")){ continue; } //error code from pc-sysconfig
+    QAction *act = new QAction(info[i].section("(",0,0).simplified(), netMenu);
+      act->setWhatsThis( info[i].section(" on ",1,1).simplified() );
+      act->setToolTip( info[i].section(")",0,0).section("(",1,1).simplified() );
+    netMenu->addAction(act);
+  }
+  netMenu->setEnabled( !netMenu->isEmpty() );
+  
   //Now show a popup message about any new devices
   if(!avail.isEmpty() && !MTINIT && newitems && !refresh){
     slotDisplayPopup(tr("Devices Available"), tr("New Devices are available for use"));

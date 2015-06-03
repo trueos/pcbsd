@@ -14,6 +14,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QFileDialog>
+#include <QProcess>
 
 //libpcbsd includes
 #include <pcbsd-xdgfile.h>
@@ -62,6 +63,9 @@ private slots:
   void slotOpenSettings();
   void slotOpenISO();
   void slotCloseMenu();
+  void slotOpenDir(QAction *act){
+    QProcess::startDetached("xdg-open \""+act->whatsThis()+"\"");
+  }
   //void slotOpenAVDisk(QString dev);
 
   //New Functions
@@ -77,7 +81,7 @@ private:
   QTimer *devdTimer;  
   int numMount, numAvail;
   QSystemTrayIcon* trayIcon;
-  QMenu *trayIconMenu, *sysMenu;
+  QMenu *trayIconMenu, *sysMenu, *netMenu;
   //QList<MenuItem*> deviceList;
   //QStringList oldsysdev;
   FSWatcher *diskWatcher;

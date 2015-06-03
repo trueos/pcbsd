@@ -20,5 +20,6 @@
     <file>icons/root-overlay.png</file>
     <file>icons/question-overlay.png</file>
     <file>icons/play.png</file>
+    <file>icons/netshare.png</file>
   </qresource>
 </RCC>
