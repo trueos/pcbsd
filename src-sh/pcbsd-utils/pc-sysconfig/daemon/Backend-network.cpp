@@ -1,4 +1,5 @@
 #include "Backend.h"
+#include <QDateTime>
 
 QStringList Backend::listNetworkDrives(){
   //output format: [<Name> (<IP>)]
@@ -8,15 +9,21 @@ QStringList Backend::listNetworkDrives(){
 }
 
 QStringList Backend::listMountedNetDrives(){
+  static QStringList results;
+  static QDateTime lastcheck;
+  if(!lastcheck.isNull() && (lastcheck > QFileInfo("/etc/hosts").lastModified()) ){
+    return results; //nothing changed recently - just return the same as last time
+  }
   //output format: [<Name> (<IP>) on <dir>]
+  lastcheck = QDateTime::currentDateTime(); //save this for later
   QStringList contents = readFile("/etc/hosts");
-  QStringList out;
+  results.clear();
   for(int i=0; i<contents.length(); i++){
     if(contents[i].startsWith("#") || contents[i].contains("localhost")){ continue; }
     contents[i] = contents[i].replace("\t", " ").simplified();
-    out << contents[i].section(" ",1,1)+" ("+contents[i].section(" ",0,0)+") on /net/"+contents[i].section(" ",1,1);
+    results << contents[i].section(" ",1,1)+" ("+contents[i].section(" ",0,0)+") on /net/"+contents[i].section(" ",1,1);
   }
-  return out;
+  return results;
 }
 
 QString Backend::autoMountNetDrive(QString driveIP, QString name){
