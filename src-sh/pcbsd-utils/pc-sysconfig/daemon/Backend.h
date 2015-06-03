@@ -37,6 +37,8 @@ public:
 	    if(req[0] == "list-remdev"){ outputs = listAllRemDev(); }
 	    else if(req[0] == "list-mounteddev"){ outputs = listMountedNodes(); }
 	    else if(req[0] == "list-audiodev"){ outputs = ListAudioDevices(); }
+	    else if(req[0] == "probe-netdrives"){ outputs = listNetworkDrives(); }
+	    else if(req[0] == "list-mountednetdrives"){ outputs = listMountedNetDrives(); }
 	    else if(req[0] == "supportedfilesystems"){ outputs = getUsableFileSystems(); }
 	    else if(req[0] == "usingtormode"){ outputs << getTorModeStatus(); }
 	    else if(req[0] == "getscreenbrightness"){ outputs << getScreenBrightness(); }
@@ -47,6 +49,7 @@ public:
 	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",""); } //fully-auto mounting of device "mount <dev>"
 	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],false); } //"unmount <dev or dir>"
+	    else if(req[0] == "unmountnet"){ outputs << autoUnmountNetDrive(req[1]); } //IP
 	    else if(req[0] == "load-iso"){ outputs << createMemoryDiskFromISO(req[1]); }
 	    else if(req[0] == "setdefaultaudiodevice"){ outputs << setDefaultAudioDevice(req[1]); }
 	    else if(req[0] == "setscreenbrightness"){ outputs << setScreenBrightness(req[1]); }
@@ -54,6 +57,7 @@ public:
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1], req[2].toLower()=="skiplabel"); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",req[2]); } //"mount <dev> <fs>"
 	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],req[2].toLower()=="force"); } //"unmount <dev or dir> force"
+	    else if(req[0] == "mountnet"){ outputs << autoMountNetDrive(req[1],req[2]); } //IP, name
 	  }else if(req.length() == 4){
 	    if(req[0] == "mount"){ outputs << mountRemDev(req[1],req[3],req[2]); } //"mount <dev> <fs> <dir>"
 	  }
@@ -142,7 +146,11 @@ private:
 	//BLUETOOTH (bluetooth)
 
 	//NETWORKING (network)
-
+	QStringList listNetworkDrives(); //output format: [<Name> (<IP>)]
+	QStringList listMountedNetDrives(); //output format: [<Name> (<IP>) on <dir>]
+	QString autoMountNetDrive(QString driveIP, QString name);
+	QString autoUnmountNetDrive(QString driveIP);
+	
 	//NETWORK SHARES (netshare)
 
 	//AUDIO (audio)

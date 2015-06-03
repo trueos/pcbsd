@@ -12,7 +12,8 @@ SOURCES	+= main.cpp \
 		MainDaemon.cpp \
 		Backend-remdev.cpp \
 		Backend-audio.cpp \
-		Backend-screen.cpp
+		Backend-screen.cpp \
+		Backend-network.cpp
 
 
 TARGET=pc-sysconfig-daemon
