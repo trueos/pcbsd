@@ -83,6 +83,7 @@ menuentry "Graphical Install" {
   set kFreeBSD.kern.geom.label.disk_ident.enable=0
   set kFreeBSD.kern.geom.label.gptid.enable=0
   set kFreeBSD.kern.geom.label.ufsid.enable=0
+  set kFreeBSD.vfs.mountroot.timeout="180"
 }
 
 menuentry "Graphical Install - (Failsafe VESA mode)" {
@@ -99,6 +100,7 @@ menuentry "Graphical Install - (Failsafe VESA mode)" {
   set kFreeBSD.kern.geom.label.disk_ident.enable=0
   set kFreeBSD.kern.geom.label.gptid.enable=0
   set kFreeBSD.kern.geom.label.ufsid.enable=0
+  set kFreeBSD.vfs.mountroot.timeout="180"
 }
 
 menuentry "Text Install / Emergency Console" {
@@ -115,4 +117,5 @@ menuentry "Text Install / Emergency Console" {
   set kFreeBSD.kern.geom.label.disk_ident.enable=0
   set kFreeBSD.kern.geom.label.gptid.enable=0
   set kFreeBSD.kern.geom.label.ufsid.enable=0
+  set kFreeBSD.vfs.mountroot.timeout="180"
 }
