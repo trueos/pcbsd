@@ -70,7 +70,7 @@ export theme
 set timeout=15
 
 menuentry "Graphical Install" {
-  kfreebsd /boot/kernel/kernel -D
+  kfreebsd /boot/kernel/kernel -D -h
   kfreebsd_loadenv /boot/device.hints
   kfreebsd_module_elf /boot/kernel/ums.ko
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
@@ -87,7 +87,7 @@ menuentry "Graphical Install" {
 }
 
 menuentry "Graphical Install - (Failsafe VESA mode)" {
-  kfreebsd /boot/kernel/kernel -D
+  kfreebsd /boot/kernel/kernel -D -h
   kfreebsd_loadenv /boot/device.hints
   kfreebsd_module_elf /boot/kernel/ums.ko
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
@@ -104,7 +104,7 @@ menuentry "Graphical Install - (Failsafe VESA mode)" {
 }
 
 menuentry "Text Install / Emergency Console" {
-  kfreebsd /boot/kernel/kernel -D
+  kfreebsd /boot/kernel/kernel -D -h
   kfreebsd_loadenv /boot/device.hints
   kfreebsd_module_elf /boot/kernel/ums.ko
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
