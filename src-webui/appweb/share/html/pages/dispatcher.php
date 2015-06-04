@@ -136,7 +136,7 @@ echo "<script type='text/javascript' charset='utf-8'>
      // Loop through the results
      foreach ($rarray as $res) {
        $results = explode(" ", $res);
-       if ( $results[2] == "warden" ) {
+       if ( $results[2] == "iocage" ) {
          echo "<tr><td>jail: $results[3]</td>";
          echo "<td>$results[4]</td>";
          echo "<td>$results[5]</td>";

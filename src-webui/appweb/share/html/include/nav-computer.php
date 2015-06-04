@@ -11,7 +11,7 @@
   <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>"><img src="/images/appcafe.png" height=32 width=32> Home</a></li>
   <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp&jail=<?php echo "$jailUrl"; ?>"><img src="/images/install.png" height=32 width=32> Installed Apps</a></li>
   <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
-  <li><a href="/?p=jails" style="align:right;"><img src="/images/warden.png" height=32 width=32> Warden</a></li>
+  <li><a href="/?p=jails" style="align:right;"><img src="/images/warden.png" height=32 width=32> Jails</a></li>
 <?php
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";

@@ -83,9 +83,9 @@ run_queue_cmd()
             esac
             ;;
  pkgupdate) target="$origin" ;;
-    warden) case $origin in
-	       create|delete) ;;
-		   *) echo "Unauthorized warden command specified: $1" >> ${QLOG}
+    iocage) case $origin in
+	       create|destroy) ;;
+		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOG}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
 	    esac
@@ -115,9 +115,17 @@ run_queue_cmd()
   elif [ "$app" == "pkgupdate" ];then
      cmd="pc-updatemanager pkgupdate"
      if [ "$target" != "__system__" ] ; then
-       cmd="warden pkgupdate $target"
+       cmd="iocage pkgupdate $target"
      fi
-  elif [ "$app" == "warden" ];then
+  elif [ "$app" == "iocage" ];then
+     if [ "$origin" = "create" ] ; then
+        # Make sure iocage has fetched this release
+        SYSVER=`uname -r | cut -d '-' -f 1-2`
+	iocage list -r | grep -q $SYSVER
+	if [ $? -ne 0 ] ; then
+	  iocage fetch release=$SYSVER ftphost=download.pcbsd.org ftpdir=/iso/$SYSVER/amd64/dist >>$QLOG 2>>$QLOG
+	fi
+     fi 
      cmd="$1"
   fi
 
@@ -212,15 +220,15 @@ display_log()
   fi
 }
 
-run_warden_cmd()
+run_iocage_cmd()
 {
   case $2 in
-      start) warden start $3;;
-       stop) warden stop $3;;
-       auto) warden auto $3;;
-        set) warden set $3 $4 $5 $6;;
-        get) warden get $3 $4 $5 $6 ; exit $? ;;
-          *) echo "Non-dispatch-approved warden command: $2" ;;
+      start) iocage start $3;;
+       stop) iocage stop $3;;
+       auto) iocage set boot=on $3 ;;
+        set) iocage set $3 $4 $5 $6;;
+        get) iocage get $3 $4 $5 $6 ; exit $? ;;
+          *) echo "Non-dispatch-approved iocage command: $2" ;;
   esac
   syscache "startsync" >/dev/null 2>/dev/null
 }
@@ -350,7 +358,7 @@ print_usage()
 {
   echo "Dispatcher usage:
 --------------------------------
-   warden {start|stop} {jail}
+   iocage {start|stop} {jail}
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
@@ -399,14 +407,14 @@ if [ -n "$PHP_DISID" ] ; then
 fi
 
 case $1 in
-    # Figure out which warden command we are using
-    warden) verify_disid
+    # Figure out which iocage command we are using
+    iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              create|delete) echo "$@" >>${QLIST} ;;
+              create|destroy) echo "$@" >>${QLIST} ;;
 	      # These commands can be run immediately
-	      start|stop|auto|set|get) run_warden_cmd $@ ;;
-	      *) echo "Invalid warden command! $2" ; exit 1 ;;
+	      start|stop|auto|set|get) run_iocage_cmd $@ ;;
+	      *) echo "Invalid iocage command! $2" ; exit 1 ;;
 	    esac
 	    ;;
     # Commands that interact with services

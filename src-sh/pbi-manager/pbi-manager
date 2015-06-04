@@ -32,7 +32,7 @@ Options:
   -f             -- Force install, overwriting existing installation
   -i             -- Display information about this PBI
   -j <jail> 	 -- Install into jail
-  -J             -- Create a new jail (via warden) and install PBI into it
+  -J             -- Create a new jail (via iocage) and install PBI into it
   -l             -- Display LICENSE text
   -v             -- Enable verbose output
   --licagree     -- Accept the LICENSE for the PBI we are adding
@@ -586,7 +586,7 @@ load_pbi_info_index()
 	return 0
 }
 
-# Function to create a new jail via warden and setup install into it
+# Function to create a new jail via iocage and setup install into it
 do_pbi_create_new_jail() {
 
 	local newjname="pbijail-`echo $PBI_ORIGIN | cut -d '/' -f 2`"
@@ -595,13 +595,13 @@ do_pbi_create_new_jail() {
 	num=0
 	while :
 	do
-		warden list | grep -q "^${newjname}${num}"
+		iocage list | grep -q "^${newjname}${num}"
 		if [ $? -ne 0 ] ; then break ; fi
 		num=`expr $num + 1`
 	done
 
 	# Create the jail now
-	warden create ${newjname}${num} --autoipv4  --startauto --portjail
+	iocage create tag=${newjname}${num} boot=on
 	if [ $? -ne 0 ] ; then
 		exit_err "Failed creating new jail automatically!"
 	fi

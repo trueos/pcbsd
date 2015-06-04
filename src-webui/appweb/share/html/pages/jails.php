@@ -5,7 +5,7 @@ if ( ! empty($_GET['deleteJail'] ) )
 {
    // Time to schedule a deletion
    $delJail=$_GET['deleteJail'];
-   run_cmd("warden delete $delJail --confirm");
+   run_cmd("iocage destroy -f $delJail");
    hideurl();
 }
  
@@ -15,16 +15,16 @@ if ( ! empty($_GET['toggle']) )
   $tjail = $_GET['toggle'];
   $sjail = $_GET['status'];
   if ( $sjail == "Running" )
-    run_cmd("warden stop $tjail");
+    run_cmd("iocage stop $tjail");
   else
-    run_cmd("warden start $tjail");
+    run_cmd("iocage start $tjail");
   hideurl();
 }
 
 if ( ! empty($_GET['autostart']) )
 {
   $tjail = $_GET['autostart'];
-  run_cmd("warden auto $tjail");
+  run_cmd("iocage set boot=on $tjail");
   hideurl();
 }
 
@@ -70,9 +70,9 @@ function print_jail($jail, $status)
    if ( empty($jailoutput[0]) and empty($jailoutput[1]) ) {
 ?>
 
-<h1>Welcome to the Warden!</h1>
+<h1>Welcome to the Jail Manager!</h1>
 <br>
-<p>The Warden will assist you in the creation and management of jails on this machine. To get started, let us first <a href="/?p=jailcreate" style="text-decoration: underline;">create a new jail.</a></p><br>
+<p>This manager will assist you in the creation and management of jails on this machine. To get started, let us first <a href="/?p=jailcreate" style="text-decoration: underline;">create a new jail.</a></p><br>
 <center><img src="/images/warden.png"></center>
 <?php
    } else {

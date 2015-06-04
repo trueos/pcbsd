@@ -33,7 +33,7 @@ if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
   
 
   if ( ! $badData ) {
-     $output = run_cmd("warden create $jailname --ipv4=$jailipv4 --startauto");
+     $output = run_cmd("iocage create tag=$jailname ip4_addr=$jailipv4 boot=on");
      $showForm = false;
 ?>
 <h1>Jail Creation</h1>
