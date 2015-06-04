@@ -272,7 +272,7 @@ void LPWatcher::readReplicationFile(){
   QString stat;
   while( !RFSTREAM->atEnd() ){ 
     QString line = RFSTREAM->readLine(); 
-    if(line.contains("total estimated size")){ repTotK = line.section(" ",-1).simplified(); } //save the total size to replicate
+    if(line.contains("estimated size is")){ repTotK = line.section("size is ",1,1,QString::SectionSkipEmpty).simplified(); } //save the total size to replicate
     else if(line.startsWith("send from ")){}
     else if(line.startsWith("TIME ")){}
     else if(line.startsWith("warning: ")){} //start of an error
@@ -287,7 +287,7 @@ void LPWatcher::readReplicationFile(){
     //Now Setup the tooltip
     if(cSize != lastSize){ //don't update the info if the same size info
       QString percent;
-      if(!repTotK.isEmpty()){
+      if(!repTotK.isEmpty() && repTotK!="??"){
         //calculate the percentage
         double tot = displayToDoubleK(repTotK);
         double c = displayToDoubleK(cSize);
@@ -362,6 +362,7 @@ double LPWatcher::displayToDoubleK(QString displayNumber){
   double num = displayNumber.toDouble();
   //Now format the number properly
   bool ok = false;
+  clab = clab.toUpper();
   for(int i=0; i<labels.length(); i++){
     if(labels[i] == clab){ ok = true; break; }
     else{ num = num*1024; } //get ready for the next size
