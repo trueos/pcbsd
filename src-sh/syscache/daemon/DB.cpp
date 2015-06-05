@@ -820,7 +820,7 @@ void Syncer::syncJailInfo(){
     clearJail(jails[i]); 
   }
   //Now also fetch the list of inactive jails on the system
-  info = directSysCmd("warden list -v");
+  info = QStringList(); //directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
   info = info.join("----").simplified().split("id: ");
   //qDebug() << "Warden Jail Info:" << info;
