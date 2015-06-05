@@ -9,12 +9,13 @@
 #include <QTemporaryFile>
 #include <QTextStream>
 #include <QDebug>
+#include <QStringList>
 
 #include "pcdm-backend.h"
 #include "pcdm-config.h"
 #include "pcbsd-utils.h"
 
-QStringList displaynameList,usernameList,homedirList,usershellList,instXNameList,instXBinList,instXCommentList,instXIconList,instXDEList;
+QStringList displaynameList,usernameList,homedirList,usershellList,instXNameList,instXBinList,instXCommentList,instXIconList,instXDEList,excludedUsers;
 QString logFile;
 QString saveX,saveUsername, lastUser, lastDE;
 bool Over1K = true;
@@ -54,11 +55,13 @@ QString Backend::getDesktopBinary(QString xName){
   return instXBinList[index];
 }
 
-void Backend::allowUidUnder1K(bool allow){
+void Backend::allowUidUnder1K(bool allow, QStringList excludes){
   Over1K = !allow;
-  //Make sure to re0load the user list if necessary
+  excludedUsers = excludes;
+  //Make sure to re-load the user list if necessary
   readSystemUsers();
 }
+
 
 QStringList Backend::getSystemUsers(bool realnames){
   if(usernameList.isEmpty()){
@@ -540,8 +543,6 @@ void Backend::readSystemUsers(){
   //make sure the lists are empty
   usernameList.clear(); displaynameList.clear(); homedirList.clear();
   QStringList uList;	
-  bool usepw = true; //for testing purposes
-  if(usepw){
     //Use "getent" to get all possible users
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
@@ -574,8 +575,9 @@ void Backend::readSystemUsers(){
 	if(Over1K){ bad = true;} //ignore anything under UID 1000
 	else{
 	  //Apply the special <1000 filters
-	  for(int f=0;f<filter.length(); f++){
-	    if(dispcheck.contains(filter[f])){ bad = true; break;}
+	  if(excludedUsers.contains(uList[i].section(":",0,0))){ bad = true; }
+	  for(int f=0;f<filter.length() && !bad; f++){
+	    if(dispcheck.contains(filter[f])){ bad = true; }
           }
         }
     }
@@ -590,39 +592,6 @@ void Backend::readSystemUsers(){
       usershellList << uList[i].section(":",6,6).simplified();
     }
    } //end loop over uList
-  }else{ 
-    //Get all the users from the file "/etc/passwd"
-    QFile PWF("/etc/passwd");
-    if( PWF.open(QIODevice::ReadOnly | QIODevice::Text) ){
-      QTextStream in(&PWF);
-        in.setCodec( "UTF-8" );
-      while( !in.atEnd() ){
-        uList << QString( in.readLine() );
-      }
-      PWF.close();    
-    }
-  //Remove all users that have:
-  for(int i=0; i<uList.length(); i++){
-    bool bad = false;
-    // Shell Checks
-    if(uList[i].section(":",6,6).contains("nologin") || uList[i].section(":",6,6).isEmpty() || !QFile::exists(uList[i].section(":",6,6)) ){bad=true;}
-    // User Home Dir
-    else if(uList[i].section(":",5,5).contains("nonexistent") || uList[i].section(":",5,5).contains("/empty") || uList[i].section(":",5,5).isEmpty() ){bad=true;}
-    // uid > 0
-    else if(uList[i].section(":",2,2).toInt() < 1){bad=true;} //don't show the root user
-
-    //See if it failed any checks
-    if(bad){ uList.removeAt(i); i--; }
-    else{
-      //Add this user to the lists if it is good
-      usernameList << uList[i].section(":",0,0).simplified();
-      displaynameList << uList[i].section(":",4,4).simplified();
-      homedirList << uList[i].section(":",5,5).simplified();
-      usershellList << uList[i].section(":",6,6).simplified();
-    }
-  }
-  
-  }
   
 }
 

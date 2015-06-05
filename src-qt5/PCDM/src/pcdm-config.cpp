@@ -27,6 +27,7 @@ void Config::loadDefaults(){
   confStruct << "true";					// [10] Show System Users
   confStruct << "false";					// [11] Allow anonymous login
   confStruct << "false";					// [12] Allow UID's under 1000
+  confStruct << "";						// [13] Excluded user names
   return;
 }
 
@@ -61,6 +62,7 @@ void Config::readConfigFile(QString filePath){
       else if(var=="SHOW_SYSTEM_USERS"){ confStruct[10] = val; }
       else if(var=="ALLOW_STEALTH_LOGIN"){ confStruct[11] = val; }
       else if(var=="ALLOW_UID_UNDER_1K"){ confStruct[12] = val; }
+      else if(var=="EXCLUDED_USERS"){ val = val.remove(" "); confStruct[13] = val; }
       else{}
       
     }
@@ -99,6 +101,10 @@ bool Config::useAutoLogin(){
 bool Config::allowUnder1KUsers(){
   if(confStruct[12].toLower()=="true"){ return true; }
   else{ return false; }  
+}
+
+QStringList Config::excludedUserList(){
+  return confStruct[13].split(",");
 }
 
 QString Config::autoLoginUsername(){

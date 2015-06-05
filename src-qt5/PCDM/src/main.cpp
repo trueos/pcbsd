@@ -96,7 +96,7 @@ int runSingleSession(int argc, char *argv[]){
   
   Config::loadConfigFile(confFile);
   // Now set the backend functionality of which usernames are allowed
-  Backend::allowUidUnder1K(Config::allowUnder1KUsers());
+  Backend::allowUidUnder1K(Config::allowUnder1KUsers(), Config::excludedUserList());
   //qDebug() << "Config File Loaded:" << QString::number(clock.elapsed())+" ms";
   // Startup the main application
   QApplication a(argc,argv); 
