@@ -11,7 +11,10 @@ defined('DS') OR die('No direct access allowed.');
   $jailipv6 = $jailinfo[1];
 
   // Get the default network interface for this jail
-  $dnic = run_cmd("warden get iface $jail");
+  $dnic = run_cmd("iocage get ip4_addr $jail");
+  $dnic = strstr($dnic, "|", TRUE);
+  if ( empty($dnic) )
+    $dnic = run_cmd("netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'");
   $jailnic = $dnic[0];
 
   // Get the list of nics available
@@ -28,16 +31,15 @@ defined('DS') OR die('No direct access allowed.');
      // Has the IP changed?
      if ( $postjailipv4 != $jailipv4 )
      {
-  	run_cmd("warden set ipv4 $jail $postjailipv4");
   	$jailipv4 = $postjailipv4;
      }
 
      // Has the jail NIC changed?
      if ( $postjailnic != $jailnic )
      {
-  	run_cmd("warden set iface $jail $postjailnic");
   	$jailnic = $postjailnic;
      }
+     run_cmd("iocage set ip4_addr=\"$postjailnic|$postjailipv4\" $jail");
 
   }
 

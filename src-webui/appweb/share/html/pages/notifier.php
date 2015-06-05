@@ -65,7 +65,7 @@
 	if ( $results[3] == "__system__" )
             $target="Local System";
         $result = "Updated packages on: ". $target;
-      } elseif ( $results[2] == "warden" ) {
+      } elseif ( $results[2] == "iocage" ) {
         if ( $results[3] == "create" ) {
           $result = "Create jail: ". $results[4];
         } else {
