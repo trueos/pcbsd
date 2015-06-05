@@ -56,6 +56,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    exUserMenu = new QMenu(this);
+      ui->tool_exuser_add->setMenu(exUserMenu);
+      connect(exUserMenu, SIGNAL(triggered(QAction*)), this, SLOT(add_exuser(QAction*)) );
     initUI();
 }
 
@@ -68,6 +71,7 @@ MainWindow::~MainWindow()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::initUI()
 {
+
     //Make sure the conf file exists
     if(!QFile::exists(DM_CONFIG_FILE)){
       qDebug() << "Copying over the default configuration file:" << DM_CONFIG_FILE;
@@ -122,10 +126,10 @@ void MainWindow::initUI()
       ui->checkAllowStealth->setChecked(true);
     }
     
-    ui->checkAllowUnder1K->setChecked(false); //PCDM defaults to false
+    ui->groupAllowUnder1K->setChecked(false); //PCDM defaults to false
     QString allowU1K = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ALLOW_UID_UNDER_1K");
     if(allowU1K.toLower() == "true"){
-      ui->checkAllowUnder1K->setChecked(true);
+      ui->groupAllowUnder1K->setChecked(true);
     }   
     //Update the UI appropriately
     itemChanged();
@@ -139,17 +143,40 @@ void MainWindow::initUI()
     connect( ui->checkShowPW, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     connect( ui->checkShowUsers, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     connect( ui->checkAllowStealth, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
-    connect( ui->checkAllowUnder1K, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
+    connect( ui->groupAllowUnder1K, SIGNAL(toggled(bool)), this, SLOT(itemChanged()) );
+    connect( ui->line_exuser, SIGNAL(returnPressed()), this, SLOT(on_tool_exuser_add_clicked()) );
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::getUsers()
 {
-    /*
-        here is modifyed code from pc-usermanager
-    */
+    QStringList users = pcbsd::Utils::runShellCommand("getent passwd");
     mvUsers.clear();
-    QFile userFile("/etc/passwd");
+    exUserMenu->clear();
+    for(int i=0; i<users.length(); i++){
+      QString line = users[i];
+      if ((line.trimmed().indexOf("#") != 0) && (! line.isEmpty())) { //Make sure it isn't a comment or blank
+	QString username = line.section(":",0,0);
+	QString homedir = line.section(":",5,5);
+	QString shell = line.section(":",6,6);
+	//Ignore invalid users
+	if(shell.contains("nologin") || homedir.contains("nonexistent") || homedir.endsWith("/empty") ){ continue; }
+	
+	// Ignore PEFS encrypted users
+	if ( QFile::exists(homedir + "/.pefs.db") )
+	  continue;
+
+	int uid = line.section(":",2,2).toInt();
+	if(uid==0){ continue; }
+	if ((uid>1000)&&(uid<65534)){
+	  mvUsers.push_back(username);
+        }else if(QFile::exists(homedir) && QFile::exists(shell)){
+	  exUserMenu->addAction(username);
+	}
+      }
+    }
+	
+    /*QFile userFile("/etc/passwd");
     if ( userFile.open(QIODevice::ReadOnly) ) {
         QTextStream stream(&userFile);
         stream.setCodec("UTF-8");
@@ -171,7 +198,7 @@ void MainWindow::getUsers()
                     mvUsers.push_back(username);
             }//if gout user
         }//for all lines
-    }//if can open file
+    }//if can open file*/
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -237,11 +264,17 @@ void MainWindow::on_SaveButton_clicked()
     }else{
 	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_STEALTH_LOGIN", "ALLOW_STEALTH_LOGIN=FALSE", -1);
     }
-    if(ui->checkAllowUnder1K->isChecked()){
+    if(ui->groupAllowUnder1K->isChecked()){
 	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_UID_UNDER_1K", "ALLOW_UID_UNDER_1K=TRUE", -1);
     }else{
 	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_UID_UNDER_1K", "ALLOW_UID_UNDER_1K=FALSE", -1);
     }
+    QStringList exusers;
+    for(int i=0; i<ui->list_exuser->count(); i++){
+      exusers << ui->list_exuser->item(i)->text();
+    }
+    exusers.removeDuplicates();
+    pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE,"EXCLUDED_USERS", "EXCLUDED_USERS="+exusers.join(","), -1);
     // Lastly make sure we set perms
     system("chmod 600 " + DM_CONFIG_FILE.toLatin1());
     ui->SaveButton->setEnabled(false);
@@ -263,4 +296,27 @@ void MainWindow::itemChanged(){
   //Double check the dependant options for whether they are possible to be changed
   ui->UsersList->setEnabled( ui->AutoLoginEnabledCB->isChecked() );
   ui->spin_autoLogDelay->setEnabled( ui->AutoLoginEnabledCB->isChecked() );
+}
+
+void MainWindow::on_tool_exuser_rem_clicked(){
+  QList<QListWidgetItem*> sel = ui->list_exuser->selectedItems();
+  for(int i=0; i<sel.length(); i++){
+    delete sel[i];
+  }
+  itemChanged();
+}
+
+void MainWindow::on_tool_exuser_add_clicked(){
+  QString name = ui->line_exuser->text();
+  ui->line_exuser->setText("");
+  name = name.remove(" ");
+  if(name.isEmpty() || !ui->list_exuser->findItems(name,Qt::MatchExactly).isEmpty() ){ return; }
+  ui->list_exuser->addItem(name);
+  itemChanged();
+}
+
+void MainWindow::add_exuser(QAction* act){ //for a username selected from the menu
+  if( !ui->list_exuser->findItems(act->text(), Qt::MatchExactly).isEmpty() ){ return; }
+  ui->list_exuser->addItem(act->text());
+  itemChanged();
 }

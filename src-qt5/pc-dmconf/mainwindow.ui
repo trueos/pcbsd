@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>285</width>
-    <height>333</height>
+    <width>321</width>
+    <height>345</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="pc-dmconf.qrc">
-    <normaloff>:/pc-dmconf.png</normaloff>:/pc-dmconf.png</iconset>
+    <normaloff>:/icons/pc-dmconf.png</normaloff>:/icons/pc-dmconf.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -127,10 +127,83 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="3" column="0">
-         <widget class="QCheckBox" name="checkAllowUnder1K">
-          <property name="text">
-           <string>Allow users with UID under 1001</string>
+         <widget class="QGroupBox" name="groupAllowUnder1K">
+          <property name="title">
+           <string>Allow Valid Users with UID under 1000</string>
           </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Additional Excluded Users</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QListWidget" name="list_exuser">
+             <property name="selectionMode">
+              <enum>QAbstractItemView::ExtendedSelection</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLineEdit" name="line_exuser"/>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_exuser_add">
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-dmconf.qrc">
+                 <normaloff>:/icons/list-add-user.png</normaloff>:/icons/list-add-user.png</iconset>
+               </property>
+               <property name="popupMode">
+                <enum>QToolButton::MenuButtonPopup</enum>
+               </property>
+               <property name="arrowType">
+                <enum>Qt::NoArrow</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_exuser_rem">
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-dmconf.qrc">
+                 <normaloff>:/icons/list-remove-user.png</normaloff>:/icons/list-remove-user.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
         </item>
         <item row="0" column="0">

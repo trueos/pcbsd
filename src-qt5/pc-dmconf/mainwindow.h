@@ -48,11 +48,16 @@ private:
     QVector<QString> mvUsers;
     Ui::MainWindow *ui;
 
+	QMenu *exUserMenu;
+
 public slots:
     void slotSingleInstance();
 
 private slots:
     void on_SaveButton_clicked();
+    void on_tool_exuser_rem_clicked();
+    void on_tool_exuser_add_clicked();
+    void add_exuser(QAction*); //for a username selected from the menu
 
     void itemChanged();
 };
