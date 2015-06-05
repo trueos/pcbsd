@@ -570,8 +570,8 @@ void Backend::readSystemUsers(){
     // uid > 0
     else if(uList[i].section(":",2,2).toInt() < 1){bad=true;} //don't show the root user
     //Check that the name/description does not contain "server"
-    else if(uList[i].section(":",2,2).toInt() <= 1000){
-	if(Over1K){ bad = true;} //ignore anything under UID 1001
+    else if(uList[i].section(":",2,2).toInt() < 1000){
+	if(Over1K){ bad = true;} //ignore anything under UID 1000
 	else{
 	  //Apply the special <1000 filters
 	  for(int f=0;f<filter.length(); f++){

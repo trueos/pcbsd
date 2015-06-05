@@ -515,6 +515,11 @@ void PCDMgui::LoadAvailableUsers(){
   //if(sysAvail.isEmpty()){ sysAvail = Backend::getSystemUsers(false); } //make sure to get usernames, not real names
   //qDebug() << "Loading Users:" << pcAvail << sysAvail << pcCurrent;
   QStringList userlist = Backend::getSystemUsers(false);
+  if(userlist.isEmpty()){ 
+    //Fallback method in case no valid system users could be found
+    Backend::allowUidUnder1K(true); 
+    userlist = Backend::getSystemUsers(false);
+  }
   //qDebug() << " - System:" << userlist;
   QString lastUser;
   if(!pcAvail.isEmpty()){ 
