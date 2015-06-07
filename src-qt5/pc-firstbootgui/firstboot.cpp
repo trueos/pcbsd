@@ -18,11 +18,16 @@
 #include "firstboot.h"
 #include "helpText.h"
 
+#define DEBUG 0 //ONLY USED FOR INTERNAL BUILD/TESTING 
+// DO NOT COMMIT CHANGES WITH DEBUG==1 !!!
+
+
 Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint)
 {
     setupUi(this);
     //Setup the window
-    this->setGeometry( QApplication::primaryScreen()->geometry() ); //full screen
+    if(!DEBUG){ this->setGeometry( QApplication::primaryScreen()->geometry() ); }//full screen
+    else{ this->setWindowFlags(Qt::Window); } //don't keep on bottom/frameless for testing
     
     translator = new QTranslator();
 
@@ -295,7 +300,7 @@ void Installer::slotNext()
 {
    QString tmp;
    backButton->setVisible(true);
-
+   if(DEBUG){ qDebug() << "Starting Index:" << installStackWidget->currentIndex(); }
    // Check rootPW match
    if ( installStackWidget->currentIndex() == 1)
      slotCheckRootPW();
@@ -312,13 +317,15 @@ void Installer::slotNext()
        connect(listWidgetWifi, SIGNAL(itemPressed(QListWidgetItem *)), this, SLOT(slotAddNewWifi()));
      } else {
        haveWifi = false;
+       installStackWidget->setCurrentIndex(5); //skip the wifi page
+       if(DEBUG){ qDebug() << "Skipping Wifi - now index:" << installStackWidget->currentIndex(); }
      }
    }
 
    // If not doing a wireless connection
-   if ( installStackWidget->currentIndex() == 4 && ! haveWifi) {
-      installStackWidget->setCurrentIndex(6); //skip the wifi page
-   }
+   /*if ( installStackWidget->currentIndex() == 4 && ! haveWifi) {
+      
+   }*/
 
     /*  // Save the settings
       saveSettings();
@@ -330,13 +337,17 @@ void Installer::slotNext()
    }*/
    //Check that there are services available to be enabled
    if( installStackWidget->currentIndex()==6 && SERVICELIST.isEmpty() ){
-     installStackWidget->setCurrentIndex(7); //skip the services page
+     qDebug() << "Available Services:" << SERVICELIST.length();
+     if(SERVICELIST.isEmpty()){
+       installStackWidget->setCurrentIndex(7); //skip the services page
+       if(DEBUG){ qDebug() << "Skipping Services - now index:" << installStackWidget->currentIndex(); }
+     }
    }
    
    // Finished screen
-   if ( installStackWidget->currentIndex() == 7 ) {
+   if ( installStackWidget->currentIndex() == 6 ) {
       // Save the settings
-      saveSettings();
+      if(!DEBUG){ saveSettings(); }
       nextButton->setText(tr("&Finish"));
       backButton->setVisible(false);
       nextButton->disconnect();
