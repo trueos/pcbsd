@@ -16,7 +16,7 @@ QStringList Backend::listMountedNetDrives(){
   }
   //output format: [<Name> (<IP>) on <dir>]
   lastcheck = QDateTime::currentDateTime(); //save this for later
-  QStringList contents = readFile("/etc/hosts");
+  QStringList contents = readFile("/etc/hosts").filter("shareddata.");
   results.clear();
   for(int i=0; i<contents.length(); i++){
     if(contents[i].startsWith("#") || contents[i].contains("localhost")){ continue; }
@@ -28,6 +28,7 @@ QStringList Backend::listMountedNetDrives(){
 
 QString Backend::autoMountNetDrive(QString driveIP, QString name){
   QStringList contents = readFile("/etc/hosts");
+  QString newline = driveIP+"\t"+name+" shareddata."+name;
   if(!contents.filter(driveIP).isEmpty()){
     //Need to replace an existing entry
     QStringList lines = contents.filter(driveIP);
@@ -37,14 +38,14 @@ QString Backend::autoMountNetDrive(QString driveIP, QString name){
       if(index<0){ continue; }
       if(contents[index].startsWith("#")){ continue; } //skip lines which are commented out
       //Valid Line - need to make an adjustment
-      if(!changed){ contents[i] = driveIP+"\t"+name; changed = true; } //replace the line
+      if(!changed){ contents[i] = newline; changed = true; } //replace the line
       else{ contents.removeAt(i); } //duplicate entry for the same IP - remove it
     }
     //no valid lines changed, just add a new entry to the end
-    if(!changed){ contents << driveIP+"\t"+name; }
+    if(!changed){ contents << newline; }
   }else{
     //No entry for this IP yet - add one
-    contents << driveIP+"\t"+name;
+    contents << newline;
   }
   bool ok = writeFile("/etc/hosts",contents,true);
   return (ok ? "[SUCCESS]": "[FAILURE]");
