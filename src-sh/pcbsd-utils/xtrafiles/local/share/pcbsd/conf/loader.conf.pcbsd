@@ -30,6 +30,7 @@ hw.memtest.tests=0
 
 # Load Linux compat
 linux_load="YES"
+linux_common_load="YES"
 
 # Load geom support
 crypto_load="YES"
