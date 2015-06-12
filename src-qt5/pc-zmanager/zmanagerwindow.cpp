@@ -82,7 +82,6 @@ void ZManagerWindow::slotSingleInstance()
 
 void ZManagerWindow::GetCurrentTopology()
 {
-
     // RUN ALL REQUIRED PROCESSES AND GET THE RESULTS
 
     QStringList a=pcbsd::Utils::runShellCommand("zpool status");    // GET ALL ACTIVE POOLS
@@ -92,6 +91,7 @@ void ZManagerWindow::GetCurrentTopology()
     QStringList h=pcbsd::Utils::runShellCommand("gpart list");
     QStringList h2=pcbsd::Utils::runShellCommand("gpart show -p");
     QStringList lbl=pcbsd::Utils::runShellCommand("glabel status");
+    QStringList fsid=pcbsd::Utils::runShellCommand("sh -c blkid /dev/da* /dev/ada*");
     QStringList m=pcbsd::Utils::runShellCommand("mount");
     QStringList prop;   // GET PROPERTIES FOR ALL POOLS ONCE WE HAVE A LIST OF POOLS
     QStringList zfsl=pcbsd::Utils::runShellCommand("zfs list -H -t all");
@@ -137,6 +137,7 @@ void ZManagerWindow::GetCurrentTopology()
             dsk.Index=0;
             dsk.Size=0LL;
             dsk.PartType.clear();
+            dsk.FSType.clear();
             dsk.Partitions.clear();
             ++state;
         }
@@ -529,6 +530,171 @@ void ZManagerWindow::GetCurrentTopology()
 
         ++idx;
     }
+
+
+    // GET FILE SYSTEM TYPES FROM BLKID
+
+
+    idx=fsid.constBegin();
+
+    while(idx!=fsid.constEnd()) {
+        QString FileSystemID;
+        int f;
+        QStringList tokens=(*idx).split(" ",QString::SkipEmptyParts);
+
+        if(tokens.count()<2) { ++ idx; continue; }
+        // FIND DISK OR PARTITION WITH GIVEN NAME
+
+        for(f=1;f<tokens.count();++f) {
+            if(tokens.at(f).startsWith("TYPE=")) {
+                FileSystemID=tokens.at(f).mid(6,tokens.at(f).length()-7);
+
+                // APPLY CORRECTIONS DEPENDING ON PARTITION TYPE
+
+                if(FileSystemID=="vfat") {
+                // DETECT FAT16 VS FAT32 VARIANTS
+                int k;
+                for(k=1;k<tokens.count();++k) {
+                    if(tokens.at(k)=="SEC_TYPE=\"msdos\"") { FileSystemID="fat16"; break; }
+                    }
+                if(k==tokens.count()) FileSystemID="fat32";
+
+                }
+
+                break;
+            }
+        }
+
+
+        QList<vdev_t>::iterator dskit=this->Disks.begin();
+
+        while(dskit!=this->Disks.end())
+        {
+            QList<vdev_t>::iterator sliceit=(*dskit).Partitions.begin();
+            while(sliceit!=(*dskit).Partitions.end()) {
+                QList<vdev_t>::Iterator partit=(*sliceit).Partitions.begin();
+                while(partit!=(*sliceit).Partitions.end()) {
+                    if(tokens.at(0)=="/dev/"+(*partit).Name+":") {
+
+                        (*partit).FSType=FileSystemID;
+
+                        // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
+                        if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
+                            if(!(*partit).PartType.startsWith("ms-")) (*partit).FSType.clear();
+                        }
+                        if(FileSystemID.startsWith("ext")) {
+                            if(!(*partit).PartType.startsWith("linux-")) (*partit).FSType.clear();
+                        }
+
+                        break;
+
+                    }
+                    if(!(*partit).Alias.isEmpty()) {
+                        if(tokens.at(0)=="/dev/"+(*partit).Alias+":") {
+                            (*partit).FSType=FileSystemID;
+
+
+                            // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
+                            if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
+                                if(!(*partit).PartType.startsWith("ms-")) (*partit).FSType.clear();
+                            }
+                            if(FileSystemID.startsWith("ext")) {
+                                if(!(*partit).PartType.startsWith("linux-")) (*partit).FSType.clear();
+                            }
+
+
+
+
+                            break;
+                        }
+                    }
+                    ++partit;
+                }
+                    if(partit!=(*sliceit).Partitions.end()) break;
+                    if(tokens.at(0)=="/dev/"+(*sliceit).Name+":") {
+                        (*sliceit).FSType=FileSystemID;
+
+
+                        // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
+                        if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
+                            if(!(*sliceit).PartType.startsWith("ms-")) (*sliceit).FSType.clear();
+                        }
+                        if(FileSystemID.startsWith("ext")) {
+                            if(!(*sliceit).PartType.startsWith("linux-")) (*sliceit).FSType.clear();
+                        }
+
+
+
+                        break;
+                    }
+                    if(!(*sliceit).Alias.isEmpty()) {
+                        if(tokens.at(0)=="/dev/"+(*sliceit).Alias+":") {
+
+                            (*sliceit).FSType=FileSystemID;
+
+
+                            // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
+                            if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
+                                if(!(*sliceit).PartType.startsWith("ms-")) (*sliceit).FSType.clear();
+                            }
+                            if(FileSystemID.startsWith("ext")) {
+                                if(!(*sliceit).PartType.startsWith("linux-")) (*sliceit).FSType.clear();
+                            }
+
+
+
+                            break;
+                        }
+                    }
+                    ++sliceit;
+            }
+
+            if(sliceit!=(*dskit).Partitions.end()) break;
+
+            if(tokens.at(0)=="/dev/"+(*dskit).Name+":") {
+                (*dskit).FSType=FileSystemID;
+
+
+                // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
+                if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
+                    if(!(*dskit).PartType.startsWith("ms-")) (*dskit).FSType.clear();
+                }
+                if(FileSystemID.startsWith("ext")) {
+                    if(!(*dskit).PartType.startsWith("linux-")) (*dskit).FSType.clear();
+                }
+
+
+
+
+                break;
+            }
+            if(!(*dskit).Alias.isEmpty()) {
+                if(tokens.at(0)=="/dev/"+(*dskit).Alias+":") {
+                    (*dskit).FSType=FileSystemID;
+
+                    // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
+                    if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
+                        if(!(*dskit).PartType.startsWith("ms-")) (*dskit).FSType.clear();
+                    }
+                    if(FileSystemID.startsWith("ext")) {
+                        if(!(*dskit).PartType.startsWith("linux-")) (*dskit).FSType.clear();
+                    }
+
+
+
+                    break;
+                }
+            }
+
+            ++dskit;
+        }
+
+
+
+
+        ++idx;
+    }
+
 
 
     // FINISHED PROCESSING DEVICES
@@ -1416,7 +1582,7 @@ void ZManagerWindow::refreshState()
             QString sz;
 
             sz=" ("+printBytes((*partidx).Size)+")\n";
-            subitem->setText(0,(*partidx).Name + sz + " ["+(*partidx).PartType+"]");
+            subitem->setText(0,(*partidx).Name + sz + " ["+(*partidx).PartType+(((*partidx).FSType.isEmpty())? "":" | ")+(*partidx).FSType+"]");
             subitem->setIcon(0,QIcon(":/icons/partitionmanager.png"));
 
             if((*partidx).MountPoint.isEmpty()) {
@@ -1941,6 +2107,23 @@ int result=mnt.exec();
 if(result) {
 
     QString cmdline="mount ";
+
+    if(device->FSType.startsWith("fat")) {
+        cmdline+="-t msdosfs ";
+    }
+
+    if((device->FSType=="ext2") || (device->FSType=="ext3")) {
+        cmdline+=" -t ext2fs ";
+    }
+
+
+    if(device->FSType=="ext4") {
+        cmdline="ext4fuse ";
+    }
+
+    if(device->FSType=="ntfs") {
+        cmdline="ntfs-3g ";
+    }
 
     if(device->Alias.isEmpty())  cmdline += "/dev/"+device->Name;
     else cmdline+="/dev/"+device->Alias;
