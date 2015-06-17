@@ -57,5 +57,6 @@ private slots:
     void on_actionVulnerabilities_triggered();
     void on_actionExit_triggered();
     void on_actionBase_updates_history_triggered();
+    void on_actionEndOfLife_triggered();
 };
 #endif

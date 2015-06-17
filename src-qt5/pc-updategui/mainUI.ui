@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>277</height>
+    <width>604</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -360,8 +360,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>518</width>
-     <height>19</height>
+     <width>604</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -376,6 +376,7 @@
     </property>
     <addaction name="actionVulnerabilities"/>
     <addaction name="actionBase_updates_history"/>
+    <addaction name="actionEndOfLife"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
@@ -405,6 +406,18 @@
    </property>
    <property name="text">
     <string>Base updates history</string>
+   </property>
+  </action>
+  <action name="actionEndOfLife">
+   <property name="icon">
+    <iconset resource="pc-updategui.qrc">
+     <normaloff>:/images/showeol.png</normaloff>:/images/showeol.png</iconset>
+   </property>
+   <property name="text">
+    <string>End of support</string>
+   </property>
+   <property name="toolTip">
+    <string>End of support</string>
    </property>
   </action>
  </widget>

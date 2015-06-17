@@ -16,5 +16,6 @@
         <file>images/application-exit.png</file>
         <file>images/pkgvul.png</file>
         <file>images/updlog.png</file>
+        <file>images/showeol.png</file>
     </qresource>
 </RCC>

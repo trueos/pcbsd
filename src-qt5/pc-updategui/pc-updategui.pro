@@ -9,15 +9,18 @@ INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 HEADERS	+= mainUI.h \ 
     pkgVulDialog.h \
-    updHistoryDialog.h
+    updHistoryDialog.h \
+    eolDialog.h
 
 SOURCES	+= main.cpp mainUI.cpp \ 
     pkgVulDialog.cpp \
-    updHistoryDialog.cpp
+    updHistoryDialog.cpp \
+    eolDialog.cpp
 
 FORMS	= mainUI.ui \
     pkgVulDialog.ui \
-    updHistoryDialog.ui
+    updHistoryDialog.ui \
+    eolDialog.ui
 
 RESOURCES = pc-updategui.qrc 
 
