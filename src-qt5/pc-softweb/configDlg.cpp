@@ -148,7 +148,7 @@ void ConfigDlg::loadPbiConf(){ //fill the UI with the current settings
     if(contents[i].startsWith("PACKAGE_SET:")){
       QString val = contents[i].section(":",1,50).simplified();
       if(val=="EDGE"){ ui->radio_edge->setChecked(true); cRepo = val;}
-      if(val=="ENTERPRISE"){ ui->radio_enterprise->setChecked(true); cRepo = val;}
+      else if(val=="ENTERPRISE"){ ui->radio_enterprise->setChecked(true); cRepo = val;}
       else if(val=="PRODUCTION"){ ui->radio_production->setChecked(true); cRepo = val;}
       else if(val=="CUSTOM"){ ui->radio_custom->setChecked(true); cRepo = val;}
       else{ ui->radio_production->setChecked(true); cRepo = "PRODUCTION"; } //default to PRODUCTION
