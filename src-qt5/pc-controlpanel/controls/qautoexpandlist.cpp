@@ -50,12 +50,12 @@ void QAutoExpandList::resizeEvent ( QResizeEvent * event )
     QListWidget::resizeEvent(event);
 }
 
-void QAutoExpandList::dataChanged ( const QModelIndex & topLeft,
-                                   const QModelIndex & bottomRight )
+/*void QAutoExpandList::dataChanged ( const QModelIndex & topLeft,
+                                   const QModelIndex & bottomRight, const QVector<int> & roles)
 {
     QListWidget::dataChanged(topLeft, bottomRight);
     //fitSize();
-}
+}*/
 
 ///////////////////////////////////////////////////////////////////////////////
 void QAutoExpandList::focusOutEvent(QFocusEvent *event)

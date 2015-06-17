@@ -60,8 +60,9 @@ public:
 
 protected:
 	virtual void resizeEvent ( QResizeEvent * event );
-        virtual void dataChanged ( const QModelIndex & topLeft,
-                                   const QModelIndex & bottomRight );
+        /*virtual void dataChanged ( const QModelIndex & topLeft,
+                                   const QModelIndex & bottomRight, 
+				   const QVector<int> &roles=QVector<int>() );*/
 
 private:
 	//! Is auto expand enabled (TRUE by default)
