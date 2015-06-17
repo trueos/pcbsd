@@ -246,9 +246,10 @@ void MainWindow::fillDEList()
         {QString("lxde"),QString(":/images/lxde.png"), ELXDE_PAGE},
         {QString("cinnamon"),QString(":/images/cinnamon.png"), ECINNAMON_PAGE},
         {QString("mate"),QString(":/images/mate.png"), EMATE_PAGE},
+	{QString("Lumina"),QString(":/images/lumina.png"), EPCBSD_BASE_PAGE},
     };
 
-    const int DE_SIZE = 6;
+    const int DE_SIZE = 7;
 
     bool hasActiveDesktop = false;
 
@@ -275,7 +276,7 @@ void MainWindow::fillDEList()
             QTreeWidgetItem* item = new QTreeWidgetItem;
             QIcon anIcon(ico);
 
-            item->setText(1, InstalledDEList[i].Name);
+            item->setText(0, InstalledDEList[i].Name);
             item->setIcon(0, anIcon);
             item->setData(0, Qt::UserRole, page);
             ui->DEList->setIconSize(QSize(48,48));
@@ -284,18 +285,18 @@ void MainWindow::fillDEList()
 
             if (InstalledDEList[i].isActive)
             {
-                item->setSelected(true);
+		ui->DEList->setCurrentItem(item);
                 hasActiveDesktop = true;
             }//if active
         }//if installed
     }//for all installed
 
     QTreeWidgetItem* item = new QTreeWidgetItem;
-    item->setText(1, tr("Not listed here?"));
+    item->setText(0, tr("Not listed here?"));
     item->setIcon(0, QIcon(":/images/unsupported_de.png"));
-    item->setSelected(hasActiveDesktop == false);
     item->setData(0, Qt::UserRole, EUNSUPPORTED_DE_PAGE);
     ui->DEList->addTopLevelItem(item);
+    if(!hasActiveDesktop){ ui->DEList->setCurrentItem(item); }
 }
 
 void MainWindow::fillPBIList()
