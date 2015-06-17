@@ -639,6 +639,11 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    }
 }
 
+void Syncer::UpdatePkgDB(QString jail){
+  if(jail!=LOCALSYSTEM){ directSysCmd("pkg -j "+HASH->value("Jails/"+jail+"/JID")+" update"); }
+  else{ directSysCmd("pkg update"); }
+}
+
 QStringList Syncer::readFile(QString filepath){
   QStringList out;
   QFile file(filepath);
@@ -769,6 +774,11 @@ void Syncer::performSync(){
   qDebug() << "Syncing system information";
   //First do the operations that can potentially lock the pkg database first, but are fast
   if(stopping){ return; }
+  if(HASH->isEmpty()){
+    qDebug() << " - First Run: Updating pkg repo database:" << QDateTime::currentDateTime().toString(Qt::ISODate);;
+    directSysCmd("pkg update -f"); //make sure this is finished before doing anything else in the syncer
+    if(stopping){ return; }
+  }
   qDebug() << " - Starting Jail Sync:" << QDateTime::currentDateTime().toString(Qt::ISODate);
   syncJailInfo();
   emit finishedJails();
@@ -889,6 +899,12 @@ void Syncer::syncPkgLocalJail(QString jail){
   }
   if(stopping){ return; }
   QStringList info = directSysCmd(cmd+opt).join("\n").split("PKG::");
+  if(info.length()==1){
+    //Error in pkg, run the update routine to catch repo changes and try again
+    UpdatePkgDB(jail);
+    info = directSysCmd(cmd+opt).join("\n").split("PKG::");
+  }
+  bool pkgerror = info.length()<2;
   QStringList installed;
   for(int i=0; i<info.length(); i++){
     QStringList line = info[i].split("::::");
@@ -916,126 +932,132 @@ void Syncer::syncPkgLocalJail(QString jail){
   //Now go through the pkgs and get the more complicated/detailed info
   // -- dependency list
   if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%do");
-  installed.clear();
-  QString orig;
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/dependencies", installed.join(LISTDELIMITER));
-      installed.clear();
+  if(!pkgerror){
+    info = directSysCmd(cmd+" %o::::%do");
+    installed.clear();
+    QString orig;
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/dependencies", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/dependencies", installed.join(LISTDELIMITER)); //make sure to save the last one too
-  // -- reverse dependency list
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%ro");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/rdependencies", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/dependencies", installed.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- reverse dependency list
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%ro");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/rdependencies", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/rdependencies", installed.join(LISTDELIMITER)); //make sure to save the last one too
-  // -- categories
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%C");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/categories", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/rdependencies", installed.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- categories
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%C");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/categories", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/categories", installed.join(LISTDELIMITER)); //make sure to save the last one too
-  // -- files
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%Fp");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/files", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/categories", installed.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- files
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%Fp");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/files", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/files", installed.join(LISTDELIMITER)); //make sure to save the last one too
-  // -- options
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%Ok=%Ov");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/options", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/files", installed.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- options
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%Ok=%Ov");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/options", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/options", installed.join(LISTDELIMITER)); //make sure to save the last one too  
-  // -- licenses
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%L");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/license", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/options", installed.join(LISTDELIMITER)); //make sure to save the last one too  
+    // -- licenses
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%L");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/license", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/license", installed.join(LISTDELIMITER)); //make sure to save the last one too 
-  // -- users
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%U");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/users", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/license", installed.join(LISTDELIMITER)); //make sure to save the last one too 
+    // -- users
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%U");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/users", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/users", installed.join(LISTDELIMITER)); //make sure to save the last one too
-  // -- groups
-  if(stopping){ return; }
-  info = directSysCmd(cmd+" %o::::%G");
-  installed.clear();
-  orig.clear();
-  for(int i=0; i<info.length(); i++){
-    if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
-      HASH->insert(prefix+orig+"/groups", installed.join(LISTDELIMITER));
-      installed.clear();
+    HASH->insert(prefix+orig+"/users", installed.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- groups
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%G");
+    installed.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/groups", installed.join(LISTDELIMITER));
+        installed.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      installed << info[i].section("::::",1,1);
     }
-    orig = info[i].section("::::",0,0);
-    installed << info[i].section("::::",1,1);
-  }
-  HASH->insert(prefix+orig+"/groups", installed.join(LISTDELIMITER)); //make sure to save the last one too
- } //done with local pkg sync
+    HASH->insert(prefix+orig+"/groups", installed.join(LISTDELIMITER)); //make sure to save the last one too
+   } //done with local pkg sync
+ }
  if(needsRemoteSync(jail) || needsLocalSync(jail)){
   //qDebug() << "Sync jail pkg update availability:" << jail;
   //Now Get jail update status/info
   if(stopping){ return; }
   QString cmd = "pkg upgrade -nU";
-  if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" upgrade -n"; }
+  if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" upgrade -nU"; }
   QString log = directSysCmd(cmd).join("<br>");
+  if(log.contains("pkg update")){ 
+    UpdatePkgDB(jail); 
+    log = directSysCmd(cmd).join("<br>");
+  }
   HASH->insert("Jails/"+jail+"/updateLog", log);
-  if(log.contains("Your packages are up to date")){ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
+  if(log.contains("Your packages are up to date") ||  log.contains("pkg update") ){ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
   else{ HASH->insert("Jails/"+jail+"/hasUpdates", "true"); }
  }
   //Now stamp the current time this jail was checked
