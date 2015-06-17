@@ -3,6 +3,7 @@
 
 #include "pkgVulDialog.h"
 #include "updHistoryDialog.h"
+#include "eolDialog.h"
 
 #include <QProcess>
 #include <QTimer>
@@ -291,4 +292,11 @@ void MainUI::on_actionBase_updates_history_triggered()
 {
     UpdateHistoryDialog* dlg = new UpdateHistoryDialog(this);
     dlg->execDialog();
+}
+
+void MainUI::on_actionEndOfLife_triggered()
+{
+    EOLDialog* dlg = new EOLDialog(this);
+    QTimer::singleShot(0,dlg, SLOT(setupDialog()) );
+    dlg->exec();
 }

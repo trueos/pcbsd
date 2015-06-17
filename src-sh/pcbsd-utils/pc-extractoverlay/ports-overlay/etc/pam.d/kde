@@ -1,7 +1,7 @@
 #
 # $FreeBSD$
 #
-# PAM configuration for the "kde-np" service
+# PAM configuration for the "kde" service
 #
 
 # auth

@@ -42,6 +42,7 @@ private:
 	QStringList sysCmd(QString cmd); // ensures only 1 running at a time (for things like pkg)
 	QStringList directSysCmd(QString cmd); //run command immediately
 	QStringList readFile(QString filepath); //read the contents of a text file
+	void UpdatePkgDB(QString jail);
 
 	//Internal Hash maintenance functions
 	void clearRepo(QString repo);

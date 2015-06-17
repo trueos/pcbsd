@@ -16,5 +16,6 @@
         <file>images/cinnamon.png</file>
         <file>images/mate.png</file>
         <file>images/github.png</file>
+	<file>images/lumina.png</file>
     </qresource>
 </RCC>

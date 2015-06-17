@@ -24,4 +24,6 @@ ENV=$HOME/.shrc; export ENV
 MORE="-erX" ; export MORE
 
 # Set VIM as default
-alias vi="vim"
+if [ -e "/usr/local/bin/vim" ] ; then
+  alias vi="vim"
+fi
