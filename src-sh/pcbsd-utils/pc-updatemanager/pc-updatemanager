@@ -143,6 +143,7 @@ show_usage() {
   branches 		- List available system branches
   chbranch <tag> 	- Change to new system branch
   check 		- Check for system updates
+  showeol               - Show end of life (support) date for this release
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate [-f]	- Install packages updates (-f to force)
@@ -418,6 +419,19 @@ do_check() {
   # Other updates
   return $UPDATEOTHERRTN
 };
+
+do_eol_display()
+{
+while read line
+  do     
+     echo $line | grep -q "^EOL:"
+     if [ $? -eq 0 ] ; then
+        parse_eol_line "$line"
+        continue
+     fi
+  done < ${PATCHTMPFILE}
+
+}
 
 parse_eol_line()
 {
@@ -1549,6 +1563,11 @@ while [ $# -gt 0 ] ; do
 		  exit $?
 		  break
                   ;;
+        showeol)  get_update_file
+                  do_eol_display 
+		  exit $?
+		  break
+		  ;;
         branches) require_root
 		  get_update_file
                   list_branches ; break ;;
