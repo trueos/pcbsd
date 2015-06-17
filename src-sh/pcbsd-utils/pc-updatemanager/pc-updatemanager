@@ -441,8 +441,8 @@ parse_eol_line()
    local sysEOLVer=`echo $line | cut -d ':' -f 2`
    local sysUpEOL=`echo $line | cut -d ':' -f 3`
    local curEpoc=`date +%s`
+   local EOLdays=$(expr  \( ${sysUpEOL} - ${curEpoc} \) / \( 60 \* 60 \* 24 \) )
 
-   # Is this an EOL for our version?
    if [ "$SYSVER" != "$sysEOLVer" ] ; then return; fi
 
    echo ""
@@ -458,6 +458,7 @@ parse_eol_line()
      echo "-----------------------------------"
      echo "This version of PC-BSD / TrueOS has an EOL date of:"
      echo "`date -j -r $sysUpEOL`"
+     echo "End of support (in days): $EOLdays"
      echo "-----------------------------------"
      echo ""
    fi
