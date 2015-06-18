@@ -77,7 +77,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="acceptBtn">
        <property name="text">
         <string>Change branch</string>
        </property>
@@ -97,7 +97,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>acceptBtn</sender>
    <signal>clicked()</signal>
    <receiver>BranchesDialog</receiver>
    <slot>accept()</slot>

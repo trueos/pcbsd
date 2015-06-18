@@ -60,6 +60,7 @@ void BranchesDialog::setupDialog()
                 continue;
             }
             mBranches.append(name);
+
         }
     }
 
@@ -67,6 +68,14 @@ void BranchesDialog::setupDialog()
     ui->currentBranch->setText(mCurrentBranch);
     ui->branchesList->clear();
     ui->branchesList->addItems(mBranches);
+    if (!mBranches.size())
+    {
+        ui->acceptBtn->setEnabled(false);
+    }
+    else
+    {
+        ui->branchesList->setCurrentRow(0);
+    }
 
     this->setEnabled(true);
 }
