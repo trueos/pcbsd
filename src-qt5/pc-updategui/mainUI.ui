@@ -378,8 +378,15 @@
     <addaction name="actionBase_updates_history"/>
     <addaction name="actionEndOfLife"/>
    </widget>
+   <widget class="QMenu" name="menuSystem">
+    <property name="title">
+     <string>System</string>
+    </property>
+    <addaction name="actionBranches"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
+   <addaction name="menuSystem"/>
   </widget>
   <action name="actionExit">
    <property name="icon">
@@ -418,6 +425,11 @@
    </property>
    <property name="toolTip">
     <string>End of support</string>
+   </property>
+  </action>
+  <action name="actionBranches">
+   <property name="text">
+    <string>Branches</string>
    </property>
   </action>
  </widget>
