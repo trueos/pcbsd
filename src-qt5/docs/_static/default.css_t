@@ -174,12 +174,12 @@
         border-bottom: thin solid #000000;
         font-size: 130%;
         }
-  dt {
-    font-family: Courier New, Courier, monospace;
-    color: inherit;
-    background-color:#DFDFDF;
-    display: inline-block;
-    }
+//  dt {
+//    font-family: Courier New, Courier, monospace;
+//    color: inherit;
+//    background-color:#DFDFDF;
+//    display: inline-block;
+//    }
 
   h1 .regmk,
   h2 .regmk,
