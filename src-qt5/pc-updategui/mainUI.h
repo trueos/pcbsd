@@ -58,5 +58,6 @@ private slots:
     void on_actionExit_triggered();
     void on_actionBase_updates_history_triggered();
     void on_actionEndOfLife_triggered();
+    void on_actionBranches_triggered();
 };
 #endif

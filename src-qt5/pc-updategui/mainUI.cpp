@@ -4,6 +4,7 @@
 #include "pkgVulDialog.h"
 #include "updHistoryDialog.h"
 #include "eolDialog.h"
+#include "branchesDialog.h"
 
 #include <QProcess>
 #include <QTimer>
@@ -297,6 +298,34 @@ void MainUI::on_actionBase_updates_history_triggered()
 void MainUI::on_actionEndOfLife_triggered()
 {
     EOLDialog* dlg = new EOLDialog(this);
-    QTimer::singleShot(0,dlg, SLOT(setupDialog()) );
+    QTimer::singleShot(0, dlg, SLOT(setupDialog()) );
     dlg->exec();
+}
+
+void MainUI::on_actionBranches_triggered()
+{
+    BranchesDialog* dlg = new BranchesDialog(this);
+    QTimer::singleShot(0,dlg, SLOT(setupDialog()) );
+    if (dlg->exec() == QDialog::Accepted)
+    {
+        QMessageBox msg(this);
+        QString dst_branch = dlg->selectedBranch();
+        QString info = QString(tr("Your system will be swithed to branch <b>%1</b>")).arg(dst_branch);
+        if (info.toUpper().indexOf("CURRENT")>=0)
+        {
+            info+=tr("<br><br><b>WARNING!</b> This is unstable version!");
+        }
+        msg.setText(tr("Are you shure you whant to change system branch?"));
+        msg.setInformativeText(info);
+        msg.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        msg.setDefaultButton(QMessageBox::No);
+        msg.setIcon(QMessageBox::Question);
+        if (msg.exec() == QMessageBox::Yes)
+        {
+            QString cmd = "pc-updatemanager chbranch "+dst_branch;
+            qDebug() << "Starting changing branch:" << cmd;
+            QProcess::startDetached(cmd);
+            QTimer::singleShot(500, this, SLOT(UpdateUI()) );
+        }
+    }
 }
