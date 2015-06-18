@@ -310,12 +310,12 @@ void MainUI::on_actionBranches_triggered()
     {
         QMessageBox msg(this);
         QString dst_branch = dlg->selectedBranch();
-        QString info = QString(tr("Your system will be swithed to branch <b>%1</b>")).arg(dst_branch);
+        QString info = QString(tr("Your system will be switched to branch <b>%1</b>")).arg(dst_branch);
         if (info.toUpper().indexOf("CURRENT")>=0)
         {
             info+=tr("<br><br><b>WARNING!</b> This is unstable version!");
         }
-        msg.setText(tr("Are you shure you whant to change system branch?"));
+        msg.setText(tr("Are you sure you want to change system branch?"));
         msg.setInformativeText(info);
         msg.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         msg.setDefaultButton(QMessageBox::No);
