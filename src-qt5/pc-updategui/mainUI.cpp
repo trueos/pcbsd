@@ -82,6 +82,17 @@ void MainUI::watcherChange(QString change){
 void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
   //Parse the system status to determine the  updates that are available
   QStringList info = pcbsd::Utils::runShellCommand("syscache needsreboot isupdating hasmajorupdates hassecurityupdates haspcbsdupdates \"pkg #system hasupdates\"");
+  if(info.length() < 6){
+    if(0!=QProcess::execute("pgrep -F /tmp/.updateInProgress")){
+      //Something went wrong with the update/syscache, restart syscache and try again
+      qDebug() << "System Error - no update process running, and syscache is still stopped";
+      qDebug() << " -- restarting syscache";
+      QProcess::startDetached("service syscache start");
+      QTimer::singleShot(100, this, SLOT(UpdateUI()) );
+      return;
+    }
+  }	  
+	
   if(info.length() < 6){ 
     //Is syscache not running?
     //QMessageBox::warning(this, tr("Syscache Not Running?"), tr("The syscache daemon does not appear to be running. It must be running on the system before this utility will function properly.")+"\n\n"+QString(tr("CLI Command:\"%1\" ")).arg("sudo service syscache start") );
@@ -89,6 +100,7 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
     info.clear();
     info << "true" << "true" << "false" << "false" << "false" << "false";
     if(!QFile::exists("/tmp/.rebootRequired")){ info[0] = "false"; }
+    if(0!=QProcess::execute("pgrep -F /tmp/.updateInProgress")){ info[1] = "false"; }
   }
   bool hasmajor = (info[2]=="true");
   bool hassec = (info[3]=="true");
