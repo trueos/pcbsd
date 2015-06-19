@@ -246,8 +246,8 @@ The :ref:`System Selection Screen` of the PC-BSD® installer can be used to inst
 desktop operating system.
 
 TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, the command line version of :command:`warden`, and the command line
-versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs this
-`list <https://github.com/pcbsd/pcbsd/blob/27962929c9bbbe3707c2a0e38c01469acf1122b1/build-files/conf/trueos/iso-packages>`_ of additional shells and utilities.
+versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs the software mentioned in
+`the RUN_DEPENDS= section of this file <https://github.com/pcbsd/freebsd-ports/blob/master/misc/trueos-base/Makefile>`_.
 
 For a server installation, using the PC-BSD® installer rather than the FreeBSD installer offers several benefits: 
 

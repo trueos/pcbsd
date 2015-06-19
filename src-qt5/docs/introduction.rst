@@ -270,7 +270,7 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 .. _What's New Since |version|:
 
 What's New Since |version|
-=======================
+==========================
 
 Users who have configured their PC-BSD® system to use the "Edge" repository using the instructions in :ref:`Configuring AppCafe®` and who have not disabled automatic
 updates as described in :ref:`How PC-BSD® Updating Works`, will automatically receive new features when they become available as an update. Some updates affect the user
