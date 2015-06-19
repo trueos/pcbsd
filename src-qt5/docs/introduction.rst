@@ -266,6 +266,20 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 * The "AppCafe" and "Check for Updates" buttons have been removed from the "Tools" tab of :ref:`Warden®` as AppCafe® is used for :ref:`Managing Software in Jails`
   and jail updates are managed using :ref:`Update Manager`.
 
+.. index:: What's New
+.. _What's New Since |version|:
+
+What's New Since |version|
+=======================
+
+Users who have configured their PC-BSD® system to use the "Edge" repository using the instructions in :ref:`Configuring AppCafe®` and who have not disabled automatic
+updates as described in :ref:`How PC-BSD® Updating Works`, will automatically receive new features when they become available as an update. Some updates affect the user
+interface so this section lists any functional changes that have occurred since |version|. As these new features are documented, the installed version of this Handbook is
+automatically updated.
+
+* The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
+  enterprise users that wish to only receive software updates which fix known security vulnerabilities.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 

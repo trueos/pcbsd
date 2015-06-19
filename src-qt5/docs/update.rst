@@ -51,14 +51,14 @@ The top bar contains navigational arrows and a refresh icon. Click the icon at t
 
 **Figure 7.1b: Configuring the AppCafe® Repository**
 
-.. image:: images/remote2.png
+.. image:: images/remote2a.png
 
-The "Repository Configuration" tab is used to determine which package set to use. "Production" is the default and recommended setting for most users. Software
-updates are provided every three months, which gives sufficient time for new software versions to be tested. "Edge" is meant for users who wish to assist with
-software testing or who can tolerate the occasional breakage caused by installing new software versions. Software updates are provided approximately every two
-weeks. "Custom" assumes that you have followed the instructions to :ref:`Create Your Own PBI Repository` and are ready to click the "+" button to browse to the
-location of the custom :file:`.rpo` file. To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked
-as active will be used.
+The "Repository Configuration" tab is used to determine which package set to use. "Enterprise" is meant for enterprise users that wish to only receive software
+updates which fix known security vulnerabilities. "Production" is the default and recommended setting for most users. Software updates are provided every three
+months, which gives sufficient time for new software versions to be tested. "Edge" is meant for users who wish to assist with software testing or who can tolerate
+the occasional breakage caused by installing new software versions. Software updates are provided approximately every two weeks. "Custom" assumes that you have
+followed the instructions to :ref:`Create Your Own PBI Repository` and are ready to click the "+" button to browse to the location of the custom :file:`.rpo` file.
+To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
 
 To configure remote access, use the "Remote Access" tab shown in Figure 7.1c. 
 
