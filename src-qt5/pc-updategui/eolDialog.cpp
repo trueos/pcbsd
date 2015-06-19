@@ -20,6 +20,11 @@ EOLDialog::EOLDialog(QWidget *parent) :
     ui(new Ui::EOLDialog)
 {
     ui->setupUi(this);
+    //Ensure the dialog is centered on the parent
+    if(parent!=0){
+       QPoint ctr = parent->geometry().center();
+       this->move( ctr.x()-(this->width()/2), ctr.y()-(this->height()/2) );
+    }
 }
 
 EOLDialog::~EOLDialog()
