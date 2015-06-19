@@ -277,6 +277,9 @@ updates as described in :ref:`How PC-BSD® Updating Works`, will automatically r
 interface so this section lists any functional changes that have occurred since |version|. As these new features are documented, the installed version of this Handbook is
 automatically updated.
 
+* The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service which will automatically
+  start this service and generate the firewall rules needed to allow SSH connections to the system.
+
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
 
