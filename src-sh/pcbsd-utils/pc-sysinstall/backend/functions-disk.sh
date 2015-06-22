@@ -1,6 +1,6 @@
 #!/bin/sh
 #-
-# Copyright (c) 2010 iXsystems, Inc.  All rights reserved.
+# Copyright (c) 2015 iXsystems, Inc.  All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -417,21 +417,30 @@ setup_disk_slice()
       if [ "${PTYPE}" = "free" ]
       then
         # Lets figure out what number this slice will be
-        LASTSLICE="`gpart show ${DISK} \
-          | grep -v ${DISK} \
+	gDISK=`echo $DISK | sed 's|/dev/||g'`
+        LASTSLICE="`gpart show ${gDISK} \
+          | grep -v ${gDISK} \
           | grep -v ' free' \
           | tr -s '\t' ' ' \
           | cut -d ' ' -f 4 \
           | sed '/^$/d' \
           | tail -n 1`"
-
         if [ -z "${LASTSLICE}" ]
         then
           LASTSLICE="1"
         else
-            LASTSLICE=$((LASTSLICE+1))
+          LASTSLICE=`expr $LASTSLICE + 1`
         fi
 
+        # Set if we are doing GPT/MBR
+	gpart show $gDISK | grep -q "GPT"
+        if [ $? -eq 0 ] ; then
+          LASTSLICETYPE="GPT"
+        else
+          LASTSLICETYPE="MBR"
+        fi
+        # Set that we are doing free space only
+	FREESPACEINSTALL="1"
       fi
     fi
 
@@ -532,8 +541,16 @@ setup_disk_slice()
             ;;
 
           free)
-            tmpSLICE="${DISK}s${LASTSLICE}"
             run_gpart_free "${DISK}" "${LASTSLICE}" "${BMANAGER}"
+            if [ "$LASTSLICETYPE" = "GPT" ] ; then
+	      if [ $LASTSLICE -eq 1 ] ; then
+                tmpSLICE="${DISK}p2"
+              else
+                tmpSLICE="${DISK}p${LASTSLICE}"
+              fi
+	    else
+              tmpSLICE="${DISK}s${LASTSLICE}"
+            fi
             ;;
 
           image)
@@ -885,8 +902,7 @@ run_gpart_free()
 {
   DISK=$1
   SLICENUM=$2
-  if [ -n "$3" ]
-  then
+  if [ -n "$3" ]; then
     BMANAGER="$3"
   fi
 
@@ -894,8 +910,11 @@ run_gpart_free()
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
   sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
-  slice="${DISK}s${SLICENUM}"
-  slicenum="${SLICENUM}" 
+  if [ "$LASTSLICETYPE" = "GPT" ] ; then
+    slice="${DISK}p${SLICENUM}"
+  else
+    slice="${DISK}s${SLICENUM}"
+  fi
 
   # Working on the first slice, make sure we have GPT setup
   gpart show ${DISK} >/dev/null 2>/dev/null
@@ -914,6 +933,12 @@ run_gpart_free()
   # Check if on MBR and have >4 slices
   if [ "$tag" = "freembr" -a $SLICENUM -gt 4 ]; then
       exit_err "ERROR: BSD only supports 4 MBR primary partitions, and there are none available on $DISK"
+  fi
+
+  if [ "$tag" = "freegpt" -a "$SLICENUM" -eq 1 ] ; then
+      # Doing bios-boot partition
+      rc_halt "gpart add -s 1M -t bios-boot ${DISK}"
+      SLICENUM="2"
   fi
 
   if [ "${BMANAGER}" = "BSD" ]; then

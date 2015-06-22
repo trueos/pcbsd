@@ -227,7 +227,19 @@ get_autosize()
   dTag="$1"
 
   # Total MB Avail
-  get_disk_mediasize_mb "$2"
+  if [ -n "$FREESPACEINSTALL" ] ; then
+     # Use only the free space left
+     bSize=`gpart show $2 | grep '\- free\ -' | awk '{print $2}'`
+
+     # Get that in MB
+     bSize=`expr $bSize / 2048`
+
+     # Pad it a bit
+     bSize=`expr $bSize - 50`
+     VAL="$bSize"
+  else
+    get_disk_mediasize_mb "$2"
+  fi
   local _aSize=$VAL
 
   while read aline
@@ -287,6 +299,9 @@ new_gpart_partitions()
     _pType="mbr"
   elif [ "${_pType}" = "freegpt" ] ; then
     CURPART="${_sNum}"
+    if [ "$CURPART" = "1" ] ; then
+       CURPART="2"
+    fi
     _pType="gpt"
   else
     PARTLETTER="a"
@@ -394,6 +409,12 @@ new_gpart_partitions()
         if [ "${CURPART}" = "1" -a "$_pType" = "gptslice" ] ; then
           export FOUNDROOT="0"
         fi
+        if [ "$_pType" = "free" ] ; then
+          export FOUNDROOT="0"
+        fi
+	if [ -n "$FREESPACEINSTALL" ] ; then
+          export FOUNDROOT="0"
+	fi
       fi
 
       check_for_mount "${MNT}" "/boot"
@@ -891,7 +912,11 @@ check_fstab_gpt()
       then
         FOUNDROOT="0"
       else
-        FOUNDROOT="1"
+        if [ -n "$FREESPACEINSTALL" ] ; then
+	   FOUNDROOT="0"
+	else
+	   FOUNDROOT="1"
+	fi
       fi
 
       ROOTIMAGE="1"
@@ -969,12 +994,12 @@ check_disk_layout()
 
     if [ "${TYPE}" = "MBR" ]
     then
-	  check_fstab_mbr "${slice}" "/mnt"
+      check_fstab_mbr "${slice}" "/mnt"
       F="$?"
 
     elif [ "${TYPE}" = "GPT" ]
     then
-	  check_fstab_gpt "${slice}" "/mnt"
+      check_fstab_gpt "${slice}" "/mnt"
       F="$?"
     fi 
 
