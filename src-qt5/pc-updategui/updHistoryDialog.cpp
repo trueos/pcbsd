@@ -49,7 +49,7 @@ UpdateHistoryDialog::UpdateHistoryDialog(QWidget *parent) :
     this->move( ctr.x()-(this->width()/2), ctr.y()-(this->height()/2) );
 	
     mCurrentPatch = 0;
-    ui->historyListTW->header()->resizeSection(0, 64);
+    ui->historyListTW->header()->resizeSection(0, 96);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ UpdateHistoryDialog::~UpdateHistoryDialog()
 void UpdateHistoryDialog::execDialog()
 {    
     //get current release and patchset
-    QStringList uname_out = pcbsd::Utils::runShellCommand("uname -r");
+    QStringList uname_out = pcbsd::Utils::runShellCommand("freebsd-version");
     mInstalledRelease = uname_out[0].left(uname_out[0].lastIndexOf("-"));
     QString rel_patch = uname_out[0].right(uname_out[0].length() - uname_out[0].lastIndexOf("-"));
     mInstalledPatch = rel_patch.replace("-p","").toInt();
