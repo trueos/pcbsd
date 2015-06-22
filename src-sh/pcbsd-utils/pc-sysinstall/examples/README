@@ -261,6 +261,10 @@ Location of the directory we will be pulling installation files from
 
 Set the type of system we are installing, PCBSD or FreeBSD
 
+# installQuiet={yes|no}
+
+Display less information during the installation
+
 # installFile=fbsd-release.tbz
 
 The installer archive, if not using the defaults specified in conf/pc-sysinstall.conf

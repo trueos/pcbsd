@@ -36,11 +36,17 @@ start_extract_dist()
   if [ -z "$INSFILE" ]; then exit_err "Called extraction with no install file set!"; fi
   local DDIR="$1"
 
+
   # Check if we are doing an upgrade, and if so use our exclude list
   if [ "${INSTALLMODE}" = "upgrade" ]; then
    TAROPTS="-X ${PROGDIR}/conf/exclude-from-upgrade"
   else
    TAROPTS=""
+  fi
+
+  get_value_from_cfg installQuiet
+  if [ -z "$VAL" -o "$VAL" = "no" ] ; then
+     TAROPS="${TAROPTS} -v"
   fi
 
   # Loop though and extract dist files
@@ -54,7 +60,7 @@ start_extract_dist()
 	 fi
       fi
       echo_log "pc-sysinstall: Starting Extraction (${di})"
-      tar -xpv -C ${FSMNT} ${TAROPTS} -f ${DDIR}/${di}.txz 2>&1 | tee -a ${FSMNT}/.tar-extract.log
+      tar -xp -C ${FSMNT} ${TAROPTS} -f ${DDIR}/${di}.txz 2>&1 | tee -a ${FSMNT}/.tar-extract.log
       if [ $? -ne 0 ]; then
         cd /
         echo "TAR failure occurred:" >>${LOGOUT}
@@ -91,6 +97,11 @@ start_extract_uzip_tar()
    TAROPTS=""
   fi
 
+  get_value_from_cfg installQuiet
+  if [ -z "$VAL" -o "$VAL" = "no" ] ; then
+     TAROPS="${TAROPTS} -v"
+  fi
+
   echo_log "pc-sysinstall: Starting Extraction"
 
   case ${PACKAGETYPE} in
@@ -110,7 +121,7 @@ start_extract_uzip_tar()
       cd ${FSMNT}.uzip
 
       # Copy over all the files now!
-      tar cvf - . 2>/dev/null | tar -xpv -C ${FSMNT} ${TAROPTS} -f - 2>&1 | tee -a ${FSMNT}/.tar-extract.log
+      tar cvf - . 2>/dev/null | tar -xp -C ${FSMNT} ${TAROPTS} -f - 2>&1 | tee -a ${FSMNT}/.tar-extract.log
       if [ $? -ne 0 ]
       then
         cd /
