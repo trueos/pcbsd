@@ -691,7 +691,7 @@ revertsnap) require_root
 		remove) require_root
 		        cat ${REPCONF} | grep -q "^${2}:" 
 			if [ $? -eq 0 ] ; then
-			   rem_rep_task "$2"
+			   rem_rep_task "$2" "$3"
 		  	   echo "Removed replication task for $2"
 			else
 			   exit_err "No such replication task for dataset $2"
