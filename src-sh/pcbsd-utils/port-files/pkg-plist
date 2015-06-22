@@ -222,5 +222,6 @@ etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
 etc/sudoers.d/pcbsd
+etc/fonts/local.conf
 man/man1/pc-systemflag.1.gz
 man/man8/pc-sysinstall.8.gz
