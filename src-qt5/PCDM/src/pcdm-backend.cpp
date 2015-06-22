@@ -521,7 +521,9 @@ QStringList Backend::readXSessionsFile(QString filePath, QString locale){
   if(lname.isEmpty()){ lname = name; }
   if(lcomm.isEmpty()){ lcomm = comm; }
   //Make sure that we have a name/exec for the session, otherwise invalid file
-  if(lname.isEmpty() || exec.isEmpty() || tryexec.isEmpty()){ return output; }
+  if(lname.isEmpty() || exec.isEmpty() ){ return output; }
+  //If no tryexec given, check for the first binary given on the Exec line
+  if(tryexec.isEmpty()){ tryexec = exec.section(" ",0,0,QString::SectionSkipEmpty).simplified(); }
   //Check that there is an icon given
   if(icon.isEmpty()){
     //Try to use a built in icon if a known DE
