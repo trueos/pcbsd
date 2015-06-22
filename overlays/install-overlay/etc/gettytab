@@ -1,4 +1,4 @@
-# $FreeBSD$
+# $FreeBSD: src/etc/gettytab,v 1.22.8.2 2006/09/13 08:37:48 des Exp $
 #	from: @(#)gettytab	5.14 (Berkeley) 3/27/91
 #
 # Most of the table entries here are just copies of the old getty table,
@@ -51,8 +51,6 @@ root:al=root:tc=Pc:
 #	autobaud code in getty, and likewise can
 #	be assigned to any table desired (hopefully the same speed).
 #
-std:\
-	:np:sp#0:
 a|std.110|110-baud:\
 	:np:nd#1:cd#1:uc:sp#110:
 b|std.134|134.5-baud:\
@@ -100,7 +98,7 @@ local.9600|CLOCAL tty @ 9600 Bd:\
 	:o0#0x00000007:o1#0x00000002:o2#0x00000007:\
 	:i0#0x00000704:i1#0x00000000:i2#0x00000704:\
 	:l0#0x000005cf:l1#0x00000000:l2#0x000005cf:\
-	:sp#9600:np:
+	:sp#9600:
 
 #
 # Dial in rotary tables, speed selection via 'break'
@@ -166,10 +164,10 @@ X|Xwindow|X window system:\
 	:fd@:nd@:cd@:rw:sp#9600:
 
 P|Pc|Pc console:\
-	:ht:np:sp#9600:
+	:ht:np:sp#115200:
 
 #
-# Weirdo special case for fast crt's with hardcopy devices
+# Wierdo special case for fast crt's with hardcopy devices
 #
 8|T9600|CRT with hardcopy:\
 	:nx=T300:tc=9600-baud:
@@ -205,7 +203,7 @@ A|Auto-baud:\
 #
 # autologin - automatically log in as root
 #
-
+#
 autologin|al.9600:\
 	:al=root:tc=std.9600:
 al.19200:\
@@ -221,12 +219,11 @@ al.230400:\
 al.Pc:\
 	:al=root:tc=Pc
 
+
 #
 # Entries for 3-wire serial terminals.  These don't supply carrier, so
 # clocal needs to be set, and crtscts needs to be unset.
 #
-3wire:\
-	:np:nc:sp#0:
 3wire.9600|9600-3wire:\
 	:np:nc:sp#9600:
 3wire.19200|19200-3wire:\
