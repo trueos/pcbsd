@@ -174,7 +174,7 @@
         border-bottom: thin solid #000000;
         font-size: 130%;
         }
-//  dt {
+// dt {
 //    font-family: Courier New, Courier, monospace;
 //    color: inherit;
 //    background-color:#DFDFDF;
@@ -580,7 +580,8 @@ pre {
 }
 
 tt {
-    background-color: #ecf0f3;
+#    background-color: #ecf0f3;
+    background-color: #DDE0E2; // darken to be more visible on screen.
     padding: 0 1px 0 1px;
     font-size: 0.95em;
 }
@@ -607,3 +608,17 @@ div.viewcode-block:target {
     border-bottom: 1px solid #ac9;
 }
 
+.menuselection {
+background-color: #F0F0F0;
+    color: inherit;
+    display: inline-block;
+    font-size: 90%;
+    vertical-align:10%;
+    padding-right:3px;
+    padding-left:3px;
+    padding-top:3px;
+    padding-bottom:3px;
+    border-radius:5px;
+    line-height:82%;
+    border: thin solid #000000;
+    }
