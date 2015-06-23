@@ -38,6 +38,20 @@ fi
 # Enable the debug version of pc-sysinstall
 /root/debugpcsysinstall.sh
 
+# Check if we need to prep a network install
+if [ -e "/pcbsd-media-network" ] ; then
+  cp -r /root/pkg-template /root/pkg
+  . /root/config.sh
+  VERSION=`uname -r | cut -d '-' -f 1-2`
+  ARCH=`uname -m`
+  if [ "$INSTALLPKGSET" = "EDGE" ] ; then
+     sed -i '' "s|%VERSION%|${VERSION}/edge|g" /root/pkg/repos/pcbsd.conf
+  else
+     sed -i '' "s|%VERSION%|${VERSION}|g" /root/pkg/repos/pcbsd.conf
+  fi
+  sed -i '' "s|%ARCH%|${ARCH}|g" /root/pkg/repos/pcbsd.conf
+fi
+
 # Check if we are running in a VM and enable guest services
 if [ -e "/usr/local/etc/rc.d/vboxguest" ] ; then
   /usr/local/etc/rc.d/vboxguest onestart
