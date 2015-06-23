@@ -75,8 +75,11 @@ void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current val
 }
 
 void MainUI::watcherChange(QString change){
-  if(change==UPDATE_LOG_FILE){ updateLogChanged(); }
-  else{ UpdateUI(); }
+  if(change==UPDATE_LOG_FILE){ 
+    updateLogChanged();
+    //Make sure the log file was not removed from the watcher for some reason
+    if( !watcher->files().contains(UPDATE_LOG_FILE) ){ watcher->addPath(UPDATE_LOG_FILE); }
+  }else{ UpdateUI(); }
 }
 
 void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
@@ -229,6 +232,7 @@ void MainUI::startUpdates(){ //Start selected update
   //Now pop up a dialog about updates starting until the update procedure is detected
   bool started = false;
   QMessageBox dlg(QMessageBox::NoIcon, tr("Please Wait"), tr("Starting update procedures..."), QMessageBox::NoButton, this, Qt::FramelessWindowHint);
+  dlg.setStandardButtons(QMessageBox::NoButton); //force it again
   dlg.show();
   for(int i=0; i<200 && !started; i++){ //60 second maximum wait (200*300ms = 60000 ms)
     QApplication::processEvents();
