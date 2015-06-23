@@ -246,6 +246,7 @@ get_update_file() {
      if [ $? -eq 0 ] ; then 
        echo "No updates available for $SYSVER!" ; exit 0 
      else
+       echo_log "Could not contact update server!"
        exit_err "Could not contact update server!"
      fi
   fi
@@ -257,6 +258,7 @@ get_update_file() {
   if [ $? -ne 0 ] ; then
      rm ${PATCHTMPFILE} 2>/dev/null
      rm ${PATCHTMPFILE}.sha1 2>/dev/null
+     echo_log "Update file failed verification..."
      exit_err "Update file failed verification..."
   fi
 
@@ -1087,6 +1089,7 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
+     echo_log "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -1101,6 +1104,7 @@ dl_pkgs()
           pc-systemflag PKGUPDATE ERROR
         fi
         start_syscache
+	echo_log "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
@@ -1119,6 +1123,7 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
+     echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -1128,6 +1133,7 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
+     echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
 
@@ -1163,6 +1169,7 @@ dl_pkgs()
        echo_log "*****" >> ${PKGUPGRADELOG}
        rm /tmp/.pkgOut.$$
        start_syscache
+       echo_log "Failed fetching: $pkgOrigin"
        exit_err "Failed fetching: $pkgOrigin"
     fi
 
@@ -1173,6 +1180,7 @@ dl_pkgs()
        echo_log "*****" >> ${PKGUPGRADELOG}
        rm /tmp/.pkgOut.$$
        start_syscache
+       echo_log "Failed fetching: $pkgOrigin"
        exit_err "Failed fetching: $pkgOrigin"
     fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
