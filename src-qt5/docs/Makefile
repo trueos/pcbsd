@@ -4,6 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
+SPHINXINTL    = sphinx-intl
 PAPER         =
 BUILDDIR      = _build
 
@@ -46,22 +47,43 @@ help:
 	@echo "  pseudoxml  to make pseudoxml-XML files for display purposes"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
+	@echo "  i18n       to fetch and prep the i18n files"
+
+i18n:
+	$(MAKE) gettext
+	$(SPHINXINTL) update -p $(BUILDDIR)/locale -l de -l fr
+	@fetch -o $(BUILDDIR)/pcbsd-handbook-i18n.txz https://github.com/pcbsd/pcbsd-i18n/raw/master/dist/pcbsd-handbook-i18n.txz
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/de/LC_MESSAGES --strip-components 1 ./de
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/fr/LC_MESSAGES --strip-components 1 ./fr
+	$(SPHINXINTL) build
 
 clean:
 	rm -rf $(BUILDDIR)/*
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+.if exists($(BUILDDIR)/locale-po)
+	$(SPHINXBUILD) -D language='de' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-de
+	$(SPHINXBUILD) -D language='fr' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-fr
+.endif
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
+.if exists($(BUILDDIR)/locale-po)
+	$(SPHINXBUILD) -D language='de' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-de
+	$(SPHINXBUILD) -D language='fr' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-fr
+.endif
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/dirhtml."
 
 singlehtml:
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
+.if exists($(BUILDDIR)/locale-po)
+	$(SPHINXBUILD) -D language='de' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-de
+	$(SPHINXBUILD) -D language='fr' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-fr
+.endif
 	@echo
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
