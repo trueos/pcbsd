@@ -1123,7 +1123,8 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
-     echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
+     echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
+     echo "Failed fetching: $SYSBASE - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -1133,7 +1134,8 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
-     echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE" >> ${PKGUPGRADELOG}
+     echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
+     echo "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE" >> ${PKGUPGRADELOG}
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
 
@@ -1167,11 +1169,13 @@ dl_pkgs()
     if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
       #Try one more time
       sleep 2
-      echo_log " - Failure: Trying again" >> ${PKGUPGRADELOG}
+      echo_log " - Failure: Trying again"
+      echo " - Failure: Trying again" >> ${PKGUPGRADELOG}
       ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
        #Check again for success
        if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-         echo_log " - Failed again: Try again later" >> ${PKGUPGRADELOG}
+         echo_log " - Failed again: Try again later"
+	 echo " - Failed again: Try again later" >> ${PKGUPGRADELOG}
          echo_log "*****" ${PKGUPGRADELOG}
          cat /tmp/.pkgOut.$$ >> ${LOGOUT}
          echo_log "*****" >> ${PKGUPGRADELOG}
