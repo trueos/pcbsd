@@ -177,22 +177,22 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
       QString tag = major[i].section("TAG:",1,1).section("<br>",0,0).simplified();
       QString cmd = major[i].section("To install: \"", 1,1).section("\"",0,0);
       if( !tag.isEmpty() && !cmd.isEmpty() ){
-        ui->combo_updates->addItem( QString(tr("Major OS Update: %1")).arg(tag) , QStringList() << cmd << tr("Will install new FreeBSD version, apply security fixes, and update packages."));
+        ui->combo_updates->addItem( QString(tr("Major OS Update: %1")).arg(tag) , QStringList() << "nice "+cmd << tr("Will install new FreeBSD version, apply security fixes, and update packages."));
       }
     }
   }
   //Now do the security + pkg update (if available - special combo command for pc-updatemanager)
   if(hassec && haspkg){
-    ui->combo_updates->addItem( tr("Install Security & Package Updates"), QStringList() << "pc-updatemanager fbsdupdatepkgs" << tr("Will install all security fixes and update all packages") );
+    ui->combo_updates->addItem( tr("Install Security & Package Updates"), QStringList() << "nice pc-updatemanager fbsdupdatepkgs" << tr("Will install all security fixes and update all packages") );
   }
   //Now list the security updates
   if(hassec){
-    ui->combo_updates->addItem( tr("Install Security Updates"), QStringList() << "pc-updatemanager fbsdupdate" << tr("Will only install security updates") );
+    ui->combo_updates->addItem( tr("Install Security Updates"), QStringList() << "nice pc-updatemanager fbsdupdate" << tr("Will only install security updates") );
   }
   //Now list the package updates
   ui->group_details->setVisible(haspkg); //just hide this option if no pkg updates
   if(haspkg){
-    ui->combo_updates->addItem( tr("Install Package Updates"), QStringList() << "pc-updatemanager pkgupdate" << tr("Will only update installed packages") );
+    ui->combo_updates->addItem( tr("Install Package Updates"), QStringList() << "nice pc-updatemanager pkgupdate" << tr("Will only update installed packages") );
     QString pkgdetails = pcbsd::Utils::runShellCommand("syscache \"pkg #system updatemessage\"").join("").replace("<br>","\n");
     ui->text_details->setPlainText(pkgdetails);
   }
@@ -284,7 +284,7 @@ void MainUI::startPatches(){
     }
   }
   if(ups.isEmpty()){ return; } //nothing to do
-  QString cmd = "pc-updatemanager install "+ups.join(" ");
+  QString cmd = "nice pc-updatemanager install "+ups.join(" ");
   qDebug() << "Starting Patches:" << cmd;
   QProcess::startDetached(cmd);
   QTimer::singleShot(500, this, SLOT(UpdateUI()) );
