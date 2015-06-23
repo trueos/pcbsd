@@ -33,6 +33,11 @@ extensions = [
     'sphinxcontrib.httpdomain'
 ]
 
+#Keep these comments as we will be using these directives once there is a new Python version to provide automagic figure numbering
+#numfig:
+#numfig = True
+#numfig_secnum_depth = 'x.x.1, x.x.2, x.x.3'
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -290,6 +295,8 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
+# -- Options for translations
+locale_dirs = ['locale/']
 
 # -- Options for Epub output ----------------------------------------------
 
