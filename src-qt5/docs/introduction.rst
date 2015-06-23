@@ -283,6 +283,9 @@ automatically updated.
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
 
+* The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
+  wizard offering to open the advanced configuration options so that replication can be configured.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 
