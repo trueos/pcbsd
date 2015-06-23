@@ -17,8 +17,9 @@ fi
 # Load geom_uzip
 kldload geom_uzip
 
-# Create a /tmp file system with some extra space
-/sbin/mdmfs -S -s 10M -O space md6 /tmp
+# Create a /tmp file system on tmpfs
+kldload tmpfs
+mount -t tmpfs tmpfs /tmp
 
 # If we have a LIVE DVD image, boot with it
 if [ -e "/dist/PCBSD.ufs.uzip" ]

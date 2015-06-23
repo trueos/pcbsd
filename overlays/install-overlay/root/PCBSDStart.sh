@@ -42,12 +42,17 @@ fi
 if [ -e "/pcbsd-media-network" ] ; then
   cp -r /root/pkg-template /root/pkg
   . /root/config.sh
-  VERSION=`uname -r | cut -d '-' -f 1-2`
   ARCH=`uname -m`
-  if [ "$INSTALLPKGSET" = "EDGE" ] ; then
-     sed -i '' "s|%VERSION%|${VERSION}/edge|g" /root/pkg/repos/pcbsd.conf
+  FBSDVER=`uname -r | cut -d '-' -f 1-2`
+  MAJORVER="`uname -r | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
+  # Make sure we are on a -RELEASE, otherwise use the proper uname
+  echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
+  if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
+
+  if [ "$INSTALLPACKAGESET" = "EDGE" ] ; then
+     sed -i '' "s|%VERSION%|${MAJORVER}/edge|g" /root/pkg/repos/pcbsd.conf
   else
-     sed -i '' "s|%VERSION%|${VERSION}|g" /root/pkg/repos/pcbsd.conf
+     sed -i '' "s|%VERSION%|${MAJORVER}|g" /root/pkg/repos/pcbsd.conf
   fi
   sed -i '' "s|%ARCH%|${ARCH}|g" /root/pkg/repos/pcbsd.conf
 fi
