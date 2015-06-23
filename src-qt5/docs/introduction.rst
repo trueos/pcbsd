@@ -1,12 +1,14 @@
+.. include global.rst
+
 **Preface** 
 
-Written by users of the |pcbsd| operating system.
+Written by users of the PC-BSD® operating system.
 
 Version |version|
 
-Copyright |cop| 2005 - 2015 The |pcbsd| Project.
+Copyright © 2005 - 2015 The PC-BSD® Project.
 
-Welcome to |pcbsd|! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of
+Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of
 many individuals. If you are interested in assisting with the Handbook, refer to the documentation
 `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will
 find other PC-BSD® users.
@@ -263,6 +265,23 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "AppCafe" and "Check for Updates" buttons have been removed from the "Tools" tab of :ref:`Warden®` as AppCafe® is used for :ref:`Managing Software in Jails`
   and jail updates are managed using :ref:`Update Manager`.
+
+.. index:: What's New
+.. _What's New Since |version|:
+
+What's New Since |version|
+==========================
+
+Users who have configured their PC-BSD® system to use the "Edge" repository using the instructions in :ref:`Configuring AppCafe®` and who have not disabled automatic
+updates as described in :ref:`How PC-BSD® Updating Works`, will automatically receive new features when they become available as an update. Some updates affect the user
+interface so this section lists any functional changes that have occurred since |version|. As these new features are documented, the installed version of this Handbook is
+automatically updated.
+
+* The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service which will automatically
+  start this service and generate the firewall rules needed to allow SSH connections to the system.
+
+* The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
+  enterprise users that wish to only receive software updates which fix known security vulnerabilities.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
