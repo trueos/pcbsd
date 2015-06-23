@@ -1089,7 +1089,7 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
-     echo_log "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
+     echo_log "Failed fetching: ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -1104,7 +1104,7 @@ dl_pkgs()
           pc-systemflag PKGUPDATE ERROR
         fi
         start_syscache
-	echo_log "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
+	echo_log "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg" >> ${PKGUPGRADELOG}
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
@@ -1123,7 +1123,7 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
-     echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
+     echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -1133,7 +1133,7 @@ dl_pkgs()
        pc-systemflag PKGUPDATE ERROR
      fi
      start_syscache
-     echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
+     echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE" >> ${PKGUPGRADELOG}
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
 
@@ -1163,26 +1163,35 @@ dl_pkgs()
     echo_log "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
     ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
-    if [ $? -ne 0 ] ; then
-       echo_log "*****" ${PKGUPGRADELOG}
-       cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-       echo_log "*****" >> ${PKGUPGRADELOG}
-       rm /tmp/.pkgOut.$$
-       start_syscache
-       echo_log "Failed fetching: $pkgOrigin"
-       exit_err "Failed fetching: $pkgOrigin"
+    # PKGNG lies, we need to verify if the package was really downloaded as well
+    if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
+      #Try one more time
+      sleep 2
+      echo_log " - Failure: Trying again" >> ${PKGUPGRADELOG}
+      ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
+       #Check again for success
+       if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
+         echo_log " - Failed again: Try again later" >> ${PKGUPGRADELOG}
+         echo_log "*****" ${PKGUPGRADELOG}
+         cat /tmp/.pkgOut.$$ >> ${LOGOUT}
+         echo_log "*****" >> ${PKGUPGRADELOG}
+         rm /tmp/.pkgOut.$$
+         start_syscache
+         echo_log "Failed fetching: $pkgOrigin" >> ${PKGUPGRADELOG}
+         exit_err "Failed fetching: $pkgOrigin"
+       fi
     fi
 
     # PKGNG lies, we need to verify if the package was really downloaded
-    if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-       echo_log "*****" ${PKGUPGRADELOG}
-       cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-       echo_log "*****" >> ${PKGUPGRADELOG}
-       rm /tmp/.pkgOut.$$
-       start_syscache
-       echo_log "Failed fetching: $pkgOrigin"
-       exit_err "Failed fetching: $pkgOrigin"
-    fi
+    #if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
+       #echo_log "*****" ${PKGUPGRADELOG}
+       #cat /tmp/.pkgOut.$$ >> ${LOGOUT}
+       #echo_log "*****" >> ${PKGUPGRADELOG}
+       #rm /tmp/.pkgOut.$$
+       #start_syscache
+       #echo_log "Failed fetching: $pkgOrigin"
+       #exit_err "Failed fetching: $pkgOrigin"
+    #fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
 
