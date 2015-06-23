@@ -44,6 +44,8 @@ void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current val
     watcher->addPath(UPDATE_LOG_FILE);
     watcher->addPath("/tmp/.pcbsdflags");
 	
+  ui->label_sysinfo->setText("");
+  ui->tabWidget->setCurrentIndex(0); 
   //Create/set the list of auto-update options	
   QString AUval = pcbsd::Utils::getValFromPCBSDConf("AUTO_UPDATE").simplified().toLower();
   if(AUval.isEmpty()){ 
@@ -69,7 +71,7 @@ void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current val
   //Read the current state of the log file
   QString log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE);
   ui->text_log->setPlainText(log);
-	
+  this->setEnabled(false);
   //Now update the UI based on current system status
   UpdateUI();
 }
@@ -105,42 +107,66 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
     if(!QFile::exists("/tmp/.rebootRequired")){ info[0] = "false"; }
     if(0!=QProcess::execute("pgrep -F /tmp/.updateInProgress")){ info[1] = "false"; }
   }
+  bool needreboot = (info[0]=="true");
+  bool isupdating = (info[1]=="true");
   bool hasmajor = (info[2]=="true");
   bool hassec = (info[3]=="true");
   bool haspatch = (info[4]=="true");
   bool haspkg = (info[5]=="true");
   
+  //Now make sure that the log file is being watched (in case it did not exist earlier)
+  if(watcher->files().isEmpty()){
+    watcher->addPath(UPDATE_LOG_FILE);
+  }
+  
   //Now Change the UI around based on the current status
+  //int cindex = ui->tabWidget->currentIndex();
   // - First remove the special tabs from the tabWidget (add them as needed)
   for(int i=0; i<ui->tabWidget->count(); i++){
-    if(ui->tabWidget->widget(i)==ui->tab_updates || ui->tabWidget->widget(i)==ui->tab_patches){
+    if( (ui->tabWidget->widget(i)==ui->tab_updates && (needreboot || isupdating || !(hasmajor || hassec || haspkg)) ) \
+	|| ( ui->tabWidget->widget(i)==ui->tab_patches && (needreboot || isupdating || !haspatch)) ){
       ui->tabWidget->removeTab(i);
       i--; //need to back up one value since the list got reduced
     }
   }
   // - Also hide the info label(s) at the top of the window by default
-    ui->label_sysinfo->setVisible(false);
+    //ui->label_sysinfo->setVisible(false);
   //System Needs Reboot
   if(info[0]=="true"){
-    ui->label_sysinfo->setVisible(true);
+    //ui->label_sysinfo->setVisible(true);
     ui->label_sysinfo->setText(tr("System restart required to finish updates!"));
-    ui->tabWidget->setCurrentIndex(0);
+    //if(cindex<0){ ui->tabWidget->setCurrentIndex(0); }
+    //else{ ui->tabWidget->setCurrentIndex(cindex); }
+    this->setEnabled(true);
     return; //None of the update tabs are available at the moment - stop here
   }
   //System currently doing updates
   if(info[1]=="true"){ 
-    ui->label_sysinfo->setVisible(true);
+    //ui->label_sysinfo->setVisible(true);
     ui->label_sysinfo->setText(tr("System currently performing background updates."));
-    ui->tabWidget->setCurrentIndex(0);
+    //if(cindex<0){ ui->tabWidget->setCurrentIndex(0); }
+    //else{ ui->tabWidget->setCurrentIndex(cindex); }
+    this->setEnabled(true);
     return; //None of the update tabs are available at the moment - stop here
   }
   //Now add in the extra tabs as necessary
-  if(hasmajor || hassec || haspkg ){
+  if( (hasmajor || hassec || haspkg) && ui->tabWidget->count()< (haspatch ? 4: 3) ){
     ui->tabWidget->insertTab(0,ui->tab_updates, tr("Updates Available"));
+    ui->tabWidget->setCurrentIndex(0);
+    //cindex++;
   }
   if(haspatch){
     ui->tabWidget->insertTab(0,ui->tab_patches, tr("PC-BSD Patches") );
+    ui->tabWidget->setCurrentIndex(0);
+    //cindex++;
   }
+  
+  if( hasmajor || hassec || haspkg || haspatch ){
+    ui->label_sysinfo->setText(tr("System has updates available"));
+  }else{
+    ui->label_sysinfo->setText(tr("System is current up to date"));
+  }
+  
   //Now add in the information to the update tabs as necessary
   ui->combo_updates->clear(); //clear out the current list
   //  -- NOTE: ui->combo_updates data format: QStringList( <command to install>, <summary of update>)
@@ -195,11 +221,10 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
   patchSelChange(); //make sure the UI is accurate
   
   //Make sure to select the first tab if necessary
-  ui->tabWidget->setCurrentIndex(0);
-  //Now make sure that the log file is being watched (in case it did not exist earlier)
-  if(watcher->files().isEmpty()){
-    watcher->addPath(UPDATE_LOG_FILE);
-  }
+  //if(cindex<0){ ui->tabWidget->setCurrentIndex(0); }
+  //else{ ui->tabWidget->setCurrentIndex(cindex); }
+
+  this->setEnabled(true);
 }
 
 //Update tab
@@ -271,6 +296,7 @@ void MainUI::updateLogChanged(){ //this is connected to a file watcher for chang
   if(ui->tabWidget->currentWidget()==ui->tab_log){
     QString log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE);
     if(log.isEmpty()){ log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE_PREVIOUS); }
+    if(log.isEmpty()){ log = tr("No update logs available"); }
     //QString clog = ui->text_log->toPlainText();
     //if(clog.length() > log.length() || clog.isEmpty() ){
       //Completely different log than before - reset the entire view
