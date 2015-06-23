@@ -10,25 +10,25 @@
 
 SysStatus::SysStatus(){ 
   //Initialize all flags to false
-  updating = complete = pkg = sys = sec = jail = false; 
+  updating = complete = pkg = sys = sec = jail = error = false; 
 }
 SysStatus::~SysStatus(){}
 	
 void SysStatus::checkSystem(bool checkjails){
   complete = QFile::exists("/tmp/.rebootRequired");
+  error = false;
   if(!complete){ 
     //Get all the possible flag files and only take the most recent (latest flag - they overwrite each other)
     QStringList upinfo = pcbsd::Utils::runShellCommand("syscache needsreboot isupdating");
     if(upinfo.length() < 2 || upinfo.join("").contains("[ERROR]") ){
-      //Fallback method in case syscache is not working for some reason
-      QDir procdir(UPDATE_PROC_DIR);
-      QFileInfoList files = procdir.entryInfoList(QStringList() << UPDATE_PROC_FLAG_FILE_FILTER, QDir::Files, QDir::Time);
-      QStringList tmp; for(int i=0; i<files.length(); i++){ tmp << files[i].absoluteFilePath(); }
-      QString flag;
-      if(!files.isEmpty()){ flag = pcbsd::Utils::readTextFile(files.first().absoluteFilePath()).simplified().toLower(); }
-      //qDebug() << "No syscache running - use flags:" << tmp << flag;
-      complete = (UPDATE_PROC_FINISHED == flag );
-      updating = (UPDATE_PROC_WORKING == flag );
+      //Is syscache not running?
+      updating = (0==QProcess::execute("pgrep -F /tmp/.updateInProgress"));
+      if(!updating){
+        //Can't restart syscache here - running with user permissions but needs root
+	// Prompt that an error has occured instead
+	error = true;
+      }
+      
     }else{
       //Use the syscache info
       complete = (upinfo[0]=="true");
@@ -38,7 +38,7 @@ void SysStatus::checkSystem(bool checkjails){
       //Run syscache to probe for updates that are available
       QString cmd = "syscache hasmajorupdates hassecurityupdates haspcbsdupdates \"pkg #system hasupdates\" \"jail list\"";
       QStringList info = pcbsd::Utils::runShellCommand(cmd);
-      if(info.length() < 5){ return; } //no info from syscache
+      if(info.length() < 5){ error = true; return; } //no info from syscache
       sys = (info[0] == "true");
       sec = (info[1] == "true") || (info[2] == "true"); //combine security updates with pcbsd patches for notifications
       pkg = (info[3] == "true");
@@ -62,7 +62,8 @@ bool SysStatus::InTorMode(){
 
 bool SysStatus::changedFrom(SysStatus old){
   //See if the current status is different from an old status
-  if(old.complete  != complete){ return true; }
+  if( (old.error != error) && error){ return true; } //new error discovered (ignore if fixed)
+  else if(old.complete  != complete){ return true; }
   else if(complete){ return false; } //both complete - no real difference
   else if(old.updating != updating){ return true; }
   else if(updating){ return false; } //both updating - no real difference
@@ -74,7 +75,8 @@ bool SysStatus::changedFrom(SysStatus old){
 	
 QString SysStatus::tooltip(){
   //Generate the tooltip based on the current status
-  if(complete){ return QObject::tr("Reboot required to finish updates"); }
+  if(error){ return QObject::tr("Unable to determine system status"); }
+  else if(complete){ return QObject::tr("Reboot required to finish updates"); }
   else if(updating){ return QObject::tr("Performing background updates"); }
   else if(sys){  return QString( QObject::tr("OS Update Available: %1") ).arg(sysupver); }
   else if(pkg || sec || jail){
@@ -90,7 +92,8 @@ QString SysStatus::tooltip(){
 	
 QIcon SysStatus::icon(){
   //Generate the icon based on the current status
-  if(complete){ return QIcon(":images/restart.png"); }
+  if(error){ return QIcon(":images/connecterror.png"); }
+  else if(complete){ return QIcon(":images/restart.png"); }
   else if(updating){ return QIcon(":images/updating.png"); }
   else if(sys || sec){ return QIcon(":images/sysupdates.png"); }
   else if(pkg){ return QIcon(":images/pkgupdates.png"); }

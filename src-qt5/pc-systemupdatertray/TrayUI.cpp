@@ -20,6 +20,10 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
     connect(watcher, SIGNAL( fileChanged(QString) ), this, SLOT(watcherFileChange(QString)) ); //specific file changed
     connect(watcher, SIGNAL( directoryChanged(QString) ), this, SLOT(watcherDirChange()) ); //directory changed
 	
+  checkTimer = new QTimer(this);
+    checkTimer->setInterval(5*60000); //every 5 minutes
+    connect(checkTimer, SIGNAL(timeout()), this, SLOT(checkForUpdates()) );
+	
   //Create the Menu
   mainMenu = new QMenu();
     this->setContextMenu( mainMenu ); 
@@ -71,6 +75,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   UpdateAUNotice(); //make sure that we get an icon/info right away
   QTimer::singleShot(1000, this, SLOT(BackendResync()) ); //wait one second before prodding syscache to start a sync
   QTimer::singleShot(15000, this, SLOT(checkForUpdates()) ); //Wait 15 seconds to perform the first update check
+  checkTimer->start();
 }
 
 TrayUI::~TrayUI(){

@@ -14,7 +14,7 @@
 class SysStatus{
 public:
 	//All the flags which can be used
-	bool updating, complete, pkg, sys, sec, jail;
+	bool updating, complete, pkg, sys, sec, jail, error;
 	QString sysupver; //Available OS update version
 
 	SysStatus();

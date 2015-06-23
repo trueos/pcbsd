@@ -41,6 +41,7 @@ private:
 
 	//Passive System Watchers
 	QFileSystemWatcher *watcher;
+	QTimer *checkTimer;
 	bool PerformingCheck;
 
 	//UI Elements
