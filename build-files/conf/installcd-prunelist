@@ -474,3 +474,11 @@ usr/local/share/fonts/noto
 usr/local/libexec/gcc48
 usr/local/libexec/gimp
 usr/local/libexec/git-core
+usr/local/share/vim
+usr/local/share/zsh
+usr/local/share/java
+usr/local/lib/gcc48
+usr/local/lib/python2.7
+usr/local/lib/perl5
+usr/local/lib/qt5/bin/*
+usr/local/libexec/cups
