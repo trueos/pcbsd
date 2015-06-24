@@ -1499,43 +1499,43 @@ For usage information, run the command without any options::
  pc-sysconfig: Simple system configuration utility
  Usage: "pc-sysconfig <command 1> <command 2> ..."
  Available Information Commands:
-  "list-remdev": List all removable devices attached to the system.
-  "list-mounteddev": List all removable devices that are currently mounted
-  "list-audiodev": List all available audio devices
-  "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
-  "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
-  "devsize <device>": Fetch device space (must be mounted)
-  "usingtormode": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR
-  "getscreenbrightness": Returns the brightness of the first controllable screen as a percentage (0-100) or "[ERROR]" otherwise
-  "systemcansuspend": [TRUE/FALSE] Returns whether the system supports the S3 suspend state
+ "list-remdev": List all removable devices attached to the system.
+ "list-mounteddev": List all removable devices that are currently mounted
+ "list-audiodev": List all available audio devices
+ "probe-netdrives": List all the available shared drives on the local network
+ "list-mountednetdrives": List all the available shared drives which can currently be browsed (assuming the remote system is running properly)
+ "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
+ "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
+ "devsize <device>": Fetch device space (must be mounted)
+ "usingtormode": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR
+ "getscreenbrightness": Returns the brightness of the first controllable screen as a percentage (0-100) or "[ERROR]" otherwise
+ "systemcansuspend": [TRUE/FALSE] Returns whether the system supports the S3 suspend state
 
  Available Action Commands:
   "mount <device> [<filesystem>] [<mountpoint>]":
    -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
    -- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
    -- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
-
   "unmount <device or mountpoint> [force]":
    -- This will unmount the removable device from the system
    -- This may be forced by using the "force" flag as well (not recommended for all cases)
    -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
-
+  "mountnet <IP of remote host> <Name of remote host>":
+   -- This will setup the remote host to be browsable on the local system with the given name
+   -- Note that the remote host is automatically mounted/unmounted based on local user activity
+   -- To see where these network drives are mounted and can be browsed, see the output of "list-mountednetdrives"
+  "unmountnet <IP of remote host>":
+   -- This will remove the remote host from being browsable on the local system
   "load-iso <absolute path to the *.iso file>":
    -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)
-
   "setdefaultaudiodevice <pcm device>":
    -- This will set the given pcm device (I.E. "pcm3") as the default audio output device
-
-  "setscreenbrightness <percent>":
+  "setscreenbrightness <percentage>":
    -- This will set the brightness of all the available screens to the given percentage
-
    -- It is also possible to adjust the current value by supplying a [+/-] before the number
-
    -- For example: using "+5" as the percentage will increase the brightness by 5% for each screen
-
    -- This returns "[ERROR]" or "[SUCCESS]" based on whether the change could be performed
-
- "suspendsystem": Puts the system into the suspended state (S3)
+  "suspendsystem": Puts the system into the suspended state (S3)
 
 For example, to see a listed of the supported filesystems, use::
 
