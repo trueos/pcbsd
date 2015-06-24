@@ -221,6 +221,7 @@ fetch_file()
   rm ${FETCHOUTFILE} 2>/dev/null >/dev/null
 
   SIZE=$(( `fetch -s "${FETCHFILE}"` / 1024 ))
+  echo "Downloading: `basename ${FETCHFILE}`"
   echo "FETCH: ${FETCHFILE}"
   echo "FETCH: ${FETCHOUTFILE}" >>${LOGOUT}
 
