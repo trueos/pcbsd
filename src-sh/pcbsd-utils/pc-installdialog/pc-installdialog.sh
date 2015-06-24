@@ -877,8 +877,16 @@ gen_pc-sysinstall_cfg()
    else
      echo "distFiles=base doc kernel" >> ${CFGFILE}
    fi
-   echo "installMedium=local" >>${CFGFILE}
-   echo "localPath=/dist" >>${CFGFILE}
+
+   if [ -e "/pcbsd-media-network" ] ; then
+     # Doing install from network media
+     echo "installMedium=ftp" >>${CFGFILE}
+     echo "ftpPath=ftpPath=http://download.pcbsd.org/iso/%VERSION%/%ARCH%/dist" >>${CFGFILE}
+   else
+     # Doing local installation
+     echo "installMedium=local" >>${CFGFILE}
+     echo "localPath=/dist" >>${CFGFILE}
+   fi
 
    if [ -n "$SYSHOSTNAME" ] ; then
       echo "" >> ${CFGFILE}
