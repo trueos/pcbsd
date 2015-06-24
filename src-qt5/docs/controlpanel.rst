@@ -891,16 +891,13 @@ The "Misc" tab is shown in Figure 8.6c.
 
 **Figure 8.6c: Miscellaneous Options**
 
-.. image:: images/login4.png
+.. image:: images/login4a.png
 
 This screen provides the following options:
 
 **Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
 typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
 the typed password in the login screen, the asterisks will change to reveal the password.
-
-**Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
-this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
 **Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in Figure 8.6d. When a user logs into a stealth session, meaning
 that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
@@ -911,6 +908,13 @@ A stealth session is similar to a web browser's private mode, except for your en
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
    PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
+
+**Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
+this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
+
+**Allow Valid Users with UID under 1000:** check this box if you have imported existing users with a UID under 1000, for example from a Solaris NIS server. Checking this box
+will activate the "Additional Excluded Users" field.
+
 
 **Figure 8.6d: Logging Into a Stealth Session**
 
