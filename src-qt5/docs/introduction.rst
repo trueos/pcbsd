@@ -283,6 +283,15 @@ automatically updated.
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
 
+* The **showeol** option has been added to :command:`pc-updatemanager`.
+
+* The "Allow Valid Users with UID under 1000" checkbox and "Additonal Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
+
+* The **probe-netdrives**,
+  **list-mountednetdrives**,
+  **mountnet**, and
+  **unmountnet** options have been added to :ref:`pc-sysconfig`.
+
 * The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
   wizard offering to open the advanced configuration options so that replication can be configured.
 
