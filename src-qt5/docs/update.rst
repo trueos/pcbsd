@@ -351,11 +351,11 @@ version 10.1.1, the following steps occur automatically during an update:
 
 **Figure 7.3c: Viewing the Update Log**
 
-.. image:: images/update10.png
+.. image:: images/update10a.png
 
 **Figure 7.3d: Configuring What to Update**
 
-.. image:: images/update11.png
+.. image:: images/update11a.png
 
 The "View" menu of Update Manager provides the following information:
 
@@ -376,6 +376,15 @@ The "View" menu of Update Manager provides the following information:
 
 .. image:: images/update15.png
 
+The "System" mneu of Update Manager provides one option:
+
+* **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in Figure 7.3g, this
+  system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
+
+**Figure 7.3g: Switching Branches**
+
+.. image:: images/branch1.png
+
 Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
 either the GUI or the command-line method.
 
@@ -392,9 +401,9 @@ the "Configure Automatic Updates" screen shown in Figure 7.3d.
 
 Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period. To manually check for updates, right-click the
 Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
-will appear, as seen in the example in Figure 7.3g. If no updates are available, of if the system is currently updating, this tab will not appear.
+will appear, as seen in the example in Figure 7.3h. If no updates are available, of if the system is currently updating, this tab will not appear.
 
-**Figure 7.3g: Updates are Available**
+**Figure 7.3h: Updates are Available**
 
 .. image:: images/update12.png
 
