@@ -43,6 +43,10 @@ list_metapkgs() {
 	# Start listing each meta-pkg
 	for i in `find ${MPDIR}/* -type d`
 	do
+		# Don't list network-only packages unless we are on network install media
+		if [ -e "/pcbsd-media-network" -a ! -e "${i}/network-only" ] ; then
+			continue
+		fi
 		if [ -e "${i}/pkg-desc" ] ; then
 			desk="NO"
 			echo "$i" | grep -q "Desktop"
