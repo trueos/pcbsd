@@ -2467,11 +2467,48 @@ will open.
 The Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
 to keep them.
 
-The "Replication" tab, shown in Figure 8.19i, is used to configure replication to another system in the network.
+The "Replication" tab, is shown in Figure 8.19i.
 
 **Figure 8.19i: Configuring Replication**
 
 .. image:: images/lpreserver22.png
+
+If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. If you have another system available
+which is running the same version of ZFS and has SSH enabled, click the "+SSH" box. Life Preserver will scan the network for systems running SSHD and, if the scan is
+successful, a pop-up menu will show the hostnames of the available systems. Select the desired system, press "OK", and its IP address will be displayed in the drop-down
+menu to the left of the "+SSH" button and the rest of this screen will be activated. Note that this scan requires UDP port 5353 to be open on any firewalls on or
+between the PC-BSD® and the remote system.
+
+.. note:: **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
+          demonstrated in :ref:`Backing Up to a FreeNAS System`.
+
+* **User Name:** this user must have permission to log in to the system that will hold the backup. If the account does not already exist, you should create it
+  first on the backup server.
+
+* **SSH Port:** port 22, the default port used by SSH is selected for you. You only need to change this if the remote system is using a non-standard port to
+  listen for SSH connections. In that case, use the up/down arrows or type in the port number.
+
+* **Remote Dataset:** input the name of an existing ZFS dataset on the backup server. This is where the backups will be stored. To get a list of existing
+  datasets, type :command:`zfs list` on the remote server. The "NAME" column in the output of that command gives the fullname of each dataset. Type the
+  fullname of the desired dataset into this field. When selecting a dataset, make sure that the selected "User Name" has permission to write to the dataset.
+
+* **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
+
+Once you enter the information and press "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
+second pop-up message will remind you to save the SSH key to a USB stick (as described in :ref:`Life Preserver Options`) as this key is required for
+:ref:`Restoring the Operating System`.
+
+.. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
+   not preventing access to the configured "SSH Port".
+
+Once you configure replication, Life Preserver will begin to replicate that snapshot to the
+remote system. Note that the first replication can take several hours to complete, depending upon the speed of the network. Subsequent replications will only
+have changed data and will be much smaller.
+
+Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
+until the replication is finished and it will not start a second replication before the first replication finishes.
+
+To instead send a copy of snapshots to an iSCSI target, refer to :ref:`Configuring Encrypted Backups`.
 
 The "Scrub" tab, shown in Figure 8.19j,
 
