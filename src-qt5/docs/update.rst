@@ -429,6 +429,7 @@ TrueOS® users, or those who prefer to use a command-line utility, can use :comm
  branches             - List available system branches
  chbranch <tag>       - Change to new system branch
  check                - Check for system updates
+ showeol	      - Show end of life (support) date for this release
  install <tag>,<tag2> - Install system updates
  pkgcheck             - Check for updates to packages
  pkgupdate [-f]       - Install packages updates 
