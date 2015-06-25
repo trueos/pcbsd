@@ -118,12 +118,12 @@ post_extract_setup()
   # Stuff not for jails
   if [ -e "/boot/grub/grub.cfg" ] ; then
 
-    # Make sure we are using correct linux emulation
-    cp /etc/sysctl.conf /etc/sysctl.conf.bak
-    cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
-    echo "compat.linux.osrelease=2.6.18" >> /etc/sysctl.conf.new
-    mv /etc/sysctl.conf.new /etc/sysctl.conf
-    sysctl compat.linux.osrelease=2.6.18
+    # Remove the legacy setting of default linux compat, let user control that
+    grep -q "compat.linux.osrelease=2.6.18" /etc/sysctl.conf
+    if [ $? -eq 0 ] ; then
+      cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
+      mv /etc/sysctl.conf.new /etc/sysctl.conf
+    fi
 
     # Make sure that anacron has the auto-update tool enabled
     grep -q 'autoupdate' /usr/local/etc/anacrontab

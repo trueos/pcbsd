@@ -108,7 +108,6 @@ share/pcbsd/conf/update-mirror
 share/pcbsd/conf/prune-port-files
 share/pcbsd/conf/desktop-excludes
 share/pcbsd/conf/server-excludes
-share/pcbsd/conf/linux-compat-version
 share/pcbsd/conf/loader.conf.pcbsd
 share/pcbsd/conf/loader.conf.trueos
 share/pcbsd/conf/ntpd.conf

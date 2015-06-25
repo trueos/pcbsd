@@ -566,7 +566,6 @@ If updates are available, you can install them with this command::
   Pruning: /usr/local/share/applications/kde4/kuser.desktop
   Pruning: /usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
   Extracting ports overlay data...DONE
-  compat.linux.osrelease: 2.6.18 -> 2.6.18
   Updating pkgng config...
   Unmounting stage BE...
   Unmounted successfully
@@ -735,7 +734,6 @@ The following example installs the alpine PBI. When prompted, input your passwor
  *******************************************************************************
  Pruning: /usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
  Extracting ports overlay data...DONE
- compat.linux.osrelease: 2.6.18 -> 2.6.18
 
 .. index:: PBI Manager
 .. _pbi delete:
