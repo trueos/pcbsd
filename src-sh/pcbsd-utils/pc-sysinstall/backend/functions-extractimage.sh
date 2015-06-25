@@ -46,7 +46,7 @@ start_extract_dist()
 
   get_value_from_cfg installQuiet
   if [ -z "$VAL" -o "$VAL" = "no" ] ; then
-     TAROPS="${TAROPTS} -v"
+     TAROPTS="${TAROPTS} -v"
   fi
 
   # Loop though and extract dist files
@@ -99,7 +99,7 @@ start_extract_uzip_tar()
 
   get_value_from_cfg installQuiet
   if [ -z "$VAL" -o "$VAL" = "no" ] ; then
-     TAROPS="${TAROPTS} -v"
+     TAROPTS="${TAROPTS} -v"
   fi
 
   echo_log "pc-sysinstall: Starting Extraction"
@@ -250,6 +250,10 @@ fetch_dist_file()
   fi
 
   FTPPATH="${VAL}"
+  FBSDVER=`uname -r | cut -d "-" -f 1-2`
+  ARCH=`uname -m`
+  FTPPATH=`echo $FTPPATH | sed "s|%VERSION%|${FBSDVER}|g"`
+  FTPPATH=`echo $FTPPATH | sed "s|%ARCH%|${ARCH}|g"`
   
   # Check if we have a /usr partition to save the download
   if [ -d "${FSMNT}/usr" ]

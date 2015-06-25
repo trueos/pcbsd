@@ -1,0 +1,17 @@
+#
+# $FreeBSD$
+#
+# PAM configuration for the "sudo" service
+#
+ 
+# auth
+
+# Uncomment this to enable AD support
+#auth    sufficient      /usr/local/lib/pam_winbind.so   krb5_auth       krb5_ccache_type=FILE
+#
+auth    include system
+ 
+# account
+account include system
+ 
+# session

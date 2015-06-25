@@ -1,5 +1,3 @@
-accessibility/orca
-accessibility/py-atspi
 archivers/unrar
 archivers/unzip
 devel/qgit
@@ -58,8 +56,6 @@ www/chromium
 x11/lumina
 misc/pcbsd-role-devel
 misc/pcbsd-role-office
-misc/pcbsd-role-avstudio
 misc/pcbsd-role-media
 misc/pcbsd-role-internet
 misc/pcbsd-role-freenasbuild
-misc/pcbsd-role-artphoto

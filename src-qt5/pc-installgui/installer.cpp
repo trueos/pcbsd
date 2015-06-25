@@ -953,9 +953,16 @@ QStringList Installer::getGlobalCfgSettings()
   }
 
 
-  // Doing install from /dist directory
-  tmpList << "installMedium=local"; 
-  tmpList << "localPath=/dist";
+  if ( QFile::exists("/pcbsd-media-network") )  
+  {
+    // Doing install from network media
+    tmpList << "installMedium=ftp"; 
+    tmpList << "ftpPath=http://download.pcbsd.org/iso/%VERSION%/%ARCH%/dist";
+  } else {
+    // Doing install from /dist directory
+    tmpList << "installMedium=local"; 
+    tmpList << "localPath=/dist";
+  }
 
   if ( comboLanguage->currentIndex() != 0 ) {
     QString lang = languages.at(comboLanguage->currentIndex());

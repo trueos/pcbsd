@@ -44,13 +44,23 @@ bootstrap_pkgng()
   echo_log "Bootstraping pkgng.."
 
   # Figure out real location of "pkg" package
+  PKGFLAG="add"
   case "${INSTALLMEDIUM}" in
     usb|dvd|local) rc_halt "cd ${LOCALPATH}/packages"
 		   PKGPTH="/mnt/`ls All/pkg-[0-9]*.txz`"
 		   ;;
+              ftp) if [ ! -e "${FSMNT}/usr/local/etc/pkg" ] ; then
+		      mkdir ${FSMNT}/usr/local/etc
+	              cp -r /root/pkg ${FSMNT}/usr/local/etc/pkg
+                   fi
+		   PKGPTH="ports-mgmt/pkg"
+		   PKGFLAG="install -y"
+		   # Copy over resolv.conf
+		   rc_halt "cp /etc/resolv.conf ${FSMNT}/etc"
+                   ;;
           *) PKGPTH="pkg" ;;
   esac
-  rc_halt "pkg -c ${FSMNT} add ${PKGPTH}"
+  rc_halt "pkg -c ${FSMNT} ${PKGFLAG} ${PKGPTH}"
 }
 
 get_package_location()

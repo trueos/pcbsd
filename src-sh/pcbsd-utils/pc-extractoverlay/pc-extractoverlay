@@ -118,12 +118,15 @@ post_extract_setup()
   # Stuff not for jails
   if [ -e "/boot/grub/grub.cfg" ] ; then
 
-    # Make sure we are using correct linux emulation
-    cp /etc/sysctl.conf /etc/sysctl.conf.bak
-    cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
-    echo "compat.linux.osrelease=2.6.18" >> /etc/sysctl.conf.new
-    mv /etc/sysctl.conf.new /etc/sysctl.conf
-    sysctl compat.linux.osrelease=2.6.18
+    # Remove the legacy setting of default linux compat, let user control that
+    uname -r | grep -q "10.1"
+    if [ $? -ne 0 ] ; then
+      grep -q "compat.linux.osrelease=2.6.18" /etc/sysctl.conf
+      if [ $? -eq 0 ] ; then
+        cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
+        mv /etc/sysctl.conf.new /etc/sysctl.conf
+      fi
+    fi
 
     # Make sure that anacron has the auto-update tool enabled
     grep -q 'autoupdate' /usr/local/etc/anacrontab
@@ -132,7 +135,7 @@ post_extract_setup()
     fi
 
     # Enable the pc-sysconfig daemon
-    grep -q 'pcsysconfig_enable' /etc/rc.conf.pcbsd
+    grep -q 'pcsysconfig_enable' /etc/rc.conf.pcbsd 2>/dev/null
     if [ $? -ne 0 ]; then
        grep -q 'pcsysconfig_enable' /etc/rc.conf
        if [ $? -ne 0 ]; then
@@ -171,7 +174,7 @@ post_extract_setup()
     fi
 
     # Check if we need to enable openntpd
-    grep -q "openntpd" /etc/rc.conf.pcbsd
+    grep -q "openntpd" /etc/rc.conf.pcbsd 2>/dev/null
     if [ $? -ne 0 ] ; then
        grep -q "openntpd" /etc/rc.conf
        if [ $? -ne 0 ] ; then

@@ -1,7 +1,11 @@
 function delConfirm(appname, origin, cmd, target) {
     if (confirm("Are you sure you want to delete " + appname + "?") == true) {
 	var newURL = window.location.pathname + window.location.search;
-	window.location.href = newURL + "&deleteApp=" + origin + "&deleteAppCmd=" + cmd;
+	if (window.location.search.length === 0 ) {
+		window.location.href = window.location.pathname + "?p=appcafe&jail=" + target + "&deleteApp=" + origin + "&deleteAppCmd=" + cmd;
+	} else {
+		window.location.href = newURL + "&deleteApp=" + origin + "&deleteAppCmd=" + cmd;
+	}
     }
 }
 
@@ -17,7 +21,11 @@ function addConfirmLic(appname, origin, cmd, target, lictxt) {
 function addConfirm(appname, origin, cmd, target) {
     if (confirm("Are you sure you want to install " + appname + "?") == true) {
 	var newURL = window.location.pathname + window.location.search;
-	window.location.href = newURL + "&installApp=" + origin + "&installAppCmd=" + cmd ;
+	if (window.location.search.length === 0 ) {
+		window.location.href = window.location.pathname + "?p=appcafe&jail=" + target + "&installApp=" + origin + "&installAppCmd=" + cmd ;
+	} else {
+		window.location.href = newURL + "&installApp=" + origin + "&installAppCmd=" + cmd ;
+	}
     }
 }
 

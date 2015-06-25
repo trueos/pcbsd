@@ -891,16 +891,13 @@ The "Misc" tab is shown in Figure 8.6c.
 
 **Figure 8.6c: Miscellaneous Options**
 
-.. image:: images/login4.png
+.. image:: images/login4a.png
 
 This screen provides the following options:
 
 **Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
 typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
 the typed password in the login screen, the asterisks will change to reveal the password.
-
-**Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
-this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
 **Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in Figure 8.6d. When a user logs into a stealth session, meaning
 that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
@@ -911,6 +908,13 @@ A stealth session is similar to a web browser's private mode, except for your en
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
    PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
+
+**Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
+this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
+
+**Allow Valid Users with UID under 1000:** check this box if you have imported existing users with a UID under 1000, for example from a Solaris NIS server. Checking this box
+will activate the "Additional Excluded Users" field.
+
 
 **Figure 8.6d: Logging Into a Stealth Session**
 
@@ -1499,43 +1503,43 @@ For usage information, run the command without any options::
  pc-sysconfig: Simple system configuration utility
  Usage: "pc-sysconfig <command 1> <command 2> ..."
  Available Information Commands:
-  "list-remdev": List all removable devices attached to the system.
-  "list-mounteddev": List all removable devices that are currently mounted
-  "list-audiodev": List all available audio devices
-  "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
-  "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
-  "devsize <device>": Fetch device space (must be mounted)
-  "usingtormode": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR
-  "getscreenbrightness": Returns the brightness of the first controllable screen as a percentage (0-100) or "[ERROR]" otherwise
-  "systemcansuspend": [TRUE/FALSE] Returns whether the system supports the S3 suspend state
+ "list-remdev": List all removable devices attached to the system.
+ "list-mounteddev": List all removable devices that are currently mounted
+ "list-audiodev": List all available audio devices
+ "probe-netdrives": List all the available shared drives on the local network
+ "list-mountednetdrives": List all the available shared drives which can currently be browsed (assuming the remote system is running properly)
+ "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
+ "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
+ "devsize <device>": Fetch device space (must be mounted)
+ "usingtormode": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR
+ "getscreenbrightness": Returns the brightness of the first controllable screen as a percentage (0-100) or "[ERROR]" otherwise
+ "systemcansuspend": [TRUE/FALSE] Returns whether the system supports the S3 suspend state
 
  Available Action Commands:
   "mount <device> [<filesystem>] [<mountpoint>]":
    -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
    -- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
    -- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
-
   "unmount <device or mountpoint> [force]":
    -- This will unmount the removable device from the system
    -- This may be forced by using the "force" flag as well (not recommended for all cases)
    -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
-
+  "mountnet <IP of remote host> <Name of remote host>":
+   -- This will setup the remote host to be browsable on the local system with the given name
+   -- Note that the remote host is automatically mounted/unmounted based on local user activity
+   -- To see where these network drives are mounted and can be browsed, see the output of "list-mountednetdrives"
+  "unmountnet <IP of remote host>":
+   -- This will remove the remote host from being browsable on the local system
   "load-iso <absolute path to the *.iso file>":
    -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)
-
   "setdefaultaudiodevice <pcm device>":
    -- This will set the given pcm device (I.E. "pcm3") as the default audio output device
-
-  "setscreenbrightness <percent>":
+  "setscreenbrightness <percentage>":
    -- This will set the brightness of all the available screens to the given percentage
-
    -- It is also possible to adjust the current value by supplying a [+/-] before the number
-
    -- For example: using "+5" as the percentage will increase the brightness by 5% for each screen
-
    -- This returns "[ERROR]" or "[SUCCESS]" based on whether the change could be performed
-
- "suspendsystem": Puts the system into the suspended state (S3)
+  "suspendsystem": Puts the system into the suspended state (S3)
 
 For example, to see a listed of the supported filesystems, use::
 
@@ -2417,21 +2421,70 @@ Snapshots can be configured to be pruned after the specified number of days or a
 
 After making your selection, press "Next" to see the screen shown in Figure 8.19e.
 
-**Figure 8.19e: Replication Server Screen**
+**Figure 8.19e: Scrub Schedule Screen**
 
-.. image:: images/lpreserver5.png
+.. image:: images/lpreserver19a.png
 
-If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to.
-If you have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
-following information. **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
-demonstrated in :ref:`Backing Up to a FreeNAS System`.
+This screen is used to schedule when a ZFS scrub occurs. Scrubs are recommended as they can provide an early indication of a potential disk failure. To schedule the scrub,
+check the box "Enable scheduled scrub" which will activate the configurable options in this screen. Use the drop-down menu to select a frequency of "Daily",
+"Weekly", or "Monthly". If you select "Daily", you can configure the "Hour". If you select "Weekly", you can configure the "Day of week" and the "Hour". If you
+select "Monthly", you can configure the "Day of month", "Day of week", and "Hour". Since a scrub can be disk I/O intensive, it is recommended to pick a time when
+the system will not be in heavy use. When you are finished, click "Next" to see the screen shown in Figure 8.19f.
 
-* **Scan Network:** click this button to scan for systems listening on port 22 (SSH). If the scan is successful, a pop-up menu will show the available systems.
-  Select one to add it to the "Host Name" field. Note that this scan requires UDP port 5353 to be open on any firewalls on or between the PC-BSD® and the remote system. 
+**Figure 8.19f: Select Advanced Configuration Screen**
 
-* **Host Name:** of the remote system that will store your backup. If the backup server is on your local network, the host name must be in your hosts file or
-  in the database of the local DNS server. You may find it easier to instead input the IP address of the backup server as this will eliminate any host name
-  resolution problems.
+.. image:: images/lpreserver21.png
+
+This screen provides the option to finish the configuration now, if you only plan to store your backups on this system or you have not yet configured another system to
+back up to, or to continue on to the advanced options, if you wish to replicate your backups to another system on the network which has already been prepared for this
+purpose. To finish the configuration now, click "Finish" which will save your configuration, exit the wizard, take a system snapshot, and move on to the screen shown
+in Figure 8.19g.
+
+To instead configure replication of the backups to another system, check the box for "Proceed directly to the advanced configuration options" before clicking "Finish".
+This will open the screen shown in Figure 8.19h.
+
+The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.
+
+.. index:: backup
+.. _Life Preserver Options:
+
+Life Preserver Options
+----------------------
+
+Once the backup schedule has been created, the "Status" tab shown in Figure 8.19g will become active and will show the current state of the pool. The
+"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19g.
+
+**Figure 8.19g: Life Preserver in Advanced View**
+
+.. image:: images/lpreserver6a.png
+
+In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
+the latest most recent scrub was successful as it did not find any disk errors.
+
+If you click the "Configure" button, or if you checked the box to "Proceed directly to the advanced configuration options" in the wizard, the screen shown in Figure 8.19h
+will open. 
+
+**Figure 8.19h: Modifying the Snapshot Schedule**
+
+.. image:: images/lpreserver7.png
+
+The Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
+to keep them.
+
+The "Replication" tab, is shown in Figure 8.19i.
+
+**Figure 8.19i: Configuring Replication**
+
+.. image:: images/lpreserver22.png
+
+If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. If you have another system available
+which is running the same version of ZFS and has SSH enabled, click the "+SSH" box. Life Preserver will scan the network for systems running SSHD and, if the scan is
+successful, a pop-up menu will show the hostnames of the available systems. Select the desired system, press "OK", and its IP address will be displayed in the drop-down
+menu to the left of the "+SSH" button and the rest of this screen will be activated. Note that this scan requires UDP port 5353 to be open on any firewalls on or
+between the PC-BSD® and the remote system.
+
+.. note:: **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
+          demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
 * **User Name:** this user must have permission to log in to the system that will hold the backup. If the account does not already exist, you should create it
   first on the backup server.
@@ -2445,59 +2498,32 @@ demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
 * **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
 
-When finished, click "Next" to see the screen shown in Figure 8.19f.
-
-**Figure 8.19f: Scrub Schedule Screen**
-
-.. image:: images/lpreserver19.png
-
-This screen is used to schedule when a ZFS scrub occurs. Scrubs are recommended as they can provide an early indication of a potential disk failure. To schedule the scrub,
-check the box "Enable scheduled scrub" which will activate the configurable options in this screen. Use the drop-down menu to select a frequency of "Daily",
-"Weekly", or "Monthly". If you select "Daily", you can configure the "Hour". If you select "Weekly", you can configure the "Day of week" and the "Hour". If you
-select "Monthly", you can configure the "Day of month", "Day of week", and "Hour". Since a scrub can be disk I/O intensive, it is recommended to pick a time when
-the system will not be in heavy use. When you are finished, click "Finish". If you configured replication, Life Preserver will check that it can connect to the backup
-server and will prompt for the password of "User Name". A second pop-up message will remind you to save the SSH key to a USB stick (as described in
-:ref:`Life Preserver Options`) as this key is required for :ref:`Restoring the Operating System`.
+Once you enter the information and press "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
+second pop-up message will remind you to save the SSH key to a USB stick (as described in :ref:`Life Preserver Options`) as this key is required for
+:ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
    not preventing access to the configured "SSH Port".
 
-Once the wizard completes, a system snapshot will be taken. If you also configured replication, Life Preserver will begin to replicate that snapshot to the
+Once you configure replication, Life Preserver will begin to replicate that snapshot to the
 remote system. Note that the first replication can take several hours to complete, depending upon the speed of the network. Subsequent replications will only
 have changed data and will be much smaller.
 
 Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
 until the replication is finished and it will not start a second replication before the first replication finishes.
 
-The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.
+To instead send a copy of snapshots to an iSCSI target, refer to :ref:`Configuring Encrypted Backups`.
 
-.. index:: backup
-.. _Life Preserver Options:
+The "Scrub" tab, shown in Figure 8.19j,
 
-Life Preserver Options
-----------------------
+**Figure 8.19j: Modifying the Scrub Schedule**
 
-Once the backup schedule has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
-"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19g. 
+.. image:: images/lpreserver23.png
 
-**Figure 8.19g: Life Preserver in Advanced View**
-
-.. image:: images/lpreserver6.png
-
-In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
-the latest scheduled replication was successful.
-
-If you click the "Configure" button, the screen shown in Figure 8.19h will open. This allows you to modify the schedule and pruning options in the "Local Snapshots" tab,
-the replication settings in the "Replication" tab, and the scrub schedule in the "Scrub" tab.
-
-**Figure 8.19h: Modifying the Configuration**
-
-.. image:: images/lpreserver7.png
-
-The "Restore Data" tab, seen in Figure 8.19i, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
+The "Restore Data" tab, seen in Figure 8.19k, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
 or deleted.
 
-**Figure 8.19i: Viewing the Contents of the Snapshots**
+**Figure 8.19k: Viewing the Contents of the Snapshots**
 
 .. image:: images/lpreserver8.png
 
@@ -2533,9 +2559,9 @@ The "Classic Backups" menu can be used to create an as-needed tarball of the use
 directory in order to restore it in another directory or on another system.
 
 To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
-8.19j. 
+8.19l. 
 
-**Figure 8.19j: Backing Up a User's Home Directory**
+**Figure 8.19l: Backing Up a User's Home Directory**
 
 .. image:: images/lpreserver9.png
 
@@ -2762,10 +2788,10 @@ this version of FreeNAS® using the installation instructions in the
 In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS volume, create and configure the
 dataset to store the backups, create a user account that has permission to access that dataset, and enable the SSH service.
 
-In the example shown in Figure 8.19j, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create the ZFS volume from the
+In the example shown in Figure 8.19m, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create the ZFS volume from the
 available drives.
 
-**Figure 8.19j: Creating a ZFS Volume in FreeNAS®** 
+**Figure 8.19m: Creating a ZFS Volume in FreeNAS®** 
 
 .. image:: images/lpreserver10.png
 
@@ -2773,29 +2799,29 @@ Input a "Volume Name", drag the slider to select the number of available disks, 
 select the optimal layout for both storage capacity and redundancy. In this example, a RAIDZ2 named *volume1* will be created.
 
 To create the dataset to backup to, click the "+" next to the entry for the newly created volume, then click "Create ZFS Dataset". In the example shown in
-Figure 8.19k, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
+Figure 8.19n, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
 
 .. note:: make sure that the dataset is large enough to hold the replicated snapshots. To determine the size of the initial snapshot, run
    :command:`zpool list` on the PC-BSD® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
    data that has changed.
 
-**Figure 8.19k: Creating a ZFS Dataset in FreeNAS®**
+**Figure 8.19n: Creating a ZFS Dataset in FreeNAS®**
 
 .. image:: images/lpreserver11.png
 
-To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19l, input a "Username" that will match the
+To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19o, input a "Username" that will match the
 "User Name" configured in Life Preserver. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
 backups. Input a "Full Name", then input and confirm a "Password". When finished, click the "OK" button to create the user.
 
-**Figure 8.19l: Creating a User in FreeNAS®**
+**Figure 8.19o: Creating a User in FreeNAS®**
 
 .. image:: images/lpreserver12.png
 
 Next, give the user permissions to the dataset by going to :menuselection:`Storage --> Volumes`, click the + next to the name of the volume, click the "+"
-next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in Figure 8.19m, change the "Owner (user)"and
+next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in Figure 8.19p, change the "Owner (user)"and
 "Owner (group)" to the user that you created. Click "Change" to save the change.
 
-**Figure 8.19m: Setting Permissions in FreeNAS®**
+**Figure 8.19p: Setting Permissions in FreeNAS®**
 
 .. image:: images/lpreserver13.png
 
@@ -2804,9 +2830,9 @@ Next, click on "Shell" and type the following command, replacing *dru* and *volu
  zfs allow -u dru atime,canmount,clone,compression,create,destroy,hold,mount,mountpoint,promote,receive,rename,send,userprop volume1/backups  
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
-Figure 8.19n. 
+Figure 8.19q. 
 
-**Figure 8.19n: Start SSH in FreeNAS®**
+**Figure 8.19q: Start SSH in FreeNAS®**
 
 .. image:: images/lpreserver14.png
 
@@ -2940,7 +2966,7 @@ Using FreeNAS as the Backup System
 To instead prepare a FreeNAS® 9.3 system to use as the backup target, first ensure that the system has been updated to the latest software update. Then,
 perform the following configuration steps.
 
-Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19o, input
+Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19r, input
 the following values in these fields then press "OK" to create the account:
 
 * **User ID:** 341
@@ -2953,51 +2979,51 @@ the following values in these fields then press "OK" to create the account:
 
 * **Disable password login:** check this box
 
-**Figure 8.19o: Create the Service Account** 
+**Figure 8.19r: Create the Service Account** 
 
 .. image:: images/iscsi4.png
 
 Next, create a zvol using the tree menu. Go to :menuselection:`Storage --> Volumes --> click the plus to expand name of volume --> Create zvol`. In the example
-shown in Figure 8.19p, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
+shown in Figure 8.19s, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
 
-**Figure 8.19p: Create the zvol** 
+**Figure 8.19s: Create the zvol** 
 
 .. image:: images/iscsi5.png
 
-You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19q, change the
+You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19t, change the
 default "Base Name" to *iqn.2012-06.com.lpreserver*.
 
-**Figure 8.19q: Configure the IQN** 
+**Figure 8.19t: Configure the IQN** 
 
 .. image:: images/iscsi6.png
 
 Click the "Portals" tab then the "Add Portal" button. Verify that the "IP Address" drop-down menu is set to *0.0.0.0* and that the "Port" field is set to
-*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19r, this is
+*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19u, this is
 the first time iSCSI has been configured on this system, so it has a "Portal Group ID" of *1*. If you have already created other iSCSI targets, note the
 "Portal Group ID" you just created.
 
-**Figure 8.19r: Configure the Portal** 
+**Figure 8.19u: Configure the Portal** 
 
 .. image:: images/iscsi7.png
 
 In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initiators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
-it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19s,
+it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19v,
 it is *1*.
 
-**Figure 8.19s: Configure the Initiator** 
+**Figure 8.19v: Configure the Initiator** 
 
 .. image:: images/iscsi8.png
 
 In the "Authorized Access" tab, click the "Add Authorized Access" button. Input a value for the "User" that is between 8 and 12 characters and a value in the "Secret" and
-"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19t, the "User" has a value of *mybackups*, the
+"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19w, the "User" has a value of *mybackups*, the
 secret is *pcbsdbackups*, and the "Group ID" is
 *1*. Make note of the "Group ID" that is created for you.
 
-**Figure 8.19t: Configure the Authorized Access** 
+**Figure 8.19w: Configure the Authorized Access** 
 
 .. image:: images/iscsi9.png
 
-In the "Targets" tab, click the "Add Target" button. In the screen shown in Figure 8.19u, use the following values in these fields:
+In the "Targets" tab, click the "Add Target" button. In the screen shown in Figure 8.19x, use the following values in these fields:
 
 * **Target Name:** target0
 
@@ -3007,21 +3033,21 @@ In the "Targets" tab, click the "Add Target" button. In the screen shown in Figu
 
 * **Auth Method:** select CHAP from the drop-down menu
 
-**Figure 8.19u: Configure the Target** 
+**Figure 8.19x: Configure the Target** 
 
 .. image:: images/iscsi10.png
 
-In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19v, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
+In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19y, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
 the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
 
-**Figure 8.19v: Configure the Extent** 
+**Figure 8.19y: Configure the Extent** 
 
 .. image:: images/iscsi11.png
 
-Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in Figure 8.19w, select the "Target"
+Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in Figure 8.19z, select the "Target"
 and the "Extent" that you created.
 
-**Figure 8.19w: Associate the Target With the Extent** 
+**Figure 8.19z: Associate the Target With the Extent** 
 
 .. image:: images/iscsi12.png
 
@@ -3076,16 +3102,16 @@ Once you have configured the backup system and the PC-BSD® system has a copy of
 PC-BSD® system. If you have not yet managed a pool in Life Preserver, click :menuselection:`File --> Manage Pool` and follow the initial configuration wizard
 described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, just click "Next" as you will instead be using a zvol to
 backup to. Next, start the encrypted backup wizard by clicking :menuselection:`File --> Enable Offsite Backups` and select the pool to backup. This will start
-the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19x.
+the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19aa.
 
-**Figure 8.19x: Selecting the Configuration File** 
+**Figure 8.19aa: Selecting the Configuration File** 
 
 .. image:: images/iscsi1.png
 
 Click the "Select" button to browse to the location of your saved :file:`.lps` file. Once selected, the "Host", "Target", "User", and "Password" fields will
-auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19y.
+auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19ab.
 
-**Figure 8.19y: Input the Encryption Key** 
+**Figure 8.19ab: Input the Encryption Key** 
 
 .. image:: images/iscsi2.png
 
@@ -3099,9 +3125,9 @@ This screen lets you configure the following:
   system, check this box and use the browse button to add the key to the "GELI Encryption File" field.
   
 When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
-Once the connection to the remote system is established, you will see the screen shown in Figure 8.19z.
+Once the connection to the remote system is established, you will see the screen shown in Figure 8.19ac.
 
-**Figure 8.19z: Save the Key** 
+**Figure 8.19ac: Save the Key** 
 
 .. image:: images/iscsi3.png
 
@@ -3119,9 +3145,9 @@ Restoring the Operating System
 ------------------------------
 
 If you have replicated the system's snapshots to a remote backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
-another system. Start the installation as usual until you get to the screen shown in Figure 8.19aa. 
+another system. Start the installation as usual until you get to the screen shown in Figure 8.19ad. 
 
-**Figure 8.19aa: Selecting to Restore/Clone From Backup** 
+**Figure 8.19ad: Selecting to Restore/Clone From Backup** 
 
 .. image:: images/lpreserver15.png
 
@@ -3134,9 +3160,9 @@ If it is saved on a remote system, click the black terminal icon and click "shel
 file from the remote system. When finished, type :command:`exit` to exit the shell then use your arrow keys to select "exit" in the menu to exit the menu.
 
 Once you are ready, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to select the type of restore using the
-screen shown in Figure 8.19ab. 
+screen shown in Figure 8.19ae. 
 
-**Figure 8.19ab: Restoring From an Encrypted Backup** 
+**Figure 8.19ae: Restoring From an Encrypted Backup** 
 
 .. image:: images/lpreserver16.png
 
@@ -3149,14 +3175,14 @@ However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed out
 any customizations, click "Next" to perform the restore.
 
 If you instead configured backups to a replication server using the instructions in :ref:`Scheduling a Backup`, click the "SSH Restore" tab. In the screen shown in
-Figure 8.19ac, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
-port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in Figure 8.19ad.
+Figure 8.19af, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
+port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in Figure 8.19ag.
 
-**Figure 8.19ac: Input the Information for a SSH Restore** 
+**Figure 8.19af: Input the Information for a SSH Restore** 
 
 .. image:: images/lpreserver20.png
 
-**Figure 8.19ad: Select the Authentication Method** 
+**Figure 8.19ag: Select the Authentication Method** 
 
 .. image:: images/lpreserver17.png
 
@@ -3164,10 +3190,10 @@ If you previously saved the SSH key to a USB stick, insert the stick then press 
 press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
 connection to the server.
 
-Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ae, only one host has been backed up to the
+Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ah, only one host has been backed up to the
 replication server.
 
-**Figure 8.19ae: Select the Host to Restore**
+**Figure 8.19ah: Select the Host to Restore**
 
 .. image:: images/lpreserver18.png
 

@@ -296,7 +296,7 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 # -- Options for translations
-locale_dirs = ['locale/']
+locale_dirs = ['_build/locale-po/']
 
 # -- Options for Epub output ----------------------------------------------
 
