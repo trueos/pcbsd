@@ -7,20 +7,22 @@
     return;
  }
 
- if ( ! empty($_POST['search']) )
-   $header="Searching for: ". $_POST['search'];
+ if ( ! empty($_GET['search']) )
+   $header="Searching for: ". $_GET['search'];
  else
    $header="Package Search";
 
- if ( ! empty($_POST['searchtext']) ) {
-    $searchtext = $_POST['searchtext'];
-    $searchraw = $_POST['searchraw'];
+ if ( ! empty($_GET['searchtext']) ) {
+    $searchtext = $_GET['searchtext'];
+    $searchraw = $_GET['searchraw'];
  }
 ?>
 
 <h1><?php echo $header; ?></h1>
 <br>
-<form method="post" action="?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>">
+<form action="/" method="get">
+<input type="hidden" name="p" value="appcafe-search">
+<input type="hidden" name="jail" value="<?php echo "$jailUrl"; ?>">
 Search: <input name="searchtext" type="text" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="float: relative;" width="28" height="28" src="images/search.png" alt="Search" /><br>
 Search all available PBI and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
 </form>
