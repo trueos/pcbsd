@@ -131,9 +131,31 @@ At this time, the PC-BSD® build server has been configured to automatically bui
 :file:`Makefiles` will be tested and added to provide the documentation in other formats, such as single HTML, PDF, and EPUB. Instructions for building your own
 HTML or PDF version can be found in this `README.md <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_.
 
-Once |version| is released, the PC-BSD® developers will integrate the documentation source files into the Pootle translation system so that the PC-BSD® documentation
-can be translated using a web browser. Once the doc Pootle system is ready for translators to use, an announcement will be made on the PC-BSD® blog and to the
-translations mailing list and translations forum so that translators can start translating the documentation into their native language. 
+The documentation source files have been integrated into the Pootle translation system so that the PC-BSD® documentation can be translated using a web browser.
+The process is similar to :ref:`Interface Translation` except that you must first select "PC-BSD Handbook" from the "Projects" drop-down menu shown in Figure 11.2e.
+
+**Figure 11.2d: Selecting the Handbook Project**
+
+.. image:: images/translate5.png
+
+You can then select the language to translate into from the available languages list. If the language that you want to translate is not listed, send an email to
+the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_ and request that it be added.
+
+When translating the documentation, be aware of the following:
+
+* At this time, some formatting tags are still displayed in raw text, as seen in the examples in Figures 11.2e and 11.2f.
+  **It is IMPORTANT that you do not accidently remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
+  translate the phrase "Using the Text Installer" but care must be taken to not accidently remove any of the surrounding colons and backticks, or to change the text
+  of the "ref" tag. In the second example, the asterisks are used to bold the word "install". It is OK to translate "install", but do not remove the asterisks.
+
+
+**Figure 11.2e: Do Not Remove Formatting Characters**
+
+.. image:: images/translate6.png
+
+**Figure 11.2e: Another Formatting Characters Example**
+
+.. image:: images/translate7.png
 
 .. index:: translations
 .. _Website Translation:
