@@ -92,11 +92,11 @@ appcafe_stop()
 {
   if [ -e "/var/run/appcafe.pid" ] ; then
     kill -QUIT $(cat /var/run/appcafe.pid) 2>/dev/null
-    rm /var/run/appcafe.pid
+    rm /var/run/appcafe.pid 2>/dev/null
   fi
   if [ -e "/var/run/appcafe-dispatcher.pid" ] ; then
     kill -9 $(cat /var/run/appcafe-dispatcher.pid) 2>/dev/null
-    rm /var/run/appcafe-dispatcher.pid
+    rm /var/run/appcafe-dispatcher.pid 2>/dev/null
   fi
   if [ -e "/var/run/php-fpm-appcafe.pid" ] ; then
     kill -QUIT $(cat /var/run/php-fpm-appcafe.pid) 2>/dev/null
