@@ -51,11 +51,12 @@ help:
 
 i18n:
 	$(MAKE) gettext
-	$(SPHINXINTL) update -p $(BUILDDIR)/locale -l de -l fr -l es
+	$(SPHINXINTL) update -p $(BUILDDIR)/locale -l de -l fr -l es -l uk
 	@fetch -o $(BUILDDIR)/pcbsd-handbook-i18n.txz https://github.com/pcbsd/pcbsd-i18n/raw/master/dist/pcbsd-handbook-i18n.txz
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/de/LC_MESSAGES --strip-components 1 ./de
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/es/LC_MESSAGES --strip-components 1 ./es
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/fr/LC_MESSAGES --strip-components 1 ./fr
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/uk/LC_MESSAGES --strip-components 1 ./uk
 	$(SPHINXINTL) build
 
 clean:
@@ -67,6 +68,7 @@ html:
 	$(SPHINXBUILD) -D language='de' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-de
 	$(SPHINXBUILD) -D language='es' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-es
 	$(SPHINXBUILD) -D language='fr' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-fr
+	$(SPHINXBUILD) -D language='uk' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-uk
 .endif
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
@@ -77,6 +79,7 @@ dirhtml:
 	$(SPHINXBUILD) -D language='de' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-de
 	$(SPHINXBUILD) -D language='es' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-es
 	$(SPHINXBUILD) -D language='fr' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-fr
+	$(SPHINXBUILD) -D language='uk' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-uk
 .endif
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/dirhtml."
@@ -87,6 +90,7 @@ singlehtml:
 	$(SPHINXBUILD) -D language='de' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-de
 	$(SPHINXBUILD) -D language='es' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-es
 	$(SPHINXBUILD) -D language='fr' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-fr
+	$(SPHINXBUILD) -D language='uk' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-uk
 .endif
 	@echo
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
