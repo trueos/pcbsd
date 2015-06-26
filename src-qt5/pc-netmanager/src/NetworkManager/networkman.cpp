@@ -83,8 +83,8 @@ void NetworkMan::Init()
     connect(lineGateway, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineIPv6Gateway, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineHostname, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+    connect(lineDomainName, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineSearchDomain, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
-
     
     connect(lineProxyAddress, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineProxyUser, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
@@ -512,7 +512,8 @@ void NetworkMan::runCommand( QString command )
 void NetworkMan::loadGlobals()
 {    
     QString tmp;
-    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
+    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).section(".",0,0));
+    lineDomainName->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=",1).section(".",1,100));
 
     tmp = pcbsd::Utils::getConfFileValue("/etc/rc.conf", "defaultrouter=", 1);
     if ( tmp.isEmpty() )
@@ -802,6 +803,7 @@ void NetworkMan::setNotRoot()
     lineIPv6DNS1->setEnabled(false);
     lineIPv6DNS2->setEnabled(false);
     lineHostname->setEnabled(false);
+    lineDomainName->setEnabled(false);
     lineGateway->setEnabled(false);
     lineIPv6Gateway->setEnabled(false);
 }
@@ -889,14 +891,19 @@ void NetworkMan::slotClose()
 
 void NetworkMan::slotSave()
 {
-    
-   if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
-      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
-      pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
-      pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
-      QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname") );
+
+   if ( !lineDomainName->text().isEmpty() && (lineDomainName->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=lineHostname.lineDomainName", "", 1).toLower() ) ) {
+            pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "." + lineDomainName->text() + "\"", -1);
+            pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
+            pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
+            QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your Hostname, and Domain Name") );
    }
-    
+
+    else if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
+       pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
+       pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text(), -1);
+       QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname") );
+    }
     
    if ( lineGateway->text() == "..." || ! groupGateway->isChecked() ) {
      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "defaultrouter=", "", -1);
