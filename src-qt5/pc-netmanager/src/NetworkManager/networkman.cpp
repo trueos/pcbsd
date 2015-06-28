@@ -896,11 +896,12 @@ void NetworkMan::slotSave()
             pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "." + lineDomainName->text() + "\"", -1);
             pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
             pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
-            QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your Hostname, and Domain Name") );
+            QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname, and domain name") );
    }
 
     else if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
        pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
+       pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text(), -1);
        pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text(), -1);
        QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname") );
     }
