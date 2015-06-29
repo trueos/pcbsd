@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>747</width>
-    <height>454</height>
+    <height>513</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabNetMan">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="Widget8">
       <attribute name="title">
@@ -263,9 +263,38 @@
              </widget>
             </item>
             <item>
+             <widget class="QLabel" name="label_8">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Domain Name</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineDomainName">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="horizontalSpacer_3">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -320,7 +349,7 @@
                 </sizepolicy>
                </property>
                <property name="inputMask">
-                <string>999\.999\.999\.999; </string>
+                <string>999\.999\.999\.999</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignHCenter</set>
@@ -356,7 +385,7 @@
                 </sizepolicy>
                </property>
                <property name="inputMask">
-                <string>999\.999\.999\.999; </string>
+                <string>999\.999\.999\.999</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignHCenter</set>
@@ -438,7 +467,7 @@
                   </sizepolicy>
                  </property>
                  <property name="inputMask">
-                  <string>999\.999\.999\.999; </string>
+                  <string>999\.999\.999\.999</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignHCenter</set>
