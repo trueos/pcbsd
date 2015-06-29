@@ -881,6 +881,25 @@ void NetworkMan::slotCheckGlobalText()
      }
 
      pushSave->setEnabled(true);
+     
+          /**
+     Domain Names must:
+     - Contain only a-z, 0-9, and hyphens (-)
+     - Not have a hyphen as the first or last character
+     **/
+     lineDomainName->setText(lineDomainName->text().toLower());
+     if (lineHostname->text().isEmpty())
+     {
+       textGlobalError->setText(tr("Please enter a domain name"));
+       return;
+     }
+     else if (hostnameRegExp.indexIn(lineDomainName->text()) == -1)
+     {
+        textGlobalError->setText(tr("Domain name may only contain letters and numbers"));
+    return;
+     }
+
+     pushSave->setEnabled(true);
 
 }
 
