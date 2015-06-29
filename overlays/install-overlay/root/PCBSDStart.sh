@@ -49,12 +49,13 @@ if [ -e "/pcbsd-media-network" ] ; then
   echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
   if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
 
+  cp /root/pkg/repos/pcbsd.conf.dist /root/pkg/repos/pcbsd.conf
   if [ "$INSTALLPACKAGESET" = "EDGE" ] ; then
-     sed -i '' "s|%VERSION%|${MAJORVER}/edge|g" /root/pkg/repos/pcbsd.conf
+     sed -i '' "s|VERSION|${MAJORVER}/edge|g" /root/pkg/repos/pcbsd.conf
   else
-     sed -i '' "s|%VERSION%|${MAJORVER}|g" /root/pkg/repos/pcbsd.conf
+     sed -i '' "s|VERSION|${MAJORVER}|g" /root/pkg/repos/pcbsd.conf
   fi
-  sed -i '' "s|%ARCH%|${ARCH}|g" /root/pkg/repos/pcbsd.conf
+  sed -i '' "s|ARCH|${ARCH}|g" /root/pkg/repos/pcbsd.conf
 fi
 
 # Check if we are running in a VM and enable guest services
