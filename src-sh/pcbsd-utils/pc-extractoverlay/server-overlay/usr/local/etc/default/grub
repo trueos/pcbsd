@@ -1,5 +1,5 @@
 GRUB_THEME=/boot/grub/themes/pcbsd/theme.txt
 GRUB_FONT=/boot/grub/pcbsdfont.pf2
 GRUB_HIDDEN_TIMEOUT=2
-GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_HIDDEN_TIMEOUT_QUIET=false
 GRUB_NODUALBOOT=YES
