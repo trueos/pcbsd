@@ -267,6 +267,9 @@ Several types of files are available for download. Before downloading a file, re
   integrity of the download, as described in :ref:`Data Integrity Check`. If a torrent is available, there will also be a file with the same name and a
   :file:`.torrent` extension.
 
+* Files containing :file:`netinstall` in their name are used to perform a network install. These files can be burned to a CD, so are a smaller initial download size.
+  However, they require an Internet connection during installation as the files needed by the installer will be downloaded from the Internet.
+
 If you plan to install a graphical desktop, download the file with :file:`PCBSD` in its name and either burn it to a DVD media or write it to a removable USB
 device.
 

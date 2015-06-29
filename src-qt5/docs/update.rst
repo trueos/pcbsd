@@ -405,7 +405,7 @@ will appear, as seen in the example in Figure 7.3h. If no updates are available,
 
 **Figure 7.3h: Updates are Available**
 
-.. image:: images/update12.png
+.. image:: images/update12a.png
 
 In this example, a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
 boot into the newly patched operating system.
