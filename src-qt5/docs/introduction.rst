@@ -277,6 +277,9 @@ updates as described in :ref:`How PC-BSD® Updating Works`, will automatically r
 interface so this section lists any functional changes that have occurred since |version|. As these new features are documented, the installed version of this Handbook is
 automatically updated.
 
+* CD-sized network installers are available for both the graphical and text installers. The installation looks the same for both, with the difference being the size of the
+  downloaded media and the fact that the installation files are retrieved over the network rather than from the installation media.
+
 * Lumina has been updated to 0.8.5.
 
 * The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
