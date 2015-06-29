@@ -289,6 +289,10 @@ automatically updated.
 * The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service which will automatically
   start this service and generate the firewall rules needed to allow SSH connections to the system.
 
+* The "Tile Plugins" and "Cascade Plugins" entries have been added to the :ref:`Right-Click Menu` of Lumina.
+
+* You can now create and manage more than two panels using the :ref:`Lumina Configuration Utility`.
+
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
 

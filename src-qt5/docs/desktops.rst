@@ -367,6 +367,10 @@ workspace. While this menu can be customized, here is a quick summary of the def
 * **Snap Plugins to Grid:** this option only appears when the desktop is unlocked. Used to align and resize all the desktop plugins on an invisible 32x32
   pixel grid, with special adjustments to align on the bottom and right screen edges if necessary, in order to provide a uniform appearance.
 
+* **Tile Plugins:** this option only appears when the desktop is unlocked. Used to 
+
+* **Cascade Plugins:** this option only appears when the desktop is unlocked. Used to
+
 * **Log Out:** opens the system log out window, with options to shutdown/restart the system (if the user has permission), log out of the desktop session, lock
   the system, or cancel the log out window.
 
@@ -417,13 +421,14 @@ Click the "Panels" tab to see the screen shown in Figure 6.9e.
 
 **Figure 6.9e: Panel Configuration**
 
-.. image:: images/lumina5.png
+.. image:: images/lumina5a.png
 
 This screen can be used to customize the location, size, alignment, and theme of an existing panel and to add ("+") or delete ("-") additional panels. Panels must
 be aligned along a screen edge, opposite screen edges in the case of two panels, and may have any width, color, or transparency. Use the "Location" drop-down menu
-to set the location of the panel which can be "Top", "Bottom", "Left", or "Right". The "Size" can be used to specify the panel width in pixels and the length as a
-percentage. The "Alignment" drop-down menu can be used to center the panel on the edge or pin it to one of the corners. If you would like the panel to be hidden unless
-the mouse is hovered over it, check the box "Auto-hide Panel". Use the "Custom Color" option to fine-tune the panel color. 
+to set the location of the panel which can be "Top", "Bottom", "Left", or "Right". The "Alignment" drop-down menu can be used to center the panel on the edge or pin it
+to one of the corners. The "Size" can be used to specify the panel width in pixels and the length as a percentage. If you would like the panel to be hidden unless
+the mouse is hovered over it, click "Appearance" then check the "Auto-hide Panel" box. The "Custom Color" option in the "Appearance" screen can be used to fine-tune the
+panel color. 
 
 Once a panel's appearance has been configured, plugins can be added by clicking "Plugins" then the "+" button and selecting a plugin from the list that appears. Similarly,
 clicking the "-" button will remove the selected plugin, and the arrow buttons can be used to move the location of the plugin on the panel. The top of the
@@ -437,27 +442,39 @@ list corresponds to either the top of a vertical panel or the left side of a hor
 
 * Desktop Bar: adds a "star" button for automatically displaying entries for anything in the :file:`~/Desktop` folder and alternately launching the selected entry.
 
-* Start Menu: adds a classic start menu as seen on other operating systems.
+* Desktop Switcher: used to switch between virtual desktops.
 
 * Home Button: this button will hide all open windows so that only the desktop is visible. This is useful for touch screens or small devices.
+
+* Start Menu: adds a classic start menu as seen on other operating systems.
+
+* System Dashboard: used to view/modify audio volume, screen brightness, batterly life, and virtual desktops.
+
+* System Tray: provides a display area for dockable applications.
 
 * Task Manager: is added by default. Its behavior is to group windows by application.
 
 * Task Manager (No Groups): ensures that every window gets its own button. This uses a lot more space on the panel since it needs to put part of the window title on
   each button.
 
+* Time/Date: displays the current time and date.
+
+* User Button: main button for accessing applications, directories, settings, and log out.
+
 .. note:: each Lumina plugin automatically contains a unique settings file in :file:`~/.lumina/desktop-plugins/<plugin_name>---<screen number>.<pluginnumber>.conf`, which
    contains its location and sizing information as well as providing the possibility for each plugin to store its own customized settings as necessary.
 
 **Applications:** the "Applications" tab, shown in Figure 6.9f, is used to configure which applications start when you login to Lumina as well as the default
-applications and file types. 
+applications and file types.
 
 **Figure 6.9f: Lumina Applications Configuration**
 
-.. image:: images/lumina6.png
+.. image:: images/lumina6a.png
 
-To configure auto-start, click the "Application" menu to select the application's name from a drop-down menu or the "Binary" or "File" icon to browse to the location of 
-the application or file to open. If you select a file name, Lumina will automatically open it in an application that is capable of reading the file type.
+To prevent an application from starting automatically, uncheck its box.
+
+To add an application to the auto-start configuration , click "Application" to select the application's name from a drop-down menu or click "Binary" or "File" to browse
+to the location of  the application or file to open. If you select a file name, Lumina will automatically open it in an application that is capable of reading the file type.
 
 To configure the default applications and file types, click the "File Defaults" tab. In the screen shown in Figure 6.9g, you can configure the default web browser,
 email client, file manager, and virtual terminal. Either click "Click to Set" or the name of the existing application to select from a menu of available applications.
@@ -465,7 +482,7 @@ If you wish to restore the default application, click the current application's 
 
 **Figure 6.9g: Lumina Defaults Configuration**
 
-.. image:: images/lumina7.png
+.. image:: images/lumina7a.png
 
 This screen can also be used to set the default application for several categories of file types. To add an application, select the file type and either
 click "Set App", which will open a drop-down menu of common applications, or "Set Binary", which will open a file browser so that you can browse to the path
@@ -489,7 +506,7 @@ frequent basis.
 
 **Figure 6.9i: Lumina Session Configuration**
 
-.. image:: images/lumina12.png
+.. image:: images/lumina12a.png
 
 The "General Options" tab contains the following options: "Enable numlock on startup", "Play chimes on startup", and "Play chimes on exit". It can also
 be used to change the user's icon which appears in the login menu and to set the time format, date format, and time zone. It can also be used to reset
