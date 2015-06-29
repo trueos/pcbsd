@@ -309,6 +309,8 @@ automatically updated.
   **mountnet**, and
   **unmountnet** options have been added to :ref:`pc-sysconfig`.
 
+* The "Domain Name" field has been added to :menuselection:`Control Panel --> Network Configuration --> Network Configuration (Advanced)`.
+
 * The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
   wizard offering to open the advanced configuration options so that replication can be configured.
 

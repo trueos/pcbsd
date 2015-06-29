@@ -2111,7 +2111,7 @@ highlighted interface. If you wish to edit these settings, make sure that the in
 
 **Figure 8.18m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
 
-.. image:: images/network13.png
+.. image:: images/network13a.png
 
 If the interface receives its IP address information from a DHCP server, this screen allows you to view the received DNS information. If you wish to override
 the default DNS settings or set them manually, check the "Enable Custom DNS" box. You can then set the following: 
@@ -2145,6 +2145,8 @@ interface. If you want this functionality, check this box.
 
 .. note:: some users experience problems using lagg. If you have problems connecting to a network using an interface that previously worked, uncheck this box
    and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
+
+**Domain Name:** if the system is in a domain, you can specify it here.
 
 If you make any changes within this window, click the "Apply" button to apply them.
 
