@@ -93,6 +93,7 @@ void ZManagerWindow::GetCurrentTopology()
     QStringList lbl=pcbsd::Utils::runShellCommand("glabel status");
     QStringList fsid=pcbsd::Utils::runShellCommand("sh -c blkid /dev/da* /dev/ada*");
     QStringList m=pcbsd::Utils::runShellCommand("mount");
+    QStringList ps=pcbsd::Utils::runShellCommand("sh -c \"ps -A -w -w | grep 'ntfs\\|ext4'\"");
     QStringList prop;   // GET PROPERTIES FOR ALL POOLS ONCE WE HAVE A LIST OF POOLS
     QStringList zfsl=pcbsd::Utils::runShellCommand("zfs list -H -t all");
     QStringList zfspr=pcbsd::Utils::runShellCommand("zfs get -H all");
@@ -695,6 +696,68 @@ void ZManagerWindow::GetCurrentTopology()
         ++idx;
     }
 
+
+
+    // GET MOUNT LOCATIONS FROM ps, FOR FUSE FILESYSTEMS ONLY
+
+    idx=ps.constBegin();
+
+    while(idx!=ps.constEnd()) {
+        QString MountString=(*idx);
+        QStringList tokens=(*idx).split(" ",QString::SkipEmptyParts);
+
+
+        if(tokens.count()<7) { ++ idx; continue; }
+
+        int devpos;
+        for(devpos=0;devpos<tokens.count();++devpos) {
+            if(tokens.at(devpos).startsWith("/dev/")) break;
+        }
+        if(devpos==tokens.count()) { ++ idx; continue; }
+        if(!tokens.at(devpos).startsWith("/dev/")) { ++ idx; continue; }
+
+
+        // FIND DISK OR PARTITION WITH GIVEN NAME
+        int posdir=MountString.indexOf(tokens.at(devpos+1));
+        MountString=MountString.right(MountString.length()-posdir);
+
+        QList<vdev_t>::iterator dskit=this->Disks.begin();
+
+        while(dskit!=this->Disks.end())
+        {
+            QList<vdev_t>::iterator sliceit=(*dskit).Partitions.begin();
+            while(sliceit!=(*dskit).Partitions.end()) {
+                QList<vdev_t>::Iterator partit=(*sliceit).Partitions.begin();
+                while(partit!=(*sliceit).Partitions.end()) {
+                    if(tokens.at(devpos)=="/dev/"+(*partit).Name) { (*partit).MountPoint=MountString; break; }
+                    if(!(*partit).Alias.isEmpty()) {
+                        if(tokens.at(devpos)=="/dev/"+(*partit).Alias) { (*partit).MountPoint=MountString; break; }
+                    }
+                    ++partit;
+                }
+                    if(partit!=(*sliceit).Partitions.end()) break;
+                    if(tokens.at(devpos)=="/dev/"+(*sliceit).Name) { (*sliceit).MountPoint=MountString; break; }
+                    if(!(*sliceit).Alias.isEmpty()) {
+                        if(tokens.at(devpos)=="/dev/"+(*sliceit).Alias) { (*sliceit).MountPoint=MountString; break; }
+                    }
+                    ++sliceit;
+            }
+
+            if(sliceit!=(*dskit).Partitions.end()) break;
+
+            if(tokens.at(devpos)=="/dev/"+(*dskit).Name) { (*dskit).MountPoint=MountString; break; }
+            if(!(*dskit).Alias.isEmpty()) {
+                if(tokens.at(devpos)=="/dev/"+(*dskit).Alias) { (*dskit).MountPoint=MountString; break; }
+            }
+
+            ++dskit;
+        }
+
+
+
+
+        ++idx;
+    }
 
 
     // FINISHED PROCESSING DEVICES
@@ -2084,8 +2147,14 @@ bool ZManagerWindow::deviceUnmount(vdev_t * device)
 {
     QString cmdline="umount ";
 
+    if( (device->FSType=="ext4") || (device->FSType=="ntfs")) {
+     // DEVICES MOUNTED WITH FUSE NEED TO BE UNMOUNTED BY MOUNT POINT
+        cmdline+= "\""+device->MountPoint + "\"";
+    }
+    else {
     if(device->Alias.isEmpty())  cmdline += "/dev/"+device->Name;
     else cmdline+="/dev/"+device->Alias;
+    }
 
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
