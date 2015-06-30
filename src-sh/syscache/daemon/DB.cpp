@@ -619,17 +619,28 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    //QTimer time(this);
     //time.setSingleShot(true);
     //time.start(5000); //5 second timeout
+   QString tmp;
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
      /*if(!time.isActive()){
        p.terminate(); //hung process - kill it
      }*/
-     p.waitForFinished(500); //1/2 second timeout check
+     if( !p.waitForFinished(500) ){ //1/2 second timeout check
+       QString tmp2 = p.readAllStandardOutput(); //this is just any new output - not the full thing
+       //qDebug() << "tmp1:" << tmp;
+       //qDebug() << "tmp2:" << tmp2;
+       if(tmp2.isEmpty() && tmp.simplified().endsWith("]:")){
+        //Interactive prompt? kill the process.
+	p.terminate(); return QStringList();
+       }
+       tmp.append(tmp2);
+     }
      QCoreApplication::processEvents();
      if(stopping){break;}
    }
+   tmp.append(p.readAllStandardOutput());
    //if(time.isActive()){ time.stop(); }
    if(stopping){ p.terminate(); return QStringList(); }
-   QString tmp = p.readAllStandardOutput();
+   //QString tmp = p.readAllStandardOutput();
    p.close();
    if(tmp.contains("database is locked", Qt::CaseInsensitive)){
      return directSysCmd(cmd); //try again - in case the pkg database is currently locked
@@ -848,6 +859,7 @@ void Syncer::syncJailInfo(){
       if(tmp[j].startsWith("hostname:")){ HOST = val; }
       else if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
       //else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = val; }
+      //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = val; }
       else if(tmp[j].startsWith("defaultrouter:")){ ROUTERIPV4 = val; }
