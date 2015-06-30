@@ -830,35 +830,35 @@ void Syncer::syncJailInfo(){
     clearJail(jails[i]); 
   }
   //Now also fetch the list of inactive jails on the system
-  info = QStringList(); //directSysCmd("iocage list"); //"warden list -v");
+  info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
-  info = info.join("----").simplified().split("id: ");
+  //info = info.join("----").simplified().split("id: ");
   //qDebug() << "Warden Jail Info:" << info;
-  for(int i=0; i<info.length(); i++){
+  for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
-    QStringList tmp = info[i].split("----");
+    QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
+    QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "tmp:" << tmp;
     //Create the info strings possible
-    QString ID, HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
-    bool isRunning = false;
+    QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
+    bool isRunning = (info[i].section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
     for(int j=0; j<tmp.length(); j++){
       //Now iterate over all the info for this single jail
-      if(j==0 && !tmp[j].contains(":")){ ID = tmp[j].simplified(); }
-      else if(tmp[j].startsWith("host:")){ HOST = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("ipv4:")){ IPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("defaultrouter-ipv4:")){ ROUTERIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("ipv6:")){ IPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("defaultrouter-ipv6:")){ ROUTERIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("autostart:")){ AUTOSTART = (tmp[j].section(":",1,50).simplified()=="Enabled") ? "true" : "false"; }
-      else if(tmp[j].startsWith("vnet:")){ VNET = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("type:")){ TYPE = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("status:")){ isRunning = (tmp[j].section(":",1,50).simplified() == "Running"); }
+      QString val = tmp[i].section(":",1,100).simplified();
+      if(tmp[j].startsWith("hostname:")){ HOST = val; }
+      else if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
+      //else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = val; }
+      //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
+      //else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = val; }
+      else if(tmp[j].startsWith("defaultrouter:")){ ROUTERIPV4 = val; }
+      else if(tmp[j].startsWith("ipv6_addr:")){ IPV6 = val; }
+      //else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = val; }
+      //else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = val; }
+      //else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = val; }
+      else if(tmp[j].startsWith("defaultrouter6:")){ ROUTERIPV6 = val; }
+      else if(tmp[j].startsWith("boot:")){ AUTOSTART = (val=="off") ? "false" : "true"; }
+      else if(tmp[j].startsWith("vnet:")){ VNET = val; }
+      else if(tmp[j].startsWith("type:")){ TYPE = val; }
     }
     if(!HOST.isEmpty()){
       //Save this info into the hash
