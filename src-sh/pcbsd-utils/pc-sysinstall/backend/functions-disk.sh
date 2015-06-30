@@ -816,10 +816,20 @@ run_gpart_gpt_part()
     if [ $? -ne 0 ] ; then
       echo "${DISK}" >> ${TMPDIR}/.grub-install
     fi
+  else
+    # Setting boot for GhostBSD utile grub support is part of the Project.
+    rc_halt "gpart bootcode -b /boot/pmbr ${DISK}"
   fi
 
-  # Add the slice with the :mod tag, so we know we are modifying only
-  slice=`echo "${1}:${3}:gpt:mod" | sed 's|/|-|g'`
+  # Adding slice information
+  if [ "${INSTALLTYPE}" = "GhostBSD" ]
+  then
+    # No slice modification for GhostBSD
+    slice=`echo "${1}:${3}:gpt" | sed 's|/|-|g'`
+  else
+    # Add the slice with the :mod tag, so we know we are modifying only
+    slice=`echo "${1}:${3}:gpt:mod" | sed 's|/|-|g'`
+  fi
 
   # Let's save the slices
   if [ -z "$WORKINGSLICES" ]

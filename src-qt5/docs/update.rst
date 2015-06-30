@@ -44,7 +44,7 @@ a desktop.
 
 **Figure 7.1a: Running AppCafe® from a Desktop**
 
-.. image:: images/remote1.png
+.. image:: images/remote1a.png
 
 The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure or close AppCafe® or to search for text. Figure
 7.1b shows the menu that appears if you click "Configure". 
@@ -182,8 +182,8 @@ By default, only PBIs are searched. To search for all available software, includ
 Managing Software in Jails
 --------------------------
 
-To create, delete, and manage jails, click the "Warden" tab. If you have not yet created any jails on the system, a message will appear. Click the "create a new jail"
-link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
+To create, delete, and manage jails, click the "Jails" tab. If you have not yet created any jails on the system, a getting started message will appear. Click the
+"create a new jail" link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
 
 **Figure 7.1f: Adding a New Jail**
 

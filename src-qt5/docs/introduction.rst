@@ -282,12 +282,18 @@ automatically updated.
 
 * Lumina has been updated to 0.8.5.
 
+* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Jails".
+
 * The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
 
 * The graphical installer now uses the `Droid <http://www.droidfonts.com/>`_ font.
 
 * The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service which will automatically
   start this service and generate the firewall rules needed to allow SSH connections to the system.
+
+* The "Tile Plugins" and "Cascade Plugins" entries have been added to the :ref:`Right-Click Menu` of Lumina.
+
+* You can now create and manage more than two panels using the :ref:`Lumina Configuration Utility`.
 
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
@@ -302,6 +308,8 @@ automatically updated.
   **list-mountednetdrives**,
   **mountnet**, and
   **unmountnet** options have been added to :ref:`pc-sysconfig`.
+
+* The "Domain Name" field has been added to :menuselection:`Control Panel --> Network Configuration --> Network Configuration (Advanced)`.
 
 * The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
   wizard offering to open the advanced configuration options so that replication can be configured.

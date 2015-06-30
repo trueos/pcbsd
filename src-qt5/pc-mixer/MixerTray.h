@@ -81,7 +81,7 @@ private slots:
 
 	void slotSingleInstance(){
 	  this->show();
-	  if(!starting){ openMixerGUI(); }
+	  //if(!starting){ openMixerGUI(); }
 	}
 
     void slotFillOutputDevices();
