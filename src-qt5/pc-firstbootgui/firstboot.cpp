@@ -28,7 +28,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     //Setup the window
     if(!DEBUG){ this->setGeometry( QApplication::primaryScreen()->geometry() ); }//full screen
     else{ this->setWindowFlags(Qt::Window); } //don't keep on bottom/frameless for testing
-    
+
     translator = new QTranslator();
 
     connect(backButton, SIGNAL(clicked()), this, SLOT(slotBack()));
@@ -112,7 +112,8 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
 
     // Update the status bar
     // This makes the status text more "visible" instead of using the blue background
-    statusBar()->setStyleSheet("background: white");
+    //statusBar()->setStyleSheet("background: white");
+
     
     //Load the audio settings values
     combo_audiodevice->clear();
