@@ -88,7 +88,7 @@ void MountTray::programInit()
   UpdateDeviceMenu();
   
   qDebug() << "-Program now ready for use";
-  QTimer::singleShot(15000, this, SLOT(slotDoneWithInit()) ); //give it 15 seconds before allowing single-instance or FS checks
+  QTimer::singleShot(30000, this, SLOT(slotDoneWithInit()) ); //give it 30 seconds before allowing single-instance or FS checks
 }
 
 void MountTray::slotTrayActivated() {
