@@ -225,11 +225,13 @@ get_autosize()
 {
   # Disk tag to look for
   dTag="$1"
+  wDisk="$2"
+  configPart="$3"
 
   # Total MB Avail
   if [ -n "$FREESPACEINSTALL" ] ; then
      # Use only the free space left
-     bSize=`gpart show $2 | grep '\- free\ -' | awk '{print $2}'`
+     bSize=`gpart show $2 | grep '\- free\ -' | awk '{print $2}' | sort -g | tail -1`
 
      # Get that in MB
      bSize=`expr $bSize / 2048`
@@ -242,11 +244,18 @@ get_autosize()
   fi
   local _aSize=$VAL
 
+  fPart=0
   while read aline
   do
     # Check for data on this slice
     echo $aline | grep -q "^${_dTag}-part=" 2>/dev/null
     if [ $? -ne 0 ] ; then continue ; fi
+
+    fPart=`expr $fPart + 1`
+    if [ -n "$FREESPACEINSTALL" ] ; then
+      # Skip any partitions we've already added to the disk
+      if [ $fPart -lt $configPart ] ; then continue ; fi
+    fi
 
     get_value_from_string "${aline}"
     ASTRING="$VAL"
@@ -322,6 +331,9 @@ new_gpart_partitions()
   # Unset ZFS_CLONE_DISKS
   #ZFS_CLONE_DISKS=""
 
+  # Set counter for number of parts we have found
+  dpart=0
+
   while read line
   do
     # Check for data on this slice
@@ -332,6 +344,9 @@ new_gpart_partitions()
       # Found a slice- entry, lets get the slice info
       get_value_from_string "${line}"
       STRING="$VAL"
+
+      # Increment number of disk parts we have found
+      dpart=`expr $dpart + 1`
 
       # We need to split up the string now, and pick out the variables
       FS=`echo $STRING | tr -s '\t' ' ' | cut -d ' ' -f 1` 
@@ -384,8 +399,8 @@ new_gpart_partitions()
           exit_err "ERROR: You can not have two partitions with a size of 0 specified!"
 	fi
         case ${_pType} in
-	  gpt|apm) get_autosize "${_dTag}" "$_pDisk" ;;
-	        *) get_autosize "${_dTag}" "$_wSlice" ;;
+	  gpt|apm) get_autosize "${_dTag}" "$_pDisk" "$dpart" ;;
+	        *) get_autosize "${_dTag}" "$_wSlice" "$dpart" ;;
         esac
         SOUT="-s ${VAL}M"
 	USEDAUTOSIZE=1

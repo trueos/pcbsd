@@ -251,16 +251,15 @@ setup_grub()
      echo "GRUB_ENABLE_CRYPTODISK=y" >> ${FSMNT}/usr/local/etc/default/grub
   fi
 
-  # Did we install full-disk GPT?
+  # Check if we need to install in EFI mode
   EFIMODE="FALSE"
   FORMATEFI="FALSE"
-  if [ -e "${TMPDIR}/.grub-full-gpt" ] ; then
-    # Check if we need to install in EFI mode
-    BOOTMODE=`kenv grub.platform`
-    if [ "$BOOTMODE" = "efi" ]; then
-       GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
-       EFIMODE="TRUE"
-       FORMATEFI="TRUE"
+  BOOTMODE=`kenv grub.platform`
+  if [ "$BOOTMODE" = "efi" ]; then
+    GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
+    EFIMODE="TRUE"
+    if [ -e "${TMPDIR}/.grub-full-gpt" -o -e "${TMPDIR}/.grub-full-mbr" ] ; then
+      FORMATEFI="TRUE"
     fi
   fi
 
@@ -276,14 +275,26 @@ setup_grub()
     fi
 
     # Do any EFI creation
-    if [ "$EFIMODE" = "TRUE" -a "$FORMATEFI" = "TRUE" ] ;then
-       # Format the EFI partition
-       echo_log "Formatting EFI / FAT32 partition"
-       rc_halt "newfs_msdos -F 16 ${gDisk}p1"
+    if [ "$EFIMODE" = "TRUE" ] ;then
+       if [ "$FORMATEFI" = "TRUE" ] ; then
+         # Format the EFI partition
+         echo_log "Formatting EFI / FAT32 partition"
+	 if [ -e "${TMPDIR}/.grub-full-gpt"] ; then
+           rc_halt "newfs_msdos -F 16 ${gDisk}p1"
+           EFIPART="${gDisk}p1"
+         else
+           rc_halt "newfs_msdos -F 16 ${gDisk}s1"
+           EFIPART="${gDisk}s1"
+         fi
+       else
+         # Installing to disk with existing EFI setup
+	 efip=`gpart show $gDisk | grep ' efi ' | awk '{print $3}'`
+	 EFIPART="${gDisk}p${efip}"
+       fi
 
        if [ -z "$DONEEFILABEL" ] ; then
          # Label this sucker
-         rc_halt "glabel label efibsd ${gDisk}p1"
+         rc_halt "glabel label efibsd ${EFIPART}"
 
          # Save to systems fstab file
          echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
@@ -292,35 +303,7 @@ setup_grub()
 
        # Mount the partition
        mkdir ${FSMNT}/boot/efi
-       rc_halt "mount -t msdosfs ${gDisk}p1 ${FSMNT}/boot/efi"
-    fi
-
-    # Check if we are installing to a targeted partition
-    if [ ! -e "${TMPDIR}/.grub-full-gpt" -a ! -e "${TMPDIR}/.grub-full-mbr" ] ; then
-       gpart show ${gDisk} | grep ' 1 ' | grep -q "efi"
-       if [ $? -eq 0 ] ; then
-          # This disk already has EFI partition setup, lets use it
-	  if [ -e "${gDisk}p1" ] ; then
-	     EFIPART="${gDisk}p1"
-	  else
-	     EFIPART="${gDisk}s1"
-          fi
-          # Label this sucker
-          rc_halt "glabel label efibsd ${EFIPART}"
-
-          # Save to systems fstab file
-          echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
-	  DONEEFILABEL="YES"
-          mkdir ${FSMNT}/boot/efi
-
-          # Mount the partition
-          rc_halt "mount -t msdosfs ${EFIPART} ${FSMNT}/boot/efi"
-
-          # Set some flags
-          GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
-	  EFIMODE="TRUE"
-       fi
-
+       rc_halt "mount -t msdosfs ${EFIPART} ${FSMNT}/boot/efi"
     fi
 
     # Stamp GRUB now
