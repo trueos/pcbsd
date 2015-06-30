@@ -174,8 +174,8 @@ void MountTray::slotSingleInstance()
 {
   trayIcon->show();
   //Also pop-up the mount tray settings dialog
-  if(MTINIT){ return; }
-  slotOpenSettings();
+  //if(MTINIT){ return; }
+  //slotOpenSettings();
 }
 
 void MountTray::slotDoneWithInit(){
