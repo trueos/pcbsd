@@ -39,6 +39,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     connect(pushChangeKeyLayout, SIGNAL(clicked()), this, SLOT(slotPushKeyLayout()));
 
     connect(lineHostname,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckHost()));
+    connect(lineDomainName, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckDomainName()) );
 
     connect(lineRootPW, SIGNAL(textChanged ( const QString &)), this, SLOT(slotCheckRootPW()));
     connect(lineRootPW2, SIGNAL(textChanged ( const QString &)), this, SLOT(slotCheckRootPW()));
@@ -101,7 +102,10 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     }
 
     // Load the hostname
-    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
+     lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).section(".",0,0));
+
+    // Load the domain name
+    lineDomainName->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=",1).section(".",1,100));
 
     //Load the available Services into the UI
     LoadServices();
@@ -252,6 +256,23 @@ void Installer::slotCheckHost()
   else if (hostnameRegExp.indexIn(lineHostname->text()) == -1)
   {
      lineHostname->setToolTip(tr("Hostname may only contain letters and numbers"));
+     return;
+  }
+  nextButton->setEnabled(true);
+}
+
+void Installer::slotCheckDomainName()
+{
+  QRegExp hostnameRegExp("^(([a-zA-Z0-9][a-zA-Z0-9-].*[a-zA-Z0-9])|([a-zA-Z0-9]+))$");
+  nextButton->setEnabled(false);
+  if (lineHostname->text().isEmpty())
+  {
+     lineHostname->setToolTip(tr("Please enter a domain name"));
+     return;
+  }
+  else if (hostnameRegExp.indexIn(lineHostname->text()) == -1)
+  {
+     lineHostname->setToolTip(tr("Domain name may only contain letters and numbers"));
      return;
   }
   nextButton->setEnabled(true);
@@ -668,17 +689,28 @@ void Installer::saveSettings()
   // Enable Flash for the new user
   QProcess::execute("su", QStringList() << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
   
+  // Do we need to change the system hostname, and set a domain name?
+  if ( lineDomainName->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=lineHostname.lineDomainName", 1) )
+  {
+           pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "." + lineDomainName->text() + "\"", -1);
+           pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
+           pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
+
+      // Now set the hostname on the system
+      sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
+      // Now set the domain name on the system
+      sethostname(lineDomainName->text().toLatin1(), lineDomainName->text().length());
+  }
   // Do we need to change the system hostname?
-  if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
+  else if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
   {
       pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
-      pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
-      pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
+      pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text(), -1);
+      pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text(), -1);
 
       // Now set the hostname on the system
       sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
   }
-
 
   // Save the PCDM default lang / inputs
   QString curLang;
