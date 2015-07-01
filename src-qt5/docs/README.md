@@ -65,6 +65,12 @@ yes '' | gmake latexpdf
 yes '' | gmake latexpdf
 ```
 
+To build a local EPUB, run the following command. This will create _build/pcbsd_userguide.epub.
+
+```
+sphinx-build -b epub . _build
+```
+
 ##Editing the Documentation
 
 If you want to edit the User Guide, make changes to the *.rst file for the chapter to edit, using any ASCII text editor.

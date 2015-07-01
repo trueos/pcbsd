@@ -307,7 +307,7 @@ epub_publisher = u'iXsystems'
 epub_copyright = u'2011-2015, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
-epub_basename = u'PC-BSD User Guide'
+epub_basename = u'pcbsd_userguide'
 
 # The HTML theme for the epub output. Since the default themes are not optimized
 # for small screen space, using the same theme for HTML and epub output is
