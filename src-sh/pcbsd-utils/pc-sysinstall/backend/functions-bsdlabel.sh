@@ -299,10 +299,11 @@ new_gpart_partitions()
     # If we are creating a new MBR primary partition, lets do it now
     CURPART="${_sNum}"
     PARTLETTER="a"
+    local _dAdd=`echo $_pDisk | sed 's|/dev/||g'`
     if [ "$CURPART" = "1" ] ; then
-      rc_halt "gpart add -b 2048 -a 4k -t freebsd -i ${CURPART} ${_pDISK}"
+      rc_halt "gpart add -b 2048 -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     else
-      rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_pDISK}"
+      rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     fi
     rc_halt "gpart create -s BSD ${_wSlice}"
     _pType="mbr"
