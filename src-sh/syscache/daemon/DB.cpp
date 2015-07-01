@@ -614,8 +614,8 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    //Make sure we use the system environment to properly read system variables, etc.
    p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
    //Merge the output channels to retrieve all output possible
-   p.setProcessChannelMode(QProcess::MergedChannels);   
-   p.start(cmd);
+   p.setProcessChannelMode(QProcess::MergedChannels);
+   p.start(cmd, QIODevice::ReadOnly);
    //QTimer time(this);
     //time.setSingleShot(true);
     //time.start(5000); //5 second timeout
