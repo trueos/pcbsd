@@ -852,12 +852,15 @@ void Syncer::syncJailInfo(){
     //qDebug() << "tmp:" << tmp;
     //Create the info strings possible
     QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
+    HOST = ID;
     bool isRunning = (info[i].section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
+    //qDebug() << "IoCage Jail:" << ID << isRunning;
     for(int j=0; j<tmp.length(); j++){
       //Now iterate over all the info for this single jail
-      QString val = tmp[i].section(":",1,100).simplified();
-      if(tmp[j].startsWith("hostname:")){ HOST = val; }
-      else if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
+      QString val = tmp[j].section(":",1,100).simplified();
+      //if(tmp[j].startsWith("hostname:")){ HOST = val; }
+      //qDebug() << "Line:" << tmp[j] << val;
+      if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
       //else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
