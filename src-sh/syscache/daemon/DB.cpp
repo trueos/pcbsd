@@ -826,27 +826,28 @@ void Syncer::syncJailInfo(){
   //Get the internal list of jails
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Now get the current list of running jails and insert individual jail info
-  QStringList info = directSysCmd("jls");
+  QStringList jinfo = directSysCmd("jls");
   QStringList found;
-  for(int i=1; i<info.length() && !stopping; i++){ //skip the header line
-    info[i] = info[i].replace("\t"," ").simplified();
-    QString name = info[i].section(" ",2,2); //hostname
-    found << name; //add it to the new list
-    jails.removeAll(name); //remove from the old list
-    bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/local/sbin/pkg-static");
-    HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
-    HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
-    HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
-    HASH->insert("Jails/"+name+"/haspkg",haspkg ? "true": "false" );
+  for(int i=1; i<jinfo.length() && !stopping; i++){ //skip the header line
+    jinfo[i] = jinfo[i].replace("\t"," ").simplified();
+    //QString name = info[i].section(" ",2,2); //hostname
+    //found << name; //add it to the new list
+    //jails.removeAll(name); //remove from the old list
+    //bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/local/sbin/pkg-static");
+    //HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
+    //HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
+    //HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
+    //HASH->insert("Jails/"+name+"/haspkg",haspkg ? "true": "false" );
+    //qDebug() << "Jail Info:" << 
   }
-  HASH->insert("JailList", found.join(LISTDELIMITER));
+  //HASH->insert("JailList", found.join(LISTDELIMITER));
   if(stopping){ return; } //catch for if the daemon is stopping
   //Remove any old jails from the hash
-  for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
+  /*for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
-  }
+  }*/
   //Now also fetch the list of inactive jails on the system
-  info = directSysCmd("iocage list"); //"warden list -v");
+  QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
   //info = info.join("----").simplified().split("id: ");
   //qDebug() << "Warden Jail Info:" << info;
@@ -858,7 +859,22 @@ void Syncer::syncJailInfo(){
     //Create the info strings possible
     QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
     HOST = ID;
+    jails.removeAll(HOST);
     bool isRunning = (info[i].section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
+    QStringList junk = jinfo.filter(ID);
+    if(!junk.isEmpty()){
+      //This jail is running - add extra information
+      bool haspkg = QFile::exists(junk[0].section(" ",3,3)+"/usr/local/sbin/pkg-static");
+      HASH->insert("Jails/"+HOST+"/JID", junk[0].section(" ",0,0));
+      HASH->insert("Jails/"+HOST+"/jailIP", junk[0].section(" ",1,1));
+      HASH->insert("Jails/"+HOST+"/jailPath", junk[0].section(" ",3,3));
+      HASH->insert("Jails/"+HOST+"/haspkg", haspkg ? "true": "false" );
+    }else{
+      HASH->insert("Jails/"+HOST+"/JID", "");
+      HASH->insert("Jails/"+HOST+"/jailIP", "");
+      HASH->insert("Jails/"+HOST+"/jailPath", "");
+      HASH->insert("Jails/"+HOST+"/haspkg", "false" );
+    }
     //qDebug() << "IoCage Jail:" << ID << isRunning;
     for(int j=0; j<tmp.length(); j++){
       //Now iterate over all the info for this single jail
@@ -884,6 +900,7 @@ void Syncer::syncJailInfo(){
       //Save this info into the hash
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
+      else{ found << HOST; }
       HASH->insert(prefix+"WID", ID); //Warden ID
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
@@ -901,7 +918,11 @@ void Syncer::syncJailInfo(){
     }
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
-  
+  HASH->insert("JailList", found.join(LISTDELIMITER));
+  //Remove any old jails from the hash (ones that no longer exist)
+  for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
+    clearJail(jails[i]); 
+  }
 }
 
 void Syncer::syncPkgLocalJail(QString jail){
