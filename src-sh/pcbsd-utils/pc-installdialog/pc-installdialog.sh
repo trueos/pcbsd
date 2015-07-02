@@ -518,7 +518,9 @@ get_target_part()
   # Now prompt for the full-disk, partition, or free space to install onto
   ${PCSYS} disk-part $SYSDISK > /tmp/.dList.$$
   dOpts="ALL \"Use entire disk\" on"
-  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'` 
+  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`
+  dOpts="$dOpts free \"Install to free space\" off"
+  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`  
   if [ "$dFmt" = "MBR" ] ; then
     dChar="s"
     DISKFORMAT="MBR"
@@ -536,10 +538,6 @@ get_target_part()
      mb="`cat /tmp/.dList.$$ | grep ^${part}-sizemb | awk '{print $2}'`"
      dOpts="$dOpts $partRAW \"${mb}MB -$desc\" off"
      dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`
-     # Use only the free space left
-     bSize=`gpart show $FREE | grep '\- free\ -' | awk '{print $FREE}' | sort -g | tail -1`
-     # Get that in MB
-     bSize=`expr $bSize / 2048`
      i="`expr $i + 1`"
   done
   rm /tmp/.dList.$$
