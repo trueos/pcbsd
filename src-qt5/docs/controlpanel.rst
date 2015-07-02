@@ -393,7 +393,7 @@ The "Help" menu contains three options:
 
 * **About:** displays the EasyPBI version, license, and development history.
 
-* **FreeBSD Ports:** opens `freshports.org <http://freshports.org>`_ in the default browser.
+* **FreeBSD Ports:** opens `freshports.org <http://www.freshports.org/>`_ in the default browser.
 
 * **PBI Modules:** opens the PBI Module Builder Guide in the default browser.
 
@@ -609,7 +609,7 @@ the screen, allowing you to configure the following:
 * **Workgroup Name:** input the name of the Windows workgroup. Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
 
 * **Allow Trusted Domains:** only check this box if the network has
-  `active domain/forest trusts <http://technet.microsoft.com/en-us/library/cc757352%28WS.10%29.aspx>`_. 
+  `active domain/forest trusts <https://technet.microsoft.com/en-us/library/cc757352(WS.10).aspx>`_. 
 
 * **Administrator Name:** input the name of the Active Directory Administrator account.
 
@@ -873,7 +873,7 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
    until this setting is changed again in Login Manager.
 
 The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
-`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
+`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
 be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will
 also need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
 
@@ -1404,7 +1404,7 @@ the PC-BSD® system to not automatically start X. To do so, add this temporary l
  pcdm_enable="NO"
 
 The system will reboot to a login prompt. After logging in, try the instructions in the
-`FreeBSD Handbook <http://www.freebsd.org/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
+`FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
 for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that temporary line from :file:`/etc/rc.conf` and start PCDM::
 
  service pcdm start
@@ -1681,9 +1681,9 @@ To see if that changed to the correct channel, type :command:`mixer` again. If y
 Once you have all of the mixer settings and none are set to *0*, your sound should work. If it still doesn't, these resources may help you to pinpoint the
 problem: 
 
-* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/handbook/sound-setup.html>`_
+* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/sound-setup.html>`_
 
-* `FreeBSD Sound Wiki <http://wiki.freebsd.org/Sound>`_
+* `FreeBSD Sound Wiki <https://wiki.FreeBSD.org/Sound>`_
 
 If you still have problems with sound, see the section on :ref:`Finding Help` to determine which help resources are available. When reporting your problem,
 include your version of PC-BSD® and the name of your sound card.
@@ -1992,8 +1992,8 @@ to select the network and to input the authentication values required by the net
 By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
 network. The interface will remain inactive until this checkbox is unchecked.
 
-The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ or to
-automatically obtain an `IPv6 address <http://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
+The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <https://en.wikipedia.org/wiki/MAC_address>`_ or to
+automatically obtain an `IPv6 address <https://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
 a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
 **Figure 8.18d: Advanced Tab of an Ethernet Interface's Network Settings** 
@@ -2318,7 +2318,7 @@ In this example, there is a built-in Ethernet device that uses a driver that sup
 RTL8191SE" will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being
 developed.
 
-The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/handbook/network-wireless.html>`_ provides a good overview of how
+The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/network-wireless.html>`_ provides a good overview of how
 wireless works and offers some troubleshooting suggestions.
 
 .. index:: backup
@@ -3285,7 +3285,7 @@ may encounter when using PC-BSD®. Before reporting:
 Warden®
 ========
 
-Warden® is an easy to use, graphical `jail <http://en.wikipedia.org/wiki/FreeBSD_jail>`_ management program. Using Warden®, it is possible to create
+Warden® is an easy to use, graphical `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ management program. Using Warden®, it is possible to create
 multiple, isolated virtual instances of FreeBSD which can be used to run services such as Apache, PHP, or MySQL in a secure manner. Each jail is considered to
 be a unique FreeBSD operating system and whatever happens in that jail will not affect your operating system or other jails running on the PC-BSD® system.
 

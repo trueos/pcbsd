@@ -21,7 +21,7 @@ describe how and why it is important to follow certain protocols when requesting
 PC-BSD® Forums
 ===============
 
-`The PC-BSD® Forums <http://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
+`The PC-BSD® Forums <https://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
 active members and you will find that most questions are replied to quickly. If you are having problems with something on your PC-BSD® system, try using the
 forum's search utility. You will often find that someone else has posted a similar question and that other users have responded with a fix or a how-to.
 
@@ -97,7 +97,7 @@ matches your question, try the "Desktop Questions and Support" category.
 
 In addition to the forums available from the PC-BSD® Forums website, the following forums may assist you in troubleshooting your PC-BSD® system: 
 
-* `FreeBSD Forums <http://forums.freebsd.org/>`_: many PC-BSD® problems are related to the underlying FreeBSD operating system. The FreeBSD forums are very
+* `FreeBSD Forums <https://forums.freebsd.org/>`_: many PC-BSD® problems are related to the underlying FreeBSD operating system. The FreeBSD forums are very
   active and full of useful information that can apply to your PC-BSD® system.
 
 * `BSD Foren <http://www.bsdforen.de/index.php>`_: these forums are in German and contain many categories for each of the BSD operating systems.
@@ -111,7 +111,7 @@ In addition to the forums available from the PC-BSD® Forums website, the follow
 PC-BSD® IRC Channel
 ====================
 
-Like many open source projects, PC-BSD® has an `IRC Channel <http://en.wikipedia.org/wiki/Internet_Relay_Chat>`_ so that users can chat and get help in real time. To get
+Like many open source projects, PC-BSD® has an `IRC Channel <https://en.wikipedia.org/wiki/Internet_Relay_Chat>`_ so that users can chat and get help in real time. To get
 connected, use the following information in your IRC client: 
 
 * **Server name:** irc.freenode.net 
@@ -119,7 +119,7 @@ connected, use the following information in your IRC client:
 * **Channel name:** #pcbsd (note that the # is required) 
 
 :ref:`AppCafe®` has an IRC category where you can find PBIs for IRC clients. If you do not wish to install an IRC client, you can instead use the
-`web interface to #pcbsd <http://pcbsd.org/community/join-us-on-pcbsd>`_. 
+`web interface to #pcbsd <http://www.pcbsd.org/en/join-us-on-pcbsd.html>`_. 
 
 IRC is a great way to chat with other users and get answers to your questions. A few things to keep in mind if you ask a question on IRC: 
 
@@ -130,7 +130,7 @@ IRC is a great way to chat with other users and get answers to your questions. A
   question.
 
 * Do not post error messages in the channel as the IRC software will probably kick you out for flooding and it is considered to be bad etiquette. Instead, use
-  a pasting service such as `pastebin <http://www.pastebin.com/>`_ and refer to the URL on channel.
+  a pasting service such as `pastebin <http://pastebin.com/>`_ and refer to the URL on channel.
 
 * Be polite and do not demand that others answer your question.
 
@@ -170,7 +170,7 @@ Several of the mailing lists are archived at `gmane <http://dir.gmane.org/index.
 different formats. It also provides RSS feeds in various formats for keeping up-to-date on new messages and topics.
 
 In addition to the official mailing lists, there are mailing lists set up by PC-BSD® users. Many of these lists are designed for discussion in other
-languages. A list of alternative PC-BSD® mailing lists can be found at `Google groups <http://groups.google.com/groups/dir?lnk=srgmt&q=pc-bsd>`_. 
+languages. A list of alternative PC-BSD® mailing lists can be found at `Google groups <https://groups.google.com/forum/#!search/pc-bsd>`_. 
 
 .. index:: help
 .. _FreeBSD Handbook and FAQ:
@@ -178,7 +178,7 @@ languages. A list of alternative PC-BSD® mailing lists can be found at `Google 
 FreeBSD Handbook and FAQ
 ========================
 
-PC-BSD® uses FreeBSD as its underlying operating system, so everything in the `FreeBSD Handbook <http://www.freebsd.org/handbook/>`_ and
+PC-BSD® uses FreeBSD as its underlying operating system, so everything in the `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`_ and
 `FreeBSD FAQ <http://www.freebsd.org/doc/en/books/faq/>`_ applies to PC-BSD® as well. Both documents are comprehensive and cover nearly every task you
 can accomplish on a FreeBSD system. They are also an excellent resource for learning how things work under the hood of your PC-BSD® system.
 
@@ -196,7 +196,7 @@ to network with each other. Anyone is welcome to join.
 
 * `Official PC-BSD® Blog <http://blog.pcbsd.org/>`_
 
-* `PC-BSD® on Twitter <http://twitter.com/PCBSD/>`_
+* `PC-BSD® on Twitter < https://twitter.com/PCBSD/>`_
 
 * `PC-BSD® Facebook Group <http://www.facebook.com/group.php?gid=4210443834>`_
 
@@ -212,11 +212,11 @@ Search and Portals
 
 Many BSD related search portals exist. If you can not find the answer that you are looking for in the forums or mailing lists, try searching these websites: 
 
-* `The OpenDirectory <http://dmoz.org/Computers/Software/Operating_Systems/Unix/BSD/>`_
+* `The OpenDirectory <http://www.dmoz.org/Computers/Software/Operating_Systems/Unix/BSD/>`_
 
 * `FreeBSD Search <http://www.freebsd.org/search/index.html>`_ (includes mailing list archives, man pages, and web pages) 
 
-* `FreeBSD News <http://www.freebsdnews.net/>`_
+* `FreeBSD News <https://www.freebsdnews.com/>`_
 
 * `About BSD <http://aboutbsd.net/>`_
 
@@ -226,7 +226,7 @@ Many BSD related search portals exist. If you can not find the answer that you a
 
 * `DistroWatch <http://distrowatch.com/>`_
 
-* `LinuxBSDos <http://linuxbsdos.com/>`_
+* `LinuxBSDos <http://www.linuxbsdos.com/>`_
 
 .. index:: help
 .. _Other Resources:
@@ -240,17 +240,17 @@ The following BSD sites and resources may also contain useful information:
 
 * `PC-BSD® YouTube channel <https://www.youtube.com/channel/UCyd7MaPVUpa-ueUsGjUujag>`_
 
-* `BSD YouTube channel <http://www.youtube.com/bsdconferences>`_
+* `BSD YouTube channel <https://www.youtube.com/user/bsdconferences>`_
 
 * `BSD Talk <http://bsdtalk.blogspot.com/>`_
 
 * `BSD Now <http://www.bsdnow.tv/>`_
 
-* `BSD Magazine <http://www.bsdmag.org/>`_ (free, monthly download) 
+* `BSD Magazine http://bsdmag.org/>`_ (free, monthly download) 
 
 * `FreeBSD Journal <http://www.freebsdjournal.com/>`_ (bi-monthly magazine) 
 
-* `BSD Hacks <http://www.oreilly.com/catalog/bsdhks/>`_ (book) 
+* `BSD Hacks <http://shop.oreilly.com/product/9780596006792.do>`_ (book) 
 
 * `The Best of FreeBSD Basics <http://reedmedia.net/books/freebsd-basics/>`_ (book) 
 

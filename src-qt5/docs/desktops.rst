@@ -140,7 +140,7 @@ the login menu as "GNOME".
 
 .. note:: GNOME3 requires 3D acceleration. If your video driver does not support this, you should use GNOME2 instead.
 
-`GNOME3 <http://www.gnome.org/>`_ is a popular desktop environment that provides many built-in utilities. Figure 6.5a shows a screenshot of GNOME3 on a
+`GNOME3 <https://www.gnome.org/>`_ is a popular desktop environment that provides many built-in utilities. Figure 6.5a shows a screenshot of GNOME3 on a
 PC-BSD® |version| system. To access the icons shown in this screen, click "Activities" then the 9-dot icon at the bottom of the left-hand panel. Alternately, if
 you know the name of an application to open, click "Activities" and type the application's name into the search bar.
 
@@ -156,22 +156,22 @@ Figure 6.5b shows a screenshot of GNOME2 on a PC-BSD® |version| system with the
 
 If you are new to GNOME, take some time to discover which applications best suit your needs. Some of the applications which are provided by GNOME include: 
 
-* `Image Viewer <http://projects.gnome.org/eog/>`_: Eye of GNOME image viewer.
+* `Image Viewer <https://wiki.gnome.org/Apps/EyeOfGnome>`_: Eye of GNOME image viewer.
   
 
 * `Web <https://wiki.gnome.org/Apps/Web>`_: web browser.
   
 
-* `Brasero <http://projects.gnome.org/brasero/>`_: CD/DVD burning software.
+* `Brasero <https://wiki.gnome.org/Apps/Brasero>`_: CD/DVD burning software.
   
 
 * `Videos <https://wiki.gnome.org/Apps/Videos>`_: movie player.
   
 
-* `Evolution <http://projects.gnome.org/evolution/>`_: email client with address book and calendar.
+* `Evolution <https://wiki.gnome.org/Apps/Evolution>`_: email client with address book and calendar.
   
 
-* `Files: <http://live.gnome.org/Nautilus>`_ Nautilus file manager.
+* `Files: <https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&redirect=Nautilus>`_ Nautilus file manager.
 
 .. note:: some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
    able to launch those games.
@@ -223,7 +223,7 @@ keyboard shortcuts.
 KDE4
 ====
 
-The `KDE <http://kde.org/>`_ desktop environment provides many features and applications. However, it is hardware intensive and may run slowly on a computer
+The `KDE <https://www.kde.org/>`_ desktop environment provides many features and applications. However, it is hardware intensive and may run slowly on a computer
 with an older processor or a small amount of RAM. Figure 6.8a shows a screenshot of KDE4 running on PC-BSD® |version| with the "Applications" menu open.
 
 **Figure 6.8a: Applications Menu of KDE4**
@@ -234,13 +234,13 @@ Each category in the "Applications" menu contains many applications and the "Set
 system. If you are new to KDE4, take some time to discover which applications best suit your needs. Some of the applications which are provided by KDE4
 include: 
 
-* `Konqueror <http://docs.kde.org/stable/en/applications/konqueror/index.html>`_: file manager, web browser, and SSH client found in
+* `Konqueror <https://docs.kde.org/stable4/en/applications/konqueror/index.html>`_: file manager, web browser, and SSH client found in
   :menuselection:`Internet --> Web Browser`.
 
-* `Okular <http://docs.kde.org/stable/en/kdegraphics/okular/index.html>`_: document viewer and annotator found in :menuselection:`Office --> Document Viewer`.
+* `Okular <https://docs.kde.org/stable4/en/kdegraphics/okular/index.html>`_: document viewer and annotator found in :menuselection:`Office --> Document Viewer`.
   Supports PDF, OpenOffice, and Postscript files.
 
-* `Dolphin <http://docs.kde.org/stable/en/applications/dolphin/index.html>`_: file manager found in :menuselection:`System --> File Manager`. Dolphin provides
+* `Dolphin <https://docs.kde.org/stable4/en/applications/dolphin/index.html>`_: file manager found in :menuselection:`System --> File Manager`. Dolphin provides
   many features for manipulating files such as comments, tags, search, encryption, and archival (zip/unzip) functions.
 
 By default, desktop effects are disabled as not all video cards support them. If your video card supports 3D effects and you would like to enable them in KDE,
@@ -251,9 +251,9 @@ Some of KDE's games require 3D support. If your video card does not support 3D, 
 If you have KDE installed and are currently logged into a different window manager, you can still run any KDE application by specifying its name. For example,
 type :command:`konqueror` to run the Konqueror web browser or :command:`dolphin` to access the Dolphin file manager.
 
-`KDE Applications <http://www.kde.org/applications/>`_ includes descriptions and screenshots of all of KDE's applications as well as links to their handbooks.
+`KDE Applications <https://www.kde.org/applications/>`_ includes descriptions and screenshots of all of KDE's applications as well as links to their handbooks.
 
-`kde-look.org <http://www.kde-look.org/>`_ contains additional themes and wallpapers.
+`kde-look.org <http://KDE-Look.org/>`_ contains additional themes and wallpapers.
 
 .. index:: Lumina
 .. _Lumina:
@@ -729,7 +729,7 @@ You can find additional themes and wallpapers at `gnome-look.org <http://gnome-l
 Openbox
 =======
 
-This `minimalist window manager <http://openbox.org/>`_ is highly configurable. It is the window manager used by LXDE but can also be run separately
+This `minimalist window manager <http://openbox.org/wiki/Main_Page>`_ is highly configurable. It is the window manager used by LXDE but can also be run separately
 from LXDE.
 
 Figure 6.12a provides a screenshot of Openbox running on a PC-BSD® system. The application menu was launched by right-clicking on an area of the desktop.
@@ -775,7 +775,7 @@ The `Ratpoison wiki <https://wiki.archlinux.org/index.php/Ratpoison>`_ contains 
 spectrwm
 ========
 
-The `spectrwm minimalist window manager <http://opensource.conformal.com/wiki/spectrwm>`_, formerly known as scrotwm, is written by OpenBSD hackers. It
+The `spectrwm minimalist window manager <https://opensource.conformal.com/wiki/spectrwm>`_, formerly known as scrotwm, is written by OpenBSD hackers. It
 provides keyboard shortcuts, a configuration file, and assumes that the user prefers to use the command line. If you have not used spectrwm before, spend some
 time reading through its `man page <https://opensource.conformal.com/cgi-bin/man-cgi?spectrwm>`_ first.
 
@@ -807,8 +807,8 @@ To leave the WindowLab session, select "Quit" from the menubar.
 Window Maker
 ============
 
-The `Window Maker window manager <http://www.windowmaker.info/>`_ is light-weight and designed to reproduce the look and feel of the
-`NEXTSTEP <http://en.wikipedia.org/wiki/Nextstep>`_ user interface.
+The `Window Maker window manager <https://en.wikipedia.org/wiki/Nextstep>`_ is light-weight and designed to reproduce the look and feel of the
+`NEXTSTEP <https://en.wikipedia.org/wiki/Nextstep>`_ user interface.
 
 Figure 6.16a shows a screenshot of Window Maker running on PC-BSD®. In this example, the user launched the "Application" menu by right-clicking an area of
 the desktop.
@@ -860,7 +860,7 @@ DockApps
 
 Window Maker supports dockapps which are applications that were designed to work with Window Maker but which are separate from the Window Maker project.
 Dockapps tend to be small and designed to perform a particular function. For example, there are clocks, weather applications, and CPU monitors. Most dockapps
-have been ported to FreeBSD and the port name always begins with "wm". You can search for these at `freshports.org <http://freshports.org>`_ by entering a
+have been ported to FreeBSD and the port name always begins with "wm". You can search for these at `freshports.org <http://www.freshports.org/>`_ by entering a
 "Short Description" containing "dockapp". 
 
 If your favorite dockapp has not been ported to FreeBSD, you can request that a port be created on the Ports Requests forum using these
@@ -881,7 +881,7 @@ The first time you start XFCE4, you will see the message shown in Figure 6.17a.
 
 .. image:: images/xfce1.png
 
-In XFCE, a `panel <http://www.xfce.org/projects/xfce4-panel>`_ is a bar which can hold many items such as application launchers, window lists, a clock, a
+In XFCE, a `panel <http://docs.xfce.org/xfce/xfce4-panel/start>`_ is a bar which can hold many items such as application launchers, window lists, a clock, a
 notification area, and application menus. Your initial panel setup options are: 
 
 * **Migrate old config:** select this option if you wish to have a single panel with an application launcher and other icons as shown in Figure 6.17b. The
@@ -909,10 +909,10 @@ in Figure 6.17d. Right-click the entry for "xfce4-panel" and click "Reset Channe
 
 In addition to the PC-BSD® utilities, XFCE provides the following utilities: 
 
-* `Xfdesktop <http://www.xfce.org/projects/xfdesktop>`_: desktop manager found in :menuselection:`Settings --> Desktop`. Sets the background image, provides a
+* `Xfdesktop <http://docs.xfce.org/xfce/xfdesktop/start>`_: desktop manager found in :menuselection:`Settings --> Desktop`. Sets the background image, provides a
   right-click menu to launch applications, and can show files (including application launchers) or iconified windows.
 
-* `Xfwm4 <http://www.xfce.org/projects/xfwm4>`_: window manager found in :menuselection:`Settings --> Window Manager`. It provides window decorations, virtual
+* `Xfwm4 <http://docs.xfce.org/xfce/xfwm4/start>`_: window manager found in :menuselection:`Settings --> Window Manager`. It provides window decorations, virtual
   desktops, multiscreen mode, transparency and a keyboard shortcuts editor.
 
 * `Ristretto <http://goodies.xfce.org/projects/applications/ristretto>`_: fast and light-weight picture viewer found in
@@ -924,7 +924,7 @@ In addition to the PC-BSD® utilities, XFCE provides the following utilities:
 
 * `Orage <http://www.kolumbus.fi/~w408237/orage/>`_: calendar and reminder daemon found in :menuselection:`Office --> Orage Calendar`.
 
-* `Thunar <http://www.xfce.org/projects/thunar>`_: file manager found in :menuselection:`System --> Thunar File Manager`.
+* `Thunar <http://docs.xfce.org/xfce/thunar/start>`_: file manager found in :menuselection:`System --> Thunar File Manager`.
 
 A list of recommended applications for XFCE can be found on the `XFCE wiki <http://wiki.xfce.org/recommendedapps>`_. 
 
