@@ -832,7 +832,7 @@ void Syncer::syncJailInfo(){
     QString name = info[i].section(" ",2,2); //hostname
     found << name; //add it to the new list
     jails.removeAll(name); //remove from the old list
-    bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/sbin/pkg");
+    bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/local/sbin/pkg-static");
     HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
     HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
     HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
