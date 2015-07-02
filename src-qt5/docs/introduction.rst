@@ -163,7 +163,7 @@ PC-BSD® provides the following features:
 * **Vibrant community:** PC-BSD® has a friendly and helpful community. 
 
 * **Professional support:** professional email and phone support is available from
-  `iXsystems <https://www.ixsystems.com/ix/support/software/pc-bsd-support>`_.
+  `iXsystems <https://www.ixsystems.com/support/>`_.
 
 .. index:: What's New
 .. _What's New in |version|:
@@ -452,7 +452,7 @@ The following articles and videos provide additional information about some of t
 
 * `Interview: BSD for Human Beings <http://www.unixmen.com/bsd-for-human-beings-interview/>`_
 
-* `Video: BSD 4 Linux Users <http://www.youtube.com/watch?v=xk6ouxX51NI>`_
+* `Video: BSD 4 Linux Users <https://www.youtube.com/watch?v=xk6ouxX51NI>`_
 
 * `Why you should use a BSD style license for your Open Source Project <http://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html>`_
 

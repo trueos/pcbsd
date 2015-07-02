@@ -346,7 +346,7 @@ Once you are ready to start the installation, click "Next". A pop-up menu will a
 
 Once the system is installed, it will boot to a command-line login prompt. Login using the primary user account that was configured during installation. You
 can now configure and use the server as you would any other FreeBSD server installation. The
-`FreeBSD Handbook <http://www.freebsd.org/handbook/>`_ is an excellent reference for performing common FreeBSD server tasks.
+`FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`_ is an excellent reference for performing common FreeBSD server tasks.
 
 .. index:: install
 .. _Using the TrueOS® CD:

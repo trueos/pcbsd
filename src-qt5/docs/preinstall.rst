@@ -120,18 +120,18 @@ Laptops
 Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
 deal with: 
 
-* **Sleep/suspend:** unfortunately, `ACPI <http://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface>`_ is not an exact science, meaning that
+* **Sleep/suspend:** unfortunately, `ACPI <https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface>`_ is not an exact science, meaning that
   you may have to experiment with various :command:`sysctl` variables in order to achieve successful sleep and suspend states on your particular laptop model.
-  If your laptop is a ThinkPad, `ThinkWiki <http://thinkwiki.org/>`_ is an excellent source. For other types of laptops, try reading the "SYSCTL VARIABLES"
+  If your laptop is a ThinkPad, `ThinkWiki <http://www.thinkwiki.org/wiki/ThinkWiki>`_ is an excellent source. For other types of laptops, try reading the "SYSCTL VARIABLES"
   section of :command:`man 4 acpi` and check to see if there is an ACPI man page specific to your vendor by typing :command:`apropos acpi.` The
   `Tuning with sysctl(8) <http://www.freebsd.org/doc/en/books/handbook/configtuning-sysctl.html>`_ section of the FreeBSD Handbook demonstrates how to
   determine your current :command:`sysctl` values, modify a value, and make a modified value persist after a reboot. If the battery reading is incorrect, try
-  the workaround in this `PR <http://www.freebsd.org/cgi/query-pr.cgi?pr=kern/160838>`_.
+  the workaround in this `PR <https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=160838>`_.
 
 * **Internal wireless:** some chipsets do not have a FreeBSD driver yet.
 
 * **Synaptics:** depending upon the hardware, you may or may not be able to disable the system's touchpad. This
-  `forum post <http://forums.freebsd.org/viewtopic.php?s=63c71cacb981215c14b64b74481d17cd&p=100670&postcount=17>`_ describes how to enable Synaptics and some
+  `forum post <https://forums.freebsd.org/threads/how-to-disable-mousepad-tapping.17370/#post-100670>`_ describes how to enable Synaptics and some
   of the :command:`sysctl` options that this feature provides.
 
 * **Optimus graphics:** the current workaround is to disable Optimus in the BIOS, set the onboard Intel video to be dominant, or to change the graphics mode
@@ -140,9 +140,9 @@ deal with:
 If you wish to test your laptop's hardware, use the "Hardware Compatibility" icon in the :ref:`Language Selection Screen` before continuing with the
 installation.
 
-If you would like to install PC-BSD® onto an Asus Eee, read the `FreeBSD Eee page <http://wiki.freebsd.org/AsusEee>`_ first.
+If you would like to install PC-BSD® onto an Asus Eee, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
 
-The `FreeBSD Tuning Power Consumption page <http://wiki.freebsd.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
+The `FreeBSD Tuning Power Consumption page <https://wiki.FreeBSD.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
 
 .. index:: thinkpad
 
@@ -250,7 +250,7 @@ where |version| is the most recent version, and either the word :file:`RELEASE` 
   features and drivers. If you wish to have or test the latest features and drivers as they become available and can tolerate possible breakage caused by new
   features being available before the next RELEASE, use the STABLE version.
 
-The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org//download.html>`_. Previous RELEASE versions and
+The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_. Previous RELEASE versions and
 STABLE versions can be downloaded from the `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_. 
 
 Several types of files are available for download. Before downloading a file, review the following descriptions to see which one best suits your needs: 
@@ -317,7 +317,7 @@ portion of the file may get damaged or lost, making the installation file unusab
 If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
 verify a checksum, you will need to use a checksum verification utility.
 
-.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org//download.html>`_  only lists the SHA256 while the
+.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
    `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists both the :file:`.md5` and the :file:`.sha256` checksum files. This section demonstrates how to verify an
    MD5 checksum.
 
@@ -376,7 +376,7 @@ indicating that the burning process has finished.
 Burning to DVD on a BSD or Linux System
 ---------------------------------------
 
-`The K3B burner <http://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. This utility
+`The K3B burner <https://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. This utility
 can be installed using :ref:`AppCafe®`. Once installed, it can be run from any desktop by typing :command:`k3b`.
 
 To burn your ISO, launch K3B, insert a blank DVD/CD media, browse to the location of the :file:`.iso` file in the screen shown in Figure 2.5c, and click
@@ -392,7 +392,7 @@ To burn your ISO, launch K3B, insert a blank DVD/CD media, browse to the locatio
 
 Click the "Start" button to burn the file. K3B will automatically eject the media once the burn is complete.
 
-`The Brasero burner <http://projects.gnome.org/brasero/>`_ provides an alternative, easy-to-use burning application included with the :ref:`GNOME` desktop. A PBI is also
+`The Brasero burner <https://wiki.gnome.org/Apps/Brasero>`_ provides an alternative, easy-to-use burning application included with the :ref:`GNOME` desktop. A PBI is also
 available within :ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager. Figure 2.5e shows the
 initial Brasero screen.
 
@@ -482,7 +482,7 @@ When using the :command:`dd` command:
    without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
    Linux has very limited support for UFS, the BSD filesystem that gets created on the USB stick.
 
-To burn the image file on a Windows system, you can use `win32-image-writer <http://win32diskimager.sourceforge.net/>`_. When downloading win32-image-writer,
+To burn the image file on a Windows system, you can use `win32-image-writer <http://sourceforge.net/projects/win32diskimager/>`_. When downloading win32-image-writer,
 download the latest version that ends in :file:`-binary.zip` and use a utility such as Windows Explorer or 7zip to unzip the executable.
 
 If you launch :command:`win32-image-writer.exe`, it will start the Win32 Disk Imager utility, shown in Figure 2.5g. Use the "browse" button to browse to the
@@ -531,7 +531,7 @@ hardware as each virtual machine uses CPU and RAM. Depending upon the amount of 
 install using virtualization software runs slowly. If your computer slows down greatly, try closing other applications running on your computer to free up
 some RAM.
 
-During the installation of PC-BSD®, you can choose to install the `VirtualBox <http://www.virtualbox.org/>`_ open source virtualization program and the
+During the installation of PC-BSD®, you can choose to install the `VirtualBox <https://www.virtualbox.org/>`_ open source virtualization program and the
 `VirtualBox Guest Additions <http://www.virtualbox.org/manual/ch04.html>`_ with the operating system. The guest additions add mouse pointer integration,
 shared folders between the host and guest, better video support, and a shared clipboard. To install these after installation, use :ref:`AppCafe®` and search
 for "virtualbox".
@@ -540,7 +540,7 @@ for "virtualbox".
    this application. Depending upon your desktop, this might break any existing shortcuts to VirtualBox. To fix the shortcut, logout and back in.
 
 If your computer is running another operating system, download the binary for your operating system from the
-`VirtualBox Downloads page <http://www.virtualbox.org/wiki/Downloads>`_. VirtualBox runs on Windows, Linux, Macintosh, and OpenSolaris and supports a large
+`VirtualBox Downloads page <https://www.virtualbox.org/wiki/Downloads>`_. VirtualBox runs on Windows, Linux, Macintosh, and OpenSolaris and supports a large
 number of operating systems that can be installed into a virtual machine.
 
 This section describes how to prepare VirtualBox for an installation of PC-BSD® using an :file:`.iso` file as well as how to use the downloadable
