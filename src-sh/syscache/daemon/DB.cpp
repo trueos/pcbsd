@@ -713,6 +713,7 @@ bool Syncer::needsLocalSync(QString jail){
     }else{
       //This is inside a jail - need different method
       QString path = HASH->value("Jails/"+jail+"/jailPath","") + "/var/db/pkg/local.sqlite";
+      if( (HASH->value("Jails/"+jail+"/haspkg") != "true") || !QFile::exists(path) ){ return false; }
       qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
       qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
       if(mod > stamp){ return true; }//was it modified after the last sync?
@@ -724,7 +725,8 @@ bool Syncer::needsLocalSync(QString jail){
 
 bool Syncer::needsRemoteSync(QString jail){
   //Checks the pkg repo files for changes since the last sync
-  if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
+  if( (jail!=LOCALSYSTEM) && HASH->value("Jails/"+jail+"/haspkg") != "true" ){ return false; } //pkg not installed
+  else if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
   else if(HASH->value("Jails/"+jail+"/RepoID") != generateRepoID(jail) ){ return true; } //repoID changed
   else if( !HASH->contains("Repos/"+HASH->value("Jails/"+jail+"/RepoID")+"/lastSyncTimeStamp") ){ return true; } //Repo Never synced
   else{
@@ -830,9 +832,11 @@ void Syncer::syncJailInfo(){
     QString name = info[i].section(" ",2,2); //hostname
     found << name; //add it to the new list
     jails.removeAll(name); //remove from the old list
+    bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/sbin/pkg");
     HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
     HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
     HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
+    HASH->insert("Jails/"+name+"/haspkg",haspkg ? "true": "false" );
   }
   HASH->insert("JailList", found.join(LISTDELIMITER));
   if(stopping){ return; } //catch for if the daemon is stopping
