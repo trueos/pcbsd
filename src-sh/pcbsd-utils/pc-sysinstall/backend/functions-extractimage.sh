@@ -143,19 +143,19 @@ start_extract_uzip_tar()
         exit_err "ERROR: Failed extracting the tar image"
       fi
       ;;
-    livecd) 
-      # Copying file to disk without /usr
-      rsync -avzH --exclude 'uzip' --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'usr' / ${FSMNT} >&1 2>&1
+    livecd)
+     # GhostBSD specific (prepare a ro layer to copy from)
+      DEVICE=$(mdconfig -a -t vnode -o readonly -f /dist/uzip${UZIP_DIR}.uzip)
+      mount -o ro ${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
+      # Copying file to disk 
+      rsync -avzH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}/ ${FSMNT} >&1 2>&1
       if [ "$?" != "0" ]
       then
         exit_err "ERROR: Failed to copy files"
       fi
-      # Copying /usr alone to disk
-      rsync -avzH /usr ${FSMNT}/ >&1 2>&1
-      if [ "$?" != "0" ]
-      then
-        exit_err "ERROR: Failed to copy files"
-      fi
+      umount -f ${CDMNT}${UZIP_DIR}
+      mdconfig -d -u ${DEVICE}
+      chmod 1777 ${FSMNT}/tmp
       ;;
   esac
 
@@ -582,3 +582,5 @@ init_extraction()
   esac
 
 };
+ DEVICE=$(mdconfig -a -t vnode -o readonly -f /dist/uzip/usr.uzip)
+      mount -o ro ${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
