@@ -77,7 +77,8 @@ ifconfig | grep "inet " |  awk '{ print $2 }'
 if [ "$SYSTYPE" = "PCBSD" ]; then 
 echo ""
 echo "Installed desktop environments:"
-display_pkg_version "       KDE:.........." "kde-baseapps"
+display_pkg_version "       KDE apps:....." "kde-baseapps"
+display_pkg_version "       KDE plasma:..." "kde-workspace"
 display_pkg_version "       Gnome:........" "gnome3"
 display_pkg_version "       Cinnamon:....." "cinnamon"
 display_pkg_version "       MATE:........." "mate-base"
