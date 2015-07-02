@@ -555,6 +555,7 @@ void DB::watcherChange(QString change){
 
 bool DB::kickoffSync(){
   if(sysrun){ return false; } //already running a sync (sysrun is the last one to be finished)
+  if( QProcess::execute(UPDATE_FLAG_CHECK)==0 ){ return false; } //in the middle of updates - no syncing
   writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
   locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
   //if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
