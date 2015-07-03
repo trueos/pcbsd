@@ -132,7 +132,7 @@ The information for an application includes the following:
 
 * A hyperlink to the application's website. In this example, clicking "Mozilla" will open the application's website in the user's default web browser.
 
-* A hyperlink to the application's information at `freshports.org <freshports.org>`_. Click the arrow icon next to "Mozilla" to open the FreshPorts website in the user's
+* A hyperlink to the application's information at `freshports.org <http://www.freshports.org/>`_. Click the arrow icon next to "Mozilla" to open the FreshPorts website in the user's
   default web browser.
 
 * A rating of up to five stars. Click the stars to open the PC-BSD® wiki page for the application. If you login to the wiki and hover the mouse over the
@@ -230,7 +230,7 @@ Using the CLI pkg Utilities
 
 PC-BSD® uses :command:`pkg` to manage packages from the command line. To manage PBIs from the command line, instead refer to :ref:`PBI Manager`.
 
-The `FreeBSD Handbook <http://www.freebsd.org/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
+The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
 needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
 Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
 know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
@@ -776,7 +776,7 @@ pbi_icon
 --------
 
 The :command:`pbi_icon` command provides a number of options for adding desktop icons, menu entries, and MIME data for an installed PBI. Not all PBIs will
-contain desktop/menu/MIME data. Additionally, the window manager must be `XDG <http://en.wikipedia.org/wiki/Xdg>`_-compliant to understand a PBI's icon and
+contain desktop/menu/MIME data. Additionally, the window manager must be `XDG <https://en.wikipedia.org/wiki/Xdg>`_-compliant to understand a PBI's icon and
 MIME settings. Table 7.4e summarizes this command's options: 
 
 **Table 7.4e: pbi_icon Options**

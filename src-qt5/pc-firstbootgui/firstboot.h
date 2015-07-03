@@ -49,6 +49,9 @@ private slots:
     
     // Let us check the hostname
     void slotCheckHost();
+
+    // Let us check the domain name
+    void slotCheckDomainName();
     
     // Start a scan of the network
     void slotScanNetwork();

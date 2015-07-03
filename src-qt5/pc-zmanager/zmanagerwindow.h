@@ -36,6 +36,7 @@ struct __vdev_t {
     int Index;
     int Status;
     QString PartType;           // TYPE OF PARTITIONING SYSTEM OR PARTITION TYPE
+    QString FSType;             // TYPE OF FILE SYSTEM
     QString InPool;
     int SectorSize;
     unsigned long long SectorStart;

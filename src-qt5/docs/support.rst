@@ -69,7 +69,7 @@ updates that affect translators.
 Interface Translation
 ---------------------
 
-PC-BSD® uses `Pootle <http://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
+PC-BSD® uses `Pootle <https://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
 Pootle makes it possible to find out if your native language has been fully localized for PC-BSD®. Pootle also makes it easy for users to check and submit
 translated text as it provides a web editor and commenting system. This means that translators can spend their time making and reviewing translations rather
 than learning how to use a translation tool.
@@ -228,9 +228,9 @@ To compile the graphical utilities::
 
  make
 
-Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://qt-project.org/wiki/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
+Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://wiki.qt.io/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
 to help new Qt users get up and running faster while boosting the productivity of experienced Qt developers.
-`Qt Designer <http://qt-project.org/doc/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
+`Qt Designer <http://doc.qt.io/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
 other IDE functionality. To install this package, check the "Search all available PBI and packages" in the "App Search" tab of AppCafe® and search for "qt5-designer".
 Alternately, install it using :command:`pkg install qt5-designer`.
 

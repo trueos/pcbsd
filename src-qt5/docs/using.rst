@@ -32,15 +32,15 @@ To access the utility shown in Figure 9.1a, use :menuselection:`Control Panel --
 
 The options available in each tab and when to use them are described at the Adobe website: 
 
-* `Storage <http://adobe.com/go/flash-player-settings-storage>`_ describes private browsing support and the privacy issues associated with local storage of
-  flash information.
+* `Storage <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7fff.html>`_ describes private browsing support and the privacy issues associated with
+  local storage of flash information.
 
-* `Camera and Mic <http://adobe.com/go/flash-player-settings-camera-and-mic>`_ controls how websites can use your computer's camera and microphone.
+* `Camera and Mic <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7ff8.html>`_ controls how websites can use your computer's camera and microphone.
 
-* `Playback <http://adobe.com/go/flash-player-settings-playback>`_ describes how to configure peer-assisted networking to improve bandwidth.
+* `Playback <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7ff5.html>`_ describes how to configure peer-assisted networking to improve bandwidth.
 
-* `Advanced <http://adobe.com/go/flash-player-settings-advanced>`_ controls how Flash Player handles browsing data, updates, trusted locations, and protected
-  content.
+* `Advanced <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7ff0.html>`_ controls how Flash Player handles browsing data, updates, trusted locations,
+  and protected content.
 
 .. index:: configuration
 .. _Installing Custom Fonts:
@@ -110,7 +110,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 * `aTunes <http://www.atunes.org/?page_id=5>`_: full-featured audio player and manager that can play mp3, ogg, wma, wav, flac, mp4 and radio streaming,
   allowing users to easily edit tags, organize music and rip audio CDs.
 
-* `Audacity <http://audacity.sourceforge.net/about/screenshots?lang=en>`_: multilingual audio editor and recorder.
+* `Audacity <http://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
 
 * `DeaDBeeF <http://deadbeef.sourceforge.net/screenshots.html>`_: music player that supports most audio formats.
 
@@ -158,7 +158,7 @@ of your desktop. You can also start this application by typing :command:`plexhom
 Once installed, an entry for "Plex Home Theater" will also be added to the login manager so that you can login directly to the home theater instead of a desktop.
 
 The first time you run or log into Plex Home Theater, a wizard will check your audio settings and sign into your Plex account. If you do not have a Plex account yet,
-create one at `plex.tv <http://www.plex.tv>`_. The wizard will give you a PIN code and an URL to enter the code. Once you enter the PIN, the wizard will connect and sign you in.
+create one at `plex.tv <https://plex.tv/>`_. The wizard will give you a PIN code and an URL to enter the code. Once you enter the PIN, the wizard will connect and sign you in.
 You can now search for and watch media. To exit Plex, click the "<" then "Quit".
 
 .. index:: files
@@ -191,7 +191,7 @@ another desktop.
 +---------------+--------------+--------------------------------------------------------------------+
 | pcmanfm       | LXDE, PBI    | `<http://lxde.org/easy_fast_file_management_pcmanfm>`_             |
 +---------------+--------------+--------------------------------------------------------------------+
-| thunar        | XFCE, PBI    | `<http://www.xfce.org/projects/thunar>`_                           |
+| thunar        | XFCE, PBI    | `<http://docs.xfce.org/xfce/thunar/start>`_                        |
 +---------------+--------------+--------------------------------------------------------------------+
 | xfe           | PBI          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
 +---------------+--------------+--------------------------------------------------------------------+
@@ -293,11 +293,11 @@ separate PBI is available, and a short description of how to access the availabl
 Windows Emulation
 =================
 
-`Wine <http://www.winehq.org/>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
+`Wine <https://www.winehq.org/>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
 favorite Windows game or productivity application has not been ported to Linux or BSD.
 
 Wine is not guaranteed to work with every Windows application. If you are unsure if the application that you require is supported, search for it in the
-"Browse Apps" section of the `Wine application database <http://appdb.winehq.org/>`_. The  `Wine wiki <http://wiki.winehq.org/>`_ contains many resources to
+"Browse Apps" section of the `Wine application database <https://appdb.winehq.org/>`_. The  `Wine wiki <http://wiki.winehq.org/>`_ contains many resources to
 get you started and to refer to if you encounter problems with your Windows application.
 
 Wine can be installed during installation or from :ref:`AppCafe®`. Once installed, it can be started by clicking the entry for "Wine Configuration" from the
@@ -354,13 +354,13 @@ Occasionally it is useful to allow connections between desktop sessions running 
 both users will be able to see the error on the problematic system and either user can take control of the mouse and keyboard in order to fix the problem.
 Typically this is a temporary situation as providing access to one's computer allows a remote user the ability to both view and modify its settings.
 
-The `remote desktop protocol (RDP) <http://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
+The `remote desktop protocol (RDP) <https://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
 Depending upon the operating system, you may have to first install or enable RDP software on the remote computer:
 
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
   the full version of RDP is included, remote access may or may not be enabled by default. If you have trouble connecting using RDP, do a web search for
   "remote desktop" and the name of the version of Windows you are using to find out how to configure its remote desktop settings. If you still can not
-  connect, you can instead download, install, and configure `VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
+  connect, you can instead download, install, and configure `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
 
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
@@ -433,7 +433,7 @@ disable sound during the connection.
 need to change the settings at a later time, you can right-click the connection (which will appear in a list as a past connection) and choose "Settings" from
 the right-click menu.
 
-**Remember password:** `KWallet <http://utils.kde.org/projects/kwalletmanager/>`_ is KDE's password storage system. If this box stays checked, you will only
+**Remember password:** `KWallet < https://utils.kde.org/projects/kwalletmanager/>`_ is KDE's password storage system. If this box stays checked, you will only
 need to input the password the first time you make this connection as it will be saved for you. If this is the first time you have stored a password using
 KWallet, it will prompt you for some information to set up your wallet.
 
@@ -523,8 +523,8 @@ This section demonstrates how to configure and use both the PXE Boot Desktop Ser
 PXE Boot Desktop Server
 -----------------------
 
-A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <http://en.wikipedia.org/wiki/Diskless_node>`_ where
-each computer has a network interface card capable of `PXE <http://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
+A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <https://en.wikipedia.org/wiki/Diskless_node>`_ where
+each computer has a network interface card capable of `PXE <https://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
 their network interface instead of their hard disk, they automatically connect to the PXE Boot Desktop Server and receive a login window. Once authenticated,
 they can use PC-BSD®, even if PC-BSD® is not installed on their own computer and even if their computer does not have a hard drive.
 
@@ -737,10 +737,9 @@ The security features built into PC-BSD® include:
   switch to administrative access and can not enter or list the contents of a directory that has not been set for universal access.
 
 * **Built-in firewall:** the default firewall ruleset allows you to access the Internet and the shares available on your network but does not allow
-  any inbound connections to your computer. In addition,
-  `Fail2ban <http://www.fail2ban.org/wiki/>`_ is installed. This service can be configured to identify possible break-in attempts and to respond with an
-  action such as creating a firewall rule to ban the intruder. Instructions for configuring fail2ban can be found on the
-  `fail2ban wiki <http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Usage>`_. 
+  any inbound connections to your computer. In addition, `Fail2ban <http://www.fail2ban.org/wiki/index.php/Main_Page>`_ is installed. This service can be
+  configured to identify possible break-in attempts and to respond with an action such as creating a firewall rule to ban the intruder. Instructions for
+  configuring fail2ban can be found on the `fail2ban wiki <http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Usage>`_. 
 
 * **Very few services are enabled by default:** you can easily view which services are started at boot time using :ref:`Service Manager` or by reading through
   :file:`/etc/rc.conf`. You can disable the services that you do not use by disabling that service in :ref:`Service Manager` or by commenting out that
@@ -757,7 +756,7 @@ The security features built into PC-BSD® include:
   default, the first user you create during installation is added to the *wheel* group. You can use :ref:`User Manager` to add other users to this group. You
   can change the default :command:`sudo` configuration using the :command:`visudo` command as the superuser.
 
-* `AESNI <http://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
+* `AESNI <https://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
   encryption set. This support speeds up AES encryption and decryption.
 
 * **Automatic notification of security advisories:** :ref:`Update Manager` will automatically notify you if an update is available as the result of a
@@ -779,7 +778,7 @@ information about security on FreeBSD-based operating systems:
 
 * `FreeBSD Security Information <http://www.freebsd.org/security/>`_
 
-* `Security Section of FreeBSD Handbook <http://www.freebsd.org/handbook/security.html>`_
+* `Security Section of FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/security.html>`_
 
 * `Hardening FreeBSD <http://www.bsdguides.org/2005/hardening-freebsd/>`_
 
@@ -804,7 +803,7 @@ so that the firewall rules can be updated for you.
 
 While in tor mode, a small onion will be added to the Update Manager icon and, if you hover over the icon, it will say "(Routing through Tor)". You can also verify that
 you are connected to the Tor network by right-clicking Update Manager and clicking "Check Tor connection". It will take a moment or so, but a pop-up message should
-indicate that the connection to `<check.torproject.org>`_ succeeded.
+indicate that the connection to `<https://check.torproject.org/>`_ succeeded.
 
 .. note:: the system will remain in tor mode, even after a reboot, until you disable it. To disable tor mode, right-click Update Manager and uncheck the "Routing through Tor"
    box. Now when you "Check Tor connection", it should indicate that you are not using Tor.
@@ -865,7 +864,7 @@ To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search 
 
 The KDE-Accessibility component installs the following software: 
 
-* `KMag <http://docs.kde.org/stable/en/kdeaccessibility/kmag/>`_: a screen magnifier. In KDE, this application is in
+* `KMag <https://docs.kde.org/stable4/en/kdeaccessibility/kmag/index.html>`_: a screen magnifier. In KDE, this application is in
   :menuselection:`Applications --> Utilities --> Screen Magnifier` or you can type :command:`kmag` from the command line. Drag the magnifier window over the
   text you wish to magnify or click its "Settings" button to view the shortcuts for its various modes. Click :kbd:`F1` while the application is open to access
   the Kmagnifier Handbook.
@@ -879,7 +878,7 @@ The KDE-Accessibility component installs the following software:
 
 .. image:: images/access3.png
 
-* `KMouth <http://docs.kde.org/stable/en/kdeaccessibility/kmouth/>`_: enables persons that cannot speak to speak through their computer. It keeps a
+* `KMouth <https://docs.kde.org/stable4/en/kdeaccessibility/kmouth/index.html>`_: enables persons that cannot speak to speak through their computer. It keeps a
   history of spoken sentences from which the user can select to be re-spoken. To start this program, click
   :menuselection:`Applications --> Utilities --> Speech Synthesizer Frontend` or type :command:`kmouth` from the command line. The first time you run
   this application, a configuration wizard will prompt you to set the command to use for speaking texts (such as :file:`/usr/local/bin/espeak`) and the

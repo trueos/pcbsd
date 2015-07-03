@@ -515,10 +515,12 @@ get_hardware_info()
 
 get_target_part()
 {
-  # Now prompt for the full-disk or partition to install onto
+  # Now prompt for the full-disk, partition, or free space to install onto
   ${PCSYS} disk-part $SYSDISK > /tmp/.dList.$$
   dOpts="ALL \"Use entire disk\" on"
-  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'` 
+  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`
+  dOpts="$dOpts free \"Install to free space\" off"
+  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`  
   if [ "$dFmt" = "MBR" ] ; then
     dChar="s"
     DISKFORMAT="MBR"
@@ -534,7 +536,8 @@ get_target_part()
      [ -e "/dev/${part}" ] || break
      desc="`cat /tmp/.dList.$$ | grep ^${part}-label | cut -d ':' -f 2`"
      mb="`cat /tmp/.dList.$$ | grep ^${part}-sizemb | awk '{print $2}'`"
-     dOpts="$dOpts $partRAW \"${mb}MB -$desc\" off" 
+     dOpts="$dOpts $partRAW \"${mb}MB -$desc\" off"
+     dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`
      i="`expr $i + 1`"
   done
   rm /tmp/.dList.$$

@@ -360,5 +360,5 @@ If you boot the installer and receive a *mountroot>* command prompt, it may be d
 if the enumeration of a card reader changes. The solution is to enter *ufs:/dev/da1* at the prompt. Depending on
 the exact location of the boot media, it may be different than :file:`da1`. Type *?* at the prompt to display the available devices.
 
-If none of the above has fixed your problem, search the `PC-BSD® forums <http://forums.pcbsd.org/>`_ to see if a solution exists, try a web search, or check
+If none of the above has fixed your problem, search the `PC-BSD® forums <https://forums.pcbsd.org/>`_ to see if a solution exists, try a web search, or check
 the section on :ref:`Finding Help`. 

@@ -555,6 +555,7 @@ void DB::watcherChange(QString change){
 
 bool DB::kickoffSync(){
   if(sysrun){ return false; } //already running a sync (sysrun is the last one to be finished)
+  if( QProcess::execute(UPDATE_FLAG_CHECK)==0 ){ return false; } //in the middle of updates - no syncing
   writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
   locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
   //if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
@@ -614,22 +615,33 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    //Make sure we use the system environment to properly read system variables, etc.
    p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
    //Merge the output channels to retrieve all output possible
-   p.setProcessChannelMode(QProcess::MergedChannels);   
-   p.start(cmd);
+   p.setProcessChannelMode(QProcess::MergedChannels);
+   p.start(cmd, QIODevice::ReadOnly);
    //QTimer time(this);
     //time.setSingleShot(true);
     //time.start(5000); //5 second timeout
+   QString tmp;
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
      /*if(!time.isActive()){
        p.terminate(); //hung process - kill it
      }*/
-     p.waitForFinished(500); //1/2 second timeout check
+     if( !p.waitForFinished(500) ){ //1/2 second timeout check
+       QString tmp2 = p.readAllStandardOutput(); //this is just any new output - not the full thing
+       //qDebug() << "tmp1:" << tmp;
+       //qDebug() << "tmp2:" << tmp2;
+       if(tmp2.isEmpty() && tmp.simplified().endsWith("]:")){
+        //Interactive prompt? kill the process.
+	p.terminate(); return QStringList();
+       }
+       tmp.append(tmp2);
+     }
      QCoreApplication::processEvents();
      if(stopping){break;}
    }
+   tmp.append(p.readAllStandardOutput());
    //if(time.isActive()){ time.stop(); }
    if(stopping){ p.terminate(); return QStringList(); }
-   QString tmp = p.readAllStandardOutput();
+   //QString tmp = p.readAllStandardOutput();
    p.close();
    if(tmp.contains("database is locked", Qt::CaseInsensitive)){
      return directSysCmd(cmd); //try again - in case the pkg database is currently locked
@@ -702,6 +714,7 @@ bool Syncer::needsLocalSync(QString jail){
     }else{
       //This is inside a jail - need different method
       QString path = HASH->value("Jails/"+jail+"/jailPath","") + "/var/db/pkg/local.sqlite";
+      if( (HASH->value("Jails/"+jail+"/haspkg") != "true") || !QFile::exists(path) ){ return false; }
       qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
       qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
       if(mod > stamp){ return true; }//was it modified after the last sync?
@@ -713,7 +726,8 @@ bool Syncer::needsLocalSync(QString jail){
 
 bool Syncer::needsRemoteSync(QString jail){
   //Checks the pkg repo files for changes since the last sync
-  if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
+  if( (jail!=LOCALSYSTEM) && HASH->value("Jails/"+jail+"/haspkg") != "true" ){ return false; } //pkg not installed
+  else if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
   else if(HASH->value("Jails/"+jail+"/RepoID") != generateRepoID(jail) ){ return true; } //repoID changed
   else if( !HASH->contains("Repos/"+HASH->value("Jails/"+jail+"/RepoID")+"/lastSyncTimeStamp") ){ return true; } //Repo Never synced
   else{
@@ -812,58 +826,81 @@ void Syncer::syncJailInfo(){
   //Get the internal list of jails
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Now get the current list of running jails and insert individual jail info
-  QStringList info = directSysCmd("jls");
+  QStringList jinfo = directSysCmd("jls");
   QStringList found;
-  for(int i=1; i<info.length() && !stopping; i++){ //skip the header line
-    info[i] = info[i].replace("\t"," ").simplified();
-    QString name = info[i].section(" ",2,2); //hostname
-    found << name; //add it to the new list
-    jails.removeAll(name); //remove from the old list
-    HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
-    HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
-    HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
+  for(int i=1; i<jinfo.length() && !stopping; i++){ //skip the header line
+    jinfo[i] = jinfo[i].replace("\t"," ").simplified();
+    //QString name = info[i].section(" ",2,2); //hostname
+    //found << name; //add it to the new list
+    //jails.removeAll(name); //remove from the old list
+    //bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/local/sbin/pkg-static");
+    //HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
+    //HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
+    //HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
+    //HASH->insert("Jails/"+name+"/haspkg",haspkg ? "true": "false" );
+    //qDebug() << "Jail Info:" << 
   }
-  HASH->insert("JailList", found.join(LISTDELIMITER));
+  //HASH->insert("JailList", found.join(LISTDELIMITER));
   if(stopping){ return; } //catch for if the daemon is stopping
   //Remove any old jails from the hash
-  for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
+  /*for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
-  }
+  }*/
   //Now also fetch the list of inactive jails on the system
-  info = QStringList(); //directSysCmd("iocage list"); //"warden list -v");
+  QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
-  info = info.join("----").simplified().split("id: ");
+  //info = info.join("----").simplified().split("id: ");
   //qDebug() << "Warden Jail Info:" << info;
-  for(int i=0; i<info.length(); i++){
+  for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
-    QStringList tmp = info[i].split("----");
+    QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
+    QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "tmp:" << tmp;
     //Create the info strings possible
-    QString ID, HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
-    bool isRunning = false;
+    QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
+    HOST = ID;
+    jails.removeAll(HOST);
+    bool isRunning = (info[i].section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
+    QStringList junk = jinfo.filter(ID);
+    if(!junk.isEmpty()){
+      //This jail is running - add extra information
+      bool haspkg = QFile::exists(junk[0].section(" ",3,3)+"/usr/local/sbin/pkg-static");
+      HASH->insert("Jails/"+HOST+"/JID", junk[0].section(" ",0,0));
+      HASH->insert("Jails/"+HOST+"/jailIP", junk[0].section(" ",1,1));
+      HASH->insert("Jails/"+HOST+"/jailPath", junk[0].section(" ",3,3));
+      HASH->insert("Jails/"+HOST+"/haspkg", haspkg ? "true": "false" );
+    }else{
+      HASH->insert("Jails/"+HOST+"/JID", "");
+      HASH->insert("Jails/"+HOST+"/jailIP", "");
+      HASH->insert("Jails/"+HOST+"/jailPath", "");
+      HASH->insert("Jails/"+HOST+"/haspkg", "false" );
+    }
+    //qDebug() << "IoCage Jail:" << ID << isRunning;
     for(int j=0; j<tmp.length(); j++){
       //Now iterate over all the info for this single jail
-      if(j==0 && !tmp[j].contains(":")){ ID = tmp[j].simplified(); }
-      else if(tmp[j].startsWith("host:")){ HOST = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("ipv4:")){ IPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("defaultrouter-ipv4:")){ ROUTERIPV4 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("ipv6:")){ IPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("defaultrouter-ipv6:")){ ROUTERIPV6 = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("autostart:")){ AUTOSTART = (tmp[j].section(":",1,50).simplified()=="Enabled") ? "true" : "false"; }
-      else if(tmp[j].startsWith("vnet:")){ VNET = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("type:")){ TYPE = tmp[j].section(":",1,50).simplified(); }
-      else if(tmp[j].startsWith("status:")){ isRunning = (tmp[j].section(":",1,50).simplified() == "Running"); }
+      QString val = tmp[j].section(":",1,100).simplified();
+      //if(tmp[j].startsWith("hostname:")){ HOST = val; }
+      //qDebug() << "Line:" << tmp[j] << val;
+      if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
+      //else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = val; }
+      //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
+      //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
+      //else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = val; }
+      else if(tmp[j].startsWith("defaultrouter:")){ ROUTERIPV4 = val; }
+      else if(tmp[j].startsWith("ipv6_addr:")){ IPV6 = val; }
+      //else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = val; }
+      //else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = val; }
+      //else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = val; }
+      else if(tmp[j].startsWith("defaultrouter6:")){ ROUTERIPV6 = val; }
+      else if(tmp[j].startsWith("boot:")){ AUTOSTART = (val=="off") ? "false" : "true"; }
+      else if(tmp[j].startsWith("vnet:")){ VNET = val; }
+      else if(tmp[j].startsWith("type:")){ TYPE = val; }
     }
     if(!HOST.isEmpty()){
       //Save this info into the hash
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
+      else{ found << HOST; }
       HASH->insert(prefix+"WID", ID); //Warden ID
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
@@ -881,7 +918,11 @@ void Syncer::syncJailInfo(){
     }
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
-  
+  HASH->insert("JailList", found.join(LISTDELIMITER));
+  //Remove any old jails from the hash (ones that no longer exist)
+  for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
+    clearJail(jails[i]); 
+  }
 }
 
 void Syncer::syncPkgLocalJail(QString jail){

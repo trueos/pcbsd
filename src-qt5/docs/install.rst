@@ -5,7 +5,7 @@ Installing PC-BSD®
 *******************
 
 This chapter describes how to use the graphical installer to install a graphical desktop directly onto a hard drive or into a virtual machine using virtualization software such as
-`VirtualBox <http://www.virtualbox.org/>`_. If you have downloaded the CD version of TrueOS® or prefer to use a text based installer, instead use the
+`VirtualBox <https://www.virtualbox.org/>`_. If you have downloaded the CD version of TrueOS® or prefer to use a text based installer, instead use the
 instructions in :ref:`Using the Text Installer`.
 
 To begin the PC-BSD® installation, insert the prepared boot media and boot the system. If the computer boots into an existing operating system instead of the
@@ -111,7 +111,7 @@ The following components are available for installation.
 
 * **Editors:** check the box to install `LibreOffice <http://www.libreoffice.org/>`_. 
 
-* **Emulators:** if you expand the ► you can select to install `VirtualBox <http://www.virtualbox.org/>`_ and `Wine <https://www.winehq.org/>`_. 
+* **Emulators:** if you expand the ► you can select to install `VirtualBox <https://www.virtualbox.org/>`_ and `Wine <https://www.winehq.org/>`_. 
 
 * **i18n:** if you expand the ► you can select to install localization for for the KDE desktop and for the operating system.
 
@@ -124,21 +124,21 @@ The following components are available for installation.
 
 * **MediaCenter:** if you expand the ► you can select to install `KODI <http://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_.
 
-* **Net:** check this box to install the `KRDC <http://kde.org/applications/internet/krdc/>`_ remote desktop client.
+* **Net:** check this box to install the `KRDC <https://www.kde.org/applications/internet/krdc/>`_ remote desktop client.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
 * **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "FreeNAS-Builder", "Internet", and "Media".
 
-* **Security:** check this box to install the `OpenVPN <http://openvpn.net/index.php/open-source.html>`_ VPN client.
+* **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
 
-* **SysUtils:** check this box to install the `PySalt <http://www.saltstack.com/community/>`_ distributed remote execution and configuration management
+* **SysUtils:** check this box to install the `PySalt <http://saltstack.com/community/>`_ distributed remote execution and configuration management
   system.
 
 * **Virtualization:** if you expand the ► you can install `VirtualBox Guest Additions <https://www.virtualbox.org/>`_
   and `VMwareGuest <http://open-vm-tools.sourceforge.net/about.php>`_. 
 
-* **Web:** if you expand the ► you can select to install the `Chromium <http://www.chromium.org/>`_ and `Firefox <http://www.mozilla.org/en-US/firefox/new>`_
+* **Web:** if you expand the ► you can select to install the `Chromium <http://www.chromium.org/>`_ and `Firefox <https://www.mozilla.org/en-US/firefox/new/>`_
   web browsers. By default, Firefox is selected.
 
 Once you have made your selection(s), click the "Save" button to save your selections. The "PC-BSD Package Selection" box will list the components that you
@@ -252,18 +252,18 @@ ZFS is an enterprise grade file-system, which provides many features including: 
 take snapshots, boot environments, continuous integrity checking and automatic repair, RAIDZ which was designed to overcome the limitations of hardware RAID,
 and native NFSv4 ACLs.
 
-If you are new to ZFS, the `Wikipedia entry on ZFS <http://en.wikipedia.org/wiki/ZFS>`_ provides an excellent starting point to learn about its features.
+If you are new to ZFS, the `Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/ZFS>`_ provides an excellent starting point to learn about its features.
 These resources are also useful to bookmark and refer to as needed: 
 
 * `ZFS Evil Tuning Guide <http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide>`_
 
-* `FreeBSD ZFS Tuning Guide <http://wiki.freebsd.org/ZFSTuningGuide>`_
+* `FreeBSD ZFS Tuning Guide <https://wiki.FreeBSD.org/ZFSTuningGuide>`_
 
 * `ZFS Best Practices Guide <http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide>`_
 
-* `ZFS Administration Guide <http://download.oracle.com/docs/cd/E19253-01/819-5461/index.html>`_
+* `ZFS Administration Guide <http://docs.oracle.com/cd/E19253-01/819-5461/index.html>`_
 
-* `Becoming a ZFS Ninja (video) <http://blogs.oracle.com/video/entry/becoming_a_zfs_ninja>`_
+* `Becoming a ZFS Ninja (video) <https://blogs.oracle.com/video/entry/becoming_a_zfs_ninja>`_
 
 * `blog post explaining how ZFS simplifies the storage stack <https://blogs.oracle.com/bonwick/entry/rampant_layering_violation>`_
 
