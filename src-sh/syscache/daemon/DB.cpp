@@ -652,8 +652,9 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
 }
 
 void Syncer::UpdatePkgDB(QString jail){
-  if(jail!=LOCALSYSTEM){ directSysCmd("pkg -j "+HASH->value("Jails/"+jail+"/JID")+" update"); }
-  else{ directSysCmd("pkg update"); }
+  if(jail!=LOCALSYSTEM){ 
+    if(HASH->value("Jails/"+jail+"/haspkg")=="true"){ directSysCmd("pkg -j "+HASH->value("Jails/"+jail+"/JID")+" update"); }
+  }else{ directSysCmd("pkg update"); }
 }
 
 QStringList Syncer::readFile(QString filepath){
@@ -928,7 +929,8 @@ void Syncer::syncJailInfo(){
 void Syncer::syncPkgLocalJail(QString jail){
   if(jail.isEmpty()){ return; }
  //Sync the local pkg information
- if(needsLocalSync(jail)){
+ bool LSync = needsLocalSync(jail);
+ if(LSync){
   //qDebug() << "Sync local jail info:" << jail;
   QString prefix = "Jails/"+jail+"/pkg/";
   clearLocalPkg(prefix); //clear the old info from the hash
@@ -1086,7 +1088,7 @@ void Syncer::syncPkgLocalJail(QString jail){
     HASH->insert(prefix+orig+"/groups", installed.join(LISTDELIMITER)); //make sure to save the last one too
    } //done with local pkg sync
  }
- if(needsRemoteSync(jail) || needsLocalSync(jail)){
+ if(needsRemoteSync(jail) || LSync){
   //qDebug() << "Sync jail pkg update availability:" << jail;
   //Now Get jail update status/info
   if(stopping){ return; }
@@ -1094,7 +1096,7 @@ void Syncer::syncPkgLocalJail(QString jail){
   if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" upgrade -nU"; }
   QString log = directSysCmd(cmd).join("<br>");
   if(log.contains("pkg update")){ 
-    UpdatePkgDB(jail); 
+    UpdatePkgDB(jail); //need to update pkg database - then re-run check
     log = directSysCmd(cmd).join("<br>");
   }
   HASH->insert("Jails/"+jail+"/updateLog", log);
