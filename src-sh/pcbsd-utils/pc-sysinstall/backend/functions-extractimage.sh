@@ -148,7 +148,7 @@ start_extract_uzip_tar()
       DEVICE=$(mdconfig -a -t vnode -o readonly -f /dist/uzip${UZIP_DIR}.uzip)
       mount -o ro ${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
       # Copying file to disk 
-      rsync -avzH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}/ ${FSMNT} >&1 2>&1
+      rsync -avH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}/ ${FSMNT} >&1 2>&1
       if [ "$?" != "0" ]
       then
         exit_err "ERROR: Failed to copy files"
