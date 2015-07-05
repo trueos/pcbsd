@@ -8,25 +8,19 @@ Version |version|
 
 Copyright © 2005 - 2015 The PC-BSD® Project.
 
-Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of
-many individuals. If you are interested in assisting with the Handbook, refer to the documentation
-`README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will
-find other PC-BSD® users.
+Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of many individuals. If you are interested in assisting with the Handbook, refer to the documentation `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other PC-BSD® users.
 
 Previous versions of the Handbook in various formats and languages are available from `here <ftp://ftp.pcbsd.org/pub/handbook/>`_. 
 
-The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the
-`Creative Commons Attribution License <https://creativecommons.org/licenses/by/4.0/>`_. This means that you have permission to copy, distribute, translate, and adapt the work as
-long as you attribute the PC-BSD® Project as the original source of the Handbook.
+The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the `Creative Commons Attribution License <https://creativecommons.org/licenses/by/4.0/>`_. This means that you have permission to copy, distribute, translate, and adapt the work as long as you attribute the PC-BSD® Project as the original source of the Handbook.
 
-PC-BSD® and the PC-BSD® logo are registered trademarks of `iXsystems <http://www.ixsystems.com>`_. If you wish to use the PC-BSD® logo in your own works, ask for permission first
-from marketing@ixsystems.com.
+PC-BSD® and the PC-BSD® logo are registered trademarks of `iXsystems <https://www.ixsystems.com/>`_. If you wish to use the PC-BSD® logo in your own works, ask for permission first from marketing@ixsystems.com.
 
 AMD is a trademark of Advanced Micro Devices, Inc.
 
 Apache is a trademark of The Apache Software Foundation.
 
-AppCafe® is a registered trademark of iXsystems.
+AppCafe® is a registered trademark of `iXsystems <https://www.ixsystems.com/>`_.
 
 Asus® and Eee PC® are registered trademarks of ASUSTeK® Computer Inc.
 
@@ -34,9 +28,9 @@ Facebook® is a registered trademark of Facebook Inc.
 
 Flash® is a registered trademark of Adobe Systems Incorporated in the United States and/or other countries.
 
-FreeBSD® is a registered trademark of the . 
+FreeBSD® is a registered trademark of the `FreeBSD Foundation <https://www.freebsdfoundation.org/>`_. 
 
-FreeNAS® is a registered trademark of iXsystems.
+FreeNAS® is a registered trademark of `iXsystems <https://www.ixsystems.com/>`_.
 
 IBM® is a registered trademark of International Business Machines Corporation.
 
@@ -62,7 +56,7 @@ PostgreSQL® is a registered trademark of the PostgreSQL Global Development Grou
 
 ThinkPad® is a registered trademark of Lenovo.
 
-TrueOS® is a registered trademark of iXsystems.
+TrueOS® is a registered trademark of `iXsystems <https://www.ixsystems.com/>`_.
 
 Twitter is a trademark of Twitter, Inc. in the United States and other countries.
 
@@ -72,7 +66,7 @@ VirtualBox® is a registered trademark of Oracle.
 
 VMWare® is a registered trademark of VMWare, Inc.
 
-Warden® is a registered trademark of iXsystems.
+Warden® is a registered trademark of `iXsystems <https://www.ixsystems.com/>`_.
 
 Windows® is a registered trademark of Microsoft Corporation in the United States and other countries.
 
@@ -97,32 +91,23 @@ Introduction
 
 Welcome to PC-BSD®!
 
-`PC-BSD® <http://www.pcbsd.org/>`_ began in 2005 when Kris Moore presented the first beta version of a FreeBSD operating system pre-configured for desktop
-use. Since then, PC-BSD® has matured into a polished, feature-rich, free-of-charge, open source operating system that meets the desktop or server needs of the beginner
-to the advanced user alike.
+`PC-BSD® <http://www.pcbsd.org/>`_ began in 2005 when Kris Moore presented the first beta version of a FreeBSD operating system pre-configured for desktop use. Since then, PC-BSD® has matured into a polished, feature-rich, free-of-charge, open source operating system that meets the desktop or server needs of the beginner to the advanced user alike.
 
-PC-BSD® is essentially a customized installation of FreeBSD, not a forked derivative. Since the underlying FreeBSD system has been kept intact, you have a
-fully functional FreeBSD system under the hood. PC-BSD® provides a graphical installer which can be used to easily install a desktop or a server version of
-FreeBSD, known as TrueOS®. Other differences from FreeBSD include: 
+PC-BSD® is essentially a customized installation of FreeBSD, not a forked derivative. Since the underlying FreeBSD system has been kept intact, you have a fully functional FreeBSD system under the hood. PC-BSD® provides a graphical installer which can be used to easily install a desktop or a server version of FreeBSD, known as TrueOS®. Other differences from FreeBSD include: 
 
-* PC-BSD® pre-configures at least one desktop environment during a desktop installation. Installed desktops appear in the login menu, allowing the user to
-  select which desktop environment to log into.
+* PC-BSD® pre-configures at least one desktop environment during a desktop installation. Installed desktop environments appear in the login menu, allowing the user to select which environment to log into.
 
 * The PC-BSD® graphical installer supports additional features such as configuring ZFS and encryption during installation.
 
 * PC-BSD® provides a graphical software management system for the desktop and a command line equivalent for the server.
 
-* PC-BSD® provides a :ref:`Control Panel` of utilities for configuring the system. The graphical versions of these utilities are available on the desktop and
-  the command line versions are available on both the desktop and server.
+* PC-BSD® provides a :ref:`Control Panel` of utilities for configuring the system. The graphical versions of these utilities are available on both versions, the desktop and server.
 
 * PC-BSD® comes pre-configured with a number of automatic scripts to perform tasks such as connecting digital cameras or USB memory sticks.
 
-* The PC-BSD® boot menu supports boot environments, or snapshots of the operating system, and the PC-BSD® Update Manager automatically adds a new boot
-  environment to the boot menu before updating the operating system or software. This means that if an update fails, you can reboot into the previous version
-  of the operating system, before the update occurred.
+* The PC-BSD® boot menu supports boot environments, or snapshots of the operating system, and the PC-BSD® Update Manager automatically adds a new boot environment to the boot menu before updating the operating system or software. This means that if an update fails, you can reboot into the previous version of the operating system, before the update occurred.
 
-PC-BSD® started off as an independent project, but since October, 2006 PC-BSD® is financially backed and supported by the enterprise-class hardware
-solutions provider `iXsystems <http://www.ixsystems.com/>`_.
+PC-BSD® started off as an independent project, but since October, 2006 PC-BSD® is financially backed and supported by the enterprise-class hardware solutions provider `iXsystems <https://www.ixsystems.com/>`_.
 
 .. index:: features
 .. _Goals and Features:
