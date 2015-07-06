@@ -8,14 +8,14 @@ bs Bosanski
 bg български език
 ca Catalan
 zh_CN 汉语/漢語
-zh_HK 汉语/漢語_(香港)
-zh_TW 汉语/漢語_(臺灣)
+zh_HK 汉语/漢語 香港
+zh_TW 汉语/漢語 臺灣
 hr Hrvatski jezik
 cs čeština
 da Dansk
 nl Nederlands
-en_ZA English_(South Africa)
-en_GB English_(UK)
+en_ZA English South Africa
+en_GB English UK
 et Eesti Keel
 fi Suomi
 fr Français
@@ -44,7 +44,7 @@ nb Norwegian Bokmål
 fa فارسی
 pl Język polski
 pt Língua portuguesa
-pt_BR Língua portuguesa_(Brazil)
+pt_BR Língua portuguesa Brazil
 pa ਪੰਜਾਬੀ
 ro Daco-Romanian
 ru русский язык
