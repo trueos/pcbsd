@@ -52,8 +52,8 @@ check_autologin()
       sed -i "" "s/ghostbsd/${AUTOU}/g" ${FSMNT}/usr/local/share/PCDM/pcdm.conf
     else
       # Remmoving the auto-login & ghostbsd user line
-      sed -i "" "s/ENABLE_AUTO_LOGIN=TRUE/ENABLE_AUTO_LOGIN=FALSE/g" ${FSMNT}/usr/local/share/PCDM/pcdm.conf
-      sed -i "" "s/ghostbsd/no-username/g" ${FSMNT}/usr/local/share/PCDM/pcdm.conf
+      sed -i "" "s/ENABLE_AUTO_LOGIN=TRUE/ENABLE_AUTO_LOGIN=FALSE/g" ${FSMNT}/usr/local/share/PCDM/pcdm.conf.dist
+      sed -i "" "s/ghostbsd/no-username/g" ${FSMNT}/usr/local/share/PCDM/pcdm.conf.dist
     fi
   fi
 };

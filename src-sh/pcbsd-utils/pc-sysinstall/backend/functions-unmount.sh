@@ -237,7 +237,11 @@ setup_grub()
   if [ ! -d "${FSMNT}/boot/zfs/" ] ; then 
      rc_halt "mkdir ${FSMNT}/boot/zfs"
   fi
-  rc_halt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
+  
+  # GhostBSD doesn't use ZFS.
+  if [ -e "/boot/zfs/zpool.cache"] ; then
+    rc_halt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
+  fi
 
   if [ ! -e "${FSMNT}/boot/kernel/zfs" ] ; then
     rc_halt "ln -s ../zfs ${FSMNT}/boot/kernel/zfs"
@@ -321,7 +325,8 @@ setup_grub()
     # warnings / errors, need to investigate further
     rc_nohalt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
   else
-    rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+    # For some reason on GhostBSD this returns non-0 without EFI, but works perfectly fine with no
+    rc_nohalt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
   fi
 
   # Sleep and cleanup
