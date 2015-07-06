@@ -49,4 +49,3 @@ http://lists.pcbsd.org
 
 Bug Tracker
 http://bugs.pcbsd.org
-
