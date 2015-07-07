@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp git-hooks/* .git/hooks/
+
+echo "PC-BSD Git commit hooks enabled!"
