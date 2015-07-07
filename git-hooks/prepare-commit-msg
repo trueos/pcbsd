@@ -23,6 +23,7 @@
 cat >> ${1} << EOF
 # PC-BSD Commit Hooks
 #
+# PR:
 # Translate: NO
 #
 EOF
