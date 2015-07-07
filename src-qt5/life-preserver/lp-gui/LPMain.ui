@@ -402,19 +402,8 @@
      </property>
      <addaction name="actionPools_2"/>
     </widget>
-    <widget class="QMenu" name="menuEnable_Offsite_Backups">
-     <property name="title">
-      <string>Enable Offsite Backups</string>
-     </property>
-     <property name="icon">
-      <iconset resource="lPreserve.qrc">
-       <normaloff>:/images/upload.png</normaloff>:/images/upload.png</iconset>
-     </property>
-     <addaction name="actionPools_3"/>
-    </widget>
     <addaction name="menuManage_Pool"/>
     <addaction name="menuUnmanage_Pool"/>
-    <addaction name="menuEnable_Offsite_Backups"/>
     <addaction name="separator"/>
     <addaction name="action_SaveKeyToUSB"/>
     <addaction name="separator"/>
