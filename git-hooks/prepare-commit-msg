@@ -21,7 +21,10 @@
 # still be edited.  This is rarely a good idea.
 
 cat >> ${1} << EOF
-Translate: NO
+# PC-BSD Commit Hooks
+#
+# Translate: NO
+#
 EOF
 
 case "$2,$3" in
