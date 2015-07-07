@@ -128,9 +128,11 @@ QString DB::fetchInfo(QStringList request){
   }else if(request.length()==3){
     if(request[0]=="jail"){
       hashkey = "Jails/"+request[1];
-      if(request[2]=="id"){ hashkey.append("/JID"); }
+      if( static_cast<QStringList>(HASH->keys() ).filter(hashkey+"/").isEmpty() ){ hashkey.clear(); } //invalid jail
+      else if(request[2]=="id"){ hashkey.append("/JID"); }
       else if(request[2]=="ip"){ hashkey.append("/jailIP"); }
       else if(request[2]=="path"){ hashkey.append("/jailPath"); }
+      else if(request[3]=="all"){ hashkey.append("/iocage-all"); }
       else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
       if(request[1]=="search"){
@@ -831,26 +833,12 @@ void Syncer::syncJailInfo(){
   QStringList found;
   for(int i=1; i<jinfo.length() && !stopping; i++){ //skip the header line
     jinfo[i] = jinfo[i].replace("\t"," ").simplified();
-    //QString name = info[i].section(" ",2,2); //hostname
-    //found << name; //add it to the new list
-    //jails.removeAll(name); //remove from the old list
-    //bool haspkg = QFile::exists(info[i].section(" ",3,3)+"/usr/local/sbin/pkg-static");
-    //HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
-    //HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
-    //HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
-    //HASH->insert("Jails/"+name+"/haspkg",haspkg ? "true": "false" );
-    //qDebug() << "Jail Info:" << 
   }
-  //HASH->insert("JailList", found.join(LISTDELIMITER));
   if(stopping){ return; } //catch for if the daemon is stopping
-  //Remove any old jails from the hash
-  /*for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
-    clearJail(jails[i]); 
-  }*/
+  
   //Now also fetch the list of inactive jails on the system
   QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
-  //info = info.join("----").simplified().split("id: ");
   //qDebug() << "Warden Jail Info:" << info;
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
@@ -902,7 +890,8 @@ void Syncer::syncJailInfo(){
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
       else{ found << HOST; }
-      HASH->insert(prefix+"WID", ID); //Warden ID
+      HASH->insert(prefix+"WID", ID); //iocage ID
+      HASH->insert("iocage-all",tmp.join("<br>") );
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
       HASH->insert(prefix+"bridge-ipv4", BIPV4);
