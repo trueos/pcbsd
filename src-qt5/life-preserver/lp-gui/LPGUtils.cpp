@@ -1,5 +1,7 @@
 #include "LPGUtils.h"
 
+#include <unistd.h>
+
 LPDataset LPGUtils::loadPoolData(QString zpool){
   //Load the current information for the given zpool
   qDebug() << "[DEBUG] New Dataset: " << zpool;
@@ -284,6 +286,9 @@ QStringList LPGUtils::listAvailableHardDisks(){
 }
 
 QStringList LPGUtils::scanNetworkSSH(){
+  char chost[_POSIX_HOST_NAME_MAX];
+  gethostname(chost, _POSIX_HOST_NAME_MAX);
+  QString host = QString::fromLocal8Bit( chost ); //local hostname
   //Output format: <name>:::<address>::::<port>
   QStringList out;
   QStringList netout = LPBackend::getCmdOutput("avahi-browse -art");
@@ -299,7 +304,7 @@ QStringList LPGUtils::scanNetworkSSH(){
 	else if(var == "port"){ port = val; }
       }
       //Check that it is an SSH connection that is open (port 22)
-      if(port == "22"){ 
+      if(name!=host){
 	 out << name+":::"+address+":::"+port;
       }
     }

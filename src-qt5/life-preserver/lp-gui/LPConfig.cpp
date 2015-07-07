@@ -216,8 +216,8 @@ void LPConfig::checkForChanges(){
   newHosts.clear(); remHosts.clear();
   for(int i=0; i<origHosts.length(); i++){
     bool found = false;
-    for(int j=0; j<remoteHosts.length(); j++){
-      if( origHosts[i] == remoteHosts[j].host() ){ found = true; break;}
+    for(int j=0; j<remoteHosts.length() && !found; j++){
+      if( origHosts[i] == remoteHosts[j].host() ){ found = true; }
     }
     if(!found){ remHosts << origHosts[i]; } //Was removed
   }
@@ -225,6 +225,7 @@ void LPConfig::checkForChanges(){
     if( !origHosts.contains(remoteHosts[j].host()) ){ newHosts << remoteHosts[j].host(); }
   }
   newHosts.removeDuplicates();
+  if(!newHosts.isEmpty() || !remHosts.isEmpty()){ remoteChanged = true; }
   
   //Now apply any changes to the exclude lists
   QStringList tmp;
@@ -414,18 +415,15 @@ void LPConfig::AddRepHost(){
   //Ask the user to select a target
   QStringList targets;
   for(int i=0; i<targs.length(); i++){
-    targets << targs[i].section(":::",0,0);
+    targets << targs[i].section(":::",0,0) +" (port "+targs[i].section(":::",2,2)+")";
   }
   targets.removeDuplicates(); //remove any duplicates
-  char chost[_POSIX_HOST_NAME_MAX];
-  gethostname(chost, _POSIX_HOST_NAME_MAX);
-  QString host = QString::fromLocal8Bit( chost );
-  //qDebug() << "Hostname:" << host;
-  targets.removeAll( host ); //remove the local system from the list
-  if(targets.isEmpty()){ targets << ""; }
-  bool ok;
-  QString target = QInputDialog::getItem(this, tr("Identify Replication Target"), tr("Detected Hostname or custom IP:"), targets, 0, true, &ok);
-  if(!ok || target.isEmpty() ){ return; } //cancelled
+  targets << tr("<Custom IP>");
+  
+    bool ok;
+    QString target = QInputDialog::getItem(this, tr("Identify Replication Target"), tr("Detected Hostname or custom IP:"), targets, 0, true, &ok);
+    if(!ok || target.isEmpty() ){ return; } //cancelled
+  if(target.contains(" (")){ target = target.section("(",0,0).simplified(); } //remove any comment/info from the end
   //Now look for that target in the list of info
   LPRepHost H;
   for(int i=0; i<targs.length(); i++){
