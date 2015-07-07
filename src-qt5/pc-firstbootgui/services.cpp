@@ -20,6 +20,18 @@ QList<service> Services::getServiceList(){
     //S.cmds << ""; //optional extra commands
     out << S;
   }
+  //DISABLE IPV6
+  if(QFile::exists("/etc/rc.conf")){
+    service S;
+    S.ID = "DISABLE-IPV6";
+    S.file = "/etc/rc.conf"; //This file needs to exist to show/start this service
+    S.name = QObject::tr("Disable IPV6");
+    S.description = QObject::tr("Disable the use of IPV6 connections");
+    //S.openPorts
+    S.rcLines << "ipv6_activate_all_interfaces=NO";
+    //S.cmds << "service netif restart"; //optional extra commands
+    out << S;
+  }
 	
   return out;
 }
