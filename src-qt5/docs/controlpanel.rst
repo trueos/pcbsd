@@ -2479,42 +2479,13 @@ The "Replication" tab, is shown in Figure 8.19i.
 
 .. image:: images/lpreserver22.png
 
-If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. If you have another system available
-which is running the same version of ZFS and has SSH enabled, click the "+SSH" box. Life Preserver will scan the network for systems running SSHD and, if the scan is
-successful, a pop-up menu will show the hostnames of the available systems. Select the desired system, press "OK", and its IP address will be displayed in the drop-down
-menu to the left of the "+SSH" button and the rest of this screen will be activated. Note that this scan requires UDP port 5353 to be open on any firewalls on or
-between the PC-BSD® and the remote system.
+If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. Life Preserver supports two replication schemes:
 
-.. note:: **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
-          demonstrated in :ref:`Backing Up to a FreeNAS System`.
+* Replication to another system which is running the same version of ZFS and has SSH enabled. When this method is used, the replicated data is sent over an encrypted connection but 
+  is stored unencrypted on the other system. Refer to :ref:`Backing Up to a FreeNAS System` for an example configuration.
 
-* **User Name:** this user must have permission to log in to the system that will hold the backup. If the account does not already exist, you should create it
-  first on the backup server.
-
-* **SSH Port:** port 22, the default port used by SSH is selected for you. You only need to change this if the remote system is using a non-standard port to
-  listen for SSH connections. In that case, use the up/down arrows or type in the port number.
-
-* **Remote Dataset:** input the name of an existing ZFS dataset on the backup server. This is where the backups will be stored. To get a list of existing
-  datasets, type :command:`zfs list` on the remote server. The "NAME" column in the output of that command gives the fullname of each dataset. Type the
-  fullname of the desired dataset into this field. When selecting a dataset, make sure that the selected "User Name" has permission to write to the dataset.
-
-* **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
-
-Once you enter the information and press "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
-second pop-up message will remind you to save the SSH key to a USB stick (as described in :ref:`Life Preserver Options`) as this key is required for
-:ref:`Restoring the Operating System`.
-
-.. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
-   not preventing access to the configured "SSH Port".
-
-Once you configure replication, Life Preserver will begin to replicate that snapshot to the
-remote system. Note that the first replication can take several hours to complete, depending upon the speed of the network. Subsequent replications will only
-have changed data and will be much smaller.
-
-Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
-until the replication is finished and it will not start a second replication before the first replication finishes.
-
-To instead send a copy of snapshots to an iSCSI target, refer to :ref:`Configuring Encrypted Backups`.
+* Replication to an iSCSI target. This method provides the most security as the replicated data is sent over an encrypted connection and the data is stored in an encrypted format.
+  The remote system does not need to be formatted with ZFS but stunnel must be installed. Refer to :ref:`Configuring Encrypted Backups` for an example configuration.
 
 The "Scrub" tab, shown in Figure 8.19j,
 
@@ -2548,9 +2519,6 @@ The "File" menu contains the following options:
 * **Unmanage Pool:** if you wish to disable ZFS snapshots, select the ZFS pool name. Pop-up menus will ask if you are sure and then ask if you also want to
   delete the local snapshots from the system. If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those
   backups. Once you have unmanaged a pool, you will need to use "Manage Pool" to rerun the Life Preserver Configuration Wizard for that pool.
-
-* **Enable Offsite Backups:** used to configure fully-encrypted backups, where the data is stored as encrypted on the backup server. Refer to
-  :ref:`Configuring Encrypted Backups` for instructions.
 
 * **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH
   key to a USB stick. Insert a FAT32 formatted USB stick and wait for :ref:`Mount Tray` to mount it. Then, click this option to copy the key.
@@ -2618,159 +2586,6 @@ The options available in this menu are:
   :command:`zpool status`. When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing
   disk. If you are getting errors, consider backing up your data and replacing the failing disk. Since a scrub is I/O intensive, it is recommended to start
   the scrub when the system is not in use, such as before going to bed. Depending upon the size of the pool, the scrub may take some time.
-
-.. index:: backup
-.. _Using the lpreserver CLI:
-
-Using the lpreserver CLI
-------------------------
-
-The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system. This
-command needs to be run as the superuser. To display its usage, type the command without any arguments::
-
- lpreserver
- Life-Preserver 
- --------------------------------- 
- Available commands 
- Type in help <command> for information and usage about that command
-       help - This help file or the help for the specified command
-   cronsnap - Schedule snapshot creation via cron
-  cronscrub - Shcedule scrub via cron
-        get - Get list of lpreserver options
-   listcron - Listing of scheduled snapshots
-   listsnap - List snapshots of a zpool/dataset
-     mksnap - Create a ZFS snapshot of a zpool/dataset
-  replicate - Enable / Disable ZFS replication to a remote system
- revertsnap - Revert zpool/dataset to a snapshot
-     rmsnap - Remove a snapshot
-        set - Set lpreserver options
-     status - List datasets, along with last snapshot / replication date 
-      zpool - Manage a zpool by attaching / detaching disks
-
-Each command has its own help text that describes its parameters and provides a usage example. For example, to receive help on how to use the
-:command:`lpreserver cronsnap` command, type::
-
- lpreserver help cronsnap
- Life-Preserver
- ---------------------------------
- Help cronsnap
- Schedule a ZFS snapshot
- Usage:
- For a listing of all scheduled snapshots
- # lpreserver listcron
- or
- To start / stop snapshot scheduling
- # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
- action = start / stop
- frequency = auto / daily@XX / hourly / 30min / 10min / 5min
-                          ^^ Hour to execute
-
- numToKeep = Number of snapshots to keep total
-
- NOTE: When Frequency is set to auto the following will take place:
- * Snapshots will be created every 5 minutes and kept for an hour.
- * A hourly snapshot will be kept for a day.
- * A daily snapshot will be kept for a month.
- * A Monthly snapshot will be kept for a year.
- * The life-preserver daemon will also keep track of the zpool disk space,
-   if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
-
- Example:
- lpreserver cronsnap tank1/usr/home/kris start daily@22 10
- or
- lpreserver cronsnap tank1/usr/home/kris stop
-
-Table 8.19a shows the command line equivalents to the graphical options provided by the Life Preserver GUI. Note that some options are only available from the
-command line.
-
-**Table 8.19a: Command Line and GUI Equivalents** 
-
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **Command Line**  | **GUI**                                       | **Description**                                                                        |
-+===================+===============================================+========================================================================================+
-| **cronsnap**      | :menuselection:`Configure --> Local Snapshots`| schedule when snapshots occur and how long to keep them; the **stop** option can be    |
-|                   |                                               | used to disable snapshot creation                                                      |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **cronscrub**     |                                               | schedule a ZFS scrub                                                                   |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **get**           |                                               | list Life Preserver options                                                            |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **listcron**      |                                               | list which ZFS pools have a scheduled snapshot                                         |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **listsnap**      | Restore Data                                  | list snapshots of specified dataset                                                    |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **mksnap**        | :menuselection:`Snapshots --> New Snapshot`   | create and replicate a new ZFS snapshot; by default, snapshots are recursive, meaning  |
-|                   |                                               | that a snapshot is taken of every dataset within a pool                                |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **replicate**     | :menuselection:`Configure --> Replication`    | used to list, add, and remove backup server; read the **help** for this command for    |
-|                   |                                               | examples                                                                               |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **revertsnap**    |                                               | revert dataset to the specified snapshot version                                       |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **rmsnap**        | :menuselection:`Snapshots --> Delete Snapshot`| deletes specified snapshot; by default, all datasets within the snapshot are deleted   |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **set**           |                                               | configures Life Preserver options; read **help** for the list of configurable options  |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **status**        | Status                                        | lists the last snapshot name and replication status                                    |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **zpool**         | :menuselection:`Disks --> Attach Disk` and    | used to attach/detach drives from the pool; read **help** for examples                 |
-|                   | :menuselection:`Disks --> Detach Disk`        |                                                                                        |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-
-.. index:: backup
-.. _Mirroring the System to a Local Disk:
-
-Mirroring the System to a Local Disk 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In addition to replicating to a remote server, the :command:`lpreserver` command also provides a method for attaching a new disk drive to an existing ZFS
-pool, and live-mirroring all data to that disk as data changes on the pool. The attached disk drive can be another internal disk or an external USB disk. When
-the new disk is attached for the first time, it will be erased and used solely as a mirror of the existing system drive. In addition, it will be made
-bootable, allowing you to boot from and use the new disk should the primary disk fail. In order to use this feature you will need the following: 
-
-* an internal or external disk drive that is the same size or larger than the existing system disk.
-
-* since the disk will be formatted, it must be either blank or not have any data that you wish to keep intact.
-
-* in order to boot from the disk should the primary disk fail, the system must support booting from the new disk. For example, if you are using a USB disk,
-  make sure that the BIOS is able to boot from a USB disk.
-
-The superuser can setup the new disk using the following command. Replace *tank1* with the name of your ZFS pool and */dev/da0* with the name of the disk to
-format. For example, the first USB disk will be */dev/da0* and the second internal hard disk will be */dev/ad1*::
-
- lpreserver zpool attach tank1 /dev/da0
-
-When the disk is first attached, it will be formatted with ZFS and configured to mirror the size of the existing disk. GRUB will also be stamped on the new
-disk, making it bootable should another drive in the array go bad. You can add multiple disks to the pool in this manner, giving any level of redundancy that
-you require.
-
-Once the disk is attached, it will begin to resilver. This process mirrors the data from the primary disk to the newly attached disk. This may take a while,
-depending upon the speed of the disks and system load. Until this is finished you should not reboot the system, or detach the disk. You can monitor the
-resilvering process by typing :command:`zpool status`.
-
-To get a listing of the disks in your mirror, run this command, replacing *tank1* with the name of the pool::
-
- lpreserver zpool list tank1
-
-If you are using an external drive, there may be occasions where you wish to disconnect the backup drive, such as when using a laptop and going on the road.
-In order to so this safely, it is recommended that you first offline the external disk using the following command::
-
- lpreserver zpool offline tank1 /dev/da0
-
-Then when you re-connect the drive, you can place it in online mode again using::
-
- lpreserver zpool online tank1 /dev/da0
-
-Sometimes, the disk name will change as a result of being disconnected. The :command:`lpreserver zpool list tank1` command can be used to get the proper
-device ID.
-
-If you wish to permanently remove a disk from the mirror, run the following command. If you decide to re-attach this disk later, a full disk copy will again
-have to be performed::
-
- lpreserver zpool detach tank1 /dev/da0
-
-.. note:: in addition to working with mirrors, the :command:`lpreserver zpool` command can also be used to manage a RAIDZ configuration, although you will
-   probably not want to use external disks in this case.
 
 .. index:: backup
 .. _Backing Up to a FreeNAS System:
@@ -2849,6 +2664,40 @@ should be prompted for the user's password and to save a copy of the SSH key to 
 
 If the system has already been configured, go to :menuselection:`Configure --> Replication` and click the "+" button to select the hostname of the FreeNAS® system.
 If needed, input or correct the information in the "User Name" and the "Remote Dataset" fields and select the desired replication frequency in the "Frequency" drop-down menu.
+
+, click the "+SSH" box. Life Preserver will scan the network for systems running SSHD and, if the scan is
+successful, a pop-up menu will show the hostnames of the available systems. Select the desired system, press "OK", and its IP address will be displayed in the drop-down
+menu to the left of the "+SSH" button and the rest of this screen will be activated. Note that this scan requires UDP port 5353 to be open on any firewalls on or
+between the PC-BSD® and the remote system.
+
+.. note:: **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
+          demonstrated in .
+
+* **User Name:** this user must have permission to log in to the system that will hold the backup. If the account does not already exist, you should create it
+  first on the backup server.
+
+* **SSH Port:** port 22, the default port used by SSH is selected for you. You only need to change this if the remote system is using a non-standard port to
+  listen for SSH connections. In that case, use the up/down arrows or type in the port number.
+
+* **Remote Dataset:** input the name of an existing ZFS dataset on the backup server. This is where the backups will be stored. To get a list of existing
+  datasets, type :command:`zfs list` on the remote server. The "NAME" column in the output of that command gives the fullname of each dataset. Type the
+  fullname of the desired dataset into this field. When selecting a dataset, make sure that the selected "User Name" has permission to write to the dataset.
+
+* **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
+
+Once you enter the information and press "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
+second pop-up message will remind you to save the SSH key to a USB stick (as described in :ref:`Life Preserver Options`) as this key is required for
+:ref:`Restoring the Operating System`.
+
+.. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
+   not preventing access to the configured "SSH Port".
+
+Once you configure replication, Life Preserver will begin to replicate that snapshot to the
+remote system. Note that the first replication can take several hours to complete, depending upon the speed of the network. Subsequent replications will only
+have changed data and will be much smaller.
+
+Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
+until the replication is finished and it will not start a second replication before the first replication finishes.
 
 .. index:: backup
 .. _Configuring Encrypted Backups:
@@ -3203,6 +3052,159 @@ After making your selection, click "Next". The restore wizard will provide a sum
 associated with the replication, and the hostname of the target system. Click "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At
 this point, you can click the "Customize" button to customize the disk options. However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed
 out as they will be recreated from the backup during the restore. Once you are finished any customizations, click "Next" to perform the restore.
+
+.. index:: backup
+.. _Using the lpreserver CLI:
+
+Using the lpreserver CLI
+------------------------
+
+The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system. This
+command needs to be run as the superuser. To display its usage, type the command without any arguments::
+
+ lpreserver
+ Life-Preserver 
+ --------------------------------- 
+ Available commands 
+ Type in help <command> for information and usage about that command
+       help - This help file or the help for the specified command
+   cronsnap - Schedule snapshot creation via cron
+  cronscrub - Shcedule scrub via cron
+        get - Get list of lpreserver options
+   listcron - Listing of scheduled snapshots
+   listsnap - List snapshots of a zpool/dataset
+     mksnap - Create a ZFS snapshot of a zpool/dataset
+  replicate - Enable / Disable ZFS replication to a remote system
+ revertsnap - Revert zpool/dataset to a snapshot
+     rmsnap - Remove a snapshot
+        set - Set lpreserver options
+     status - List datasets, along with last snapshot / replication date 
+      zpool - Manage a zpool by attaching / detaching disks
+
+Each command has its own help text that describes its parameters and provides a usage example. For example, to receive help on how to use the
+:command:`lpreserver cronsnap` command, type::
+
+ lpreserver help cronsnap
+ Life-Preserver
+ ---------------------------------
+ Help cronsnap
+ Schedule a ZFS snapshot
+ Usage:
+ For a listing of all scheduled snapshots
+ # lpreserver listcron
+ or
+ To start / stop snapshot scheduling
+ # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
+ action = start / stop
+ frequency = auto / daily@XX / hourly / 30min / 10min / 5min
+                          ^^ Hour to execute
+
+ numToKeep = Number of snapshots to keep total
+
+ NOTE: When Frequency is set to auto the following will take place:
+ * Snapshots will be created every 5 minutes and kept for an hour.
+ * A hourly snapshot will be kept for a day.
+ * A daily snapshot will be kept for a month.
+ * A Monthly snapshot will be kept for a year.
+ * The life-preserver daemon will also keep track of the zpool disk space,
+   if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
+
+ Example:
+ lpreserver cronsnap tank1/usr/home/kris start daily@22 10
+ or
+ lpreserver cronsnap tank1/usr/home/kris stop
+
+Table 8.19a shows the command line equivalents to the graphical options provided by the Life Preserver GUI. Note that some options are only available from the
+command line.
+
+**Table 8.19a: Command Line and GUI Equivalents** 
+
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **Command Line**  | **GUI**                                       | **Description**                                                                        |
++===================+===============================================+========================================================================================+
+| **cronsnap**      | :menuselection:`Configure --> Local Snapshots`| schedule when snapshots occur and how long to keep them; the **stop** option can be    |
+|                   |                                               | used to disable snapshot creation                                                      |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **cronscrub**     |                                               | schedule a ZFS scrub                                                                   |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **get**           |                                               | list Life Preserver options                                                            |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **listcron**      |                                               | list which ZFS pools have a scheduled snapshot                                         |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **listsnap**      | Restore Data                                  | list snapshots of specified dataset                                                    |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **mksnap**        | :menuselection:`Snapshots --> New Snapshot`   | create and replicate a new ZFS snapshot; by default, snapshots are recursive, meaning  |
+|                   |                                               | that a snapshot is taken of every dataset within a pool                                |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **replicate**     | :menuselection:`Configure --> Replication`    | used to list, add, and remove backup server; read the **help** for this command for    |
+|                   |                                               | examples                                                                               |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **revertsnap**    |                                               | revert dataset to the specified snapshot version                                       |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **rmsnap**        | :menuselection:`Snapshots --> Delete Snapshot`| deletes specified snapshot; by default, all datasets within the snapshot are deleted   |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **set**           |                                               | configures Life Preserver options; read **help** for the list of configurable options  |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **status**        | Status                                        | lists the last snapshot name and replication status                                    |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **zpool**         | :menuselection:`Disks --> Attach Disk` and    | used to attach/detach drives from the pool; read **help** for examples                 |
+|                   | :menuselection:`Disks --> Detach Disk`        |                                                                                        |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+
+.. index:: backup
+.. _Mirroring the System to a Local Disk:
+
+Mirroring the System to a Local Disk 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In addition to replicating to a remote server, the :command:`lpreserver` command also provides a method for attaching a new disk drive to an existing ZFS
+pool, and live-mirroring all data to that disk as data changes on the pool. The attached disk drive can be another internal disk or an external USB disk. When
+the new disk is attached for the first time, it will be erased and used solely as a mirror of the existing system drive. In addition, it will be made
+bootable, allowing you to boot from and use the new disk should the primary disk fail. In order to use this feature you will need the following: 
+
+* an internal or external disk drive that is the same size or larger than the existing system disk.
+
+* since the disk will be formatted, it must be either blank or not have any data that you wish to keep intact.
+
+* in order to boot from the disk should the primary disk fail, the system must support booting from the new disk. For example, if you are using a USB disk,
+  make sure that the BIOS is able to boot from a USB disk.
+
+The superuser can setup the new disk using the following command. Replace *tank1* with the name of your ZFS pool and */dev/da0* with the name of the disk to
+format. For example, the first USB disk will be */dev/da0* and the second internal hard disk will be */dev/ad1*::
+
+ lpreserver zpool attach tank1 /dev/da0
+
+When the disk is first attached, it will be formatted with ZFS and configured to mirror the size of the existing disk. GRUB will also be stamped on the new
+disk, making it bootable should another drive in the array go bad. You can add multiple disks to the pool in this manner, giving any level of redundancy that
+you require.
+
+Once the disk is attached, it will begin to resilver. This process mirrors the data from the primary disk to the newly attached disk. This may take a while,
+depending upon the speed of the disks and system load. Until this is finished you should not reboot the system, or detach the disk. You can monitor the
+resilvering process by typing :command:`zpool status`.
+
+To get a listing of the disks in your mirror, run this command, replacing *tank1* with the name of the pool::
+
+ lpreserver zpool list tank1
+
+If you are using an external drive, there may be occasions where you wish to disconnect the backup drive, such as when using a laptop and going on the road.
+In order to so this safely, it is recommended that you first offline the external disk using the following command::
+
+ lpreserver zpool offline tank1 /dev/da0
+
+Then when you re-connect the drive, you can place it in online mode again using::
+
+ lpreserver zpool online tank1 /dev/da0
+
+Sometimes, the disk name will change as a result of being disconnected. The :command:`lpreserver zpool list tank1` command can be used to get the proper
+device ID.
+
+If you wish to permanently remove a disk from the mirror, run the following command. If you decide to re-attach this disk later, a full disk copy will again
+have to be performed::
+
+ lpreserver zpool detach tank1 /dev/da0
+
+.. note:: in addition to working with mirrors, the :command:`lpreserver zpool` command can also be used to manage a RAIDZ configuration, although you will
+   probably not want to use external disks in this case.
 
 .. index:: bug
 .. _Report a bug:
