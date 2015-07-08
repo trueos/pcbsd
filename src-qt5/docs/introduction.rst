@@ -242,7 +242,7 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "Re-Initialize Replications" option has been added to the "Snapshots" menu of Life Preserver.
 
-* The :command:`lpreserver-host-iscsi` script has been added for configuring :ref:`Configuring Encrypted Backups`. This new functionality provides an extra measure of security
+* The :command:`lpreserver-host-iscsi` script has been added for configuring :ref:`Replicating Encrypted Backups`. This new functionality provides an extra measure of security
   to replicated backups by adding support for fully-encrypted backups, using stunnel and GELI-backed iSCSI volumes. This means that the data stored on the remote side is
   encrypted and only accessibly with the key file stored on the PC-BSD® client.
 
