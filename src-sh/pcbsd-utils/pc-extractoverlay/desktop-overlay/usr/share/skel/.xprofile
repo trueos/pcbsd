@@ -7,6 +7,9 @@ export XDG_DATA_DIRS
 XDG_CONFIG_DIRS="/usr/local/etc/xdg"
 export XDG_CONFIG_DIRS
 
+#Load any Xterm settings
+xrdb ~/.Xresources
+
 # Check for any specific PC-BSD apps we need to start at login
 for i in $(ls /usr/local/share/pcbsd/xstartup/*.sh)
 do
