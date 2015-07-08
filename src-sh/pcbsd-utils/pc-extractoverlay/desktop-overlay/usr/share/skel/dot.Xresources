@@ -2,7 +2,7 @@
 
 xterm*reverseVideo:	  true
 xterm*VT100.geometry:     80x25
-xterm*faceName:           Liberation Mono
+xterm*faceName:           Noto Sans
 xterm*faceSize:           10
 xterm*dynamicColors:      true
 xterm*utf8:               2
