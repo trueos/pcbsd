@@ -305,6 +305,7 @@ new_gpart_partitions()
     else
       rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     fi
+    dd if=/dev/zero of=${_wSlice} bs=1m count=5 >/dev/null 2>/dev/null
     rc_halt "gpart create -s BSD ${_wSlice}"
     _pType="mbr"
   elif [ "${_pType}" = "freegpt" ] ; then
@@ -508,7 +509,7 @@ new_gpart_partitions()
       else
         sleep 2
 	# MBR type
-        aCmd="gpart add ${SOUT} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
       fi
 
       # Run the gpart add command now
