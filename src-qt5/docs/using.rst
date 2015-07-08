@@ -433,7 +433,7 @@ disable sound during the connection.
 need to change the settings at a later time, you can right-click the connection (which will appear in a list as a past connection) and choose "Settings" from
 the right-click menu.
 
-**Remember password:** `KWallet < https://utils.kde.org/projects/kwalletmanager/>`_ is KDE's password storage system. If this box stays checked, you will only
+**Remember password:** `KWallet <https://utils.kde.org/projects/kwalletmanager/>`_ is KDE's password storage system. If this box stays checked, you will only
 need to input the password the first time you make this connection as it will be saved for you. If this is the first time you have stored a password using
 KWallet, it will prompt you for some information to set up your wallet.
 

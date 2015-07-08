@@ -196,7 +196,7 @@ to network with each other. Anyone is welcome to join.
 
 * `Official PC-BSD® Blog <http://blog.pcbsd.org/>`_
 
-* `PC-BSD® on Twitter < https://twitter.com/PCBSD/>`_
+* `PC-BSD® on Twitter <https://twitter.com/PCBSD/>`_
 
 * `PC-BSD® Facebook Group <http://www.facebook.com/group.php?gid=4210443834>`_
 
@@ -246,7 +246,7 @@ The following BSD sites and resources may also contain useful information:
 
 * `BSD Now <http://www.bsdnow.tv/>`_
 
-* `BSD Magazine http://bsdmag.org/>`_ (free, monthly download) 
+* `BSD Magazine <http://bsdmag.org/>`_ (free, monthly download) 
 
 * `FreeBSD Journal <http://www.freebsdjournal.com/>`_ (bi-monthly magazine) 
 
