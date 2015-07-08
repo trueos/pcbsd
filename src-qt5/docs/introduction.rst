@@ -299,6 +299,10 @@ automatically updated.
 * The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
   wizard offering to open the advanced configuration options so that replication can be configured.
 
+* Life Preserver's "Local Snapshots" tab now allows you to create a list of datasets to exclude when creating snapshots.
+
+* Life Preserver's "Replication" tab now allows you to create a list of datasets to exclude when replicating to the remote server.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 
