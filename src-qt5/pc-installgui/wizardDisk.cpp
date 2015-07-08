@@ -1074,6 +1074,14 @@ void wizardDisk::generateCustomDiskLayout()
     targetLoc = 2;
   }
 
+  // Check if this is an install to "Unused Space"
+  for (int z=0; z < sysDisks.count(); ++z)
+     if ( sysDisks.at(z).at(0) == "SLICE" \
+       && sysDisks.at(z).at(2) == targetDisk + targetSlice \
+       && sysDisks.at(z).at(4) == "Unused Space" ) {
+       targetSlice = "free";
+     }
+
   // Start building the ZFS file-systems
   QStringList zMnts;
   fsType = "ZFS";
