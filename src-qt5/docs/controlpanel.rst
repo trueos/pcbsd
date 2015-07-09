@@ -2327,8 +2327,8 @@ wireless works and offers some troubleshooting suggestions.
 Life Preserver
 ==============
 
-The built-in Life Preserver utility was designed to take full advantage of ZFS snapshot functionality. This utility allows you to schedule snapshots of a
-local ZFS pool and to optionally replicate those snapshots to another system using SSH. This design provides several benefits: 
+The built-in Life Preserver utility was designed to take full advantage of the functionality provided by ZFS snapshots. This utility allows you to schedule snapshots of a
+local ZFS pool and to optionally replicate those snapshots to another system over an encrypted connection. This design provides several benefits: 
 
 * A snapshot provides a "point-in-time" image of the ZFS pool. In one way, this is similar to a full system backup as the snapshot contains the information
   for the entire filesystem. However, it has several advantages over a full backup. Snapshots occur instantaneously, meaning that the filesystem does not need
@@ -2338,25 +2338,13 @@ local ZFS pool and to optionally replicate those snapshots to another system usi
   the point-in-time for the version of the file that you need. Life Preserver makes it easy to configure when snapshots are taken and provides a built-in
   graphical browser for finding and restoring the files within a snapshot.
 
-* Replication is an efficient way to keep the files on two systems in sync. In the case of Life Preserver, the snapshots taken on the PC-BSD system will be
+* Replication is an efficient way to keep the files on two systems in sync. In the case of Life Preserver, the snapshots taken on the PC-BSD® system will be
   synchronized with their versions stored on the backup server.
 
-* SSH means that the snapshots will be sent to the backup server oven an encrypted connection, which protects the contents of the snapshots.
+* Snapshots are sent to the backup server oven an encrypted connection and can optionally be stored in an encrypted format, which protects the contents of the snapshots.
 
-* Having a copy of the snapshots on another system makes it possible to restore the pool should your PC-BSD® system become unusable.
-
-If you decide to replicate the snapshots to a backup server, keep the following points in mind when choosing which system to use as the backup server: 
-
-* The backup server **must be formatted with the latest version of ZFS,** also known as ZFS feature flags or ZFSv5000. Operating systems that support this
-  version of ZFS include PC-BSD® and FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
-
-* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD®, SSH is already installed and you can start
-  SSH using :ref:`Service Manager`. If that system is running FreeNAS®, SSH is already installed and how to configure this service is described in
-  :ref:`Backing Up to a FreeNAS System`. If the system is running FreeBSD, SSH is already installed, but you will need to start SSH.
-
-* If the backup server is running PC-BSD®, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
-  firewall has been configured, add a rule to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default. Also, if there is a
-  network firewall between the PC-BSD® system and the backup system, make sure it has a rule to allow SSH.
+* Having a copy of the snapshots on another system makes it possible to perform an operating system restore should the PC-BSD® system become unusable or to deploy an identical system
+  to different hardware.
 
 .. index:: backup
 .. _Scheduling a Backup:
@@ -2375,7 +2363,11 @@ If you right-click this icon, the following options are available:
 * **Open Life Preserver:** starts Life Preserver, which will prompt for your password. The first time this utility is run, it will display the screen shown in
   Figure 8.19b.
 
-* **View Messages:** opens a pop-up menu to display information messages and the Life Preserver log file. There won't be any until after Life Preserver is
+**Figure 8.19b: Initial Life Preserver Screen**
+
+.. image:: images/lpreserver2.png
+
+* **View Messages:** opens a pop-up menu to display information messages and the Life Preserver log file. There won't be any messages until after Life Preserver is
   configured and starts to create backups. If a configured Life Preserver task fails, such as replication, check the "Log Files" tab.
 
 * **Popup Settings:** configures Life Preserver to display its notifications over the Life Preserver icon. Choices are "Show all", which includes
@@ -2383,7 +2375,7 @@ If you right-click this icon, the following options are available:
   pop-up notification. The default setting is "Warnings only". This setting does not affect critical messages which will always open a window that requires
   attention.
 
-* **Refresh Tray:** by default, Life Preserver checks the status of the pool and available disk space every 30 minutes. Click this option to check the current
+* **Refresh Tray:** by default, Life Preserver checks the status of the pool and available disk space every 5 minutes. Click this option to check the current
   status of a scrub or to check the current disk space after removing a snapshot.
 
 * **Close Tray:** will remove the icon from the system tray. To re-add it to the tray, go to :menuselection:`Control Panel --> Life Preserver` or type
@@ -2392,10 +2384,6 @@ If you right-click this icon, the following options are available:
 
 The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
 the current status of the running task.
-
-**Figure 8.19b: Initial Life Preserver Screen**
-
-.. image:: images/lpreserver2.png
 
 To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
 named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
@@ -2437,15 +2425,12 @@ the system will not be in heavy use. When you are finished, click "Next" to see 
 
 .. image:: images/lpreserver21.png
 
-This screen provides the option to finish the configuration now, if you only plan to store your backups on this system or you have not yet configured another system to
-back up to, or to continue on to the advanced options, if you wish to replicate your backups to another system on the network which has already been prepared for this
-purpose. To finish the configuration now, click "Finish" which will save your configuration, exit the wizard, take a system snapshot, and move on to the screen shown
+This screen provides the option to finish the configuration now or to continue on to the advanced options. If you only plan to store snapshots on this system or you have not
+yet configured another system to back up to, click "Finish" which will save your configuration, exit the wizard, take a system snapshot, and move on to the screen shown
 in Figure 8.19g.
 
-To instead configure replication of the backups to another system, check the box for "Proceed directly to the advanced configuration options" before clicking "Finish".
-This will open the screen shown in Figure 8.19h.
-
-The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.
+If you wish to replicate your backups to another system on the network which has already been prepared for this purpose, check the box for "Proceed directly to the advanced
+configuration options" before clicking "Finish". This will open the screen shown in Figure 8.19h so that you can configure the replication settings.
 
 .. index:: backup
 .. _Life Preserver Options:
@@ -2453,25 +2438,28 @@ The rest of this section demonstrates the tasks that can be performed from the L
 Life Preserver Options
 ----------------------
 
-Once the backup schedule has been created, the "Status" tab shown in Figure 8.19g will become active and will show the current state of the pool. The
-"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19g.
+Once the snapshot schedule has been created, the "Status" tab shown in Figure 8.19g will become active and will show the name of the latest snapshot. If you have scheduled a
+scrub or replication, it will also show the status of the last running scheduled task. In this example, the ZFS pool is active, is comprised of one disk, and the date and time
+of the last snapshot indicates that it was created on June 23 at 1:55 in the afternoon. The most recent scheduled scrub occurred on June 3 at 10:52 in the evening and the green
+status indicates that it completed without finding any disk errors.
 
-**Figure 8.19g: Life Preserver in Advanced View**
+**Figure 8.19g: Life Preserver's Basic View**
 
 .. image:: images/lpreserver6a.png
 
-In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
-the latest most recent scrub was successful as it did not find any disk errors.
+The "View" menu lets you select "Basic" or "Advanced" view. Clicking "Advanced" view will add the "Snapshots" and "Disks" tabs to the menu bar.
 
 If you click the "Configure" button, or if you checked the box to "Proceed directly to the advanced configuration options" in the wizard, the screen shown in Figure 8.19h
 will open. 
 
 **Figure 8.19h: Modifying the Snapshot Schedule**
 
-.. image:: images/lpreserver7.png
+.. image:: images/lpreserver7a.png
 
-The Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
-to keep them.
+The "Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
+to keep them. To configure a list of datasets to exclude from the snapshot, click the "+" button which will display the list of available dataets. Select a dataset to
+add it to the "Excluded" section. Repeat for any datasets that you do not wish to backup. To remove a dataset from the excluded list, so that it is added back to the
+snapshot schedule, highlight its entry in the "Excluded" section and click the "-" button.
 
 The "Replication" tab, is shown in Figure 8.19i.
 
@@ -2482,19 +2470,29 @@ The "Replication" tab, is shown in Figure 8.19i.
 If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. Life Preserver supports two replication schemes:
 
 * Replication to another system which is running the same version of ZFS and has SSH enabled. When this method is used, the replicated data is sent over an encrypted connection but 
-  is stored unencrypted on the other system. Refer to :ref:`Backing Up to a FreeNAS System` for an example configuration.
+  is stored unencrypted on the other system. Refer to :ref:`Replication over SSH` for an example configuration.
 
 * Replication to an iSCSI target. This method provides the most security as the replicated data is sent over an encrypted connection and the data is stored in an encrypted format.
-  The remote system does not need to be formatted with ZFS but stunnel must be installed. Refer to :ref:`Configuring Encrypted Backups` for an example configuration.
+  The remote system does not need to be formatted with ZFS but stunnel must be installed. Refer to :ref:`Replicating Encrypted Backups` for an example configuration.
 
-The "Scrub" tab, shown in Figure 8.19j,
+To exclude datasets from the snapshot from being replicated to the remote system, click the "Excluded Data" tab. This will let you create an exclude list as described in the
+"Local Snapshots" tab.
+
+.. note:: datasets which are excluded in the "Local Snapshots" tab are not backed up at all, and thus cannot be replicated. However, you do not have to replicate every dataset
+          in the backup as you can use :menuselection:`Replication --> Excluded Data` to configure which datasets to exclude from the replication.
+
+The "Scrub" tab, shown in Figure 8.19j, can be used to modify the scrub schedule. It is a good idea to create a scrub schedule to verify the integrity of the ZFS pool.
+Typically, it is recommended to run a scrub once a week or before adding more disks to a pool. The status and results of a running scrub can be viewed from the command line by
+typing :command:`zpool status`. When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing
+disk. If you are getting errors, consider backing up your data and replacing the failing disk. Since a scrub is I/O intensive, it is recommended to schedule
+the scrub when the system is not in use, such as the early morning hours. Depending upon the size of the pool, the scrub may take some time.
 
 **Figure 8.19j: Modifying the Scrub Schedule**
 
 .. image:: images/lpreserver23.png
 
-The "Restore Data" tab, seen in Figure 8.19k, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
-or deleted.
+The "Restore Data" tab, seen in Figure 8.19k, is used to view the contents of the local snapshots. This allows you to easily restore any file which has been modified
+or deleted since a snapshot occurred.
 
 **Figure 8.19k: Viewing the Contents of the Snapshots**
 
@@ -2547,7 +2545,10 @@ Use :menuselection:`Classic Backups --> Extract Home Dir` to restore a previousl
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
 restore files without destroying the current versions, use the "Restore Data" tab instead.
 
-The "Snapshots" menu allows you to manage snapshots and replication outside of their configured schedules. This tab contains these options: 
+The "Snapshots" menu allows you to manage snapshots and replication outside of their configured schedules. If this menu is not visible, click
+:menuselection:`View -->Advanced` to enable it.
+
+The "Snapshots" menu contains these options: 
 
 * **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
   changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
@@ -2558,17 +2559,18 @@ The "Snapshots" menu allows you to manage snapshots and replication outside of t
   snapshot, a warning will remind you that this is a permanent change that can not be reversed. In other words, the versions of files at that point in time
   will be lost.
 
-* **Start Replication:** if you have configured replication to a remote server, select this option and select the IP address of the remote system to start a
-  replication now, rather than waiting for the scheduled time.
+* **Start Replication:** this option will be greyed out if you have not yet configured replication to a remote server. To force a replication to a configured backup server,
+  select the IP address of the remote system to start a replication now, rather than waiting for the scheduled time.
 
 * **Re-Initialize Replications:** if a replication fails, it may prevent subsequent replications from completing successfully. In this case, select this option and
   select the IP address of the remote system in order to reset replication. After performing this re-initialization, click "Start Replication" to confirm that the
   replication issue has been resolved and snapshots are successfully replicating.
 
 The "Disks" menu provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
-section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
+section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub. If this menu is not visible, click
+:menuselection:`View -->Advanced` to enable it.
 
-The options available in this menu are: 
+The following options available in the "Disks" menu: 
 
 * **Attach Disk:** if you wish to mirror another internal disk or an inserted external USB disk, select this option. The disk must be at least the same size
   as the PC-BSD® disk and you must be willing to have that disk be re-formatted.
@@ -2581,17 +2583,37 @@ The options available in this menu are:
 * **Set Disk Online/Offline:** if you need to temporarily disconnect or reconnect an attached external USB drive, select the appropriate option. This is the
   GUI equivalent to running :command:`lpreserver zpool offline` or :command:`lpreserver zpool online`.
 
-* **Start/Stop Scrub:** it is a good idea to regularly perform a ZFS scrub to verify the integrity of the ZFS pool. Typically, it is recommended to run a scrub once a week or
-  before adding more disks to a pool. The status and results of the scrub can be viewed from the command line by typing
-  :command:`zpool status`. When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing
-  disk. If you are getting errors, consider backing up your data and replacing the failing disk. Since a scrub is I/O intensive, it is recommended to start
-  the scrub when the system is not in use, such as before going to bed. Depending upon the size of the pool, the scrub may take some time.
+* **Start/Stop Scrub:** this option allows you to manually start a scrub now rather than waiting for the scrub schedule. If a scrub is currently running, you can
+  stop it. Note that when you stop a scrub, it will need to start all over again the next time it is run.
 
 .. index:: backup
-.. _Backing Up to a FreeNAS System:
+.. _Replication over SSH:
 
-Backing Up to a FreeNAS System
-------------------------------
+Replication over SSH
+--------------------
+
+Life Preserver can be configured to replicate snapshots to another system over an encrypted SSH connection. For this configuration, the remote system to hold a copy of
+the snapshots must meet the following requirements:
+
+* The backup server **must be formatted with the latest version of ZFS,** also known as ZFS feature flags or ZFSv5000. Operating systems that support this
+  version of ZFS include PC-BSD®, FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
+
+* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD®, SSH is already installed and you can start
+  SSH using :ref:`Service Manager`. If that system is running FreeNAS® or FreeBSD, SSH is already installed, but you will need to start SSH.
+
+* If the backup server is running PC-BSD®, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
+  firewall has been configured, add a rule to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default. Also, if there is a
+  network firewall between the PC-BSD® system and the backup system, make sure it has a rule to allow SSH.
+
+.. note:: this configuration does not store the backup itself in an encrypted format. If you require that functionality, or prefer to backup to a system that is not
+          formatted with ZFS, refer to :ref:`Replicating Encrypted Backups`.
+
+The rest of this section demonstrates how to configure a FreeNAS® system as the remote backup server.
+
+.. _Replication to a FreeNAS® System:
+
+Replication to a FreeNAS® System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `FreeNAS® <http://www.freenas.org/>`_ is an open source Networked Attached Storage (NAS) operating system based on FreeBSD. This operating system is designed
 to be installed onto a USB stick so that it is kept separate from the storage disk(s) installed on the system. You can download the latest STABLE version of
@@ -2602,32 +2624,31 @@ This section demonstrates how to configure FreeNAS® 9.3 as the backup server fo
 this version of FreeNAS® using the installation instructions in the
 `FreeNAS® 9.3 Users Guide <http://doc.freenas.org/9.3/freenas_install.html>`_ and are able to access the FreeNAS® system from a web browser.
 
-In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS volume, create and configure the
+In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS pool, create and configure the
 dataset to store the backups, create a user account that has permission to access that dataset, and enable the SSH service.
 
-In the example shown in Figure 8.19m, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create the ZFS volume from the
-available drives.
+In the example shown in Figure 8.19m, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create a ZFS pool to hold the backups.
 
 **Figure 8.19m: Creating a ZFS Volume in FreeNAS®** 
 
 .. image:: images/lpreserver10.png
 
-Input a "Volume Name", drag the slider to select the number of available disks, and click the "Add Volume" button. The Volume Manager will automatically
+Input a "Volume Name", drag the slider to select the desired number of available disks, and click the "Add Volume" button. The Volume Manager will automatically
 select the optimal layout for both storage capacity and redundancy. In this example, a RAIDZ2 named *volume1* will be created.
+
+.. note:: make sure that the size of the pool is large enough to hold the replicated snapshots. To determine the size of the initial snapshot, run
+   :command:`zpool list` on the PC-BSD® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
+   data that has changed.
 
 To create the dataset to backup to, click the "+" next to the entry for the newly created volume, then click "Create ZFS Dataset". In the example shown in
 Figure 8.19n, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
-
-.. note:: make sure that the dataset is large enough to hold the replicated snapshots. To determine the size of the initial snapshot, run
-   :command:`zpool list` on the PC-BSD® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
-   data that has changed.
 
 **Figure 8.19n: Creating a ZFS Dataset in FreeNAS®**
 
 .. image:: images/lpreserver11.png
 
-To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19o, input a "Username" that will match the
-"User Name" configured in Life Preserver. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
+To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19o, input a "Username" that you will later
+configure Life Preserver to use. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
 backups. Input a "Full Name", then input and confirm a "Password". When finished, click the "OK" button to create the user.
 
 **Figure 8.19o: Creating a User in FreeNAS®**
@@ -2640,7 +2661,7 @@ next to the name of the dataset, then click "Change Permissions" for the expande
 
 **Figure 8.19p: Setting Permissions in FreeNAS®**
 
-.. image:: images/lpreserver13.png
+.. image:: images/lpreserver13a.png
 
 Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
@@ -2655,54 +2676,40 @@ Figure 8.19q.
 
 Click the red "OFF" button next to SSH to enable that service. Once it turns to a blue "ON", the FreeNAS® system is ready to be used as the backup server.
 
-To finish the configuration, go to the PC-BSD® system. If you have not yet configured Life Preserver, in the wizard screen shown in Figure 8.19e, check the
-"Replicate my data" box and click the "Scan Network" button. A pop-up menu should show the available systems running SSH in the network so that the "Host Name"
-field can be populated from your selection. If you instead receive an error message, check to see if there is a firewall between the PC-BSD® and the FreeNAS® system.
-If there is, add a rule to allow UDP port 5353. Alternately, you can manually input the IP address of the FreeNAS® system in the "Host Name" field. Also input the name
-of the user you created in the "User Name" field and the name of the dataset you created (in this example it is *volume1/backups)* in the "Remote Dataset" field. You
-should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
+To finish the configuration, open Life Preserver on the PC-BSD® system and click :menuselection:`Configure --> Replication`. In the screen shown in Figure 8.19j, click the
+"+SSH" button. Life Preserver will scan the network for systems running SSHD and, if the scan is successful, a pop-up menu will show the hostnames of the available systems.
+If multiple systems are running SSH, use the drop-down menu to select the desired system and click "OK". If you instead receive an error message, check to see if there is a
+firewall between the PC-BSD® and the FreeNAS® system as this scan requires UDP port 5353 to be open on any firewalls running on or between the two systems.
 
-If the system has already been configured, go to :menuselection:`Configure --> Replication` and click the "+" button to select the hostname of the FreeNAS® system.
-If needed, input or correct the information in the "User Name" and the "Remote Dataset" fields and select the desired replication frequency in the "Frequency" drop-down menu.
+Once the system is selected, its IP address will be added to the drop-down menu to the left of the "+SSH" button, the port number SSH is listening on will display in the
+"SSH Port" menu, and the rest of this screen will be activated. In the example shown in Figure 8.19r, the IP address of the FreeNAS® system is 192.168.1.73.
 
-, click the "+SSH" box. Life Preserver will scan the network for systems running SSHD and, if the scan is
-successful, a pop-up menu will show the hostnames of the available systems. Select the desired system, press "OK", and its IP address will be displayed in the drop-down
-menu to the left of the "+SSH" button and the rest of this screen will be activated. Note that this scan requires UDP port 5353 to be open on any firewalls on or
-between the PC-BSD® and the remote system.
+**Figure 8.19r: Finishing the Configuration**
 
-.. note:: **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
-          demonstrated in .
+.. image:: images/lpreserver24.png
 
-* **User Name:** this user must have permission to log in to the system that will hold the backup. If the account does not already exist, you should create it
-  first on the backup server.
+Input the name of the user and the name of the dataset you created on the FreeNAS® system. In this example, the "User Name" is *dru* and the "Remote Dataset" is
+*volume1/backups*. If desired, click the "Frequency" drop-down menu to configure the snapshots to either be replicated at the same time that they are created ("Sync
+with snapshots") or "Daily", "Hourly", every "30 Minutes", every "10 minutes", or only when you manually start the replication from
+:menuselection:`Snapshots --> Start Replication` ("Manual").
 
-* **SSH Port:** port 22, the default port used by SSH is selected for you. You only need to change this if the remote system is using a non-standard port to
-  listen for SSH connections. In that case, use the up/down arrows or type in the port number.
-
-* **Remote Dataset:** input the name of an existing ZFS dataset on the backup server. This is where the backups will be stored. To get a list of existing
-  datasets, type :command:`zfs list` on the remote server. The "NAME" column in the output of that command gives the fullname of each dataset. Type the
-  fullname of the desired dataset into this field. When selecting a dataset, make sure that the selected "User Name" has permission to write to the dataset.
-
-* **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
-
-Once you enter the information and press "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
+When finished, click "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
 second pop-up message will remind you to save the SSH key to a USB stick (as described in :ref:`Life Preserver Options`) as this key is required for
 :ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
-   not preventing access to the configured "SSH Port".
+   not preventing access to the port number listed in "SSH Port".
 
-Once you configure replication, Life Preserver will begin to replicate that snapshot to the
-remote system. Note that the first replication can take several hours to complete, depending upon the speed of the network. Subsequent replications will only
-have changed data and will be much smaller.
+Once the SSH login is successful, Life Preserver will begin to replicate snapshots to the remote system at the configured "Frequency". Note that the first replication can
+take several hours to complete, depending upon the speed of the network. Subsequent replications will only contain changed data and will be much smaller.
 
 Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
 until the replication is finished and it will not start a second replication before the first replication finishes.
 
 .. index:: backup
-.. _Configuring Encrypted Backups:
+.. _Replicating Encrypted Backups:
 
-Configuring Encrypted Backups
+Replicating Encrypted Backups
 -----------------------------
 
 For some time, Life Preserver has provided the ability to securely replicate to another system over SSH, meaning that the data is encrypted while it is being transferred
@@ -2711,11 +2718,6 @@ using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volu
 the key file stored on the PC-BSD® client. The backup server must understand kernel iSCSI, meaning that it must be running FreeBSD 9.1 or higher, PC-BSD®/TrueOS® 10.1.2, or
 FreeNAS® 9.3. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
 for creating encrypted backups.
-
-.. _Preparing the Backup System:
-
-Preparing the Backup System
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The backup system must meet the following requirements:
 
@@ -3017,7 +3019,7 @@ screen shown in Figure 8.19ae.
 
 .. image:: images/lpreserver16.png
 
-If you configured an encrypted backup using the instructions in :ref:`Configuring Encrypted Backups`, click the "+" button in the "Encrypted iSCSI Restore" tab to
+If you configured an encrypted backup using the instructions in :ref:`Replicating Encrypted Backups`, click the "+" button in the "Encrypted iSCSI Restore" tab to
 browse to the location of the :file:`*.lpiscsi` file that you either copied over or which is on the inserted USB stick, enter the password to decrypt this file, and click "Next".
 A "Restore Summary" screen will indicate the name of the :file:`*.lpiscsi` file that the system will be restored from. Click "Finish". The restore wizard will
 provide a summary of which host it will restore from, the name of the user account associated with the replication, and the hostname of the target system. Click

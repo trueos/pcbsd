@@ -463,7 +463,9 @@ share/pcbsd/xorg-gui/templates/header/vmware.xorg.conf
 share/pcbsd/xorg-gui/templates/header/vmwlegacy.xorg.conf
 share/pcbsd/xorg-gui/templates/header/xorg.conf.generic
 share/pcbsd/xorg-gui/templates/scripts/README
+share/pcbsd/xstartup/disable-beep.sh
 share/pcbsd/xstartup/enable-ibus.sh
+share/pcbsd/xstartup/enable-xprofile.sh
 share/pcbsd/xstartup/gpg-agent.sh
 share/pcbsd/xstartup/ssh-agent.sh
 share/wallpapers/FreeBSD/a_1280x1024.jpg
