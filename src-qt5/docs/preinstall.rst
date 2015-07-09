@@ -180,9 +180,8 @@ This section demonstrates how to create free space within Windows 7 and how to u
 If you are currently running Windows 7, it is using the entire hard drive. This means that you will need to first shrink the drive in order to make room to
 create a new partition. Shrinking is an operation that retains the current data on the partition, while reducing the size of the partition.
 
-To shrink the drive, go to :menuselection:`Start menu --> right-click Computer --> Manage --> Storage --> Disk Management`. Figure 2.3a shows an example of a
-system running Windows 7. In this example, Windows has created three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data
-partition.
+To shrink the drive, open Computer Management and click :menuselection:`Storage --> Disk Management`. In the example shown in Figure 2.3a,
+the Windows system three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data partition.
 
 **Figure 2.3a: Viewing Disk Layout in Disk Management** 
 
