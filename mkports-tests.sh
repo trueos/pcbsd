@@ -1,8 +1,6 @@
 #!/bin/sh
 # Script to run test builds of all PC-BSD ports
 
-TEST_PORTS=""
-
 if [ -z "$1" ] ; then
    echo "Usage: ./mkport-tests.sh <portstree>"
    exit 1
@@ -45,6 +43,7 @@ do
      # If this file exists, we did a previous build of this port
      nVer=`make -V DISTVERSION`
      oVer=`cat $tverfile`
+     echo "$port - $nVer - $oVer -"
      if [ "$nVer" = "$oVer" ] ; then
        echo "No changes to port: $port"
        continue

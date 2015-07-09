@@ -87,18 +87,6 @@ export UNAME_r="`freebsd-version`"
 while read pline
 do
 
-  port=`echo $pline | awk '{print $2}'`
-  tverfile="/tmp/.pcbsd-tests/`echo $port | sed 's|/|_|g'`"
-  if [ -e "$tverfile" -a -n "$PCBSD_MKTESTS" ] ; then
-    # If this file exists, we did a previous build of this port
-    nVer=`make -V DISTVERSION`
-    oVer=`cat $tverfile`
-    if [ "$nVer" = "$oVer" ] ; then
-      echo "No changes to port: $port"
-      continue
-    fi
-  fi
-
   cd $ODIR
   ldir=`echo $pline | awk '{print $1}'`
 
@@ -119,6 +107,18 @@ do
 
   # Get git revision number
   REV=`get_last_rev_git "./$ldir"`
+
+  port=`echo $pline | awk '{print $2}'`
+  tverfile="/tmp/.pcbsd-tests/`echo $port | sed 's|/|_|g'`"
+  if [ -e "$tverfile" -a -n "$PCBSD_MKTESTS" ] ; then
+    # If this file exists, we did a previous build of this port
+    oVer=`cat $tverfile`
+    echo "$port - $REV - $oVer -"
+    if [ "$REV" = "$oVer" ] ; then
+      echo "No changes to port: $port"
+      continue
+    fi
+  fi
 
   # Make the dist files
   rm ${distdir}/${dfile}-* 2>/dev/null
