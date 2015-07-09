@@ -41,7 +41,7 @@ do
 
   if [ -e "$tverfile" ] ; then
      # If this file exists, we did a previous build of this port
-     nVer=`make DISTVERSION`
+     nVer=`make -V DISTVERSION`
      oVer=`cat $tverfile`
      if [ "$nVer" = "$oVer" ] ; then
        echo "No changes to port: $port"
