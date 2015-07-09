@@ -5,6 +5,6 @@
 # When you update this tag, be sure to update ../src-qt4/config.h as well
 export PCBSDVERSION="master"
 
-# When rolling ISOs, what package set to use on fresh installs?
+# When rolling ISOs, what package set to use on install?
 # {PRODUCTION|EDGE|ENTERPRISE}
 export INSTALLPACKAGESET="EDGE"
