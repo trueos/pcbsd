@@ -118,6 +118,7 @@ void wizardDisk::slotChangedDisk()
     ptag = sysDisks.at(i).at(4).section(",", 0, 0);
     ptag = ptag.section("/", 0, 0);
     ptag.truncate(15);
+    ptag = "(" + ptag;
     if ( ptag.indexOf(")") == -1 )
       ptag += ")";
     comboPartition->addItem(sysDisks.at(i).at(2) + ": " +  sysDisks.at(i).at(3) + "MB " + ptag );
@@ -625,6 +626,18 @@ void wizardDisk::populateDiskTree()
   QStringList tmpList, zMnts;
   QString tmp, opts;
 
+  // If installing to Free Space, show the option to change partition size
+  labelNewPartition->setVisible(false);
+  spinNewPartition->setVisible(false);
+  spinNewPartition->setRange(0, 0);
+  spinNewPartition->setValue(0);
+  if ( comboPartition->currentIndex() != 0 && comboPartition->currentText().contains("Unused") ) {
+    spinNewPartition->setRange(5000, this->getDiskSliceSize());
+    spinNewPartition->setValue(getDiskSliceSize());
+    labelNewPartition->setVisible(true);
+    spinNewPartition->setVisible(true);
+  }
+
   treeMounts->clear();
   treeMounts->setHeaderLabels(QStringList() << "ID" << tr("ZFS Mounts") << tr("ZFS Options") );
   treeMounts->setColumnCount(3);
@@ -1090,6 +1103,10 @@ void wizardDisk::generateCustomDiskLayout()
     tmpPass=lineEncPass->text();
   }
   int zpoolSize = getDiskSliceSize();
+
+  // If we are using free space, get the user set size
+  if ( targetSlice == "free" && spinNewPartition->value() != 0 )
+    zpoolSize = spinNewPartition->value();
 
   // Deduct any swap space
   zpoolSize = zpoolSize - swapsize;
