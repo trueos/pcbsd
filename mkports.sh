@@ -80,9 +80,25 @@ if [ -n "$OBJS" ] ; then
    exit 1
 fi
 
+# Get this jail version
+export UNAME_r="`freebsd-version`"
+
 # Read the list of ports and build them now
 while read pline
 do
+
+  port=`echo $pline | awk '{print $2}'`
+  tverfile="/tmp/.pcbsd-tests/`echo $port | sed 's|/|_|g'`"
+  if [ -e "$tverfile" -a -n "$PCBSD_MKTESTS" ] ; then
+    # If this file exists, we did a previous build of this port
+    nVer=`make -V DISTVERSION`
+    oVer=`cat $tverfile`
+    if [ "$nVer" = "$oVer" ] ; then
+      echo "No changes to port: $port"
+      continue
+    fi
+  fi
+
   cd $ODIR
   ldir=`echo $pline | awk '{print $1}'`
 

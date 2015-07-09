@@ -20,6 +20,8 @@ else
   distdir="${2}"
 fi
 
+export PCBSD_MKTESTS=1
+
 # Start by copying all the ports over
 ./mkports.sh ${1} ${2}
 if [ $? -ne 0 ] ; then exit 1; fi
