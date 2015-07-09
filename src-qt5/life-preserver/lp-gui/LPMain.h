@@ -96,6 +96,7 @@ private slots:
 	void menuRemoveSnapshot(QAction*);
 	void menuStartReplication(QAction*);
 	void menuInitReplication(QAction*);
+	void menuResetReplicationPassword(QAction*);
 
 signals:
 	void loadSnaps(LPDataset*);

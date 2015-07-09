@@ -72,6 +72,7 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   connect(ui->menuDelete_Snapshot, SIGNAL(triggered(QAction*)), this, SLOT(menuRemoveSnapshot(QAction*)) );
   connect(ui->menuStart_Replication, SIGNAL(triggered(QAction*)), this, SLOT(menuStartReplication(QAction*)) );
   connect(ui->menuInit_Replications, SIGNAL(triggered(QAction*)), this, SLOT(menuInitReplication(QAction*)) );
+  connect(ui->menuReset_Replication_Password, SIGNAL(triggered(QAction*)), this, SLOT(menuResetReplicationPassword(QAction*)) );
   //Update the interface
   QTimer::singleShot(0,this,SLOT(updatePoolList()) );
   
@@ -274,12 +275,15 @@ void LPMain::updateTabs(){
     QStringList repHosts = POOLDATA.repHost;
     ui->menuStart_Replication->clear();
     ui->menuInit_Replications->clear();
+    ui->menuReset_Replication_Password->clear();
     for(int i=0; i<repHosts.length(); i++){
       ui->menuStart_Replication->addAction( repHosts[i] );
       ui->menuInit_Replications->addAction( repHosts[i] );
+      ui->menuReset_Replication_Password->addAction( repHosts[i] );
     }
     ui->menuStart_Replication->setEnabled( !ui->menuStart_Replication->isEmpty() );
     ui->menuInit_Replications->setEnabled( !ui->menuInit_Replications->isEmpty() );
+    ui->menuReset_Replication_Password->setEnabled( !ui->menuReset_Replication_Password->isEmpty() );
     //Now update the disk menu items
     ui->menuRemove_Disk->clear();
     ui->menuSet_Disk_Offline->clear();
@@ -892,4 +896,23 @@ void LPMain::menuInitReplication(QAction* act){
   qDebug() << "Running Command:" << cmd;
   QProcess::startDetached(cmd);
   QMessageBox::information(this, tr("Replication Triggered"), tr("A replication has been queued up for this dataset"));
+}
+
+void LPMain::menuResetReplicationPassword(QAction* act){
+  QString pool = ui->combo_pools->currentText();
+  QString host = act->text();
+  if(host.isEmpty()){ return; } //invalid
+  //Now we need to find the info about this replication host before doing anything
+  QList<LPRepHost> info = LPBackend::replicationInfo(pool);
+  for(int i=0; i<info.length(); i++){
+    if(info[i].host()==host){
+      if(info[i].dataset()=="ISCSI"){
+	QMessageBox::warning(this,tr("Invalid Target"),tr("This is an ISCSI replication target and does not use an SSH password."));
+      }else{
+        bool ok = LPBackend::setupSSHKey(info[i].host(), info[i].user(), info[i].port());
+        if(ok){ QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!")); }	      
+      }	    
+      return;
+    }
+  }
 }
