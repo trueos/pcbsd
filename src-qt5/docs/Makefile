@@ -53,11 +53,11 @@ i18n:
 	$(MAKE) gettext
 	$(SPHINXINTL) update -p $(BUILDDIR)/locale -l de -l fr -l es -l pt_BR -l uk
 	@fetch -o $(BUILDDIR)/pcbsd-handbook-i18n.txz https://github.com/pcbsd/pcbsd-i18n/raw/master/dist/pcbsd-handbook-i18n.txz
-	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/de/LC_MESSAGES --strip-components 1 ./de
-	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/es/LC_MESSAGES --strip-components 1 ./es
-	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/fr/LC_MESSAGES --strip-components 1 ./fr
-	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/pt_BR/LC_MESSAGES --strip-components 1 ./pt_BR
-	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/uk/LC_MESSAGES --strip-components 1 ./uk
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/de/LC_MESSAGES --strip-components 2 ./de/
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/es/LC_MESSAGES --strip-components 2 ./es/
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/fr/LC_MESSAGES --strip-components 2 ./fr/
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/pt_BR/LC_MESSAGES --strip-components 2 ./pt_BR/
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/uk/LC_MESSAGES --strip-components 2 ./uk/
 	$(SPHINXINTL) build
 
 clean:

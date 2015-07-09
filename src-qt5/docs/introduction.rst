@@ -303,6 +303,8 @@ automatically updated.
 
 * Life Preserver's "Replication" tab now allows you to create a list of datasets to exclude when replicating to the remote server.
 
+* The "Reset Replication Password" option has been added to the :menuselection:`Life Preserver --> Snapshots` menu.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 
