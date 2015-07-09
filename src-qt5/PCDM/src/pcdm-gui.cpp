@@ -30,7 +30,7 @@ PCDMgui::PCDMgui() : QMainWindow()
     //Create the GUI based upon the current Theme
     createGUIfromTheme();
     //Now make sure that the login widget has keyboard focus
-    //loginW->resetFocus();
+    loginW->resetFocus();
     loginW->activateWindow();
     pcTimer = new QTimer(this);
 	pcTimer->setInterval(15000); //every 15 seconds
