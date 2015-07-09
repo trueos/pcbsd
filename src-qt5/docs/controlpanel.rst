@@ -2473,7 +2473,8 @@ If you wish to keep a copy of the snapshots on another system, this screen is us
   is stored unencrypted on the other system. Refer to :ref:`Replication over SSH` for an example configuration.
 
 * Replication to an iSCSI target. This method provides the most security as the replicated data is sent over an encrypted connection and the data is stored in an encrypted format.
-  The remote system does not need to be formatted with ZFS but stunnel must be installed. Refer to :ref:`Replicating Encrypted Backups` for an example configuration.
+  The remote system does not need to be formatted with ZFS but it must understand kernel iSCSI and stunnel must be installed. Refer to :ref:`Replicating Encrypted Backups` for an
+  example configuration.
 
 To exclude datasets from the snapshot from being replicated to the remote system, click the "Excluded Data" tab. This will let you create an exclude list as described in the
 "Local Snapshots" tab.
@@ -2698,10 +2699,13 @@ second pop-up message will remind you to save the SSH key to a USB stick (as des
 :ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
-   not preventing access to the port number listed in "SSH Port".
+   not preventing access to the port number listed in "SSH Port". Also, this pop-up only occurs once. If the password changes or you are not able to successfully login,
+   use :menuselection:`Snapshots --> Reset Replication Password` to re-input the password.
 
 Once the SSH login is successful, Life Preserver will begin to replicate snapshots to the remote system at the configured "Frequency". Note that the first replication can
-take several hours to complete, depending upon the speed of the network. Subsequent replications will only contain changed data and will be much smaller.
+take several hours to complete, depending upon the speed of the network. Subsequent replications will only contain changed data and will be much smaller. You can confirm
+that the snapshots have been received by clicking :menuselection:`Storage --> Snapshots` on the FreeNAS® system. This should provide a listing of the replicated datasets,
+allowing you to manage the replicated snapshots as described in `Snapshots <http://doc.freenas.org/9.3/freenas_storage.html#snapshots>`_.
 
 Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
 until the replication is finished and it will not start a second replication before the first replication finishes.
@@ -2712,22 +2716,22 @@ until the replication is finished and it will not start a second replication bef
 Replicating Encrypted Backups
 -----------------------------
 
-For some time, Life Preserver has provided the ability to securely replicate to another system over SSH, meaning that the data is encrypted while it is being transferred
-over the network. Beginning with version 10.1.2, Life Preserver provides an extra measure of security to replicated backups by adding support for fully-encrypted backups,
+The previous section demonstrated how to securely replicate snapshots to another system over SSH, which ensures that the data is encrypted while it is being transferred
+over the network. Life Preserver provides an alternate replication method which provides an extra measure of security by adding support for fully-encrypted backups
 using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volumes. This means that the data stored on the remote side is encrypted and only accessible with
-the key file stored on the PC-BSD® client. The backup server must understand kernel iSCSI, meaning that it must be running FreeBSD 9.1 or higher, PC-BSD®/TrueOS® 10.1.2, or
-FreeNAS® 9.3. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
+the key file stored on the PC-BSD® system. The remote backup server must understand kernel iSCSI, meaning that it must be running FreeBSD, PC-BSD®/TrueOS®, or
+FreeNAS®. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
 for creating encrypted backups.
 
 The backup system must meet the following requirements:
 
-* must be running FreeBSD 9.1 or higher, PC-BSD® or TrueOS® 10.1.2, or FreeNAS® 9.3
+* must be running FreeBSD 9.1 or higher, PC-BSD® or TrueOS® 10.1.2 or higher, or FreeNAS® 9.3
 
-* if it is a FreeBSD system, the "security/stunnel" package must be installed; this software is already installed on PC-BSD®/TrueOS® 10.1.2 and on FreeNAS® 9.3 systems that
+* if it is a FreeBSD system, the "security/stunnel" package must be installed. This software is already installed on PC-BSD®/TrueOS® 10.1.2 and on FreeNAS® 9.3 systems that
   have been updated to at least SU201504100216.
   
 * if it is a FreeBSD system, the `lpreserver-host-iscsi <https://raw.githubusercontent.com/pcbsd/pcbsd/master/src-sh/lpreserver/lpreserver-host-iscsi>`_ script must be
-  downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. See the next section for FreeNAS® instructions.
+  downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. Refer to :ref:`Using FreeNAS® as the Backup System~ for FreeNAS® instructions.
 
 Before you can configure the PC-BSD® system, you must first create a Life Preserver configuration file ending in the :file:`.lps` extension on the remote system which
 will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher system or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
@@ -2811,15 +2815,15 @@ this example::
 Once you have successfully created the :file:`.lps` file, copy it to the PC-BSD® system. You are now ready to configure the PC-BSD® system using the instructions in
 :ref:`Running the Encrypted Backup Wizard`.
 
-.. _Using FreeNAS as the Backup System:
+.. _Using FreeNAS® as the Backup System:
 
-Using FreeNAS as the Backup System
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using FreeNAS® as the Backup System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To instead prepare a FreeNAS® 9.3 system to use as the backup target, first ensure that the system has been updated to the latest software update. Then,
 perform the following configuration steps.
 
-Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19r, input
+Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19s, input
 the following values in these fields then press "OK" to create the account:
 
 * **User ID:** 341
@@ -2832,51 +2836,51 @@ the following values in these fields then press "OK" to create the account:
 
 * **Disable password login:** check this box
 
-**Figure 8.19r: Create the Service Account** 
+**Figure 8.19s: Create the Service Account** 
 
 .. image:: images/iscsi4.png
 
 Next, create a zvol using the tree menu. Go to :menuselection:`Storage --> Volumes --> click the plus to expand name of volume --> Create zvol`. In the example
-shown in Figure 8.19s, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
+shown in Figure 8.19t, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
 
-**Figure 8.19s: Create the zvol** 
+**Figure 8.19t: Create the zvol** 
 
 .. image:: images/iscsi5.png
 
-You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19t, change the
+You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19u, change the
 default "Base Name" to *iqn.2012-06.com.lpreserver*.
 
-**Figure 8.19t: Configure the IQN** 
+**Figure 8.19u: Configure the IQN** 
 
 .. image:: images/iscsi6.png
 
 Click the "Portals" tab then the "Add Portal" button. Verify that the "IP Address" drop-down menu is set to *0.0.0.0* and that the "Port" field is set to
-*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19u, this is
+*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19v, this is
 the first time iSCSI has been configured on this system, so it has a "Portal Group ID" of *1*. If you have already created other iSCSI targets, note the
 "Portal Group ID" you just created.
 
-**Figure 8.19u: Configure the Portal** 
+**Figure 8.19v: Configure the Portal** 
 
 .. image:: images/iscsi7.png
 
 In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initiators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
-it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19v,
+it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19w,
 it is *1*.
 
-**Figure 8.19v: Configure the Initiator** 
+**Figure 8.19w: Configure the Initiator** 
 
 .. image:: images/iscsi8.png
 
 In the "Authorized Access" tab, click the "Add Authorized Access" button. Input a value for the "User" that is between 8 and 12 characters and a value in the "Secret" and
-"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19w, the "User" has a value of *mybackups*, the
+"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19x, the "User" has a value of *mybackups*, the
 secret is *pcbsdbackups*, and the "Group ID" is
 *1*. Make note of the "Group ID" that is created for you.
 
-**Figure 8.19w: Configure the Authorized Access** 
+**Figure 8.19x: Configure the Authorized Access** 
 
 .. image:: images/iscsi9.png
 
-In the "Targets" tab, click the "Add Target" button. In the screen shown in Figure 8.19x, use the following values in these fields:
+In the "Targets" tab, click the "Add Target" button. In the screen shown in Figure 8.19y, use the following values in these fields:
 
 * **Target Name:** target0
 
@@ -2886,21 +2890,21 @@ In the "Targets" tab, click the "Add Target" button. In the screen shown in Figu
 
 * **Auth Method:** select CHAP from the drop-down menu
 
-**Figure 8.19x: Configure the Target** 
+**Figure 8.19y: Configure the Target** 
 
 .. image:: images/iscsi10.png
 
-In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19y, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
+In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19z, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
 the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
 
-**Figure 8.19y: Configure the Extent** 
+**Figure 8.19z: Configure the Extent** 
 
 .. image:: images/iscsi11.png
 
-Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in Figure 8.19z, select the "Target"
+Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in Figure 8.19aa, select the "Target"
 and the "Extent" that you created.
 
-**Figure 8.19z: Associate the Target With the Extent** 
+**Figure 8.19aa: Associate the Target With the Extent** 
 
 .. image:: images/iscsi12.png
 
@@ -2955,16 +2959,16 @@ Once you have configured the backup system and the PC-BSD® system has a copy of
 PC-BSD® system. If you have not yet managed a pool in Life Preserver, click :menuselection:`File --> Manage Pool` and follow the initial configuration wizard
 described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, just click "Next" as you will instead be using a zvol to
 backup to. Next, start the encrypted backup wizard by clicking :menuselection:`File --> Enable Offsite Backups` and select the pool to backup. This will start
-the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19aa.
+the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19ab.
 
-**Figure 8.19aa: Selecting the Configuration File** 
+**Figure 8.19ab: Selecting the Configuration File** 
 
 .. image:: images/iscsi1.png
 
 Click the "Select" button to browse to the location of your saved :file:`.lps` file. Once selected, the "Host", "Target", "User", and "Password" fields will
-auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19ab.
+auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19ac.
 
-**Figure 8.19ab: Input the Encryption Key** 
+**Figure 8.19ac: Input the Encryption Key** 
 
 .. image:: images/iscsi2.png
 
@@ -2978,9 +2982,9 @@ This screen lets you configure the following:
   system, check this box and use the browse button to add the key to the "GELI Encryption File" field.
   
 When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
-Once the connection to the remote system is established, you will see the screen shown in Figure 8.19ac.
+Once the connection to the remote system is established, you will see the screen shown in Figure 8.19ad.
 
-**Figure 8.19ac: Save the Key** 
+**Figure 8.19ad: Save the Key** 
 
 .. image:: images/iscsi3.png
 
@@ -2998,9 +3002,9 @@ Restoring the Operating System
 ------------------------------
 
 If you have replicated the system's snapshots to a remote backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
-another system. Start the installation as usual until you get to the screen shown in Figure 8.19ad. 
+another system. Start the installation as usual until you get to the screen shown in Figure 8.19ae. 
 
-**Figure 8.19ad: Selecting to Restore/Clone From Backup** 
+**Figure 8.19ae: Selecting to Restore/Clone From Backup** 
 
 .. image:: images/lpreserver15.png
 
@@ -3013,9 +3017,9 @@ If it is saved on a remote system, click the black terminal icon and click "shel
 file from the remote system. When finished, type :command:`exit` to exit the shell then use your arrow keys to select "exit" in the menu to exit the menu.
 
 Once you are ready, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to select the type of restore using the
-screen shown in Figure 8.19ae. 
+screen shown in Figure 8.19af. 
 
-**Figure 8.19ae: Restoring From an Encrypted Backup** 
+**Figure 8.19af: Restoring From an Encrypted Backup** 
 
 .. image:: images/lpreserver16.png
 
@@ -3028,14 +3032,14 @@ However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed out
 any customizations, click "Next" to perform the restore.
 
 If you instead configured backups to a replication server using the instructions in :ref:`Scheduling a Backup`, click the "SSH Restore" tab. In the screen shown in
-Figure 8.19af, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
-port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in Figure 8.19ag.
+Figure 8.19ag, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
+port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in Figure 8.19ah.
 
-**Figure 8.19af: Input the Information for a SSH Restore** 
+**Figure 8.19ag: Input the Information for a SSH Restore** 
 
 .. image:: images/lpreserver20.png
 
-**Figure 8.19ag: Select the Authentication Method** 
+**Figure 8.19ah: Select the Authentication Method** 
 
 .. image:: images/lpreserver17.png
 
@@ -3043,10 +3047,10 @@ If you previously saved the SSH key to a USB stick, insert the stick then press 
 press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
 connection to the server.
 
-Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ah, only one host has been backed up to the
+Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ai, only one host has been backed up to the
 replication server.
 
-**Figure 8.19ah: Select the Host to Restore**
+**Figure 8.19ai: Select the Host to Restore**
 
 .. image:: images/lpreserver18.png
 
