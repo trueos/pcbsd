@@ -11,7 +11,7 @@ get_last_rev_git()
    cd "${1}"
    rev=0
    rev=`git log -n 1 --date=raw . | grep 'Date:' | awk '{print $2}'`
-   cd $oPWD
+   cd "$oPWD"
    if [ -n "$rev" ] ; then
      echo "$rev"
      return 0
@@ -24,7 +24,7 @@ get_last_rev_git()
 }
 
 massage_subdir() {
-  cd $1
+  cd "$1"
   if [ $? -ne 0 ] ; then
      echo "SKIPPING $i"
      continue
@@ -87,7 +87,7 @@ export UNAME_r="`freebsd-version`"
 while read pline
 do
 
-  cd $ODIR
+  cd "$ODIR"
   ldir=`echo $pline | awk '{print $1}'`
 
   # Check for sub-dir
@@ -142,7 +142,7 @@ do
   sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/$tdir/Makefile
 
   # Create the makesums / distinfo file
-  cd ${distdir}
+  cd "${distdir}"
   sha256 $dfile-${REV}.tar.xz > ${portsdir}/${tdir}/distinfo
   echo "SIZE ($dfile-${REV}.tar.xz) = `stat -f \"%z\" $dfile-${REV}.tar.xz`" >> ${portsdir}/$tdir/distinfo
 
@@ -151,7 +151,7 @@ do
 
 done < mkports-list
 
-cd $ODIR
+cd "$ODIR"
 
 # Get the current timestamp
 TIMESTAMP="`date +%s`"
@@ -178,7 +178,7 @@ do
   sed -i '' "s|%TIMESTAMP%|$TIMESTAMP|g" ${portsdir}/${portMake}
 
   if [ "$port" = "misc/pcbsd-i18n-qt5" ] ; then
-     cd ${distdir}
+     cd "${distdir}"
      fetch -o pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz https://github.com/pcbsd/pcbsd-i18n/raw/master/dist/pcbsd-i18n.txz
      sha256 pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz > ${portsdir}/${port}/distinfo
      echo "SIZE (pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz) = `stat -f \"%z\" pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz`" >> ${portsdir}/$port/distinfo
@@ -186,5 +186,5 @@ do
 
   # Now make sure subdir Makefile is correct
   massage_subdir "${portsdir}/$tcat"
-  cd $ODIR
+  cd "$ODIR"
 done
