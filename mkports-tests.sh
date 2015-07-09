@@ -20,21 +20,36 @@ else
   distdir="${2}"
 fi
 
-cd `realpath $0`
-
 # Start by copying all the ports over
 ./mkports.sh ${1} ${2}
 if [ $? -ne 0 ] ; then exit 1; fi
+
+# Get this jail version
+export UNAME_r="`freebsd-version`"
+
+if [ ! -d "/tmp/.pcbsd-tests" ] ; then
+  mkdir /tmp/.pcbsd-tests
+fi
 
 # Now start building the various ports
 while read portline
 do
   port=`echo $portline | awk '{print $2}'`
+  tverfile="/tmp/.pcbsd-tests/`echo $port | sed 's|/|_|g'`"
 
-  PORTREMOVE=
+  cd $portsdir/$port
+
+  if [ -e "$tverfile" ] ; then
+     # If this file exists, we did a previous build of this port
+     nVer=`make DISTVERSION`
+     oVer=`cat $tverfile`
+     if [ "$nVer" = "$oVer" ] ; then
+       echo "No changes to port: $port"
+       continue
+     fi
+  fi
 
   echo "Building port: $port"
-  cd $port
   if [ $? -ne 0 ] ; then exit 1; fi
 
   make clean
@@ -56,6 +71,9 @@ do
 
   make clean
   if [ $? -ne 0 ] ; then exit 1; fi
+
+  # Save the version number so we can skip on next run if no changes
+  make -V DISTVERSION > $tverfile
 done < mkports-list
 
 exit 0
