@@ -63,9 +63,6 @@ do
   make check-plist
   if [ $? -ne 0 ] ; then exit 1; fi
 
-  make install
-  if [ $? -ne 0 ] ; then exit 1; fi
-
   make package
   if [ $? -ne 0 ] ; then exit 1; fi
 
