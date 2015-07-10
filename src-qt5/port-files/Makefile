@@ -16,6 +16,7 @@ BUILD_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
 		${PYTHON_PKGNAMEPREFIX}sphinx-intl>=0:${PORTSDIR}/textproc/py-sphinx-intl \
 		${PYTHON_PKGNAMEPREFIX}sphinxcontrib-httpdomain>=0:${PORTSDIR}/textproc/py-sphinxcontrib-httpdomain \
 		${PYTHON_PKGNAMEPREFIX}sphinx_rtd_theme>=0:${PORTSDIR}/textproc/py-sphinx_rtd_theme \
+		${PYTHON_PKGNAMEPREFIX}alabaster>=0:${PORTSDIR}/textproc/py-alabaster \
 		tex-formats>=0:${PORTSDIR}/print/tex-formats \
 		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
