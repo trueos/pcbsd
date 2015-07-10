@@ -425,7 +425,7 @@ add_rep_iscsi_task() {
   echo "Running initial iscsi / zpool init... Please wait..."
   connect_iscsi "init"
   if [ $? -ne 0 ] ; then
-    cat ${CMDLOG}
+    cat ${CMDLOG} 2>/dev/null
     cleanup_iscsi
     rm ${LGELIKEY}
     rem_rep_task "$LDATA" "$HOST"
