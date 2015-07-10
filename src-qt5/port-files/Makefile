@@ -13,12 +13,13 @@ COMMENT=	PC-BSD Qt5 Utilities
 LICENSE=	BSD3CLAUSE
 
 BUILD_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
-		py27-sphinx-intl>=0:${PORTSDIR}/textproc/py-sphinx-intl \
-		py27-sphinxcontrib-httpdomain>=0:${PORTSDIR}/textproc/py-sphinxcontrib-httpdomain \
+		${PYTHON_PKGNAMEPREFIX}sphinx-intl>=0:${PORTSDIR}/textproc/py-sphinx-intl \
+		${PYTHON_PKGNAMEPREFIX}sphinxcontrib-httpdomain>=0:${PORTSDIR}/textproc/py-sphinxcontrib-httpdomain \
+		${PYTHON_PKGNAMEPREFIX}sphinx_rtd_theme>=1.2:${PORTSDIR}/textproc/py-sphinx_rtd_theme \
 		tex-formats>=0:${PORTSDIR}/print/tex-formats \
 		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
-		${PYTHON_SITELIBDIR}/dbus/__init__.py:${PORTSDIR}/devel/py-dbus \
+		${PYTHON_PKGNAMEPREFIX}dbus>=0:${PORTSDIR}/devel/py-dbus \
 		cdda2wav:${PORTSDIR}/sysutils/cdrtools
 LIB_DEPENDS=	libcurl.so:${PORTSDIR}/ftp/curl \
 		libpoppler-qt5.so:${PORTSDIR}/graphics/poppler-qt5
