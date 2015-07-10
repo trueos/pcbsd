@@ -171,6 +171,14 @@ if [ ! -e "/usr/local/etc/stunnel/iscsi.pem" ] ; then
   cat /usr/local/etc/stunnel/key.pem /usr/local/etc/stunnel/cert.pem >> /usr/local/etc/stunnel/iscsi.pem
 fi
 
+# Open the ipfw ports
+if [ -e "/etc/ipfw.rules" ] ; then
+  echo "ip4 9555" >> /etc/ipfw.openports
+
+  # Restart firewall if needed
+  service ipfw start
+fi
+
 # Start the services
 service ctld stop
 service ctld start
