@@ -6,6 +6,10 @@ SettingsDialog::SettingsDialog() : QDialog(){
   this->setWindowIcon( QIcon(":icons/config.png"));
   //Now Create the UI
   QVBoxLayout *vlayout = new QVBoxLayout();
+    //AutoPlay setting
+    checkAutoPlay = new QCheckBox(tr("Auto-play optical disks with SMPlayer"));
+    vlayout->addWidget(checkAutoPlay);
+	
     //Disk space watcher settings
     QFormLayout *flayout = new QFormLayout;
     groupDiskWatch = new QGroupBox(tr("Monitor disk storage space"));
@@ -20,6 +24,7 @@ SettingsDialog::SettingsDialog() : QDialog(){
       flayout->addRow(checkDiskAutoTimer);
     groupDiskWatch->setLayout(flayout);
     vlayout->addWidget(groupDiskWatch);
+    
     //Now add the apply/close buttons to the bottom
     QHBoxLayout *hb = new QHBoxLayout();
     hb->addStretch();
@@ -44,6 +49,7 @@ void SettingsDialog::showDialog(){
   //apply the values to the UI
   groupDiskWatch->setChecked(useDiskWatcher);
   checkDiskAutoTimer->setChecked(useDiskAutoTimer);
+  checkAutoPlay->setChecked(useAutoPlay);
   int minutes = diskRefreshMS/60000;
   //qDebug() << "Refresh Time:"<< QString::number(diskRefreshMS)+" ms, "+QString::number(minutes)+" min";
   spinDiskRefreshMin->setValue(minutes);
@@ -51,6 +57,7 @@ void SettingsDialog::showDialog(){
     connect(groupDiskWatch, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI()) );
     connect(checkDiskAutoTimer, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI()) );
     connect(spinDiskRefreshMin, SIGNAL(valueChanged(int)),this,SLOT(slotUpdateUI()) );
+    connect(checkAutoPlay,  SIGNAL(clicked()),this, SLOT(slotUpdateUI()) );
   this->exec();
 	
 }
@@ -60,6 +67,7 @@ void SettingsDialog::slotApply(){
   useDiskWatcher = groupDiskWatch->isChecked();
   useDiskAutoTimer = checkDiskAutoTimer->isChecked();
   diskRefreshMS = spinDiskRefreshMin->value() * 60000;
+  useAutoPlay = checkAutoPlay->isChecked();
   //Flag that there are saved values and quit
   SettingsChanged=true;
   this->close();

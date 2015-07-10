@@ -87,7 +87,7 @@ private:
   FSWatcher *diskWatcher;
   FSDialog *diskDisplay;
   //Saved Settings
-  bool useDiskWatcher, useDiskTimerDevd;
+  bool useDiskWatcher, useDiskTimerDevd, useAutoPlay;
   int diskTimerMaxMS; //milliseconds
   QString popupSave; //for saving the device for the latest pop-up message
   bool MTINIT;

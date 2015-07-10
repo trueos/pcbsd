@@ -148,12 +148,17 @@ void MountTray::slotOpenSettings(){
   sdlg->useDiskWatcher = useDiskWatcher;
   sdlg->useDiskAutoTimer = useDiskTimerDevd;
   sdlg->diskRefreshMS = diskTimerMaxMS;
+  sdlg->useAutoPlay = useAutoPlay;
   sdlg->showDialog();
   //Now parse the output and save if necessary
   if(sdlg->SettingsChanged){
     useDiskWatcher = sdlg->useDiskWatcher;
     useDiskTimerDevd = sdlg->useDiskAutoTimer;
     diskTimerMaxMS = sdlg->diskRefreshMS;
+    useAutoPlay = sdlg->useAutoPlay;
+    for(int i=0; i<DEVLIST.length(); i++){
+      DEVLIST[i]->setAutoPlay(useAutoPlay);
+    }
     qDebug() << "INFO: Saving updated settings to file";
     saveCurrentSettings(); //update the saved settings
   }
@@ -201,22 +206,8 @@ void MountTray::slotPopupClicked(){
   if(popupSave == "FSCHECK"){
     //Open up the filesystem disk space UI
     slotOpenFSDialog();
-  }else if(!popupSave.isEmpty()){
-    //Check if it is a currently valid device
-    /*if(!popupSave.startsWith(DEVICEDIR)){ popupSave.prepend(DEVICEDIR); }
-    for(int i=0; i<deviceList.length(); i++){
-      if( deviceList[i]->device == popupSave){
-        //See if the device is mounted
-	if(deviceList[i]->isMounted()){
-	  //Open up the mountpoint directory
-	  openMediaDir(deviceList[i]->mountpoint);
-	}else{
-	  //Mount the device
-	  deviceList[i]->mountItem();
-	}
-        break;
-      }
-    }*/
+  }else{
+    slotTrayActivated(); //Open up the menu
   }
 
 }
@@ -227,6 +218,7 @@ void MountTray::loadSavedSettings(){
   //Set the defaults
   useDiskWatcher=true; useDiskTimerDevd=true;
   diskTimerMaxMS=3600000; //1 hour refresh timer
+  useAutoPlay = true;
   //Now load the file
   QFile file(filename);
   if(file.exists()){
@@ -248,7 +240,9 @@ void MountTray::loadSavedSettings(){
           else{ useDiskTimerDevd = false; }	
         }else if(var=="DiskSpaceTimingMaxMilliseconds"){
           diskTimerMaxMS = val.toInt();	
-        }
+        }else if(var=="AutoPlay"){
+	  useAutoPlay = (val.toLower()=="true");
+	}
       }
     }
     file.close();
@@ -278,6 +272,7 @@ void MountTray::saveCurrentSettings(){
   if(useDiskTimerDevd){ out << "true\n";}
   else{ out << "false\n"; }
   out << "DiskSpaceTimingMaxMilliseconds)"+QString::number(diskTimerMaxMS)+"\n";
+  out << "AutoPlay)" +QString(useAutoPlay ? "true\n": "false\n");
   //Now close the file
   file.close();
 }
@@ -365,6 +360,7 @@ void MountTray::UpdateDeviceMenu(bool fast, bool refresh){
   for(int i=0; i<avail.length(); i++){
     newitems = true;
     DeviceWidget *item = new DeviceWidget(this, avail[i]);
+    item->setAutoPlay(useAutoPlay);
     connect(item, SIGNAL(CloseMenu()), this, SLOT(slotCloseMenu()) );
     connect(item, SIGNAL(RefreshDeviceList()), this, SLOT(UpdateDeviceMenu()) );
     connect(item, SIGNAL(ShowMessage(QString, QString)), this, SLOT(slotDisplayPopup(QString, QString)) );

@@ -26,6 +26,7 @@ public:
 	bool useDiskWatcher; //use system disk space monitor
 	  bool useDiskAutoTimer; //use devd prompting to check system
 	  int diskRefreshMS; //max time between checks (milliseconds)
+	bool useAutoPlay; //Automatically start playing audio/video CD/DVDs
 	  
 	  
 	void showDialog();
@@ -33,7 +34,7 @@ public:
 private:
 	//Disk Watcher settings
 	QGroupBox *groupDiskWatch;
-	QCheckBox *checkDiskAutoTimer;
+	QCheckBox *checkDiskAutoTimer, *checkAutoPlay;
 	QSpinBox *spinDiskRefreshMin;
 	//save/close buttons
 	QPushButton *closeButton,  *applyButton;
