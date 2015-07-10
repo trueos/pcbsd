@@ -53,6 +53,7 @@ if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
   read userPass
   passLen=`echo $userPass | wc -m | awk '{print $1}'`
   if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
+    echo "Invalid length!"
     exit 1
   fi
 fi
