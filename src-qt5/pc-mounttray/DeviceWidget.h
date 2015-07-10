@@ -25,10 +25,11 @@ public:
 
 	void UpdateDevice(bool ismounted); //Full update of the widget
 	void QuickUpdate(bool ismounted); //Just update status & item visibility (fast)
+	void setAutoPlay(bool);
 
 private:
 	Ui::DeviceWidget *ui; //Designer form
-	bool isMounted, quickupdates, canmount;
+	bool isMounted, quickupdates, canmount, autoplay;
 	QWidgetAction *WAct;
 
 private slots:

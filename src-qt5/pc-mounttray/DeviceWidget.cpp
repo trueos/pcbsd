@@ -19,6 +19,7 @@
 DeviceWidget::DeviceWidget(QWidget *parent, QString devnode) : QWidget(parent), ui(new Ui::DeviceWidget){
   ui->setupUi(this); //load the designer file
   isMounted = false; //default value
+  autoplay = true; //default value
   WAct = new QWidgetAction(this);
     WAct->setDefaultWidget(this);
   ui->label_dev->setWhatsThis(devnode);
@@ -72,6 +73,10 @@ void DeviceWidget::QuickUpdate(bool ismounted){
   isMounted = ismounted; //save this for later
   quickupdates = true;
   QTimer::singleShot(0,this, SLOT(doUpdate())); //allow the main process to continue on
+}
+
+void DeviceWidget::setAutoPlay(bool ok){
+  autoplay = ok;
 }
 
 // == PRIVATE FUNCTIONS ==
@@ -164,7 +169,7 @@ void DeviceWidget::doUpdate(){
     }else if(canmount){
       //This is some kind of optical disk that can also be mounted (Blueray/DVD, or data disk for instance)
       if(type()!="CD-DATA"){ runButtonClicked(); } //not a pure data disk - go ahead and prompt to run it
-    }else{
+    }else if(autoplay){
       //Always try to "play" a non-mountable device when it is first connected (AUDIO/VIDEO CD usually)
       runButtonClicked();
     }
