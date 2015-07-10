@@ -1884,6 +1884,19 @@ void Installer::slotLoadConfigUSB()
                                        tr("Config File:"), cfgs, 0, false, &ok);
   if (!ok || cfgFile.isEmpty())
     return;
+
+  // Read the contents of this file
+  QStringList fileContents;
+  QFile file(cfgFile);
+  if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    return;
+
+  while (!file.atEnd())
+    fileContents << file.readLine();
+  file.close();
+
+  // Display the file in an OK information box so the user can inspect it
+  QMessageBox::information(this, tr("PC-BSD Installer Config Script"), fileContents.join("\n"), QMessageBox::Ok, QMessageBox::Ok);
   
   ret = QMessageBox::question(this, tr("PC-BSD Installer"),
            tr("Start the install using this config file?") + "\n" + cfgFile,
