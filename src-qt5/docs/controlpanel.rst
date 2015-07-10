@@ -2720,22 +2720,22 @@ The previous section demonstrated how to securely replicate snapshots to another
 over the network. Life Preserver provides an alternate replication method which provides an extra measure of security by adding support for fully-encrypted backups
 using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volumes. This means that the data stored on the remote side is encrypted and only accessible with
 the key file stored on the PC-BSD® system. The remote backup server must understand kernel iSCSI, meaning that it must be running FreeBSD, PC-BSD®/TrueOS®, or
-FreeNAS®. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
-for creating encrypted backups.
+FreeNAS®. However, the remote system does not need to be formatted with ZFS.
 
 The backup system must meet the following requirements:
 
-* must be running FreeBSD 9.1 or higher, PC-BSD® or TrueOS® 10.1.2 or higher, or FreeNAS® 9.3
+* It must be running FreeBSD 9.1 or higher, PC-BSD® or TrueOS® 10.1.2 or higher, or FreeNAS® 9.3
 
-* if it is a FreeBSD system, the "security/stunnel" package must be installed. This software is already installed on PC-BSD®/TrueOS® 10.1.2 and on FreeNAS® 9.3 systems that
+* If it is a FreeBSD system, the "security/stunnel" package must be installed. This software is already installed on PC-BSD®/TrueOS® 10.1.2 and on FreeNAS® 9.3 systems that
   have been updated to at least SU201504100216.
   
-* if it is a FreeBSD system, the `lpreserver-host-iscsi <https://raw.githubusercontent.com/pcbsd/pcbsd/master/src-sh/lpreserver/lpreserver-host-iscsi>`_ script must be
-  downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. Refer to :ref:`Using FreeNAS® as the Backup System~ for FreeNAS® instructions.
+* If it is a FreeBSD system, the `lpreserver-host-iscsi <https://raw.githubusercontent.com/pcbsd/pcbsd/master/src-sh/lpreserver/lpreserver-host-iscsi>`_ script must be
+  downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. Refer to :ref:`Using FreeNAS® as the Backup System` for FreeNAS® instructions.
 
-Before you can configure the PC-BSD® system, you must first create a Life Preserver configuration file ending in the :file:`.lps` extension on the remote system which
-will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher system or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
-script as the *root* user. Input the information that the script asks for as seen in the following example. Table 8.19b summarizes the various options that this script prompts for::
+Before you can backup the PC-BSD® system using this replication method, you must first create a Life Preserver configuration file ending in the :file:`.lps` extension on the remote
+system which will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher system or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
+script as the *root* user. Input the information that the script asks for as seen in the following example. Table 8.19b summarizes the various options that this script prompts for.
+::
 
  lpreserver-host-iscsi
  Enter the target host name (example.com or IP)
@@ -2784,7 +2784,7 @@ this example::
  Email Address []:
  ctld not running? (check /var/run/ctld.pid).
  Starting ctld.
- stunnel not running?
+ stunnel not running? (check /var/run/stunnel.pid)
  Starting stunnel.
  Created mybackups.lps
 
@@ -2812,16 +2812,16 @@ this example::
 |                  |                                                                                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
 
-Once you have successfully created the :file:`.lps` file, copy it to the PC-BSD® system. You are now ready to configure the PC-BSD® system using the instructions in
-:ref:`Running the Encrypted Backup Wizard`.
+Once you have successfully created the :file:`.lps` file, copy it to the PC-BSD® system to be backed up. You are now ready to configure the PC-BSD® system using the instructions in
+:ref:`Configuring the System to Backup`.
 
 .. _Using FreeNAS® as the Backup System:
 
 Using FreeNAS® as the Backup System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To instead prepare a FreeNAS® 9.3 system to use as the backup target, first ensure that the system has been updated to the latest software update. Then,
-perform the following configuration steps.
+To instead prepare a FreeNAS® 9.3 system to use as the backup target, first ensure that the system has been updated to the latest software update using
+:menuselection:`System -> Update`. Then, perform the following configuration steps.
 
 Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19s, input
 the following values in these fields then press "OK" to create the account:
@@ -2848,11 +2848,11 @@ shown in Figure 8.19t, a zvol of 50GB in size named "pcbsd-backup" is created on
 .. image:: images/iscsi5.png
 
 You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19u, change the
-default "Base Name" to *iqn.2012-06.com.lpreserver*.
+default "Base Name" to *iqn.2012-06.com.lpreserver* and click "Save".
 
 **Figure 8.19u: Configure the IQN** 
 
-.. image:: images/iscsi6.png
+.. image:: images/iscsi6a.png
 
 Click the "Portals" tab then the "Add Portal" button. Verify that the "IP Address" drop-down menu is set to *0.0.0.0* and that the "Port" field is set to
 *3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19v, this is
@@ -2861,7 +2861,7 @@ the first time iSCSI has been configured on this system, so it has a "Portal Gro
 
 **Figure 8.19v: Configure the Portal** 
 
-.. image:: images/iscsi7.png
+.. image:: images/iscsi7a.png
 
 In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initiators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
 it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19w,
@@ -2890,9 +2890,11 @@ In the "Targets" tab, click the "Add Target" button. In the screen shown in Figu
 
 * **Auth Method:** select CHAP from the drop-down menu
 
+* **Authentication Group number:** select "1" from the drop-down menu
+
 **Figure 8.19y: Configure the Target** 
 
-.. image:: images/iscsi10.png
+.. image:: images/iscsi10a.png
 
 In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19z, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
 the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
@@ -2906,7 +2908,7 @@ and the "Extent" that you created.
 
 **Figure 8.19aa: Associate the Target With the Extent** 
 
-.. image:: images/iscsi12.png
+.. image:: images/iscsi12a.png
 
 Next, go to :menuselection:`Services` and click the red "OFF" button next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
 
@@ -2948,18 +2950,15 @@ set when you created the "Authorized Access", and the "itarget" value matches th
  ipassword: pcbsdbackups
  itarget: target0
 
-You are now ready to configure the PC-BSD® system using the instructions in :ref:`Running the Encrypted Backup Wizard`.
+You are now ready to configure the PC-BSD® system using the instructions in :ref:`Configuring the System to Backup`.
 
-.. _Running the Encrypted Backup Wizard:
+.. _Configuring the System to Backup:
 
-Running the Encrypted Backup Wizard
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuring the System to Backup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once you have configured the backup system and the PC-BSD® system has a copy of the :file:`*.lps` file, you are ready to run the encrypted backup wizard on the
-PC-BSD® system. If you have not yet managed a pool in Life Preserver, click :menuselection:`File --> Manage Pool` and follow the initial configuration wizard
-described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, just click "Next" as you will instead be using a zvol to
-backup to. Next, start the encrypted backup wizard by clicking :menuselection:`File --> Enable Offsite Backups` and select the pool to backup. This will start
-the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19ab.
+Once you have configured the backup system and the PC-BSD® system has a copy of the :file:`*.lps` file, open Life Preserver, go to :menuselection:`Configure --> Replication`
+and click the "iSCSI" button. This will start the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19ab.
 
 **Figure 8.19ab: Selecting the Configuration File** 
 
