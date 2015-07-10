@@ -172,9 +172,12 @@ if [ ! -e "/usr/local/etc/stunnel/iscsi.pem" ] ; then
 fi
 
 # Start the services
-service ctld restart
+service ctld stop
+service ctld start
+service stunnel stop
 killall -9 stunnel
-service stunnel restart
+sleep 1
+service stunnel start
 
 # Create the LPS file
 cat >${userName}.lps << EOF
