@@ -104,8 +104,7 @@ done
 
 
 # Now calculate any free space
-LASTB="`expr $SIZEB + $START`"
-FREEB="`expr $TOTALB - $LASTB`"
+FREEB=`gpart show ${DISK} | grep '\- free\ -' | awk '{print $2}' | sort -g | tail -1`
 FREEMB="`expr ${FREEB} / 2048`"
 echo "${1}-freemb: $FREEMB"
 echo "${1}-freeblocks: $FREEB"
