@@ -3,6 +3,7 @@
 # Author: Kris Moore
 # Copyright: 2012
 # License: BSD
+# Modified 7/14/2015 by Joshua Smith
 ##############################################################
 
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
@@ -145,23 +146,29 @@ get_file_from_mirrors()
          _dSize=`du -k ${_lf} | tr -d '\t' | cut -d '/' -f 1`
          if [ $(is_num "$_dSize") ] ; then
             if [ ${_fSize} -lt ${_dSize} ] ; then _dSize="$_fSize" ; fi
-	    _kbs=`expr ${_dSize} \/ $_time`
-	    echo "SIZE: ${_fSize} DOWNLOADED: ${_dSize} SPEED: ${_kbs} KB/s"
-  	 fi
+	           _kbs=`expr ${_dSize} \/ $_time`
+	           echo "SIZE: ${_fSize} DOWNLOADED: ${_dSize} SPEED: ${_kbs} KB/s"
+  	     fi
       fi
 
       # Make sure download isn't finished
       jobs -l >/tmp/.jobProcess.$$
       cat /tmp/.jobProcess.$$ | awk '{print $3}' | grep -q ${FETCH_PID}
-      if [ "$?" != "0" ] ; then rm /tmp/.jobProcess.$$ ; break ; fi
+      if [ "$?" != "0" ] ; then
+         rm /tmp/.jobProcess.$$ ; break
+         fi
       sleep 1
       _time=`expr $_time + 1`
    done
 
    _err="`cat ${_eFile} 2>/dev/null`"
-   if [ -z "$_err" ] ; then _err="0"; fi
+   if [ -z "$_err" ] ; then
+      _err="0"; 
+   fi
    rm ${_eFile} 2>/dev/null
-   if [ "$_err" = "0" ]; then echo "FETCHDONE" ; fi
+
+   if [ "$_err" = "0" ]; then
+      echo "FETCHDONE" ; fi
    unset FETCH_PID
    return $_err
 
