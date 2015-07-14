@@ -355,14 +355,17 @@ void desktopSelection::slotMetaViewPkgs()
 
 		// Check for deps list as well
                 QFile depList("/root/pkg-dep-lists/" + (*it)->text(0) + ".deps");
-                if ( depList.exists() && depList.open(QIODevice::ReadOnly | QIODevice::Text))
-		{
-                  packageList << " ";
-                  packageList << "Additional packages:";
-                  packageList << " ";
-                  while ( !depList.atEnd() )
-                    packageList << pList.readLine().simplified();
-		}
+                if ( depList.exists() ) {
+                   if( depList.open(QIODevice::ReadOnly | QIODevice::Text))
+		   {
+                     packageList << " ";
+                     packageList << "Additional packages:";
+                     packageList << " ";
+                     while ( !depList.atEnd() )
+                       packageList << depList.readLine().simplified();
+                     depList.close();
+		   }
+                }
  
                 dIB = new dialogInfoBox();
                 dIB->programInit(tr("Package Listing for:") + " " + (*it)->text(0));
