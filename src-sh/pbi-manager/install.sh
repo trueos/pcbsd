@@ -39,7 +39,9 @@ do
   gzip -c man5/${i} > ${LB}/man/man5/${i}.gz
 done
 
-if [ -d "${LB}/share/pbi-manager" ] ; then rm -rf "${LB}/share/pbi-manager" ; fi
+if [ -d "${LB}/share/pbi-manager" ] ; then 
+  rm -rf "${LB}/share/pbi-manager"
+fi
 
 mkdir -p ${LB}/share/pbi-manager/ >/dev/null 2>/dev/null
 
