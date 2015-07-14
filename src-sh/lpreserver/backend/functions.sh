@@ -1,7 +1,8 @@
 #!/bin/sh
 # Functions / variables for lpreserver
 ######################################################################
-# DO NOT EDIT 
+# DO NOT EDIT
+# Modified 7/14/2015 
 
 # Source external functions
 . /usr/local/share/pcbsd/scripts/functions.sh
@@ -16,9 +17,12 @@ PROGDIR="/usr/local/share/lpreserver"
 DBDIR="/var/db/lpreserver"
 DBDIREXCLUDES="/var/db/lpreserver/excludes"
 DBDIRKEYS="/var/db/lpreserver/keys"
-if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
-if [ ! -d "$DBDIREXCLUDES" ] ; then mkdir -p ${DBDIREXCLUDES} ; fi
-if [ ! -d "$DBDIRKEYS" ] ; then mkdir -p ${DBDIRKEYS} ; fi
+if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR}
+fi
+if [ ! -d "$DBDIREXCLUDES" ] ; then mkdir -p ${DBDIREXCLUDES}
+fi
+if [ ! -d "$DBDIRKEYS" ] ; then mkdir -p ${DBDIRKEYS}
+fi
 
 CMDLOG="${DBDIR}/lp-lastcmdout"
 STUNNELLOG="${LOGDIR}/lp-stunnel"
@@ -32,7 +36,9 @@ MSGQUEUE="${DBDIR}/.lpreserver.msg.$$"
 export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
 
 # Create the logdir
-if [ ! -d "$LOGDIR" ] ; then mkdir -p ${LOGDIR} ; fi
+if [ ! -d "$LOGDIR" ] ; then 
+   mkdir -p ${LOGDIR}
+fi
 
 uname -r | grep -q 10.0
 if [ $? -eq 0 ] ; then
@@ -220,8 +226,12 @@ do
    day_week=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $5}'`
    day_month=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $3}'`
    if [ "$hour" != '*' -a "$day_week" = '*' -a "$day_month" = '*' ] ; then time="daily @ $hour" ; fi
-   if [ "$day_week" != '*' ] ; then time="weekly @ $day_week @ $hour" ; fi
-   if [ "$day_month" != '*' ] ; then time="monthly @ $day_month @ $hour" ; fi
+   if [ "$day_week" != '*' ] ; then
+      time="weekly @ $day_week @ $hour"
+   fi
+   if [ "$day_month" != '*' ] ; then
+      time="monthly @ $day_month @ $hour"               
+   fi
    echo "$i - $time"
    echo ""
 done
@@ -233,7 +243,9 @@ enable_watcher()
 
    # Check if the zfs monitor is already enabled
    grep -q " $cronscript" /etc/crontab
-   if [ $? -eq 0 ] ; then return; fi
+   if [ $? -eq 0 ] ; then
+      return
+   fi
 
    cLine="*/30    *       *       *       *"
 
@@ -264,7 +276,9 @@ queue_msg() {
 }
 
 echo_queue_msg() {
-  if [ ! -e "$MSGQUEUE" ] ; then return ; fi
+  if [ ! -e "$MSGQUEUE" ] ; then
+     return
+  fi
   cat ${MSGQUEUE}
   rm ${MSGQUEUE}
 }
@@ -418,7 +432,9 @@ add_rep_iscsi_task() {
   rem_rep_task "$LDATA" "$HOST"
   echo "${LDATA}:${TIME}:${HOST}:${USER}:9555:ISCSI:${ITARGET}:${LGELIKEY}:${RZPOOL}:iqn.2012-06.com.lpreserver:${PASS}" >> ${REPCONF}
 
-  if [ -e ${CMDLOG} ] ; then rm ${CMDLOG}; fi
+  if [ -e ${CMDLOG} ] ; then
+     rm ${CMDLOG}
+  fi
   # Lets test connecting to the iscsi target
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${HOST}:"`
   load_iscsi_rep_data
@@ -549,7 +565,9 @@ list_rep_task() {
 
 check_rep_task() {
   export DIDREP=0
-  if [ ! -e "$REPCONF" ] ; then return 0; fi
+  if [ ! -e "$REPCONF" ] ; then
+     return 0
+  fi
 
   # Are we running as a sync task, or to a particular host?
   if [ "$2" = "sync" ] ; then
@@ -558,7 +576,9 @@ check_rep_task() {
     repLine=`cat ${REPCONF} | grep "^${1}:.*:${2}:"`
   fi
 
-  if [ -z "$repLine" ] ; then return 0 ; fi
+  if [ -z "$repLine" ] ; then
+     return 0
+  fi
 
   # We have a replication task for this dataset, lets check if we need to do it now
   LDATA="$1"
@@ -571,7 +591,9 @@ check_rep_task() {
   export REPRDATA=`echo $repLine | cut -d ':' -f 6`
 
   # If we are checking for a sync task, and the rep isn't marked as sync we can continue
-  if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then continue; fi
+  if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then
+     continue
+  fi
 
   # Doing a replication task, check if one is in progress
   export pidFile="${DBDIR}/.reptask-`echo ${LDATA} | sed 's|/|-|g'`"
@@ -655,7 +677,9 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
      # Connect the iSCSI session
      echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >${ISCSILOG}
      iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${ISCSILOG} 2>>${ISCSILOG}
-     if [ $? -ne 0 ] ; then return 1; fi
+     if [ $? -ne 0 ] ; then 
+        return 1
+     fi
   fi
 
   # Now lets wait a reasonable ammount of time to see if iscsi becomes available
@@ -671,8 +695,9 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
 
     # Check if we have a connected target now
     diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
-    if [ -n "$diskName" ] ; then break; fi
-
+    if [ -n "$diskName" ] ; then
+       break
+    fi
     i="`expr $i + 1`"
     sleep 5
   done
@@ -707,7 +732,9 @@ connect_geli_zpool()
     if [ $? -ne 0 ] ; then return 1; fi
     if [ ! -e "/dev/${diskPart}" ] ; then
       gpart add -t freebsd-zfs $diskName >>$CMDLOG 2>>${CMDLOG}
-      if [ $? -ne 0 ] ; then return 1; fi
+      if [ $? -ne 0 ] ; then 
+      return 1
+      fi
     fi
     sleep 5
   fi
@@ -724,7 +751,10 @@ connect_geli_zpool()
 
       # See if we can init this disk
       geli init -s 4096 -K $REPGELIKEY -P $diskPart >>$CMDLOG 2>>$CMDLOG
-      if [ $? -ne 0 ] ; then echo "Failed to init disk: $diskPart" >>$CMDLOG ; return 1; fi
+      if [ $? -ne 0 ] ; then
+         echo "Failed to init disk: $diskPart" >>$CMDLOG
+         return 1
+      fi
 
       # Now try to attach again
       geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
@@ -747,8 +777,10 @@ connect_geli_zpool()
       # Make sure the new zpool uses 4k sector size
       sysctl vfs.zfs.min_auto_ashift=12 >/dev/null 2>/dev/null
       zpool create $ZPOOLFLAGS -m none $REPPOOL ${geliPart} >>$CMDLOG 2>>$CMDLOG
-      if [ $? -ne 0 ] ; then echo "Failed creating pool: $geliPart" >> ${CMDLOG} ; return 1; fi
-
+      if [ $? -ne 0 ] ; then
+         echo "Failed creating pool: $geliPart" >> ${CMDLOG}
+         return 1
+      fi
       sleep 2
     fi
   fi
@@ -758,7 +790,9 @@ connect_geli_zpool()
 }
 
 cleanup_iscsi() {
-  if [ "$REPRDATA" != "ISCSI" ] ; then return ; fi
+  if [ "$REPRDATA" != "ISCSI" ] ; then
+     return
+  fi
 
   if [ "$startISCSI" = "0" ] ; then
      return 0
@@ -789,7 +823,9 @@ save_remote_props() {
   do
     pname="`echo $propline | cut -d ' ' -f 1`"
     pval="`echo $propline | cut -d ' ' -f 2-`"
-    if [ -z "$pname" -o "$pval" = "-" ] ; then continue; fi
+    if [ -z "$pname" -o "$pval" = "-" ] ; then
+       continue
+    fi
     rdset=""
     if [ "$dset" != "$LDATA" ] ; then
       # Strip off the zpool/top level name
@@ -897,15 +933,22 @@ prune_remote_datasets() {
   # Remove any remote datasets which no longer exist for replication here
   while read rdline
   do
-    if [ -z "${rdline}" ] ; then continue; fi
+    if [ -z "${rdline}" ] ; then
+       continue
+    fi
     noprune=0
     rdset="`echo ${rdline} | tr -s '\t' ' ' | cut -d ' ' -f 1`"
-    if [ "$rdset" = "-" ] ; then continue; fi
+    if [ "$rdset" = "-" ] ; then
+       continue
+    fi
 
     for dset in ${DSETS}
     do
       dcmp="/`echo $dset | cut -d '/' -f 2-`"
-      if [ "$rdset" = "$dcmp" ] ; then noprune=1; break; fi
+      if [ "$rdset" = "$dcmp" ] ; then
+         noprune=1
+         break
+      fi
     done
 
     if [ $noprune -eq 0 ] ; then
@@ -1038,7 +1081,9 @@ start_rep_task() {
                 queue_msg "`date`: Promoting ${REMOTEDSET}/${hName}${rdset}"
 		${CMDPREFIX} zfs promote ${REMOTEDSET}/${hName}${rdset}
 		zStatus=$?
-		if [ $zStatus -ne 0 ] ; then break ; fi
+		if [ $zStatus -ne 0 ] ; then
+           break
+         fi
 
 		# Since we just juggled origins, need to regen the remote dset list
 		${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
@@ -1056,9 +1101,13 @@ start_rep_task() {
           queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - Incorrect origin"
           ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
         fi
-        if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
+        if [ "$ldsetorigin" = "-" ] ; then
+           unset ldsetorigin
+        fi
       else
-        if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
+        if [ "$ldsetorigin" = "-" ] ; then
+           unset ldsetorigin
+        fi
         removedRemote=1
       fi # End of if rdsetorigin exists
     fi
@@ -1152,7 +1201,9 @@ start_rep_task() {
         # Now that replication of this dataset is done, save properties on remote
         save_remote_props "${dset}"
         zStatus=$?
-        if [ $zStatus -ne 0 ] ; then break ; fi
+        if [ $zStatus -ne 0 ] ; then
+           break
+        fi
         continue
       fi
     fi
@@ -1182,7 +1233,9 @@ start_rep_task() {
      fi
      zfs set lpreserver:${REPHOST}=LATEST ${LDATA}@$lastSNAP
      echo_log "Finished replication task on ${DATASET} -> ${REPHOST}"
-     if [ -z "$ISCSI" ] ; then save_rep_props; fi
+     if [ -z "$ISCSI" ] ; then
+        save_rep_props
+     fi
      zStatus=$?
   else
      # FAILED :-(
@@ -1216,7 +1269,9 @@ do_zfs_send_now() {
     queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
     queue_msg "ZFS RCV LOG:\n--------------\n" "${REPLOGRECV}"
 
-    if [ $rtnCode -ne 0 ] ; then return $rtnCode ; fi
+    if [ $rtnCode -ne 0 ] ; then
+       return $rtnCode
+    fi
 
     if [ -n "$lastSENDPART" ] ; then
       zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSENDPART
@@ -1229,8 +1284,12 @@ do_zfs_send_now() {
 save_rep_props() {
 
   # If we are not doing a recursive backup / complete dataset we can skip this
-  if [ "$RECURMODE" != "ON" ] ; then return 0; fi
-  if [ "`basename $DATASET`" != "$DATASET" ] ; then return 0; fi
+  if [ "$RECURMODE" != "ON" ] ; then
+     return 0
+  fi
+  if [ "`basename $DATASET`" != "$DATASET" ] ; then
+     return 0
+  fi
   hName="`hostname`"
 
   echo_log "Saving dataset properties for: ${DATASET}"
@@ -1277,8 +1336,12 @@ listStatus() {
 
       lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
-      if [ -z "$lastSEND" ] ; then lastSEND="NONE"; fi
-      if [ -z "$lastSNAP" ] ; then lastSNAP="NONE"; fi
+      if [ -z "$lastSEND" ] ; then
+         lastSEND="NONE"
+      fi
+      if [ -z "$lastSNAP" ] ; then
+         lastSNAP="NONE"
+      fi
       echo "$i -> $REPHOST - $lastSNAP - $lastSEND"
     done
   done
@@ -1620,7 +1683,9 @@ do_pool_cleanup()
 {
   # Is this zpool managed by life-preserver?
   grep -q "${PROGDIR}/backend/runsnap.sh ${1} " /etc/crontab
-  if [ $? -ne 0 ] ; then return ; fi
+  if [ $? -ne 0 ] ; then
+     return
+  fi
 
   # Before we start pruning, check if any replication is running
   local pidFile="${DBDIR}/.reptask-`echo ${1} | sed 's|/|-|g'`"
@@ -1637,7 +1702,9 @@ do_pool_cleanup()
   do
      # Only remove snapshots which are auto-created by life-preserver
      cur="`echo $snap | cut -d '-' -f 1`"
-     if [ "$cur" != "auto" ] ; then continue; fi
+     if [ "$cur" != "auto" ] ; then
+        continue
+     fi
 
      echo_log "Pruning old snapshot: $snap"
      rmZFSSnap "${1}" "$snap"
@@ -1665,7 +1732,9 @@ import_iscsi_zpool() {
   fi
 
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
-  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+  if [ -z "$repLine" ] ; then
+     exit_err "No such replication task: ${LDATA}"
+  fi
  
   # We have a replication task for this set, get some vars
   hName=`hostname`
@@ -1698,7 +1767,9 @@ export_iscsi_zpool() {
   fi
 
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
-  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+  if [ -z "$repLine" ] ; then
+     exit_err "No such replication task: ${LDATA}"
+  fi
  
   # We have a replication task for this set, get some vars
   hName=`hostname`
@@ -1729,7 +1800,9 @@ save_iscsi_zpool_data() {
   PASSFILE="$3"
 
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
-  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+  if [ -z "$repLine" ] ; then
+     exit_err "No such replication task: ${LDATA}"
+  fi
 
   # We have a replication task for this set, get some vars
   hName=`hostname`
