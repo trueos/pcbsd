@@ -1,5 +1,6 @@
 #!/bin/sh
 # Do the replication for a specific dataset
+# Modified 7/14/2015 by Joshua Smith
 ######################################################################
 
 # Set our vars
@@ -23,7 +24,9 @@ check_rep_task "$DATASET" "$rHost"
 status=$?
 
 # No replication was needed / done
-if [ $DIDREP -eq 0 ] ; then exit 0 ; fi
+if [ $DIDREP -eq 0 ] ; then
+   exit 0
+fi
 
 if [ "$TIME" = "force" ] ; then
   type="Manual" 

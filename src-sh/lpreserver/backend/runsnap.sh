@@ -51,10 +51,14 @@ do_numeric_prune()
      # Only remove snapshots which are auto-created, so we don't delete one the user
      # made specifically
      cur="`echo $snap | cut -d '-' -f 1`"
-     if [ "$cur" != "auto" ] ; then continue; fi
+     if [ "$cur" != "auto" ] ; then
+        continue
+     fi
 
      # If this snapshot is the last one replicated, lets skip pruning it for now
-     if [ "$cur" = "$oldestSEND" ]; then continue; fi
+     if [ "$cur" = "$oldestSEND" ]; then
+        continue
+     fi
 
      sec="`echo $snap | cut -d '-' -f 7`"
      min="`echo $snap | cut -d '-' -f 6`"
@@ -132,10 +136,14 @@ do_automatic_prune()
   do
      # Skip snaps not created by life-preserver
      cur="`echo $snap | cut -d '-' -f 1`"
-     if [ "$cur" != "auto" ] ; then continue; fi
+     if [ "$cur" != "auto" ] ; then
+        continue
+     fi
 
      # If this snapshot is the last one replicated, lets skip pruning it for now
-     if [ "$cur" = "$oldestSEND" ]; then continue; fi
+     if [ "$cur" = "$oldestSEND" ]; then
+        continue
+     fi
 
      sec="`echo $snap | cut -d '-' -f 7`"
      min="`echo $snap | cut -d '-' -f 6`"
