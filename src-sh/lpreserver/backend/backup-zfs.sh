@@ -1,5 +1,6 @@
 #!/bin/sh
 # Script for Life-Preserver which starts a backup on the specified host
+# Modified 7/14/2015 by Joshua Smith
 ###########################################################################
 SSHHOST=$1
 
@@ -25,7 +26,9 @@ SETTINGS="${HOSTDIR}/settings.conf"
 
 prepZFS() {
   isDirZFS "${1}" "1"
-  if [ $? -ne 0 ] ; then exit_err "Not a ZFS volume: ${1}" ; fi
+  if [ $? -ne 0 ] ; then
+     exit_err "Not a ZFS volume: ${1}"
+  fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
   tank=`getZFSTank "$1"`
   rp=`getZFSRelativePath "$1"`
@@ -131,19 +134,16 @@ if [ "$CLEANFAILED" = "true" ]; then
 fi
 
 # Check if we need to prune any old saved backups
-if [ ! -z "${KEEPNUM}" ]
-then
+if [ ! -z "${KEEPNUM}" ]; then
   COUNT="0"
 
   # Get a listing of the number of full backups saved
   OLDBACKUPS=`ssh -p ${PORT} ${SSHHOST} "ls -dt ${BACKDIR}/back-*"`
-  if [ "$?" = "0" ]
-  then
+  if [ "$?" = "0" ]; then
     for i in ${OLDBACKUPS}
     do
       COUNT="`expr $COUNT + 1`"
-      if [ $COUNT -gt $KEEPNUM -a ! -z "${i}" ]
-      then
+      if [ $COUNT -gt $KEEPNUM -a ! -z "${i}" ]; then
         # We've found a backup to delete, do it now
         echo "Removing old backup: ${i}"
         echo "Removing old backup: ${i}" >>${BACKLOG}
