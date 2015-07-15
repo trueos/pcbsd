@@ -1,8 +1,8 @@
 /*
- * default.css_t
+ * classic.css_t
  * ~~~~~~~~~~~~~
  *
- * Sphinx stylesheet -- default theme.
+ * Sphinx stylesheet -- the old default theme.
  *
  * :copyright: Copyright 2007-2014 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
@@ -569,7 +569,7 @@ p.admonition-title:after {
     content: ":";
 }
 
-pre {
+tt {
     padding: 5px;
     background-color: {{ theme_codebgcolor }};
     color: {{ theme_codetextcolor }};
@@ -579,7 +579,7 @@ pre {
     border-right: none;
 }
 
-tt {
+.kbd, .file {
 #    background-color: #ecf0f3;
     background-color: #DDE0E2; // darken to be more visible on screen.
     padding: 0 1px 0 1px;

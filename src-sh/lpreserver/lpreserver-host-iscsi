@@ -53,6 +53,7 @@ if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
   read userPass
   passLen=`echo $userPass | wc -m | awk '{print $1}'`
   if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
+    echo "Invalid length!"
     exit 1
   fi
 fi
@@ -171,10 +172,21 @@ if [ ! -e "/usr/local/etc/stunnel/iscsi.pem" ] ; then
   cat /usr/local/etc/stunnel/key.pem /usr/local/etc/stunnel/cert.pem >> /usr/local/etc/stunnel/iscsi.pem
 fi
 
+# Open the ipfw ports
+if [ -e "/etc/ipfw.rules" ] ; then
+  echo "ip4 9555" >> /etc/ipfw.openports
+
+  # Restart firewall if needed
+  service ipfw start
+fi
+
 # Start the services
-service ctld restart
+service ctld stop
+service ctld start
+service stunnel stop
 killall -9 stunnel
-service stunnel restart
+sleep 1
+service stunnel start
 
 # Create the LPS file
 cat >${userName}.lps << EOF

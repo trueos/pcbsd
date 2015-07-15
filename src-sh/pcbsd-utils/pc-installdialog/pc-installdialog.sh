@@ -518,9 +518,8 @@ get_target_part()
   # Now prompt for the full-disk, partition, or free space to install onto
   ${PCSYS} disk-part $SYSDISK > /tmp/.dList.$$
   dOpts="ALL \"Use entire disk\" on"
-  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`
   dOpts="$dOpts free \"Install to free space\" off"
-  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`  
+  dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'`
   if [ "$dFmt" = "MBR" ] ; then
     dChar="s"
     DISKFORMAT="MBR"

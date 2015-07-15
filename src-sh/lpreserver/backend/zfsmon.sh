@@ -1,5 +1,6 @@
 #!/bin/sh
 # Do the cron snapshot
+# Modified: 7/14/2015 by Joshua Smith
 ######################################################################
 
 # Set our vars
@@ -17,14 +18,20 @@ if [ "$ZSTATUS" != "all pools are healthy" ] ; then
     email_msg "zpool issue" "The zpool command reports an issue on the system:\n\r $ZSTATUS"
     echo "$ZSTATUS" > $DBDIR/zpool-alert
   else
-    if [ -d "${DBDIR}/zpool-alert" ] ; then rm ${DBDIR}/zpool-alert; fi
+    if [ -d "${DBDIR}/zpool-alert" ] ; then
+       rm ${DBDIR}/zpool-alert
+    fi
   fi
 else
   # Cleanup any old alert files
-  if [ -d "${DBDIR}/zpool-alert" ] ; then rm ${DBDIR}/zpool-alert; fi
+  if [ -d "${DBDIR}/zpool-alert" ] ; then
+     rm ${DBDIR}/zpool-alert
+  fi
 fi
 
-if [ "$EMAILMODE" = "ERROR" ] ; then exit 0 ; fi
+if [ "$EMAILMODE" = "ERROR" ] ; then
+  exit 0
+fi
 
 haveMsg=0
 
@@ -43,7 +50,9 @@ do
   fi
 
   # See if we can do any auto-cleanup of this pool
-  if [ $poolCap -gt 75 ] ; then do_pool_cleanup "$zpool"; fi
+  if [ $poolCap -gt 75 ] ; then
+     do_pool_cleanup "$zpool"
+  fi
 
 done
 
