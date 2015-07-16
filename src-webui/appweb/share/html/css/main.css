@@ -65,7 +65,7 @@ a:hover
 	z-index: 1001;
 	bottom: 0;
 	left: 0;
-	padding: 10px 20px 0;
+        padding: 10px 20px;
 }
 	#meta.dark
 	{
@@ -216,22 +216,23 @@ table.jaillist td.example_code
 .onoffswitch-inner:before {
     content: "Recommended";
     font-size: 75%;
-    padding-left: 10px;
-    background-color: #B7B7AE; color: #FFFFFF;
+    padding-right: 14px;
+    background-color: #77AAFF; color: #444444;
+    text-align: center;
 }
 
 .onoffswitch-inner:after {
     content: "All Apps";
     font-size: 75%;
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
-    text-align: right;
+    padding-left: 10px;
+    background-color: #77AAFF; color: #444444;
+    text-align: center;
 }
 
 .onoffswitch-switch {
     display: block; width: 18px; margin: 6px;
     background: #FFFFFF;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 3px solid #999999; border-radius: 20px;
     position: absolute; top: 0; bottom: 0; right: 106px;
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
@@ -246,7 +247,7 @@ table.jaillist td.example_code
 }
 
 .btn-style{
-	border : solid 2px #c7c7c7;
+        border : solid 3px #6B99E5;
 	border-radius : 5px 5px 20px 20px ;
 	moz-border-radius : 5px 5px 20px 20px ;
 	-webkit-box-shadow : 0px 1px 5px rgba(0,0,0,1.0);
