@@ -259,7 +259,7 @@ function display_cats($iconsize = "32")
   global $allPBI;
 
 ?>
-<center>- <b>Categories</b> -</center><br>
+<center>- <b>Categories</b> -&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</center><br>
 <div class="onoffswitch">
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <?php if ( $allPBI == "false" ) { echo "checked"; }?>>
     <label class="onoffswitch-label" for="pbiswitch">
