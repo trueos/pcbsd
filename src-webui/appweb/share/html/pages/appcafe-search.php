@@ -23,7 +23,8 @@
 <form action="/" method="get">
 <input type="hidden" name="p" value="appcafe-search">
 <input type="hidden" name="jail" value="<?php echo "$jailUrl"; ?>">
-Search: <input name="searchtext" type="text" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="float: relative;" width="28" height="28" src="images/search.png" alt="Search" /><br>
+Search: <input name="searchtext" type="text" float: left; align="middle" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="position:absolute;margin:0 0 0 4px;" width="28" height="28" src="images/search.png" align="middle" alt="Search" /><br>
+<br>
 Search all available PBI and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
 </form>
 
