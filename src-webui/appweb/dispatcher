@@ -142,6 +142,12 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
+  # If we created a new jail, lets bootstrap iocage with pkgng
+  if [ "$app" == "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
+     local jdir="/`cat ${QLOG} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
+     bootstrap_pkgng_iocage "$jdir" >>${QLOG} 2>>${QLOG}
+  fi
+
   # Inform syscache of the updates to check
   syscache "startsync" >/dev/null 2>/dev/null
 
@@ -150,6 +156,77 @@ run_queue_cmd()
   chmod 644 ${QLOGDIR}/${ident}.log
 
   return $err
+}
+
+bootstrap_pkgng_iocage()
+{
+  local jaildir="${1}"
+  local outfile="${1}/.pkgBS.sh"
+  echo "Bootstrapping pkgng for jail ${jaildir}"
+
+  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
+     echo "Missing /bin/freebsd-version in jail.."
+     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
+     return 1
+  fi
+
+  # Setup the repo to use the XX.0-RELEASE pkgng branch
+  local jrelease=`${jaildir}/bin/freebsd-version`
+  echo "$jrelease" | grep -q "RELEASE"
+  if [ $? -eq 0 ] ; then
+    local release="`echo ${jrelease} | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
+  else
+    local release="`echo ${jrelease} | cut -d '-' -f 1-2`"
+  fi
+  local arch="$(uname -m)"
+
+cat <<__EOF__ >"${outfile}"
+#!/bin/sh
+rm /etc/pkg/FreeBSD.conf 2>/dev/null >/dev/null
+
+# Create the pkg.conf file
+mkdir -p /usr/local/etc 2>/dev/null
+echo "PKG_CACHEDIR: /usr/local/tmp
+REPOS_DIR: [
+                \"/usr/local/etc/pkg/repos\"
+           ]" > /usr/local/etc/pkg.conf
+
+# Create the repo dirs
+mkdir -p /usr/local/etc/pkg/repos 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
+
+# Save the repo configuration file
+echo "pcbsd-major: {
+               url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+# Create the repo.dist file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/VERSION/ARCH\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf.dist
+
+# Save the fingerprint file
+echo "function: sha256
+fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+
+#pkg update -f
+
+exit 0
+__EOF__
+
+  # Run the file to bootstrap pkg
+  chroot $jaildir sh /.pkgBS.sh
+  rm ${outfile}
+
+  # Now boot-strap the real pkgng pkg
+  pkg -c ${jaildir} install -qy ports-mgmt/pkg
 }
 
 run_daemon()
