@@ -38,6 +38,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     connect(pushChangeKeyLayout, SIGNAL(clicked()), this, SLOT(slotPushKeyLayout()));
     connect(pushHardware, SIGNAL(clicked()), this, SLOT(slotCheckHardware()));
     connect(pushNetwork, SIGNAL(clicked()), this, SLOT(slotStartNetworkManager()));
+    connect(pushDiskManager, SIGNAL(clicked()), this, SLOT(slotStartDiskManager()));
     connect(pushLoadConfig, SIGNAL(clicked()), this, SLOT(slotLoadConfigUSB()));
     connect(pushSaveConfig, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
     connect(pushSaveConfig2, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
@@ -1920,6 +1921,11 @@ void Installer::slotLoadConfigUSB()
 void Installer::slotStartNetworkManager() 
 {
   system("/usr/local/bin/pc-netmanager -installer &");
+}
+
+void Installer::slotStartDiskManager() 
+{
+  system("/usr/local/bin/pc-zmanager &");
 }
 
 void Installer::slotSaveRestoreSettings(QStringList Opts)

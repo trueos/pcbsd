@@ -67,6 +67,9 @@ private slots:
     // Slot to start the network manager
     void slotStartNetworkManager();
 
+    // Slot to start the disk manager
+    void slotStartDiskManager();
+
     // Desktop selector slots
     void slotDesktopCustomizeClicked();
     void slotSaveMetaChanges(QStringList);
