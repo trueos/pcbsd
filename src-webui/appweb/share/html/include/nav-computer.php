@@ -41,7 +41,7 @@ if (USERNAME)
 
 <body>
 <?php if ( $page != "dispatcher" ) { ?>
-<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:10px;marin-left:10px;">
+<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin:16px;">
   <?php 
      require("include/leftmenu.php");
   ?>
