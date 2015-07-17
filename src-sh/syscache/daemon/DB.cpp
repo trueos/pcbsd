@@ -873,13 +873,13 @@ void Syncer::syncJailInfo(){
       QString val = tmp[j].section(":",1,100).simplified();
       //if(tmp[j].startsWith("hostname:")){ HOST = val; }
       //qDebug() << "Line:" << tmp[j] << val;
-      if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
+      if(tmp[j].startsWith("ip4_addr:")){ IPV4 = val; }
       //else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = val; }
       else if(tmp[j].startsWith("defaultrouter:")){ ROUTERIPV4 = val; }
-      else if(tmp[j].startsWith("ipv6_addr:")){ IPV6 = val; }
+      else if(tmp[j].startsWith("ip6_addr:")){ IPV6 = val; }
       //else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = val; }
       //else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = val; }
       //else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = val; }
