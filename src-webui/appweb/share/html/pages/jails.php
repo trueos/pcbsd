@@ -36,19 +36,19 @@ function print_jail($jail, $status)
 
   exec("$sc ". escapeshellarg("jail $jail autostart")
        . " " . escapeshellarg("jail $jail type")
-       . " " . escapeshellarg("jail $jail ipv4")
-       . " " . escapeshellarg("jail $jail ipv6")
+       . " " . escapeshellarg("jail $jail tag")
        , $jailinfo);
   $jauto = $jailinfo[0];
   $jtype = $jailinfo[1];
-  
+  $jtag = $jailinfo[2];
+
   if ( $jauto == "true" )
      $autostatus="Enabled";
   else
      $autostatus="Disabled";
 
   print ("<tr>\n");
-  print("  <td><a href=\"?p=jailinfo&jail=$jail\" style=\"text-decoration: underline;\">$jail</a></td>\n");
+  print("  <td><a href=\"?p=jailinfo&jail=$jail\" style=\"text-decoration: underline;\">$jtag ($jail)</a></td>\n");
   print("  <td><a href=\"/?p=jails&autostart=$jail\" style=\"text-decoration: underline;\">$autostatus</a></td>\n");
   if ( $status == "Running" )
     print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: green; text-decoration: underline;\">$status</a></td>\n");

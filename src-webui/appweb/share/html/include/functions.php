@@ -315,6 +315,7 @@ function get_jail_list($force=false)
 
 function display_jail_menu()
 {
+  global $sc;
   $jailoutput = get_jail_list();
   $running=$jailoutput[0];
   $stopped=$jailoutput[1];
@@ -327,13 +328,25 @@ function display_jail_menu()
 
   if ( ! empty($running) )
     foreach ($rarray as $jail)
-      if ( $djail != $jail)
-        print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+      if ( $djail != $jail) {
+  	  exec("$sc ". escapeshellarg("jail $jail tag"), $jailinfo);
+  	  $jtag = $jailinfo[0];
+	  if ( empty($jtag))
+            print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+	  else
+            print("<a href=\"?p=jailinfo&jail=$jail\">$jtag</a><br>");
+	}
 
   if ( ! empty($stopped) )
     foreach ($sarray as $jail)
-      if ( $djail != $jail)
-        print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+      if ( $djail != $jail) {
+  	  exec("$sc ". escapeshellarg("jail $jail tag"), $jailinfo);
+  	  $jtag = $jailinfo[0];
+	  if ( empty($jtag))
+            print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+	  else
+            print("<a href=\"?p=jailinfo&jail=$jail\">$jtag</a><br>");
+	}
 }
 
 function get_nics()
