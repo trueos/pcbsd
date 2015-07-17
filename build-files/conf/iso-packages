@@ -2,9 +2,6 @@ archivers/unrar
 archivers/unzip
 devel/qgit
 editors/libreoffice
-emulators/i386-wine-devel
-emulators/wine-gecko-devel
-emulators/wine-mono-devel
 irc/hexchat
 java/icedtea-web
 java/openjdk7
@@ -36,7 +33,6 @@ misc/pcbsd-meta-window_maker
 misc/pcbsd-meta-windowlab
 misc/pcbsd-meta-kodi
 misc/pcbsd-meta-xfce
-misc/pcbsd-role-freenasbuild
 misc/trueos-base
 misc/kde4-l10n
 multimedia/plexhometheater
@@ -58,4 +54,3 @@ misc/pcbsd-role-devel
 misc/pcbsd-role-office
 misc/pcbsd-role-media
 misc/pcbsd-role-internet
-misc/pcbsd-role-freenasbuild
