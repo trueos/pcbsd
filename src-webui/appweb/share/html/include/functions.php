@@ -335,6 +335,7 @@ function display_jail_menu()
             print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
 	  else
             print("<a href=\"?p=jailinfo&jail=$jail\">$jtag</a><br>");
+          unset($tag); unset($jailinfo);
 	}
 
   if ( ! empty($stopped) )
@@ -346,6 +347,7 @@ function display_jail_menu()
             print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
 	  else
             print("<a href=\"?p=jailinfo&jail=$jail\">$jtag</a><br>");
+          unset($tag); unset($jailinfo);
 	}
 }
 
@@ -425,13 +427,18 @@ function display_jail_chooser() {
        continue;
 
     unset($jarray);
-    exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
+    exec("$sc ". escapeshellarg("jail ". $jname . " ipv4") . " " . escapeshellarg("jail $jname tag"), $jarray);
     $jipv4=$jarray[0];
+    $jtag=$jarray[1];
+    if ( empty($jtag) )
+      $dispname=$jname;
+    else
+      $dispname=$jtag;
 
     if ( $jail == $jname )
-      echo "<option value=\"/?p=$page&jail=$jname\" selected>$jname\n";
+      echo "<option value=\"/?p=$page&jail=$jname\" selected>$dispname\n";
     else
-      echo "<option value=\"/?p=$page&jail=$jname\">$jname\n";
+      echo "<option value=\"/?p=$page&jail=$jname\">$dispname\n";
   }
 
   echo "</select>\n";
