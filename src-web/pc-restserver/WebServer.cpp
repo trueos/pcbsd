@@ -14,7 +14,7 @@
 //              PUBLIC
 //=======================
 WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::SecureMode){
-
+  csock = 0; //no current socket connected
   //Setup all the various settings
   
   //Any SSL changes
@@ -56,6 +56,14 @@ void WebServer::stopServer(){
 //=======================
 //       PRIVATE SLOTS
 //=======================
+void EvaluateMessage(const QString &msg){ 
+  //needs a current socket (csock), unsets it when done
+  qDebug() << "New Message:" << msg;
+  csock->close();
+  csock = 0; //Done with the socket, free it up and re-check for more
+  QTimer::singleShot(0,this, SLOT(NewSocketConnection()));
+}
+
 // Overall Server signals
 void WebServer::ServerClosed(){
   qDebug() << "Server Closed:" << QDateTime::currentDateTime().toString(Qt::ISODate);
@@ -68,13 +76,26 @@ void WebServer::ServerError(QWebSocketProtocol::CloseCode code){
 
 // New Connection Signals
 void WebServer::NewSocketConnection(){
+  if(!this->hasPendingConnections()){ return; }
   qDebug() << "New Socket Connection";
-  
+  if(csock!=0){ qDebug() << " - Placed in queue"; return;}
+  csock = this->nextPendingConnection();
+  connect(csock, SIGNAL(textMessageReceived(const QString&)), this, SLOT(EvaluateMessage(const QString&)) );
+  if(csock == 0){ qWarning() << " - new connection invalid, skipping..."; QTimer::singleShot(10, this, SLOT(NewSocketConnection())); return; }
+  qDebug() <<  " - Accepting connection:" << csock->origin();
+  QTimer::singleShot(0,this, SLOT(EvaluateConnection()));
 }
 
 void WebServer::NewConnectError(QAbstractSocket::SocketError err){
-  qWarning() << "New Connection Error:" << err;
-	
+  if(csock!=0){
+    qWarning() << "New Connection Error["+QString::number(err)+"]:" << csock->errorString();
+    csock->close();
+  }else{
+    qWarning() << "New Connection Error["+QString::number(err)+"]:" << this->errorString();
+  }
+  csock = 0; //remove the current socket
+  QTimer::singleShot(0,this, SLOT(NewSocketConnection()) ); //check for a new connection
+  
 }
 
 // SSL/Authentication Signals

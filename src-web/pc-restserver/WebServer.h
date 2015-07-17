@@ -25,8 +25,12 @@ public slots:
 	void stopServer();
 
 private:
-	
+	QWebSocket *csock; //current socket connection
+
 private slots:
+	//Main connection comminucations procedure
+	void EvaluateConnection(); //needs a current socket (csock), unsets it when done
+
 	// Overall Server signals
 	void ServerClosed(); 						//closed() signal
 	void ServerError(QWebSocketProtocol::CloseCode);	//serverError() signal
