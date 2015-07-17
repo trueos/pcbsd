@@ -844,6 +844,8 @@ void Syncer::syncJailInfo(){
     if(info[i].isEmpty()){ continue; }
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
     if(ID.isEmpty()){ continue; }
+    QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
+    
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
@@ -892,6 +894,7 @@ void Syncer::syncJailInfo(){
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
       else{ found << HOST; }
       HASH->insert(prefix+"WID", ID); //iocage ID
+      HASH->insert(prefix+"tag",TAG); //iocage tag
       HASH->insert(prefix+"iocage-all",tmp.join("<br>") );
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
