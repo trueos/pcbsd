@@ -95,7 +95,7 @@ QString DB::fetchInfo(QStringList request){
   QStringList pkglist;
   int searchmin, searchfilter;
   bool sortnames = false;
-  qDebug() << "Request:" << request << request.length();
+  //qDebug() << "Request:" << request << request.length();
   //Determine the internal hash key for the particular request
   if(request.length()==1){
     if(request[0]=="startsync"){ 
@@ -132,7 +132,7 @@ QString DB::fetchInfo(QStringList request){
       else if(request[2]=="id"){ hashkey.append("/JID"); }
       else if(request[2]=="ip"){ hashkey.append("/jailIP"); }
       else if(request[2]=="path"){ hashkey.append("/jailPath"); }
-      else if(request[3]=="all"){ hashkey.append("/iocage-all"); }
+      else if(request[2]=="all"){ hashkey.append("/iocage-all"); }
       else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
       if(request[1]=="search"){
@@ -843,8 +843,9 @@ void Syncer::syncJailInfo(){
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
+    if(ID.isEmpty()){ continue; }
     QStringList tmp = directSysCmd("iocage get all "+ID);
-    //qDebug() << "tmp:" << tmp;
+    //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
     QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
     HOST = ID;
@@ -891,7 +892,7 @@ void Syncer::syncJailInfo(){
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
       else{ found << HOST; }
       HASH->insert(prefix+"WID", ID); //iocage ID
-      HASH->insert("iocage-all",tmp.join("<br>") );
+      HASH->insert(prefix+"iocage-all",tmp.join("<br>") );
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
       HASH->insert(prefix+"bridge-ipv4", BIPV4);
