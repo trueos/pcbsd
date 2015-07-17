@@ -20,6 +20,7 @@ void printJailUsage(){
   \"id\": 	[RUNNING ONLY] Get the current jail ID # (JID)\n\
   \"ip\": 	[RUNNING ONLY] Get the current jail IP address\n\
   \"path\":	[RUNNING ONLY] Get the jail directory path on host system\n\
+  \"all\":	Return the raw iocage information list for the jail (all properties)\n\
   \"WID\":	Get the Warden jail ID #\n\
   \"ipv4\":	Get the jail ipv4 address setting\n\
   \"alias-ipv4\":	Get the jail ipv4 alias setting\n\
