@@ -6,9 +6,11 @@ defined('DS') OR die('No direct access allowed.');
 
   exec("$sc ". escapeshellarg("jail $jail ipv4")
        . " " . escapeshellarg("jail $jail ipv6")
+       . " " . escapeshellarg("jail $jail tag")
        , $jailinfo);
   $jailipv4 = $jailinfo[0];
   $jailipv6 = $jailinfo[1];
+  $jtag = $jailinfo[2];
 
   // Get the default network interface for this jail
   $dnic = run_cmd("iocage get ip4_addr $jail");
@@ -56,7 +58,7 @@ defined('DS') OR die('No direct access allowed.');
 <form method="post" action="?p=jailinfo&jail=<?php echo "$jailUrl"; ?>">
 <tr>
   <td>Jail Nickname</td>
-  <td><?php echo "$jail"; ?></td>
+  <td><?php echo "$jtag"; ?></td>
 </tr>
 <tr>
   <td>Jail IPv4 Address</td>
