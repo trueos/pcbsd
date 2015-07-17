@@ -13,12 +13,12 @@ installer, reboot and check your computer's BIOS program to ensure that the driv
 your BIOS changes and reboot.
 
 The initial boot screen, shown in Figure 3a, offers a choice of using either the graphical or the text based installer. Unless you select otherwise, the
-graphical installer will load. To instead use the text based installer, use the arrow keys to select that option. If the graphical installer hangs when
-loading the graphics driver, try selecting the VESA mode option of the graphical installer.
+graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
+If the graphical installer hangs when loading the graphics driver, try selecting the VESA mode option of the graphical installer.
 
 **Figure 3a: PC-BSD® Installer Boot Menu**
 
-.. image:: images/install1.png
+.. image:: images/install1a.png
 
 The rest of this chapter describes the screens of the graphical installer.
 
@@ -93,7 +93,7 @@ desktops and components to install, click the "Customize" button to open the scr
 .. image:: images/install4.png
 
 Check the ► next to a component in order to expand it so that you can check or uncheck its sub-components. All components that are checked will be
-installed. If you highlight then right-click a component and select "View Packages", a pop-up menu will list the name of the package that is installed with
+installed. If you highlight then right-click a component and select "View Packages", a pop-up menu will list the name of the packages that are installed with
 that component.
 
 The following components are available for installation.
@@ -128,7 +128,8 @@ The following components are available for installation.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
-* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "FreeNAS-Builder", "Internet", and "Media".
+* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "FreeNAS-Builder", "Internet", "Media", and
+  "Office and Productivity".
 
 * **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
 
@@ -173,8 +174,8 @@ The wizard provides three modes of operation. The rest of this section describes
 
 * **Basic:** (default) select this mode if you wish to specify which partition or disk to install to.
 
-* **Advanced:** select this mode if you wish to specify the installation partition or disk, use GPT partitioning, force the block size, change the boot
-  manager, change the default ZFS pool name, specify the filesystem layout, add a log or cache device, or encrypt the disk.
+* **Advanced:** select this mode if you wish to specify the installation partition or disk, use GPT partitioning, use a UEFI BIOS, force the block size,
+  change the default ZFS pool name, specify the filesystem layout, add a log or cache device, or encrypt the disk.
 
 * **FreeBSD Expert:** select this mode if you prefer to drop down to a shell to manually enter the commands to setup your disk.
 
