@@ -1004,8 +1004,8 @@ QStringList Installer::getGlobalCfgSettings()
 void Installer::startConfigGen()
 {
 
-  if ( ! haveWarnedSpace )
-     checkSpaceWarning();
+  //if ( ! haveWarnedSpace )
+  //  checkSpaceWarning();
 
   QStringList cfgList;
 
