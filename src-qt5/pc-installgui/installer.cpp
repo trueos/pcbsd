@@ -732,6 +732,10 @@ void Installer::slotNext()
       startConfigGen();
       QString msg;
 
+      // Check for any space warnings
+      if ( ! haveWarnedSpace )
+        checkSpaceWarning();
+
       if (radioRestore->isChecked() )
 	msg=tr("Start the restore now?");
       else
@@ -1003,9 +1007,6 @@ QStringList Installer::getGlobalCfgSettings()
 
 void Installer::startConfigGen()
 {
-
-  //if ( ! haveWarnedSpace )
-  //  checkSpaceWarning();
 
   QStringList cfgList;
 
