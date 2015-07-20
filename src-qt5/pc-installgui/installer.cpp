@@ -1889,9 +1889,14 @@ void Installer::slotLoadConfigUSB()
 
   // Read the contents of this file
   QStringList fileContents;
-  QFile file(cfgFile);
-  if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+  QFile file("/tmp/pc-sys/" + cfgFile);
+  if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    QMessageBox::critical(this, tr("PC-BSD Installer"),
+          tr("Failed reading /tmp/pc-sys/") + " " + cfgFile,
+          QMessageBox::Ok,
+          QMessageBox::Ok);
     return;
+  }
 
   while (!file.atEnd())
     fileContents << file.readLine();
