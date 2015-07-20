@@ -1622,9 +1622,8 @@ void Installer::slotReadInstallerOutput()
 	   continue;
         }
 
-	// If we are installing a package, show details to user
-	if ( tmp.indexOf("Installing") == 0 )
-          labelInstallStatus2->setText(tmp.section("...", 0, 0));
+	// Show other pkgng output text now
+        labelInstallStatus2->setText(tmp);
      }
 
   } // end of while loop
