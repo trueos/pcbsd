@@ -563,11 +563,18 @@ void Backend::readSystemUsers(){
     
     //Remove all users that have:
    QStringList filter; filter << "server" << "daemon" << "database" << "system"<< "account"<<"pseudo";
+   //List any shells which are still valid - if not installed fall back on csh
+   QStringList validShells; validShells << "/usr/local/bin/zsh" << "/usr/local/bin/fish" << "/usr/local/bin/bash";
    for(int i=0; i<uList.length(); i++){
     bool bad = false;
+    bool fixshell = false;
     QString dispcheck = uList[i].section(":",4,4).toLower();
+    QString shell = uList[i].section(":",6,6);
+    //First see if the listed shell is broken, but valid
+    if(!QFile::exists(shell) && validShells.contains(shell)){ fixshell = true; }
     // Shell Checks
-    if(uList[i].section(":",6,6).contains("nologin") || uList[i].section(":",6,6).isEmpty() || !QFile::exists(uList[i].section(":",6,6)) ){bad=true;}
+    if(shell.contains("nologin") || shell.isEmpty() ){bad=true;}
+    else if( !QFile::exists(shell) && !fixshell ){ bad = true; }
     // User Home Dir
     else if(uList[i].section(":",5,5).contains("nonexistent") || uList[i].section(":",5,5).contains("/empty") || uList[i].section(":",5,5).isEmpty() ){bad=true;}
     // uid > 0
@@ -591,7 +598,8 @@ void Backend::readSystemUsers(){
       usernameList << uList[i].section(":",0,0).simplified();
       displaynameList << uList[i].section(":",4,4).simplified();
       homedirList << uList[i].section(":",5,5).simplified();
-      usershellList << uList[i].section(":",6,6).simplified();
+      if(fixshell){ usershellList << "/bin/csh"; }
+      else{ usershellList << uList[i].section(":",6,6).simplified(); }
     }
    } //end loop over uList
   
