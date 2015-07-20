@@ -51,7 +51,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     bootLoader = QString("GRUB");
 
     // We use GPT by default now
-    loadGPT = true;
+    sysPartType="GPT";
 
     // No optional components by default
     fPORTS=false;
@@ -301,7 +301,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // If over 1.99TB, we should use GPT mode
   if ( totalSize > 1999900 )
-    loadGPT=true;
+    sysPartType="GPT";
 
   // Add the main zfs pool with standard partitions
   fsType= "ZFS";
@@ -503,7 +503,7 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->setWindowModality(Qt::ApplicationModal);
   if ( radioRestore->isChecked() )
     wDisk->setRestoreMode();
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, bool, QString, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool, QString)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, QString, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool, QString)));
   wDisk->show();
   wDisk->raise();
 }
@@ -533,7 +533,7 @@ void Installer::slotSaveMetaChanges(QStringList sPkgs)
   textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, bool GPT, QString zName, bool zForce, QString biosMode )
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce, QString biosMode )
 {
 
   bootLoader=BL;
@@ -549,7 +549,7 @@ void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, 
     efiMode=false;
 
   // Save the new disk layout
-  loadGPT = GPT;
+  sysPartType=partType;
   sysFinalDiskLayout = newSysDisks;
   textEditDiskSummary->clear();
   QStringList summary = getDiskSummary();
@@ -1179,7 +1179,7 @@ QStringList Installer::getDiskCfgSettings()
 
     if ( tmpSlice.at(0).isNumber() ) {
       // If we are installing to a GPT partition, mark it as such
-      loadGPT=true;
+      sysPartType="GPT";
       tmpList << "partition=p" + tmpSlice;
     } else {
       tmpList << "partition=" + tmpSlice;
@@ -1189,9 +1189,9 @@ QStringList Installer::getDiskCfgSettings()
     tmpList << "bootManager=" + bootLoader;
 
     // Set the GPT/MBR options
-    if ( loadGPT ) 
+    if ( sysPartType == "GPT" ) 
       tmpList << "partscheme=GPT";
-    else
+    if ( sysPartType == "MBR" )
       tmpList << "partscheme=MBR";
 
     tmpList << "commitDiskPart";

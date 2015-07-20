@@ -510,11 +510,11 @@ setup_disk_slice()
               gmnum=$((gmknum+1))
             fi
 
-            if [ "$PSCHEME" = "MBR" -o -z "$PSCHEME" ] ; then
-              PSCHEME="MBR"
-              tmpSLICE="${DISK}s1"  
-            else
+            if [ "$PSCHEME" = "GPT" -o -z "$PSCHEME" ] ; then
+              PSCHEME="GPT"
               tmpSLICE="${DISK}p1"  
+            else
+              tmpSLICE="${DISK}s1"  
             fi
 
 	    if [ `uname -m` = "powerpc" -o `uname -m` = "powerpc64" ]
