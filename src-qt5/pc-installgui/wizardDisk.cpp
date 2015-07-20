@@ -144,11 +144,13 @@ void wizardDisk::accept()
   else
     biosMode="pc";
 
-  if (comboPartition->currentIndex() == 0 )
-    if ( radioGPT->isChecked() )
+  if (comboPartition->currentIndex() == 0 ) {
+    if ( radioGPT->isChecked() ) {
       partType="GPT";
-    else
+    } else {
       partType="MBR";
+    }
+  }
 
   // Get the boot-loader
   bootLoader="GRUB";
