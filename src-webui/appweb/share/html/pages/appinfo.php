@@ -119,6 +119,7 @@ function parse_service_config()
            . escapeshellarg("jail ". $jail . " ipv4")
            , $jarray);
       $ip = $jarray[0];
+      $ip = substr(strstr($ip, "|"), 1);
       $ip = substr($ip, 0, strpos($ip, "/"));
     }
 

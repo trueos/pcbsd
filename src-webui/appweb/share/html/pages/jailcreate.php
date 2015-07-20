@@ -31,9 +31,16 @@ if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
   if ( strpos($jailipv4, '/') === false )
      $jailipv4 = $jailipv4 . "/24";
   
+  // Attach the default network interface to jail IP
+  $dnic = strstr($jailipv4, "|", TRUE);
+  if ( empty($dnic) ) {
+    $dnic = exec("netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'");
+    $tmp = $dnic . "|" . $jailipv4;
+    $jailipv4 = $tmp;
+  }
 
   if ( ! $badData ) {
-     $output = run_cmd("iocage create tag=$jailname ip4_addr=$jailipv4 boot=on");
+     $output = run_cmd("iocage create tag=$jailname ip4_addr=" . escapeshellarg($jailipv4) ." boot=on");
      $showForm = false;
 ?>
 <h1>Jail Creation</h1>

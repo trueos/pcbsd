@@ -9,15 +9,16 @@ defined('DS') OR die('No direct access allowed.');
        . " " . escapeshellarg("jail $jail tag")
        , $jailinfo);
   $jailipv4 = $jailinfo[0];
+  $dnic = strstr($jailipv4, "|", TRUE);
+  $jailipv4 = substr(strstr($jailipv4, "|"), 1);
   $jailipv6 = $jailinfo[1];
   $jtag = $jailinfo[2];
 
   // Get the default network interface for this jail
-  $dnic = run_cmd("iocage get ip4_addr $jail");
-  $dnic = strstr($dnic, "|", TRUE);
+  $defaultnic = exec("netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'");
   if ( empty($dnic) )
-    $dnic = run_cmd("netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'");
-  $jailnic = $dnic[0];
+    $dnic = $defaultnic;
+  $jailnic = $dnic;
 
   // Get the list of nics available
   $nics = get_nics();
@@ -28,7 +29,7 @@ defined('DS') OR die('No direct access allowed.');
      $postjailipv4 = $_POST['jailipv4'];
      $postjailnic = $_POST['jailnic'];
      if ( $postjailnic == "SYSDEFAULT" )
-        $postjailnic="";
+        $postjailnic=$defaultnic;
 
      // Has the IP changed?
      if ( $postjailipv4 != $jailipv4 )
@@ -68,10 +69,6 @@ defined('DS') OR die('No direct access allowed.');
   <td>Network Interface</td>
   <td><select name="jailnic">
   <?php
-     if ( empty($jailnic) )
-       echo "<option value=\"SYSDEFAULT\" selected>System Default</option>";
-     else
-       echo "<option value=\"SYSDEFAULT\">System Default</option>";
      foreach($nics as $nic)
      {
        if ( $jailnic == $nic )
