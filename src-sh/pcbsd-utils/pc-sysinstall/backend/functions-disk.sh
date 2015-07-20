@@ -542,14 +542,15 @@ setup_disk_slice()
 
           free)
             run_gpart_free "${DISK}" "${LASTSLICE}" "${BMANAGER}"
-            if [ "$LASTSLICETYPE" = "GPT" ] ; then
+            gpart show ${DISK} | head -n 1 | grep -q MBR
+            if [ $? -eq 0 ] ; then
+              tmpSLICE="${DISK}s${LASTSLICE}"
+	    else
 	      if [ $LASTSLICE -eq 1 ] ; then
                 tmpSLICE="${DISK}p2"
               else
                 tmpSLICE="${DISK}p${LASTSLICE}"
               fi
-	    else
-              tmpSLICE="${DISK}s${LASTSLICE}"
             fi
             ;;
 
@@ -920,35 +921,31 @@ run_gpart_free()
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
   sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
-  if [ "$LASTSLICETYPE" = "GPT" ] ; then
-    slice="${DISK}p${SLICENUM}"
-  else
-    slice="${DISK}s${SLICENUM}"
-  fi
-
-  # Working on the first slice, make sure we have GPT setup
+  # Working on the first slice, make sure we have a partition scheme setup
   gpart show ${DISK} >/dev/null 2>/dev/null
   if [ $? -ne 0 -a "$SLICENUM" = "1" ] ; then
-    echo_log "Initializing disk, no existing GPT setup"
+    echo_log "Initializing disk, no existing partition scheme"
     rc_halt "gpart create -s gpt ${DISK}"
   fi
 
   gpart show ${DISK} | head -n 1 | grep -q MBR
   if [ $? -eq 0 ] ; then
-     tag="freembr"
+    tag="freembr"
+    slice="${DISK}s${SLICENUM}"
   else
-     tag="freegpt"
+    tag="freegpt"
+    slice="${DISK}p${SLICENUM}"
   fi
 
   # Check if on MBR and have >4 slices
   if [ "$tag" = "freembr" -a $SLICENUM -gt 4 ]; then
-      exit_err "ERROR: BSD only supports 4 MBR primary partitions, and there are none available on $DISK"
+    exit_err "ERROR: BSD only supports 4 MBR primary partitions, and there are none available on $DISK"
   fi
 
   if [ "$tag" = "freegpt" -a "$SLICENUM" -eq 1 ] ; then
-      # Doing bios-boot partition
-      rc_halt "gpart add -s 1M -t bios-boot ${DISK}"
-      SLICENUM="2"
+    # Doing bios-boot partition
+    rc_halt "gpart add -s 1M -t bios-boot ${DISK}"
+    SLICENUM="2"
   fi
 
   if [ "${BMANAGER}" = "BSD" ]; then
@@ -961,8 +958,7 @@ run_gpart_free()
 
   slice=`echo "${DISK}:${SLICENUM}:${tag}" | sed 's|/|-|g'`
   # Lets save our slice, so we know what to look for in the config file later on
-  if [ -z "$WORKINGSLICES" ]
-  then
+  if [ -z "$WORKINGSLICES" ]; then
     WORKINGSLICES="${slice}"
     export WORKINGSLICES
   else
