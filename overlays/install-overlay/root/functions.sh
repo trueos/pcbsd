@@ -16,6 +16,7 @@ enable_dhcp_all()
   WLANCOUNT="0"
   for NIC in `ifconfig -l`
   do
+    if [ "${NIC}" = "lo0" ] ; then continue ; fi
     check_is_wifi ${NIC}
     if [ $? -eq 0 ]
     then
@@ -25,11 +26,11 @@ enable_dhcp_all()
       if [ $? -ne 0 ] ; then
         echo "wlans_${NIC}=\"${WLAN}\"" >>/etc/rc.conf
       fi
-      echo "ifconfig_${WLAN}=\"DHCP\"" >>/etc/rc.conf
+      echo "ifconfig_${WLAN}=\"SYNCDHCP\"" >>/etc/rc.conf
       echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
       WLANCOUNT=$((WLANCOUNT+1))
     else
-      echo "ifconfig_${NIC}=\"DHCP\"" >>/etc/rc.conf
+      echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
       echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
     fi
   done
