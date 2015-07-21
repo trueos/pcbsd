@@ -37,7 +37,9 @@ private slots:
 
 private:
     Ui::widgetLocale *ui;
+    QString initLocale; //initial locale (for resetting back when cancelled)
     QStringList locL,locCodeL;
+    
     
     QStringList getLanguages();
     

@@ -596,8 +596,8 @@ void PCDMgui::retranslateUi(){
     virtkeyboardButton->setText(tr("Virtual Keyboard"));
   //}
   //locale switcher button
-  localeButton->setToolTip(tr("Change locale"));
-  localeButton->setText(tr("Locale"));
+  localeButton->setToolTip( QString(tr("Change locale (%1)")).arg(this->locale().name()) );
+  localeButton->setText(this->locale().name());
   //keyboard layout button
   keyboardButton->setToolTip(tr("Change Keyboard Layout"));
   keyboardButton->setText(tr("Keyboard Layout"));
