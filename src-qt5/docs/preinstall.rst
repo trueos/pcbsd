@@ -161,7 +161,7 @@ PC-BSD® should automatically detect USB-based touch screen devices. If your dis
 and your :file:`/etc/X11/xorg.conf` file using the :ref:`Report a bug` tool.
 
 .. index:: partition
-.. _Partitioning the Hard Drive:
+.. _Creating Free Space:
 
 Creating Free Space
 ===================

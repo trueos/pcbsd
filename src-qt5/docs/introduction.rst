@@ -275,6 +275,10 @@ automatically updated.
 
 * The installer now supports installing to free space. This means that you no longer need to temporarily format a partition after shrinking a drive when installing PC-BSD® in a
   dual-boot scenario.
+  
+* The graphical installer now provides a shortcut to :ref:`Disk Manager`.
+
+* Wine has been removed from the installer but can be installed afterwards using :ref:`AppCafe®`.
 
 * The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service which will automatically
   start this service and generate the firewall rules needed to allow SSH connections to the system.
