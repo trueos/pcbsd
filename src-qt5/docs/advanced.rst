@@ -387,7 +387,7 @@ taken that PC-BSD® is installed into the correct partition; otherwise, you may 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 
 * a partition for each operating system. Many operating systems, including PC-BSD®, can only be installed into a primary or GPT partition. This means that
-  you will need to use partitioning software as described in :ref:`Partitioning the Hard Drive`. 
+  you will need to use partitioning software as described in :ref:`Creating Free Space`. 
 
 * a backup of any existing data. This backup should not be stored on your computer's hard drive but on another computer or on a removable media such as a USB
   drive or burnt onto a DVD media. If you are careful in your installation, everything should go fine. However, you will be glad that you made a backup should
