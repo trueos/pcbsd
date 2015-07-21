@@ -280,8 +280,9 @@ automatically updated.
 
 * Wine has been removed from the installer but can be installed afterwards using :ref:`AppCafe®`.
 
-* The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service which will automatically
-  start this service and generate the firewall rules needed to allow SSH connections to the system.
+* The "Domain Name" field has been added to the :ref:`Time Zone Selection Screen`.
+
+* The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service or to disable IPv6.
 
 * The "Tile Plugins" and "Cascade Plugins" entries have been added to the :ref:`Right-Click Menu` of Lumina.
 

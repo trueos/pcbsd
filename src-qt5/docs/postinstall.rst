@@ -127,14 +127,15 @@ The next configuration screen, shown in Figure 4.3a, allows you to select your t
 
 **Figure 4.3a: Select Time Zone** 
 
-.. image:: images/config2.png
+.. image:: images/config2a.png
 
 Use the drop-down menu to select the city closest to your location. If the system is connected to the Internet, the installer will most likely have the
 correct timezone already selected.
 
 If the system is dual booting and the other operating system expects the BIOS to use UTC, also check the box "Set BIOS to UTC time".
 
-A default system hostname will be created for you. If you wish to change the default, type in the desired hostname in the "System Hostname" field.
+A default system hostname will be created for you. If you wish to change the default, type in the desired hostname in the "System Hostname" field. If the computer is a
+member of a DNS domain, you can also input the "Domain Name".
 
 When finished, click "Next" to proceed to the next screen.
 
@@ -237,17 +238,19 @@ If you would like to set the default wireless connection, highlight the network 
 to input it and will indicate the type of security used on the network. If the network you wish to connect to does not appear, try clicking the "Rescan" button. If you are
 unable to connect, or you wish to configure the connection at a later time, refer to the instructions in :ref:`Network Configuration`.
 
-.. index:: SSH
+.. index:: SSH, IPv6
 .. _Enable Optional Services:
 
 Enable Optional Services
 ========================
 
-The next screen, shown in Figure  4.8a, can be used to allow SSH connections to the system.
+The next screen is shown in Figure 4.8a.
 
-**Figure 4.8a: Enable SSH Connections**
+**Figure 4.8a: Optional Services**
 
-.. image:: images/ssh.png
+.. image:: images/optional1.png
+
+If you check the "Disable IPV6" box, the system will be configured to only support IPv4 addresses. The default is to support both IPv4 and IPv6 and to prefer IPv6 over IPv4.
 
 If you check the "SSH" box, the SSH service will start and be configured to start whenever the system boots. It will also create the firewall rules needed to allow
 incoming SSH connections to the PC-BSD® system. **DO NOT check this box if you do not want to allow SSH connections to the system.**
