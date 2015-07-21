@@ -1883,8 +1883,13 @@ void Installer::slotLoadConfigUSB()
   bool ok;
   QString cfgFile = QInputDialog::getItem(this, tr("PC-BSD Installer"),
                                        tr("Config File:"), cfgs, 0, false, &ok);
-  if (!ok || cfgFile.isEmpty())
+  if (!ok || cfgFile.isEmpty()) {
+    QMessageBox::critical(this, tr("PC-BSD Installer"),
+          tr("Canceled config script install"),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
     return;
+  }
 
   // Read the contents of this file
   QStringList fileContents;
