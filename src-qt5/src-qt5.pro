@@ -28,7 +28,6 @@ SUBDIRS+= libpcbsd \
 	 pc-welcome \
 	 pc-xgui \
 	 pc-zmanager \
-	 warden-gui \
 	 qsudo \ 
 	 EasyPBI \
          PCDM

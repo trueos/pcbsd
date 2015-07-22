@@ -512,5 +512,3 @@ share/wallpapers/pcbsd10-default/contents/images/1920x1200.jpg
 share/wallpapers/pcbsd10-default/contents/images/800x600.jpg
 share/wallpapers/pcbsd10-default/contents/screenshot.jpg
 share/wallpapers/pcbsd10-default/metadata.desktop
-share/warden/bin/warden-gui
-share/warden/images/warden.png
