@@ -179,9 +179,9 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service or to disable IPv6.
 
-* The "Tile Plugins" and "Cascade Plugins" entries have been added to the :ref:`Right-Click Menu` of Lumina.
+* The "Tile Plugins" and "Cascade Plugins" entries have been added to the right-click menu of Lumina.
 
-* You can now create and manage more than two panels using the :ref:`Lumina Configuration Utility`.
+* You can now create and manage more than two panels using the Lumina configuration utility.
 
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
