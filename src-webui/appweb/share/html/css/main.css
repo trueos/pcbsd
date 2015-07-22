@@ -167,7 +167,7 @@ table.jaillist tr:nth-child(even)	{background-color:#ffffff;}
 table.jaillist tr.fixzebra		{background-color:#f1f1f1;}
 
 table.jaillist th{
-	color:#ffffff;background-color:#ACACBF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
+        color:#ffffff;background-color:#77AAFF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
 }
 
 table.jaillist th a:link,table.jaillist th a:visited{
