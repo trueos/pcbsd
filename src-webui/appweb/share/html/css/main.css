@@ -151,14 +151,16 @@ a:hover
 }
 
 /*
-   Jail table (PBI descriptions) CSS
+   Jail table (PBI descriptions) CSS (Add a box just around the outside of the table)
 */
-table.tecspec th,table.tecspec td{
-	border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
+table {border:1px solid #444444}
+td,th {border:none}
+    table.tecspec th,table.tecspec td{
+        border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
 }
 
 table.jaillist,table.tecspec{
-	border-collapse:collapse;width:100%;
+        border-collapse:collapse;width:100%;
 }
 /* background colors and borders for PBI names */
 table.jaillist tr:nth-child(odd)	{background-color:#D6D6DD;}
@@ -179,7 +181,7 @@ table.jaillist th a:hover,table.jaillist th a:active{
 }
 
 table.jaillist td{
-	border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+        padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
 }
 
 table.jaillist td.example_code
