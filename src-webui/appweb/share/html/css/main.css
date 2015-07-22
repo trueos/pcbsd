@@ -151,7 +151,7 @@ a:hover
 }
 
 /*
-   Jail table CSS
+   Jail table (PBI descriptions) CSS
 */
 table.tecspec th,table.tecspec td{
 	border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
@@ -160,7 +160,7 @@ table.tecspec th,table.tecspec td{
 table.jaillist,table.tecspec{
 	border-collapse:collapse;width:100%;
 }
-
+/* background colors and borders for PBI names */
 table.jaillist tr:nth-child(odd)	{background-color:#D6D6DD;}
 table.jaillist tr:nth-child(even)	{background-color:#D6D6DD;}
 
@@ -168,14 +168,14 @@ table.jaillist tr.fixzebra		{background-color:#D6D6DD;}
 
 table.jaillist th{
 /* background colors and borders for PBI names */
-        color:#ffffff;background-color:#77AAFF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
+        color:#444444;background-color:#77AAFF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
 }
 table.jaillist th a:link,table.jaillist th a:visited{
-	color:#ffffff;
+        color:#ffffff;
 }
 
 table.jaillist th a:hover,table.jaillist th a:active{
-	color:#EE872A;
+        color:#EE872A;
 }
 
 table.jaillist td{
