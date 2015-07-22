@@ -119,7 +119,7 @@ If you need help with a translation or using the Pootle system, you can ask for 
 Documentation Translation
 -------------------------
 
-Beginning with version |version|, the source for the PC-BSD® Users Handbook has moved from the wiki and is now stored in the
+The source for the PC-BSD® Users Handbook is stored in the
 `PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the documentation and any translations can be built
 with the operating system and updates to this documentation can be automatically installed when the system is updated using :ref:`Update Manager`. This has the
 added advantage of making sure that the installed version of the Handbook always matches the operating system version and that, as new features are added,

@@ -181,7 +181,7 @@ The "User Details" tab is used to create a login user. This screen requires you 
 * **Specify UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
   cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
   
-A new feature in |version| is the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
+PC-BSD® provides the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
 or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use :ref:`PersonaCrypt`, their username
 will only appear in the login menu if the removable media associated with that PC-BSD® system is inserted and they must input the password associated with the
 removable device in order to login.
