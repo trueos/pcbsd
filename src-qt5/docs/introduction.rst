@@ -267,7 +267,8 @@ automatically updated.
 
 * Lumina has been updated to 0.8.5.
 
-* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Jails".
+* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Jails". The
+  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utlity.
 
 * The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
 
