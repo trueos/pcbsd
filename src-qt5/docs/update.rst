@@ -44,10 +44,14 @@ a desktop.
 
 **Figure 7.1a: Running AppCafe® from a Desktop**
 
-.. image:: images/remote1a.png
+.. image:: images/remote1b.png
 
-The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure or close AppCafe® or to search for text. Figure
-7.1b shows the menu that appears if you click "Configure". 
+.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
+   If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
+   perform the actual update and that you won't be able to add or delete any software while an update is in progress.
+
+The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure AppCafe®, search for an application, or to
+closeAppCafe® . Figure 7.1b shows the menu that appears if you click "Configure". 
 
 **Figure 7.1b: Configuring the AppCafe® Repository**
 
@@ -94,7 +98,7 @@ The "mode" option is not set by default, but can be configured by removing the c
 Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
 page offering to create a jail if no jails yet exist on the system.
 
-The rest of this section describes how manage software using AppCafe®.
+The rest of this section describes how to manage software using AppCafe®.
 
 .. index:: AppCafe®
 .. _Using AppCafe®:
@@ -112,7 +116,7 @@ the value of the "Viewing Apps for:" drop-down menu. If you have created any jai
 like to manage.
 
 The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
-the PBIs for each category, click the "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
+the PBIs for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
 PBIs within that category.
 
 To view all of the applications installed on the system or jail you are "Viewing Apps for:", click the "Installed Apps" tab. The applications will be
@@ -122,7 +126,7 @@ In the example shown in Figure 7.1d, the user has clicked "Firefox" on a system 
 
 **Figure 7.1d: Viewing the Details of an Installed Application**
 
-.. image:: images/remote4.png
+.. image:: images/remote4a.png
 
 The information for an application includes the following: 
 
@@ -151,7 +155,7 @@ The information for an application includes the following:
 
 The following tabs may also be displayed. If a tab is not displayed, it means that that information is not currently available for this particular application.
 
-- **Screenshots:** click the "View Full Size" button under the screenshot to view the full screen version of the screenshot.
+- **Screenshots:** click a screenshot to view a larger version of the screenshot.
 
 - **Related:** provides an installable list of applications that provide similar functionality.
 
@@ -161,15 +165,11 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
-   If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
-   perform the actual update and that you won't be able to add or delete any software while an update is in progress.
-
 The "App Search" tab is shown in Figure 7.1e. 
 
 **Figure 7.1e: Searching for Applications**
 
-.. image:: images/remote5.png
+.. image:: images/remote5a.png
 
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
@@ -177,19 +177,19 @@ software with "browser" in the name as well as applications which provide browse
 By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
-.. _Managing Software in Jails:
+.. _Managing Jails:
 
-Managing Software in Jails
---------------------------
+Managing Jails
+--------------
 
 To create, delete, and manage jails, click the "Jails" tab. If you have not yet created any jails on the system, a getting started message will appear. Click the
 "create a new jail" link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
 
 **Figure 7.1f: Adding a New Jail**
 
-.. image:: images/remote6.png
+.. image:: images/remote6a.png
 
-Input a name for the jail and an IP address that won't conflict with any other systems on the network. Click the "Create Jail" button which will queue the
+Input a name for the jail and an IP address that will not conflict with any other systems on the network. Click the "Create Jail" button which will queue the
 jail creation so that you can continue to use AppCafe® while the jail template is downloaded and installed. Once the jail is complete, it will be
 listed, as seen in the example in Figure 7.1g. 
 
