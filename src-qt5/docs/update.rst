@@ -19,15 +19,18 @@ The rest of this chapter demonstrates how to use the built-in graphical and comm
 AppCafe®
 =========
 
-AppCafe® provides an intuitive, graphical method for installing and managing PBIs and packages. PBIs are packages that contain extra meta-data which
-is displayed in AppCafe®, such as screenshots and lists of similar applications.
+AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
+pre-built applications that have been tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
+is displayed in AppCafe®, such as screenshots and lists of similar applications. It also provides graphical jail management, which allows you to
+run applications which are isolated from the rest of the operating system.
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
 able to manage software. 
 
 If you prefer to manage PBIs from the command line, see the section on using the :ref:`PBI Manager` suite of command line utilities. Refer to
-:ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line.
+:ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line. Refer to :ref:`Managing Jails from the CLI` for instructions
+on how to manage jails from the command line.
 
 .. index:: software
 .. _Configuring AppCafe®:
@@ -101,10 +104,10 @@ page offering to create a jail if no jails yet exist on the system.
 The rest of this section describes how to manage software using AppCafe®.
 
 .. index:: AppCafe®
-.. _Using AppCafe®:
+.. _Software Management:
 
-Using AppCafe®
----------------
+Software Management
+-------------------
 
 The "Home" tab, seen in Figure 7.1a, is used to browse for available PBIs. Applications which are already installed have a red "X". If you click that "X", a pop-up message will
 ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
@@ -177,10 +180,26 @@ software with "browser" in the name as well as applications which provide browse
 By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
+.. _Jail Management:
+
+Jail Management
+---------------
+
+A `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ provides a very light-weight, operating system-level virtualization. A jail is similar to running an independent instance of
+FreeBSD on the same hardware, without all of the overhead usually associated with virtualization. Jails are usually created for running applications or services. For example, you
+could host your own web or mail server on your desktop system without affecting your desktop applications or data. Each jail has its own IP address, running processes, and users.
+Whatever happens in that jail does not affect your operating system or other jails running on the PC-BSD® system.
+
+PC-BSD® uses `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
+designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration file. 
+
+The rest of this section demonstrates how to manage jails from either the graphical interface or the command line.
+
+.. index:: AppCafe®
 .. _Managing Jails from the GUI:
 
 Managing Jails from the GUI
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To create, delete, and manage jails, click the "Jails" tab. If you have not yet created any jails on the system, a getting started message will appear. Click the
 "create a new jail" link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
@@ -189,9 +208,15 @@ To create, delete, and manage jails, click the "Jails" tab. If you have not yet 
 
 .. image:: images/remote6a.png
 
-Input a name for the jail and an IP address that will not conflict with any other systems on the network. Click the "Create Jail" button which will queue the
-jail creation so that you can continue to use AppCafe® while the jail template is downloaded and installed. Once the jail is complete, it will be
-listed, as seen in the example in Figure 7.1g. 
+Input the following information: 
+
+**Hostname:** the hostname must be unique on your network and can not contain a space. Use a hostname that reminds you of the type of jail and your reason for creating it.
+
+**IPv4 Address:** input the IPv4 address to be used by the jail and access its contents. Choose an address on your network that is not already in use by another computer or jail
+and which will not conflict with the address range assigned by a DHCP server. 
+
+Click the "Create Jail" button which will queue the jail creation so that you can continue to use AppCafe® while the jail template is downloaded and installed. Once the jail is
+complete, it will be listed, as seen in the example in Figure 7.1g. 
 
 **Figure 7.1g: Managing Installed Jails**
 
@@ -226,7 +251,60 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 .. _Managing Jails from the CLI:
 
 Managing Jails from the CLI
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer using
+the command line. Advanced users can also refer to the command line version in their own jail management scripts.
+
+If you type :command:`iocage` at the command line, you will receive a summary of its usage::
+
+ usage:
+  iocage activate ZPOOL
+  iocage fetch [release=RELEASE | ftphost=ftp.hostname.org | ftpdir=/dir/]
+  iocage init-host IP zpool
+  iocage create [-b|-c|-e] [release=RELEASE] [pkglist=file] [property=value]
+  iocage clone UUID|TAG@snapshot [property=value]
+  iocage destroy [-f] UUID|TAG|ALL
+  iocage list [-t|-r]
+  iocage start UUID|TAG
+  iocage stop UUID|TAG
+  iocage restart UUID|TAG
+  iocage rcboot
+  iocage rcshutdown
+  iocage console UUID|TAG
+  iocage exec [-u username | -U username] UUID|TAG command [arg ...]
+  iocage chroot UUID|TAG [command]
+  iocage df
+  iocage show property
+  iocage get property|all UUID|TAG
+  iocage set property=value UUID|TAG
+  iocage cap UUID|TAG
+  iocage limits UUID|TAG
+  iocage uncap UUID|TAG
+  iocage inuse [UUID|TAG]
+  iocage top UUID|TAG
+  iocage snapshot UUID|TAG@snapshotname
+  iocage snaplist UUID|TAG
+  iocage snapremove UUID|TAG@snapshotname|ALL
+  iocage rollback UUID|TAG@snapshotname
+  iocage promote UUID|TAG
+  iocage runtime UUID|TAG
+  iocage update UUID|TAG
+  iocage upgrade UUID|TAG
+  iocage record start|stop UUID|TAG
+  iocage package UUID|TAG
+  iocage export UUID|TAG
+  iocage import UUID [property=value]
+  iocage defaults
+  iocage version | --version
+  iocage help
+ 
+  Hint:  you can use shortened UUIDs or TAGs interchangeably!
+ 
+  e.g. for  adae47cb-01a8-11e4-aa78-3c970ea3222f
+       use  adae47cb or just adae
+
+ 
 
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
