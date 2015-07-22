@@ -245,7 +245,7 @@ Install a Server
 The :ref:`System Selection Screen` of the PC-BSD® installer can be used to install TrueOS®, a FreeBSD-based server operating system, rather than a PC-BSD®
 desktop operating system.
 
-TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, the command line version of :command:`warden`, and the command line
+TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, :command:`iocage` for jail management, and the command line
 versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs the software mentioned in
 `the RUN_DEPENDS= section of this file <https://github.com/pcbsd/freebsd-ports/blob/master/misc/trueos-base/Makefile>`_.
 

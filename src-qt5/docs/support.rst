@@ -30,12 +30,11 @@ Anyone can become a beta tester. Follow these tips so that you can accurately de
 * Before you :ref:`Report a bug`, search the testing mailing list to see if anyone else has reported a similar problem.
 
 * When reporting a new issue, use a descriptive subject that includes the error and the version of PC-BSD®. Ideally, the subject is short (8 words or less)
-  and contains key words about the error. An example would be "Warden on 10-STABLE-p4 fails to export jail". 
+  and contains key words about the error. An example would be "AppCafe on 10.2-RELEASE-p1 fails to create jail". 
 
 * Ensure that the body of the bug report includes the PC-BSD® version.
 
-* Give a short (2-3 sentences) description of how to recreate the error (e.g. when I right click a jail in warden and select Export jail to a .wdn file, it
-  lets me select a file name, but then it freezes). If there is an error message, include its complete text.
+* Give a short (2-3 sentences) description of how to recreate the error. If there is an error message, include its complete text.
 
 * Include any other info that may be useful (e.g. this used to work on 10.0).
 
@@ -251,7 +250,7 @@ tools for PC-BSD®. The Project aims to present a unified design so that program
 
 This section describes a small list of guidelines for menu and program design in PC-BSD®.
 
-Any graphical program that is a full-featured utility, such as :ref:`Warden®` or :ref:`Life Preserver`, should have a "File" menu. However, file menus are not
+Any graphical program that is a full-featured utility, such as :ref:`Life Preserver`, should have a "File" menu. However, file menus are not
 necessary for small widget programs or dialogue boxes. When making a file menu, a good rule of thumb is keep it simple. Most PC-BSD® utilities do not need
 more than two or three items on the file menu.
 
@@ -285,7 +284,7 @@ PC-BSD® utilities use these buttons as follows:
 
 * **Save:** saves settings and closes window.
 
-Fully functional programs like :ref:`Life Preserver` and :ref:`Warden®` do not use close buttons on the front of the application. Basically, whenever there is a
+Fully functional programs like :ref:`Life Preserver` do not use close buttons on the front of the application. Basically, whenever there is a
 "File" menu, that and an "x" in the top right corner of the application are used instead. Dialogues and widget programs are exceptions to this rule. A good
 example of a widget program would be :ref:`Update Manager`. 
 

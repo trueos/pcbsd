@@ -66,8 +66,6 @@ VirtualBox® is a registered trademark of Oracle.
 
 VMWare® is a registered trademark of VMWare, Inc.
 
-Warden® is a registered trademark of `iXsystems <https://www.ixsystems.com/>`_.
-
 Windows® is a registered trademark of Microsoft Corporation in the United States and other countries.
 
 **Typographic Conventions** 

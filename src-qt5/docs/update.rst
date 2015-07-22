@@ -177,10 +177,10 @@ software with "browser" in the name as well as applications which provide browse
 By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
-.. _Managing Jails:
+.. _Managing Jails from the GUI:
 
-Managing Jails
---------------
+Managing Jails from the GUI
+---------------------------
 
 To create, delete, and manage jails, click the "Jails" tab. If you have not yet created any jails on the system, a getting started message will appear. Click the
 "create a new jail" link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
@@ -222,6 +222,12 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 .. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear.
    Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for jail1" to see the update details for "jail1". 
 
+.. index:: AppCafe®
+.. _Managing Jails from the CLI:
+
+Managing Jails from the CLI
+---------------------------
+
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
 
@@ -243,7 +249,7 @@ Update Manager
 ==============
 
 Update Manager provides a graphical interface for keeping the PC-BSD® operating system and its installed applications up-to-date. Update Manager will automatically track
-updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®` and :ref:`Warden®`.
+updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®`.
 
 This utility can be started from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
 that provides a system tray.
