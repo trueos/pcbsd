@@ -36,6 +36,7 @@ void printJailUsage(){
   \"autostart\":	[true/false] Jail is set to start automatically on boot\n\
   \"vnet\":	[Disabled/Enabled]\n\
   \"type\":	Get the type of jail [portjail, traditional, linux]\n\
+  \"hasupdates\": [true/false] Return whether the jail has updates available\n\
 \n\
 \n\
 Example:\n\
@@ -100,6 +101,7 @@ void printPbiUsage(){
   \"servercats\":	List all categories that contain a server application\n\
   \"textcats\":	List all categories that contain a text application\n\
   \"graphicalcats\":	List all categories that contain a graphical application\n\
+  \"cages\":		List all known cages by origin\n\
 \n\
 \"pbi app <pkg origin> <info>\":\n\
   Possible Application Information:\n\
@@ -121,6 +123,19 @@ void printPbiUsage(){
   \"name\": 	(pkg override) Package name\n\
   \"options\":	(pkg override) List of compile-time options used\n\
   \"website\":	(pkg override) Application website URL\n\
+\n\
+\"pbi cage <origin> <info>\":\n\
+  Possible Cage Information:\n\
+  \"icon\":	Icon file path\n\
+  \"name\":	Name of the cage\n\
+  \"description\":	Application description\n\
+  \"arch\":	Architecture of the cage\n\
+  \"fbsdver\":	FreeBSD version used\n\
+  \"git\":	GIT path for the cage\n\
+  \"gitbranch\":	GIT granch used\n\
+  \"screenshots\":	List of screenshot URLs\n\
+  \"tags\":	List of search tags\n\
+  \"website\":	Website URL\n\
 \n\
 \"pbi cat <pkg category> <info>\":\n\
   Possible Category Information:\n\

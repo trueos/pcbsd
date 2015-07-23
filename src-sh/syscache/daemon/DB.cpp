@@ -152,6 +152,7 @@ QString DB::fetchInfo(QStringList request){
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
         if(request[2]=="allapps"){ hashkey="PBI/pbiList"; sortnames=true;}
+	else if(request[2]=="cages"){ hashkey = "PBI/CAGES/list"; sortnames=true; }
 	else if(request[2]=="graphicalapps"){ hashkey="PBI/graphicalAppList"; sortnames=true;}
 	else if(request[2]=="textapps"){ hashkey="PBI/textAppList"; sortnames=true;}
 	else if(request[2]=="serverapps"){ hashkey="PBI/serverAppList"; sortnames=true;}
@@ -174,6 +175,8 @@ QString DB::fetchInfo(QStringList request){
     if(request[0]=="pbi"){
       if(request[1]=="app"){
         hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
+      }else if(request[1]=="cage"){
+	hashkey = "PBI/CAGES/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="cat"){
 	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="search"){
@@ -751,8 +754,9 @@ bool Syncer::needsPbiSync(){
   else{
     qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
+    qint64 mod2 = QFileInfo("/var/db/pbi/cage-index/CAGE-INDEX").lastModified().toMSecsSinceEpoch();
     qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
-    return (mod > stamp || stamp < dayago );
+    return (mod > stamp || mod2 > stamp || stamp < dayago );
   }
   
 }
@@ -845,7 +849,7 @@ void Syncer::syncJailInfo(){
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
     if(ID.isEmpty()){ continue; }
     QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
-    
+    if(!TAG.startsWith("pbicage-")){ continue; } //skip this jail
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
@@ -888,7 +892,6 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("vnet:")){ VNET = val; }
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
     }
-    if(!HOST.isEmpty()){
       //Save this info into the hash
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
@@ -909,7 +912,16 @@ void Syncer::syncJailInfo(){
       HASH->insert(prefix+"autostart", AUTOSTART);
       HASH->insert(prefix+"vnet", VNET);
       HASH->insert(prefix+"type", TYPE);      
-    }
+
+      //Now check if this jail can be updated and put that into the hash as well
+      // TO-DO - iocage update check command still needs to be written
+      /* It will effectively be: 
+	# cd <jaildir>/root
+	# git remote update
+	# git status -uno | grep -q "is behind"
+	*/
+      QString hasup = "false"; //TO-DO
+      HASH->insert(prefix+"hasupdates", hasup);
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
@@ -1384,6 +1396,29 @@ void Syncer::syncPbi(){
     HASH->insert("PBI/newappList", newapps.join(LISTDELIMITER));
     HASH->insert("PBI/highappList", highapps.join(LISTDELIMITER));
     HASH->insert("PBI/recappList", recapps.join(LISTDELIMITER));
+    
+    //Now get all the info from pbi-cages
+    QString cprefix = "/var/db/pbi/cage-index/";
+    QStringList cages = readFile(cprefix+"CAGE-INDEX");
+    QStringList allcages;
+    for(int i=0; i<cages.length(); i++){
+      if( !QFile::exists(cprefix+cages[i]+"/MANIFEST")){ continue; }
+      allcages << cages[i];
+      QStringList cinfo = readFile(cprefix+cages[i]+"/MANIFEST");
+      for(int h=0; h<cinfo.length(); h++){
+        QString var = cinfo[h].section(": ",0,0).toLower();
+	QString val = cinfo[h].section(": ",1,100).simplified();
+	if(!var.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+var, val); }
+	//Note: this will automatically load any variables in the manifest into syscache (lowercase)
+	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
+	// ==== NO LINE BREAKS IN VALUES ====
+      }
+      //Now add the description/icon
+      HASH->insert("PBI/CAGES/"+cages[i]+"/description", readFile(cprefix+cages[i]+"/description").join("<br>") );
+      HASH->insert("PBI/CAGES/"+cages[i]+"/icon", cprefix+cages[i]+"/icon.png");
+    }
+    //Now save the list of all cages
+    HASH->insert("PBI/CAGES/list", allcages.join(LISTDELIMITER));
   }
   //Update the timestamp
   HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
