@@ -1153,12 +1153,16 @@ check_update_cageindex() {
 	PBI_DBCAGEINDEXDIR="${PBI_DBDIR}/cage-index"
 
 	# If the DB dir doesn't exist, time to checkout
-	if [ ! -d "${PBI_DBCAGEINDEXDIR}" ] ; then
+	if [ ! -e "${PBI_DBCAGEINDEXDIR}/README.md" ] ; then
 		echo "Checking out latest pbicage index..."
-		mkdir -d ${PBI_DBCAGEINDEXDIR}
+		if [ ! -d "${PBI_DBCAGEINDEXDIR}" ] ; then
+			mkdir -d ${PBI_DBCAGEINDEXDIR} 
+		fi
 		git clone --depth=1 ${PBI_CAGEGITURL} ${PBI_DBCAGEINDEXDIR} >/dev/null 2>/dev/null
 		if [ $? -ne 0 ] ; then
 			echo "WARNING: Failed getting pbicage index..."
+		else
+			echo "pbicage index is up-to-date."
 		fi
 	else
 		echo "Updating pbicage index..."
@@ -1167,6 +1171,8 @@ check_update_cageindex() {
 		git pull origin master >/dev/null 2>/dev/null
 		if [ $? -ne 0 ] ; then
 			echo "WARNING: Failed updating pbicage index..."
+		else
+			echo "pbicage index is up-to-date."
 		fi
 	fi
 	cd ${_oPWD}
