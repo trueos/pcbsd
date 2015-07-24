@@ -413,11 +413,16 @@ void LPMain::setFileVisibility(){
 
 void LPMain::restoreFiles(){
   QModelIndexList sel = ui->treeView->selectionModel()->selectedIndexes();
+
+  //The treeView will return one index per column/line, not one per file
+  QStringList oldfiles;	
+  for(int i=0; i<sel.length(); i++){ oldfiles << fsModel->filePath(sel[i]); }
+  oldfiles.removeDuplicates();
+  
   QStringList errors, newfiles;
-	
   //Loop over the entire selection and revert all of them
-  for(int i=0; i<sel.length(); i++){
-    QString filePath = fsModel->filePath( sel[i] );
+  for(int i=0; i<oldfiles.length(); i++){
+    QString filePath = oldfiles[i];
     qDebug() << " Restore file(s):" << filePath;
     QFileInfo info(filePath);	
     QString destDir = filePath;
