@@ -437,8 +437,13 @@ function display_app_link($pbilist, $jail)
     }
 
     // Close off the <tr>
-    if ( $col == $totalCols )
-       echo "  </tr>\n";
+    if ( $col != $totalCols ) {
+      while ($col <= $totalCols ) {
+        echo "<td>&nbsp;</td>";
+        $col++;
+      }
+    }
+    echo "</tr>";
 
     echo "</table>\n";
 }
