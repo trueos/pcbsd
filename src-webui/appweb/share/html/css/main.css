@@ -151,18 +151,18 @@ a:hover
 }
 
 /*
-   Jail table (PBI descriptions) CSS (Add a box just around the outside of the table)
+   Jail table (PBI descriptions) CSS (Add individual boxes back in the table)
 */
 table {border:1px solid #444444}
 td,th {border:none}
     table.tecspec th,table.tecspec td{
-        border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
+        padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
 }
 
 table.jaillist,table.tecspec{
-        border-collapse:collapse;width:100%;
+
 }
-/* background colors and borders for PBI names */
+/* jaillist (pbilists) controls / background colors and borders for PBI names */
 table.jaillist tr:nth-child(odd)	{background-color:#D6D6DD;}
 table.jaillist tr:nth-child(even)	{background-color:#D6D6DD;}
 
@@ -181,13 +181,44 @@ table.jaillist th a:hover,table.jaillist th a:active{
 }
 
 table.jaillist td{
-        padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+        border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
 }
 
 table.jaillist td.example_code
 {
 	vertical-align:bottom;
 }
+
+/* CSS for the PBI descriptions since they need seperate controls */
+
+table.pbidescription tr:nth-child(odd)	{background-color:#D6D6DD;}
+table.pbidescription tr:nth-child(even)	{background-color:#D6D6DD;}
+
+table.pbidescription tr.fixzebra		{background-color:#D6D6DD;}
+
+table.pbidescription th{
+/* background colors and borders for PBI names */
+        color:#121212;background-color:#77AAFF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
+}
+table.pbidescription th a:link,table.jaillist th a:visited{
+        color:#ffffff;
+}
+
+table.pbidescription th a:hover,table.jaillist th a:active{
+        color:#EE872A;
+}
+
+table.pbidescription td{
+        border:1px hidden #ACACBF;padding:10px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+}
+
+table.pbidescription td.example_code
+{
+        vertical-align:bottom;
+}
+
+
+/* handling for the on / off switch css */
 
 .onoffswitch {
     position: relative; width: 156px;
