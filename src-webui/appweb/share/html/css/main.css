@@ -225,7 +225,7 @@ table.jaillist td.example_code
     background: #E0E0FF;
     position: absolute; top: 0; bottom: 0;
     right: 122px;
-    border: 2px solid #8F8F8F; border-radius: 20px;
+    border: 1px solid #8F8F8F; border-radius: 100%; width: 34px; height: 34px;
     transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
