@@ -153,10 +153,9 @@ a:hover
 /*
    Jail table (PBI descriptions) CSS (Add individual boxes back in the table)
 */
-table {border:1px solid #444444}
-td,th {border:none}
+td,th
     table.tecspec th,table.tecspec td{
-        padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
+        padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;border-spacing: 20px 20px;
 }
 
 table.jaillist,table.tecspec{
@@ -170,6 +169,7 @@ table.jaillist tr.fixzebra		{background-color:#D6D6DD;}
 
 table.jaillist th{
 /* background colors and borders for PBI names */
+        border: 1px solid black;
         color:#121212;background-color:#77AAFF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
 }
 table.jaillist th a:link,table.jaillist th a:visited{
@@ -181,7 +181,11 @@ table.jaillist th a:hover,table.jaillist th a:active{
 }
 
 table.jaillist td{
-        border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+        border:1px solid #ACACBF;
+        border-radius: 8px;
+        border-collapse: separate;
+        border-spacing: 10px 50px;
+        padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
 }
 
 table.jaillist td.example_code
@@ -189,12 +193,14 @@ table.jaillist td.example_code
 	vertical-align:bottom;
 }
 
+table.jaillist {
+           border-collapse: separate;
+           border-spacing: 12px;
+}
 /* CSS for the PBI descriptions since they need seperate controls */
 
-table.pbidescription tr:nth-child(odd)	{background-color:#D6D6DD;}
-table.pbidescription tr:nth-child(even)	{background-color:#D6D6DD;}
-
-table.pbidescription tr.fixzebra		{background-color:#D6D6DD;}
+table.pbidescription {border:1px solid #444444;border-radius: 8px;}
+table.pbidescription {background-color:#D6D6DD;}
 
 table.pbidescription th{
 /* background colors and borders for PBI names */
