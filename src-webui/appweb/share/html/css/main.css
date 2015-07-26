@@ -156,6 +156,14 @@ a:hover
 td,th
     table.tecspec th,table.tecspec td{
         padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;border-spacing: 20px 20px;
+        table-layout: fixed;
+        overflow:hidden;
+        width: 125px;
+        height: 40px;
+        max-width:125px;
+        min-width:125px;
+        max-height:40px;
+        min-height:40px;
 }
 
 table.jaillist,table.tecspec{
