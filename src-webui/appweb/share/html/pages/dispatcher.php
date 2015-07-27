@@ -30,7 +30,7 @@ defined('DS') OR die('No direct access allowed.');
 
 <h1>Action Log (<a href="?p=dispatcher">Back</a>)</h1>
 <br>
-<table class="jaillist" style="width:768px">
+<table class="status" style="width:768px">
 <tr>
    <th>Log output</th>
 </tr>
@@ -121,7 +121,7 @@ echo "<script type='text/javascript' charset='utf-8'>
 ?>
 <h1>Recent application actions</h1>
 <br>
-<table class="jaillist" style="width:768px">
+<table class="status" style="width:768px">
 <tr>
    <th>Action</th>
    <th>Application</th>
