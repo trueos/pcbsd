@@ -64,54 +64,34 @@
         $target=$results[3];
 	if ( $results[3] == "__system__" )
             $target="Local System";
-        $result = "Updated packages on: ". $target;
       } elseif ( $results[2] == "iocage" ) {
-        if ( $results[3] == "create" ) {
-          $result = "Create jail: ". $results[4];
-        } else {
-          $result = "Delete jail: ". $results[4];
-        }
       } elseif ( $results[4] == "install" ) {
-        $result = "Installed ". $results[3];
       } else {
-        $result = "Removed ". $results[3];
       }
 
       if ( $results[0] == "SUCCESS" )
-	$result = "<img align=absmiddle height=35 width=35 src=\"../images/dialog-ok.png\">".$result;
+	$result = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\">".$result;
       else
-	$result = "<img align=absmiddle height=35 width=35 src=\"../images/application-exit.png\">".$result;
+	$result = "<img align=absmiddle height=32 width=32 src=\"../images/application-exit.png\">".$result;
     }
     $output="$result";
   } else {
     $carray = explode(" ", $narray[0]);
     // Doing pkg / pbi ops
     if ( $carray[0] == "pkg" or $carray[0] == "pbi" ) {
-      if ( $carray[2] == "install" )
-         $result = "Installing $carray[1] to";
-      else
-         $result = "Removing $carray[1] from";
-
       $target=$carray[3];
       if ( $carray[3] == "__system__" )
          $target = "Local system";
-
-      $output = $result . " $target";
     }
     if ( $carray[0] == "pkgupdate" ) {
       $target=$carray[2];
       if ( $carray[2] == "__system__" )
          $target = "Local system";
-      $output = "Updating $target";
     }
     if ( $carray[0] == "warden" ) {
-       if ( $carray[1] == "create" )
-          $output = "Creating jail: ". $carray[2];
-       if ( $carray[1] == "delete" )
-          $output = "Removing jail: ". $carray[2];
     }
 
-    $output = "<img align=absmiddle height=40 width=40 src=\"../images/working.gif\"> " . $output;
+    $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\"> " . $output;
   }
 
   $pkgUpdates=false;
@@ -144,7 +124,7 @@
 
   // We have updates! Show the notification icon
   if ( $pkgUpdates )
-    $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=35 width=35 title=\"Updates are available!\"> <class id=updatesavail style=\"text-decoration: underline;\">Updates available </class>" . $output;
+    $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=32 width=32 title=\"Updates are available!\">" . $output;
 
 ?>
-<a href="?p=dispatcher"><?php echo "$output"; ?></a>
+<a href="?p=dispatcher"><?php echo "$output"; ?> Status</a>

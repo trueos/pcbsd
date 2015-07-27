@@ -16,12 +16,13 @@
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
 ?>
+  <li id="notifier"></li>
 </ul>
 </div>
 
 <?php
 } else {
-  // Jail menus
+  // Plugin menus
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
@@ -32,6 +33,7 @@ if (USERNAME)
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
 ?>
+  <li id="notifier"></li>
 </ul>
 </div>
 
@@ -67,9 +69,8 @@ $(document).ready(function () {
 });
 </script>
 <?php if ( $page != "dispatcher" ) { ?>
-<div id="notifier" style="height:35px;width:600px;position:absolute;margin-top:10px;margin-left:12.50em;"></div>
 
-<div id="body" style="height:100%;width:700px;position:absolute;margin-top:55px;margin-left:12.50em;">
+<div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:12.50em;">
 <?php } else { ?>
 <div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:0.50em;">
 <?php } ?>
