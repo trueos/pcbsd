@@ -71,9 +71,11 @@ share/appcafe/html/pages/exportpbis.php
 share/appcafe/html/pages/jails.php
 share/appcafe/html/pages/jailcreate.php
 share/appcafe/html/pages/jailinfo.php
+share/appcafe/html/pages/plugins.php
 share/appcafe/html/pages/main.php
 share/appcafe/html/pages/notifier.php
 share/appcafe/html/pages/sysapp.php
+share/appcafe/html/pages/sysplugins.php
 share/appcafe/html/js/appcafe.js
 share/appcafe/html/js/cssmenu.js
 share/appcafe/html/js/doubletaptogo.js

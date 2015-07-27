@@ -95,24 +95,14 @@
   // Figure out what page is being requested
   if ( empty($_GET["p"])) {
      $page = "appcafe";
-     get_default_jail();
   } else {
      $page = $_GET["p"];
   }
 
-  // Select the default system / jail to show if we are on appcafe pages
-  if ( empty($jail) and ($page == "appcafe" or $page == "sysapp" or $page == "appcafe-search" or $page == "jails") ) {
-    get_default_jail();
-  }
 
-
-  // If we are running in appliance mode, and don't have any jails yet, flip to the jail page
-  if ( $sysType == "APPLIANCE") {
-    if ( empty($jail) and $page != "jailcreate" ) {
-       $noJails="YES";
-       $page = "jails";
-    }
-  }
+  // If we are running in appliance mode flip to the plugins page
+  if ( $sysType == "APPLIANCE" and empty($page))
+    $page = "plugins";
 
   // Don't echo headers / nav info if we are saving PBI list
   if ( "$page" == "exportpbis" ) {
