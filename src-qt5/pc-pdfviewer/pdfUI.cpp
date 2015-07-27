@@ -35,6 +35,7 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
     spin_page->setPrefix(tr("Page")+" ");
     spin_page->setSingleStep(1); //one page at a time
     spin_page->setStatusTip(tr("Change the current page"));
+    spin_page->setFocusPolicy(Qt::ClickFocus);
   ui->toolBar->insertWidget(ui->actionNext, spin_page); //insert between actionPrev/actionNext
 
   QWidget *spacer = new QWidget(this);
@@ -43,11 +44,10 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
 	
   combo_scale = new QComboBox(this);
     combo_scale->setStatusTip(tr("Change the scaling of the document output"));
+    combo_scale->setFocusPolicy(Qt::NoFocus);
     ui->toolBar->insertWidget(ui->actionStarttimer, combo_scale);
     //Now populate the combobox with different scaling options (user data is integer codes for scaling set)
     combo_scale->addItem(tr("Fit to Width"), -1);
-    combo_scale->addItem(tr("Fit to Height"), -2);
-  
     combo_scale->addItem(tr("200%"), 200);
     combo_scale->addItem(tr("180%"), 180);
     combo_scale->addItem(tr("160%"), 160);
@@ -58,20 +58,34 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
     combo_scale->addItem(tr("60%"), 60);
     combo_scale->addItem(tr("40%"), 40);
     combo_scale->addItem(tr("20%"), 20);
+    combo_scale->addItem(tr("Fit to Height"), -2);
 
   spacer = new QWidget(this);
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     ui->toolBar->insertWidget(ui->actionStarttimer, spacer);
 
+  prevPageDnS = new QShortcut(QKeySequence(tr("Down")), this);
+  nextPageUpS = new QShortcut(QKeySequence(tr("Up")), this);
+  prevPageLS = new QShortcut(QKeySequence(tr("Left")), this);
+  nextPageRS = new QShortcut(QKeySequence(tr("Right")), this);
+  zoomInS = new QShortcut(QKeySequence(tr("Ctrl+Up")), this);
+  zoomOutS = new QShortcut(QKeySequence(tr("Ctrl+Down")), this);
+  
   //Setup any signals/slots
   connect(spin_page, SIGNAL(valueChanged(int)), this, SLOT(PageChanged()) );
   connect(combo_scale, SIGNAL(currentIndexChanged(int)),this, SLOT(PageChanged()) );
   connect(spin_page, SIGNAL(editingFinished()), this, SLOT(ShowPage()) );
   connect(upTimer, SIGNAL(timeout()), this, SLOT(ShowPage()) );
-  connect(ui->actionPrev, SIGNAL(triggered()), spin_page, SLOT(stepDown()));
-  connect(ui->actionNext, SIGNAL(triggered()), spin_page, SLOT(stepUp()));
+  connect(ui->actionPrev, SIGNAL(triggered()), this, SLOT(pageDown()));
+  connect(ui->actionNext, SIGNAL(triggered()), this, SLOT(pageUp()));
   connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()) );
   connect(ui->actionOpen_File, SIGNAL(triggered()), this, SLOT(OpenNewFile()) );
+  connect(prevPageDnS, SIGNAL(activated()), this, SLOT( pageDown() ) );
+  connect(nextPageUpS, SIGNAL(activated()), this, SLOT( pageUp() ) );
+  connect(prevPageLS, SIGNAL(activated()), this, SLOT( pageDown() ) );
+  connect(nextPageRS, SIGNAL(activated()), this, SLOT( pageUp() ) );
+  connect(zoomInS, SIGNAL(activated()), this, SLOT( zoomUp() ) );
+  connect(zoomOutS, SIGNAL(activated()), this, SLOT( zoomDown() ) );
 
   QApplication::setApplicationName(tr("PDF Viewer") );
   this->setWindowTitle(tr("PDF Viewer") );
@@ -293,6 +307,7 @@ void pdfUI::ShowPage(int page){
     //Need to update the page number shown on the UI
     LOADINGFILE = true; //ignore the next event
     spin_page->setValue(page+1);
+    spin_page->clearFocus();
     QApplication::processEvents();
     LOADINGFILE = false;
   }
@@ -337,6 +352,33 @@ void pdfUI::PreLoadPages(){
   if(cpage > 0){ OpenPage(cpage-1,true); }
   QApplication::processEvents();
   if(cpage < spin_page->maximum()-1){ OpenPage(cpage+1,true); }
+}
+
+
+void pdfUI::zoomUp(){
+  int curr = combo_scale->currentIndex();
+  if(curr < 1){ return; } //already at the top
+  combo_scale->setCurrentIndex(curr-1); //change the scale
+}
+void pdfUI::zoomDown(){
+  int curr = combo_scale->currentIndex();
+  if(curr == combo_scale->count()-1){ return; } //already at the bottom
+  combo_scale->setCurrentIndex(curr+1); //change the scale	
+}
+
+void pdfUI::pageUp(){
+  spin_page->stepUp();
+  spin_page->clearFocus();
+  /*int curr = combo_scale->currentIndex();
+  if(curr < 1){ return; } //already at the top
+  combo_scale->setCurrentIndex(curr-1); //change the scale*/
+}
+void pdfUI::pageDown(){
+  spin_page->stepDown();
+  spin_page->clearFocus();
+  /*int curr = combo_scale->currentIndex();
+  if(curr == combo_scale->count()-1){ return; } //already at the bottom
+  combo_scale->setCurrentIndex(curr+1); //change the scale	*/
 }
 
 void pdfUI::OpenNewFile(){
