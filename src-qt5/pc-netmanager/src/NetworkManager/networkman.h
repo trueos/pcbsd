@@ -81,6 +81,7 @@ private:
     QString getLineFromCommandOutput( QString command );
     QString getNameForIdent( QString ident );
     QString getIpForIdent( QString ident );
+    QString getIpv6ForIdent( QString ident);
     QString getMacForIdent( QString ident );
     QString getStatusForIdent( QString ident );
     bool checkValue( QString File, QString Key, QString Value );
