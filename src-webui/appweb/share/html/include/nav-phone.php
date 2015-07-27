@@ -21,7 +21,7 @@ if (USERNAME)
 			</ul>
 		</li>
 		<li>
-			<a href="/?p=jails" aria-haspopup="true"><span><img src="/images/warden.png" height=24 width=24> Jails</span></a>
+			<a href="/?p=jails" aria-haspopup="true"><span><img src="/images/warden.png" height=24 width=24> Plugins</span></a>
 			<ul>
 				<li><a href="/?p=jails"><img src="/images/jail.png" height=24 width=24> Browse Jails</a></li>
 				<li><a href="/?p=jailcreate"><img src="/images/add.png" height=24 width=24> Create Jail</a></li>

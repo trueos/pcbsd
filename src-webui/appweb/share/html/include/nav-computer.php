@@ -11,7 +11,7 @@
   <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
   <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp&jail=<?php echo "$jailUrl"; ?>"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Apps</a></li>
   <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> &nbsp;&nbsp;App Search</a></li>
-  <li><a href="/?p=jails" style="align:right;"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Jails</a></li>
+  <li><a href="/?p=jails" style="align:right;"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Plugins</a></li>
 <?php
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
@@ -26,7 +26,7 @@ if (USERNAME)
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
-  <li <?php if ( $page=="jails" ) { echo "class='active'"; } ?>><a href="/?p=jails"><img src="/images/jail.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
+  <li <?php if ( $page=="jails" ) { echo "class='active'"; } ?>><a href="/?p=jails"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Plugins</a></li>
   <li <?php if ( $page=="jailcreate" ) { echo "class='active'"; } ?>><a href="/?p=jailcreate"><img src="/images/add.png" height=32 width=32> &nbsp;&nbsp;Create Jail</a></li>
   <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;AppCafe</a></li>
 <?php

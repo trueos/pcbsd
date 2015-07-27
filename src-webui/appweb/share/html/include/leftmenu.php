@@ -7,7 +7,7 @@
   }
 
   if ( $page != "dispatcher" ) {
-    display_jail_chooser();
+    //display_jail_chooser();
     display_cats();
   }
 ?>
