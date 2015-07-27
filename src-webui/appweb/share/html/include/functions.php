@@ -206,6 +206,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   // Get our values from this line
   print("  <td>\n");
 
+  if ( strlen($pbiname) > 14 )
+    $pbiname = substr($pbiname, 0, 14) . "..";
+
+  if ( strlen($pbiver) > 14 )
+    $pbiver = substr($pbiver, 0, 14) . "..";
+
   // Is this app installed?
   //if ( array_search($pbiorigin, $inslist) !== false ) {
   if ( $pbiinstalled == "true" ){
