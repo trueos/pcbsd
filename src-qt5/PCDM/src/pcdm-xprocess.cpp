@@ -221,7 +221,7 @@ void XProcess::setupSessionEnvironment(){
   QString langCode = xlang;
   if( langCode.toLower() == "c" ){ langCode = "en_US"; } // default to the US english (PCDM code default), LANG=C causes problems
   if(!environ.value("MM_CHARSET").isEmpty() ){ langCode.append( "."+environ.value("MM_CHARSET") ); }
-  else{ langCode.append(".UTF-8"); }
+  else{ langCode.append(".UTF-8"); environ.insert("MM_CHARSET","UTF-8"); }
   // USER, HOME, and SHELL are set by the "su" login
   environ.insert("LOGNAME",xuser); //Login name
   environ.insert("USERNAME",xuser); // Username
