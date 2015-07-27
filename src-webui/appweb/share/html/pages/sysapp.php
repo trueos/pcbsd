@@ -84,13 +84,6 @@ defined('DS') OR die('No direct access allowed.');
        $curItem++;
      }
 
-   // Close off the <tr>
-   if ( $col != $totalCols ) {
-     while ($col <= $totalCols ) {
-       echo "<td>&nbsp;</td>";
-       $col++;
-     }
-   }
    echo "</tr>";
 ?>
 

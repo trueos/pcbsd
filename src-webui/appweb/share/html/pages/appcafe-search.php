@@ -91,18 +91,6 @@ Search all available PBIs and packages: <input name="searchraw" type="checkbox" 
     else
       echo "<tr><td colspan=3>No PBIs found! Try searching for all available PBI / Packages.</td></tr>";
  } else {
-   if ($found == 1)
-      echo "<td width='33%'>&nbsp;</td><td width='33%'>&nbsp;</td>";
-   elseif ($found == 2)
-      echo "<td width='%33%'>&nbsp;</td>";
-   elseif($found > 3) {
-      $left = $found % 3;
-      if ($left == 1)
-        echo "<td width='33%'>&nbsp;</td><td width='33%'>&nbsp;</td>";
-       if ($left == 2)
-        echo "<td width='%33%'>&nbsp;</td>";
-   }
-
    echo "</tr>";
  }
 

@@ -40,8 +40,11 @@ init_daemon()
   chmod 600 ${QTMPDIR}
   chmod 600 ${QLOGDIR}
 
-  rm /var/tmp/appcafe/* 2>/dev/null >/dev/null
-  rm /var/tmp/appcafe/logs/* 2>/dev/null >/dev/null
+  # Cleanup some working / temp files
+  for rmFile in ${QDISID} ${QLIST} ${QWRK}
+  do
+     rm $rmFile
+  done
 
   # Cleanup old daemon runtime
   for i in $QWRK $QRESULTS
@@ -282,7 +285,7 @@ list_status()
 list_results()
 {
   if [ -e "$QRESULTS" ] ; then
-    cat ${QRESULTS} 
+    tail -50 ${QRESULTS}
   else
     echo ""
   fi

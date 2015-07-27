@@ -134,6 +134,7 @@ echo "<script type='text/javascript' charset='utf-8'>
      $rarray = run_cmd("results");
 
      // Loop through the results
+     $rarray = array_reverse($rarray);
      foreach ($rarray as $res) {
        $results = explode(" ", $res);
        if ( $results[2] == "iocage" ) {
