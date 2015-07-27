@@ -77,13 +77,20 @@ defined('DS') OR die('No direct access allowed.');
 
        parse_details($pbiorigin, "$jail", $col, true, false);
        if ( $col == $totalCols )
-          $col = 1;
+         $col = 1;
        else
          $col++;
 
        $curItem++;
      }
 
+   // Close off the <tr>
+   if ( $col != $totalCols ) {
+     while ($col <= $totalCols ) {
+       echo "<td>&nbsp;</td>";
+       $col++;
+     }
+   }
    echo "</tr>";
 ?>
 

@@ -106,4 +106,5 @@ Search all available PBIs and packages: <input name="searchraw" type="checkbox" 
    echo "</tr>";
  }
 
+ echo "</table>";
 ?>

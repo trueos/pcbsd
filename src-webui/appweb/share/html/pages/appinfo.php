@@ -437,8 +437,13 @@ function display_app_link($pbilist, $jail)
     }
 
     // Close off the <tr>
-    if ( $col == $totalCols )
-       echo "  </tr>\n";
+    if ( $col != $totalCols ) {
+      while ($col <= $totalCols ) {
+        echo "<td>&nbsp;</td>";
+        $col++;
+      }
+    }
+    echo "</tr>";
 
     echo "</table>\n";
 }
@@ -558,7 +563,7 @@ function display_app_link($pbilist, $jail)
 ?>
    
 <br>
-<table class="jaillist" style="width:<?php if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
+<table class="pbidescription" style="width:<?php if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
   <tr>
     <th colspan=3>
       <?php 
