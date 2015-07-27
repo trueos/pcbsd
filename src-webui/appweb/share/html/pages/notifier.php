@@ -49,6 +49,7 @@
   require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";
+  $status="UP2DATE";
 
   // Command to prod dispatcher for current status
   // Eventually we will pep this up with extra parsing about
@@ -70,9 +71,9 @@
       }
 
       if ( $results[0] == "SUCCESS" )
-	$result = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\">".$result;
+	$status = "SUCCESS";
       else
-	$result = "<img align=absmiddle height=32 width=32 src=\"../images/application-exit.png\">".$result;
+	$status = "FAILED";
     }
     $output="$result";
   } else {
@@ -91,7 +92,7 @@
     if ( $carray[0] == "warden" ) {
     }
 
-    $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\"> " . $output;
+    $status = "WORKING";
   }
 
   $pkgUpdates=false;
@@ -124,7 +125,16 @@
 
   // We have updates! Show the notification icon
   if ( $pkgUpdates )
-    $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=32 width=32 title=\"Updates are available!\">" . $output;
+    $status = "UPDATES";
 
+  $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\">";
+  if ( $status == "WORKING" )
+    $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"Working...\"> Working" . $output;
+  elseif ( $status == "UPDATES" )
+     $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=32 width=32 title=\"Updates are available!\"> Update";
+  elseif ( $status == "SUCCESS" )
+     $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status";
+  elseif ( $status == "FAILED" ) 
+     $output = "<img align=absmiddle height=32 width=32 src=\"../images/application-exit.png\"> Failure";
 ?>
-<a href="?p=dispatcher"><?php echo "$output"; ?> Status</a>
+<a href="?p=dispatcher"><?php echo "$output"; ?></a>
