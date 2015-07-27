@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QHash>
 #include <QPrinter>
+#include <QShortcut>
 
 #include <poppler-qt5.h>
 
@@ -35,6 +36,8 @@ private:
 	int pageimage; //The page number for the saved image
 	QString cdir; //the directory that the current file is exists in (conveniance)
 	QLabel *presentationLabel;
+	//Keyboard shortcuts
+	QShortcut *prevPageDnS, *nextPageUpS, *prevPageLS, *nextPageRS, *zoomInS, *zoomOutS;
 
 	//Additional display widgets (could not be added via Qt Designer)
 	QSpinBox *spin_page;
@@ -57,6 +60,11 @@ private slots:
 	void PageChanged(); //for streamlining the number of calls from rapidly changing page numbers
 	void ScreenChanged();
 	void PreLoadPages(); //run this in the background to get the next page(s) ready
+
+	void zoomUp();
+	void zoomDown();
+	void pageUp();
+	void pageDown();
 
 	//UI Interaction Functions
 	void OpenNewFile();
@@ -89,7 +97,9 @@ protected:
 	}
 	
 	void keyPressEvent(QKeyEvent *event){
-	  //See if this is one of the special hotkeys and act appropriately
+	  //See if this is one of the special hotkeys and act appropriately 
+	  // NOTE: Some of this is duplicated with the QShortcut definitions (for non-presentation mode)
+	  //  This routine does not always work for the main window viewer due to differing widget focus policies
 	  if( event->key()==Qt::Key_Escape || event->key()==Qt::Key_Backspace){
 	    endPresentation();
 	  }else if(event->key()==Qt::Key_Right || event->key()==Qt::Key_Down || event->key()==Qt::Key_Space){
