@@ -24,6 +24,7 @@ void printJailUsage(){
   \"all\":	Return the raw iocage information list for the jail (all properties)\n\
   \"WID\":	Get the iocage jail ID #\n\
   \"tag\":	Get the iocage jail tag\n\
+  \"installed\": Get the origin of the installed pbicage\n\
   \"ipv4\":	Get the jail ipv4 address setting\n\
   \"alias-ipv4\":	Get the jail ipv4 alias setting\n\
   \"bridge-ipv4\":	Get the jail ipv4 bridge setting\n\

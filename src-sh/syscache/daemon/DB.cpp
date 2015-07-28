@@ -925,12 +925,18 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("vnet:")){ VNET = val; }
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
     }
+      QString inst = TAG.section("pbicage-",1,10); //installed cage for this jail
+      //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
+      int catdash = inst.indexOf("-");
+      if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
+      
       //Save this info into the hash
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
       else{ found << HOST; }
       HASH->insert(prefix+"WID", ID); //iocage ID
       HASH->insert(prefix+"tag",TAG); //iocage tag
+      HASH->insert(prefix+"installed", inst); //Installed pbicage origin
       HASH->insert(prefix+"iocage-all",tmp.join("<br>") );
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
@@ -955,11 +961,8 @@ void Syncer::syncJailInfo(){
 	*/
       QString hasup = "false"; //TO-DO
       HASH->insert(prefix+"hasupdates", hasup);
-      QString inst = TAG.section("pbicage-",1,10);
-      //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
-      int catdash = inst.indexOf("-");
-      if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
-      installedcages << inst;
+
+      installedcages << inst+" "+ID;
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
