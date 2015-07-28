@@ -14,6 +14,7 @@ void printJailUsage(){
   qDebug() << "syscache Jail database access:\n\
 -------------------------------------------------------------------------------\n\
 \"jail list\": List all running jails by name\n\
+\"jail cages\": List all installed pbicages by origin\n\
 \"jail stoppedlist\": List all stopped jails by name\n\
 \"jail <jailname> <info>\": Get information about a particular jail\n\
   Possible Info requests:\n\
