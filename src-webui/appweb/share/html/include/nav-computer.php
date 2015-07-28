@@ -2,16 +2,16 @@
 <div id="container" style="width:100%;height:100%;" taborder="0">
 
 <?php
-   if ( strpos($page, "jail") === false )
+   if ( strpos($page, "plugin") === false )
    {
    //style="background-color: #e15a1f;height:3.00em;width:100%;position:absolute;margin-top:0.00em;margin-left:0.00em;align:left">
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
-  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
-  <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp&jail=<?php echo "$jailUrl"; ?>"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Apps</a></li>
-  <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> &nbsp;&nbsp;App Search</a></li>
-  <li><a href="/?p=jails" style="align:right;"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Plugins</a></li>
+  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
+  <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Apps</a></li>
+  <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search"><img src="/images/search.png" height=32 width=32> &nbsp;&nbsp;App Search</a></li>
+  <li><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Plugins</a></li>
 <?php
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
@@ -26,10 +26,14 @@ if (USERNAME)
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
-  <li <?php if ( $page=="jails" ) { echo "class='active'"; } ?>><a href="/?p=jails"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Plugins</a></li>
-  <li <?php if ( $page=="jailcreate" ) { echo "class='active'"; } ?>><a href="/?p=jailcreate"><img src="/images/add.png" height=32 width=32> &nbsp;&nbsp;Create Jail</a></li>
-  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;AppCafe</a></li>
+  <li <?php if ( $page=="plugins" ) { echo "class='active'"; } ?>><a href="/?p=jails"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Browse Plugins</a></li>
+  <li <?php if ( $page=="sysplugins" ) { echo "class='active'"; } ?>><a href="/?p=jailcreate"><img src="/images/add.png" height=32 width=32> &nbsp;&nbsp;Installed</a></li>
 <?php
+if ( $sysType != "APPLIANCE" ) {
+?>
+  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;System Apps</a></li>
+<?php
+}
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
 ?>

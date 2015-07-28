@@ -1,12 +1,6 @@
 <?php
  defined('DS') OR die('No direct access allowed.');
 
- if ( empty($_GET['jail']) or ! empty($_GET['changeappcafejail']))
- {
-    display_jail_appcafeselection("appcafe-search");
-    return;
- }
-
  if ( ! empty($_GET['search']) )
    $header="Searching for: ". $_GET['search'];
  else
@@ -22,7 +16,6 @@
 <br>
 <form action="/" method="get">
 <input type="hidden" name="p" value="appcafe-search">
-<input type="hidden" name="jail" value="<?php echo "$jailUrl"; ?>">
 Search: <input name="searchtext" type="text" float: left; align="middle" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="position:absolute;margin:0 0 0 4px;" width="28" height="28" src="images/search.png" align="middle" alt="Search" /><br>
 <br>
 Search all available PBIs and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>

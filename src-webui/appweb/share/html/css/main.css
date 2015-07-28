@@ -156,7 +156,8 @@ a:hover
 td,th
     table.tecspec th,table.tecspec td{
         padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;border-spacing: 20px 20px;
-        table-layout: fixed;
+        table-layout: relative;
+        position: relative;
         overflow:hidden;
         width: 125px;
         height: 40px;
@@ -164,6 +165,7 @@ td,th
         min-width:125px;
         max-height:40px;
         min-height:40px;
+
 }
 
 table.jaillist,table.tecspec{
@@ -226,6 +228,34 @@ table.pbidescription td{
 table.pbidescription td.example_code
 {
         vertical-align:bottom;
+        float: left;
+}
+
+/* CSS for the PBI descriptions since they need seperate controls */
+
+    table.status {border:1px solid #444444;border-radius-right: 8px;}
+    table.status {background-color:#D6D6DD;}
+
+    table.status th{
+/* background colors and borders and misc controls for PBI names in descriptions. */
+        color:#121212;background-color:#77AAFF;border:1px hidden; 8px;padding:3px;vertical-align:top;text-align:left;
+}
+    table.status th a:link,table.status th a:visited{
+        color:#ffffff;
+}
+
+    table.status th a:hover,table.status th a:active{
+        color:#EE872A;
+}
+
+    table.status td{
+        border:1px hidden #ACACBF;padding:10px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+}
+
+    table.status td.example_code
+{
+        vertical-align:bottom;
+        float: left;
 }
 
 
