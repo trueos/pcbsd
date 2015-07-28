@@ -43,7 +43,9 @@ init_daemon()
   # Cleanup some working / temp files
   for rmFile in ${QDISID} ${QLIST} ${QWRK}
   do
-     rm $rmFile
+     if [ -e "$rmFile" ] ; then
+       rm $rmFile
+     fi
   done
 
   # Cleanup old daemon runtime
@@ -87,12 +89,12 @@ run_queue_cmd()
             ;;
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
-	       create|destroy) ;;
+	       destroy|pull) ;;
 		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOG}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
 	    esac
-	    flag="install" ;;
+            ;;
          *) echo "Unauthorized command specified: $1" >> ${QLOG}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
@@ -121,22 +123,23 @@ run_queue_cmd()
        cmd="iocage pkgupdate $target"
      fi
   elif [ "$app" == "iocage" ];then
-     if [ "$origin" = "create" ] ; then
-        # Make sure iocage has fetched this release
-        SYSVER=`uname -r | cut -d '-' -f 1-2`
-	iocage list -r | grep -q $SYSVER
-	if [ $? -ne 0 ] ; then
-	  iocage fetch release=$SYSVER ftphost=download.pcbsd.org ftpdir=/iso/$SYSVER/amd64/dist >>$QLOG 2>>$QLOG
-	fi
+     if [ "$origin" = "pull" ] ; then
+        neworigin="`echo $flag | sed 's|/|-|g'`"
+        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=em0|192.168.0.187/24"
      fi 
-     cmd="$1"
+     if [ "$origin" = "destroy" ] ; then
+        # Stop the jail first
+        iocage stop $flag >>$QLOG 2>>$QLOG
+	# Set the destroy command
+	cmd="iocage destroy -f $flag"
+     fi
   fi
 
   # Remove any old ident lines from results
   sed -i '' "/ $ident /d" ${QRESULTS}
 
   # Lets run the command now
-  echo "Running: $cmd" >$QLOG 2>$QLOG
+  echo "Running: $cmd" >>$QLOG 2>>$QLOG
   $cmd >>$QLOG 2>>$QLOG
   err=$?
   if [ $err -ne 0 ] ; then
@@ -146,9 +149,14 @@ run_queue_cmd()
   fi
 
   # If we created a new jail, lets bootstrap iocage with pkgng
-  if [ "$app" == "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
+  if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
      local jdir="/`cat ${QLOG} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
      bootstrap_pkgng_iocage "$jdir" >>${QLOG} 2>>${QLOG}
+  fi
+
+  # If we create a new plugin, lets start it now
+  if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
+     iocage start pbicage-$neworigin >>${QLOG} 2>>${QLOG}
   fi
 
   # Inform syscache of the updates to check
@@ -491,7 +499,7 @@ case $1 in
     iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              create|destroy) echo "$@" >>${QLIST} ;;
+              destroy|pull) echo "$@" >>${QLIST} ;;
 	      # These commands can be run immediately
 	      start|stop|auto|set|get) run_iocage_cmd $@ ;;
 	      *) echo "Invalid iocage command! $2" ; exit 1 ;;
