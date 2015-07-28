@@ -115,6 +115,7 @@ private:
 	
 	//Simplification routine for fetching general application info (faster than multiple calls)
 	QStringList FetchAppSummaries(QStringList pkgs, QString jail);
+	QStringList FetchCageSummaries(QStringList pkgs);
 
 	//Internal pause/syncing functions
 	void validateHash(QString key);

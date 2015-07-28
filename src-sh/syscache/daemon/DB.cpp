@@ -114,17 +114,25 @@ QString DB::fetchInfo(QStringList request){
     else if(request[0]=="securityupdatelog"){ hashkey = "System/securityUpdateDetails"; }
     else if(request[0]=="haspcbsdupdates"){ hashkey = "System/hasPCBSDUpdates"; }
     else if(request[0]=="pcbsdupdatelog"){ hashkey = "System/pcbsdUpdateDetails"; }
+    
+  }else if(request.length()>1 && request[0]=="cage-summary"){
+    //Simplification routine - assemble the inputs
+    pkglist = request.mid(1); //elements 1+ are cages
+    hashkey="PBI/CAGES/"; //just to cause the request to wait for sync to finish if needed
+    
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
       else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
+    
   }else if(request.length()>2 && request[1]=="app-summary"){
     //Simplification routine - assemble the inputs
     pkglist = request.mid(2); //elements 2+ are pkgs
     searchjail = request[0];
     if(searchjail=="#system"){ searchjail = LOCALSYSTEM; }
     hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+    
   }else if(request.length()==3){
     if(request[0]=="jail"){
       hashkey = "Jails/"+request[1];
@@ -171,6 +179,7 @@ QString DB::fetchInfo(QStringList request){
 	searchfilter=0; //all
       }		
     }
+    
   }else if(request.length()==4){
     if(request[0]=="pbi"){
       if(request[1]=="app"){
@@ -201,6 +210,7 @@ QString DB::fetchInfo(QStringList request){
 	searchmin = 10;
       }
     }
+    
   }else if(request.length()==5){
     if(request[0]=="pkg"){
       if(request[1]=="search"){
@@ -250,6 +260,8 @@ QString DB::fetchInfo(QStringList request){
     //Now check for info availability
     if(!searchterm.isEmpty()){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
+    }else if(!pkglist.isEmpty() && hashkey=="PBI/CAGES/"){
+      val = FetchCageSummaries(pkglist).join(LINEBREAK);
     }else if(!pkglist.isEmpty() && !searchjail.isEmpty()){
       val = FetchAppSummaries(pkglist, searchjail).join(LINEBREAK);
       return val; //Skip the LISTDELIMITER/empty checks below - this output is highly formatted
@@ -473,6 +485,24 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
     out << orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf+"::::"+inst+"::::"+canrm;
   }
   //qDebug() << "Output:" << out;
+  return out;
+}
+
+QStringList DB::FetchCageSummaries(QStringList pkgs){
+  QString prefix = "PBI/CAGES/";
+  QStringList out;
+  for(int i=0; i<pkgs.length(); i++){
+    if( HASH->contains(prefix+pkgs[i]+"/icon") ){
+      QStringList info;
+      //Now assemble the information (in order)
+      info << pkgs[i]; //origin first
+      info << HASH->value(prefix+pkgs[i]+"/name");
+      info << HASH->value(prefix+pkgs[i]+"/icon");
+      info << HASH->value(prefix+pkgs[i]+"/arch");
+      info << HASH->value(prefix+pkgs[i]+"/fbsdver");
+      out << info.join("::::");
+    }
+  }
   return out;
 }
 

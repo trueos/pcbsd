@@ -218,11 +218,14 @@ Usage:\n\
   syscache \"<DB request 1>\" \"<DB request 2>\" [etc] \n\
   syscache help [jail | pkg | pbi | search] -> Information about DB requests for that subsystem \n\
 \n\
-Simplifications for automated systems:\n\
+Simplifications for automated systems (faster for bulk operations):\n\
   syscache \"<jail> app-summary <pkg origin 1>  < pkg origin 2> [etc..]\" \n\
-    -> This is a simplification routine for scripted access (much faster for bulk operations) \n\
     -> Returns (one per pkg/line): <pkg origin>::::<name>::::<version>::::<icon>::::<rating>::::<type>::::<comment>::::<confdir>::::<installed>::::<canremove>\n\
     -> Information priority ordering: PBI Overrides > Local pkg > Remote pkg \n\
+\n\
+  syscache \"cage-summary <origin 1> <origin 2> [etc..]\" \n\
+  -> Returns (one per origin/line): <origin>::::<name>::::<icon>::::<arch>::::<fbsdver>\n\
+\n\
 ";
   exit(1);
 }
