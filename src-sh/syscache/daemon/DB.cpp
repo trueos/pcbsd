@@ -954,7 +954,10 @@ void Syncer::syncJailInfo(){
 	*/
       QString hasup = "false"; //TO-DO
       HASH->insert(prefix+"hasupdates", hasup);
-      QString inst = TAG.section("pbicage-",1,10).replace("-","/");
+      QString inst = TAG.section("pbicage-",1,10);
+      //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
+      int catdash = inst.indexOf("-");
+      if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
       installedcages << inst;
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
