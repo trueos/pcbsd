@@ -263,6 +263,7 @@ QString DB::fetchInfo(QStringList request){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
     }else if(!pkglist.isEmpty() && hashkey=="PBI/CAGES/"){
       val = FetchCageSummaries(pkglist).join(LINEBREAK);
+      return val; //Skip the LISTDELIMITER/empty checks below - this output is highly formatted
     }else if(!pkglist.isEmpty() && !searchjail.isEmpty()){
       val = FetchAppSummaries(pkglist, searchjail).join(LINEBREAK);
       return val; //Skip the LISTDELIMITER/empty checks below - this output is highly formatted
