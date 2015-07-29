@@ -723,6 +723,9 @@ do_pbi_pkg_add() {
 	# Last, but not least, check for and add any menu icons
 	add_xdg_icon "$PBI_CONFDIR" "menu"
 
+	# Add desktop icons for all users
+	add_xdg_icon "$PBI_CONFDIR" "desktop" "ALLUSERS"
+
 	exit 0
 }
 
@@ -1014,6 +1017,18 @@ add_xdg_icon() {
 		rm ${PBI_TMPDIR}/$fNam
 	done
 
+	if [ "$3" != "ALLUSERS" ] ; then return ; fi
+
+	# Try to add this desktop icon for all users
+	for user in `ls /home`
+	do
+		# Does this user exist?
+		cat /etc/passwd | grep -q "^${user}:"
+		if [ $? -ne 0 ] ; then continue; fi
+
+		# Remove the icon
+		su $user -c "pbi icon add-desktop $PBI_ORIGIN" 2>/dev/null
+	done
 }
 
 # 1 - .desktop file to check
