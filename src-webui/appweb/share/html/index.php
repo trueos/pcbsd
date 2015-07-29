@@ -82,6 +82,7 @@
 
   require("include/globals.php");
   require("include/functions.php");
+  require("include/functions-config.php");
 
   // Check if we have updates to display
   check_update_reboot();
@@ -91,33 +92,46 @@
      queueDeleteApp();
   if ( ! empty($_GET["installApp"]) )
      queueInstallApp();
+  if ( ! empty($_GET["deletePlugin"]) )
+     queueDeletePlugin();
+  if ( ! empty($_GET["installPlugin"]) )
+     queueInstallPlugin();
 
   // Figure out what page is being requested
   if ( empty($_GET["p"])) {
      $page = "appcafe";
-     get_default_jail();
   } else {
      $page = $_GET["p"];
   }
 
-  // Select the default system / jail to show if we are on appcafe pages
-  if ( empty($jail) and ($page == "appcafe" or $page == "sysapp" or $page == "appcafe-search" or $page == "jails") ) {
-    get_default_jail();
-  }
-
-
-  // If we are running in appliance mode, and don't have any jails yet, flip to the jail page
-  if ( $sysType == "APPLIANCE") {
-    if ( empty($jail) and $page != "jailcreate" ) {
-       $noJails="YES";
-       $page = "jails";
-    }
-  }
+  // If we are running in appliance mode flip to the plugins page
+  if ( $sysType == "APPLIANCE" and empty($page))
+    $page = "plugins";
 
   // Don't echo headers / nav info if we are saving PBI list
   if ( "$page" == "exportpbis" ) {
     require("pages/exportpbis.php");
     exit(0);
+  }
+
+  // Check if we are on the dispatcher plugin page
+  $pluginDispatcher = false;
+  if ( $page == "dispatcher-plugins" ) {
+    $page = "dispatcher";
+    $pluginDispatcher = true;
+  }
+
+  // If we are on plugins section, make sure we have a start-end range
+  if ( stripos($page, "plugin") !== false ) {
+    $output = run_cmd("iocage get ip4_autostart default");
+    $ip4start = $output[0];
+    $output = run_cmd("iocage get ip4_autoend default");
+    $ip4end = $output[0];
+    if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
+    {
+      $firstrun=true;
+      $page="pluginconfig";
+    }
   }
 
   // Set some globals for mobile detection

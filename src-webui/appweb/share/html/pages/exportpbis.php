@@ -1,12 +1,6 @@
 <?php
  defined('DS') OR die('No direct access allowed.');
 
- if ( empty($_GET['jail']) or ! empty($_GET['changeappcafejail']))
- {
-    display_jail_appcafeselection("exportpbis");
-    return;
- }
-
  header("Cache-Control: public");
  header("Content-Description: File Transfer");
  header("Content-Type: application/octet-stream; "); 

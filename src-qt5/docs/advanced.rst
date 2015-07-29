@@ -245,7 +245,7 @@ Install a Server
 The :ref:`System Selection Screen` of the PC-BSD® installer can be used to install TrueOS®, a FreeBSD-based server operating system, rather than a PC-BSD®
 desktop operating system.
 
-TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, the command line version of :command:`warden`, and the command line
+TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, :command:`iocage` for jail management, and the command line
 versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs the software mentioned in
 `the RUN_DEPENDS= section of this file <https://github.com/pcbsd/freebsd-ports/blob/master/misc/trueos-base/Makefile>`_.
 
@@ -387,7 +387,7 @@ taken that PC-BSD® is installed into the correct partition; otherwise, you may 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 
 * a partition for each operating system. Many operating systems, including PC-BSD®, can only be installed into a primary or GPT partition. This means that
-  you will need to use partitioning software as described in :ref:`Partitioning the Hard Drive`. 
+  you will need to use partitioning software as described in :ref:`Creating Free Space`. 
 
 * a backup of any existing data. This backup should not be stored on your computer's hard drive but on another computer or on a removable media such as a USB
   drive or burnt onto a DVD media. If you are careful in your installation, everything should go fine. However, you will be glad that you made a backup should

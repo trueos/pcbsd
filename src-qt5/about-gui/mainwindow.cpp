@@ -46,7 +46,7 @@ const SComponent DEComponents[] ={
 };
 
 const SComponent DEComponentsNG[]={
-    {"KDE applicarions", "kde-baseapps"},
+    {"KDE applications", "kde-baseapps"},
     {"KDE plasma", "kde-workspace"},
     {"Gnome", "gnome3"},
     {"Cinnamon", "cinnamon"},

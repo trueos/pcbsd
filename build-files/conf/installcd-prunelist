@@ -475,10 +475,8 @@ usr/local/bin/pc-x*
 usr/local/sbin/pbi*
 usr/local/etc/fonts/conf.d/85-wqy.conf
 usr/local/share/font-vlgothic
-usr/local/share/fonts/Type1
 usr/local/share/fonts/75dpi
 usr/local/share/fonts/100dpi
-usr/local/share/fonts/baekmuk
 usr/local/share/fonts/OTF
 usr/local/share/fonts/dejavu
 usr/local/share/fonts/noto

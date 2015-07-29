@@ -63,17 +63,14 @@ if [ -e "/usr/local/etc/rc.d/vboxguest" ] ; then
   /usr/local/etc/rc.d/vboxguest onestart
 fi
 
-# Set all NICS to DHCP
-NICS=`ifconfig -l`
-for i in $NICS
-do
-  if [ "$i" = "lo0" ] ; then continue ; fi
+# Source our functions
+. /root/functions.sh
 
-  echo "Enabling networking on ${i}..."
-  echo "ifconfig_${i}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
-  echo "ifconfig_${i}=\"DHCP\"" >> /etc/rc.conf
-  (dhclient ${i} >/dev/null 2>/dev/null ) &
-done
+# Set all NICS to DHCP mode
+enable_dhcp_all
+
+# Enable networking
+/etc/rc.d/netif restart
 
 # Check if we are booting in LIVE or INSTALL mode
 if [ -e "/usr/pcbsd-live" ]; then
@@ -92,9 +89,6 @@ if [ -e "/usr/pcbsd-live" ]; then
   sh /root/PCBSDStartLive.sh
   exit 0
 fi
-
-# Source our functions
-. /root/functions.sh
 
 # Check if we have an auto-install directive
 if [ -e "/pc-autoinstall.conf" ]

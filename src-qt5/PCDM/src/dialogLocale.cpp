@@ -27,7 +27,8 @@ widgetLocale::widgetLocale(QWidget *parent) : QWidget(parent), ui(new Ui::widget
     locL << QLocale::languageToString(locale.language());
   }
   //Get the current language
-  QLocale mylocale;
+  QLocale mylocale = QLocale::system();
+  initLocale = mylocale.name(); //save this for later
   QString cLocale = QLocale::languageToString(mylocale.language()) + " ("+mylocale.name()+")";
   //qDebug() << "Default Locale:" << cLocale;
   //Setup the interface
@@ -53,6 +54,7 @@ void widgetLocale::setCurrentLocale(QString localeCode){
 
 void widgetLocale::slotClose()
 {
+  emit languageChanged(initLocale); //send the signal about the initial language we started with (just in case)
   close();
 }
 

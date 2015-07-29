@@ -134,7 +134,7 @@ void wizardDisk::slotClose()
 void wizardDisk::accept()
 {
   QString bootLoader;
-  bool useGPT = false;
+  QString partType="none";
   bool force4K = false;
   QString zpoolName;
   QString biosMode;
@@ -144,15 +144,20 @@ void wizardDisk::accept()
   else
     biosMode="pc";
 
-  if (comboPartition->currentIndex() == 0 )
-    useGPT = radioGPT->isChecked();
+  if (comboPartition->currentIndex() == 0 ) {
+    if ( radioGPT->isChecked() ) {
+      partType="GPT";
+    } else {
+      partType="MBR";
+    }
+  }
 
   // Get the boot-loader
   bootLoader="GRUB";
 
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
-    useGPT = true;
+    partType="GPT";
 
   // When doing advanced ZFS setups, check if 4K is enabled
   if ( radioAdvanced->isChecked() && checkForce4K->isChecked() )
@@ -162,9 +167,9 @@ void wizardDisk::accept()
      zpoolName = lineZpoolName->text();
 
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, QString("NONE"), false, zpoolName, force4K, QString(""));
+    emit saved(sysFinalDiskLayout, QString("NONE"), partType, zpoolName, force4K, QString(""));
   else
-    emit saved(sysFinalDiskLayout, bootLoader, useGPT, zpoolName, force4K, biosMode);
+    emit saved(sysFinalDiskLayout, bootLoader, partType, zpoolName, force4K, biosMode);
   close();
 }
 

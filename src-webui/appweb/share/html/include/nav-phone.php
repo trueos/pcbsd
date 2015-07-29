@@ -7,11 +7,11 @@
 	<ul class="clearfix">
 		<li><a href="/">Home</a></li>
 		<li>
-			<a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>" aria-haspopup="true"><span><img src="/images/appcafe.png" height=24 width=24>AppCafe</span></a>
+			<a href="/?p=appcafe" aria-haspopup="true"><span><img src="/images/appcafe.png" height=24 width=24>AppCafe</span></a>
 			<ul>
-				<li><a href="/?p=sysapp&jail=<?php echo "$jailUrl"; ?>"><img src="/images/install.png" height=24 width=24> Installed Applications</a></li>
-				<li><a href="/?p=appcafe-browse&jail=<?php echo "$jailUrl"; ?>"><img src="/images/categories.png" height=24 width=24> Browse Categories</a></li>
-				<li><a href="/?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
+				<li><a href="/?p=sysapp"><img src="/images/install.png" height=24 width=24> Installed Applications</a></li>
+				<li><a href="/?p=appcafe-browse"><img src="/images/categories.png" height=24 width=24> Browse Categories</a></li>
+				<li><a href="/?p=appcafe-search"><img src="/images/search.png" height=32 width=32> App Search</a></li>
 
 				<li><a href="/?p=appcafe"><img src="/images/switch.png" height=24 width=24> Change System / Jail</a></li>
                                 <?php
@@ -21,7 +21,7 @@ if (USERNAME)
 			</ul>
 		</li>
 		<li>
-			<a href="/?p=jails" aria-haspopup="true"><span><img src="/images/warden.png" height=24 width=24> Jails</span></a>
+			<a href="/?p=jails" aria-haspopup="true"><span><img src="/images/warden.png" height=24 width=24> Plugins</span></a>
 			<ul>
 				<li><a href="/?p=jails"><img src="/images/jail.png" height=24 width=24> Browse Jails</a></li>
 				<li><a href="/?p=jailcreate"><img src="/images/add.png" height=24 width=24> Create Jail</a></li>

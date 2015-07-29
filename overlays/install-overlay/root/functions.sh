@@ -2,6 +2,40 @@
 # Functions we source for starting the install / live mode
 ###########################################################
 
+# Function which checks is a nic is wifi or not
+check_is_wifi()
+{
+  ifconfig ${1} | grep -q "802.11"
+  return $?
+}
+
+# Function which simply enables plain dhcp on all detected nics
+# and creates the wlan[0-9] entries for wireless devices
+enable_dhcp_all()
+{
+  WLANCOUNT="0"
+  for NIC in `ifconfig -l`
+  do
+    if [ "${NIC}" = "lo0" ] ; then continue ; fi
+    check_is_wifi ${NIC}
+    if [ $? -eq 0 ]
+    then
+      # We have a wifi device, setup a wlan* entry for it
+      WLAN="wlan${WLANCOUNT}"
+      cat /etc/rc.conf | grep -q "wlans_${NIC}="
+      if [ $? -ne 0 ] ; then
+        echo "wlans_${NIC}=\"${WLAN}\"" >>/etc/rc.conf
+      fi
+      echo "ifconfig_${WLAN}=\"SYNCDHCP\"" >>/etc/rc.conf
+      echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+      WLANCOUNT=$((WLANCOUNT+1))
+    else
+      echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
+      echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+    fi
+  done
+}
+
 detect_x() 
 {
   # Check if the user requested VESA mode

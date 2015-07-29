@@ -320,6 +320,17 @@ QString NetworkMan::getIpForIdent( QString ident )
    return ifr.ipAsString();
 }
 
+QString NetworkMan::getIpv6ForIdent(QString ident)
+{
+	QString command = "nice ifconfig " +ident + " | grep \"inet6 \"";
+	QString inputLine = getLineFromCommandOutput(command);
+	QString ip= "";
+	if (inputLine != "" && inputLine.indexOf("inet6 ") != -1){
+		ip = inputLine.remove(0, inputLine.indexOf("inet6 ") + 5);
+		ip.truncate(ip.indexOf("%"));
+	}
+	return ip;
+}
 
 QString NetworkMan::getMacForIdent( QString ident )
 {
@@ -360,13 +371,15 @@ void NetworkMan::DevSelectionChanged()
    DevsStatus[sel] = getStatusForIdent(Devs[sel]);
    DevsNetmask[sel] = getNetmaskForIdent(Devs[sel]);
     
-   textStatusLabel1->setText(tr("Address:"));	
-   textStatus1->setText(tr("IP: ") + DevsIP[sel] + " / " + tr("Netmask: ") + DevsNetmask[sel]);
+   textStatusLabel1->setText(tr("IPv4 Address:"));	
+   textStatus1->setText( DevsIP[sel] + "    " + tr("Netmask: ") + DevsNetmask[sel]);
 
-   if ( getTypeForIdent(Devs[sel]) == "Wireless" )
-   {
+   textStatusLabel2->setText(tr("IPv6 Address:"));
+   textStatus2->setText( getIpv6ForIdent(Devs[sel]) );
+   
+   if ( getTypeForIdent(Devs[sel]) == "Wireless" ){
      checkSysTray->setVisible(false);
-     textStatusLabel2->setText(tr("SSID:"));
+     textStatusLabel4->setText(tr("SSID:"));
      QString SSID = ""; 
      QString tmp;
        
@@ -384,12 +397,12 @@ void NetworkMan::DevSelectionChanged()
     	SSID.truncate(tmp.indexOf("channel") - 1 );
      }
 
-     textStatus2->setText(SSID);
-   } else {
+     textStatus4->setText(SSID);
+   }else{
      if ( ! InstallerMode )
        checkSysTray->setVisible(true);
-     textStatusLabel2->setText(tr("MAC Address:"));
-     textStatus2->setText(DevsMAC[sel]);
+     textStatusLabel4->setText(tr("MAC Address:"));
+     textStatus4->setText(DevsMAC[sel]);
    }
    
    textStatusLabel3->setText(tr("Status:"));

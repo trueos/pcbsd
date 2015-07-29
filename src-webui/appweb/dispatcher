@@ -24,7 +24,6 @@ QLOGDIR="${QTMPDIR}/logs"
 QLIST="${QTMPDIR}/dispatch-queue"
 QDISID="${QTMPDIR}/dispatch-id"
 QWRK="${QLIST}.working"
-QLOG="${QLIST}.log"
 QRESULTS="${QLIST}.results"
 
 init_daemon()
@@ -40,8 +39,13 @@ init_daemon()
   chmod 600 ${QTMPDIR}
   chmod 600 ${QLOGDIR}
 
-  rm /var/tmp/appcafe/* 2>/dev/null >/dev/null
-  rm /var/tmp/appcafe/logs/* 2>/dev/null >/dev/null
+  # Cleanup some working / temp files
+  for rmFile in ${QDISID} ${QLIST} ${QWRK}
+  do
+     if [ -e "$rmFile" ] ; then
+       rm $rmFile
+     fi
+  done
 
   # Cleanup old daemon runtime
   for i in $QWRK $QRESULTS
@@ -69,14 +73,17 @@ run_queue_cmd()
   target=`echo $1 | cut -d " " -f 4`
 
   # Get the uniq identifier for this cmd
-  local ident="`echo $1 | sha256 -q`"
+  local ident="`uuidgen`"
+  QLOGFILE="${QLOGDIR}/${ident}.log"
+  touch ${QLOGFILE}
+  chmod 644 ${QLOGFILE}
 
 
   # Sanity check some of the given options
   case $app in
    pkg|pbi) case $flag in
             install|delete|info) ;;
-                   *) echo "Unauthorized command specified: $1" >> ${QLOG}
+                   *) echo "Unauthorized command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1
                       ;;
@@ -84,13 +91,13 @@ run_queue_cmd()
             ;;
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
-	       create|destroy) ;;
-		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOG}
+	       destroy|pull) ;;
+		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
 	    esac
-	    flag="install" ;;
-         *) echo "Unauthorized command specified: $1" >> ${QLOG}
+            ;;
+         *) echo "Unauthorized command specified: $1" >> ${QLOGFILE}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
             ;;
@@ -118,23 +125,32 @@ run_queue_cmd()
        cmd="iocage pkgupdate $target"
      fi
   elif [ "$app" == "iocage" ];then
-     if [ "$origin" = "create" ] ; then
-        # Make sure iocage has fetched this release
-        SYSVER=`uname -r | cut -d '-' -f 1-2`
-	iocage list -r | grep -q $SYSVER
-	if [ $? -ne 0 ] ; then
-	  iocage fetch release=$SYSVER ftphost=download.pcbsd.org ftpdir=/iso/$SYSVER/amd64/dist >>$QLOG 2>>$QLOG
-	fi
+     if [ "$origin" = "pull" ] ; then
+        neworigin="`echo $flag | sed 's|/|-|g'`"
+
+	# First make sure this jail doesn't exist
+	iocage get ip4_addr pbicage-$neworigin 2>/dev/null >/dev/null
+        if [ $? -eq 0 ] ; then
+	  echo "ERROR: The plugin jail pbicage-$neworigin is already installed!" >> ${QLOGFILE}
+          echo "FAILED $ident $@" >> $QRESULTS
+        fi	
+
+        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=DEFAULT|AUTOIP4"
      fi 
-     cmd="$1"
+     if [ "$origin" = "destroy" ] ; then
+        # Stop the jail first
+        iocage stop $target >>${QLOGFILE} 2>>${QLOGFILE}
+	# Set the destroy command
+	cmd="iocage destroy -f $target"
+     fi
   fi
 
   # Remove any old ident lines from results
   sed -i '' "/ $ident /d" ${QRESULTS}
 
   # Lets run the command now
-  echo "Running: $cmd" >$QLOG 2>$QLOG
-  $cmd >>$QLOG 2>>$QLOG
+  echo "Running: $cmd" >>$QLOGFILE 2>>$QLOGFILE
+  $cmd >>$QLOGFILE 2>>$QLOGFILE
   err=$?
   if [ $err -ne 0 ] ; then
      echo "FAILED $ident $@" >> $QRESULTS
@@ -142,14 +158,93 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
+  # If we created a new jail, lets bootstrap iocage with pkgng
+  if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
+     local jdir="/`cat ${QLOGFILE} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
+     bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
+  fi
+
+  # If we create a new plugin, lets start it now
+  if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
+     iocage start pbicage-$neworigin >>${QLOGFILE} 2>>${QLOGFILE}
+  fi
+
   # Inform syscache of the updates to check
   syscache "startsync" >/dev/null 2>/dev/null
 
   # Save the log file for later diagnostics
-  mv ${QLOG} ${QLOGDIR}/${ident}.log
-  chmod 644 ${QLOGDIR}/${ident}.log
-
   return $err
+}
+
+bootstrap_pkgng_iocage()
+{
+  local jaildir="${1}"
+  local outfile="${1}/.pkgBS.sh"
+  echo "Bootstrapping pkgng for jail ${jaildir}"
+
+  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
+     echo "Missing /bin/freebsd-version in jail.."
+     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
+     return 1
+  fi
+
+  # Setup the repo to use the XX.0-RELEASE pkgng branch
+  local jrelease=`${jaildir}/bin/freebsd-version`
+  echo "$jrelease" | grep -q "RELEASE"
+  if [ $? -eq 0 ] ; then
+    local release="`echo ${jrelease} | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
+  else
+    local release="`echo ${jrelease} | cut -d '-' -f 1-2`"
+  fi
+  local arch="$(uname -m)"
+
+cat <<__EOF__ >"${outfile}"
+#!/bin/sh
+rm /etc/pkg/FreeBSD.conf 2>/dev/null >/dev/null
+
+# Create the pkg.conf file
+mkdir -p /usr/local/etc 2>/dev/null
+echo "PKG_CACHEDIR: /usr/local/tmp
+REPOS_DIR: [
+                \"/usr/local/etc/pkg/repos\"
+           ]" > /usr/local/etc/pkg.conf
+
+# Create the repo dirs
+mkdir -p /usr/local/etc/pkg/repos 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
+
+# Save the repo configuration file
+echo "pcbsd-major: {
+               url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+# Create the repo.dist file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/VERSION/ARCH\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf.dist
+
+# Save the fingerprint file
+echo "function: sha256
+fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+
+#pkg update -f
+
+exit 0
+__EOF__
+
+  # Run the file to bootstrap pkg
+  chroot $jaildir sh /.pkgBS.sh
+  rm ${outfile}
+
+  # Now boot-strap the real pkgng pkg
+  pkg -c ${jaildir} install -qy ports-mgmt/pkg
 }
 
 run_daemon()
@@ -205,7 +300,7 @@ list_status()
 list_results()
 {
   if [ -e "$QRESULTS" ] ; then
-    cat ${QRESULTS} 
+    tail -50 ${QRESULTS}
   else
     echo ""
   fi
@@ -223,8 +318,12 @@ display_log()
 run_iocage_cmd()
 {
   case $2 in
-      start) iocage start $3;;
-       stop) iocage stop $3;;
+      start) iocage start $3
+	     iocage set boot=on $3
+             ;;
+       stop) iocage stop $3
+	     iocage set boot=off $3
+	     ;;
        auto) iocage set boot=on $3 ;;
         set) iocage set $3 $4 $5 $6;;
         get) iocage get $3 $4 $5 $6 ; exit $? ;;
@@ -411,7 +510,7 @@ case $1 in
     iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              create|destroy) echo "$@" >>${QLIST} ;;
+              destroy|pull) echo "$@" >>${QLIST} ;;
 	      # These commands can be run immediately
 	      start|stop|auto|set|get) run_iocage_cmd $@ ;;
 	      *) echo "Invalid iocage command! $2" ; exit 1 ;;

@@ -311,6 +311,8 @@ init_vars() {
 
         # User overridable variables
 	PBI_DBINDEXDIR="${PBI_DBDIR}/index"
+	PBI_DBCAGEINDEXDIR="${PBI_DBDIR}/cage-index"
+	PBI_CAGEGITURL="https://github.com/pbi-cages/pbicage-index.git"
 	PBI_INDEXDB="${PBI_DBINDEXDIR}/PBI-INDEX"
 	PBI_VERBOSE="NO"
 
@@ -1145,8 +1147,42 @@ get_pkgname() {
 	PKGNAME="${name}"
 }
 
+# Grab / update to the latest pbicage index
+check_update_cageindex() {
+	_oPWD=`pwd`
+	PBI_DBCAGEINDEXDIR="${PBI_DBDIR}/cage-index"
+
+	# If the DB dir doesn't exist, time to checkout
+	if [ ! -e "${PBI_DBCAGEINDEXDIR}/README.md" ] ; then
+		echo "Checking out latest pbicage index..."
+		if [ ! -d "${PBI_DBCAGEINDEXDIR}" ] ; then
+			mkdir -d ${PBI_DBCAGEINDEXDIR} 
+		fi
+		git clone --depth=1 ${PBI_CAGEGITURL} ${PBI_DBCAGEINDEXDIR} >/dev/null 2>/dev/null
+		if [ $? -ne 0 ] ; then
+			echo "WARNING: Failed getting pbicage index..."
+		else
+			echo "pbicage index is up-to-date."
+		fi
+	else
+		echo "Updating pbicage index..."
+		cd ${PBI_DBCAGEINDEXDIR}
+		git reset --hard >/dev/null 2>/dev/null
+		git pull origin master >/dev/null 2>/dev/null
+		if [ $? -ne 0 ] ; then
+			echo "WARNING: Failed updating pbicage index..."
+		else
+			echo "pbicage index is up-to-date."
+		fi
+	fi
+	cd ${_oPWD}
+}
+
 # Check if we need to pull down the updated INDEX file
 check_update_index() {
+
+	# Check if we have any pbicage index updates
+	check_update_cageindex
 
 	# Make sure the repo is enabled
 	cat ${_pRepoFile} | grep -q 'enabled: false'

@@ -161,35 +161,24 @@ PC-BSD® should automatically detect USB-based touch screen devices. If your dis
 and your :file:`/etc/X11/xorg.conf` file using the :ref:`Report a bug` tool.
 
 .. index:: partition
-.. _Partitioning the Hard Drive:
+.. _Creating Free Space:
 
-Partitioning the Hard Drive
-===========================
+Creating Free Space
+===================
 
-PC-BSD® does not come with a built-in partition manager. The installer assumes that you will either install PC-BSD® to the entire drive or, when installing to a
-specific partition, that the drive has already been divided into the desired number of partitions. In order to install PC-BSD® into a partition rather than to the
-entire hard drive, you will need to use a third-party application to prepare a primary partition to use as the destination for your PC-BSD® install.
+If you wish to dual-boot PC-BSD® with an existing operating system, you must first make sure that there is either a free partition or an area of free space to install into.
+For example, if you are currently running a Windows operating system, it will be installed to the entire hard drive. You will need to first shrink the partition that contains
+the current operating system in order to make room to install PC-BSD®. Shrinking is an operation that retains the current operating system, while reducing the size of its partition.
+This section demonstrates how to create free space within Windows 7.
 
-.. note:: PC-BSD® will not install into a secondary or logical partition, it must be a **primary** or a **GPT** partition.
-
-.. warning:: **before** creating or editing your hard drive's partitions, make sure that you first back up your valuable data to an external media such as a
-   removable USB drive!
-
-This section demonstrates how to create free space within Windows 7 and how to use Parted Magic to create a primary partition from the free space.
-
-If you are currently running Windows 7, it is using the entire hard drive. This means that you will need to first shrink the drive in order to make room to
-create a new partition. Shrinking is an operation that retains the current data on the partition, while reducing the size of the partition.
+.. warning:: **before** shrinking a partition, make sure that you first back up your valuable data to an external media such as a removable USB drive!
 
 To shrink the drive, open Computer Management and click :menuselection:`Storage --> Disk Management`. In the example shown in Figure 2.3a,
-the Windows system three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data partition.
+the Windows system has three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data partition.
 
 **Figure 2.3a: Viewing Disk Layout in Disk Management** 
 
 .. image:: images/partition1.jpg
-
-.. warning:: if you plan to dual-boot with Windows, it is important that you do not choose to install PC-BSD® into any of these three partitions when you get
-   to the :ref:`Disk Selection Screen` of the installer. It is a good idea to write down the sizes of the partitions so that you will recognize them when the
-   PC-BSD® installer displays your current partitions.
 
 Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install PC-BSD® into. To
 shrink the data partition, right-click the partition, in this example it is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
@@ -206,32 +195,9 @@ button. When finished, the newly created free space will be displayed, as seen i
 
 .. image:: images/shrink2.jpg
 
-You can now format the newly created free space using a utility such as Parted Magic.
-
-.. note:: while the Disk Management utility in Windows 7 indicates that it will let you format a primary partition, in reality it will only create an extended
-   partition which will not allow you to install PC-BSD®. This means that you still need another utility such as Parted Magic.
-
-`Parted Magic <http://sourceforge.net/projects/partedmagic>`_ is a graphical, easy-to-use partition editor that is packaged on a live CD. It can be used to
-shrink an existing partition and to create a primary partition from existing free space.
-
-To use Parted Magic, download the latest :file:`.iso.zip` file, unzip it, and burn it to CD. Boot the system with the CD and let it boot into "Default
-settings (Runs from RAM)". Wait for it to boot into the graphical screen, then select the "Partition Editor" desktop icon.
-
-Figure 2.3d shows the same Windows 7 system in Partition Editor. The 225.05GB partition is the Windows data partition (which was displayed as drive C within
-Windows 7) and the 224.61GB of unallocated space was created using the Windows Disk Management utility. The "Create new Partition" screen was opened by
-right-clicking on the unallocated space and selecting "New" from the menu.
-
-**Figure 2.3d: Formatting the Unallocated Space into a Primary Partition** 
-
-.. image:: images/parted1.png
-
-When creating your partition from unallocated space, make sure that "Primary Partition" is selected. The filesystem type does not matter as the PC-BSD®
-installer will reformat it. It is a good idea to write down the size and filesystem type so that you will recognize the partition that you will be installing
-PC-BSD® into. Once you have made your selections, click the "Add" button.
-
-Note that the partition will not actually be created until you click the "Apply" button to apply your changes. A popup menu will prompt you to make sure that
-you have selected the correct partition as formatting a partition destroys all data on that portion of the disk. Once the operation is complete, you can
-reboot and start the PC-BSD® installation.
+.. warning:: it is important that you **do not** choose to install PC-BSD® into any of the three Windows partitions when you get
+   to the :ref:`Disk Selection Screen` of the installer. It is a good idea to write down the sizes of all of the partitions so that you will recognize the free space when the
+   PC-BSD® installer displays your current partitions.
 
 .. _Obtaining PC-BSD®:
 

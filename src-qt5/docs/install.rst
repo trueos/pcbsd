@@ -32,7 +32,7 @@ The first graphical installer screen, seen in Figure 3.1a, indicates that the in
 
 **Figure 3.1a: Welcome and Language Selection Screen** 
 
-.. image:: images/install2.png
+.. image:: images/install2a.png
 
 Starting on the left-hand side, the icons in the bottom navigation area allow you to: 
 
@@ -47,6 +47,8 @@ Starting on the left-hand side, the icons in the bottom navigation area allow yo
 * switch between the US keyboard layout and a user selected layout
 
 * access the emergency shell described in :ref:`Using the System Utilities Menu`
+
+* access the :ref:`Disk Manager` utility
 
 * abort the installation
 
@@ -82,7 +84,7 @@ install a command-line only server.
 
 **Figure 3.2a: System Selection Screen** 
 
-.. image:: images/install3.png
+.. image:: images/install3a.png
 
 By default, PC-BSD® will be selected and the default window manager will depend upon the amount of RAM on the system. Systems containing more than 2GB of RAM
 will default to the KDE desktop and all other systems will default to the LXDE desktop. To change the default window manager or to browse for additional
@@ -111,7 +113,7 @@ The following components are available for installation.
 
 * **Editors:** check the box to install `LibreOffice <http://www.libreoffice.org/>`_. 
 
-* **Emulators:** if you expand the ► you can select to install `VirtualBox <https://www.virtualbox.org/>`_ and `Wine <https://www.winehq.org/>`_. 
+* **Emulators:** check the box to install `VirtualBox <https://www.virtualbox.org/>`_. 
 
 * **i18n:** if you expand the ► you can select to install localization for for the KDE desktop and for the operating system.
 
@@ -158,7 +160,7 @@ The "Disk Selection" screen, seen in Figure 3.3a, summarizes the default disk co
 
 **Figure 3.3a: Disk Selection Screen**
 
-.. image:: images/install5.png
+.. image:: images/install5a.png
 
 .. warning:: by default, PC-BSD® will assume that you wish to install on the entire first disk. If you are installing PC-BSD® as the only operating system
    on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
@@ -202,11 +204,11 @@ If you select "Basic" mode, the wizard will display the screen shown in Figure 3
 By default, the first hard disk will be selected. If you wish to install on a different disk, use the "Selected Disk" drop-down menu to select the disk to
 install into.
 
-By default, the entire selected disk will be formatted. If the disk has been divided into partitions and you wish to install into a specific partition, use
-the "Selected Partition" drop-down menu to select the desired primary partition.
+By default, the entire selected disk will be formatted. If the disk has been divided into partitions or you have an area of free space, use
+the "Selected Partition" drop-down menu to select the desired partition.
 
-.. note:: PC-BSD® will only install into a primary or GPT partition. That is, you can not install PC-BSD® into a secondary or an extended partition. If you
-   wish to create a new primary partition to install into, see :ref:`Partitioning the Hard Drive` for instructions on how to do this.
+.. note:: PC-BSD® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install PC-BSD® into a secondary or an extended partition.
+          If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
 
 Once you have selected the disk and partition, click "Next" to return to the disk "Summary" screen so that you can review your selections. If you wish to
 change anything, use the "Back" button to return to a previous screen. Otherwise, click "Finish" to leave the wizard. Click "Next" then "Yes" to start the
@@ -225,6 +227,13 @@ If you select advanced mode, the wizard will display the screen shown in Figure 
 .. image:: images/install8.png
 
 This screen provides the following options: 
+
+* **Selected Disk:** select the disk to install into.
+
+* **Selected Partition:** select the desired partition or area of free space.
+
+.. note:: PC-BSD® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install PC-BSD® into a secondary or an extended partition.
+          If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
 
 * **Partition Scheme:**  the default of "GPT (Best for new hardware)" is a partition table layout that supports larger partition sizes than the traditional "MBR (Legacy)" layout.
   **If your installation disk/partition is larger than 2 TB, this option must be selected**. Some older motherboards do
@@ -437,7 +446,7 @@ installation's progress.
 
 **Figure 3.4a: Installation Progress Screen**
 
-.. image:: images/install13.png
+.. image:: images/install13a.png
 
 How long the installation takes depends upon the speed of your hardware, the installation type you selected, and the number of components to be installed.
 A typical installation takes between 15 and 30 minutes.
@@ -452,6 +461,6 @@ The screen shown in Figure 3.5a appears once the installation is complete.
 
 **Figure 3.5a: PC-BSD® Installation is Now Complete** 
 
-.. image:: images/install14.png
+.. image:: images/install14a.png
 
 Click the "Finish" button to reboot into your PC-BSD® installation. Wait until the installer exits before removing the installation media.

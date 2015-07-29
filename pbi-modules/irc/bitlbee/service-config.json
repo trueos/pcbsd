@@ -1,0 +1,44 @@
+[
+    {
+        "type": "COMBOBOX",
+        "desc": "Run Mode",
+        "longdesc": "Daemon - Serve all users from a single process<br>ForkDaemon - Serve all users from seperate child processes (More crash resistant)",
+        "key": "RunMode",
+        "default": "ForkDaemon",
+        "option1": "Daemon::::Daemon - Single process",
+        "option2": "ForkDaemon::::ForkDaemon - Multiple processes"
+    },
+    {
+        "type": "NUMBERBOX",
+        "desc": "Bitlbee Port",
+        "longdesc": "The port that BitlBee listens on",
+        "key": "DaemonPort",
+        "default": "6667",
+        "min": "1024",
+        "max": "65535"
+    },
+    {
+        "type": "PASSWORDBOX",
+        "desc": "Operator Password",
+        "longdesc": "Password for Operator commands in IRC",
+        "key": "OperPassword",
+        "default": "ChangeMe!"
+    },
+    {
+        "type": "COMBOBOX",
+        "desc": "Auth Mode",
+        "longdesc": "Open - Accept connections from anyone<br>Closed - Require auth using the Password specified below<br>Registered - Only allow registered users to use the server",
+        "key": "AuthMode",
+        "default": "Open",
+        "option1": "Open::::Open",
+        "option2": "Closed::::Closed",
+        "option3": "Registered::::Registered"
+    },
+    {
+        "type": "PASSWORDBOX",
+        "desc": "Auth Password",
+        "longdesc": "Password for connecting when AuthMode=Closed",
+        "key": "AuthPassword",
+        "default": "ChangeMe!"
+    }
+]

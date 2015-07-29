@@ -13,7 +13,7 @@ QList<service> Services::getServiceList(){
     service S;
     S.ID = "SSHD";
     S.file = "/etc/rc.d/sshd"; //This file needs to exist to show/start this service
-    S.name = QObject::tr("SSH");
+    S.name = QObject::tr("Enable SSH");
     S.description = QObject::tr("Allows SSH access to this system from remote systems");
     S.openPorts << "tcp 22";
     S.rcLines << "sshd_enable=YES";
@@ -25,8 +25,8 @@ QList<service> Services::getServiceList(){
     service S;
     S.ID = "DISABLE-IPV6";
     S.file = "/etc/rc.conf"; //This file needs to exist to show/start this service
-    S.name = QObject::tr("Disable IPV6");
-    S.description = QObject::tr("Disable the use of IPV6 connections");
+    S.name = QObject::tr("Disable IPv6");
+    S.description = QObject::tr("Disable the use of IPv6 connections");
     //S.openPorts
     S.rcLines << "ipv6_activate_all_interfaces=NO";
     //S.cmds << "service netif restart"; //optional extra commands

@@ -14,13 +14,17 @@ void printJailUsage(){
   qDebug() << "syscache Jail database access:\n\
 -------------------------------------------------------------------------------\n\
 \"jail list\": List all running jails by name\n\
+\"jail cages\": List all installed pbicages by origin and iocage ID (<origin> <ID>)\n\
 \"jail stoppedlist\": List all stopped jails by name\n\
 \"jail <jailname> <info>\": Get information about a particular jail\n\
   Possible Info requests:\n\
   \"id\": 	[RUNNING ONLY] Get the current jail ID # (JID)\n\
   \"ip\": 	[RUNNING ONLY] Get the current jail IP address\n\
   \"path\":	[RUNNING ONLY] Get the jail directory path on host system\n\
-  \"WID\":	Get the Warden jail ID #\n\
+  \"all\":	Return the raw iocage information list for the jail (all properties)\n\
+  \"WID\":	Get the iocage jail ID #\n\
+  \"tag\":	Get the iocage jail tag\n\
+  \"installed\": Get the origin of the installed pbicage\n\
   \"ipv4\":	Get the jail ipv4 address setting\n\
   \"alias-ipv4\":	Get the jail ipv4 alias setting\n\
   \"bridge-ipv4\":	Get the jail ipv4 bridge setting\n\
@@ -34,6 +38,7 @@ void printJailUsage(){
   \"autostart\":	[true/false] Jail is set to start automatically on boot\n\
   \"vnet\":	[Disabled/Enabled]\n\
   \"type\":	Get the type of jail [portjail, traditional, linux]\n\
+  \"hasupdates\": [true/false] Return whether the jail has updates available\n\
 \n\
 \n\
 Example:\n\
@@ -98,6 +103,7 @@ void printPbiUsage(){
   \"servercats\":	List all categories that contain a server application\n\
   \"textcats\":	List all categories that contain a text application\n\
   \"graphicalcats\":	List all categories that contain a graphical application\n\
+  \"cages\":		List all known cages by origin\n\
 \n\
 \"pbi app <pkg origin> <info>\":\n\
   Possible Application Information:\n\
@@ -119,6 +125,19 @@ void printPbiUsage(){
   \"name\": 	(pkg override) Package name\n\
   \"options\":	(pkg override) List of compile-time options used\n\
   \"website\":	(pkg override) Application website URL\n\
+\n\
+\"pbi cage <origin> <info>\":\n\
+  Possible Cage Information:\n\
+  \"icon\":	Icon file path\n\
+  \"name\":	Name of the cage\n\
+  \"description\":	Application description\n\
+  \"arch\":	Architecture of the cage\n\
+  \"fbsdver\":	FreeBSD version used\n\
+  \"git\":	GIT path for the cage\n\
+  \"gitbranch\":	GIT granch used\n\
+  \"screenshots\":	List of screenshot URLs\n\
+  \"tags\":	List of search tags\n\
+  \"website\":	Website URL\n\
 \n\
 \"pbi cat <pkg category> <info>\":\n\
   Possible Category Information:\n\
@@ -201,11 +220,14 @@ Usage:\n\
   syscache \"<DB request 1>\" \"<DB request 2>\" [etc] \n\
   syscache help [jail | pkg | pbi | search] -> Information about DB requests for that subsystem \n\
 \n\
-Simplifications for automated systems:\n\
+Simplifications for automated systems (faster for bulk operations):\n\
   syscache \"<jail> app-summary <pkg origin 1>  < pkg origin 2> [etc..]\" \n\
-    -> This is a simplification routine for scripted access (much faster for bulk operations) \n\
     -> Returns (one per pkg/line): <pkg origin>::::<name>::::<version>::::<icon>::::<rating>::::<type>::::<comment>::::<confdir>::::<installed>::::<canremove>\n\
     -> Information priority ordering: PBI Overrides > Local pkg > Remote pkg \n\
+\n\
+  syscache \"cage-summary <origin 1> <origin 2> [etc..]\" \n\
+  -> Returns (one per origin/line): <origin>::::<name>::::<icon>::::<arch>::::<fbsdver>\n\
+\n\
 ";
   exit(1);
 }

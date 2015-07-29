@@ -48,7 +48,7 @@ private slots:
 
     // Disk slots
     void slotDiskCustomizeClicked();
-    void slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool, QString);
+    void slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool, QString);
 
     // Slots for the installation
     void slotInstallProcFinished( int exitCode, QProcess::ExitStatus status);
@@ -66,6 +66,9 @@ private slots:
 
     // Slot to start the network manager
     void slotStartNetworkManager();
+
+    // Slot to start the disk manager
+    void slotStartDiskManager();
 
     // Desktop selector slots
     void slotDesktopCustomizeClicked();
@@ -131,7 +134,7 @@ private:
     QList<QStringList> sysPartitions; // Our lists which contains partition info
     QList<QStringList> sysFinalDiskLayout; // Our lists which contains the final disk layout
     QString bootLoader;
-    bool loadGPT;
+    QString sysPartType;
     int systemMemory; // Ammount of system RAM we have in MB
     QList<QStringList> listComponents; // QStringList for our available components
     QStringList languages;

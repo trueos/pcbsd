@@ -95,7 +95,7 @@ QString DB::fetchInfo(QStringList request){
   QStringList pkglist;
   int searchmin, searchfilter;
   bool sortnames = false;
-  qDebug() << "Request:" << request << request.length();
+  //qDebug() << "Request:" << request << request.length();
   //Determine the internal hash key for the particular request
   if(request.length()==1){
     if(request[0]=="startsync"){ 
@@ -114,17 +114,26 @@ QString DB::fetchInfo(QStringList request){
     else if(request[0]=="securityupdatelog"){ hashkey = "System/securityUpdateDetails"; }
     else if(request[0]=="haspcbsdupdates"){ hashkey = "System/hasPCBSDUpdates"; }
     else if(request[0]=="pcbsdupdatelog"){ hashkey = "System/pcbsdUpdateDetails"; }
+    
+  }else if(request.length()>1 && request[0]=="cage-summary"){
+    //Simplification routine - assemble the inputs
+    pkglist = request.mid(1); //elements 1+ are cages
+    hashkey="PBI/CAGES/"; //just to cause the request to wait for sync to finish if needed
+    
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
+      else if(request[1]=="cages"){ hashkey = "JailCages"; }
       else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
+    
   }else if(request.length()>2 && request[1]=="app-summary"){
     //Simplification routine - assemble the inputs
     pkglist = request.mid(2); //elements 2+ are pkgs
     searchjail = request[0];
     if(searchjail=="#system"){ searchjail = LOCALSYSTEM; }
     hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+    
   }else if(request.length()==3){
     if(request[0]=="jail"){
       hashkey = "Jails/"+request[1];
@@ -132,7 +141,7 @@ QString DB::fetchInfo(QStringList request){
       else if(request[2]=="id"){ hashkey.append("/JID"); }
       else if(request[2]=="ip"){ hashkey.append("/jailIP"); }
       else if(request[2]=="path"){ hashkey.append("/jailPath"); }
-      else if(request[3]=="all"){ hashkey.append("/iocage-all"); }
+      else if(request[2]=="all"){ hashkey.append("/iocage-all"); }
       else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
       if(request[1]=="search"){
@@ -152,6 +161,7 @@ QString DB::fetchInfo(QStringList request){
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
         if(request[2]=="allapps"){ hashkey="PBI/pbiList"; sortnames=true;}
+	else if(request[2]=="cages"){ hashkey = "PBI/CAGES/list"; sortnames=true; }
 	else if(request[2]=="graphicalapps"){ hashkey="PBI/graphicalAppList"; sortnames=true;}
 	else if(request[2]=="textapps"){ hashkey="PBI/textAppList"; sortnames=true;}
 	else if(request[2]=="serverapps"){ hashkey="PBI/serverAppList"; sortnames=true;}
@@ -170,10 +180,13 @@ QString DB::fetchInfo(QStringList request){
 	searchfilter=0; //all
       }		
     }
+    
   }else if(request.length()==4){
     if(request[0]=="pbi"){
       if(request[1]=="app"){
         hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
+      }else if(request[1]=="cage"){
+	hashkey = "PBI/CAGES/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="cat"){
 	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="search"){
@@ -198,6 +211,7 @@ QString DB::fetchInfo(QStringList request){
 	searchmin = 10;
       }
     }
+    
   }else if(request.length()==5){
     if(request[0]=="pkg"){
       if(request[1]=="search"){
@@ -247,6 +261,9 @@ QString DB::fetchInfo(QStringList request){
     //Now check for info availability
     if(!searchterm.isEmpty()){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
+    }else if(!pkglist.isEmpty() && hashkey=="PBI/CAGES/"){
+      val = FetchCageSummaries(pkglist).join(LINEBREAK);
+      return val; //Skip the LISTDELIMITER/empty checks below - this output is highly formatted
     }else if(!pkglist.isEmpty() && !searchjail.isEmpty()){
       val = FetchAppSummaries(pkglist, searchjail).join(LINEBREAK);
       return val; //Skip the LISTDELIMITER/empty checks below - this output is highly formatted
@@ -470,6 +487,24 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
     out << orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf+"::::"+inst+"::::"+canrm;
   }
   //qDebug() << "Output:" << out;
+  return out;
+}
+
+QStringList DB::FetchCageSummaries(QStringList pkgs){
+  QString prefix = "PBI/CAGES/";
+  QStringList out;
+  for(int i=0; i<pkgs.length(); i++){
+    if( HASH->contains(prefix+pkgs[i]+"/icon") ){
+      QStringList info;
+      //Now assemble the information (in order)
+      info << pkgs[i]; //origin first
+      info << HASH->value(prefix+pkgs[i]+"/name");
+      info << HASH->value(prefix+pkgs[i]+"/icon");
+      info << HASH->value(prefix+pkgs[i]+"/arch");
+      info << HASH->value(prefix+pkgs[i]+"/fbsdver");
+      out << info.join("::::");
+    }
+  }
   return out;
 }
 
@@ -751,8 +786,9 @@ bool Syncer::needsPbiSync(){
   else{
     qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
+    qint64 mod2 = QFileInfo("/var/db/pbi/cage-index/CAGE-INDEX").lastModified().toMSecsSinceEpoch();
     qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
-    return (mod > stamp || stamp < dayago );
+    return (mod > stamp || mod2 > stamp || stamp < dayago );
   }
   
 }
@@ -839,12 +875,16 @@ void Syncer::syncJailInfo(){
   //Now also fetch the list of inactive jails on the system
   QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
+  QStringList installedcages;
   //qDebug() << "Warden Jail Info:" << info;
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
+    if(ID.isEmpty()){ continue; }
+    QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
+    if(!TAG.startsWith("pbicage-")){ continue; } //skip this jail
     QStringList tmp = directSysCmd("iocage get all "+ID);
-    //qDebug() << "tmp:" << tmp;
+    //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
     QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
     HOST = ID;
@@ -870,13 +910,13 @@ void Syncer::syncJailInfo(){
       QString val = tmp[j].section(":",1,100).simplified();
       //if(tmp[j].startsWith("hostname:")){ HOST = val; }
       //qDebug() << "Line:" << tmp[j] << val;
-      if(tmp[j].startsWith("ipv4_addr:")){ IPV4 = val; }
+      if(tmp[j].startsWith("ip4_addr:")){ IPV4 = val; }
       //else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = val; }
       //else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = val; }
       else if(tmp[j].startsWith("defaultrouter:")){ ROUTERIPV4 = val; }
-      else if(tmp[j].startsWith("ipv6_addr:")){ IPV6 = val; }
+      else if(tmp[j].startsWith("ip6_addr:")){ IPV6 = val; }
       //else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = val; }
       //else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = val; }
       //else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = val; }
@@ -885,13 +925,19 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("vnet:")){ VNET = val; }
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
     }
-    if(!HOST.isEmpty()){
+      QString inst = TAG.section("pbicage-",1,10); //installed cage for this jail
+      //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
+      int catdash = inst.indexOf("-");
+      if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
+      
       //Save this info into the hash
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
       else{ found << HOST; }
       HASH->insert(prefix+"WID", ID); //iocage ID
-      HASH->insert("iocage-all",tmp.join("<br>") );
+      HASH->insert(prefix+"tag",TAG); //iocage tag
+      HASH->insert(prefix+"installed", inst); //Installed pbicage origin
+      HASH->insert(prefix+"iocage-all",tmp.join("<br>") );
       HASH->insert(prefix+"ipv4", IPV4);
       HASH->insert(prefix+"alias-ipv4", AIPV4);
       HASH->insert(prefix+"bridge-ipv4", BIPV4);
@@ -905,10 +951,22 @@ void Syncer::syncJailInfo(){
       HASH->insert(prefix+"autostart", AUTOSTART);
       HASH->insert(prefix+"vnet", VNET);
       HASH->insert(prefix+"type", TYPE);      
-    }
+
+      //Now check if this jail can be updated and put that into the hash as well
+      // TO-DO - iocage update check command still needs to be written
+      /* It will effectively be: 
+	# cd <jaildir>/root
+	# git remote update
+	# git status -uno | grep -q "is behind"
+	*/
+      QString hasup = "false"; //TO-DO
+      HASH->insert(prefix+"hasupdates", hasup);
+
+      installedcages << inst+" "+ID;
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
+  HASH->insert("JailCages", installedcages.join(LISTDELIMITER));
   //Remove any old jails from the hash (ones that no longer exist)
   for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
@@ -1380,6 +1438,29 @@ void Syncer::syncPbi(){
     HASH->insert("PBI/newappList", newapps.join(LISTDELIMITER));
     HASH->insert("PBI/highappList", highapps.join(LISTDELIMITER));
     HASH->insert("PBI/recappList", recapps.join(LISTDELIMITER));
+    
+    //Now get all the info from pbi-cages
+    QString cprefix = "/var/db/pbi/cage-index/";
+    QStringList cages = readFile(cprefix+"CAGE-INDEX");
+    QStringList allcages;
+    for(int i=0; i<cages.length(); i++){
+      if( !QFile::exists(cprefix+cages[i]+"/MANIFEST")){ continue; }
+      allcages << cages[i];
+      QStringList cinfo = readFile(cprefix+cages[i]+"/MANIFEST");
+      for(int h=0; h<cinfo.length(); h++){
+        QString var = cinfo[h].section(": ",0,0).toLower();
+	QString val = cinfo[h].section(": ",1,100).simplified();
+	if(!var.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+var, val); }
+	//Note: this will automatically load any variables in the manifest into syscache (lowercase)
+	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
+	// ==== NO LINE BREAKS IN VALUES ====
+      }
+      //Now add the description/icon
+      HASH->insert("PBI/CAGES/"+cages[i]+"/description", readFile(cprefix+cages[i]+"/description").join("<br>") );
+      HASH->insert("PBI/CAGES/"+cages[i]+"/icon", cprefix+cages[i]+"/icon.png");
+    }
+    //Now save the list of all cages
+    HASH->insert("PBI/CAGES/list", allcages.join(LISTDELIMITER));
   }
   //Update the timestamp
   HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));

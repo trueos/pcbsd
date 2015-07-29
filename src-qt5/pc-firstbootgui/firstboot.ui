@@ -57,7 +57,7 @@ QWidget{
        <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Page_Welcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1580,7 +1580,7 @@ background: transparent;</string>
            </font>
           </property>
           <property name="text">
-           <string>Enable Optional Services</string>
+           <string>Optional Services</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>

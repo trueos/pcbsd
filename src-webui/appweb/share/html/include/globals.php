@@ -18,18 +18,9 @@
    // Probally shouldn't modify these below
    ///////////////////////////////////////////////////
 
-   // Figure out what page is being requested
-   $jail = "";
-   if ( ! empty($_GET['jail'])) {
-     if ( $_GET['jail'] == "__system__") {
-        $jail = "#system";
-        $jailUrl = "__system__";
-     } else {
-        $jail = $_GET['jail'];
-        $jailUrl = $_GET['jail'];
-     }
-
-   }
+   // Legacy stuff from old AppCafe 1.0 - Could be removed at some point
+   $jail = "#system";
+   $jailUrl = "__system__";
 
    // Set if we are viewing recommended or all PBI
    $allPBI = "false";

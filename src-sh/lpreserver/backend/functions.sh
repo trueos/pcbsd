@@ -919,7 +919,7 @@ add_dset_clone() {
      origin=`zfs list -H -o origin $dset`
      originraw="`echo $origin | cut -d '@' -f 1`"
      case "${DSETS}" in
-        *" $originraw "*) DSETS=" $DSETS $dset" ;;
+        *" $originraw "*) DSETS=" $DSETS $dset " ;;
         *) PASSDSETS=" $PASSDSETS $dset ";;
      esac
   done

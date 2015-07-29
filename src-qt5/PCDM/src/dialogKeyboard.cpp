@@ -37,7 +37,9 @@ void widgetKeyboard::slotApply()
 {
   //slotUpdateKbOnSys();
   Backend::changeKbMap(cModel, cLayout, cVariant); //use Current values
-  Backend::saveDefaultSysEnvironment( QString(getenv("LANG")) , cModel, cLayout, cVariant);
+  QString j1,j2,j3,lang;
+  Backend::readDefaultSysEnvironment(lang,j1,j2,j3); //need the current locale (rest is junk)
+  Backend::saveDefaultSysEnvironment( lang, cModel, cLayout, cVariant);
   this->close();
 }
 

@@ -19,15 +19,18 @@ The rest of this chapter demonstrates how to use the built-in graphical and comm
 AppCafe®
 =========
 
-AppCafe® provides an intuitive, graphical method for installing and managing PBIs and packages. PBIs are packages that contain extra meta-data which
-is displayed in AppCafe®, such as screenshots and lists of similar applications.
+AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
+pre-built applications that have been tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
+is displayed in AppCafe®, such as screenshots and lists of similar applications. It also provides graphical jail management, which allows you to
+run applications which are isolated from the rest of the operating system.
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
 able to manage software. 
 
 If you prefer to manage PBIs from the command line, see the section on using the :ref:`PBI Manager` suite of command line utilities. Refer to
-:ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line.
+:ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line. Refer to :ref:`Managing Jails from the CLI` for instructions
+on how to manage jails from the command line.
 
 .. index:: software
 .. _Configuring AppCafe®:
@@ -44,10 +47,14 @@ a desktop.
 
 **Figure 7.1a: Running AppCafe® from a Desktop**
 
-.. image:: images/remote1a.png
+.. image:: images/remote1b.png
 
-The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure or close AppCafe® or to search for text. Figure
-7.1b shows the menu that appears if you click "Configure". 
+.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
+   If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
+   perform the actual update and that you won't be able to add or delete any software while an update is in progress.
+
+The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure AppCafe®, search for an application, or to
+closeAppCafe® . Figure 7.1b shows the menu that appears if you click "Configure". 
 
 **Figure 7.1b: Configuring the AppCafe® Repository**
 
@@ -94,13 +101,13 @@ The "mode" option is not set by default, but can be configured by removing the c
 Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
 page offering to create a jail if no jails yet exist on the system.
 
-The rest of this section describes how manage software using AppCafe®.
+The rest of this section describes how to manage software using AppCafe®.
 
 .. index:: AppCafe®
-.. _Using AppCafe®:
+.. _Software Management:
 
-Using AppCafe®
----------------
+Software Management
+-------------------
 
 The "Home" tab, seen in Figure 7.1a, is used to browse for available PBIs. Applications which are already installed have a red "X". If you click that "X", a pop-up message will
 ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
@@ -112,7 +119,7 @@ the value of the "Viewing Apps for:" drop-down menu. If you have created any jai
 like to manage.
 
 The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
-the PBIs for each category, click the "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
+the PBIs for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
 PBIs within that category.
 
 To view all of the applications installed on the system or jail you are "Viewing Apps for:", click the "Installed Apps" tab. The applications will be
@@ -122,7 +129,7 @@ In the example shown in Figure 7.1d, the user has clicked "Firefox" on a system 
 
 **Figure 7.1d: Viewing the Details of an Installed Application**
 
-.. image:: images/remote4.png
+.. image:: images/remote4a.png
 
 The information for an application includes the following: 
 
@@ -151,7 +158,7 @@ The information for an application includes the following:
 
 The following tabs may also be displayed. If a tab is not displayed, it means that that information is not currently available for this particular application.
 
-- **Screenshots:** click the "View Full Size" button under the screenshot to view the full screen version of the screenshot.
+- **Screenshots:** click a screenshot to view a larger version of the screenshot.
 
 - **Related:** provides an installable list of applications that provide similar functionality.
 
@@ -161,15 +168,11 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
-   If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
-   perform the actual update and that you won't be able to add or delete any software while an update is in progress.
-
 The "App Search" tab is shown in Figure 7.1e. 
 
 **Figure 7.1e: Searching for Applications**
 
-.. image:: images/remote5.png
+.. image:: images/remote5a.png
 
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
@@ -177,21 +180,43 @@ software with "browser" in the name as well as applications which provide browse
 By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
-.. _Managing Software in Jails:
+.. _Jail Management:
 
-Managing Software in Jails
---------------------------
+Jail Management
+---------------
+
+A `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ provides a very light-weight, operating system-level virtualization. A jail is similar to running an independent instance of
+FreeBSD on the same hardware, without all of the overhead usually associated with virtualization. Jails are usually created for running applications or services. For example, you
+could host your own web or mail server on your desktop system without affecting your desktop applications or data. Each jail has its own IP address, running processes, and users.
+Whatever happens in that jail does not affect your operating system or other jails running on the PC-BSD® system.
+
+PC-BSD® uses `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
+designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration file. 
+
+The rest of this section demonstrates how to manage jails from either the graphical interface or the command line.
+
+.. index:: AppCafe®
+.. _Managing Jails from the GUI:
+
+Managing Jails from the GUI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To create, delete, and manage jails, click the "Jails" tab. If you have not yet created any jails on the system, a getting started message will appear. Click the
 "create a new jail" link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
 
 **Figure 7.1f: Adding a New Jail**
 
-.. image:: images/remote6.png
+.. image:: images/remote6a.png
 
-Input a name for the jail and an IP address that won't conflict with any other systems on the network. Click the "Create Jail" button which will queue the
-jail creation so that you can continue to use AppCafe® while the jail template is downloaded and installed. Once the jail is complete, it will be
-listed, as seen in the example in Figure 7.1g. 
+Input the following information: 
+
+**Hostname:** the hostname must be unique on your network and can not contain a space. Use a hostname that reminds you of the type of jail and your reason for creating it.
+
+**IPv4 Address:** input the IPv4 address to be used by the jail and access its contents. Choose an address on your network that is not already in use by another computer or jail
+and which will not conflict with the address range assigned by a DHCP server. 
+
+Click the "Create Jail" button which will queue the jail creation so that you can continue to use AppCafe® while the jail template is downloaded and installed. Once the jail is
+complete, it will be listed, as seen in the example in Figure 7.1g. 
 
 **Figure 7.1g: Managing Installed Jails**
 
@@ -222,6 +247,65 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 .. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear.
    Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for jail1" to see the update details for "jail1". 
 
+.. index:: AppCafe®
+.. _Managing Jails from the CLI:
+
+Managing Jails from the CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer using
+the command line. Advanced users can also refer to the command line version in their own jail management scripts.
+
+If you type :command:`iocage` at the command line, you will receive a summary of its usage::
+
+ usage:
+  iocage activate ZPOOL
+  iocage fetch [release=RELEASE | ftphost=ftp.hostname.org | ftpdir=/dir/]
+  iocage init-host IP zpool
+  iocage create [-b|-c|-e] [release=RELEASE] [pkglist=file] [property=value]
+  iocage clone UUID|TAG@snapshot [property=value]
+  iocage destroy [-f] UUID|TAG|ALL
+  iocage list [-t|-r]
+  iocage start UUID|TAG
+  iocage stop UUID|TAG
+  iocage restart UUID|TAG
+  iocage rcboot
+  iocage rcshutdown
+  iocage console UUID|TAG
+  iocage exec [-u username | -U username] UUID|TAG command [arg ...]
+  iocage chroot UUID|TAG [command]
+  iocage df
+  iocage show property
+  iocage get property|all UUID|TAG
+  iocage set property=value UUID|TAG
+  iocage cap UUID|TAG
+  iocage limits UUID|TAG
+  iocage uncap UUID|TAG
+  iocage inuse [UUID|TAG]
+  iocage top UUID|TAG
+  iocage snapshot UUID|TAG@snapshotname
+  iocage snaplist UUID|TAG
+  iocage snapremove UUID|TAG@snapshotname|ALL
+  iocage rollback UUID|TAG@snapshotname
+  iocage promote UUID|TAG
+  iocage runtime UUID|TAG
+  iocage update UUID|TAG
+  iocage upgrade UUID|TAG
+  iocage record start|stop UUID|TAG
+  iocage package UUID|TAG
+  iocage export UUID|TAG
+  iocage import UUID [property=value]
+  iocage defaults
+  iocage version | --version
+  iocage help
+ 
+  Hint:  you can use shortened UUIDs or TAGs interchangeably!
+ 
+  e.g. for  adae47cb-01a8-11e4-aa78-3c970ea3222f
+       use  adae47cb or just adae
+
+ 
+
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
 
@@ -243,7 +327,7 @@ Update Manager
 ==============
 
 Update Manager provides a graphical interface for keeping the PC-BSD® operating system and its installed applications up-to-date. Update Manager will automatically track
-updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®` and :ref:`Warden®`.
+updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®`.
 
 This utility can be started from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
 that provides a system tray.

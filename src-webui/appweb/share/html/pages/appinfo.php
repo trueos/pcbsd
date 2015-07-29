@@ -119,6 +119,7 @@ function parse_service_config()
            . escapeshellarg("jail ". $jail . " ipv4")
            , $jarray);
       $ip = $jarray[0];
+      $ip = substr(strstr($ip, "|"), 1);
       $ip = substr($ip, 0, strpos($ip, "/"));
     }
 
@@ -191,10 +192,6 @@ function get_cfg_value($cfg)
   $default = $cfg['default'];
 
   $jid = "__system__";
-  if ( $jail != "#system" ) {
-    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-    $jid=$jarray[0];
-  }
   
   // Talk to dispatcher to get config value
   $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
@@ -202,81 +199,6 @@ function get_cfg_value($cfg)
      return $output[0];
 
   return $default; 
-}
-
-// Display a input = number type box
-function display_number_box($cfg)
-{
-  global $currentval;
-  global $desc;
-  global $longdesc;
-  global $default;
-  global $postkey;
-  global $itemup;
-
-  $min = $cfg['min'];
-  $max = $cfg['max'];
-  echo "  <tr>\n";
-  echo "    <td><input type=\"number\" title=\"$longdesc\" name=\"$postkey\" min=\"$min\" max=\"$max\" value=\"$currentval\"></td>\n";
-  echo "    <td title=\"$longdesc\">$desc$itemup</td>\n";
-  echo "  </tr>\n";
-}
-
-// Display a option box
-function display_combo_box($cfg)
-{
-  global $currentval;
-  global $desc;
-  global $longdesc;
-  global $default;
-  global $postkey;
-  global $itemup;
-
-  echo "  <tr>\n";
-  echo "    <td><select title=\"$longdesc\" name=\"$postkey\">";
-  $i=1;
-  for ( ;; ) {
-    $akey = "option" . $i;
-    if ( empty($cfg[$akey]) )
-       break;
-    unset($ops);
-    $ops = explode("::::", $cfg[$akey]);
-    $option = $ops[0];
-    $disp = $ops[1];
-    $selected="";
-    if ( $option == $currentval )
-      $selected="selected";
-    echo "      <option value=\"$option\" $selected>$disp</option>\n";
-    $i++;
-  }
-  echo "    </select></td>\n";
-  echo "    <td title=\"$longdesc\">$desc$itemup</td>\n";
-  echo "  </tr>\n";
-}
-
-// Display a string/password input box
-function display_string_box($cfg)
-{
-  global $currentval;
-  global $desc;
-  global $longdesc;
-  global $default;
-  global $postkey;
-  global $itemup;
-
-  $maxlen = $cfg['maxlen'];
-
-  if ( empty($maxlen) )
-     $maxlen="20";
-
-  $type = "text";
-  if ( $cfg['type'] == "PASSWORDBOX" )
-     $type = "password";
-
-  echo "  <tr>\n";
-  echo "    <td><input type=\"$type\" title=\"$longdesc\" name=\"$postkey\" value=\"$currentval\" maxlength=\"$maxlen\"></td>\n";
-  echo "    <td title=\"$longdesc\">$desc$itemup</td>\n";
-  echo "  </tr>\n";
 }
 
 // Display the configuration widget
@@ -298,10 +220,10 @@ function display_config_details()
   
   // Init the array to load in config data
   unset($appConfig);
-  $appConfig = array();
 
   // Load the config file
-  require($pbicdir . "/service-configfile");
+  $contents = file_get_contents($pbicdir . "/service-config.json");
+  $appConfig = json_decode($contents, true);
 
   // Start the form
   echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl#tabs-configure\">\n";
@@ -322,8 +244,9 @@ function display_config_details()
   // Now loop through the array and build the form
   foreach ($appConfig as $cfgWidget) {
     // Skip any array missing the type
-    if ( empty($cfgWidget['type']) )
+    if ( empty($cfgWidget["type"]) )
        continue;
+
 
     // Get some of the basic settings
     $currentval = get_cfg_value($cfgWidget);
@@ -435,9 +358,7 @@ function display_app_link($pbilist, $jail)
        $col++;
     }
 
-    // Close off the <tr>
-    if ( $col == $totalCols )
-       echo "  </tr>\n";
+    echo "</tr>";
 
     echo "</table>\n";
 }
@@ -537,7 +458,7 @@ function display_app_link($pbilist, $jail)
 
   // Check if this app has config files to edit
   $hasConfig=false;
-  if ( $isPBI and ( file_exists($pbicdir . "/service-configfile") ) )
+  if ( $isPBI and ( file_exists($pbicdir . "/service-config.json") ) )
      $hasConfig=true;
 
    // Does this PBI have icons?
@@ -557,7 +478,7 @@ function display_app_link($pbilist, $jail)
 ?>
    
 <br>
-<table class="jaillist" style="width:<?php if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
+<table class="pbidescription" style="width:<?php if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
   <tr>
     <th colspan=3>
       <?php 
@@ -568,28 +489,7 @@ function display_app_link($pbilist, $jail)
     </th>
   </tr>
   <tr>
-     <td style="vertical-align: middle; width: 60px;">
-      <?php
- 	 $appbusy=false;
-         foreach($dStatus as $curStatus) {
-  	   if ( strpos($curStatus, "pbi $pbiorigin") !== false ) {
-	      $appbusy=true;
-	      break;
-	   }
-  	   if ( strpos($curStatus, "pkg $pbiorigin") !== false ) {
-	      $appbusy=true;
-	      break;
-	   }
-         }
-	 if ( $appbusy ) {
-	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
-	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
-         } else {
-	   display_install_chooser();
-	 }
-      ?>
-    </td>
-    <td align=left style="">
+   <td align=left style="">
       <img align="left" height=64 width=64 src="images/pbiicon.php?i=<?php echo "$pbicdir"; ?>/icon.png">
        <a href="<?php echo "$pbiweb"; ?>" target="_new"><?php echo "$pbiauth"; ?></a> 
        <a href="http://www.freshports.org/<?php echo "$pbiorigin"; ?>" target="_new"><img src="/images/external-link.png" height=20 width=20 title="View this package in FreshPorts"></a><br>
@@ -634,7 +534,28 @@ function display_app_link($pbilist, $jail)
      echo "</td>\n";
    }
 ?>
-  </tr>
+      <td style="text-align: right; vertical-align: middle; width: 60px;">
+      <?php
+ 	 $appbusy=false;
+         foreach($dStatus as $curStatus) {
+  	   if ( strpos($curStatus, "pbi $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
+  	   if ( strpos($curStatus, "pkg $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
+         }
+	 if ( $appbusy ) {
+	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
+	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+         } else {
+	   display_install_chooser();
+	 }
+       ?> 
+      </td>
+ </tr>
   <tr>
     <td colspan="3">
        <p><?php echo $pbidesc; ?></p>

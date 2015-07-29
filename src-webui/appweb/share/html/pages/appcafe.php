@@ -1,19 +1,22 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
- if ( empty($jail) or ! empty($_GET['changeappcafejail']))
- {
-    display_jail_appcafeselection();
-    return;
- }
 
  if ( ! empty($_GET['cat']) )
    $header="Browsing Category: ". $_GET['cat'];
  else
-   $header="Recommended Applications";
+   if ( $allPBI == "true" )
+     $header="All Applications";
+   else
+     $header="Recommended Applications";
 ?>
-
-<h1><?php echo $header; ?></h1>
+<br>
+<table class="header" style="width:100%">
+<tr>
+    <th>
+        <h1><center><?php echo $header; ?></h1>
+    </th>
+</tr>
 <br>
 <?php
 
@@ -56,6 +59,8 @@ defined('DS') OR die('No direct access allowed.');
       exec("$sc ". escapeshellarg("pbi list recommended")." ". escapeshellarg("pbi list new"), $pbiarray);
       $pbilist = explode(", ", $pbiarray[0]);
       $newlist = explode(", ", $pbiarray[1]);
+      $pbilist = array_merge($pbilist, $newlist);
+      //array_splice($pbilist, 16);
    }
 
    // Now loop through pbi origins
@@ -69,10 +74,7 @@ defined('DS') OR die('No direct access allowed.');
    }
  } 
 
- // Close off the <tr>
- if ( $col != $totalCols )
-    echo "</tr>";
-
+ echo "</tr>";
  echo "</table>";
 ?>
 

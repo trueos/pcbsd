@@ -39,6 +39,7 @@ private slots:
 
 
 private:
+    bool checkSudoCache();
     void startSudo();
     void testPass();
     bool checkUserGroup();
