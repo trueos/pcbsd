@@ -45,6 +45,8 @@
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
 
+  // Get the page this was requested from
+  $page = $_GET['p'];
 
   require("../include/globals.php");
   require("../include/functions.php");
@@ -121,5 +123,10 @@
      $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status";
   elseif ( $status == "FAILED" ) 
      $output = "<img align=absmiddle height=32 width=32 src=\"../images/application-exit.png\"> Failure";
+  
+  if ( $page == "plugins" or $page == "plugininfo" or $page == "sysplugins" )
+    echo "<a href=\"?p=dispatcher-plugins\">$output</a>";
+  else
+    echo "<a href=\"?p=dispatcher\">$output</a>";
+
 ?>
-<a href="?p=dispatcher"><?php echo "$output"; ?></a>

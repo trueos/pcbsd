@@ -115,6 +115,26 @@
     exit(0);
   }
 
+  // Check if we are on the dispatcher plugin page
+  $pluginDispatcher = false;
+  if ( $page == "dispatcher-plugins" ) {
+    $page = "dispatcher";
+    $pluginDispatcher = true;
+  }
+
+  // If we are on plugins section, make sure we have a start-end range
+  if ( stripos($page, "plugin") !== false ) {
+    $output = run_cmd("iocage get ip4_autostart default");
+    $ip4start = $output[0];
+    $output = run_cmd("iocage get ip4_autoend default");
+    $ip4end = $output[0];
+    if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
+    {
+      $firstrun=true;
+      $page="pluginconfig";
+    }
+  }
+
   // Set some globals for mobile detection
   $detect = new Mobile_Detect;
   $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');

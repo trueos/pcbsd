@@ -24,6 +24,7 @@ function parse_service_config()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
+  global $pbiip4;
   global $ioid;
   global $sc;
 
@@ -39,14 +40,6 @@ function parse_service_config()
     $sline = preg_replace("/[[:blank:]]+/"," ",$cline);
     $sarray = explode(" ", $sline);
     
-    // Get jail address
-    exec("$sc " 
-         . escapeshellarg("jail ". $ioid . " ipv4")
-         , $jarray);
-    $ip = $jarray[0];
-    $ip = substr(strstr($ip, "|"), 1);
-    $ip = substr($ip, 0, strpos($ip, "/"));
-
     // Split up our variables
     $stype = array_shift($sarray);
     $surl = array_shift($sarray);
@@ -54,7 +47,7 @@ function parse_service_config()
       $snickname = $snickname . " " . $selem;
 
     if ( $stype == "URL" ) {
-      $newurl = str_replace("{IP}", $ip, $surl);
+      $newurl = str_replace("{IP}", $pbiip4, $surl);
       if ( strpos($newurl, "http") === false )
          $newurl = "http://" . $newurl;
       echo "<a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a><br>\n";
@@ -318,9 +311,17 @@ function display_install_chooser()
 
     $cmd="jail $ioid";
     exec("$sc ". escapeshellarg("$cmd path") 
+         . " " . escapeshellarg("$cmd ipv4")
        , $ioarray);
 
+    // Get the location of pbicage config files
     $pbicdir = $ioarray[0] . "/pbicage";
+
+    // Get ipv4 address
+    $pbiip4 = $ioarray[1];
+    $pbiip4= substr(strstr($pbiip4, "|"), 1);
+    $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+
  
     // Check if this app has service details
     if ( file_exists($pbicdir . "/service-start") or file_exists($pbicdir . "/service-configure") )
@@ -340,7 +341,11 @@ function display_install_chooser()
 <table class="pbidescription" style="width:<?php if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
   <tr>
     <th colspan=3>
-      <?php echo "$pbiname"; ?> - 
+      <?php 
+        echo "$pbiname";
+        if ( ! empty($pbiip4) )
+          echo " ($pbiip4)";
+      ?> - 
       <a href="<?php echo "$pbiweb"; ?>" target="_new"><?php echo $pbiweb; ?></a> 
     </th>
   </tr>
@@ -352,11 +357,7 @@ function display_install_chooser()
       <?php
  	 $appbusy=false;
          foreach($dStatus as $curStatus) {
-  	   if ( strpos($curStatus, "pbi $pbiorigin") !== false ) {
-	      $appbusy=true;
-	      break;
-	   }
-  	   if ( strpos($curStatus, "pkg $pbiorigin") !== false ) {
+  	   if ( strpos($curStatus, "iocage pull $pbiorigin") !== false ) {
 	      $appbusy=true;
 	      break;
 	   }

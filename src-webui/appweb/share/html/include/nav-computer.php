@@ -2,9 +2,9 @@
 <div id="container" style="width:100%;height:100%;" taborder="0">
 
 <?php
-   if ( strpos($page, "plugin") === false )
-   {
-   //style="background-color: #e15a1f;height:3.00em;width:100%;position:absolute;margin-top:0.00em;margin-left:0.00em;align:left">
+if ( strpos($page, "plugin") === false and ! $pluginDispatcher)
+{
+  $dflag="appcafe";
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
@@ -23,11 +23,13 @@ if (USERNAME)
 <?php
 } else {
   // Plugin menus
+  $dflag="plugins";
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
   <li <?php if ( $page=="plugins" ) { echo "class='active'"; } ?>><a href="/?p=plugins"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
   <li <?php if ( $page=="sysplugins" ) { echo "class='active'"; } ?>><a href="/?p=sysplugins"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Plugins</a></li>
+  <li <?php if ( $page=="pluginconfig" ) { echo "class='active'"; } ?>><a href="/?p=pluginconfig"><img src="/images/configure.png" height=32 width=32> &nbsp;&nbsp;Configuration</a></li>
 <?php
 if ( $sysType != "APPLIANCE" ) {
 ?>
@@ -59,7 +61,7 @@ $(document).ready(function () {
     var interval = 10000;   //number of mili seconds between each call
     var refresh = function() {
         $.ajax({
-            url: "/pages/notifier.php",
+            url: "/pages/notifier.php?p=<?php echo $dflag; ?>",
             cache: false,
             success: function(html) {
                 $('#notifier').html(html);

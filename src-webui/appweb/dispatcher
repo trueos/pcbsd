@@ -24,7 +24,6 @@ QLOGDIR="${QTMPDIR}/logs"
 QLIST="${QTMPDIR}/dispatch-queue"
 QDISID="${QTMPDIR}/dispatch-id"
 QWRK="${QLIST}.working"
-QLOG="${QLIST}.log"
 QRESULTS="${QLIST}.results"
 
 init_daemon()
@@ -74,14 +73,17 @@ run_queue_cmd()
   target=`echo $1 | cut -d " " -f 4`
 
   # Get the uniq identifier for this cmd
-  local ident="`echo $1 | sha256 -q`"
+  local ident="`uuidgen`"
+  QLOGFILE="${QLOGDIR}/${ident}.log"
+  touch ${QLOGFILE}
+  chmod 644 ${QLOGFILE}
 
 
   # Sanity check some of the given options
   case $app in
    pkg|pbi) case $flag in
             install|delete|info) ;;
-                   *) echo "Unauthorized command specified: $1" >> ${QLOG}
+                   *) echo "Unauthorized command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1
                       ;;
@@ -90,12 +92,12 @@ run_queue_cmd()
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
 	       destroy|pull) ;;
-		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOG}
+		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
 	    esac
             ;;
-         *) echo "Unauthorized command specified: $1" >> ${QLOG}
+         *) echo "Unauthorized command specified: $1" >> ${QLOGFILE}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
             ;;
@@ -125,11 +127,19 @@ run_queue_cmd()
   elif [ "$app" == "iocage" ];then
      if [ "$origin" = "pull" ] ; then
         neworigin="`echo $flag | sed 's|/|-|g'`"
-        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=em0|192.168.0.187/24"
+
+	# First make sure this jail doesn't exist
+	iocage get ip4_addr pbicage-$neworigin 2>/dev/null >/dev/null
+        if [ $? -eq 0 ] ; then
+	  echo "ERROR: The plugin jail pbicage-$neworigin is already installed!" >> ${QLOGFILE}
+          echo "FAILED $ident $@" >> $QRESULTS
+        fi	
+
+        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=DEFAULT|AUTOIP4"
      fi 
      if [ "$origin" = "destroy" ] ; then
         # Stop the jail first
-        iocage stop $flag >>$QLOG 2>>$QLOG
+        iocage stop $flag >>${QLOGFILE} 2>>${QLOGFILE}
 	# Set the destroy command
 	cmd="iocage destroy -f $flag"
      fi
@@ -139,8 +149,8 @@ run_queue_cmd()
   sed -i '' "/ $ident /d" ${QRESULTS}
 
   # Lets run the command now
-  echo "Running: $cmd" >>$QLOG 2>>$QLOG
-  $cmd >>$QLOG 2>>$QLOG
+  echo "Running: $cmd" >>$QLOGFILE 2>>$QLOGFILE
+  $cmd >>$QLOGFILE 2>>$QLOGFILE
   err=$?
   if [ $err -ne 0 ] ; then
      echo "FAILED $ident $@" >> $QRESULTS
@@ -150,22 +160,19 @@ run_queue_cmd()
 
   # If we created a new jail, lets bootstrap iocage with pkgng
   if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
-     local jdir="/`cat ${QLOG} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
-     bootstrap_pkgng_iocage "$jdir" >>${QLOG} 2>>${QLOG}
+     local jdir="/`cat ${QLOGFILE} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
+     bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
   fi
 
   # If we create a new plugin, lets start it now
   if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
-     iocage start pbicage-$neworigin >>${QLOG} 2>>${QLOG}
+     iocage start pbicage-$neworigin >>${QLOGFILE} 2>>${QLOGFILE}
   fi
 
   # Inform syscache of the updates to check
   syscache "startsync" >/dev/null 2>/dev/null
 
   # Save the log file for later diagnostics
-  mv ${QLOG} ${QLOGDIR}/${ident}.log
-  chmod 644 ${QLOGDIR}/${ident}.log
-
   return $err
 }
 
@@ -311,8 +318,12 @@ display_log()
 run_iocage_cmd()
 {
   case $2 in
-      start) iocage start $3;;
-       stop) iocage stop $3;;
+      start) iocage start $3
+	     iocage set boot=on $3
+             ;;
+       stop) iocage stop $3
+	     iocage set boot=off $3
+	     ;;
        auto) iocage set boot=on $3 ;;
         set) iocage set $3 $4 $5 $6;;
         get) iocage get $3 $4 $5 $6 ; exit $? ;;

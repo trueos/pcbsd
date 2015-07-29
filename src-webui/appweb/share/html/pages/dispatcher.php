@@ -1,6 +1,10 @@
 <?
 defined('DS') OR die('No direct access allowed.');
 
+   $newpage="dispatcher";
+   if ( $pluginDispatcher)
+     $newpage="dispatcher-plugins";
+
    // Did the user request to start updates on a jail / system?
    if ( ! empty($_GET['updateTarget']) ) {
       // Time to queue up some updates for the requested target
@@ -28,7 +32,7 @@ defined('DS') OR die('No direct access allowed.');
 
 ?>
 
-<h1>Action Log (<a href="?p=dispatcher">Back</a>)</h1>
+<h1>Action Log (<a href="?p=<?php echo $newpage; ?>">Back</a>)</h1>
 <br>
 <table class="status" style="width:768px">
 <tr>
@@ -92,7 +96,7 @@ defined('DS') OR die('No direct access allowed.');
           exec("$sc ". escapeshellarg("pkg ". $jname . " updatemessage"), $jarray);
 
           echo "<div class=\"popbox\">\n";
-          echo "  <a href=\"/?p=dispatcher&updateTarget=$targetUrl\" style=\"text-decoration: underline;\"><img src=\"/images/warning.png\" height=35 width=35 title=\"Updates available!\">Update packages for $target</a>";
+          echo "  <a href=\"/?p=$newpage&updateTarget=$targetUrl\" style=\"text-decoration: underline;\"><img src=\"/images/warning.png\" height=35 width=35 title=\"Updates available!\">Update packages for $target</a>";
           echo " (<a class=\"open\" href=\"#\">details</a>)\n";
           echo "  <div class=\"collapse\">\n";
           echo "    <div class=\"box\">\n";
@@ -141,7 +145,7 @@ echo "<script type='text/javascript' charset='utf-8'>
          echo "<tr><td>jail: $results[3]</td>";
          echo "<td>$results[4]</td>";
          echo "<td>$results[5]</td>";
-         echo "<td><a href=\"?p=dispatcher&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
+         echo "<td><a href=\"?p=$newpage&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
        } elseif ( $results[2] == "pkgupdate" ) {
          $target=$results[3];
 	 if ( $results[3] == "__system__" )
@@ -150,7 +154,7 @@ echo "<script type='text/javascript' charset='utf-8'>
          echo "<tr><td>$results[2]</td>";
          echo "<td>Update Packages</td>";
          echo "<td>$target</td>";
-         echo "<td><a href=\"?p=dispatcher&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
+         echo "<td><a href=\"?p=$newpage&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
        } else {
          $target=$results[5];
 	 if ( $results[5] == "__system__" )
@@ -158,7 +162,7 @@ echo "<script type='text/javascript' charset='utf-8'>
          echo "<tr><td>$results[4]</td>";
          echo "<td>$results[2] - $results[3]</td>";
          echo "<td>$target</td>";
-         echo "<td><a href=\"?p=dispatcher&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
+         echo "<td><a href=\"?p=$newpage&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
        }
      }
 
