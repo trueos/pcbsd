@@ -104,7 +104,6 @@
      $page = $_GET["p"];
   }
 
-
   // If we are running in appliance mode flip to the plugins page
   if ( $sysType == "APPLIANCE" and empty($page))
     $page = "plugins";
