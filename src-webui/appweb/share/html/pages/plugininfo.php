@@ -361,6 +361,10 @@ function display_install_chooser()
 	      $appbusy=true;
 	      break;
 	   }
+  	   if ( strpos($curStatus, "iocage destroy $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
          }
 	 if ( $appbusy ) {
 	   print("<img align=\"right\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");

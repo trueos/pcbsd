@@ -111,9 +111,10 @@ function queueInstallPlugin()
 function queueDeletePlugin()
 {
    $ioid = $_GET['deletePlugin'];
+   $app = $_GET['app'];
 
    if ( ! empty($ioid) )
-     run_cmd("queue iocage destroy $ioid");
+     run_cmd("queue iocage destroy $app $ioid");
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -124,7 +125,12 @@ function queueDeletePlugin()
 
 function getDispatcherStatus()
 {
-   return run_cmd("status");
+   global $dispatcherstatus;
+   if ( ! empty($dispatcherstatus) )
+     return $dispatcherstatus;
+
+   $dispatcherstatus = run_cmd("status");
+   return $dispatcherstatus;
 }
 
 function get_installed_list($target = "#system")
@@ -215,24 +221,32 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   if ( strlen($pbiver) > 14 )
     $pbiver = substr($pbiver, 0, 14) . "..";
 
-  // Is this app installed?
-  //if ( array_search($pbiorigin, $inslist) !== false ) {
-  if ( $pbiinstalled == "true" ){
-    //$output="";
-    //exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
-    // Only display the removal option if the app isn't used as a dep on something else
-    //if ( "$output[0]" == "$SCERROR" )
-    if ( $pbicanremove == "true" )
-      print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+  $appbusy=false;
+  $dStatus = getDispatcherStatus();
+  foreach($dStatus as $curStatus) {
+    if ( strpos($curStatus, "pbi $pbiorigin") !== false ) {
+      $appbusy=true;
+      break;
+    }
+    if ( strpos($curStatus, "pkg $pbiorigin") !== false ) {
+      $appbusy=true;
+      break;
+    }
+  }
+  if ( $appbusy ) {
+    print("<img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\">");
+    echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
   } else {
-   global $pbiindexdir;
-   if ( file_exists("$pbiindexdir/$pbiorigin/LICENSE") ) {
-     // Read the license data
-     $pbilic = file_get_contents("$pbiindexdir/$pbiorigin/LICENSE");
-     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirmLic('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$pbilic."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
-   } else {
+
+
+    // Is this app installed?
+    //if ( array_search($pbiorigin, $inslist) !== false ) {
+    if ( $pbiinstalled == "true" ){
+      if ( $pbicanremove == "true" )
+        print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+    } else {
      print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
-   }
+    }
   }
 
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
@@ -423,13 +437,30 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
   if ( strlen($pbiname) > 25 )
     $pbiname = substr($pbiname, 0, 14) . "..";
 
-  // Is this app installed?
-  if ( $pbiinstalled == true ){
-    $ioid = get_iocage_id_from_origin($origin);
-    print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
-  } else {
-    exec("$sc ".escapeshellarg("pbi cage " . $origin . " git"), $ghrepo);
-    print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+  $appbusy=false;
+  $dStatus = getDispatcherStatus();
+  foreach($dStatus as $curStatus) {
+    if ( strpos($curStatus, "iocage pull $origin") !== false ) {
+      $appbusy=true;
+      break;
+     }
+     if ( strpos($curStatus, "iocage destroy $origin") !== false ) {
+       $appbusy=true;
+       break;
+     }
+   }
+   if ( $appbusy ) {
+     print("<img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\">");
+     echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+   } else {
+     // Is this app installed?
+     if ( $pbiinstalled == true ){
+       $ioid = get_iocage_id_from_origin($origin);
+       print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+     } else {
+       exec("$sc ".escapeshellarg("pbi cage " . $origin . " git"), $ghrepo);
+       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+     }
   }
 
   print("    <a href=\"/?p=plugininfo&app=".rawurlencode($origin)."\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbiicon\" style=\"float:left;\"></a>\n");

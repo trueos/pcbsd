@@ -30,6 +30,8 @@ defined('DS') OR die('No direct access allowed.');
    } else {
       exec("$sc ". escapeshellarg("pbi list cages"), $pbiarray);
       $pbilist = explode(", ", $pbiarray[0]);
+      shuffle($pbilist);
+      array_splice($pbilist, 16);
    }
 
    // Now loop through pbi origins

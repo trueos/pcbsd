@@ -4,7 +4,7 @@ defined('DS') OR die('No direct access allowed.');
  if ( ! empty($_GET['cat']) )
    $header="Browsing Category: ". $_GET['cat'];
  else
-   $header="Recommended Applications";
+   $header="New and Recommended Applications";
 ?>
 
 <h1><?php echo $header; ?></h1>
@@ -50,6 +50,8 @@ defined('DS') OR die('No direct access allowed.');
       exec("$sc ". escapeshellarg("pbi list recommended")." ". escapeshellarg("pbi list new"), $pbiarray);
       $pbilist = explode(", ", $pbiarray[0]);
       $newlist = explode(", ", $pbiarray[1]);
+      $pbilist = array_merge($pbilist, $newlist);
+      //array_splice($pbilist, 16);
    }
 
    // Now loop through pbi origins

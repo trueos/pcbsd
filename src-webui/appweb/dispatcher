@@ -139,9 +139,9 @@ run_queue_cmd()
      fi 
      if [ "$origin" = "destroy" ] ; then
         # Stop the jail first
-        iocage stop $flag >>${QLOGFILE} 2>>${QLOGFILE}
+        iocage stop $target >>${QLOGFILE} 2>>${QLOGFILE}
 	# Set the destroy command
-	cmd="iocage destroy -f $flag"
+	cmd="iocage destroy -f $target"
      fi
   fi
 
