@@ -258,6 +258,28 @@ table.pbidescription td.example_code
         float: left;
 }
 
+    /* CSS for the category header */
+
+    table.header {border:1px solid #444444;border-radius: 12px;}
+    table.header {background-color:#D6D6DD;}
+
+    table.header th{
+    /* background colors and borders and misc controls for header. */
+            color:#121212;background-color:#77AAFF;border:1px hidden;border-radius: 12px;padding:3px;vertical-align:top;text-align:left;
+            font-size: 15px; font-family: Trebuchet, Arial, sans-serif;
+            padding:6px;
+    }
+    table.header th a:link,table.header th a:visited{
+            color:#ffffff;
+    }
+
+    table.header th a:hover,table.header th a:active{
+            color:#EE872A;
+    }
+
+    table.header td{
+            border:1px hidden #ACACBF;padding:10px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+    }
 
 /* handling for the on / off switch css */
 

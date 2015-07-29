@@ -1,13 +1,22 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+
  if ( ! empty($_GET['cat']) )
    $header="Browsing Category: ". $_GET['cat'];
  else
-   $header="New and Recommended Applications";
+   if ( $allPBI == "true" )
+     $header="All Applications";
+   else
+     $header="Recommended Applications";
 ?>
-
-<h1><?php echo $header; ?></h1>
+<br>
+<table class="header" style="width:100%">
+<tr>
+    <th>
+        <h1><center><?php echo $header; ?></h1>
+    </th>
+</tr>
 <br>
 <?php
 
