@@ -231,13 +231,13 @@ table.pbidescription td.example_code
         float: left;
 }
 
-/* CSS for the PBI descriptions since they need seperate controls */
+/* CSS for the status page */
 
     table.status {border:1px solid #444444;border-radius-right: 8px;}
     table.status {background-color:#D6D6DD;}
 
     table.status th{
-/* background colors and borders and misc controls for PBI names in descriptions. */
+/* background colors and borders and misc controls for status page */
         color:#121212;background-color:#77AAFF;border:1px hidden; 8px;padding:3px;vertical-align:top;text-align:left;
 }
     table.status th a:link,table.status th a:visited{
@@ -268,18 +268,39 @@ table.pbidescription td.example_code
             color:#121212;background-color:#77AAFF;border:1px hidden;border-radius: 12px;padding:3px;vertical-align:top;text-align:left;
             font-size: 15px; font-family: Trebuchet, Arial, sans-serif;
             padding:6px;
-    }
+}
     table.header th a:link,table.header th a:visited{
             color:#ffffff;
-    }
+}
 
     table.header th a:hover,table.header th a:active{
             color:#EE872A;
-    }
+}
 
     table.header td{
             border:1px hidden #ACACBF;padding:10px;padding-top:7px;padding-bottom:7px;vertical-align:top;
-    }
+}
+
+    /* CSS for the login screen */
+
+    table.login {border:1px solid #444444;border-radius: 8px;}
+    table.login {background-color:#D6D6DD;}
+
+    table.login th{
+    /* background colors and borders and misc controls for login screen */
+            color:#121212;background-color:#D6D6DD;border:1px hidden;border-top-left-radius: 8px;border-top-right-radius: 8px;padding:3px;vertical-align:top;text-align:left;
+}
+    table.login th a:link,table.login th a:visited{
+            color:#ffffff;
+}
+
+    table.login th a:hover,table.login th a:active{
+            color:#EE872A;
+}
+
+    table.login td{
+            border:1px hidden #ACACBF;padding:10px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+}
 
 /* handling for the on / off switch css */
 

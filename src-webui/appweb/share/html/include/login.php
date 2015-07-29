@@ -1,3 +1,4 @@
+<br>
 <?php
   defined('DS') OR die('No direct access allowed.');
 
@@ -72,24 +73,24 @@
 ?>
 <p><?php echo "$perror"; ?></p>
 <form method="post" action="<?php echo "$SELF"; ?>">
-<table class="jaillist" width="<?php if ($deviceType == "computer") { echo "500"; } else { echo "100%"; } ?>">
+<table class="login" width="<?php if ($deviceType == "computer") { echo "400"; } else { echo "100%"; } ?>">
 <tr>
   <th></th>
   <th></th>
 </tr>
 <tr><td colspan=2 align=center>
-<img src="/images/appcafe.png" height=64 width=64><br>
-AppCafe Login
+<center><img src="/images/appcafe.png" height=64 width=64><br>
+<center>AppCafe Login
 </td></tr>
 <tr>
-<td><label for="username">Username</label></td><td><input type="text" id="username" name="username" value="" /></p></td>
+<td><p align="right"><label for="username">Username</label></p></td><td><input type="text" id="username" name="username" value="" /></p></td>
  </tr>
 <tr>
-<td><label for="password">Password</label></td>
+<td><p align="right"><label for="password">Password</label></p></td>
 <td><input type="password" id="password" name="password" value="" /></td>
 </tr>
 
-<tr><td colspan=2 align=center><input type="submit" name="submit" value="Login" class="btn-style"/></td></tr>
+<tr><td colspan=2 align=center><center><input type="submit" name="submit" value="Login" class="btn-style"/></td></tr>
 </form>
 </div>
 <body>
