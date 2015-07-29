@@ -82,6 +82,7 @@
 
   require("include/globals.php");
   require("include/functions.php");
+  require("include/functions-config.php");
 
   // Check if we have updates to display
   check_update_reboot();
@@ -91,6 +92,10 @@
      queueDeleteApp();
   if ( ! empty($_GET["installApp"]) )
      queueInstallApp();
+  if ( ! empty($_GET["deletePlugin"]) )
+     queueDeletePlugin();
+  if ( ! empty($_GET["installPlugin"]) )
+     queueInstallPlugin();
 
   // Figure out what page is being requested
   if ( empty($_GET["p"])) {

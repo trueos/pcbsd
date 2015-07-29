@@ -26,8 +26,8 @@ if (USERNAME)
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
-  <li <?php if ( $page=="plugins" ) { echo "class='active'"; } ?>><a href="/?p=jails"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Browse Plugins</a></li>
-  <li <?php if ( $page=="sysplugins" ) { echo "class='active'"; } ?>><a href="/?p=jailcreate"><img src="/images/add.png" height=32 width=32> &nbsp;&nbsp;Installed</a></li>
+  <li <?php if ( $page=="plugins" ) { echo "class='active'"; } ?>><a href="/?p=plugins"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
+  <li <?php if ( $page=="sysplugins" ) { echo "class='active'"; } ?>><a href="/?p=sysplugins"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Plugins</a></li>
 <?php
 if ( $sysType != "APPLIANCE" ) {
 ?>

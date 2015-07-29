@@ -38,6 +38,12 @@ function syscache_ins_pkg_list($jail="")
    return $output;
 }
 
+function syscache_ins_plugin_list()
+{
+   exec("/usr/local/bin/syscache ".escapeshellarg("jail cages"), $output);
+   return $output;
+}
+
 function syscache_pbidb_list($flag="allapps")
 {
    exec("/usr/local/bin/syscache ".escapeshellarg("pbi list $flag"), $output);
@@ -86,6 +92,36 @@ function queueDeleteApp()
    hideurl("?".$newUrl);
 }
 
+function queueInstallPlugin()
+{
+   $origin = $_GET['installPlugin'];
+   $ghurl = $_GET['installPluginGH'];
+
+   if ( ! empty($origin) and ! empty($ghurl) )
+     $output = run_cmd("queue iocage pull $origin $ghurl");
+
+   // Now we can remove those values from the URL
+   $newUrl=http_build_query($_GET);
+   $origin=str_replace("/", "%2F", $origin);
+   $newUrl=str_replace("&installPlugin=$origin", "", $newUrl);
+   $newUrl=str_replace("installPlugin=$origin", "", $newUrl);
+   hideurl("?".$newUrl);
+}
+
+function queueDeletePlugin()
+{
+   $ioid = $_GET['deletePlugin'];
+
+   if ( ! empty($ioid) )
+     run_cmd("queue iocage destroy $ioid");
+
+   // Now we can remove those values from the URL
+   $newUrl=http_build_query($_GET);
+   $newUrl=str_replace("&deletePlugin=$ioid", "", $newUrl);
+   $newUrl=str_replace("deletePlugin=$ioid", "", $newUrl);
+   hideurl("?".$newUrl);
+}
+
 function getDispatcherStatus()
 {
    return run_cmd("status");
@@ -114,39 +150,6 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
 
-  /*$cmd="pbi app $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name")
-    . " " . escapeshellarg("pkg $jail local $pbiorigin version") 
-    . " " . escapeshellarg("$cmd comment") 
-    . " " . escapeshellarg("$cmd confdir")
-    . " " . escapeshellarg("pkg $jail remote $pbiorigin name") 
-    . " " . escapeshellarg("pkg $jail remote $pbiorigin version")
-    . " " . escapeshellarg("pkg $jail remote $pbiorigin comment")
-    . " " . escapeshellarg("$cmd type")
-    . " " . escapeshellarg("$cmd rating")
-    , $pbiarray);
-
-  $pbiname = $pbiarray[0];
-  $pbiver = $pbiarray[1];
-  $pbicomment = $pbiarray[2];
-  $pbicdir = $pbiarray[3];
-  if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
-    $pbiname = $pbiarray[4];
-    $isPBI=false;
-    $pkgCmd="pkg";
-  } else {
-    $isPBI=true;
-    $pkgCmd="pbi";
-  }
-  if ( empty($pbiver) or $pbiver == "$SCERROR" )
-    $pbiver = $pbiarray[5];
-  if ( empty($pbiver) or $pbiver == "$SCERROR" )
-    $pbiver = "";
-  if ( empty($pbicomment) or $pbicomment == "$SCERROR" )
-    $pbicomment = $pbiarray[6];
-  $pbitype = $pbiarray[7];
-  $pbirating = $pbiarray[8];
-  */
   exec("$sc ".escapeshellarg("$jail app-summary $pbiorigin"),$pbiarray);
   $pbiarray = explode("::::",$pbiarray[0]); //only one line output based on cmd above
   // Output format (4/7/15): [origin, name, version, iconpath, rating, type, comment, confdir, isInstalled, canRemove]
@@ -319,6 +322,19 @@ function get_jail_list($force=false)
 
 }
 
+// Check if a particular iocage jail ID is running
+function is_jail_running($jail)
+{
+  global $sc;
+  exec("$sc ". escapeshellarg("jail list")
+       , $jail_list_array);
+ 
+  if ( array_search($jail, $jail_list_array) !== false )
+    return true; 
+
+  return false;
+}
+
 function get_nics()
 {
    exec("/sbin/ifconfig ".escapeshellarg("-l"), $output);
@@ -366,5 +382,132 @@ function check_update_reboot() {
 
   return 0;
 }
+
+function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
+{
+  global $sc;
+  global $jailUrl;
+  global $totalCols;
+  global $SCERROR;
+  global $sysType;
+  global $cage_installed;
+
+
+  exec("$sc ".escapeshellarg("cage-summary $origin"),$pbiarray);
+  $pbiarray = explode("::::",$pbiarray[0]); //only one line output based on cmd above
+  // Output format (4/7/15): [origin, name, iconpath, arch, fbsdver]
+  $pbiname = $pbiarray[1];
+  $pbiicon = $pbiarray[2];
+  $pbiarch = $pbiarray[3];
+  $pbifbsdver = $pbiarray[4];
+
+  // If no match, return false
+  if ( empty($pbiname) or $pbiname == "$SCERROR" )
+     return 1;
+
+  // Set our $cage_installed only once
+  if ( empty($cage_installed) ) {
+    exec("$sc ".escapeshellarg("jail cages"),$cage_installed);
+  }
+
+  $pbiinstalled=false;
+  if ( array_search_partial($origin . " ", $cage_installed) !== false )
+    $pbiinstalled=true;
+
+  if ( $col == 1 )
+    print ("<tr>\n");
+
+  // Get our values from this line
+  print("  <td>\n");
+
+  if ( strlen($pbiname) > 25 )
+    $pbiname = substr($pbiname, 0, 14) . "..";
+
+  // Is this app installed?
+  if ( $pbiinstalled == true ){
+    $ioid = get_iocage_id_from_origin($origin);
+    print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+  } else {
+    exec("$sc ".escapeshellarg("pbi cage " . $origin . " git"), $ghrepo);
+    print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+  }
+
+  print("    <a href=\"/?p=plugininfo&app=".rawurlencode($origin)."\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbiicon\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=plugininfo&app=".rawurlencode($origin)."\" style=\"margin-left:5px;text-width:100%\">$pbiname</a><br>\n");
+  print("  </td>\n");
+
+  if ( $col == $totalCols )
+    print ("</tr>\n");
+
+  return 0;
+}
+
+
+function array_search_partial($keyword, $arr) {
+  foreach($arr as $index => $string) {
+      if (strpos($string, $keyword) !== FALSE)
+          return true;
+  }
+  return false;
+}
+
+function display_plugin_cats($iconsize = "32")
+{
+  global $sc;
+  global $jailUrl;
+  global $jail;
+  global $SCERROR;
+  global $sysType;
+  global $allPBI;
+
+?>
+<center>- <b>Categories</b> -&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</center><br>
+<?php
+
+  // Get a list of available plugins
+  $pcmd="pbi list cages";
+  exec("$sc ". escapeshellarg($pcmd), $plugarray);
+
+
+  // Get all the PBI categories
+  $listcmd="pbi list allcats";
+  exec("$sc ". escapeshellarg($listcmd), $catarray);
+  $catlist = explode(", ", $catarray[0]);
+  foreach ( $catlist as $cat ) {
+    if ( empty($cat) )
+      continue;
+
+    // Skip any categories which have no entries
+    if ( array_search_partial($cat, $plugarray) == false )
+      continue;
+
+    exec("$sc ". escapeshellarg("pbi cat $cat name"). " " . escapeshellarg("pbi cat $cat icon"). " " . escapeshellarg("pbi cat $cat comment"), $catdetails);
+    
+    if ( "$catdetails[0]" == "$SCERROR" ) 
+       continue;
+
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=plugins&cat=$cat\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
+    unset($catdetails);
+  }
+
+}
+
+function get_iocage_id_from_origin($origin)
+{
+  global $sc;
+  exec("$sc ". escapeshellarg("jail cages")
+       , $jail_list_array);
+ 
+  foreach ( $jail_list_array as $jail ) {
+    if ( stripos($jail, $origin . " ") !== false ) {
+      $jitem = explode(" ", $jail);
+      return $jitem[1];
+    }
+  }
+
+  return "";
+}
+
+
 
 ?>

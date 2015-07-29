@@ -55,7 +55,7 @@
   // Eventually we will pep this up with extra parsing about
   // the status
   $narray = run_cmd("status");
-  if ( $narray[0] == "Idle" or empty($narray[0]) ) {
+  if ( $narray[0] == "Idle" or empty($narray) ) {
     $rarray = run_cmd("results");
     $lastElement=count($rarray);
     $lastElement--;
@@ -77,21 +77,6 @@
     }
     $output="$result";
   } else {
-    $carray = explode(" ", $narray[0]);
-    // Doing pkg / pbi ops
-    if ( $carray[0] == "pkg" or $carray[0] == "pbi" ) {
-      $target=$carray[3];
-      if ( $carray[3] == "__system__" )
-         $target = "Local system";
-    }
-    if ( $carray[0] == "pkgupdate" ) {
-      $target=$carray[2];
-      if ( $carray[2] == "__system__" )
-         $target = "Local system";
-    }
-    if ( $carray[0] == "warden" ) {
-    }
-
     $status = "WORKING";
   }
 
@@ -124,12 +109,12 @@
   }
 
   // We have updates! Show the notification icon
-  if ( $pkgUpdates )
+  if ( $pkgUpdates and $status != "WORKING" )
     $status = "UPDATES";
 
   $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\">";
   if ( $status == "WORKING" )
-    $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"Working...\"> Working" . $output;
+    $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"Working...\"> Working";
   elseif ( $status == "UPDATES" )
      $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=32 width=32 title=\"Updates are available!\"> Update";
   elseif ( $status == "SUCCESS" )
