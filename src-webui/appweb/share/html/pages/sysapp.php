@@ -18,7 +18,7 @@ defined('DS') OR die('No direct access allowed.');
 
    $skipstop = $skip + 50;
 
-   $totalCols = 2;
+   $totalCols = 3;
 
    $pkgoutput = syscache_ins_pkg_list($jail);
 
