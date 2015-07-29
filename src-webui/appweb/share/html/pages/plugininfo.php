@@ -135,7 +135,9 @@ function display_config_details()
   $appConfig = array();
 
   // Load the config file
-  require($pbicdir . "/service-configfile");
+  $contents = file_get_contents($pbicdir . "/service-config.json");
+  $appConfig = json_decode($contents, true);
+
 
   // Start the form
   echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl#tabs-configure\">\n";
@@ -328,7 +330,7 @@ function display_install_chooser()
        $hasService=true;
 
     // Check if this app has config files to edit
-    if ( file_exists($pbicdir . "/service-configfile") )
+    if ( file_exists($pbicdir . "/service-config.json") )
        $hasConfig=true;
   }
 

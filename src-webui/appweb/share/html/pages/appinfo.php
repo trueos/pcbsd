@@ -192,10 +192,6 @@ function get_cfg_value($cfg)
   $default = $cfg['default'];
 
   $jid = "__system__";
-  if ( $jail != "#system" ) {
-    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-    $jid=$jarray[0];
-  }
   
   // Talk to dispatcher to get config value
   $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
@@ -224,10 +220,10 @@ function display_config_details()
   
   // Init the array to load in config data
   unset($appConfig);
-  $appConfig = array();
 
   // Load the config file
-  require($pbicdir . "/service-configfile");
+  $contents = file_get_contents($pbicdir . "/service-config.json");
+  $appConfig = json_decode($contents, true);
 
   // Start the form
   echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl#tabs-configure\">\n";
@@ -248,8 +244,9 @@ function display_config_details()
   // Now loop through the array and build the form
   foreach ($appConfig as $cfgWidget) {
     // Skip any array missing the type
-    if ( empty($cfgWidget['type']) )
+    if ( empty($cfgWidget["type"]) )
        continue;
+
 
     // Get some of the basic settings
     $currentval = get_cfg_value($cfgWidget);
@@ -461,7 +458,7 @@ function display_app_link($pbilist, $jail)
 
   // Check if this app has config files to edit
   $hasConfig=false;
-  if ( $isPBI and ( file_exists($pbicdir . "/service-configfile") ) )
+  if ( $isPBI and ( file_exists($pbicdir . "/service-config.json") ) )
      $hasConfig=true;
 
    // Does this PBI have icons?
