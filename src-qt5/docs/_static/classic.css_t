@@ -582,13 +582,9 @@ tt {
 .kbd, .file {
     background-color: #DCE0E3; // darken from ecf0f3 to be more visible on screen.
     display: inline-block;
-    font-size: 88%;
-    vertical-align:10%;
-    padding-right:3px;
-    padding-left:3px;
-    padding-top:3px;
-    padding-bottom:2px;
-    border-radius:1px;
+    font-size: 90%;
+    vertical-align:11%;
+    padding:1px;
     line-height:80%;
     border: thin solid #999;
 }
@@ -628,6 +624,10 @@ div.viewcode-block:target {
     border-radius:5px;
     line-height:80%;
     border: thin solid #000000;
+    }
+
+table.docutils td {
+    padding: 2px 8px 2px 5px;
     }
 
 @media print {
