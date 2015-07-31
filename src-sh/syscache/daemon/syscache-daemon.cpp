@@ -77,7 +77,7 @@ void SysCacheDaemon::answerRequest(){
   while(!stream.atEnd()){
     req.clear();
     QString line = stream.readLine();
-    qDebug() << "Found Request Line:" << line;
+    //qDebug() << "Found Request Line:" << line;
     if(!line.contains("[/]")){ usleep(600); QCoreApplication::processEvents(); line.append(stream.readLine()); }
     if(line.contains("[FINISHED]")){done = true; }
     if(line.contains("[")){ line = line.section("[",0,0); }
