@@ -1,10 +1,13 @@
 <?
 defined('DS') OR die('No direct access allowed.');
-
- echo "<h1>Installed Applications ";
- echo "<a href=\"/?p=exportpbis&jail=__system__\" style=\"text-decoration: underline;\">Export PBI list</a>)</h1>";
 ?>
-
+<table class="header" style="width:100%">
+<tr>
+    <th>
+        <h1><center>Installed Applications</h1>
+    </th>
+</tr>
+<br>
 <br>
 <table class="jaillist" style="width:100%">
 <tr>
@@ -15,7 +18,7 @@ defined('DS') OR die('No direct access allowed.');
 
    $skipstop = $skip + 50;
 
-   $totalCols = 2;
+   $totalCols = 3;
 
    $pkgoutput = syscache_ins_pkg_list($jail);
 

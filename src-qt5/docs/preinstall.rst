@@ -299,7 +299,7 @@ will capitalize the letters.
 On Linux and BSD systems you can use the built-in :command:`md5` or :command:`md5sum` command line tool to check the MD5 checksum. In this example, the file
 is located in the :file:`Downloads` subdirectory directory. You should substitute the name and location of the file that you downloaded::
 
- md5 Downloads/PCBSD|version|-RELEASE-x64-DVD-USB.iso 
+ md5 Downloads/PCBSD10.2-RELEASE-x64-DVD-USB.iso 
 
 .. index:: burn
 .. _Burning the Installation Media:
@@ -390,7 +390,7 @@ If you just get your prompt back, the driver successfully loaded. If you get the
 driver was already loaded. If the device is USB or SCSI, no additional drivers need to be loaded if you are running the generic FreeBSD kernel. After
 inserting the DVD media into the device, you can start the burn using this command::
 
- growisofs -Z /dev/cd0=PCBSD|version|-RELEASE-x64-DVD-USB.iso
+ growisofs -Z /dev/cd0=PCBSD10.2-RELEASE-x64-DVD-USB.iso
 
 If your device is not the first CD device, change the number *0* accordingly. If your ISO has a different name, substitute the correct name in the command
 shown above.
@@ -427,7 +427,7 @@ Once the image is written, boot from the removable device and proceed with the P
 To write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
 system, the superuser can use this command to write the file to the first plugged in USB device::
 
- dd if=PCBSD|version|-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
+ dd if=PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
  3658+1 records in
  3658+1 records out 
  3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
@@ -477,7 +477,7 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  diskutil unmountDisk /dev/disk1
  Unmount of all volumes on disk1 was successful
 
- sudo dd if=/Users/dru/Downloads/ PCBSD|version|-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4M
+ sudo dd if=/Users/dru/Downloads/ PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4M
  Password:
  3658+1 records in
  3658+1 records out 
@@ -629,7 +629,7 @@ just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
 On a Linux or BSD system, use the :command:`xz` command by giving it the name of the file which you downloaded::
 
- xz -d PCBSD|version|-RELEASE-x64-consumer-desktop.vmdk.xz
+ xz -d PCBSD10.2-RELEASE-x64-consumer-desktop.vmdk.xz
 
 Since this is a large file, the command will take a few minutes to extract the image. You will receive the prompt back when it has finished.
 

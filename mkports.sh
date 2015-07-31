@@ -83,6 +83,10 @@ fi
 # Get this jail version
 export UNAME_r="`freebsd-version`"
 
+# Get the GIT tag
+ghtag=`git log -n 1 . | grep '^commit ' | awk '{print $2}' | cut -c 1-6`
+
+
 # Read the list of ports and build them now
 while read pline
 do
@@ -136,15 +140,16 @@ do
   cp -r ${ldir}/port-files ${portsdir}/$tdir
 
   # Set the version numbers
-  sed -i '' "s|CHGVERSION|${REV}|g" ${portsdir}/$tdir/Makefile
-
-  # Set the mirror to use
-  sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/$tdir/Makefile
+  sed -i '' "s|%%CHGVERSION%%|${REV}|g" ${portsdir}/$tdir/Makefile
+  sed -i '' "s|%%GHTAG%%|${ghtag}|g" ${portsdir}/$tdir/Makefile
 
   # Create the makesums / distinfo file
-  cd "${distdir}"
-  sha256 $dfile-${REV}.tar.xz > ${portsdir}/${tdir}/distinfo
-  echo "SIZE ($dfile-${REV}.tar.xz) = `stat -f \"%z\" $dfile-${REV}.tar.xz`" >> ${portsdir}/$tdir/distinfo
+  cd "${portsdir}/$tdir"
+  make makesum
+  if [ $? -ne 0 ] ; then
+    echo "Failed makesum"
+    exit 1
+  fi
 
   # Now make sure subdir Makefile is correct
   massage_subdir "${portsdir}/$tcat"
