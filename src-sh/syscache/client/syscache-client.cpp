@@ -31,7 +31,7 @@ void SysCacheClient::showUsage(){
 
 void SysCacheClient::startRequest(){
   QTextStream out(curSock);
-  out << servRequest.join("\n");
+  out << servRequest.join("\n[/]\n");
   out << "\n[FINISHED]";
   connect(curSock, SIGNAL(readyRead()), this, SLOT(requestFinished()) );
 }

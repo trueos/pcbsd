@@ -77,7 +77,11 @@ void SysCacheDaemon::answerRequest(){
   while(!stream.atEnd()){
     req.clear();
     QString line = stream.readLine();
-    //qDebug() << "Found Request Line:" << line;
+    qDebug() << "Found Request Line:" << line;
+    if(!line.contains("[/]")){ usleep(600); QCoreApplication::processEvents(); line.append(stream.readLine()); }
+    if(line.contains("[FINISHED]")){done = true; }
+    if(line.contains("[")){ line = line.section("[",0,0); }
+    if(line.isEmpty() || line == "[/]"){ continue; }
     //Be careful about quoted strings (only one input, even if multiple words)
     int index = 0;
     int dindex = 0; //start off with the space (lowest priority)
@@ -114,7 +118,7 @@ void SysCacheDaemon::answerRequest(){
       //For info not available, try once more time as it can error unexpectedly if it was 
 	// stuck waiting for a sync to finish
       if(res =="[ERROR] Information not available"){ res = DATA->fetchInfo(req); }
-      out << "[INFOSTART]"+ res;
+      out << "[INFOSTART]"+ res+"\n";
     }
   }
   //Now write the output to the socket and disconnect it
