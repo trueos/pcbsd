@@ -351,7 +351,7 @@ function display_app_link($pbilist, $jail)
   echo "  </tr>";
 
   foreach($rlist as $related) {
-    parse_details($related, $jail, $col);
+    parse_details($related, $jail, $col, false, false);
     if ( $col == $totalCols )
        $col = 1;
     else
