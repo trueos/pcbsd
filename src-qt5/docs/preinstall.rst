@@ -629,7 +629,7 @@ just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
 On a Linux or BSD system, use the :command:`xz` command by giving it the name of the file which you downloaded::
 
- xz -d PCBSD|version|-RELEASE-x64-consumer-desktop.vmdk.xz
+ xz -d PCBSD10.2-RELEASE-x64-consumer-desktop.vmdk.xz
 
 Since this is a large file, the command will take a few minutes to extract the image. You will receive the prompt back when it has finished.
 
