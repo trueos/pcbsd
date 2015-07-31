@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "syscache-client.h"
+#include <unistd.h>
 
 #define LINEBREAK QString("<LINEBREAK>")
 

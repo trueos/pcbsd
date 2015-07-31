@@ -1,5 +1,6 @@
 #include "syscache-daemon.h"
 #include <QDateTime>
+#include <unistd.h>
 
 SysCacheDaemon::SysCacheDaemon(QObject *parent) : QObject(parent){
   curSock = 0; //no local socket connected yet
