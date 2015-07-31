@@ -2,6 +2,8 @@
 
 #include <QKeySequence>
 #include <QApplication>
+#include <QStringList>
+#include <QDebug>
 
 MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
@@ -42,6 +44,8 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
     //Setup the menu for this button
     listMenu = new QMenu();
       listMenu->addAction(QIcon(":icons/configure.png"), tr("Configure"), this, SLOT(GoConfigure() ) );
+      listMenu->addAction(QIcon(":icons/list.png"), tr("Save Pkg List"), this, SLOT(Save_pkglist() ) );
+      listMenu->addSeparator();
       listMenu->addAction(QIcon(":icons/search.png"), tr("Search For Text"), this, SLOT(openSearch() ) );
       listMenu->addSeparator();
       listMenu->addAction(QIcon(":icons/close.png"), tr("Close AppCafe"), this, SLOT(GoClose() ) );
@@ -352,4 +356,26 @@ void MainUI::openSearch(){
 
 void MainUI::closeSearch(){
   group_search->setVisible(false);	
+}
+
+void MainUI::Save_pkglist(){
+  //Save the list of installed pkgs (top-level only - no reverse dependencies)
+  qDebug() << "Save PKG list";
+  QStringList allInstalled = pcbsd::Utils::runShellCommand("syscache \"pkg #system installedlist\"").join("").split(", ");
+  //Assemble the list of top-level pkgs (do it with 1 syscache process command)
+  QString tmp = " \"pkg #system local %1 rdependencies\"";
+  QString cmd = "syscache";
+  for(int i=0; i<allInstalled.length(); i++){ cmd.append( tmp.arg(allInstalled[i]) ); }
+  QStringList rdeps = pcbsd::Utils::runShellCommand(cmd);
+  //Evaluate the list results and pull out the top-level ones
+  QStringList topList;
+  for(int i=0; i<rdeps.length() && i<allInstalled.length(); i++){
+    //qDebug() << "Line:" << allInstalled[i] << rdeps[i];
+    if(rdeps[i].startsWith("[")){
+      //empty list - this is a top-level pkg
+      qDebug() << "Found Item:" << allInstalled[i] << rdeps[i];
+      topList << allInstalled[i];
+    }
+  }
+  qDebug() << "Top-Level Pkgs:" << topList;
 }

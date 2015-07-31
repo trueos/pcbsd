@@ -71,6 +71,9 @@ private slots:
 	void GoSearch();
 	void openSearch();
 	void closeSearch();
+
+	//Special Functionality
+	void Save_pkglist();
 };
 
 #endif
