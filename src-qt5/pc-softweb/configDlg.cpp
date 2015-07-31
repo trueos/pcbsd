@@ -107,10 +107,16 @@ void ConfigDlg::SaveConfig(){
         contents << "port = 8885";
         contents << "ssl = false";
       }else{
+        QString port = QString::number(ui->spinPort->value());
         contents << "remote = true";
-        contents << "port = "+QString::number(ui->spinPort->value());
+        contents << "port = "+port;
         contents << "ssl = true"; //always require user/pass if enabled with this utility
         contents << "mode = desktop"; //must be desktop since using this utility
+        //Make sure the firewall port is open for remote access
+        cmds << "if [ \"`grep \'"+port+"\' /etc/ipfw.openports`\" == \"\" ]; then"; //see if the port is already open
+        cmds << "  echo \"ip4 "+port+"\" >> /etc/ipfw.openports"; //open the port
+        cmds << "  sh /etc/ipfw.rules"; //reload firewall rules
+        cmds << "fi";
       }
       // Save the contents to a temporary file
       saveFile("/tmp/appcafe.conf", contents);
@@ -129,7 +135,7 @@ void ConfigDlg::SaveConfig(){
     cmds << "pkg update -f";
     cmds << "syscache startsync"; //resync the syscache info now
   }
-  
+  qDebug() << "Commands to run:\n" << cmds.join("\n");
   if(!cmds.isEmpty()){
     cmds.prepend("#/bin/sh");
     saveFile("/tmp/.appscriptrun.sh", cmds);
@@ -139,6 +145,7 @@ void ConfigDlg::SaveConfig(){
     if(QFile::exists("/tmp/pcbsd.conf")){ QFile::remove("/tmp/pcbsd.conf"); }
     QFile::remove("/tmp/.appscriptrun.sh");
   }
+  qDebug() << "Saved Changes:" << savedChanges;
 }
 
 void ConfigDlg::loadPbiConf(){ //fill the UI with the current settings
