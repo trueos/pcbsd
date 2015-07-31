@@ -373,9 +373,12 @@ void MainUI::Save_pkglist(){
     //qDebug() << "Line:" << allInstalled[i] << rdeps[i];
     if(rdeps[i].startsWith("[")){
       //empty list - this is a top-level pkg
-      qDebug() << "Found Item:" << allInstalled[i] << rdeps[i];
+      //qDebug() << "Found Item:" << allInstalled[i] << rdeps[i];
       topList << allInstalled[i];
     }
   }
-  qDebug() << "Top-Level Pkgs:" << topList;
+  qDebug() << "Found top-level pkgs:" << topList;
+  QString filepath = QDir::homePath()+"/installed-pkg-"+QDateTime::currentDateTime().toString("yyyy-MM-dd_HH-mm-ss")+".pkglist";
+  pcbsd::Utils::writeTextFile(filepath, topList.join("\n"));
+  QMessageBox::information(this, tr("List Created"), tr("Your list of current top-level packages was just created:")+"\n\n"+filepath);
 }
