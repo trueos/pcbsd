@@ -739,11 +739,24 @@ modify_gpart_partitions()
       *) PARTYPE="freebsd-ufs" ;;
     esac
 
-    # Modify the partition
-    aCmd="gpart modify -i ${_sNum} -t ${PARTYPE} ${_pDisk}"
+    if [ -z "$DONEMOD" ] ; then
+      # Resize the partition
+      rc_halt "gpart resize -i ${_sNum} -s ${SIZE}M ${_pDisk}"
 
-    # Run the gpart modify command now
-    rc_halt "$aCmd"
+      # Modify the partition
+      rc_halt "gpart modify -i ${_sNum} -t ${PARTYPE} ${_pDisk}"
+    else
+      # We have already modified a partition, add a new one
+      gpart add -t ${PARTYPE} -s ${SIZE}M ${_pDisk} 2>${TMPDIR}/.gptOut >${TMPDIR}/.gptOut
+      if [ $? -ne 0 ] ; then
+        cat ${TMPDIR}/.gptOut
+        exit_err "Failed running gpart add -t ${PARTYPE} -s ${SIZE}M ${_pDisk}"
+      fi
+      # Figure out the new partition number
+      _newPart=$(cat ${TMPDIR}/.gptOut | cut -d ' ' -f 1)
+      _rawDisk=$(echo ${_pDisk} | sed 's|/dev/||g')
+      _sNum=$(echo $_newPart | sed "s|${_rawDisk}p||g")
+    fi
 
     # Save this data to our partition config dir
     _dFile="`echo $_pDisk | sed 's|/|-|g'`"
@@ -751,12 +764,15 @@ modify_gpart_partitions()
 
     # Clear out any headers
     sleep 2
-    dd if=/dev/zero of=${_pDisk}p${CURPART} count=2048 2>/dev/null
+    dd if=/dev/zero of=${_pDisk}p${_sNum} count=2048 2>/dev/null
 
     # If we have a enc password, save it as well
     if [ -n "${ENCPASS}" ] ; then
       echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${_sNum}-encpass
     fi
+
+    # Set that we have modified a partition
+    DONEMOD="YES"
   done <${CFGF}
 };
 
@@ -777,7 +793,9 @@ populate_disk_label()
 
   # Check if we are only modifying an existing GPT partition
   MODONLY="NO"
-  if [ "$mod" = "mod" ] ; then MODONLY="YES"; fi
+  if [ "$mod" = "mod" ] ; then
+    MODONLY="YES"
+  fi
   
   # Set WRKSLICE based upon format we are using
   if [ "$type" = "mbr" -o "$type" = "freembr" ] ; then
