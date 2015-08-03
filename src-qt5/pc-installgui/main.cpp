@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     else
       appDir = QCoreApplication::applicationDirPath();
 
-    QTranslator translator;
+    /*QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();
 
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     } else {
       qDebug() << "Could not find: " << appDir + "/i18n/SysInstaller_" + langCode + ".qm";
       langCode = "";
-    }
+    }*/
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     
     if ( argc == 2)
