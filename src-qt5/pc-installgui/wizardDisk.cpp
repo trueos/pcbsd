@@ -208,11 +208,7 @@ int wizardDisk::nextId() const
          return Page_Confirmation;
        if (comboPartition->currentIndex() != 0 ) {
 	 groupZFSOpts->setEnabled(false);
-         // If we are installing to a GPT partition, disable swap
-         if ( comboPartition->currentIndex() != 0 && radioGPT->isChecked() )
-            pushSwapSize->setVisible(false);
-         else
-            pushSwapSize->setVisible(true);
+         pushSwapSize->setVisible(true);
          return Page_Mounts;
        } else {
 	 if ( radioGPT->isChecked() )
@@ -230,11 +226,7 @@ int wizardDisk::nextId() const
        return Page_Enc;
        break;
      case Page_Enc:
-       // If we are installing to a GPT partition, disable swap
-       if ( comboPartition->currentIndex() != 0 && radioGPT->isChecked() )
-          pushSwapSize->setVisible(false);
-       else
-          pushSwapSize->setVisible(true);
+       pushSwapSize->setVisible(true);
        return Page_Mounts;
        break;
      case Page_Mounts:
@@ -613,7 +605,7 @@ void wizardDisk::generateDiskLayout()
     fileSystem.clear();
 
   // If installing to a specific GPT slice, we can't create a 2nd swap partition
-  if ( (targetType != "ALL" || radioGPT->isChecked()) && swapsize > 0 ) {
+  if ( swapsize > 0 ) {
     // Now add swap space
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
     sysFinalDiskLayout << fileSystem;
@@ -1163,7 +1155,7 @@ void wizardDisk::generateCustomDiskLayout()
   sysFinalDiskLayout << fileSystem;
 
   // If installing to a specific GPT slice, we can't create a 2nd swap partition
-  if ( ( targetType != "ALL" || radioGPT->isChecked() ) && swapsize > 0 ) {
+  if ( swapsize > 0 ) {
     // Now add swap space 
     fileSystem.clear();
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
