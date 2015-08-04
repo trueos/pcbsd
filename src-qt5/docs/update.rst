@@ -7,7 +7,7 @@ Installing Applications and Keeping PC-BSD® Updated
 Both PC-BSD® and TrueOS® provide tools to make it easy to manage software and to keep both the operating system and installed software up-to-date. PC-BSD®
 provides the graphical :ref:`AppCafe®` and :ref:`Update Manager` utilities for managing and upgrading software from the local system or from a web browser or
 mobile device. Since TrueOS® is a command-line only install and some users prefer to use command-line utilities, both PC-BSD® and TrueOS® provide the
-:ref:`PBI Manager` suite of command line utilities and :command:`pkg` to manage software, as well as :command:`pc-updatemanager` to manage updates. If you install
+:command:`pkg` command line utility to manage software, as well as :command:`pc-updatemanager` to manage updates. If you install
 software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
 
 The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
@@ -28,8 +28,7 @@ AppCafe® does not require the *root* password to install software. This means t
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
 able to manage software. 
 
-If you prefer to manage PBIs from the command line, see the section on using the :ref:`PBI Manager` suite of command line utilities. Refer to
-:ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line. Refer to :ref:`Managing Jails from the CLI` for instructions
+If you prefer to manage software from the command line, refer to the section on :ref:`Using the CLI pkg Utilities` . Refer to :ref:`Managing Jails from the CLI` for instructions
 on how to manage jails from the command line.
 
 .. index:: software
@@ -312,7 +311,7 @@ If you type :command:`iocage` at the command line, you will receive a summary of
 Using the CLI pkg Utilities
 ===========================
 
-PC-BSD® uses :command:`pkg` to manage packages from the command line. To manage PBIs from the command line, instead refer to :ref:`PBI Manager`.
+PC-BSD® uses :command:`pkg` to manage packages from the command line.
 
 The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
 needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
@@ -699,256 +698,6 @@ Manager as a package update, for both "Edge" and "Production" users, or in the l
    that you will have to backup your data to an external drive or another system, perform the new install, then restore your data from the backup.
 
 .. index:: software
-.. _PBI Manager:
-
-PBI Manager
-===========
-
-PBI Manager is a suite of command line utilities which can be used to install, remove, and manage PBIs.
-
-This chapter provides an overview of the commands that are installed by PBI Manager. When using these commands, note that single character options can not be
-stacked. As an example, you must type :command:`pbi_add -i -v` as :command:`pbi_add -iv` will fail with a syntax error.
-
-.. index:: PBI Manager
-.. _pbi:
-
-pbi
----
-
-The :command:`pbi` meta-command can be used to install, uninstall, and get information about PBIs. Unlike the other :command:`pbi_` commands, it uses a space
-instead of an underscore. For example, :command:`pbi add` is equivalent to :command:`pbi_add` and either command can be used to install a PBI.
-
-This meta-command expects to be given a sub-command, and then a suitable option for that sub-command. To see the available options for a sub-command, use the
-built-in help system. For example, to see the available options for the **add** sub-command, type :command:`pkg help add`.
-Table 7.4a summarizes the available sub-commands.
-
-**Table 7.4a: pbi Sub-Commands**
-
-+------------------+--------------------------------------------------------------------------------+
-| Sub-Command      | Description                                                                    |
-+==================+================================================================================+
-| **add**          | installs the specified PBI                                                     |
-+------------------+--------------------------------------------------------------------------------+
-| **delete**       | uninstalls the specified PBI                                                   |
-+------------------+--------------------------------------------------------------------------------+
-| **help**         | shows the options for the specified sub-command                                |
-+------------------+--------------------------------------------------------------------------------+
-| **icon**         | adds or deletes the PBI's desktop icon, menu icon, or MIME registration        |
-+------------------+--------------------------------------------------------------------------------+
-| **info**         | shows all available PBIs or lists the packages installed into a specified jail |
-+------------------+--------------------------------------------------------------------------------+
-| **install**      | equivalent to **add**                                                          |
-+------------------+--------------------------------------------------------------------------------+
-
-The :command:`pbi_` commands support several environment variables which can be stored in the ASCII text configuration file, :file:`/usr/local/etc/pbi.conf`.
-These proxy variables are only needed if the system uses a proxy server to access the Internet. Table 7.4b lists the supported variables.
-
-**Table 7.4b: pbi.conf Variables**
-
-+----------------+--------------------------------------------------+
-| Variable       | Description                                      |
-+================+==================================================+
-| PBI_PROXYURL   | proxy server IP address                          |
-+----------------+--------------------------------------------------+
-| PBI_PROXYPORT  | proxy server port number                         |
-+----------------+--------------------------------------------------+
-| PBI_PROXYTYPE  | can be HTTP or SOCKS5                            |
-+----------------+--------------------------------------------------+
-| PBI_PROXYUSER  | username used to authenticate with proxy server  |
-+----------------+--------------------------------------------------+
-| PBI_PROXYPASS  | password used to authenticate with proxy server  |
-+----------------+--------------------------------------------------+
-
-.. index:: PBI Manager
-.. _pbi add:
-
-pbi_add
--------
-
-The :command:`pbi_add` command is used to install a specified PBI. Table 7.4c summarizes the available options.
-
-**Table 7.4c: pbi_add Options**
-
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| Switch                 | Description                                                                                                                       |
-+========================+===================================================================================================================================+
-| **-f**                 | force installation, overwriting an already installed copy of the application                                                      |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-i**                 | display information about specified PBI; if combined with **-v**, will display all of the files that will be installed with the   |
-|                        | PBI                                                                                                                               |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-j <jailname>**      | installs the PBI into the specified jail                                                                                          |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-J**                 | used to create a new jail and install specified PBI into it                                                                       |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-l**                 | display :file:`LICENSE` text for specified PBI                                                                                    |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-v**                 | enable verbose output                                                                                                             |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **--licagree**         | if the PBI has a license, agree to it                                                                                             |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-
-The following example installs the alpine PBI. When prompted, input your password::
-
- sudo pbi_add alpine
- Password:
- Updating pcbsd-major repository catalogue...
- pcbsd-major repository is up-to-date.
- All repositories are up-to-date.
- Installing: alpine
- Updating pcbsd-major repository catalogue...
- pcbsd-major repository is up-to-date.
- All repositories are up-to-date.
- The following 2 package(s) will be affected (of 0 checked):
- New packages to be INSTALLED:
-        alpine: 2.20
-        pico-alpine: 2.20_1
- The process will require 9 MiB more space.
- 2 MiB to be downloaded.
- Fetching alpine-2.20.txz: 100%    2 MiB   1.8MB/s    00:01    
- Fetching pico-alpine-2.20_1.txz: 100%  319 KiB 326.9kB/s    00:01    
- Checking integrity... done (0 conflicting)
- [1/2] Installing pico-alpine-2.20_1...
- [1/2] Extracting pico-alpine-2.20_1: 100%
- [2/2] Installing alpine-2.20...
- [2/2] Extracting alpine-2.20: 100%
- Message for alpine-2.20:
- *******************************************************************************
- *** To use GnuPG with Alpine, take a look at the mail/pine-pgp-filters port ***
- *******************************************************************************
- Pruning: /usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
- Extracting ports overlay data...DONE
-
-.. index:: PBI Manager
-.. _pbi delete:
-
-pbi_delete 
------------
-
-The :command:`pbi_delete` command removes an installed PBI from the system. Table 7.4d summarizes its available options.
-
-**Table 7.4d: pbi_delete Options**
-
-+---------------+---------------------------------------------------------------------------------+
-| Switch        | Description                                                                     |
-+===============+=================================================================================+
-| **-f**        | force the removal of the application, even if other applications depend upon it |
-+---------------+---------------------------------------------------------------------------------+
-| **-j <jail>** | deletes the application from the specified jail                                 |
-+---------------+---------------------------------------------------------------------------------+
-| **-v**        | enable verbose output                                                           |
-+---------------+---------------------------------------------------------------------------------+
-
-The following example uninstalls the previously installed alpine PBI::
-
- sudo pbi_delete alpine
- Password: 
- Updating pcbsd-major repository catalogue...
- All repositories are up-to-date.
- Checking integrity... done (0 conflicting)
- Deinstallation has been requested for the following 1 package (of 0 packages in the universe): 
- Installed packages to be REMOVED:
- alpine-2.20
- The operation will free 8 MiB 
- [1/1] Deinstalling alpine-2.20...
- [1/1] Deleting files for alpine-2.20: 100%
-
-.. index:: PBI Manager
-.. _pbi icon:
-
-pbi_icon
---------
-
-The :command:`pbi_icon` command provides a number of options for adding desktop icons, menu entries, and MIME data for an installed PBI. Not all PBIs will
-contain desktop/menu/MIME data. Additionally, the window manager must be `XDG <https://en.wikipedia.org/wiki/Xdg>`_-compliant to understand a PBI's icon and
-MIME settings. Table 7.4e summarizes this command's options: 
-
-**Table 7.4e: pbi_icon Options**
-
-+-------------------+-------------------------------------------------------+
-| Switch            | Description                                           |
-+===================+=======================================================+
-| **add-desktop**   | installs desktop icon; should be run as regular user  |
-+-------------------+-------------------------------------------------------+
-| **add-mime**      | installs mime information; should be run as root      |
-+-------------------+-------------------------------------------------------+
-| **add-menu**      | installs menu icons; should be run as root            |
-+-------------------+-------------------------------------------------------+
-| **del-desktop**   | removes desktop icon; should be run as regular user   |
-+-------------------+-------------------------------------------------------+
-| **del-menu**      | removes menu icons; should be run as root             |
-+-------------------+-------------------------------------------------------+
-| **del-mime**      | removes mime information; should be run as root       |
-+-------------------+-------------------------------------------------------+
-
-.. index:: PBI Manager
-.. _pbi info:
-
-pbi_info 
----------
-
-The :command:`pbi_info` command is used to determine which PBIs are currently installed. Table 7.4f summarizes the available options.
-
-**Table 7.4f: pbi_info Options**
-
-+------------------------+------------------------------------------------------------------------------------------+
-| Switch                 | Description                                                                              |
-+========================+==========================================================================================+
-| **-a**                 | list all PBIs installed on the system; same as running **pbi_info** without an argument  |
-+------------------------+------------------------------------------------------------------------------------------+
-| **-j <jailname>**      | list PBIs installed in the specified jail                                                |
-+------------------------+------------------------------------------------------------------------------------------+
-| **-v**                 | includes verbose information about each PBI                                              |
-+------------------------+------------------------------------------------------------------------------------------+
-
-.. index:: PBI Manager
-.. _pbi install:
-
-pbi install
------------
-
-The :command:`pbi install` command provides an alternative to :command:`pbi_add` and is also used to install PBIs. Table 7.4g summarizes its available options.
-
-**Table 7.4g: pbi install Options**
-
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| Switch                 | Description                                                                                                                       |
-+========================+===================================================================================================================================+
-| **-f**                 | force installation, overwriting an already installed copy of the application                                                      |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-i**                 | display information about specified PBI; if combined with **-v**, will display all of the files that will be installed with the   |
-|                        | PBI                                                                                                                               |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-j <jailname>**      | installs the PBI into the specified jail                                                                                          |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-J**                 | used to create a new jail and install specified PBI into it                                                                       |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-l**                 | display :file:`LICENSE` text for specified PBI                                                                                    |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **-v**                 | enable verbose output                                                                                                             |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **--licagree**         | if the PBI has a license, agree to it                                                                                             |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-
-.. index:: PBI Manager
-.. _pbi_makeindex:
-
-pbi_makeindex
--------------
-
-This command is used to make the INDEX for a custom PBI repository which can then be used in :ref:`AppCafe®`. Refer to
-:ref:`Create Your Own PBI Repository` for instructions on how to create a custom repository.
-
-.. index:: PBI Manager
-.. _pbi updateindex:
-
-pbi_updateindex
----------------
-
-To check for a newer version of the PC-BSD® :file:`PBI-INDEX.txz` file, type :command:`sudo pbi_updateindex` and input your password when prompted. If a
-newer version is available, this command fetches and extracts it so that the system has the most recent list of available PBIs.
-
-.. index:: software
 .. _Create Your Own PBI Repository:
 
 Create Your Own PBI Repository
@@ -1000,9 +749,9 @@ This will create the files :file:`PBI-INDEX.txz` and :file:`PBI-INDEX.txz.sha1`.
 .. _Import the Repository:
 
 Finally, on each client, configure :ref:`Appcafe®` to use the custom repository. Go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen
-shown in Figure 7.5a, then the "+" button. Input the URL to the repository and click "OK". 
+shown in Figure 7.4a, then the "+" button. Input the URL to the repository and click "OK". 
 
-**Figure 7.5a: Add the Custom Repository to AppCafe®**
+**Figure 7.4a: Add the Custom Repository to AppCafe®**
 
 .. image:: images/repo1.png
 
