@@ -1952,7 +1952,7 @@ Intel wireless interface that uses the *wlan* driver.
 
 **Figure 8.18b: Network Configuration Utility** 
 
-.. image:: images/network2.png
+.. image:: images/network2a.png
 
 The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both
 Ethernet and wireless devices. It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a
