@@ -582,5 +582,3 @@ init_extraction()
   esac
 
 };
- DEVICE=$(mdconfig -a -t vnode -o readonly -f /dist/uzip/usr.uzip)
-      mount -o ro ${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
