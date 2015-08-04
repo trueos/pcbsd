@@ -342,7 +342,7 @@ If your system contains multiple drives and you would like to use them to create
 will enable this screen. Any available disks will be listed in the box below the "ZFS Virtual Device Mode" drop-down menu. Select the desired level of redundancy,
 then the desired number of disks.
 
-.. note:: the PC-BSD® installer requires you to use entire disks (not partitions) when adding additional disks to the pool. 
+.. note:: the PC-BSD® installer requires you to use entire disks (not partitions) when adding additional disks to the pool.
 
 While ZFS will let you use disks of different sizes, this is discouraged as it will decrease storage capacity and ZFS performance.
 
@@ -355,6 +355,9 @@ The PC-BSD® installer supports the following ZFS configurations:
 * **RAIDZ2:** requires a minimum of 4 disks. For best performance, a maximum of 10 disks is recommended.
 
 * **RAIDZ3:** requires a minimum of 5 disks. For best performance, a maximum of 11 disks is recommended.
+
+* **stripe:** requires a minimum of 2 disks.
+  **Note that a stripe does NOT provide ANY redundancy. If any disk fails in a stripe, all data in the pool is lost!**
 
 The installer will not let you save a configuration if your system does not meet the minimum number of disks required by that configuration. As you select a
 configuration, a message will indicate how many more disks you need to select.
