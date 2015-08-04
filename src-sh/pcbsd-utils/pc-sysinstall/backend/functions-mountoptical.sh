@@ -86,16 +86,18 @@ opt_mount()
     do
       # Find the CD Device
       /sbin/mount_cd9660 $i ${CDMNT}
-
-      # Check the package type to see if we have our install data
-      if [ -e "${CDMNT}/${INSFILE}" ]
+      if [ $? -eq 0 ]
       then
-        echo "${i}" >${TMPDIR}/cdmnt
-        echo_log "FOUND DVD: ${i}"
-        FOUND="1"
-        break
+        # Check the package type to see if we have our install data
+        if [ -e "${CDMNT}/${INSFILE}" ]
+        then
+          echo "${i}" >${TMPDIR}/cdmnt
+          echo_log "FOUND DVD: ${i}"
+          FOUND="1"
+          break
+        fi
+        /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
       fi
-      /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
     done
 
 
@@ -107,42 +109,48 @@ opt_mount()
       do
         # Check if we can mount this device UFS
         /sbin/mount -r $i ${CDMNT}
-
-        # Check the package type to see if we have our install data
-        if [ -e "${CDMNT}/${INSFILE}" ]
+        if [ $? -eq 0 ]
         then
-          echo "${i}" >${TMPDIR}/cdmnt
-          echo_log "FOUND USB: ${i}"
-          FOUND="1"
-          break
+          # Check the package type to see if we have our install data
+          if [ -e "${CDMNT}/${INSFILE}" ]
+          then
+            echo "${i}" >${TMPDIR}/cdmnt
+            echo_log "FOUND USB: ${i}"
+            FOUND="1"
+            break
+          fi
+          /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
         fi
-        /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
 
         # Check for an installation usb stick maked from iso via dd
         /sbin/mount_cd9660 $i ${CDMNT}
-
-        # Check the package type to see if we have our install data
-        if [ -e "${CDMNT}/${INSFILE}" ]
+        if [ $? -eq 0 ]
         then
-          echo "${i}" >${TMPDIR}/cdmnt
-          echo_log "FOUND DVD: ${i}"
-          FOUND="1"
-          break
+          # Check the package type to see if we have our install data
+          if [ -e "${CDMNT}/${INSFILE}" ]
+          then
+            echo "${i}" >${TMPDIR}/cdmnt
+            echo_log "FOUND DVD: ${i}"
+            FOUND="1"
+            break
+          fi
+          /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
         fi
-        /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
 
         # Also check if it is a FAT mount
         /sbin/mount -r -t msdosfs $i ${CDMNT}
-
-        # Check the package type to see if we have our install data
-        if [ -e "${CDMNT}/${INSFILE}" ]
+        if [ $? -eq 0 ]
         then
-          echo "${i}" >${TMPDIR}/cdmnt
-          echo_log "FOUND USB: ${i}"
-          FOUND="1"
-          break
+          # Check the package type to see if we have our install data
+          if [ -e "${CDMNT}/${INSFILE}" ]
+          then
+            echo "${i}" >${TMPDIR}/cdmnt
+            echo_log "FOUND USB: ${i}"
+            FOUND="1"
+            break
+          fi
+          /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
         fi
-        /sbin/umount ${CDMNT} >/dev/null 2>/dev/null
       done
     fi # End of USB Check
 
