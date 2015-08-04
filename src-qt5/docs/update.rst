@@ -11,7 +11,7 @@ mobile device. Since TrueOS® is a command-line only install and some users pref
 software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
 
 The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
-:ref:`Create Your Own PBI Repository` and :ref:`Create a Local Package Mirror`.
+:ref:`Create a Local Package Mirror`.
 
 .. index:: software
 .. _AppCafe®:
@@ -63,7 +63,7 @@ The "Repository Configuration" tab is used to determine which package set to use
 updates which fix known security vulnerabilities. "Production" is the default and recommended setting for most users. Software updates are provided every three
 months, which gives sufficient time for new software versions to be tested. "Edge" is meant for users who wish to assist with software testing or who can tolerate
 the occasional breakage caused by installing new software versions. Software updates are provided approximately every two weeks. "Custom" assumes that you have
-followed the instructions to :ref:`Create Your Own PBI Repository` and are ready to click the "+" button to browse to the location of the custom :file:`.rpo` file.
+followed the instructions to :ref:`Create a Local Package Mirror` and are ready to click the "+" button to browse to the location of the custom :file:`.rpo` file.
 To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
 
 To configure remote access, use the "Remote Access" tab shown in Figure 7.1c. 
@@ -698,66 +698,6 @@ Manager as a package update, for both "Edge" and "Production" users, or in the l
    that you will have to backup your data to an external drive or another system, perform the new install, then restore your data from the backup.
 
 .. index:: software
-.. _Create Your Own PBI Repository:
-
-Create Your Own PBI Repository
-==============================
-
-By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories. This section describes the steps to
-create a custom repository.
-
-The :file:`INDEX` of a PBI repository should be digitally signed for security and identification purposes. In order to sign the :file:`INDEX`, first create an
-OpenSSL key pair using the following commands::
-
- openssl genrsa -out privkey.pem 4096
- Generating RSA private key, 4096 bit long modulus
- ..................++
- .............................................................................++
- e is 65537 (0x10001)
-
- openssl rsa -in privkey.pem -pubout > pub.key
- writing RSA key
-
-These commands will create the files :file:`privkey.pem` and :file:`pub.key`.
-
-To create the customized PBI modules, follow the instructions in :ref:`Bulk Module Creator`. For example, if the repository directory is :file:`~/myrepo/`, make sure that
-all of the custom modules are listed as subdirectories of that directory.
-
-Next, configure a FTP, HTTP, or HTTPS server to host the directory containing the custom PBI modules. The server can be a public URL on the Internet or a
-private LAN server, as long as it is accessible to your target audience. Ensure that this directory is browsable by an FTP client or web browser from a client
-system **before** moving on to the next step.
-
-To generate the signed :file:`INDEX`, :command:`cd` to the directory containing the PBI modules and run :command:`pbi_makeindex`, specifying the path to the
-private key. In this example, the PBI modules are located in :file:`~/myrepo` and the key is located in the user's home directory (:file:`~`). Be patient as
-it will take a few minutes to generate the :file:`INDEX` and return the command prompt.
-::
-
- cd ~/myrepo
-
- fetch https://github.com/pcbsd/pcbsd/raw/master/pbi-modules/PBI-categories
-
- pbi_makeindex ../privkey.pem
- Building PBI-INDEX... This may take a few moments...
- Fetching PBI ratings file...
- /tmp/.PBI.19956/.ratings 100% of 71 kB 134 kBps 00m00s
- Adding additional package information to PBI-INDEX...
- Compressing PBI-INDEX...
-
-This will create the files :file:`PBI-INDEX.txz` and :file:`PBI-INDEX.txz.sha1`.
-
-.. index:: software
-.. _Import the Repository:
-
-Finally, on each client, configure :ref:`Appcafe®` to use the custom repository. Go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen
-shown in Figure 7.4a, then the "+" button. Input the URL to the repository and click "OK". 
-
-**Figure 7.4a: Add the Custom Repository to AppCafe®**
-
-.. image:: images/repo1.png
-
-It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
-
-.. index:: software
 .. _Create a Local Package Mirror:
 
 Create a Local Package Mirror
@@ -791,4 +731,15 @@ with the URL to the local repository::
  PACKAGE_URL: http://<myhost>/pkg/%VERSION%/edge/%ARCH%
 
 After editing each client's file, run :command:`pc-updatemanager syncconf` on the client to apply the
-changes. Configured clients will now use your local mirror whenever they use :command:`pkg` or AppCafe®.
+changes. 
+
+Alternately, on each client, configure :ref:`Appcafe®` to use the custom repository. Go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen
+shown in Figure 7.4a, then the "+" button. Input the URL to the repository and click "OK". 
+
+**Figure 7.4a: Add the Custom Repository to AppCafe®**
+
+.. image:: images/repo1.png
+
+It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
+
+Configured clients will now use your local mirror whenever they use :command:`pkg` or AppCafe®.
