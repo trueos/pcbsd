@@ -1,0 +1,6 @@
+pcbsd: {
+               url: "http://pkg.cdn.pcbsd.org/VERSION/ARCH",
+	       signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
