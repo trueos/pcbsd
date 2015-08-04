@@ -257,8 +257,6 @@ The following editions are available:
 
 * :file:`consumer-desktop`: provides an installed version of PC-BSD® with the KDE and Fluxbox desktop environments.
 
-* :file:`freenas-builder`: can be used by developers and testers to build an alpha version of FreeNAS 10. 
-
 * :file:`trueos-server`: provides a pre-installed TrueOS® server that is command-line only.
 
 If you downloaded an installation file, instead of a virtual image, refer to :ref:`Burning the Installation Media` for instructions on how to burn the file to
@@ -648,15 +646,6 @@ When using the "trueos-server" edition, the virtual machine will boot into a pas
 recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
 to login with. You can do so by typing :command:`adduser` and following the prompts.
 
-When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username (the initial password is blank). It is
-recommended to immediately set the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers
-to build a copy of FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
-depending upon the recent source changes. To attempt a build, follow the instructions in the
-`Building the System Quickstart Flow <https://github.com/freenas/freenas/blob/master/README.md>`_ section of the FreeNAS README, but change the
-:command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
-"Requirements" listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the
-"freenas-builder" virtual machine.
-
 .. index:: virtualization
 .. _Using the Downloadable .ova File:
 
@@ -689,11 +678,3 @@ desktop.
 When using the "trueos-server" edition, the virtual machine will boot into a password prompt. Enter *root* as the username and *pcbsd* as the password. It is
 recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
 to login with. You can do so by typing :command:`adduser` and following the prompts.
-
-When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username (the initial password is blank).
-It is recommended to immediately set the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers
-and testers to build a copy of FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible
-that the build may fail, depending upon the recent source changes. To attempt a build, follow the instructions in the  section of the FreeNAS README, but change
-the :command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
-"Requirements" listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the "freenas-builder" virtual
-machine.
