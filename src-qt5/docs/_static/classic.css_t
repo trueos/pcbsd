@@ -452,6 +452,16 @@ div#sidebarbutton {
 }
 {% endif %}
 
+.logo {
+    background-color: rgb(45, 174, 255);
+    text-align: center;
+    padding: 0.809em;
+    display: block;
+    color: #FCFCFC;
+    margin-bottom: 0.809em;
+    margin-right: 0.809em;
+}
+
 /* -- hyperlink styles ------------------------------------------------------ */
 
 a {
