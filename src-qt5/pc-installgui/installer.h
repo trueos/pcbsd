@@ -189,7 +189,7 @@ private:
 
     // Disk setup wizard
     wizardDisk *wDisk;
-    QTranslator *translator;
+    //QTranslator *translator;
 
     // Custom CFG file to install with
     QString customCfgFile;

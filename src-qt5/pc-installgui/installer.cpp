@@ -22,7 +22,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
 	
     //Now start loading the rest of the interface
     labelVersion->setText(tr("Version:") + " " + PCBSDVERSION);
-    translator = new QTranslator();
+    //translator = new QTranslator();
     haveWarnedSpace=false;
     force4K = false;
     defaultInstall = true;
@@ -779,11 +779,15 @@ void Installer::slotAbort()
 
 void Installer::slotChangeLanguage()
 {
-    if ( comboLanguage->currentIndex() == -1 )
-      return;
+    static QTranslator *translator = 0;
+    //if ( comboLanguage->currentIndex() == -1 && translator!=0)
+      //return;
 
     // Figure out the language code
-    QString langCode = languages.at(comboLanguage->currentIndex());
+    QString langCode = "en_US";
+    if(comboLanguage->currentIndex() != -1){ 
+      langCode = languages.at(comboLanguage->currentIndex());
+    }
     
     // Grab the language code
     langCode.truncate(langCode.lastIndexOf(")"));
@@ -798,15 +802,16 @@ void Installer::slotChangeLanguage()
 
     //QTranslator *translator = new QTranslator();
     qDebug() << "Remove the translator";
-    if ( ! translator->isEmpty() )
+    if ( translator!=0 && ! translator->isEmpty() )
       QCoreApplication::removeTranslator(translator);
 
+    if(translator==0){ translator = new QTranslator(); }
     if (translator->load( QString("SysInstaller_") + langCode, appDir + "/i18n/" )) {
       qDebug() << "Load new Translator" << langCode;
       QCoreApplication::installTranslator(translator);
-      this->retranslateUi(this);
     }
-
+    this->retranslateUi(this); //For en_US - there is no translation file
+    
     // Change the default keyboard layout
     if ( langCode == "en" ) {
        curKeyModel="pc104";
