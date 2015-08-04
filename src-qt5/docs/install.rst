@@ -130,7 +130,7 @@ The following components are available for installation.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
-* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "FreeNAS-Builder", "Internet", "Media", and
+* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "Internet", "Media", and
   "Office and Productivity".
 
 * **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
