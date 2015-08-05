@@ -144,7 +144,6 @@ start_extract_uzip_tar()
       fi
       ;;
     livecd)
-    livecd)
      # GhostBSD specific (prepare a ro layer to copy from)
       # Copying file to disk 
 
@@ -153,7 +152,7 @@ start_extract_uzip_tar()
 # copying hard links from cd9660 fs result in expanded individual files instead of links, i.e. making /rescue large as 1GB
 # bsdtar instead appear to restore hard links correctly
 
-      tar xvf ${DEVICE} -C ${FSMNT}/ --exclude 'dist/*' 
+      tar xvf `cat ${TMPDIR}/cdmnt` -C ${FSMNT}/ --exclude 'dist/*' 
       if [ "$?" != "0" ]
       then
         exit_err "ERROR: Failed to copy (tar) files"
