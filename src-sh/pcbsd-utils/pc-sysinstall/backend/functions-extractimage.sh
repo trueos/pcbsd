@@ -145,14 +145,31 @@ start_extract_uzip_tar()
       ;;
     livecd)
      # GhostBSD specific (prepare a ro layer to copy from)
-      DEVICE=$(mdconfig -a -t vnode -o readonly -f /dist/uzip${UZIP_DIR}.uzip)
-      mount -o ro ${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
       # Copying file to disk 
-      rsync -avH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}/ ${FSMNT} >&1 2>&1
+
+#      rsync -avH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}/ ${FSMNT} >&1 2>&1
+
+# copying hard links from cd9660 fs result in expanded individual files instead of links, i.e. making /rescue large as 1GB
+# bsdtar instead appear to restore hard links correctly
+
+      tar xvf `cat ${TMPDIR}/cdmnt` -C ${FSMNT}/ --exclude 'dist/*' 
       if [ "$?" != "0" ]
       then
-        exit_err "ERROR: Failed to copy files"
+        exit_err "ERROR: Failed to copy (tar) files"
       fi
+
+      DEVICE=$(mdconfig -a -t vnode -o readonly -f /dist/uzip${UZIP_DIR}.uzip)
+      mkdir -p  ${CDMNT}${UZIP_DIR}
+      mount -o ro /dev/${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
+
+      rsync -avH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}${UZIP_DIR} ${FSMNT}/
+      if [ "$?" != "0" ]
+      then
+        umount -f ${CDMNT}${UZIP_DIR}
+        mdconfig -d -u ${DEVICE}
+        exit_err "ERROR: Failed to copy (rsync) files"
+      fi
+
       umount -f ${CDMNT}${UZIP_DIR}
       mdconfig -d -u ${DEVICE}
       chmod 1777 ${FSMNT}/tmp
