@@ -113,7 +113,7 @@ are comprised of ASCII text files, they can be easily edited using the graphical
 
 This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
 module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
-custom modules, refer to :ref:`Create Your Own PBI Repository` for instructions on how to add the custom repository to AppCafe®. 
+custom modules, add the custom repository to AppCafe® by clicking the "Repsitory Configuration" tab in the "Configure" button. 
 
 .. note:: if your goal is to make a change to a single PBI, rather than an entire custom package repository, use the instructions in :ref:`Make Minor Modifications to a PBI Module`. 
 
@@ -1952,7 +1952,7 @@ Intel wireless interface that uses the *wlan* driver.
 
 **Figure 8.18b: Network Configuration Utility** 
 
-.. image:: images/network2.png
+.. image:: images/network2a.png
 
 The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both
 Ethernet and wireless devices. It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a
