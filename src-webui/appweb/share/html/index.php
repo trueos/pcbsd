@@ -80,6 +80,7 @@
     }
   }
 
+  $login_on_fail = true;
   require("include/globals.php");
   require("include/functions.php");
   require("include/functions-config.php");

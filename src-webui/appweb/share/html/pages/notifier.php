@@ -1,6 +1,8 @@
 <?php
   // Get the client IP address
   $CLIENTIP = $_SERVER['REMOTE_ADDR'];
+  session_start();
+  $DISPATCHID = $_SESSION['dispatchid'];
 
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     // Bypass if called from localhost

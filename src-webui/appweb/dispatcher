@@ -538,6 +538,9 @@ case $1 in
 	    pbicdir="$2" ; jail="$3"
             donecfg ;;
   getdisid) getdisid ;;
+  verify_disid) verify_disid
+                exit $?
+                ;;
          *) print_usage ; exit 1 ;;
 esac
 
