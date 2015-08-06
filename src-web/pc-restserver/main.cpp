@@ -67,7 +67,7 @@ int main( int argc, char ** argv )
     WebServer *w = new WebServer(); 
     if( w->startServer() ){
       //Now start the event loop
-      QTimer::singleShot(1000, w, SLOT(stopServer()) ); //for testing purposes
+      //QTimer::singleShot(1000, w, SLOT(stopServer()) ); //for testing purposes
       int ret = a.exec();
       logfile.close();
       return ret;

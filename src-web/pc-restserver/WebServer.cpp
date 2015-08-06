@@ -9,22 +9,27 @@
 #include <QUrl>
 #include <QDebug>
 #include <QtDebug> //for better syntax of qDebug() / qWarning() / qCritical() / qFatal()
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonObject>
+
+
+#define DEBUG 1
+
 //=======================
 //              PUBLIC
 //=======================
-WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::SecureMode){
+WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::NonSecureMode){
   csock = 0; //no current socket connected
   //Setup all the various settings
   syscache = new SysCacheClient(this);
+  idletimer = new QTimer(this);
+    idletimer->setInterval(5000); //every 5 seconds
+    idletimer->setSingleShot(true);
   //Any SSL changes
-    QSslConfiguration ssl = this->sslConfiguration();
+    /*QSslConfiguration ssl = this->sslConfiguration();
       ssl.setProtocol(QSsl::SecureProtocols);
-    this->setSslConfiguration(ssl);
+    this->setSslConfiguration(ssl);*/
 
   //Setup Connections
+  connect(idletimer, SIGNAL(timeout()), this, SLOT(checkIdle()) );
   connect(this, SIGNAL(closed()), this, SLOT(ServerClosed()) );
   connect(this, SIGNAL(serverError(QWebSocketProtocol::CloseCode)), this, SLOT(ServerError(QWebSocketProtocol::CloseCode)) );
   connect(this, SIGNAL(newConnection()), this, SLOT(NewSocketConnection()) );
@@ -55,41 +60,98 @@ void WebServer::stopServer(){
 //             PRIVATE
 //=======================
 void WebServer::EvaluateREST(QString msg){
-  qDebug() << "REST Message:" << msg;
   //Parse the message into it's elements and proceed to the main data evaluation
-	
-  EvaluateJSON(QJsonDocument::fromRawData(msg.toUtf8(), msg.length()) );
+  RestInputStruct IN(msg);
+  if(DEBUG){
+    qDebug() << "New REST Message:";
+    qDebug() << "  VERB:" << IN.VERB << "URI:" << IN.URI;
+    qDebug() << "  HEADERS:" << IN.Header;
+    qDebug() << "  BODY:" << IN.Body;
+  }
+  //qDebug() << " - Leftovers:" << data;
+  EvaluateRequest(IN);
 }
 
-void WebServer::EvaluateJSON(QJsonDocument doc){
-  qDebug() << "JSON Message:" << doc.toJson();	
-  //parse the message and do something
+void WebServer::EvaluateRequest(const RestInputStruct &REQ){
+  QJsonDocument doc = QJsonDocument::fromJson(REQ.Body.toUtf8());
+  if(doc.isNull()){ qWarning() << "Empty JSON Message Body!!" << REQ.Body.toUtf8(); }
+  //Define the output structures
+  RestOutputStruct out;
   QJsonDocument ret; //return message
-  if(doc.isArray()){
-    //use doc.array() for access to QJsonArray
-    for(int i=0; i<doc.array().count(); i++){
-      switch( doc.array().at(i).type() ){
-	case QJsonValue::String:
-		
-	  break;
-	case QJsonValue::Array:
-	  
-	  break;
-	case QJsonValue::Object:
-	  
-	  break;
-	default:
-	  qDebug() << "Unknown type of input";
+  //parse the message and do something
+  //Objects contain other key/value pairs - this is 99% of cases
+  if(doc.isObject()){
+    QJsonObject obj;
+    QStringList keys = doc.object().keys();
+    if(REQ.URI.toLower()=="/syscache"){
+      QStringList reqs = keys.filter("request",Qt::CaseInsensitive);
+      if(!reqs.isEmpty()){
+	qDebug() << "Parsing Inputs:" << reqs;
+	for(int r=0; r<reqs.length(); r++){
+	  QString req =  JsonValueToString(doc.object().value(reqs[r]));
+	  qDebug() << "  ["+reqs[r]+"]="+req;
+	  QStringList values = syscache->parseInputs( QStringList() << req );      
+	  keys.removeAll(reqs[r]); //this key was already processed
+	  if(values.length()<2){
+	    obj.insert(reqs[r],values.join(""));
+	  }else{
+	    //This is an array of outputs
+	    QJsonArray arr;
+              for(int i=0; i<values.length(); i++){ arr.append(values[i]); }
+	    obj.insert(reqs[r],arr);
+          }
+        }
       }
+    }else{
+      qDebug() << "Object Variables:" << keys;
+      for(int i=0; i<keys.length(); i++){
+        qDebug() << keys[i]+"="+JsonValueToString(doc.object().value(keys[i]) );
+      }	  
     }
-
-  }else if(doc.isObject()){
-    //use doc.object() for access to QJsonObject
-    
+  //Special case for a single syscache input (array of strings)
+  }else if(doc.isArray() && REQ.URI.toLower()=="/syscache"){
+    QStringList inputs = JsonArrayToStringList(doc.array());
+    qDebug() << " syscache inputs:" << inputs;
+    QJsonObject obj;
+      QStringList values = syscache->parseInputs( inputs );
+      for(int i=0; i<values.length(); i++){
+        obj.insert("Value"+QString::number(i),values[i]);
+      }
+    ret.setObject(obj);
   }
-  
+  //Assemble the outputs
+    out.CODE = RestOutputStruct::OK;
+    out.Body = ret.toJson();
   //Return any information
-  csock->sendBinaryMessage(ret.toBinaryData());
+  csock->sendTextMessage(out.assembleMessage());
+}
+
+QString WebServer::JsonValueToString(QJsonValue val){
+  //Note: Do not use this on arrays - only use this on single-value values
+  QString out;
+  switch(val.type()){
+    case QJsonValue::Bool:
+	out = (val.toBool() ? "true": "false"); break;
+    case QJsonValue::Double:
+	out = QString::number(val.toDouble()); break;
+    case QJsonValue::String:
+	out = val.toString(); break;
+    case QJsonValue::Array:
+	out = "\""+JsonArrayToStringList(val.toArray()).join("\" \"")+"\"";
+    default:
+	out.clear();
+  }
+  return out;
+}
+
+QStringList WebServer::JsonArrayToStringList(QJsonArray array){
+  //Note: This assumes that the array is only values, not additional objects
+  QStringList out;
+  qDebug() << "Array to List:" << array.count();
+  for(int i=0; i<array.count(); i++){
+    out << JsonValueToString(array.at(i));
+  }
+  return out;  
 }
 
 //=======================
@@ -105,16 +167,28 @@ void WebServer::ServerError(QWebSocketProtocol::CloseCode code){
   qWarning() << "Server Error["+QString::number(code)+"]:" << this->errorString();
 }
 
+void WebServer::checkIdle(){
+  //This function is called automatically every few seconds that a client is connected
+  if(csock !=0){
+    qDebug() << " - Client Timeout: Closing connection...";
+    csock->close(); //timeout - close the connection to make way for others
+  }
+}
+
 // New Connection Signals
 void WebServer::NewSocketConnection(){
   if(!this->hasPendingConnections()){ return; }
-  qDebug() << "New Socket Connection";
+  qDebug() << "New Socket Connection";	
   if(csock!=0){ qDebug() << " - Placed in queue"; return;}
+  if(idletimer->isActive()){ idletimer->stop(); }
   csock = this->nextPendingConnection();
   connect(csock, SIGNAL(textMessageReceived(const QString&)), this, SLOT(EvaluateMessage(const QString&)) );
   connect(csock, SIGNAL(binaryMessageReceived(const QByteArray&)), this, SLOT(EvaluateMessage(const QByteArray&)) );
+  connect(csock, SIGNAL(aboutToClose()), this, SLOT(SocketClosing()) );
+  connect(csock, SIGNAL(disconnected()), this, SLOT(NewSocketConnection()) );
   if(csock == 0){ qWarning() << " - new connection invalid, skipping..."; QTimer::singleShot(10, this, SLOT(NewSocketConnection())); return; }
   qDebug() <<  " - Accepting connection:" << csock->origin();
+  idletimer->start();
   //QTimer::singleShot(0,this, SLOT(EvaluateConnection()));
 }
 
@@ -122,12 +196,21 @@ void WebServer::NewConnectError(QAbstractSocket::SocketError err){
   if(csock!=0){
     qWarning() << "New Connection Error["+QString::number(err)+"]:" << csock->errorString();
     csock->close();
-  }else{
+  }else{            
     qWarning() << "New Connection Error["+QString::number(err)+"]:" << this->errorString();
   }
   csock = 0; //remove the current socket
   QTimer::singleShot(0,this, SLOT(NewSocketConnection()) ); //check for a new connection
   
+}
+
+void WebServer::SocketClosing(){
+  qDebug() << "Socket Closing...";
+  if(idletimer->isActive()){ idletimer->stop(); }
+  //Stop any current requests
+
+  //Reset the pointer
+  csock = 0;	
 }
 
 // SSL/Authentication Signals
@@ -159,18 +242,17 @@ void WebServer::SslErrors(const QList<QSslError> &list){
 void WebServer::EvaluateMessage(const QByteArray &msg){
   //needs a current socket (csock), unsets it when done
   qDebug() << "New Binary Message:";
+  if(idletimer->isActive()){ idletimer->stop(); }
   EvaluateREST( QString(msg) );
-  csock->close();
-  csock = 0; //Done with the socket, free it up and re-check for more
-  QTimer::singleShot(0,this, SLOT(NewSocketConnection()));	
+  idletimer->start(); 
+  qDebug() << "Done with Message";
 }
 
 void WebServer::EvaluateMessage(const QString &msg){ 
   //needs a current socket (csock), unsets it when done
   qDebug() << "New Text Message:";
-  //Now convert it from a REST message into the 
+  if(idletimer->isActive()){ idletimer->stop(); }
   EvaluateREST(msg);
-  csock->close();
-  csock = 0; //Done with the socket, free it up and re-check for more
-  QTimer::singleShot(0,this, SLOT(NewSocketConnection()));
+  idletimer->start(); 
+  qDebug() << "Done with Message";
 }
