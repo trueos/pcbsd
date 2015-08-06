@@ -323,7 +323,7 @@ new_gpart_partitions()
   fi
 
   # Check if the target disk is using GRUB
-  grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
+  grep -q "$_pDisk" ${TMPDIR}/.grub-install 2>/dev/null
   if [ $? -eq 0 ] ; then
      local _tBL="GRUB"
   else
