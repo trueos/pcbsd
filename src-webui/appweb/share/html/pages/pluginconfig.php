@@ -7,8 +7,15 @@ defined('DS') OR die('No direct access allowed.');
   // Get the default IP4 base range
   $defaultip4base = exec("netstat -f inet -nrW | grep '^default' | awk '{ print $2 }' | cut -d '.' -f 1-3");
 
-  // Get the list of nics available
-  $nics = get_nics();
+  // Get the iocage pool
+  $curpool = get_iocage_pool();
+
+  // Check if the zpool changed
+  if ( ! empty($_POST['iocpool']) and $curpool != $_POST['iocpool'] )
+  {
+    $curpool = $_POST['iocpool'];
+    run_cmd("iocage activate " . $curpool);
+  }
 
   $output = run_cmd("iocage get ip4_autostart default");
   $ip4start = $output[0];
@@ -84,6 +91,25 @@ defined('DS') OR die('No direct access allowed.');
     <?php echo $defaultip4base; ?>. 
     <input name="ip4start" type="text" size=3 maxlength=3 value="<?php echo "$ip4start"; ?>" /> - 
     <input name="ip4end" type="text" size=3 maxlength=3 value="<?php echo "$ip4end"; ?>" />
+  </td>
+</tr>
+<tr>
+  <td style="text-align: center; vertical-align: middle;">Plugin zpool:</td>
+  <td style="text-align: left; vertical-align: middle;">
+  <select name="iocpool">
+  <?php
+    $pools = get_zpools();
+    foreach ($pools as $pool )
+    {
+       echo "<option value=\"" . $pool . "\"";
+       if ($pool == $curpool )
+         echo " selected>";
+       else
+         echo ">";
+       echo $pool . "</option>\n";
+    }
+  ?>
+  </select>
   </td>
 </tr>
 <tr>
