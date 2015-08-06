@@ -9,16 +9,18 @@
 #include <QUrl>
 #include <QDebug>
 #include <QtDebug> //for better syntax of qDebug() / qWarning() / qCritical() / qFatal()
-
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonObject>
 //=======================
 //              PUBLIC
 //=======================
 WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::SecureMode){
   csock = 0; //no current socket connected
   //Setup all the various settings
-  
+  syscache = new SysCacheClient(this);
   //Any SSL changes
-    QSslConfinguration ssl = this->sslConfiguration();
+    QSslConfiguration ssl = this->sslConfiguration();
       ssl.setProtocol(QSsl::SecureProtocols);
     this->setSslConfiguration(ssl);
 
@@ -52,18 +54,47 @@ void WebServer::stopServer(){
 //=======================
 //             PRIVATE
 //=======================
+void WebServer::EvaluateREST(QString msg){
+  qDebug() << "REST Message:" << msg;
+  //Parse the message into it's elements and proceed to the main data evaluation
+	
+  EvaluateJSON(QJsonDocument::fromRawData(msg.toUtf8(), msg.length()) );
+}
+
+void WebServer::EvaluateJSON(QJsonDocument doc){
+  qDebug() << "JSON Message:" << doc.toJson();	
+  //parse the message and do something
+  QJsonDocument ret; //return message
+  if(doc.isArray()){
+    //use doc.array() for access to QJsonArray
+    for(int i=0; i<doc.array().count(); i++){
+      switch( doc.array().at(i).type() ){
+	case QJsonValue::String:
+		
+	  break;
+	case QJsonValue::Array:
+	  
+	  break;
+	case QJsonValue::Object:
+	  
+	  break;
+	default:
+	  qDebug() << "Unknown type of input";
+      }
+    }
+
+  }else if(doc.isObject()){
+    //use doc.object() for access to QJsonObject
+    
+  }
+  
+  //Return any information
+  csock->sendBinaryMessage(ret.toBinaryData());
+}
 
 //=======================
 //       PRIVATE SLOTS
 //=======================
-void EvaluateMessage(const QString &msg){ 
-  //needs a current socket (csock), unsets it when done
-  qDebug() << "New Message:" << msg;
-  csock->close();
-  csock = 0; //Done with the socket, free it up and re-check for more
-  QTimer::singleShot(0,this, SLOT(NewSocketConnection()));
-}
-
 // Overall Server signals
 void WebServer::ServerClosed(){
   qDebug() << "Server Closed:" << QDateTime::currentDateTime().toString(Qt::ISODate);
@@ -81,9 +112,10 @@ void WebServer::NewSocketConnection(){
   if(csock!=0){ qDebug() << " - Placed in queue"; return;}
   csock = this->nextPendingConnection();
   connect(csock, SIGNAL(textMessageReceived(const QString&)), this, SLOT(EvaluateMessage(const QString&)) );
+  connect(csock, SIGNAL(binaryMessageReceived(const QByteArray&)), this, SLOT(EvaluateMessage(const QByteArray&)) );
   if(csock == 0){ qWarning() << " - new connection invalid, skipping..."; QTimer::singleShot(10, this, SLOT(NewSocketConnection())); return; }
   qDebug() <<  " - Accepting connection:" << csock->origin();
-  QTimer::singleShot(0,this, SLOT(EvaluateConnection()));
+  //QTimer::singleShot(0,this, SLOT(EvaluateConnection()));
 }
 
 void WebServer::NewConnectError(QAbstractSocket::SocketError err){
@@ -122,4 +154,23 @@ void WebServer::SslErrors(const QList<QSslError> &list){
   for(int i=0; i<list.length(); i++){
     qWarning() << " - " << list[i].errorString();
   }
+}
+
+void WebServer::EvaluateMessage(const QByteArray &msg){
+  //needs a current socket (csock), unsets it when done
+  qDebug() << "New Binary Message:";
+  EvaluateREST( QString(msg) );
+  csock->close();
+  csock = 0; //Done with the socket, free it up and re-check for more
+  QTimer::singleShot(0,this, SLOT(NewSocketConnection()));	
+}
+
+void WebServer::EvaluateMessage(const QString &msg){ 
+  //needs a current socket (csock), unsets it when done
+  qDebug() << "New Text Message:";
+  //Now convert it from a REST message into the 
+  EvaluateREST(msg);
+  csock->close();
+  csock = 0; //Done with the socket, free it up and re-check for more
+  QTimer::singleShot(0,this, SLOT(NewSocketConnection()));
 }
