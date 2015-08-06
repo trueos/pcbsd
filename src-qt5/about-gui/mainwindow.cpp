@@ -31,21 +31,15 @@
 #include <pcbsd-utils.h>
 
 #include <iostream>
-
-typedef struct _SComponent
+/*
+typedef struct _SComponentsGroup
 {
-    QString Name;
-    QString Prefix;
-}SComponent;
-
-const SComponent DEComponents[] ={
-    {"KDE", "kde-runtime-"},
-    {"Gnome", "gnome2-lite-"},
-    {"LXDE", "lxde-meta-"},
-    {"XFCE", "xfce-"}
-};
-
-const SComponent DEComponentsNG[]={
+    QString           groupName;
+    const SComponent* pComponent;
+    int               componentsCount;
+}SComponentsGroup;
+*/
+const SComponent DEComponents[]={
     {"KDE applications", "kde-baseapps"},
     {"KDE plasma", "kde-workspace"},
     {"Gnome", "gnome3"},
@@ -65,16 +59,55 @@ const SComponent DEComponentsNG[]={
     {"RatPoison", "ratpoison"},
     {"SpectrWM", "spectrwm"},
     {"WindowLab", "windowlab"},
-    {"WindowMaker", "windowmaker"}
-    
-    
+    {"WindowMaker", "windowmaker"}        
 };
 
-const int DEComponents_size = sizeof(DEComponents) / sizeof(SComponent);
-const int DEComponentsNG_size = sizeof(DEComponentsNG) / sizeof(SComponent);
+const SComponent LibComponents[]={
+    {"Qt 4.x", "qt4-corelib"},
+    {"Qt 5.x", "qt5-core"},
+    {"Gtk 2.x", "gtk2"},
+    {"Gtk 3.x", "gtk3"},
+    {"EFL", "efl"},
+};
 
-const char* const PCBSD_UTILS_PACKAGE = "pcbsd-utils";
-const char* const PCBSD_UTILS_QT_PACKAGE = "pcbsd-utils-qt5";
+const SComponent OfficeComponents[]={
+    {"Open Office", "openoffice-4"},
+    {"Open Office (dev)", "openoffice-devel"},
+    {"Libre Office", "libreoffice"},
+    {"Calligra", "calligra"},
+};
+
+const SComponent VideoComponents[]={
+    {"Xorg", "xorg"},
+    {"NVidia", "nvidia-driver"},
+    {"NVidia 173x driver", "nvidia-driver-173"},
+    {"NVidia 304x driver", "nvidia-driver-304"},
+    {"NVidia 340x driver", "nvidia-driver-340"},
+    {"Intel driver", "xf86-video-intel"},
+    {"AMD/ATI driver", "xf86-video-ati"},
+    {"VirtualBox driver", "virtualbox-ose-additions"},
+    {"VMWare driver", "xf86-video-vmware"},
+};
+
+const SComponent ScriptComponents[]={
+    {"Perl", "perl5"},
+    {"Python 2.x", "python2"},
+    {"Python 3.x", "python3"},
+};
+
+const SComponent EmulatorsComponents[]=
+{
+    {"Wine", "wine"},
+    {"Wine i386", "i386-wine"},
+    {"Wine i386 (dev)", "i386-wine-devel"},
+};
+
+const SComponent PCBSDComponents[]=
+{
+    {"CLI utils", "pcbsd-utils"},
+    {"UI utils", "pcbsd-utils-qt5"},
+};
+
 
 ////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
@@ -85,7 +118,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     QString Arch;
-    QString Ver;
 
     //uname
     QStringList unameParsed = QString(pcbsd::Utils::runShellCommand("uname -imnr").at(0)).split(" ", QString::SkipEmptyParts);
@@ -100,9 +132,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // pcbsd version
     ui->VersionLabel->setText(PCBSDVERSION);
-
-    // Utils version
-    ui->UtilsLabel->setText(pcbsd::Utils::runShellCommand("pkg query '%v' pcbsd-utils-qt5").at(0).section("'", 1, 1));
 
     QString PkgSet="PRODUCTION";
     PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
@@ -141,42 +170,44 @@ MainWindow::~MainWindow()
 }
 
 ////////////////////////////////////////////////////////////////////////////
-bool MainWindow::checkNG()
-{
-    return QFile::exists("/usr/local/sbin/pkg2ng");
-}
-
-////////////////////////////////////////////////////////////////////////////
 bool MainWindow::checkNGPackage(QString name, QString &outVer)
 {
     outVer="";
-    QStringList out = pcbsd::Utils::runShellCommand(QString("pkg info -f ") + name);
+    QString cmd = QString("pkg query %v ") + name;
+    QStringList out = pcbsd::Utils::runShellCommand(cmd);
     if (!out.size())
-        return false;
-    for (int i=0; i<out.size(); i++)
-    {
-        if (out[i].contains("Version"))
-        {
-            outVer = out[i];
-            outVer.replace("Version        : ","");            
-            break;
-        }
-    }
+        return false;    
+    outVer = out[0];
     return ( outVer.length() > 0 );
 }
 
 ////////////////////////////////////////////////////////////////////////////
-void MainWindow::addDEItem(QString name, QString version)
+void MainWindow::addComponentItem(QString name, QString version, QTreeWidgetItem *parrent)
 {
-    QTreeWidgetItem* item = new QTreeWidgetItem(ui->DEList);
+    QTreeWidgetItem* item = new QTreeWidgetItem(parrent);
     item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-    QFont font = item->font(0);
-    font.setBold(true);
-    item->setFont(0, font);
     item->setText(0, name);
     item->setText(1, version);
 
-    ui->DEList->addTopLevelItem(item);
+    parrent->addChild(item);
+}
+
+////////////////////////////////////////////////////////////////////////////
+void MainWindow::addComponents(QString groupName, const SComponent* components, int componentsSize)
+{
+    QTreeWidgetItem* item = new QTreeWidgetItem(ui->ComponentsList);
+    item->setText(0, groupName);
+    QFont font = item->font(0);
+    font.setBold(true);
+    item->setFont(0, font);
+    for(int i=0; i<componentsSize; i++){
+        QString ver;
+        if (checkNGPackage(components[i].Prefix, ver))
+        {
+            addComponentItem(components[i].Name, ver, item);
+        }
+
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -189,60 +220,9 @@ void MainWindow::slotSingleInstance()
 }
 
 ////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_pushButton_2_clicked()
-{
-    //X.org version
-    QStringList xorgver = pcbsd::Utils::runShellCommand("Xorg -version");
-    for(int i=0; i<xorgver.size(); i++)
-    {
-        QString str = xorgver.at(i);
-        std::cout<<str.toStdString();
-        if ( str.indexOf("X.Org X Server ") == 0)
-        {
-            ui->XorgLabel->setText(str.replace("X.Org X Server ",""));
-            break;
-        }
-    }
-
-    if (checkNG())
-    {
-        QString ver;
-        if (checkNGPackage(PCBSD_UTILS_PACKAGE, ver))
-        {
-            ui->pcbsd_utils->setText(QString("r") + ver);
-        }
-        if (checkNGPackage(PCBSD_UTILS_QT_PACKAGE, ver))
-        {
-            ui->pcbsd_utils_qt->setText(QString("r") + ver);
-        }
-    }
-    ui->MainStack->setCurrentIndex(2);
-}
-
-////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_BackButton_clicked()
 {
     ui->MainStack->setCurrentIndex(0);
-}
-
-////////////////////////////////////////////////////////////////////////////
-void MainWindow::slotReadPkg()
-{
-    QString line;
-    while(pkginfo->canReadLine() )
-    {
-        line = pkginfo->readLine().simplified();
-        //std::cout<<line.toStdString()<<"\n";
-        for(int i=0 ; i<DEComponents_size; i++)
-        {
-            if (0 == line.indexOf(DEComponents[i].Prefix, Qt::CaseInsensitive))
-            {
-                line = line.replace(DEComponents[i].Prefix, "");
-                line= line.left(line.indexOf(" "));
-                addDEItem(DEComponents[i].Name, line);
-            }//if got DE
-        }//for all DEs
-    }// while can read line
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -251,37 +231,28 @@ void MainWindow::slotPackagesFinished()
     ui->WaitTextLabel->setVisible(false);
 }
 
+#define FILL_GROUP(group_name, group_array)\
+    addComponents(tr(group_name),&group_array[0], sizeof(group_array)/sizeof(SComponent));
+
 ////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_pushButton_clicked()
 {
-    ui->DEList->clear();
+    ui->ComponentsList->clear();
 
-    if (!checkNG())
-    {
-        pkginfo = new QProcess(this);
-        pkginfo->setProcessChannelMode(QProcess::MergedChannels);
-        connect( pkginfo, SIGNAL(readyRead()), this, SLOT(slotReadPkg() ) );
-        connect( pkginfo, SIGNAL(finished ( int, QProcess::ExitStatus)), this, SLOT(slotPackagesFinished()));
-        pkginfo->start("pkg_info");
-        ui->WaitTextLabel->setVisible(true);
-    }
-    else
-    {
-        ui->WaitTextLabel->setVisible(false);
-        for(int i=0 ; i<DEComponentsNG_size; i++)
-        {
-            QString ver;
-            if (checkNGPackage(DEComponentsNG[i].Prefix, ver))
-            {
-                addDEItem(DEComponentsNG[i].Name, ver);
-            }
-        }//for all DEs
-    }//if pkgng installed
+    ui->WaitTextLabel->setVisible(false);
+
+    FILL_GROUP("PCBSD components",PCBSDComponents);
+    FILL_GROUP("Video stack", VideoComponents);
+    FILL_GROUP("Toolkits", LibComponents);
+    FILL_GROUP("Desktops",DEComponents);
+    FILL_GROUP("Office",OfficeComponents);
+    FILL_GROUP("Scripting languages",ScriptComponents);
 
     ui->MainStack->setCurrentIndex(1);
+
+    int h_width = ui->ComponentsList->header()->geometry().width() * 0.65;
+    ui->ComponentsList->header()->resizeSection(0, h_width);
+
 }
 
-void MainWindow::on_BackButton_2_clicked()
-{
-    ui->MainStack->setCurrentIndex(0);
-}
+
