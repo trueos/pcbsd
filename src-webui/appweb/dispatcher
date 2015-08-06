@@ -327,6 +327,7 @@ run_iocage_cmd()
        auto) iocage set boot=on $3 ;;
         set) iocage set $3 $4 $5 $6;;
         get) iocage get $3 $4 $5 $6 ; exit $? ;;
+   activate) iocage activate $3 $4 $5 $6 ; exit $? ;;
           *) echo "Non-dispatch-approved iocage command: $2" ;;
   esac
   syscache "startsync" >/dev/null 2>/dev/null
@@ -512,7 +513,7 @@ case $1 in
               # These commands will be queued
               destroy|pull) echo "$@" >>${QLIST} ;;
 	      # These commands can be run immediately
-	      start|stop|auto|set|get) run_iocage_cmd $@ ;;
+	      start|stop|auto|set|get|activate) run_iocage_cmd $@ ;;
 	      *) echo "Invalid iocage command! $2" ; exit 1 ;;
 	    esac
 	    ;;

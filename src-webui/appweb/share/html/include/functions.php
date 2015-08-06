@@ -539,6 +539,24 @@ function get_iocage_id_from_origin($origin)
   return "";
 }
 
+function get_iocage_pool()
+{
+   $output = run_cmd("iocage activate");
+   $rtn = explode( " ", $output[0]);
+   return $rtn[1];
+}
 
+function get_zpools()
+{
+   exec("/sbin/zpool list ".escapeshellarg("-H"), $output);
+   $zpools = array();
+   foreach ( $output as $pline )
+   {
+     $pline=str_replace("\t", " ", $pline);
+     $zarray = explode(" ", $pline);
+     $zpools[] = $zarray[0];
+   }
+   return $zpools;
+}
 
 ?>
