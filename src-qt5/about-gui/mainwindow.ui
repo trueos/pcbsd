@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
-    <height>494</height>
+    <width>361</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <iconset resource="about-gui.qrc">
     <normaloff>:/about.png</normaloff>:/about.png</iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0" colspan="2">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_7">
      <item>
       <spacer name="horizontalSpacer_11">
@@ -67,7 +67,7 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0" rowspan="2" colspan="2">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer_3">
@@ -121,7 +121,64 @@
      </item>
     </layout>
    </item>
-   <item row="5" column="0" colspan="2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <item>
+      <spacer name="horizontalSpacer_13">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>Package set:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="PkgSetLabel">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_14">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
       <spacer name="horizontalSpacer_7">
@@ -174,7 +231,7 @@
      </item>
     </layout>
    </item>
-   <item row="6" column="0" colspan="2">
+   <item>
     <widget class="QStackedWidget" name="MainStack">
      <property name="currentIndex">
       <number>0</number>
@@ -260,16 +317,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>&amp;System components...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>&amp;Desktop environments...</string>
+          <string>Software and system components...</string>
          </property>
         </widget>
        </item>
@@ -375,9 +425,12 @@
         </layout>
        </item>
        <item>
-        <widget class="QTreeWidget" name="DEList">
-         <property name="sortingEnabled">
+        <widget class="QTreeWidget" name="ComponentsList">
+         <property name="showDropIndicator" stdset="0">
           <bool>true</bool>
+         </property>
+         <property name="sortingEnabled">
+          <bool>false</bool>
          </property>
          <column>
           <property name="text">
@@ -562,64 +615,7 @@
      </widget>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
-    <layout class="QHBoxLayout" name="horizontalLayout_8">
-     <item>
-      <spacer name="horizontalSpacer_13">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_7">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="text">
-        <string>Package set:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="PkgSetLabel">
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_14">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="7" column="0" colspan="2">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <spacer name="horizontalSpacer_9">
@@ -643,60 +639,6 @@
      </item>
      <item>
       <spacer name="horizontalSpacer_10">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="3" column="0" colspan="2">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <spacer name="horizontalSpacer_16">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_9">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="text">
-        <string>Utils:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="UtilsLabel">
-       <property name="text">
-        <string>&lt;Unknown&gt;</string>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <spacer name="horizontalSpacer_17">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
