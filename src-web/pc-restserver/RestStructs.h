@@ -9,8 +9,17 @@
 #include <QStringList>
 #include <QDateTime>
 
+#define CurHttpVersion QString("HTTP/1.1")
 
 //NOTE: The input structure parsing assumes a JSON input body
+//NOTE: Common VERB's are:
+/*	GET - Read a resource (no changes made)
+	PUT - Insert/update a resource (makes changes - nothing automatically assigned for a new resource)
+	POST - Insert/update a resource (makes changes - automatically assigns data for new resource as necessary)
+	DELETE - Remove a resource (makes changes)
+	OPTIONS - List the allowed options on a resource (no changes made)
+	HEAD - List the response headers only (no changes made)
+*/
 class RestInputStruct{
 public:
 	QString VERB, URI, HTTPVERSION;
@@ -18,6 +27,7 @@ public:
 	QString Body;
 
 	RestInputStruct(QString message){
+	  HTTPVERSION = CurHttpVersion;
 	  Header = message.section("\n{",0,0).split("\n");
 	  Body = message.remove(Header.join("\n")+"\n"); //chop the headers off the front
 	  if(!Header.isEmpty()){
@@ -40,6 +50,7 @@ public:
 	QString Body;
 	
 	RestOutputStruct(){
+	  HTTPVERSION = CurHttpVersion;
 	  CODE = BADREQUEST; //default exit code
 	}
 	~RestOutputStruct(){}
@@ -76,6 +87,7 @@ public:
 	  //Add other headers here as necessary
 	  if(!Header.isEmpty()){ headers << Header; }
 	  //Now add the body of the return
+	  if(!Body.isEmpty()){ headers << "Content-Length: "+QString::number(Body.length()); }
 	  headers << Body;
 	  return headers.join("\n");
 	}
