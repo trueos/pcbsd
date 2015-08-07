@@ -239,7 +239,7 @@ setup_grub()
   fi
   
   # GhostBSD doesn't use ZFS.
-  if [ -e "/boot/zfs/zpool.cache"] ; then
+  if [ -e "/boot/zfs/zpool.cache" ] ; then
     rc_halt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
   fi
 
