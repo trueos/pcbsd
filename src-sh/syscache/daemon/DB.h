@@ -92,7 +92,7 @@ public:
 
 	void shutDown();
 
-	QString fetchInfo(QStringList request);
+	QString fetchInfo(QStringList request, bool noncli = false);
 	//Request Format: [<type>, <cmd1>, <cmd2>, .... ]
 
 	void writeToLog(QString message);

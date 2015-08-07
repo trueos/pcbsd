@@ -84,11 +84,11 @@ void DB::shutDown(){
   HASH->clear();
 }
 
-QString DB::fetchInfo(QStringList request){
+QString DB::fetchInfo(QStringList request, bool noncli){
   if(HASH->isEmpty()){ 
     startSync();
     QCoreApplication::processEvents();
-    pausems(500); //wait 1/2 second for sync to start up
+    pausems(200); //wait 1/5 second for sync to start up
   }
 	
   QString hashkey, searchterm, searchjail;
@@ -272,7 +272,7 @@ QString DB::fetchInfo(QStringList request){
       val = HASH->value(hashkey,"");
       if(sortnames && !val.isEmpty()){ val = sortByName(val.split(LISTDELIMITER)).join(LISTDELIMITER); }
     }
-    val.replace(LISTDELIMITER, ", ");
+    if(!noncli){ val.replace(LISTDELIMITER, ", "); } //for CLI requests, put lists in a comma-delimited order
     if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
   }
   return val;
