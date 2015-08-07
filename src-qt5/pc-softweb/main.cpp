@@ -8,6 +8,7 @@
 #include <QProcess>
 #include <QFile>
 #include <QTextCodec>
+#include <QDesktopWidget>
 
 #include "MainUI.h"
 //#include "migrateUI.h"
@@ -63,7 +64,11 @@ int main( int argc, char ** argv )
     
       //Launch the UI
       MainUI w(debug); 
-      w.show();
+      if(QApplication::desktop()->availableGeometry().width() < 1024){
+        w.showMaximized();
+      }else{
+        w.show();
+      }
 
       QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
