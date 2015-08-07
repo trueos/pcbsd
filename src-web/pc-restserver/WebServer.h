@@ -15,6 +15,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QTimer>
 
 #include "syscache-client.h"
 #include "RestStructs.h"
@@ -32,7 +33,6 @@ public slots:
 
 private:
 	QWebSocket *csock; //current socket connection
-	SysCacheClient *syscache;
 	QTimer *idletimer;
 
 	//Main connection comminucations procedure

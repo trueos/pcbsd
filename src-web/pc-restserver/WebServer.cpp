@@ -12,14 +12,14 @@
 
 
 #define DEBUG 1
-
+#define SCLISTDELIM QString("::::") //SysCache List Delimiter
+#define PORTNUMBER 12142
 //=======================
 //              PUBLIC
 //=======================
 WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::NonSecureMode){
   csock = 0; //no current socket connected
   //Setup all the various settings
-  syscache = new SysCacheClient(this);
   idletimer = new QTimer(this);
     idletimer->setInterval(5000); //every 5 seconds
     idletimer->setSingleShot(true);
@@ -40,14 +40,16 @@ WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::Non
 }
 
 WebServer::~WebServer(){
-	
+  //syscacheThread->exit(0);
 }
 
 bool WebServer::startServer(){
-  bool ok = this->listen();
+  bool ok = this->listen(QHostAddress::Any, PORTNUMBER);
   if(ok){ 
+    QCoreApplication::processEvents();
     qDebug() << "Server Started:" << QDateTime::currentDateTime().toString(Qt::ISODate);
-    qDebug() << " Name:" << this->serverName() << "Port:" << this->serverPort() << "URL:" << this->serverUrl() << "Address:" << this->serverAddress().toString();
+    qDebug() << " Name:" << this->serverName() << "Port:" << this->serverPort();
+    qDebug() << " URL:" << this->serverUrl().toString() << "Remote Address:" << this->serverAddress().toString();
   }else{ qCritical() << "Could not start server - exiting..."; }
   return ok;
 }
@@ -90,7 +92,14 @@ void WebServer::EvaluateRequest(const RestInputStruct &REQ){
 	for(int r=0; r<reqs.length(); r++){
 	  QString req =  JsonValueToString(doc.object().value(reqs[r]));
 	  qDebug() << "  ["+reqs[r]+"]="+req;
-	  QStringList values = syscache->parseInputs( QStringList() << req );      
+	  QStringList values = SysCacheClient::parseInputs( QStringList() << req ); 
+	  values.removeAll("");
+	  //Quick check if a list of outputs was returned
+	  if(values.length()==1){
+	    values = values[0].split(SCLISTDELIM); //split up the return list (if necessary)
+	    values.removeAll("");
+	  }
+	  qDebug() << " - Returns:" << values;
 	  keys.removeAll(reqs[r]); //this key was already processed
 	  if(values.length()<2){
 	    obj.insert(reqs[r],values.join(""));
@@ -108,14 +117,24 @@ void WebServer::EvaluateRequest(const RestInputStruct &REQ){
         qDebug() << keys[i]+"="+JsonValueToString(doc.object().value(keys[i]) );
       }	  
     }
+    ret.setObject(obj);
   //Special case for a single syscache input (array of strings)
   }else if(doc.isArray() && REQ.URI.toLower()=="/syscache"){
     QStringList inputs = JsonArrayToStringList(doc.array());
     qDebug() << " syscache inputs:" << inputs;
     QJsonObject obj;
-      QStringList values = syscache->parseInputs( inputs );
+      QStringList values = SysCacheClient::parseInputs(inputs );
       for(int i=0; i<values.length(); i++){
-        obj.insert("Value"+QString::number(i),values[i]);
+	if(values[i].contains(SCLISTDELIM)){
+	  //This is an array of values
+	  QStringList vals = values[i].split(SCLISTDELIM);
+	    vals.removeAll("");
+	  QJsonArray arr;
+              for(int j=0; j<vals.length(); j++){ arr.append(vals[j]); }
+	    obj.insert("Value"+QString::number(i),arr);
+	}else{
+          obj.insert("Value"+QString::number(i),values[i]);
+	}
       }
     ret.setObject(obj);
   }
