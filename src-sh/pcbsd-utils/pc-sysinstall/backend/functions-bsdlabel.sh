@@ -639,13 +639,18 @@ new_gpart_partitions()
 
 
       # Increment our parts counter
-      if [ "$_pType" = "gpt" -o "$_pType" = "apm" ] ; then 
-          CURPART=$((CURPART+1))
-        # If this is a gpt/apm partition, 
+      if [ "$_pType" = "gpt" ] ; then
+        CURPART=$(get_next_gpt_part "$_pDisk")
+        # If this is a gpt partition,
+        # we can continue and skip the MBR part letter stuff
+        continue
+      elif [  "$_pType" = "apm" ] ; then
+        CURPART=$((CURPART+1))
+        # If this is a apm partition,
         # we can continue and skip the MBR part letter stuff
         continue
       else
-          CURPART=$((CURPART+1))
+        CURPART=$((CURPART+1))
         if [ "$CURPART" = "3" ] ; then CURPART="4" ; fi
       fi
 
