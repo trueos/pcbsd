@@ -363,18 +363,16 @@ If you right-click the icon, you will see the menu shown in Figure 7.3a.
 
 **Figure 7.3a: Right-click Menu for Update Manager** 
 
-.. image:: images/update8.png
+.. image:: images/update8a.png
 
 This menu contains the following options:
 
 * **Start the Update Manager:** launches the Update Manager GUI which can be used as described in :ref:`Manual Updates (GUI Method)`.
 
-* **Start the AppCafe:** launches AppCafe® which can be used to manage installed software as described in :ref:`AppCafe®`.
-
-* **Start the Warden:** launches Warden® which can be used to manage jails as described in :ref:`Warden®`.
-
 * **Check for Updates:** by default, updates are checked every 24 hours or 20 minutes after booting the system. However, the system won't check for updates more than once per day
   should you reboot multiple times within a day. You can check for updates now by clicking this option.
+
+* **Start the AppCafe:** launches AppCafe® which can be used to manage installed software as described in :ref:`AppCafe®`.
 
 * **Run at Startup:** to disable the automatic update check after the system boots, uncheck this box.
 
