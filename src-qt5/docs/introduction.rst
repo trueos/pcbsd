@@ -187,6 +187,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
+  
+* If you install or uninstall any software in AppCafe®, a "Status" tab will appear so that you can review the installation log.
 
 * The :menuselection:`System --> Branches` menu has been added to :ref:`Update Manager`. This can be used to change which software branch is used to track updates.
 
