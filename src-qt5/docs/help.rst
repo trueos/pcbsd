@@ -161,6 +161,8 @@ offers the following mailing lists to cover a wide variety of discussion topics:
 
 * `Translations <http://lists.pcbsd.org/mailman/listinfo/translations>`_: for those involved in translating for PC-BSD®. 
 
+* `Translations-notifications <http://lists.pcbsd.org/mailman/listinfo/translations-notifications>`_: lists documentation commits that affect translations
+
 Each mailing list includes a description of topics suitable for discussion on that list and indicates if it is read only or available for user discussion.
 Anyone can read the archives of a list. If you wish to send an email to a mailing list, you will need to first subscribe to the list. The link for each
 mailing list provides an interface for subscribing to that list. When you send an email to the list, remember to use the mailing address that you used when
