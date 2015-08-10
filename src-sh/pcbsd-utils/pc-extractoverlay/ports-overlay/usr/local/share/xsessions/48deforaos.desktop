@@ -1,0 +1,7 @@
+[Desktop Entry] 
+Encoding=UTF-8
+TryExec=startdeforaos
+Exec=startdeforaos
+Icon=/usr/local/share/pixmaps/deforaos.png
+Name=DeforaOS
+Comment=A lightweight desktop environment
