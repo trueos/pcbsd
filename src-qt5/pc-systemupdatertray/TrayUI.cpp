@@ -8,6 +8,8 @@
 #include <QInputDialog>
 #include <QPainter>
 
+#include <unistd.h>
+
 #include "dialogReminder.h"
 
 //PUBLIC
@@ -193,6 +195,7 @@ void TrayUI::ShowMessage(){
     DialogReminder dlg;
     dlg.show();
     while(dlg.isVisible()){
+	usleep(100000); // 1/10 second pause (prevent overloading the CPU)
        QApplication::processEvents(); //keep the tray functioning during the message
     }
     int minutes = dlg.delayMinutes();
