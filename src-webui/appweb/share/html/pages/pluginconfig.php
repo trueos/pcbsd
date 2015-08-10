@@ -21,15 +21,18 @@ defined('DS') OR die('No direct access allowed.');
   $ip4start = $output[0];
   $output = run_cmd("iocage get ip4_autoend default");
   $ip4end = $output[0];
+  $output = run_cmd("iocage get ip4_autosubnet default");
+  $ip4subnet = $output[0];
 
   // Save the ip4 ranges / settings
   $setranges=true;
-  if ( empty($_POST['ip4start']) or empty($_POST['ip4end']) ) {
+  if ( empty($_POST['ip4start']) or empty($_POST['ip4end']) or empty($_POST['ip4subnet']) ) {
     $setranges=false;
   } else {
     $ip4start = $_POST['ip4start'];
     $ip4end = $_POST['ip4end'];
-    if ( is_numeric($ip4start) and is_numeric($ip4end) ) {
+    $ip4subnet = $_POST['ip4subnet'];
+    if ( is_numeric($ip4start) and is_numeric($ip4end) and is_numeric($ip4subnet) ) {
       // validate
       if ( $ip4start > 254 or $ip4start < 1 ) {
         $setranges=false;
@@ -43,6 +46,10 @@ defined('DS') OR die('No direct access allowed.');
         $setranges=false;
         $errormsg="ERROR: The ip4 end range must be less than start range!";
       }
+      if ( $ip4subnet < 16 or $ip4subnet > 30 ) {
+        $setranges=false;
+        $errormsg="ERROR: The ip4 subnet should be between 16-30";
+      }
     } else {
       $setranges=false;
       $errormsg="ERROR: The ranges must be numbers!";
@@ -55,9 +62,13 @@ defined('DS') OR die('No direct access allowed.');
   if ( $ip4end == "none" )
     $ip4end="";
 
+  if ( $ip4subnet == "none" )
+    $ip4subnet="";
+
   if ( $setranges ) {
     run_cmd("iocage set ip4_autostart=$ip4start default");
     run_cmd("iocage set ip4_autoend=$ip4end default");
+    run_cmd("iocage set ip4_autosubnet=$ip4subnet default");
   }
 
   if ( $setranges and ! empty($_GET['firstrun']) )
@@ -90,7 +101,8 @@ defined('DS') OR die('No direct access allowed.');
   <td style="text-align: left; vertical-align: middle;">
     <?php echo $defaultip4base; ?>. 
     <input name="ip4start" type="text" size=3 maxlength=3 value="<?php echo "$ip4start"; ?>" /> - 
-    <input name="ip4end" type="text" size=3 maxlength=3 value="<?php echo "$ip4end"; ?>" />
+    <input name="ip4end" type="text" size=3 maxlength=3 value="<?php echo "$ip4end"; ?>" /> / 
+    <input name="ip4subnet" type="text" size=2 maxlength=2 value="<?php echo "$ip4subnet"; ?>" />
   </td>
 </tr>
 <tr>
