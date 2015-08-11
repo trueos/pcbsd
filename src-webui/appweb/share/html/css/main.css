@@ -232,6 +232,13 @@ table.pbidescription td.example_code
 }
 
 /* CSS for the status page */
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    table.status tr:nth-child(odd)	{background-color:#D6D6DD;}
+    table.status tr:nth-child(even)	{background-color:#babac6;}
+    table.status tr.fixzebra		{background-color:#D6D6DD;}
 
     table.status {border:1px solid #444444;border-radius-right: 8px;}
     table.status {background-color:#D6D6DD;}

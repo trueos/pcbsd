@@ -701,6 +701,7 @@ void Installer::saveSettings()
       sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
       // Now set the domain name on the system
       sethostname(lineDomainName->text().toLatin1(), lineDomainName->text().length());
+      QProcess::execute(QString("hostname ") + lineHostname->text() + "." + lineDomainName->text());
   }
   // Do we need to change the system hostname?
   else if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
@@ -711,6 +712,7 @@ void Installer::saveSettings()
 
       // Now set the hostname on the system
       sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
+      QProcess::execute(QString("hostname ") + lineHostname->text());
   }
 
   // Save the PCDM default lang / inputs

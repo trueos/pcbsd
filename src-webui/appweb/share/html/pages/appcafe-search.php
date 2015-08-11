@@ -1,25 +1,45 @@
 <?php
  defined('DS') OR die('No direct access allowed.');
 
- if ( ! empty($_GET['search']) )
-   $header="Searching for: ". $_GET['search'];
- else
-   $header="Package Search";
-
- if ( ! empty($_GET['searchtext']) ) {
+if ( ! empty($_GET['search']) )
+    $header="Searching for: ". $_GET['search'];
+if ( ! empty($_GET['searchtext']) ) {
     $searchtext = $_GET['searchtext'];
     $searchraw = $_GET['searchraw'];
  }
 ?>
 
+<br>
+<br>
+<table class="header" style="width:100%">
+<tr>
+    <th>
+        <h1><center>Package Search</h1>
+    </th>
+</tr>
+</table>
+
+<table class="login" style="width:100%";">
+<tr>
+    <th>
+    </th>
+</tr>
+<tr>
+    <th>
+        <form action="/" method="get">
+        <input type="hidden" name="p" value="appcafe-search">
+        &nbsp&nbspSearch: <input name="searchtext" type="text" float: left; align="middle" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="position:absolute;margin:0 0 0 4px;" width="28" height="28" src="images/search.png" align="middle" alt="Search" /><br>
+    </th>
+</tr>
+<tr>
+    <th>
+        &nbsp&nbspSearch all available PBIs and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
+    </th>
+</tr>
+
 <h1><?php echo $header; ?></h1>
 <br>
-<form action="/" method="get">
-<input type="hidden" name="p" value="appcafe-search">
-Search: <input name="searchtext" type="text" float: left; align="middle" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="position:absolute;margin:0 0 0 4px;" width="28" height="28" src="images/search.png" align="middle" alt="Search" /><br>
 <br>
-Search all available PBIs and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
-</form>
 
 <?php
 
