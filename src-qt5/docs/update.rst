@@ -46,25 +46,39 @@ a desktop.
 
 **Figure 7.1a: Running AppCafe® from a Desktop**
 
-.. image:: images/remote1b.png
+.. image:: images/remote1c.png
 
 .. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
    If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
    perform the actual update and that you won't be able to add or delete any software while an update is in progress.
 
-The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure AppCafe®, search for an application, or to
-closeAppCafe® . Figure 7.1b shows the menu that appears if you click "Configure". 
+The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to access the following options:
+
+* **Configure:** used to configure the package repository and remote access to AppCafe®. 
+
+* **Save Pkg List:** click this option to generate a list of the installed PBIs. A pop-up message will indicate the path to the file containing the list.
+
+* **Search for Text:** opens a search bar where you can input the name of an application. This is useful for quickly navigating to an application listed on the current screen.
+
+* **Close AppCafe:** used to exit this application.
+
+Figure 7.1b shows the menu that appears if you click the "Configure" option. 
 
 **Figure 7.1b: Configuring the AppCafe® Repository**
 
 .. image:: images/remote2a.png
 
-The "Repository Configuration" tab is used to determine which package set to use. "Enterprise" is meant for enterprise users that wish to only receive software
-updates which fix known security vulnerabilities. "Production" is the default and recommended setting for most users. Software updates are provided every three
-months, which gives sufficient time for new software versions to be tested. "Edge" is meant for users who wish to assist with software testing or who can tolerate
-the occasional breakage caused by installing new software versions. Software updates are provided approximately every two weeks. "Custom" assumes that you have
-followed the instructions to :ref:`Create a Local Package Mirror` and are ready to click the "+" button to browse to the location of the custom :file:`.rpo` file.
-To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
+The "Repository Configuration" tab is used to determine which package set to use, where:
+
+* **Enterprise:** this package set is meant for enterprise users that wish to only receive software updates which fix known security vulnerabilities. 
+
+* **Production:** is the default and recommended setting for most users. Software updates are provided every three months, which gives sufficient time for new software versions to be tested.
+
+* **Edge:** is meant for users who wish to assist with software testing or who can tolerate the occasional breakage caused by installing new software versions. Software updates are provided
+  approximately every two weeks. 
+  
+* **Custom:** assumes that you have followed the instructions to :ref:`Create a Local Package Mirror` and are ready to click the "+" button to browse to the location of the custom
+  :file:`.rpo` file. To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
 
 To configure remote access, use the "Remote Access" tab shown in Figure 7.1c. 
 
@@ -108,31 +122,27 @@ The rest of this section describes how to manage software using AppCafe®.
 Software Management
 -------------------
 
-The "Home" tab, seen in Figure 7.1a, is used to browse for available PBIs. Applications which are already installed have a red "X". If you click that "X", a pop-up message will
-ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
-application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow "Required" triangle will be
+The "Home" tab, seen in Figure 7.1a, is used to browse for available PBIs. Applications which are already installed and which are not required by other applications have a red "X".
+If you click a red "X", a pop-up message will ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to
+install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow "Required" triangle will be
 displayed and a "Related" tab will indicate the name of the application(s) which require it.
 
-The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users. Whether or not an application is installed is from the perspective of
-the value of the "Viewing Apps for:" drop-down menu. If you have created any jails, click the drop-down menu and change "Local System" to the name of the jail that you would
-like to manage.
+The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
 
 The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
 the PBIs for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
 PBIs within that category.
 
-To view all of the applications installed on the system or jail you are "Viewing Apps for:", click the "Installed Apps" tab. The applications will be
+To view all of the applications installed on the system, click the "Installed Apps" tab. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application.
 
 In the example shown in Figure 7.1d, the user has clicked "Firefox" on a system that has Firefox installed.
 
 **Figure 7.1d: Viewing the Details of an Installed Application**
 
-.. image:: images/remote4a.png
+.. image:: images/remote4b.png
 
 The information for an application includes the following: 
-
-* An icon indicating whether or not the application is already installed, can be installed, or is required by another application.
 
 * Name, version, and icon of the application.
 
@@ -153,6 +163,8 @@ The information for an application includes the following:
 * Hyperlinks to add an icon for the application to the desktop (on window managers that support desktop icons), to add an entry for the application to the
   desktop menu for the logged on user only (on window managers that provide desktop menus), or to add an entry to the desktop menu of all users.
 
+* An icon indicating whether or not the application is already installed, can be installed, or is required by another application.
+  
 * A description of the application.
 
 The following tabs may also be displayed. If a tab is not displayed, it means that that information is not currently available for this particular application.
@@ -171,86 +183,71 @@ The "App Search" tab is shown in Figure 7.1e.
 
 **Figure 7.1e: Searching for Applications**
 
-.. image:: images/remote5a.png
+.. image:: images/remote5b.png
 
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
 
-By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBI and packages" box.
+By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBIs and packages" box.
+
+If you install or uninstall any software, a "Status" tab will be added. In the example shown in Figure 7.1f, the firefox application was installed. Click the hyperlink under
+the "Result" column to review the installation log.
+
+**Figure 7.1f: Example Status Tab**
+
+.. image:: images/appcafe6.png
 
 .. index:: AppCafe®
 .. _Jail Management:
 
-Jail Management
----------------
+Plugins
+-------
 
-A `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ provides a very light-weight, operating system-level virtualization. A jail is similar to running an independent instance of
-FreeBSD on the same hardware, without all of the overhead usually associated with virtualization. Jails are usually created for running applications or services. For example, you
-could host your own web or mail server on your desktop system without affecting your desktop applications or data. Each jail has its own IP address, running processes, and users.
-Whatever happens in that jail does not affect your operating system or other jails running on the PC-BSD® system.
+Beginning with PC-BSD® 10.2, plugins can be used to install a pre-configured, isolated application into its own jail. A `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ provides a very
+light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
+with virtualization. Jails are usually created for running applications or services. For example, you could host your own web or mail server on your desktop system without affecting your
+desktop applications or data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails running on
+the PC-BSD® system.
 
-PC-BSD® uses `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
+Plugins use `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
 designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration file. 
 
-The rest of this section demonstrates how to manage jails from either the graphical interface or the command line.
+To create, delete, and manage plugins, click the "Plugins" tab. The first time you use plugins, the screen shown in Figure 7.1g will prompt you to configure the range of IP addresses on
+your network that you will reserve for plugins.
 
-.. index:: AppCafe®
-.. _Managing Jails from the GUI:
+**Figure 7.1g: Initial Plugins Configuration**
 
-Managing Jails from the GUI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/remote6b.png
 
-To create, delete, and manage jails, click the "Jails" tab. If you have not yet created any jails on the system, a getting started message will appear. Click the
-"create a new jail" link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
+In this example, AppCafe® has detected that the PC-BSD® system is on the *192.168.1.x* network and the user has input a range of available addresses from
+*192.168.1.5* to
+*192.168.1.10*. When inputting your own address range, make sure that no other hosts on your network are, or will be, using those reserved addresses. If you have control over the
+DHCP server in your network, make a reservation for those addresses so that the DHCP server does not assign them to other hosts on your network.
 
-**Figure 7.1f: Adding a New Jail**
+In this example, AppCafe® has also detected that the name of the ZFS pool is *tank*. If you have multiple ZFS pools and would like to specify which one is used for plugins, use the
+"Plugin zpool" drop-down menu to select the desired pool.
 
-.. image:: images/remote6a.png
+When finished, click "Save". This will open the screen showing the listing of available plugins. In the example shown in Figure 7.1h, the `Plex Media Server <https://plex.tv/>`_ plugin is
+available for installation.
 
-Input the following information: 
+**Figure 7.1h: List of Available Plugins**
 
-**Hostname:** the hostname must be unique on your network and can not contain a space. Use a hostname that reminds you of the type of jail and your reason for creating it.
+.. image:: images/remote7a.png
 
-**IPv4 Address:** input the IPv4 address to be used by the jail and access its contents. Choose an address on your network that is not already in use by another computer or jail
-and which will not conflict with the address range assigned by a DHCP server. 
+Click the plugin's install icon to begin the installation. Installation will take a few minutes as a new jail will be created, the jail will be assigned the next available reserved IP
+address, and the application will be installed into the jail. Once installed, a screen similar to Figure 7.1i will indicate that the plugin is installed.
 
-Click the "Create Jail" button which will queue the jail creation so that you can continue to use AppCafe® while the jail template is downloaded and installed. Once the jail is
-complete, it will be listed, as seen in the example in Figure 7.1g. 
+**Figure 7.1h: Plugin is Installed**
 
-**Figure 7.1g: Managing Installed Jails**
+.. image:: images/plugin1.png
 
-.. image:: images/remote7.png
 
-The jail can then be managed by clicking on the hyperlinks for the jail under the following columns: 
-
-- **Jail Name:** click the jail's name, in this example *jail1*, to open the screen shown in Figure 7.1h. This screen can be used to change the jail's IP
-  address or subnet mask and to specify the network interface to use for the jail. If you change a setting, click the "Save" button to save the changes. If
-  you click the red bar in the upper right corner, a pop-up message will ask you to confirm whether or not you want to delete the jail. Alternately, click the
-  "Home" button to return to the screen shown in Figure 7.1g. 
-
-- **Autostart:** indicates whether or not the jail is set to start automatically when the system boots. Click the link to toggle between *Disabled* and
-  *Enabled*.
-
-- **Status:** indicates whether or not the jail is currently running, and thus available. Click the link to toggle between *Stopped* and *Running*.
-
-- **Packages:** if the jail is not running, a message will indicate that you need to first *Start jail to view*. Click the *Stopped* link so that it changes
-  to *Running*. This will change the message to *View Packages*. Click this link to view which packages are currently installed in the jail. This will also
-  display the application categories so that you can install packages into the specified jail. A hyperlink is also included to "Export PBI list". If the jail
-  already has PBIs installed, you can click this link to create a file named :file:`exportfile.pbilist` which can then be imported into another jail or
-  PC-BSD ®system.
-
-**Figure 7.1h: Editing the Specified Jail**
-
-.. image:: images/remote8.png
-
-.. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear.
-   Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for jail1" to see the update details for "jail1". 
 
 .. index:: AppCafe®
 .. _Managing Jails from the CLI:
 
-Managing Jails from the CLI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Managing Plugins from the CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer using
 the command line. Advanced users can also refer to the command line version in their own jail management scripts.
@@ -366,18 +363,16 @@ If you right-click the icon, you will see the menu shown in Figure 7.3a.
 
 **Figure 7.3a: Right-click Menu for Update Manager** 
 
-.. image:: images/update8.png
+.. image:: images/update8a.png
 
 This menu contains the following options:
 
 * **Start the Update Manager:** launches the Update Manager GUI which can be used as described in :ref:`Manual Updates (GUI Method)`.
 
-* **Start the AppCafe:** launches AppCafe® which can be used to manage installed software as described in :ref:`AppCafe®`.
-
-* **Start the Warden:** launches Warden® which can be used to manage jails as described in :ref:`Warden®`.
-
 * **Check for Updates:** by default, updates are checked every 24 hours or 20 minutes after booting the system. However, the system won't check for updates more than once per day
   should you reboot multiple times within a day. You can check for updates now by clicking this option.
+
+* **Start the AppCafe:** launches AppCafe® which can be used to manage installed software as described in :ref:`AppCafe®`.
 
 * **Run at Startup:** to disable the automatic update check after the system boots, uncheck this box.
 

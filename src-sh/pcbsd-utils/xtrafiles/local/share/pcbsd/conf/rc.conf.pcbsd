@@ -112,10 +112,6 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   # Enable the pcdm display manager
   pcdm_enable="YES"
 
-  # Enable BlueTooth
-  hcsecd_enable="YES"
-  sdpd_enable="YES"
-
   # Load the following kernel modules
   kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw cuse4bsd sem geom_uzip fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse"
 

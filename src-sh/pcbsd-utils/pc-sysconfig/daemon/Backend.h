@@ -166,7 +166,7 @@ private:
 	//SYSTEM SUSPEND SUPPORT
 	QString checkSuspendAbility(){
 	  //Check the supported CPU sleep states and ensure that S3 is listed
-	  QStringList info = runShellCommand("sysctl -ae").filter("hw.acpi.supported_sleep_state=");
+	  QStringList info = runShellCommand("sysctl hw.acpi.supported_sleep_state");
 	  bool ok = false;
 	  if(!info.isEmpty()){
     	    ok = info.first().section("=",1,1).split(" ").contains("S3");

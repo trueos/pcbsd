@@ -358,16 +358,16 @@ void Installer::slotNext()
       return;
    }*/
    //Check that there are services available to be enabled
-   if( installStackWidget->currentIndex()==6 && SERVICELIST.isEmpty() ){
-     qDebug() << "Available Services:" << SERVICELIST.length();
+   if( installStackWidget->currentIndex()==5 ){
+     if(DEBUG){ qDebug() << "Available Services:" << SERVICELIST.length(); }
      if(SERVICELIST.isEmpty()){
-       installStackWidget->setCurrentIndex(7); //skip the services page
+       installStackWidget->setCurrentIndex(6); //skip the services page
        if(DEBUG){ qDebug() << "Skipping Services - now index:" << installStackWidget->currentIndex(); }
      }
    }
    
    // Finished screen
-   if ( installStackWidget->currentIndex() == 6 ) {
+   if ( installStackWidget->currentIndex() >= 6 ) {
       // Save the settings
       if(!DEBUG){ saveSettings(); }
       nextButton->setText(tr("&Finish"));
@@ -556,15 +556,16 @@ void Installer::slotQuickConnect(QString key,QString SSID){
   // Run the wifiQuickConnect function
   NetworkInterface::wifiQuickConnect(SSID,key,"wlan0");
  
-  // Move to finish screen
-  installStackWidget->setCurrentIndex(5);
+  // Move to the next page screen
+  nextButton->click();
+  /*installStackWidget->setCurrentIndex(5);
 
   // Save the settings
   saveSettings();
   nextButton->setText(tr("&Finish"));
   backButton->setVisible(false);
   nextButton->disconnect();
-  connect(nextButton, SIGNAL(clicked()), this, SLOT(slotFinished()));
+  connect(nextButton, SIGNAL(clicked()), this, SLOT(slotFinished()));*/
 }
 
 void Installer::slotGetPCDevice(){
@@ -700,6 +701,7 @@ void Installer::saveSettings()
       sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
       // Now set the domain name on the system
       sethostname(lineDomainName->text().toLatin1(), lineDomainName->text().length());
+      QProcess::execute(QString("hostname ") + lineHostname->text() + "." + lineDomainName->text());
   }
   // Do we need to change the system hostname?
   else if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
@@ -710,6 +712,7 @@ void Installer::saveSettings()
 
       // Now set the hostname on the system
       sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
+      QProcess::execute(QString("hostname ") + lineHostname->text());
   }
 
   // Save the PCDM default lang / inputs

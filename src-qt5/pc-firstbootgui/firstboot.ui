@@ -20,16 +20,18 @@
    <string notr="true">PC-BSD</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QStatusBar{
-background-color: rgb(0, 70, 175);
-color: white;
-font-weight: bold;
-}
-QWidget{
+   <string notr="true">QWidget{
   font-family: &quot;Noto Sans&quot;;
   font-size: 12pt;
 }
-</string>
+QStatusBar{
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 70, 175,255), stop:1 rgba(0, 70, 175,220));
+color: white;
+font-weight: bold;
+}
+QWidget#footerWidget{
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:-0.5, stop:0 rgba(0, 70, 175,220), stop:1 transparent);
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -1703,9 +1705,6 @@ background: transparent;</string>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 70, 175, 255), stop:1 rgba(255, 240, 240, 240));</string>
-      </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
         <number>10</number>
@@ -1859,12 +1858,7 @@ background: transparent;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 70, 175);
-color: white;</string>
-   </property>
-  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="pc-firstboot.qrc"/>

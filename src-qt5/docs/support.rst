@@ -156,6 +156,9 @@ When translating the documentation, be aware of the following:
 
 .. image:: images/translate7.png
 
+If you would like to receive notifications of documentation changes that affect translations, subscribe to the
+`Translation-notifications <http://lists.pcbsd.org/mailman/listinfo/translations-notifications>`_ mailing list.
+
 .. index:: translations
 .. _Website Translation:
 
