@@ -820,6 +820,13 @@ The boot menu configuration can be found in the ASCII text file :file:`/usr/loca
  GRUB_FONT=/boot/grub/pcbsdfont.pf2
  GRUB_HIDDEN_TIMEOUT_QUIET=false
  GRUB_TIMEOUT=2
+ 
+To modify the maximum number of boot environments, change the number of this variable in :file:`/usr/local/etc/pcbsd.conf`::
+
+ MAXBE: 5
+ 
+Note that valid values range from *1* to
+*10*.
 
 .. index:: configuration
 .. _Hardware Compatibility:
