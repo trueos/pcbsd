@@ -959,8 +959,9 @@ void Syncer::syncJailInfo(){
 	# git remote update
 	# git status -uno | grep -q "is behind"
 	*/
-      QString hasup = "false"; //TO-DO
-      HASH->insert(prefix+"hasupdates", hasup);
+      //Only need the return code - 0=NoUpdates
+      bool hasup = (QProcess::execute("iocage update -n "+ID)!=0);
+      HASH->insert(prefix+"hasupdates", (hasup ? "true": "false") );
 
       installedcages << inst+" "+ID;
   }
