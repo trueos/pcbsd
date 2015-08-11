@@ -205,15 +205,26 @@ Plugins
 
 Beginning with PC-BSD® 10.2, plugins can be used to install a pre-configured, isolated application into its own jail. A `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ provides a very
 light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
-with virtualization. Jails are usually created for running applications or services. For example, you could host your own web or mail server on your desktop system without affecting your
-desktop applications or data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails running on
-the PC-BSD® system.
+with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
+installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
+running on the PC-BSD® system.
 
 Plugins use `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
 designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration file. 
 
-To create, delete, and manage plugins, click the "Plugins" tab. The first time you use plugins, the screen shown in Figure 7.1g will prompt you to configure the range of IP addresses on
-your network that you will reserve for plugins.
+To create, delete, and manage plugins within AppCafe®, click the "Plugins" tab. This will change the entries in the top blue menu bar to the following:
+
+* **Home:** used to return to the Plugins home page.
+
+* **Installed Plugins:** lists the available plugins. The "download" and red "x" icons indicate which plugins are already installed.
+
+* **Configuration:** used to configure the range of IP addresses available for use by plugins.
+
+* **System Apps:** used to return to the main AppCafe® page so that you can manage packages and PBIs.
+
+* **Status:** this tab appears if you have installed or uninstalled any software and contains the logs for each action.
+
+The first time you use plugins, the "Configuration" tab shown in Figure 7.1g will prompt you to configure the range of IP addresses on your network that you will reserve for plugins.
 
 **Figure 7.1g: Initial Plugins Configuration**
 
@@ -227,40 +238,57 @@ DHCP server in your network, make a reservation for those addresses so that the 
 In this example, AppCafe® has also detected that the name of the ZFS pool is *tank*. If you have multiple ZFS pools and would like to specify which one is used for plugins, use the
 "Plugin zpool" drop-down menu to select the desired pool.
 
-When finished, click "Save". This will open the screen showing the listing of available plugins. In the example shown in Figure 7.1h, the `Plex Media Server <https://plex.tv/>`_ plugin is
-available for installation.
+When finished, click "Save". This will open the "Installed Plugins" tab, showing the listing of available plugins. In the example shown in Figure 7.1h, the
+`Plex Media Server <https://plex.tv/>`_ plugin is available for installation.
 
 **Figure 7.1h: List of Available Plugins**
 
 .. image:: images/remote7a.png
 
+.. note:: at this time, only the Plex Media Server is available as a plugin. More plugins will be added in future updates to PC-BSD®. If you would like to install other, isolated
+   applications, refer to the section on :ref:`Managing Jails from the CLI`.
+
 Click the plugin's install icon to begin the installation. Installation will take a few minutes as a new jail will be created, the jail will be assigned the next available reserved IP
 address, and the application will be installed into the jail. Once installed, a screen similar to Figure 7.1i will indicate that the plugin is installed.
 
-**Figure 7.1h: Plugin is Installed**
+**Figure 7.1i: Plugin is Installed**
 
 .. image:: images/plugin1.png
 
+The title bar will indicate the name of the application that was installed and the IP address assigned to the jail where the application was installed. To configure the application,
+click the hyperlink for the "Plex Web Interface" configuration icon. This will open the configuration screen shown in Figure 7.1j.
 
+.. note:: depending upon the window manager's default web browser, the configuration link may or may not display properly. For example, the default web browser for the KDE window manager is
+   Konqueror, which does not render the configuration page. To change the default web browser within KDE, click
+   :menuselection:`Kickoff --> System Settings --> Default Applications -->Web Browser --> in the following browser` and use the browse button to select another web browser, such as Firefox.
+
+**Figure 7.1j: Plugin Configuration**
+
+.. image:: images/plugin2.png
+
+Click the "Agree" button to accept the application's license. You can now configure your channels and playlists. If you are new to Plex, refer to the
+`Plex Getting Started Guide <https://support.plex.tv/hc/en-us/categories/200007268-Getting-Started>`_.
 
 .. index:: AppCafe®
 .. _Managing Jails from the CLI:
 
-Managing Plugins from the CLI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Managing Jails from the CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer using
+The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer to manage jails using
 the command line. Advanced users can also refer to the command line version in their own jail management scripts.
 
 If you type :command:`iocage` at the command line, you will receive a summary of its usage::
 
  usage:
   iocage activate ZPOOL
-  iocage fetch [release=RELEASE | ftphost=ftp.hostname.org | ftpdir=/dir/]
+  iocage fetch [release=RELEASE | ftphost=ftp.hostname.org | ftpdir=/dir/ |
+                ftpfiles="base.txz doc.txz lib32.txz src.txz"]
   iocage init-host IP zpool
   iocage create [-b|-c|-e] [release=RELEASE] [pkglist=file] [property=value]
-  iocage clone UUID|TAG@snapshot [property=value]
+  iocage clone UUID|TAG [UUID|TAG@snapshot] [property=value]
   iocage destroy [-f] UUID|TAG|ALL
+  iocage reset UUID|TAG|ALL
   iocage list [-t|-r]
   iocage start UUID|TAG
   iocage stop UUID|TAG
@@ -268,25 +296,24 @@ If you type :command:`iocage` at the command line, you will receive a summary of
   iocage rcboot
   iocage rcshutdown
   iocage console UUID|TAG
-  iocage exec [-u username | -U username] UUID|TAG command [arg ...]
+  iocage exec [-u username | -U username] UUID|TAG|ALL command [arg ...]
   iocage chroot UUID|TAG [command]
   iocage df
   iocage show property
   iocage get property|all UUID|TAG
   iocage set property=value UUID|TAG
   iocage cap UUID|TAG
-  iocage limits UUID|TAG
+  iocage limits [UUID|TAG]
   iocage uncap UUID|TAG
   iocage inuse [UUID|TAG]
-  iocage top UUID|TAG
-  iocage snapshot UUID|TAG@snapshotname
+  iocage snapshot UUID|TAG [UUID|TAG@snapshotname]
   iocage snaplist UUID|TAG
   iocage snapremove UUID|TAG@snapshotname|ALL
   iocage rollback UUID|TAG@snapshotname
   iocage promote UUID|TAG
   iocage runtime UUID|TAG
   iocage update UUID|TAG
-  iocage upgrade UUID|TAG
+  iocage upgrade UUID|TAG [release=RELEASE]
   iocage record start|stop UUID|TAG
   iocage package UUID|TAG
   iocage export UUID|TAG
@@ -294,13 +321,64 @@ If you type :command:`iocage` at the command line, you will receive a summary of
   iocage defaults
   iocage version | --version
   iocage help
- 
+
   Hint:  you can use shortened UUIDs or TAGs interchangeably!
- 
+
   e.g. for  adae47cb-01a8-11e4-aa78-3c970ea3222f
        use  adae47cb or just adae
 
+Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available::
+
+ iocage fetch
+ Supported releases are: 
+   10.1-RELEASE
+    9.3-RELEASE
+ Please select a release [10.2-RELEASE]: 10.1-RELEASE
+  INFO: Creating tank/iocage
+  INFO: Creating tank/iocage/jails
+  INFO: Creating tank/iocage/.defaults
+  INFO: Creating tank/iocage/download
+  INFO: Creating tank/iocage/releases
+ base.txz                                      100% of   63 MB 1908 kBps 00m34s
+ doc.txz                                       100% of 1395 kB 1301 kBps 00m01s
+ lib32.txz                                     100% of   15 MB 1762 kBps 00m10s
+ src.txz                                       100% of  109 MB 2116 kBps 00m53s
+ Extracting: base.txz
+ Extracting: doc.txz
+ Extracting: lib32.txz
+ Extracting: src.txz
+ * Updating base jail..
+ Looking up fbsd-update.pcbsd.org mirrors... none found.
+ Fetching public key from fbsd-update.pcbsd.org... done.
+ Fetching metadata signature for 10.1-RELEASE from fbsd-update.pcbsd.org... done.
+ Fetching metadata index... done.
+ Fetching 2 metadata files... done.
+ Inspecting system... done.
+ Preparing to download files... done.
+ Fetching 672 patches.....10....20....30....40....50....60....70....80....90....100....110....120....130....140....150....160....170....180....190....200....210....220....230....240....250....260....270....280....290....300....310....320....330....340....350....360....370....380....390....400....410....420....430....440....450....460....470....480....490....500....510....520....530....540....550....560....570....580....590....600....610....620....630....640....650....660....670. done.
+ Applying patches... done.
+ Fetching 988 files... 
+ <snip output>
+ Creating basejail ZFS datasets... please wait.
+
+Note that the version running on the host will be displayed between the square brackets, but that version may not necessarily be available as a jail template. In this example, the host is
+running PC-BSD® 10.2, FreeBSD 10.1 and 9.3 are available as jail templates, and the user has specified to use the 10.1-RELEASE template. Once the template has been installed, you can create
+a jail. In this example, the jail's hostname, network interface, and IP address are specified::
+
+ iocage create tag=jail1 ip4_addr="em0|192.168.1.7/24"
  
+You can then start the jail and check its status::
+
+ iocage start jail1
+ iocage list
+ JID   UUID                                  BOOT  STATE  TAG
+ 1     518ec44d-404c-11e5-91c4-0800277f9a55  off   up     jail1
+
+To access the jail::
+
+ iocage console jail1
+ 
+Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`.
 
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
