@@ -224,7 +224,7 @@ To compile the command line utilities::
 
 To compile the graphical utilities::
 
- cd src-qt4
+ cd src-qt5
 
  /usr/local/lib/qt5/bin/qmake
 
