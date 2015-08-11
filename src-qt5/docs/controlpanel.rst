@@ -264,14 +264,15 @@ screen shown in Figure 8.1g.
 .. image:: images/easypbi7.png
 
 Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
-`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. A screenshot of
+`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-config.json>`_. A screenshot of
 the "Configuration" tab for Bitlbee can be seen in Figure 8.1h.
 
 **Figure 8.1h: Example Configuration Tab**
 
-.. image:: images/bitlbee.png
+.. image:: images/bitlbee1.png
 
-The following fields are available when adding a visual option:
+The following fields are available when adding a visual option. Example values can be found in the
+`README-service-configfile. <https://github.com/pcbsd/pcbsd/blob/master/src-webui/appweb/README-service-configfile>`_.
 
 * **Key:** the option to set.
 
