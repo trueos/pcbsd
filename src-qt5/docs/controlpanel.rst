@@ -911,8 +911,8 @@ A stealth session is similar to a web browser's private mode, except for your en
 this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
 **Allow Valid Users with UID under 1000:** check this box if you have imported existing users with a UID under 1000, for example from a Solaris NIS server. Checking this box
-will activate the "Additional Excluded Users" field.
-
+will activate the "Additional Excluded Users" field. You can then use the "+" icon to add an existing user to the exclude list. To remove a user from the exclude list, highlight their
+entry and click the "-" icon.
 
 **Figure 8.6d: Logging Into a Stealth Session**
 
