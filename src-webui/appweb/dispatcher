@@ -140,6 +140,10 @@ run_queue_cmd()
      if [ "$origin" = "destroy" ] ; then
         # Stop the jail first
         iocage stop $target >>${QLOGFILE} 2>>${QLOGFILE}
+
+	# Re-enable the firewall for this jail IP
+	block_jail_ip4 "$target"
+
 	# Set the destroy command
 	cmd="iocage destroy -f $target"
      fi
@@ -167,6 +171,9 @@ run_queue_cmd()
   # If we create a new plugin, lets start it now
   if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
      iocage start pbicage-$neworigin >>${QLOGFILE} 2>>${QLOGFILE}
+     if [ $? -eq 0 ] ; then
+       unblock_jail_ip4 "pbicage-$neworigin"
+     fi
   fi
 
   # Inform syscache of the updates to check
@@ -174,6 +181,38 @@ run_queue_cmd()
 
   # Save the log file for later diagnostics
   return $err
+}
+
+block_jail_ip4()
+{
+  # Get the IP address of the plugin
+  local _oldIP=`iocage get ip4_addr $1 | cut -d '|' -f 2 | cut -d '/' -f 1`
+  # If on PC-BSD / TrueOS with ipfw-rules, we can remove this plugin
+  if [ -z "$_oldIP" -o ! -e "/etc/ipfw.rules" ] ; then return; fi
+
+  touch /etc/ipfw.openip
+  grep -vx "ip4 $_oldIP" /etc/ipfw.openip > /etc/ipfw.openip.new
+  mv /etc/ipfw.openip.new /etc/ipfw.openip
+  if [ "$(sysrc -n firewall_enable)" = "YES" ] ; then
+    service ipfw restart 2>/dev/null >/dev/null
+  fi
+}
+
+unblock_jail_ip4()
+{
+  # Get the IP address of the new plugin
+  local _newIP=`iocage get ip4_addr $1 | cut -d '|' -f 2 | cut -d '/' -f 1`
+  # If on PC-BSD / TrueOS with ipfw-rules, we can add this plugin
+  if [ -z "$_newIP" -o ! -e "/etc/ipfw.rules" ] ; then return; fi
+
+  touch /etc/ipfw.openip
+  grep -xq "ip4 $_newIP" /etc/ipfw.openip
+  if [ $? -ne 0 ] ; then
+     echo "ip4 $_newIP" >> /etc/ipfw.openip
+  fi
+  if [ "$(sysrc -n firewall_enable)" = "YES" ] ; then
+      service ipfw restart 2>/dev/null >/dev/null
+  fi
 }
 
 bootstrap_pkgng_iocage()
