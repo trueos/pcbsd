@@ -108,7 +108,9 @@
   // If we are running in appliance mode flip to the plugins page
   if ( $sysType == "APPLIANCE" and empty($page))
     $page = "plugins";
-
+  if ( $sysType == "APPLIANCE" and $page == "appcafe" )
+    $page = "plugins";
+ 
   // Don't echo headers / nav info if we are saving PBI list
   if ( "$page" == "exportpbis" ) {
     require("pages/exportpbis.php");
