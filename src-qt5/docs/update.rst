@@ -330,15 +330,15 @@ If you type :command:`iocage` at the command line, you will receive a summary of
 Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available::
 
  iocage fetch
- Supported releases are: 
-   10.1-RELEASE
-    9.3-RELEASE
- Please select a release [10.2-RELEASE]: 10.1-RELEASE
   INFO: Creating tank/iocage
   INFO: Creating tank/iocage/jails
   INFO: Creating tank/iocage/.defaults
   INFO: Creating tank/iocage/download
   INFO: Creating tank/iocage/releases
+ Supported releases are: 
+   10.1-RELEASE
+    9.3-RELEASE
+ Please select a release [-]: 10.1-RELEASE
  base.txz                                      100% of   63 MB 1908 kBps 00m34s
  doc.txz                                       100% of 1395 kB 1301 kBps 00m01s
  lib32.txz                                     100% of   15 MB 1762 kBps 00m10s
@@ -348,37 +348,69 @@ Before creating a jail for the first time, specify the version of FreeBSD to ins
  Extracting: lib32.txz
  Extracting: src.txz
  * Updating base jail..
- Looking up fbsd-update.pcbsd.org mirrors... none found.
- Fetching public key from fbsd-update.pcbsd.org... done.
- Fetching metadata signature for 10.1-RELEASE from fbsd-update.pcbsd.org... done.
+ src component not installed, skipped
+ Looking up update.FreeBSD.org mirrors... none found.
+ Fetching public key from update.FreeBSD.org... done.
+ Fetching metadata signature for 10.1-RELEASE from update.FreeBSD.org... done.
  Fetching metadata index... done.
  Fetching 2 metadata files... done.
  Inspecting system... done.
  Preparing to download files... done.
  Fetching 672 patches.....10....20....30....40....50....60....70....80....90....100....110....120....130....140....150....160....170....180....190....200....210....220....230....240....250....260....270....280....290....300....310....320....330....340....350....360....370....380....390....400....410....420....430....440....450....460....470....480....490....500....510....520....530....540....550....560....570....580....590....600....610....620....630....640....650....660....670. done.
  Applying patches... done.
- Fetching 988 files... 
+ Fetching 988 files... done.
  <snip output>
+ Installing updates... done.
  Creating basejail ZFS datasets... please wait.
 
-Note that the version running on the host will be displayed between the square brackets, but that version may not necessarily be available as a jail template. In this example, the host is
-running PC-BSD® 10.2, FreeBSD 10.1 and 9.3 are available as jail templates, and the user has specified to use the 10.1-RELEASE template. Once the template has been installed, you can create
-a jail. In this example, the jail's hostname, network interface, and IP address are specified::
+In this example, FreeBSD 10.1 and 9.3 are available as jail templates and the user has specified to install the 10.1-RELEASE template. Once the template has been installed, you can create
+a jail. In this example, the template to use, the jail's hostname, network interface, and IP address are specified::
 
- iocage create tag=jail1 ip4_addr="em0|192.168.1.7/24"
+ iocage create release=10.1-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
+ <snip output>
  
-You can then start the jail and check its status::
+The output of this command will list the properties of the new jail. You can list those properties with this command::
+
+ iocage get all jail1
+ 
+To start the jail and check its status::
 
  iocage start jail1
+ * Starting fdba67ce-40eb-11e5-81f2-0800277f9a55 (jail1)
+  + Started (shared IP mode) OK
+  + Starting services        OK
+
  iocage list
  JID   UUID                                  BOOT  STATE  TAG
- 1     518ec44d-404c-11e5-91c4-0800277f9a55  off   up     jail1
+ 1     fdba67ce-40eb-11e5-81f2-0800277f9a55  off   up     jail1
 
 To access the jail::
 
  iocage console jail1
- 
-Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`.
+ FreeBSD 10.2-RELEASE-p1 (GENERIC) #0: Mon Aug 10 15:54:50 UTC 2015
+
+ Welcome to FreeBSD!
+
+ Release Notes, Errata: https://www.FreeBSD.org/releases/
+ Security Advisories:   https://www.FreeBSD.org/security/
+ FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
+ FreeBSD FAQ:           https://www.FreeBSD.org/faq/
+ Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
+ FreeBSD Forums:        https://forums.FreeBSD.org/
+
+ Documents installed with the system are in the /usr/local/share/doc/freebsd/
+ directory, or can be installed later with:  pkg install en-freebsd-doc
+ For other languages, replace "en" with a language code like de or fr.
+
+ Show the version of FreeBSD installed:  freebsd-version ; uname -a
+ Please include that output and any error messages when posting questions.
+ Introduction to manual pages:  man man
+ FreeBSD directory layout:      man hier
+
+ Edit /etc/motd to change this login announcement.
+ root@fdba67ce-40eb-11e5-81f2-0800277f9a55:~ # 
+
+Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`. To leave the jail, type :command:`exit`.
 
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
