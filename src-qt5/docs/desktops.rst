@@ -240,7 +240,7 @@ include:
 * `Okular <https://docs.kde.org/stable4/en/kdegraphics/okular/index.html>`_: document viewer and annotator found in :menuselection:`Office --> Document Viewer`.
   Supports PDF, OpenOffice, and Postscript files.
 
-* `Dolphin <https://docs.kde.org/stable4/en/applications/dolphin/index.html>`_: file manager found in :menuselection:`System --> File Manager`. Dolphin provides
+* `Dolphin <https://docs.kde.org/trunk5/en/applications/dolphin/>`_: file manager found in :menuselection:`System --> File Manager`. Dolphin provides
   many features for manipulating files such as comments, tags, search, encryption, and archival (zip/unzip) functions.
 
 By default, desktop effects are disabled as not all video cards support them. If your video card supports 3D effects and you would like to enable them in KDE,
