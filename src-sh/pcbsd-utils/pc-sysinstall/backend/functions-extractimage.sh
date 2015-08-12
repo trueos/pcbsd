@@ -521,6 +521,10 @@ init_extraction()
           INSFILE="${INSDIR}"
           ;;
       esac
+    elif [ "$INSTALLTYPE" = "GhostBSD" ]
+    then
+	# this file identify a GhostBSD DVD/USB image
+	INSFILE="/etc/rc.conf.ghostbsd"
     else
       case $PACKAGETYPE in
         uzip) INSFILE="${UZIP_FILE}" ;;
