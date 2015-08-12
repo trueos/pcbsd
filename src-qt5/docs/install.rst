@@ -38,7 +38,7 @@ Starting on the left-hand side, the icons in the bottom navigation area allow yo
 
 * access :ref:`Hardware Compatibility` information 
 
-* manage :ref:`Network Configuration` for a system restore
+* manage :ref:`Network Configuration` for a network installation or system restore
 
 * read that screen's Help text 
 
