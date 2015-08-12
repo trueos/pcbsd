@@ -66,7 +66,7 @@ Supported Hardware
 ==================
 
 PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
-manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html#proc>`_ list the amd64
+manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html#proc>`_ list the amd64
 processors known to work.
 
 Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
@@ -89,7 +89,7 @@ driver and disable NVIDIA. This will change in the future when the NVIDIA driver
 A list of graphics cards which are known to work can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
-`FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
+`FreeBSD driver <http://www.freebsd.org/releases/10.2R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `Status of Atheros Wifi Hardware wiki page <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 A list of supported Intel devices and known limitations can be found on the `iwn(4) Intel 802.11n series NICs wiki page <https://wiki.freebsd.org/dev/iwn%284%29>`_.
 
@@ -100,7 +100,7 @@ Certain Broadcom devices, typically found in cheap laptops, are quite buggy and 
 mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
 If you wish to check your hardware before installing PC-BSD®, a good place to start is the
-`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html>`_. Another good resource is to start the installer and click the
+`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html>`_. Another good resource is to start the installer and click the
 :ref:`Hardware Compatibility` icon.
 
 While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. It should be remembered that
