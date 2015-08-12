@@ -156,6 +156,8 @@ What's New in |version|
 
 The following features or enhancements were introduced for PC-BSD® |version|:
 
+* Based on FreeBSD 10.2 which adds these `features <https://www.freebsd.org/releases/10.2R/relnotes.html>`_.
+
 * CD-sized network installers are available for both the graphical and text installers. The installation looks the same for both, with the difference being the size of the
   downloaded media and the fact that the installation files are retrieved over the network rather than from the installation media.
 
