@@ -1122,6 +1122,9 @@ and encrypted with GELI. This device is used to hold a specific user's home dire
 PC-BSD® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
 protected by an encryption key and a password which is, and should be, separate from the user's login password.
 
+.. note:: when a user is configured to use a PersonaCrypt device, that user can not login using an unencrypted session on the same system. In other words, the PersonaCrypt username is
+   reserved for PersonaCrypt use. If you need to login to both encrypted and unencrypted sessions on the same system, create two different user accounts, one for each type of session.
+
 PersonaCrypt uses GELI's ability to split the key into two parts: one being your passphrase, and the other being a key stored on disk. Without both of these parts, the
 media cannot be decrypted. This means that if somebody steals the key and manages to get your password, it is still worthless without the system it was paired with.
 
