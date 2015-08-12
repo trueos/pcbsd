@@ -275,6 +275,11 @@ Click the "Agree" button to accept the application's license. You can now config
 Managing Jails from the CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Beginning with PC-BSD® 10.2, :command:`iocage` has been added for jail management and this utility will replace the :command:`warden` utility in a future version of PC-BSD®. Note that
+:command:`warden` is still available in this version of PC-BSD® to provide time for users to transition to using  :command:`iocage`. Documentation for using the command line version of
+:command:`warden` can be found in
+`this section of the 10.1.2 User Guide <http://download.pcbsd.org/iso/10.1-RELEASE/amd64/docs/html/controlpanel.html#using-the-command-line-version-of-warden>`_.
+
 The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer to manage jails using
 the command line. Advanced users can also refer to the command line version in their own jail management scripts.
 
