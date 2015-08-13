@@ -113,7 +113,7 @@ are comprised of ASCII text files, they can be easily edited using the graphical
 
 This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
 module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
-custom modules, add the custom repository to AppCafe® by clicking the "Repsitory Configuration" tab in the "Configure" button. 
+custom modules, add the custom repository to AppCafe® by clicking the "Repository Configuration" tab in the "Configure" button. 
 
 .. note:: if your goal is to make a change to a single PBI, rather than an entire custom package repository, use the instructions in :ref:`Make Minor Modifications to a PBI Module`. 
 
@@ -2466,7 +2466,7 @@ will open.
 .. image:: images/lpreserver7a.png
 
 The "Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
-to keep them. To configure a list of datasets to exclude from the snapshot, click the "+" button which will display the list of available dataets. Select a dataset to
+to keep them. To configure a list of datasets to exclude from the snapshot, click the "+" button which will display the list of available datasets. Select a dataset to
 add it to the "Excluded" section. Repeat for any datasets that you do not wish to backup. To remove a dataset from the excluded list, so that it is added back to the
 snapshot schedule, highlight its entry in the "Excluded" section and click the "-" button.
 
@@ -3083,7 +3083,7 @@ command needs to be run as the superuser. To display its usage, type the command
  Type in help <command> for information and usage about that command
        help - This help file or the help for the specified command
    cronsnap - Schedule snapshot creation via cron
-  cronscrub - Shcedule scrub via cron
+  cronscrub - Schedule scrub via cron
         get - Get list of lpreserver options
    listcron - Listing of scheduled snapshots
    listsnap - List snapshots of a zpool/dataset

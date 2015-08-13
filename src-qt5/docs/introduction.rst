@@ -164,7 +164,7 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 * Lumina has been updated to `0.8.6 <http://blog.pcbsd.org/2015/08/lumina-desktop-0-8-6-released/>`_.
 
 * `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Plugins". The
-  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utlity.
+  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utility.
 
 * The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
 
@@ -196,7 +196,7 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The **showeol** option has been added to :command:`pc-updatemanager`.
 
-* The "Allow Valid Users with UID under 1000" checkbox and "Additonal Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
+* The "Allow Valid Users with UID under 1000" checkbox and "Additional Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
 
 * The **probe-netdrives**,
   **list-mountednetdrives**,

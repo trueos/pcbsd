@@ -143,8 +143,8 @@ the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translat
 When translating the documentation, be aware of the following:
 
 * At this time, some formatting tags are still displayed in raw text, as seen in the examples in Figures 11.2e and 11.2f.
-  **It is IMPORTANT that you do not accidently remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
-  translate the phrase "Using the Text Installer" but care must be taken to not accidently remove any of the surrounding colons and backticks, or to change the text
+  **It is IMPORTANT that you do not accidentally remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
+  translate the phrase "Using the Text Installer" but care must be taken to not accidental remove any of the surrounding colons and backticks, or to change the text
   of the "ref" tag. In the second example, the asterisks are used to bold the word "install". It is OK to translate "install", but do not remove the asterisks.
 
 
@@ -175,7 +175,7 @@ These instructions are for a PC-BSD® system::
 
  
 This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
-Brazilian Portugeuse, and UK English. To update the HTML at a later time::
+Brazilian Portuguese, and UK English. To update the HTML at a later time::
 
  cd ~/pcbsd
  git pull
