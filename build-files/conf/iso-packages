@@ -33,6 +33,10 @@ misc/pcbsd-meta-window_maker
 misc/pcbsd-meta-windowlab
 misc/pcbsd-meta-kodi
 misc/pcbsd-meta-xfce
+misc/pcbsd-role-devel
+misc/pcbsd-role-office
+misc/pcbsd-role-media
+misc/pcbsd-role-internet
 misc/trueos-base
 misc/kde4-l10n
 multimedia/plexhometheater
@@ -41,6 +45,7 @@ net/krdc
 net-im/pidgin
 ports-mgmt/pkg
 security/openvpn
+sysutils/diskscrub
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt5
 sysutils/py-salt
@@ -50,7 +55,3 @@ www/nspluginwrapper
 www/firefox
 www/chromium
 x11/lumina
-misc/pcbsd-role-devel
-misc/pcbsd-role-office
-misc/pcbsd-role-media
-misc/pcbsd-role-internet

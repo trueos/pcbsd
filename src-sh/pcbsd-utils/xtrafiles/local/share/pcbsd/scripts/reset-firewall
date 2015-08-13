@@ -74,6 +74,26 @@ if [ -e "/etc/ipfw.openports" ] ; then
 fi
 ####################################################################
 
+# Allow specific IPs incoming traffic now (Used for jails mainly)
+# Add items to /etc/ipfw.openip in the format
+# {ip4|ip6} <ip>
+####################################################################
+nextnum=20000
+if [ -e "/etc/ipfw.openip" ] ; then
+  while read line
+  do
+    echo \$line | grep -q "^#"
+    if [ \$? -eq 0 ] ; then continue ; fi
+    proto="\`echo \$line | awk '{print \$1}'\`"
+    ip="\`echo \$line | awk '{print \$2}'\`"
+    if [ -z "\$proto" -o -z "\$ip" ] ; then continue ; fi
+    \$cmd \$nextnum allow \$proto from any to \$ip in keep-state
+    nextnum=\`expr \$nextnum + 1\`
+  done < /etc/ipfw.openip
+fi
+####################################################################
+
+
 # Deny all other incoming troublemakers
 ####################################################################
 \$cmd 64000 deny log all from any to any

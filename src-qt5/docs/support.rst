@@ -159,6 +159,30 @@ When translating the documentation, be aware of the following:
 If you would like to receive notifications of documentation changes that affect translations, subscribe to the
 `Translation-notifications <http://lists.pcbsd.org/mailman/listinfo/translations-notifications>`_ mailing list.
 
+If you would like to build a local HTML copy that includes the latest translations, either for your own use or to visualize the translated Guide, do the following from the command line.
+These instructions are for a PC-BSD® system::
+
+ sudo pkg install pcbsd-toolchain
+ rehash
+ git clone git://github.com/pcbsd/pcbsd.git
+ cd pcbsd/src-qt5/doc 
+ make i18n
+ make html
+ ls _build
+ doctrees                html-es                 html-uk                 pcbsd-handbook-i18n.txz
+ html                    html-fr                 locale
+ html-de                 html-pt_BR              locale-po
+
+ 
+This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
+Brazilian Portugeuse, and UK English. To update the HTML at a later time::
+
+ cd ~/pcbsd
+ git pull
+ cd src-qt5/doc 
+ make i18n
+ make html
+
 .. index:: translations
 .. _Website Translation:
 
@@ -224,7 +248,7 @@ To compile the command line utilities::
 
 To compile the graphical utilities::
 
- cd src-qt4
+ cd src-qt5
 
  /usr/local/lib/qt5/bin/qmake
 

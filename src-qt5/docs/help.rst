@@ -228,7 +228,7 @@ Many BSD related search portals exist. If you can not find the answer that you a
 
 * `DistroWatch <http://distrowatch.com/>`_
 
-* `LinuxBSDos <http://www.linuxbsdos.com/>`_
+* `LinuxBSDos <http://linuxbsdos.com/>`_
 
 .. index:: help
 .. _Other Resources:

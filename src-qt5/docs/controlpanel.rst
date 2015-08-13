@@ -264,14 +264,15 @@ screen shown in Figure 8.1g.
 .. image:: images/easypbi7.png
 
 Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
-`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. A screenshot of
+`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-config.json>`_. A screenshot of
 the "Configuration" tab for Bitlbee can be seen in Figure 8.1h.
 
 **Figure 8.1h: Example Configuration Tab**
 
-.. image:: images/bitlbee.png
+.. image:: images/bitlbee1.png
 
-The following fields are available when adding a visual option:
+The following fields are available when adding a visual option. Example values can be found in the
+`README-service-configfile. <https://github.com/pcbsd/pcbsd/blob/master/src-webui/appweb/README-service-configfile>`_.
 
 * **Key:** the option to set.
 
@@ -820,6 +821,13 @@ The boot menu configuration can be found in the ASCII text file :file:`/usr/loca
  GRUB_FONT=/boot/grub/pcbsdfont.pf2
  GRUB_HIDDEN_TIMEOUT_QUIET=false
  GRUB_TIMEOUT=2
+ 
+To modify the maximum number of boot environments, change the number of this variable in :file:`/usr/local/etc/pcbsd.conf`::
+
+ MAXBE: 5
+ 
+Note that valid values range from *1* to
+*10*.
 
 .. index:: configuration
 .. _Hardware Compatibility:
@@ -911,8 +919,8 @@ A stealth session is similar to a web browser's private mode, except for your en
 this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
 **Allow Valid Users with UID under 1000:** check this box if you have imported existing users with a UID under 1000, for example from a Solaris NIS server. Checking this box
-will activate the "Additional Excluded Users" field.
-
+will activate the "Additional Excluded Users" field. You can then use the "+" icon to add an existing user to the exclude list. To remove a user from the exclude list, highlight their
+entry and click the "-" icon.
 
 **Figure 8.6d: Logging Into a Stealth Session**
 
@@ -1113,6 +1121,9 @@ Beginning with 10.1.2, PC-BSD® provides support for PersonaCrypt. A PersonaCryp
 and encrypted with GELI. This device is used to hold a specific user's home directory, meaning that they can securely transport and access their personal files on any
 PC-BSD® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
 protected by an encryption key and a password which is, and should be, separate from the user's login password.
+
+.. note:: when a user is configured to use a PersonaCrypt device, that user can not login using an unencrypted session on the same system. In other words, the PersonaCrypt username is
+   reserved for PersonaCrypt use. If you need to login to both encrypted and unencrypted sessions on the same system, create two different user accounts, one for each type of session.
 
 PersonaCrypt uses GELI's ability to split the key into two parts: one being your passphrase, and the other being a key stored on disk. Without both of these parts, the
 media cannot be decrypted. This means that if somebody steals the key and manages to get your password, it is still worthless without the system it was paired with.
