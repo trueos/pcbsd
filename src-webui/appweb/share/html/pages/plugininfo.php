@@ -383,14 +383,16 @@ function display_install_chooser()
     </td>
   </tr>
 <?php
-  if ( $pbiInstalled) {
+  if ( $pbiInstalled or !empty($pbiss) ) {
 ?>
 
   <tr>
     <td colspan="3">
 <div id="tab-container" class='tab-container'>
    <ul class='etabs'>
+     <?php  if ( $pbiInstalled ) { ?>
      <li class='tab'><a href="#tabs-service">Service Control</a></li>
+     <?php } ?>
      <?php  if ( $hasConfig and $pbirunning ) { ?>
      <li class='tab'><a href="#tabs-configure">Configuration</a></li>
      <?php } ?>
@@ -400,11 +402,13 @@ function display_install_chooser()
    </ul>
    <div class="panel-container">
      <?php
+       if ( $pbiInstalled ) {
          echo "<div id=\"tabs-service\">\n";
          display_jail_control($ioid);
          if ( $hasService and $pbirunning )
 	    display_service_details();
          echo "</div>\n";
+       }
 
          if ( $hasConfig and $pbirunning ) {
             echo "<div id=\"tabs-configure\">\n";
