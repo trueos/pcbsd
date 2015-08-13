@@ -569,7 +569,7 @@ The "View" menu of Update Manager provides the following information:
 
 .. image:: images/update15.png
 
-The "System" mneu of Update Manager provides one option:
+The "System" menu of Update Manager provides one option:
 
 * **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in Figure 7.3g, this
   system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
