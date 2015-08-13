@@ -784,7 +784,7 @@ bool Syncer::needsPbiSync(){
   //Check the PBI index to see if it needs to be resynced
   if(!HASH->contains("PBI/lastSyncTimeStamp")){ return true; }
   else{
-    qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
+    qint64 mod = QFileInfo("/var/db/pbi/index/PBI-INDEX").lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
     qint64 mod2 = QFileInfo("/var/db/pbi/cage-index/CAGE-INDEX").lastModified().toMSecsSinceEpoch();
     qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
