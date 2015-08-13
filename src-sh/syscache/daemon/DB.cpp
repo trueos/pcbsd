@@ -1472,9 +1472,11 @@ void Syncer::syncPbi(){
     }
     //Now save the list of all cages
     HASH->insert("PBI/CAGES/list", allcages.join(LISTDELIMITER));
+    
+    //Update the timestamp
+    HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
   }
-  //Update the timestamp
-  HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
+  
 }
 
 void Syncer::LongProcFinished(int ret, QProcess::ExitStatus status){
