@@ -147,7 +147,7 @@ The `FreeBSD Tuning Power Consumption page <https://wiki.FreeBSD.org/TuningPower
 .. index:: thinkpad
 
 With regards to specific hardware, the ThinkPad T420 may panic during install. If it does, go into the BIOS and set the video mode to "discrete" which should allow you to complete an
-installation. Some Thinkpads have a BIOS bug that prevents them from booting from GPT labelled disks. If you are unable to boot into a new installation, restart the
+installation. Some Thinkpads have a BIOS bug that prevents them from booting from GPT labeled disks. If you are unable to boot into a new installation, restart the
 installer and go into "Advanced Mode" in the :ref:`Disk Selection Screen`. Make sure that the "Partition disk with GPT" box is unchecked. If it was checked
 previously, redo the installation with the box unchecked.
 
