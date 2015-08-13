@@ -13,6 +13,7 @@
         <file>icons/star.png</file>
         <file>icons/sync.png</file>
         <file>icons/plus.png</file>
+	<file>icons/windows.png</file>
         <file>pc-bootconfig.png</file>
     </qresource>
 </RCC>
