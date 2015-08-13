@@ -6,13 +6,18 @@ target.path = /usr/local/bin
 TEMPLATE = app
 
 
-SOURCES += main.cpp mainUI.cpp 
+SOURCES += main.cpp \
+	mainUI.cpp \
+	PartitionSelect.cpp
 
 
-HEADERS  += mainUI.h 
+HEADERS  += mainUI.h \
+	QuickEntries.h \
+	PartitionSelect.h
 
 
-FORMS    += mainUI.ui 
+FORMS    += mainUI.ui \
+	PartitionSelect.ui
 
 
 RESOURCES+= pc-bootconfig.qrc

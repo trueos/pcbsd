@@ -1,6 +1,9 @@
 #include "mainUI.h"
 #include "ui_mainUI.h"
 
+#include "QuickEntries.h"
+#include "PartitionSelect.h"
+
 mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
 	  
   qDebug() << "Starting up pc-bootconfig...";
@@ -16,6 +19,15 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
     QString cmd = "cp "+file_GRUBdefaults+" "+file_GRUBdefaults+".old";
     QProcess::execute(cmd);
   }
+  //Initialize the Quick entry menu
+  quickEntryM = new QMenu;
+    ui->tool_add_custom->setMenu(quickEntryM);
+    QList<GEntry> qlist = GrubEntries::listAll();
+    for(int i=0; i<qlist.length(); i++){
+      QAction *act = new QAction(QIcon(qlist[i].icon), qlist[i].name,this);
+	act->setWhatsThis(qlist[i].ID);
+	quickEntryM->addAction(act);
+    }
   //initialize the QProcess
   proc = new QProcess(this);
     proc->setProcessChannelMode(QProcess::MergedChannels);
@@ -36,6 +48,7 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   connect(ui->spin_GRUBtimer,SIGNAL(valueChanged(int)),this,SLOT(GRUBchangedefaults()) );
   connect(ui->check_GRUBshowcountdown,SIGNAL(stateChanged(int)),this,SLOT(GRUBchangedefaults()) );
   connect(ui->text_GRUBentries,SIGNAL(textChanged()),this,SLOT(GRUBchangeentries()) );
+  connect(quickEntryM, SIGNAL(triggered(QAction*)), this, SLOT(makeQuickEntry(QAction*)) );
 }
 
 mainUI::~mainUI(){
@@ -543,6 +556,21 @@ void mainUI::on_tool_GRUBsaveentries_clicked(){
 
 void mainUI::on_tool_GRUBresetentries_clicked(){
   updateGRUBentries();
+}
+
+void mainUI::makeQuickEntry(QAction *act){
+
+  //Prompt for the user to select the HD/Partition/<new name>
+  QString HD, PART, NAME;
+    NAME = act->text();
+  PartitionSelect dlg(this);
+    dlg.setupGui(NAME);
+    dlg.exec();
+  if(!dlg.selected){ return; } //cancelled
+  //now generate the entry
+  qDebug() << "Creating quick Entry:" << act->whatsThis();
+  ui->text_GRUBentries->appendPlainText( GrubEntries::CreateEntry(act->whatsThis(), dlg.HD, dlg.PART, NAME) );
+  GRUBchangeentries(); //flag as changed
 }
 
 //UI Buttons - other
