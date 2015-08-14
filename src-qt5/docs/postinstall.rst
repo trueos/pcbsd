@@ -248,11 +248,11 @@ The next screen is shown in Figure 4.8a.
 
 **Figure 4.8a: Optional Services**
 
-.. image:: images/optional1.png
+.. image:: images/optional1a.png
 
 If you check the "Disable IPV6" box, the system will be configured to only support IPv4 addresses. The default is to support both IPv4 and IPv6 and to prefer IPv6 over IPv4.
 
-If you check the "SSH" box, the SSH service will start and be configured to start whenever the system boots. It will also create the firewall rules needed to allow
+If you check the "Enable SSH" box, the SSH service will start and be configured to start whenever the system boots. It will also create the firewall rules needed to allow
 incoming SSH connections to the PC-BSD® system. **DO NOT check this box if you do not want to allow SSH connections to the system.**
 
 When finished, click the "Next" button. The screen in Figure 4.8b indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
