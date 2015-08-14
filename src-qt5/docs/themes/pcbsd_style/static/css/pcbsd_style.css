@@ -3454,20 +3454,31 @@ a .rst-content code {
 .rst-content dl dd {
     margin: 0 0 12px 24px
 }
+
+/****************************************************************************
+ * Not real sure why they choose to special-case any <dl> of class docutils *
+ * but it seems to be rather unhelpful and unused.  Only ONE instance was   *
+ * noticed which is commented out by // below.                              *
+ ****************************************************************************/
+/* BEGIN SECTION COMMENT OUT.
+
 .rst-content dl:not(.docutils) {
     margin-bottom: 24px
 }
-.rst-content dl:not(.docutils) dt {
-    display: inline-block;
-    margin: 6px 0;
-    font-size: 90%;
-    line-height: normal;
-    background: #e7f2fa;
-    color: #2980B9;
-    border-top: solid 3px #6ab0de;
-    padding: 6px;
-    position: relative
-}
+
+
+//.rst-content dl:not(.docutils) dt {
+//    display: inline-block;
+//    margin: 6px 0;
+//    font-size: 90%;
+//    line-height: normal;
+//    background: #e7f2fa;
+//    color: #2980B9;
+//    border-top: solid 3px #6ab0de;
+//    padding: 6px;
+//    position: relative
+//}
+
 .rst-content dl:not(.docutils) dt:before {
     color: #6ab0de
 }
@@ -3520,6 +3531,15 @@ a .rst-content code {
     display: inline-block;
     padding-right: 8px
 }
+
+
+END SECTION COMMENT OUT. */
+/****************************************************************************
+ * Not real sure why they choose to special-case any <dl> of class docutils *
+ * but it seems to be rather unhelpful and unused.  Only ONE instance was   *
+ * noticed which is commented out by // near top of this section above.     *
+ ****************************************************************************/
+
 .rst-content .viewcode-link,
 .rst-content .viewcode-back {
     display: inline-block;
