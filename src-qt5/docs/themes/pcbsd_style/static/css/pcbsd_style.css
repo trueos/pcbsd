@@ -3345,7 +3345,7 @@ footer p {
     font-size: 100%
 }
 .rst-content .highlighted {
-    background: #F1C40F;
+    background: #DDDD00;
     display: inline-block;
     font-weight: bold;
     padding: 0px
@@ -3353,7 +3353,7 @@ footer p {
 
 /* Custom */
 #search-results .highlighted {
-    background: #F1C40F;
+    background: #DDDD00;
     display: inline-block;
     font-weight: bold;
     padding: 0px;
