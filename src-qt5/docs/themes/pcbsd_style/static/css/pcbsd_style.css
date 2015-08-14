@@ -118,6 +118,12 @@ dl {
     list-style: none;
     list-style-image: none
 }
+/* custom */
+ul.simple {
+    margin-bottom: 16px;
+    line-height: 26px;
+}
+/* Custom */
 li {
     list-style: none
 }
