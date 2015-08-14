@@ -3348,8 +3348,19 @@ footer p {
     background: #F1C40F;
     display: inline-block;
     font-weight: bold;
-    padding: 0 6px
+    padding: 0px
 }
+
+/* Custom */
+#search-results .highlighted {
+    background: #F1C40F;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0px;
+    color: #000;
+}
+/*custom end */
+
 .rst-content .footnote-reference,
 .rst-content .citation-reference {
     vertical-align: super;
