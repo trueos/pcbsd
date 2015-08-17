@@ -741,7 +741,7 @@ init_mbr_full_disk()
 
   # Install new partition setup
   echo_log "Running gpart add on ${_intDISK}"
-  rc_halt "gpart add -b 2048 -a 4k -t freebsd -i 1 ${_intDISK}"
+  rc_halt "gpart add -b 2048 -t freebsd -i 1 ${_intDISK}"
   sleep 2
   
   echo_log "Cleaning up ${_intDISK}s1"
