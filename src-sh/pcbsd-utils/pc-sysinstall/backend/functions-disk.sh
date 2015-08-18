@@ -260,9 +260,6 @@ delete_all_gpart()
   # Make sure we clear any hidden gpt tables
   clear_backup_gpt_table "${DISK}"
 
-  # Wipe out front of disk
-  rc_nohalt "dd if=/dev/zero of=${DISK} count=3000"
-
 };
 
 # Function to export all zpools before starting an install
@@ -297,7 +294,6 @@ stop_all_gmirror()
       rc_nohalt "gmirror remove $gprov $rmDisk"
       rc_nohalt "gmirror deactivate $gprov $rmDisk"
       rc_nohalt "gmirror clear $rmDisk"
-      #rc_nohalt "dd if=/dev/zero of=/dev/${rmDisk} count=4096"
     done
   done
 };
@@ -737,9 +733,6 @@ init_mbr_full_disk()
   rc_halt "gpart add -b 2048 -t freebsd -i 1 ${_intDISK}"
   sleep 2
   
-  echo_log "Cleaning up ${_intDISK}s1"
-  rc_halt "dd if=/dev/zero of=${_intDISK}s1 count=1024"
-  
   # Make the partition active
   rc_halt "gpart set -a active -i 1 ${_intDISK}"
 
@@ -876,10 +869,6 @@ run_gpart_slice()
   echo_log "Running gpart modify on ${DISK}"
   rc_halt "gpart modify -t freebsd -i ${slicenum} ${DISK}"
   sleep 2
-
-  # Clean up old partition
-  echo_log "Cleaning up $slice"
-  rc_halt "dd if=/dev/zero of=${DISK}s${slicenum} count=1024"
 
   sleep 1
 

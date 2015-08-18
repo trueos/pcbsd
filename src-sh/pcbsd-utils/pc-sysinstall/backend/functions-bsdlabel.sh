@@ -553,10 +553,6 @@ new_gpart_partitions()
 	_dFile="`echo $_pDisk | sed 's|/|-|g'`"
         echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${CURPART}
 
-        # Clear out any headers
-        sleep 2
-        dd if=/dev/zero of=${_pDisk}p${CURPART} count=2048 2>/dev/null
-
         # If we have a enc password, save it as well
         if [ -n "${ENCPASS}" ] ; then
           echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${CURPART}-encpass
@@ -564,10 +560,6 @@ new_gpart_partitions()
       elif [ "${_pType}" = "apm" ] ; then
 	_dFile="`echo $_pDisk | sed 's|/|-|g'`"
         echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}s${CURPART}
-
-        # Clear out any headers
-        sleep 2
-        dd if=/dev/zero of=${_pDisk}s${CURPART} count=2048 2>/dev/null
 
         # If we have a enc password, save it as well
         if [ -n "${ENCPASS}" ] ; then
@@ -577,9 +569,6 @@ new_gpart_partitions()
 	# MBR Partition or GPT slice
 	_dFile="`echo $_wSlice | sed 's|/|-|g'`"
         echo "${FS}#${MNT}#${ENC}#${PLABEL}#MBR#${XTRAOPTS}#${IMAGE}" >${PARTDIR}/${_dFile}${PARTLETTER}
-        # Clear out any headers
-        sleep 2
-        dd if=/dev/zero of=${_wSlice}${PARTLETTER} count=2048 2>/dev/null
 
         # If we have a enc password, save it as well
         if [ -n "${ENCPASS}" ] ; then
@@ -761,10 +750,6 @@ modify_gpart_partitions()
     # Save this data to our partition config dir
     _dFile="`echo $_pDisk | sed 's|/|-|g'`"
     echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${_sNum}
-
-    # Clear out any headers
-    sleep 2
-    dd if=/dev/zero of=${_pDisk}p${_sNum} count=2048 2>/dev/null
 
     # If we have a enc password, save it as well
     if [ -n "${ENCPASS}" ] ; then
