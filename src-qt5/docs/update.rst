@@ -228,12 +228,12 @@ The first time you use plugins, the "Configuration" tab shown in Figure 7.1g wil
 
 **Figure 7.1g: Initial Plugins Configuration**
 
-.. image:: images/remote6b.png
+.. image:: images/remote6c.png
 
 In this example, AppCafe® has detected that the PC-BSD® system is on the *192.168.1.x* network and the user has input a range of available addresses from
 *192.168.1.5* to
-*192.168.1.10*. When inputting your own address range, make sure that no other hosts on your network are, or will be, using those reserved addresses. If you have control over the
-DHCP server in your network, make a reservation for those addresses so that the DHCP server does not assign them to other hosts on your network.
+*192.168.1.10* and the subnet mask to use. When inputting your own address range and mask, make sure that no other hosts on your network are, or will be, using those reserved addresses. If
+you have control over the DHCP server in your network, make a reservation for those addresses so that the DHCP server does not assign them to other hosts on your network.
 
 In this example, AppCafe® has also detected that the name of the ZFS pool is *tank*. If you have multiple ZFS pools and would like to specify which one is used for plugins, use the
 "Plugin zpool" drop-down menu to select the desired pool.

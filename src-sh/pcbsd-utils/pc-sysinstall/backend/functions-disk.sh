@@ -260,9 +260,6 @@ delete_all_gpart()
   # Make sure we clear any hidden gpt tables
   clear_backup_gpt_table "${DISK}"
 
-  # Wipe out front of disk
-  rc_nohalt "dd if=/dev/zero of=${DISK} count=3000"
-
 };
 
 # Function to export all zpools before starting an install
@@ -297,7 +294,6 @@ stop_all_gmirror()
       rc_nohalt "gmirror remove $gprov $rmDisk"
       rc_nohalt "gmirror deactivate $gprov $rmDisk"
       rc_nohalt "gmirror clear $rmDisk"
-      #rc_nohalt "dd if=/dev/zero of=/dev/${rmDisk} count=4096"
     done
   done
 };
@@ -541,13 +537,10 @@ setup_disk_slice()
             ;;
 
           free)
-	    # If we are on GPT, we can't take for granted what
+	    # We can't take for granted what
 	    # the next partition number is. It could be
 	    # something in-between other partitions
-	    gpart show ${DISK} | head -n 1 | grep -q "GPT"
-	    if [ $? -eq 0 ] ; then
-	      LASTSLICE=$(get_next_gpt_part "$DISK")
-	    fi
+	    LASTSLICE=$(get_next_part "$DISK")
             run_gpart_free "${DISK}" "${LASTSLICE}" "${BMANAGER}"
             gpart show ${DISK} | head -n 1 | grep -q MBR
             if [ $? -eq 0 ] ; then
@@ -744,9 +737,6 @@ init_mbr_full_disk()
   rc_halt "gpart add -b 2048 -a 4k -t freebsd -i 1 ${_intDISK}"
   sleep 2
   
-  echo_log "Cleaning up ${_intDISK}s1"
-  rc_halt "dd if=/dev/zero of=${_intDISK}s1 count=1024"
-  
   # Make the partition active
   rc_halt "gpart set -a active -i 1 ${_intDISK}"
 
@@ -884,10 +874,6 @@ run_gpart_slice()
   rc_halt "gpart modify -t freebsd -i ${slicenum} ${DISK}"
   sleep 2
 
-  # Clean up old partition
-  echo_log "Cleaning up $slice"
-  rc_halt "dd if=/dev/zero of=${DISK}s${slicenum} count=1024"
-
   sleep 1
 
   if [ "${BMANAGER}" = "BSD" ]; then
@@ -974,12 +960,12 @@ run_gpart_free()
   fi
 };
 
-get_next_gpt_part()
+get_next_part()
 {
   local nextnum="1"
   while :
   do
-    gpart show $1 | grep -v "GPT" | awk '{print $2 " " $3 " " $4}'| grep -q " ${nextnum} "
+    gpart show $1 | grep -v "GPT" | grep -v "MBR" | awk '{print $2 " " $3 " " $4}'| grep -q " ${nextnum} "
     if [ $? -ne 0 ] ; then break; fi
     nextnum=$(expr $nextnum + 1)
   done
