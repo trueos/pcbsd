@@ -537,13 +537,10 @@ setup_disk_slice()
             ;;
 
           free)
-	    # If we are on GPT, we can't take for granted what
+	    # We can't take for granted what
 	    # the next partition number is. It could be
 	    # something in-between other partitions
-	    gpart show ${DISK} | head -n 1 | grep -q "GPT"
-	    if [ $? -eq 0 ] ; then
-	      LASTSLICE=$(get_next_gpt_part "$DISK")
-	    fi
+	    LASTSLICE=$(get_next_part "$DISK")
             run_gpart_free "${DISK}" "${LASTSLICE}" "${BMANAGER}"
             gpart show ${DISK} | head -n 1 | grep -q MBR
             if [ $? -eq 0 ] ; then
@@ -737,7 +734,7 @@ init_mbr_full_disk()
 
   # Install new partition setup
   echo_log "Running gpart add on ${_intDISK}"
-  rc_halt "gpart add -b 2048 -t freebsd -i 1 ${_intDISK}"
+  rc_halt "gpart add -b 2048 -a 4k -t freebsd -i 1 ${_intDISK}"
   sleep 2
   
   # Make the partition active
@@ -963,12 +960,12 @@ run_gpart_free()
   fi
 };
 
-get_next_gpt_part()
+get_next_part()
 {
   local nextnum="1"
   while :
   do
-    gpart show $1 | grep -v "GPT" | awk '{print $2 " " $3 " " $4}'| grep -q " ${nextnum} "
+    gpart show $1 | grep -v "GPT" | grep -v "MBR" | awk '{print $2 " " $3 " " $4}'| grep -q " ${nextnum} "
     if [ $? -ne 0 ] ; then break; fi
     nextnum=$(expr $nextnum + 1)
   done

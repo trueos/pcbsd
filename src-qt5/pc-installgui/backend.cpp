@@ -386,7 +386,7 @@ QList<QStringList> Backend::hardDrives()
                         tmp = tmp.remove(0, tmp.size() - 1);
                         int nextslicenum = tmp.toInt(&ok);
                         if ( ok ) {
-                          if ( nextslicenum < 4 && ( format == "MBR" || format == "mbr" ) ) {
+                          if ( format == "MBR" || format == "mbr" ) {
                             nextslicenum++;
                             slice = dev + "s" + tmp.setNum(nextslicenum);
                             slabel = "Unused Space";
