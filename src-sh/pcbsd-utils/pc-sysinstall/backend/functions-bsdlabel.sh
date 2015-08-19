@@ -357,7 +357,7 @@ new_gpart_partitions()
     fi
     # This is nasty, but at the moment it works to get rid of previous installs metadata
     echo_log "Clearing partition data..."
-    rc_halt "dd if=/dev/zero of=${_wSlice} bs=1m"
+    rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
     rc_halt "gpart set -a active -i ${CURPART} ${_dAdd}"
     rc_halt "sync"
     sleep 5
@@ -376,7 +376,7 @@ new_gpart_partitions()
     if [ "${_pType}" = "mbr" ] ; then
       # This is nasty, but at the moment it works to get rid of previous installs metadata
       echo_log "Clearing partition data..."
-      rc_halt "dd if=/dev/zero of=${_wSlice} bs=1m"
+      rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
       rc_halt "sync"
       sleep 5
       rc_halt "gpart set -a active -i ${CURPART} ${_dAdd}"
