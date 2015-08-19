@@ -355,10 +355,12 @@ new_gpart_partitions()
     else
       rc_halt "gpart add -t freebsd -i ${CURPART} ${_dAdd}"
     fi
+    rc_halt "dd if=/dev/zero of=${_wSlice} bs=1m count=5"
     rc_halt "gpart set -a active -i ${CURPART} ${_dAdd}"
-    sync
-    sleep 2
+    rc_halt "sync"
+    sleep 5
     rc_halt "gpart create -s BSD ${_wSlice}"
+    rc_halt "sync"
     _pType="mbr"
   elif [ "${_pType}" = "freegpt" ] ; then
     CURPART="${_sNum}"
@@ -370,6 +372,10 @@ new_gpart_partitions()
     PARTLETTER="a"
     CURPART="1"
     if [ "${_pType}" = "mbr" ] ; then
+      rc_halt "dd if=/dev/zero of=${_wSlice} bs=1m count=5"
+      rc_halt "sync"
+      sleep 5
+      rc_halt "gpart set -a active -i ${CURPART} ${_dAdd}"
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
