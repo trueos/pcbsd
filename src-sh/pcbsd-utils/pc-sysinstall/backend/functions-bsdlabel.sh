@@ -631,7 +631,7 @@ new_gpart_partitions()
 
       # Increment our parts counter
       if [ "$_pType" = "gpt" ] ; then
-        CURPART=$(get_next_gpt_part "$_pDisk")
+        CURPART=$(get_next_part "$_pDisk")
         # If this is a gpt partition,
         # we can continue and skip the MBR part letter stuff
         continue
