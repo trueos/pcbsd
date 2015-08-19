@@ -825,6 +825,8 @@ void Installer::slotChangeLanguage()
        Scripts::Backend::changeKbMap("pc105", langCode, "" );
     }
     
+    // Reset the version label
+    labelVersion->setText(tr("Version:") + " " + PCBSDVERSION);
 }
 
 QStringList Installer::getGlobalCfgSettings()
