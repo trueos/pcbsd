@@ -306,6 +306,8 @@ new_gpart_partitions()
       rc_halt "gpart add -t freebsd -i ${CURPART} ${_dAdd}"
     fi
     rc_halt "gpart set -a active -i ${CURPART} ${_dAdd}"
+    sync
+    sleep 2
     rc_halt "gpart create -s BSD ${_wSlice}"
     _pType="mbr"
   elif [ "${_pType}" = "freegpt" ] ; then

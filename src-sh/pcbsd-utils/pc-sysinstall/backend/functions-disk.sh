@@ -537,6 +537,16 @@ setup_disk_slice()
             ;;
 
           free)
+	    # We can't take for granted what
+	    # the next partition number is. It could be
+	    # something in-between other partitions
+	    LASTSLICE="1"
+	    while :
+	    do
+	      gpart show $DISK | grep -v "GPT" | grep -v "MBR" | awk '{print $2 " " $3 " " $4}'| grep -q " ${LASTSLICE} "
+	      if [ $? -ne 0 ] ; then break; fi
+	      LASTSLICE=$(expr $LASTSLICE + 1)
+            done
             run_gpart_free "${DISK}" "${LASTSLICE}" "${BMANAGER}"
             gpart show ${DISK} | head -n 1 | grep -q MBR
             if [ $? -eq 0 ] ; then
@@ -730,7 +740,7 @@ init_mbr_full_disk()
 
   # Install new partition setup
   echo_log "Running gpart add on ${_intDISK}"
-  rc_halt "gpart add -b 2048 -t freebsd -i 1 ${_intDISK}"
+  rc_halt "gpart add -b 2048 -a 4k -t freebsd -i 1 ${_intDISK}"
   sleep 2
   
   # Make the partition active

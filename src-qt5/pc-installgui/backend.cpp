@@ -386,7 +386,6 @@ QList<QStringList> Backend::hardDrives()
                         tmp = tmp.remove(0, tmp.size() - 1);
                         int nextslicenum = tmp.toInt(&ok);
                         if ( ok ) {
-                           if ( nextslicenum < 4) {
                             nextslicenum++;
                             slice = dev + "s" + tmp.setNum(nextslicenum);
                             slabel = "Unused Space";
@@ -394,7 +393,6 @@ QList<QStringList> Backend::hardDrives()
                             partition.clear();
                             partition << "SLICE" << dev << slice << ssize << slabel;   
                             drives.append(partition);
-                           }
                         }
                       }
                     } // End of Free Space Check
