@@ -288,7 +288,7 @@ QList<QStringList> Backend::hardDrives()
     QStringList partition; //its a "list" so as to also append drive information
 
     QString size, devinfo, type;
-    QString line, info;
+    QString line, info, format;
     QString tmp, dev, lastslice, slice, slabel, ssize;
     bool ok;
 
@@ -347,7 +347,7 @@ QList<QStringList> Backend::hardDrives()
 
                     // Check if we've found the format flag
                     if (info.indexOf(dev + "-format: ") == 0) {
-                      QString format = info.replace(dev + "-format: ", "");
+                      format = info.replace(dev + "-format: ", "");
                       qDebug() << "Found Disk Format: " <<  dev << " - " << format;
                       partition.clear();
                       partition << "FORMAT" << dev << format;
@@ -386,15 +386,25 @@ QList<QStringList> Backend::hardDrives()
                         tmp = tmp.remove(0, tmp.size() - 1);
                         int nextslicenum = tmp.toInt(&ok);
                         if ( ok ) {
+                          if ( format == "MBR" || format == "mbr" ) {
                             nextslicenum++;
                             slice = dev + "s" + tmp.setNum(nextslicenum);
                             slabel = "Unused Space";
                             qDebug() << "Found Slice:" << dev << slice << slabel << ssize;
                             partition.clear();
-                            partition << "SLICE" << dev << slice << ssize << slabel;   
+                            partition << "SLICE" << dev << slice << ssize << slabel;
                             drives.append(partition);
-                        }
-                      }
+                          } else if ( format == "GPT" || format == "gpt" ) {
+                            nextslicenum++;
+                            slice = dev + "p" + tmp.setNum(nextslicenum);
+                            slabel = "Unused Space";
+                            qDebug() << "Found Slice:" << dev << slice << slabel << ssize;
+                            partition.clear();
+                            partition << "SLICE" << dev << slice << ssize << slabel;
+                            drives.append(partition);
+ 			  }
+			}
+		      }
                     } // End of Free Space Check
                 }
             }
