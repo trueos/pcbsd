@@ -220,6 +220,56 @@ gen_glabel_name()
   export VAL="${NAME}${NUM}" 
 };
 
+# Function to determine the GPT size we can safely use when 0 is specified
+get_gpt_autosize()
+{
+  local dTag="$1"
+  local disk="$2"
+  local configPart="$3"
+  local gptPart="$4"
+
+  # See if the GPT partition exists
+  gpart show ${disk}p${gptPart} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    # This is a new GPT partition, get free-space
+    bSize=`gpart show $disk | grep '\- free\ -' | awk '{print $2}' | sort -g | tail -1`
+
+    # Get that in MB
+    bSize=`expr $bSize / 2048`
+
+    # Pad it a bit
+    _aSize=`expr $bSize - 5`
+  else
+    # Get the size of the partition
+    _aSize=`gpart show $disk | grep " $gptPart " | awk '{print $2}'`
+    _aSize=`expr $bSize / 2048`
+  fi
+
+
+  fPart=0
+  while read aline
+  do
+    # Check for data on this slice
+    echo $aline | grep -q "^${_dTag}-part=" 2>/dev/null
+    if [ $? -ne 0 ] ; then continue ; fi
+
+    fPart=`expr $fPart + 1`
+    # Skip any partitions we've already added to the disk
+    if [ $fPart -lt $configPart ] ; then continue ; fi
+
+    get_value_from_string "${aline}"
+    ASTRING="$VAL"
+
+    # Get the size of this partition
+    SIZE=`echo $ASTRING | tr -s '\t' ' ' | cut -d ' ' -f 2`
+    if [ $SIZE -eq 0 ] ; then continue ; fi
+    _aSize=`expr $_aSize - $SIZE`
+  done <${CFGF}
+
+  VAL="$_aSize"
+  export VAL
+};
+
 # Function to determine the size we can safely use when 0 is specified
 get_autosize()
 {
@@ -580,13 +630,18 @@ new_gpart_partitions()
 
 
       # Increment our parts counter
-      if [ "$_pType" = "gpt" -o "$_pType" = "apm" ] ; then 
-          CURPART=$((CURPART+1))
-        # If this is a gpt/apm partition, 
+      if [ "$_pType" = "gpt" ] ; then
+        CURPART=$(get_next_gpt_part "$_pDisk")
+        # If this is a gpt partition,
+        # we can continue and skip the MBR part letter stuff
+        continue
+      elif [  "$_pType" = "apm" ] ; then
+        CURPART=$((CURPART+1))
+        # If this is a apm partition,
         # we can continue and skip the MBR part letter stuff
         continue
       else
-          CURPART=$((CURPART+1))
+        CURPART=$((CURPART+1))
         if [ "$CURPART" = "3" ] ; then CURPART="4" ; fi
       fi
 
@@ -640,7 +695,8 @@ modify_gpart_partitions()
   local _wSlice="$3"
   local _sNum="$4"
   local _pType="$5"
-  FOUNDPARTS="1"
+  local FOUNDPARTS="1"
+  local CURPART="1"
 
   # Lets read in the config file now and setup our partitions
   if [ "${_pType}" != "gpt" ] ; then
@@ -730,6 +786,12 @@ modify_gpart_partitions()
       *) PARTYPE="freebsd-ufs" ;;
     esac
 
+    # If we have an auto-size, get it now
+    if [ "$SIZE" = "0" ] ; then
+      get_gpt_autosize "$_dTag" "$_pDisk" "$CURPART" "$_sNum"
+      SIZE="$VAL"
+    fi
+
     if [ -z "$DONEMOD" ] ; then
       # Resize the partition
       rc_halt "gpart resize -i ${_sNum} -s ${SIZE}M ${_pDisk}"
@@ -760,6 +822,7 @@ modify_gpart_partitions()
 
     # Set that we have modified a partition
     DONEMOD="YES"
+    CURPART=$(expr $CURPART + 1)
   done <${CFGF}
 };
 

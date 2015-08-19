@@ -540,13 +540,7 @@ setup_disk_slice()
 	    # We can't take for granted what
 	    # the next partition number is. It could be
 	    # something in-between other partitions
-	    LASTSLICE="1"
-	    while :
-	    do
-	      gpart show $DISK | grep -v "GPT" | grep -v "MBR" | awk '{print $2 " " $3 " " $4}'| grep -q " ${LASTSLICE} "
-	      if [ $? -ne 0 ] ; then break; fi
-	      LASTSLICE=$(expr $LASTSLICE + 1)
-            done
+	    LASTSLICE=$(get_next_part "$DISK")
             run_gpart_free "${DISK}" "${LASTSLICE}" "${BMANAGER}"
             gpart show ${DISK} | head -n 1 | grep -q MBR
             if [ $? -eq 0 ] ; then
@@ -964,4 +958,16 @@ run_gpart_free()
     WORKINGSLICES="${WORKINGSLICES} ${slice}"
     export WORKINGSLICES
   fi
+};
+
+get_next_part()
+{
+  local nextnum="1"
+  while :
+  do
+    gpart show $1 | grep -v "GPT" | grep -v "MBR" | awk '{print $2 " " $3 " " $4}'| grep -q " ${nextnum} "
+    if [ $? -ne 0 ] ; then break; fi
+    nextnum=$(expr $nextnum + 1)
+  done
+  echo $nextnum
 };
