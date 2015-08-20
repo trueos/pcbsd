@@ -74,13 +74,13 @@ sphinx-build -b epub . _build
 
 ##Editing the Documentation
 
-If you want to edit the User Guide, make changes to the *.rst file for the chapter to edit, using any ASCII text editor.
-Refer to http://docutils.sourceforge.net/docs/user/rst/quickref.html for help with formatting syntax.
-Refer to http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
+If you want to edit the User Guide, make changes to the \*.rst file for the chapter to edit, using any ASCII text editor.
+Refer to the `DocUtils Quick Reference Guide <http://docutils.sourceforge.net/docs/user/rst/quickref.html/>`_ for help with formatting syntax.
+Also refer to `this list of reST editors <http://wiki.typo3.org/Editors_%28reST%29/>`_.
 
-Some very helpful tools for editing the documentation are listed below by editor::
+Some very helpful tools for editing the documentation are listed below by editor:
 
-`Vim <http://www.vim.org>`_:
+`Vim <http://www.vim.org>`_::
 * `vim-rst-tables <https://github.com/nvie/vim-rst-tables>`_ will help you create and reformat grid tables
 
 Need help getting started or want to discuss edits? Join the http://lists.pcbsd.org/mailman/listinfo/docs mailing list.
