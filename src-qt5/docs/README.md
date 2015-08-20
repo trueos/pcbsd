@@ -78,6 +78,11 @@ If you want to edit the User Guide, make changes to the *.rst file for the chapt
 Refer to http://docutils.sourceforge.net/docs/user/rst/quickref.html for help with formatting syntax.
 Refer to http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
 
+Some very helpful tools for editing the documentation are listed below by editor::
+
+`Vim <http://www.vim.org>`_:
+* `vim-rst-tables <https://github.com/nvie/vim-rst-tables>`_ will help you create and reformat grid tables
+
 Need help getting started or want to discuss edits? Join the http://lists.pcbsd.org/mailman/listinfo/docs mailing list.
 
 To issue a git pull request containing your edits, use the instructions at https://help.github.com/articles/using-pull-requests.
