@@ -395,14 +395,12 @@ bool wizardDisk::validatePage()
          }
 	 if ( comboZFSMode->currentText() == "stripe" ) {
             labelZFSMsg->setText(tr("Please select the additional disks to stripe"));
-	    int numChecked = 0;
-	    for ( int i = 0; i < listZFSDisks->count(); ++i )
-		if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
-		   numChecked++;
-            if ( numChecked > 1 ) {
-              button(QWizard::NextButton)->setEnabled(true);
-	      return true;
-            }
+	    for ( int i = 0; i < listZFSDisks->count(); ++i ) {
+	       if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
+	          button(QWizard::NextButton)->setEnabled(true);
+	          return true;
+	       }
+	    }
          }
 
 
