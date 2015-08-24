@@ -83,8 +83,8 @@ void NetworkMan::Init()
     connect(lineGateway, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineIPv6Gateway, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineHostname, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+    connect(lineDomainName, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineSearchDomain, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
-
     
     connect(lineProxyAddress, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineProxyUser, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
@@ -320,6 +320,17 @@ QString NetworkMan::getIpForIdent( QString ident )
    return ifr.ipAsString();
 }
 
+QString NetworkMan::getIpv6ForIdent(QString ident)
+{
+	QString command = "nice ifconfig " +ident + " | grep \"inet6 \"";
+	QString inputLine = getLineFromCommandOutput(command);
+	QString ip= "";
+	if (inputLine != "" && inputLine.indexOf("inet6 ") != -1){
+		ip = inputLine.remove(0, inputLine.indexOf("inet6 ") + 5);
+		ip.truncate(ip.indexOf("%"));
+	}
+	return ip;
+}
 
 QString NetworkMan::getMacForIdent( QString ident )
 {
@@ -360,13 +371,15 @@ void NetworkMan::DevSelectionChanged()
    DevsStatus[sel] = getStatusForIdent(Devs[sel]);
    DevsNetmask[sel] = getNetmaskForIdent(Devs[sel]);
     
-   textStatusLabel1->setText(tr("Address:"));	
-   textStatus1->setText(tr("IP: ") + DevsIP[sel] + " / " + tr("Netmask: ") + DevsNetmask[sel]);
+   textStatusLabel1->setText(tr("IPv4 Address:"));	
+   textStatus1->setText( DevsIP[sel] + "    " + tr("Netmask: ") + DevsNetmask[sel]);
 
-   if ( getTypeForIdent(Devs[sel]) == "Wireless" )
-   {
+   textStatusLabel2->setText(tr("IPv6 Address:"));
+   textStatus2->setText( getIpv6ForIdent(Devs[sel]) );
+   
+   if ( getTypeForIdent(Devs[sel]) == "Wireless" ){
      checkSysTray->setVisible(false);
-     textStatusLabel2->setText(tr("SSID:"));
+     textStatusLabel4->setText(tr("SSID:"));
      QString SSID = ""; 
      QString tmp;
        
@@ -384,12 +397,12 @@ void NetworkMan::DevSelectionChanged()
     	SSID.truncate(tmp.indexOf("channel") - 1 );
      }
 
-     textStatus2->setText(SSID);
-   } else {
+     textStatus4->setText(SSID);
+   }else{
      if ( ! InstallerMode )
        checkSysTray->setVisible(true);
-     textStatusLabel2->setText(tr("MAC Address:"));
-     textStatus2->setText(DevsMAC[sel]);
+     textStatusLabel4->setText(tr("MAC Address:"));
+     textStatus4->setText(DevsMAC[sel]);
    }
    
    textStatusLabel3->setText(tr("Status:"));
@@ -512,7 +525,8 @@ void NetworkMan::runCommand( QString command )
 void NetworkMan::loadGlobals()
 {    
     QString tmp;
-    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
+    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).section(".",0,0));
+    lineDomainName->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=",1).section(".",1,100));
 
     tmp = pcbsd::Utils::getConfFileValue("/etc/rc.conf", "defaultrouter=", 1);
     if ( tmp.isEmpty() )
@@ -802,6 +816,7 @@ void NetworkMan::setNotRoot()
     lineIPv6DNS1->setEnabled(false);
     lineIPv6DNS2->setEnabled(false);
     lineHostname->setEnabled(false);
+    lineDomainName->setEnabled(false);
     lineGateway->setEnabled(false);
     lineIPv6Gateway->setEnabled(false);
 }
@@ -889,14 +904,20 @@ void NetworkMan::slotClose()
 
 void NetworkMan::slotSave()
 {
-    
-   if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
-      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
-      pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
-      pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
-      QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname") );
+
+   if ( !lineDomainName->text().isEmpty() && (lineDomainName->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=lineHostname.lineDomainName", "", 1).toLower() ) ) {
+            pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "." + lineDomainName->text() + "\"", -1);
+            pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
+            pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text() + "." + lineDomainName->text() + " " + lineHostname->text(), -1);
+            QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname, and domain name") );
    }
-    
+
+    else if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
+       pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
+       pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost " + lineHostname->text(), -1);
+       pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost " + lineHostname->text(), -1);
+       QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname") );
+    }
     
    if ( lineGateway->text() == "..." || ! groupGateway->isChecked() ) {
      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "defaultrouter=", "", -1);

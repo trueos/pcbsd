@@ -13,14 +13,18 @@ SOURCES += main.cpp \
     dialogHelp.cpp \
     firstboot.cpp \
     netKey.cpp \
-    backend.cpp
+    backend.cpp \
+    services.cpp
+    
 HEADERS += firstboot.h \
     dialogInfoBox.h \
     dialogKeyboard.h \
     dialogHelp.h \
     helpText.h \
     netKey.h \
-    backend.h
+    backend.h \
+    services.h
+    
 TRANSLATIONS =  i18n/FirstBoot_af.ts \
 		i18n/FirstBoot_ar.ts \
 		i18n/FirstBoot_az.ts \

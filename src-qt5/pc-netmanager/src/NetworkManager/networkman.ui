@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>747</width>
-    <height>454</height>
+    <height>513</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -119,7 +119,7 @@
        <item row="5" column="0">
         <widget class="QLabel" name="textStatusLabel1">
          <property name="text">
-          <string>Link Status:</string>
+          <string notr="true"/>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -142,7 +142,7 @@
        <item row="6" column="0">
         <widget class="QLabel" name="textStatusLabel2">
          <property name="text">
-          <string>IP Address:</string>
+          <string notr="true"/>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -162,10 +162,10 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
+       <item row="8" column="0">
         <widget class="QLabel" name="textStatusLabel3">
          <property name="text">
-          <string>MAC Address:</string>
+          <string notr="true"/>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -175,7 +175,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="8" column="1">
         <widget class="QLabel" name="textStatus3">
          <property name="text">
           <string/>
@@ -185,7 +185,7 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="0" colspan="2">
+       <item row="9" column="0" colspan="2">
         <widget class="Line" name="line1_2">
          <property name="frameShape">
           <enum>QFrame::HLine</enum>
@@ -195,7 +195,7 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="0" colspan="2">
+       <item row="11" column="0" colspan="2">
         <spacer name="spacer23">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -210,6 +210,23 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="textStatusLabel4">
+         <property name="text">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLabel" name="textStatus4">
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -263,9 +280,38 @@
              </widget>
             </item>
             <item>
+             <widget class="QLabel" name="label_8">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Domain Name</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineDomainName">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="horizontalSpacer_3">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -320,7 +366,7 @@
                 </sizepolicy>
                </property>
                <property name="inputMask">
-                <string>999\.999\.999\.999; </string>
+                <string>999\.999\.999\.999</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignHCenter</set>
@@ -356,7 +402,7 @@
                 </sizepolicy>
                </property>
                <property name="inputMask">
-                <string>999\.999\.999\.999; </string>
+                <string>999\.999\.999\.999</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignHCenter</set>
@@ -438,7 +484,7 @@
                   </sizepolicy>
                  </property>
                  <property name="inputMask">
-                  <string>999\.999\.999\.999; </string>
+                  <string>999\.999\.999\.999</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignHCenter</set>

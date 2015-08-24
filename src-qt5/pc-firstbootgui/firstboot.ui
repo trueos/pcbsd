@@ -21,12 +21,16 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
-  font-family: &quot;Caladea&quot;;
+  font-family: &quot;Noto Sans&quot;;
   font-size: 12pt;
 }
 QStatusBar{
-background-color: rgb(0, 70, 175);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 70, 175,255), stop:1 rgba(0, 70, 175,220));
 color: white;
+font-weight: bold;
+}
+QWidget#footerWidget{
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:-0.5, stop:0 rgba(0, 70, 175,220), stop:1 transparent);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -64,6 +68,9 @@ color: white;
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>170</width>
@@ -92,6 +99,9 @@ color: white;
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -193,10 +203,13 @@ background: transparent;</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="2" rowspan="5">
+        <item row="0" column="2" rowspan="6">
          <spacer name="horizontalSpacer_5">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -280,7 +293,7 @@ background: transparent;</string>
            <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -290,10 +303,13 @@ background: transparent;</string>
           </property>
          </spacer>
         </item>
-        <item row="0" column="0" rowspan="5">
+        <item row="0" column="0" rowspan="6">
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -309,7 +325,7 @@ background: transparent;</string>
            <widget class="QLabel" name="label_4">
             <property name="font">
              <font>
-              <family>Caladea</family>
+              <family>Noto Sans</family>
               <pointsize>12</pointsize>
              </font>
             </property>
@@ -343,22 +359,9 @@ background: transparent;</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="styleSheet">
-             <string notr="true">background: transparent;</string>
-            </property>
-            <property name="text">
-             <string>Please select the timezone for your location.</string>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
-        <item row="4" column="1">
+        <item row="5" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <spacer name="horizontalSpacer_25">
@@ -368,7 +371,7 @@ background: transparent;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>0</height>
              </size>
             </property>
            </spacer>
@@ -416,23 +419,49 @@ background: transparent;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>0</height>
              </size>
             </property>
            </spacer>
           </item>
          </layout>
         </item>
-        <item row="5" column="1">
+        <item row="8" column="1">
+         <spacer name="verticalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="1">
+         <spacer name="verticalSpacer_19">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="6" column="1">
          <widget class="QGroupBox" name="groupBox">
           <property name="font">
            <font>
-            <family>Caladea</family>
+            <family>Noto Sans</family>
             <pointsize>12</pointsize>
            </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: transparent;</string>
           </property>
           <property name="title">
            <string>System Hostname</string>
@@ -442,16 +471,6 @@ background: transparent;</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_10">
            <item row="1" column="0">
-            <widget class="QLabel" name="label_18">
-             <property name="text">
-              <string>Enter a valid hostname, or leave default.</string>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
             <widget class="QLineEdit" name="lineHostname">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -461,18 +480,17 @@ background: transparent;</string>
           </layout>
          </widget>
         </item>
-        <item row="6" column="1">
-         <spacer name="verticalSpacer_11">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+        <item row="7" column="1">
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>Domain Name</string>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="lineDomainName"/>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -593,7 +611,7 @@ background: transparent;</string>
             </property>
             <property name="font">
              <font>
-              <family>Caladea</family>
+              <family>Noto Sans</family>
               <pointsize>12</pointsize>
              </font>
             </property>
@@ -701,6 +719,9 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
@@ -713,13 +734,42 @@ background: transparent;</string>
       </widget>
       <widget class="QWidget" name="Page_User">
        <layout class="QGridLayout" name="gridLayout_7">
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_14">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="1">
+         <spacer name="verticalSpacer_18">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item row="0" column="1">
          <spacer name="verticalSpacer_7">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -737,6 +787,9 @@ background: transparent;</string>
              <spacer name="horizontalSpacer_18">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -786,6 +839,9 @@ background: transparent;</string>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
               <property name="sizeHint" stdset="0">
                <size>
                 <width>40</width>
@@ -798,40 +854,14 @@ background: transparent;</string>
           </item>
           <item>
            <layout class="QGridLayout" name="gridLayout_6">
-            <item row="1" column="2">
-             <spacer name="horizontalSpacer_15">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Expanding</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Expanding</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
             <item row="1" column="1">
              <widget class="QTabWidget" name="tabWidget">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -850,7 +880,7 @@ background: transparent;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Caladea</family>
+                    <family>Noto Sans</family>
                     <pointsize>12</pointsize>
                    </font>
                   </property>
@@ -986,7 +1016,7 @@ background: transparent;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Caladea</family>
+                    <family>Noto Sans</family>
                     <pointsize>12</pointsize>
                    </font>
                   </property>
@@ -1085,10 +1115,29 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Preferred</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
             <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_15">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
            </size>
           </property>
          </spacer>
@@ -1113,6 +1162,9 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
@@ -1125,6 +1177,9 @@ background: transparent;</string>
          <spacer name="horizontalSpacer_28">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1193,6 +1248,9 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>254</width>
@@ -1205,7 +1263,7 @@ background: transparent;</string>
          <widget class="QLabel" name="label_27">
           <property name="font">
            <font>
-            <family>Caladea</family>
+            <family>Noto Sans</family>
             <pointsize>12</pointsize>
            </font>
           </property>
@@ -1218,6 +1276,9 @@ background: transparent;</string>
          <spacer name="verticalSpacer_3">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1247,7 +1308,7 @@ background: transparent;</string>
            <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1263,7 +1324,7 @@ background: transparent;</string>
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1344,7 +1405,7 @@ background: transparent;</string>
            <widget class="QLabel" name="label_20">
             <property name="font">
              <font>
-              <family>Caladea</family>
+              <family>Noto Sans</family>
               <pointsize>12</pointsize>
              </font>
             </property>
@@ -1407,19 +1468,6 @@ background: transparent;</string>
             </property>
            </widget>
           </item>
-          <item>
-           <spacer name="verticalSpacer_15">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>13</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </item>
         <item row="1" column="2">
@@ -1428,7 +1476,7 @@ background: transparent;</string>
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1443,6 +1491,9 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
@@ -1453,12 +1504,102 @@ background: transparent;</string>
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="Page_Services">
+       <layout class="QGridLayout" name="gridLayout_13">
+        <item row="0" column="2">
+         <spacer name="verticalSpacer_17">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>134</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="3">
+         <spacer name="horizontalSpacer_29">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>254</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1" rowspan="2" colspan="2">
+         <widget class="QListWidget" name="list_services"/>
+        </item>
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>254</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="2">
+         <spacer name="verticalSpacer_12">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>134</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QLabel" name="label_31">
+          <property name="font">
+           <font>
+            <family>Noto Sans</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Optional Services</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="Page_Finished">
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="1">
          <spacer name="verticalSpacer_10">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1493,6 +1634,9 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>194</width>
@@ -1519,6 +1663,9 @@ background: transparent;</string>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>193</width>
@@ -1531,6 +1678,9 @@ background: transparent;</string>
          <spacer name="verticalSpacer_9">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -1554,9 +1704,6 @@ background: transparent;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 70, 175, 255), stop:1 rgba(255, 240, 240, 240));</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
@@ -1711,11 +1858,7 @@ background: transparent;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="pc-firstboot.qrc"/>
