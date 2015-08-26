@@ -12,7 +12,7 @@
 IMAGE_DIR=./  #location of all/most image files for this theme ("./" = current directory)
 
 #### Images (relative to IMAGE_DIR) ####
-BACKGROUND_IMAGE=background.png  	# will stretch to fill the screen
+BACKGROUND_IMAGE=background.jpg  	# will stretch to fill the screen
   BACKGROUND_DISABLE=FALSE		# Flag to disable using a background image
 
 HEADER_IMAGE=banner.png 	# Image to be displayed as a window header

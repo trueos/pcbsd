@@ -1266,6 +1266,10 @@ mount_stage_be()
     rc_halt_cleanup "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
   fi
   rc_halt_cleanup "mount -t devfs devfs ${STAGEMNT}/dev"
+
+  # Cleanup the old freebsd-update dir
+  rm -rf ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
+  mkdir -p ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
 }
 
 prep_pkgs_chroot()

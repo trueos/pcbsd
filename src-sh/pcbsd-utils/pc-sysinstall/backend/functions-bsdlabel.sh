@@ -353,12 +353,15 @@ new_gpart_partitions()
     if [ "$CURPART" = "1" ] ; then
       rc_halt "gpart add -b 2048 -t freebsd -i ${CURPART} ${_dAdd}"
     else
-      rc_halt "gpart add -t freebsd -i ${CURPART} ${_dAdd}"
+      rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     fi
-    rc_halt "gpart set -a active -i ${CURPART} ${_dAdd}"
-    sync
-    sleep 2
+    # This is nasty, but at the moment it works to get rid of previous installs metadata
+    echo_log "Clearing partition data..."
+    rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+    rc_halt "sync"
+    sleep 5
     rc_halt "gpart create -s BSD ${_wSlice}"
+    rc_halt "sync"
     _pType="mbr"
   elif [ "${_pType}" = "freegpt" ] ; then
     CURPART="${_sNum}"
@@ -370,6 +373,11 @@ new_gpart_partitions()
     PARTLETTER="a"
     CURPART="1"
     if [ "${_pType}" = "mbr" ] ; then
+      # This is nasty, but at the moment it works to get rid of previous installs metadata
+      echo_log "Clearing partition data..."
+      rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+      rc_halt "sync"
+      sleep 5
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
