@@ -2,6 +2,7 @@
 #include "ui_configDlg.h"
 
 #include <QUrl>
+#include <QRegExp>
 
 ConfigDlg::ConfigDlg(QWidget *parent) : QDialog(parent), ui(new Ui::ConfigDlg()){
   ui->setupUi(this);
@@ -187,19 +188,35 @@ void ConfigDlg::loadPbiConf(){ //fill the UI with the current settings
 
 void ConfigDlg::savePbiConf(){ //save the current settings to file
   //Assemble the file contents
-  QStringList contents;
-  contents << "# PC-BSD Configuration Defaults";
-  contents << "";
+  QStringList contents = readFile("/usr/local/etc/pcbsd.conf");
+  if(contents.isEmpty()){
+    //generate the headers
+    contents << "# PC-BSD Configuration Defaults";
+    contents << "";
+  }
   QString pkgset = "PRODUCTION"; //default value (just in case)
   if(ui->radio_edge->isChecked()){ pkgset = "EDGE"; }
   else if(ui->radio_enterprise->isChecked()){ pkgset = "ENTERPRISE"; }
   else if(ui->radio_production->isChecked()){ pkgset = "PRODUCTION"; }
   else if(ui->radio_custom->isChecked()){ pkgset = "CUSTOM"; }
-  contents << "PACKAGE_SET: "+pkgset;
+  //Change the current setting if it exists
+    int index = contents.indexOf(QRegExp("PACKAGE_SET: *", Qt::CaseSensitive, QRegExp::WildcardUnix));
+    if(index < 0){
+      contents << "PACKAGE_SET: "+pkgset;
+    }else{
+      contents[index] = "PACKAGE_SET: "+pkgset;
+    }
+  
   if(pkgset.toLower()=="custom"){
     //Also set the custom url
     QString cURL = ui->listWidget->currentItem()->whatsThis();
-    contents << "PACKAGE_URL: "+cURL;
+    //Change the current setting if it exists
+    index = contents.indexOf(QRegExp("PACKAGE_URL: *", Qt::CaseSensitive, QRegExp::WildcardUnix));
+    if(index < 0){
+      contents << "PACKAGE_URL: "+cURL;
+    }else{
+      contents[index] = "PACKAGE_URL: "+cURL;
+    }
   }
   saveFile("/tmp/pcbsd.conf", contents);
 
