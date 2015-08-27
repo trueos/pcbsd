@@ -1270,6 +1270,7 @@ mount_stage_be()
   # Cleanup the old freebsd-update dir
   rm -rf ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
   mkdir -p ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
+  chmod 600 ${STAGEMNT}/var/db/freebsd-update
 }
 
 prep_pkgs_chroot()
