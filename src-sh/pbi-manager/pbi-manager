@@ -1171,7 +1171,7 @@ check_update_cageindex() {
 	if [ ! -e "${PBI_DBCAGEINDEXDIR}/README.md" ] ; then
 		echo "Checking out latest pbicage index..."
 		if [ ! -d "${PBI_DBCAGEINDEXDIR}" ] ; then
-			mkdir -d ${PBI_DBCAGEINDEXDIR} 
+			mkdir -p ${PBI_DBCAGEINDEXDIR} 
 		fi
 		git clone --depth=1 ${PBI_CAGEGITURL} ${PBI_DBCAGEINDEXDIR} >/dev/null 2>/dev/null
 		if [ $? -ne 0 ] ; then
