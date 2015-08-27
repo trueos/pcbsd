@@ -123,8 +123,9 @@ rc_halt_cleanup()
   if [ -z "${CMD}" ] ; then
     exit_err "Error: missing argument in rc_halt_cleanup()"
   fi
+  echo "Running: $CMD" >> ${LOGOUT}
 
-  ${CMD} 2>&1 | tee -a ${LOGOUT}
+  ${CMD}
   STATUS=$?
   if [ ${STATUS} -ne 0 ] ; then
     sync ; sleep 2
@@ -1413,9 +1414,9 @@ run_freebsd_update_script()
 
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Fetching freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} fetch" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} fetch" 2>&1 | tee -a ${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   # Run again to remove any shared objs
   chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
@@ -1429,8 +1430,8 @@ prep_rc_script()
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade"
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   rm ${STAGEMNT}/${FREEBSDUP}
 
