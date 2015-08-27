@@ -7,10 +7,10 @@
   $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
   $scriptVersion = $detect->getScriptVersion();
 
-  if ( ! file_exists("/usr/local/etc/appcafe.pwd") )
-     die( "No username / password setup!");
-
   $appsettings = parse_ini_file("/usr/local/etc/appcafe.conf");
+
+  if ( ! file_exists("/usr/local/etc/appcafe.pwd") and $appsettings['auth'] != "pam" )
+     die( "No username / password setup!");
 
   if ( empty($appsettings['auth']) or $appsettings['auth'] == "local" )
   {

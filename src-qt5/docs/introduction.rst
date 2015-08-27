@@ -1,4 +1,3 @@
-.. include global.rst
 
 **Preface** 
 
