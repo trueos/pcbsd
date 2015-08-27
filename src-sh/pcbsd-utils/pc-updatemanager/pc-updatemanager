@@ -124,7 +124,7 @@ rc_halt_cleanup()
     exit_err "Error: missing argument in rc_halt_cleanup()"
   fi
 
-  ${CMD}
+  ${CMD} 2>&1 | tee -a ${LOGOUT}
   STATUS=$?
   if [ ${STATUS} -ne 0 ] ; then
     sync ; sleep 2
