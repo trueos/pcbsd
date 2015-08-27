@@ -70,10 +70,10 @@ private slots:
 	void updateGRUBdefaults(bool withrebuild = false);
 	void updateGRUBentries();
 	//UI Buttons - Boot Environments
-	void on_tool_BEadd_clicked();
+	void on_tool_BEadd_clicked(QString oldname = "");
 	void on_tool_BEactivate_clicked();
-	void on_tool_BEcp_clicked();
-	void on_tool_BEmv_clicked();
+	void on_tool_BEcp_clicked(QString oldname = "");
+	void on_tool_BEmv_clicked(QString oldname = "");
 	void on_tool_BErem_clicked();
 	//UI Buttons - GRUB Config
 	void on_tool_GRUBsavedefaults_clicked();
