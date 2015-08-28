@@ -559,13 +559,15 @@ load_pbi_info_index()
 	# No Database? Ain't gona find much..
 	if [ ! -e "$PBI_INDEXDB" ] ; then return 1; fi
 	
-	# Search by name
-	local line=`cat ${PBI_INDEXDB} | grep "^PBI=" | grep -i "${d}${tPBI}${d}" | head -n 1`
-	if [ -z "$line" ] ; then
+	echo $tPBI | grep -q '/'
+	if [ $? -ne 0 ] ; then
+		# Search by name
+		local line=`cat ${PBI_INDEXDB} | grep "^PBI=" | grep -i "${d}${tPBI}${d}" | head -n 1`
+	else
 		# Not by name, search by ORIGIN
-		line=`cat ${PBI_INDEXDB} | grep "^PBI=${tPBI}${d}" | head -n 1`
-		if [ -z "$line" ] ; then return 1; fi
+		local line=`cat ${PBI_INDEXDB} | grep "^PBI=${tPBI}${d}" | head -n 1`
 	fi
+	if [ -z "$line" ] ; then return 1; fi
 
 	# Now get values from this list
 	PBI_PROGNAME=`echo $line | awk -F:::: '{print $2}'`
@@ -584,7 +586,6 @@ load_pbi_info_index()
 	PBI_CONFDIR=`echo $line | awk -F:::: '{print $16}'`
 	PBI_APPARCH=`uname -m`
 	PBI_PROGVERSION=`${PKG_CMD} ${PKG_FLAG} rquery '%v' $PBI_ORIGIN`
-	
 	return 0
 }
 

@@ -1742,15 +1742,13 @@ void Installer::checkSpaceWarning()
   QString target;
   //qDebug() << "Disk layout:" << workingDisk << workingSlice;
 
-  if ( workingSlice == "ALL" ) {
-    targetType = "DRIVE";
-    target = workingDisk;
-    targetLoc = 1;
-  } else {
-    targetType = "SLICE";
-    target = workingDisk + workingSlice;
-    targetLoc = 2;
-  }
+  // Only check full-disk sizes. Other size checks are done in disk wizard
+  if ( workingSlice != "ALL" )
+    return;
+
+  targetType = "DRIVE";
+  target = workingDisk;
+  targetLoc = 1;
   
   // Lets get the size for this disk / partition
   for (int i=0; i < sysDisks.count(); ++i) {
