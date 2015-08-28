@@ -262,5 +262,6 @@ setup_filesystems()
 # Takes a list of args to setup as a swapmirror
 setup_gmirror_swap()
 {
+  rc_nohalt "gmirror destroy swapmirror"
   rc_halt "gmirror label swapmirror ${@}"
 }
