@@ -52,7 +52,7 @@ do
    if [ ! -d "${SAVECFGDIR}" ] ; then
       mkdir -p ${SAVECFGDIR}
    fi
-   cp ${SYSCFG} ${SAVECFGFILE}
+   cat ${SYSCFG} | grep -v "encpass=" | grep -v "rootPass=" | grep -v "userPass=" > ${SAVECFGFILE}
    saved=0
    echo "Saved config to USB: $i"
    sync
