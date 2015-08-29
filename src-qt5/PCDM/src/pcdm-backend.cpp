@@ -559,7 +559,7 @@ void Backend::readSystemUsers(){
       p.waitForFinished(200);
       QCoreApplication::processEvents();
     }
-    uList = QString( p.readAllStandardOutput() ).split("\n");
+    uList = QString::fromUtf8( p.readAllStandardOutput() ).split("\n");
     
     //Remove all users that have:
    QStringList filter; filter << "server" << "daemon" << "database" << "system"<< "account"<<"pseudo";

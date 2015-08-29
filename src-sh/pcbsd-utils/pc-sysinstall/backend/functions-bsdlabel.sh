@@ -220,6 +220,56 @@ gen_glabel_name()
   export VAL="${NAME}${NUM}" 
 };
 
+# Function to determine the GPT size we can safely use when 0 is specified
+get_gpt_autosize()
+{
+  local dTag="$1"
+  local disk="$2"
+  local configPart="$3"
+  local gptPart="$4"
+
+  # See if the GPT partition exists
+  gpart show ${disk}p${gptPart} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    # This is a new GPT partition, get free-space
+    bSize=`gpart show $disk | grep '\- free\ -' | awk '{print $2}' | sort -g | tail -1`
+
+    # Get that in MB
+    bSize=`expr $bSize / 2048`
+
+    # Pad it a bit
+    _aSize=`expr $bSize - 5`
+  else
+    # Get the size of the partition
+    _aSize=`gpart show $disk | grep " $gptPart " | awk '{print $2}'`
+    _aSize=`expr $bSize / 2048`
+  fi
+
+
+  fPart=0
+  while read aline
+  do
+    # Check for data on this slice
+    echo $aline | grep -q "^${_dTag}-part=" 2>/dev/null
+    if [ $? -ne 0 ] ; then continue ; fi
+
+    fPart=`expr $fPart + 1`
+    # Skip any partitions we've already added to the disk
+    if [ $fPart -lt $configPart ] ; then continue ; fi
+
+    get_value_from_string "${aline}"
+    ASTRING="$VAL"
+
+    # Get the size of this partition
+    SIZE=`echo $ASTRING | tr -s '\t' ' ' | cut -d ' ' -f 2`
+    if [ $SIZE -eq 0 ] ; then continue ; fi
+    _aSize=`expr $_aSize - $SIZE`
+  done <${CFGF}
+
+  VAL="$_aSize"
+  export VAL
+};
+
 # Function to determine the size we can safely use when 0 is specified
 get_autosize()
 {
@@ -301,12 +351,17 @@ new_gpart_partitions()
     PARTLETTER="a"
     local _dAdd=`echo $_pDisk | sed 's|/dev/||g'`
     if [ "$CURPART" = "1" ] ; then
-      rc_halt "gpart add -b 2048 -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
+      rc_halt "gpart add -b 2048 -t freebsd -i ${CURPART} ${_dAdd}"
     else
       rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     fi
-    dd if=/dev/zero of=${_wSlice} bs=1m count=5 >/dev/null 2>/dev/null
+    # This is nasty, but at the moment it works to get rid of previous installs metadata
+    echo_log "Clearing partition data..."
+    rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+    rc_halt "sync"
+    sleep 5
     rc_halt "gpart create -s BSD ${_wSlice}"
+    rc_halt "sync"
     _pType="mbr"
   elif [ "${_pType}" = "freegpt" ] ; then
     CURPART="${_sNum}"
@@ -318,12 +373,17 @@ new_gpart_partitions()
     PARTLETTER="a"
     CURPART="1"
     if [ "${_pType}" = "mbr" ] ; then
+      # This is nasty, but at the moment it works to get rid of previous installs metadata
+      echo_log "Clearing partition data..."
+      rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+      rc_halt "sync"
+      sleep 5
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
 
   # Check if the target disk is using GRUB
-  grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
+  grep -q "$_pDisk" ${TMPDIR}/.grub-install 2>/dev/null
   if [ $? -eq 0 ] ; then
      local _tBL="GRUB"
   else
@@ -553,10 +613,6 @@ new_gpart_partitions()
 	_dFile="`echo $_pDisk | sed 's|/|-|g'`"
         echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${CURPART}
 
-        # Clear out any headers
-        sleep 2
-        dd if=/dev/zero of=${_pDisk}p${CURPART} count=2048 2>/dev/null
-
         # If we have a enc password, save it as well
         if [ -n "${ENCPASS}" ] ; then
           echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${CURPART}-encpass
@@ -564,10 +620,6 @@ new_gpart_partitions()
       elif [ "${_pType}" = "apm" ] ; then
 	_dFile="`echo $_pDisk | sed 's|/|-|g'`"
         echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}s${CURPART}
-
-        # Clear out any headers
-        sleep 2
-        dd if=/dev/zero of=${_pDisk}s${CURPART} count=2048 2>/dev/null
 
         # If we have a enc password, save it as well
         if [ -n "${ENCPASS}" ] ; then
@@ -577,9 +629,6 @@ new_gpart_partitions()
 	# MBR Partition or GPT slice
 	_dFile="`echo $_wSlice | sed 's|/|-|g'`"
         echo "${FS}#${MNT}#${ENC}#${PLABEL}#MBR#${XTRAOPTS}#${IMAGE}" >${PARTDIR}/${_dFile}${PARTLETTER}
-        # Clear out any headers
-        sleep 2
-        dd if=/dev/zero of=${_wSlice}${PARTLETTER} count=2048 2>/dev/null
 
         # If we have a enc password, save it as well
         if [ -n "${ENCPASS}" ] ; then
@@ -589,13 +638,18 @@ new_gpart_partitions()
 
 
       # Increment our parts counter
-      if [ "$_pType" = "gpt" -o "$_pType" = "apm" ] ; then 
-          CURPART=$((CURPART+1))
-        # If this is a gpt/apm partition, 
+      if [ "$_pType" = "gpt" ] ; then
+        CURPART=$(get_next_part "$_pDisk")
+        # If this is a gpt partition,
+        # we can continue and skip the MBR part letter stuff
+        continue
+      elif [  "$_pType" = "apm" ] ; then
+        CURPART=$((CURPART+1))
+        # If this is a apm partition,
         # we can continue and skip the MBR part letter stuff
         continue
       else
-          CURPART=$((CURPART+1))
+        CURPART=$((CURPART+1))
         if [ "$CURPART" = "3" ] ; then CURPART="4" ; fi
       fi
 
@@ -649,7 +703,8 @@ modify_gpart_partitions()
   local _wSlice="$3"
   local _sNum="$4"
   local _pType="$5"
-  FOUNDPARTS="1"
+  local FOUNDPARTS="1"
+  local CURPART="1"
 
   # Lets read in the config file now and setup our partitions
   if [ "${_pType}" != "gpt" ] ; then
@@ -739,6 +794,12 @@ modify_gpart_partitions()
       *) PARTYPE="freebsd-ufs" ;;
     esac
 
+    # If we have an auto-size, get it now
+    if [ "$SIZE" = "0" ] ; then
+      get_gpt_autosize "$_dTag" "$_pDisk" "$CURPART" "$_sNum"
+      SIZE="$VAL"
+    fi
+
     if [ -z "$DONEMOD" ] ; then
       # Resize the partition
       rc_halt "gpart resize -i ${_sNum} -s ${SIZE}M ${_pDisk}"
@@ -762,10 +823,6 @@ modify_gpart_partitions()
     _dFile="`echo $_pDisk | sed 's|/|-|g'`"
     echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${_sNum}
 
-    # Clear out any headers
-    sleep 2
-    dd if=/dev/zero of=${_pDisk}p${_sNum} count=2048 2>/dev/null
-
     # If we have a enc password, save it as well
     if [ -n "${ENCPASS}" ] ; then
       echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${_sNum}-encpass
@@ -773,6 +830,7 @@ modify_gpart_partitions()
 
     # Set that we have modified a partition
     DONEMOD="YES"
+    CURPART=$(expr $CURPART + 1)
   done <${CFGF}
 };
 

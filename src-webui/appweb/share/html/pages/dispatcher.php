@@ -35,6 +35,7 @@ defined('DS') OR die('No direct access allowed.');
 <h1>Action Log (<a href="?p=<?php echo $newpage; ?>">Back</a>)</h1>
 <br>
 <table class="status" style="width:768px">
+
 <tr>
    <th>Log output</th>
 </tr>
@@ -120,10 +121,10 @@ echo "<script type='text/javascript' charset='utf-8'>
 
      // We have updates! Show the notification icon
      if ( ! $pkgUpdates )
-       echo "<h1><img src=\"/images/noupdates.png\" height=24 width=24 title=\"Up to date!\">All packages and jails are up to date!</h1><br>";
+       echo "<h1><center><img src=\"/images/noupdates.png\" height=24 width=24 title=\"Up to date!\">All packages and jails are up to date!</h1><br>";
 
 ?>
-<h1>Recent application actions</h1>
+<h1><center>Recent application actions</h1>
 <br>
 <table class="status" style="width:768px">
 <tr>

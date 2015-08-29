@@ -8,6 +8,8 @@
 #include <QInputDialog>
 #include <QPainter>
 
+#include <unistd.h>
+
 #include "dialogReminder.h"
 
 //PUBLIC
@@ -31,15 +33,15 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   //Populate the menu
   QAction *tmp = mainMenu->addAction(QIcon(":/images/updated.png"), tr("Start the Update Manager") );
 	tmp->setWhatsThis("sys");
-  mainMenu->addSeparator();
-  tmp = mainMenu->addAction(QIcon(":/images/appcafe.png"), tr("Start the AppCafe") );
-	tmp->setWhatsThis("pkg");
-  tmp = mainMenu->addAction(QIcon(":/images/warden.png"), tr("Start the Warden") );
-	tmp->setWhatsThis("warden");
-  mainMenu->addSeparator();
   tmp = mainMenu->addAction(QIcon(":/images/view-refresh.png"), tr("Check for Updates") );
 	tmp->setWhatsThis("update");
   mainMenu->addSeparator();
+  tmp = mainMenu->addAction(QIcon(":/images/appcafe.png"), tr("Start the AppCafe") );
+	tmp->setWhatsThis("pkg");
+  //tmp = mainMenu->addAction(QIcon(":/images/warden.png"), tr("Start the Warden") );
+	//tmp->setWhatsThis("warden");
+  mainMenu->addSeparator();
+
   // - Now the special checkboxes
   runAtStartup = new QCheckBox(tr("Run At Startup"));
     runAtStartup->setChecked(settings->value("/PC-BSD/SystemUpdater/runAtStartup",true).toBool() );
@@ -193,6 +195,7 @@ void TrayUI::ShowMessage(){
     DialogReminder dlg;
     dlg.show();
     while(dlg.isVisible()){
+	usleep(100000); // 1/10 second pause (prevent overloading the CPU)
        QApplication::processEvents(); //keep the tray functioning during the message
     }
     int minutes = dlg.delayMinutes();

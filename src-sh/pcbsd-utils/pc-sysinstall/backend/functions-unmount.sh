@@ -239,7 +239,7 @@ setup_grub()
   fi
   
   # GhostBSD doesn't use ZFS.
-  if [ -e "/boot/zfs/zpool.cache"] ; then
+  if [ -e "/boot/zfs/zpool.cache" ] ; then
     rc_halt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
   fi
 
@@ -283,7 +283,7 @@ setup_grub()
        if [ "$FORMATEFI" = "TRUE" ] ; then
          # Format the EFI partition
          echo_log "Formatting EFI / FAT32 partition"
-	 if [ -e "${TMPDIR}/.grub-full-gpt"] ; then
+	 if [ -e "${TMPDIR}/.grub-full-gpt" ] ; then
            rc_halt "newfs_msdos -F 16 ${gDisk}p1"
            EFIPART="${gDisk}p1"
          else

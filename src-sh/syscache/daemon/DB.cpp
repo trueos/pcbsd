@@ -84,11 +84,11 @@ void DB::shutDown(){
   HASH->clear();
 }
 
-QString DB::fetchInfo(QStringList request){
+QString DB::fetchInfo(QStringList request, bool noncli){
   if(HASH->isEmpty()){ 
     startSync();
     QCoreApplication::processEvents();
-    pausems(500); //wait 1/2 second for sync to start up
+    pausems(200); //wait 1/5 second for sync to start up
   }
 	
   QString hashkey, searchterm, searchjail;
@@ -272,7 +272,7 @@ QString DB::fetchInfo(QStringList request){
       val = HASH->value(hashkey,"");
       if(sortnames && !val.isEmpty()){ val = sortByName(val.split(LISTDELIMITER)).join(LISTDELIMITER); }
     }
-    val.replace(LISTDELIMITER, ", ");
+    if(!noncli){ val.replace(LISTDELIMITER, ", "); } //for CLI requests, put lists in a comma-delimited order
     if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
   }
   return val;
@@ -784,7 +784,7 @@ bool Syncer::needsPbiSync(){
   //Check the PBI index to see if it needs to be resynced
   if(!HASH->contains("PBI/lastSyncTimeStamp")){ return true; }
   else{
-    qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
+    qint64 mod = QFileInfo("/var/db/pbi/index/PBI-INDEX").lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
     qint64 mod2 = QFileInfo("/var/db/pbi/cage-index/CAGE-INDEX").lastModified().toMSecsSinceEpoch();
     qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
@@ -866,6 +866,7 @@ void Syncer::syncJailInfo(){
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Now get the current list of running jails and insert individual jail info
   QStringList jinfo = directSysCmd("jls");
+  QString sysver = directSysCmd("freebsd-version").join("").section("-",0,0); //remove the "-<tag>" from the end (only need the number)
   QStringList found;
   for(int i=1; i<jinfo.length() && !stopping; i++){ //skip the header line
     jinfo[i] = jinfo[i].replace("\t"," ").simplified();
@@ -886,24 +887,10 @@ void Syncer::syncJailInfo(){
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
-    QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
+    QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE, RELEASE;
     HOST = ID;
     jails.removeAll(HOST);
     bool isRunning = (info[i].section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
-    QStringList junk = jinfo.filter(ID);
-    if(!junk.isEmpty()){
-      //This jail is running - add extra information
-      bool haspkg = QFile::exists(junk[0].section(" ",3,3)+"/usr/local/sbin/pkg-static");
-      HASH->insert("Jails/"+HOST+"/JID", junk[0].section(" ",0,0));
-      HASH->insert("Jails/"+HOST+"/jailIP", junk[0].section(" ",1,1));
-      HASH->insert("Jails/"+HOST+"/jailPath", junk[0].section(" ",3,3));
-      HASH->insert("Jails/"+HOST+"/haspkg", haspkg ? "true": "false" );
-    }else{
-      HASH->insert("Jails/"+HOST+"/JID", "");
-      HASH->insert("Jails/"+HOST+"/jailIP", "");
-      HASH->insert("Jails/"+HOST+"/jailPath", "");
-      HASH->insert("Jails/"+HOST+"/haspkg", "false" );
-    }
     //qDebug() << "IoCage Jail:" << ID << isRunning;
     for(int j=0; j<tmp.length(); j++){
       //Now iterate over all the info for this single jail
@@ -924,13 +911,36 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("boot:")){ AUTOSTART = (val=="off") ? "false" : "true"; }
       else if(tmp[j].startsWith("vnet:")){ VNET = val; }
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
+      else if(tmp[j].startsWith("release:")) {RELEASE = val; }
     }
       QString inst = TAG.section("pbicage-",1,10); //installed cage for this jail
       //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
       int catdash = inst.indexOf("-");
       if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
+    //Now compare the jail version with the system version (jail must be same or older)
+    QString shortver = RELEASE.section("-",0,0);
+    bool jnewer=false;
+    for(int i=0; i<=sysver.count(".") && !jnewer; i++){
+      jnewer = (sysver.section(".",i,i).toInt() < shortver.section(".",i,i).toInt());
+    }
+    if(jnewer){ continue; } //skip this jail - newer OS version than the system supports
       
       //Save this info into the hash
+    QStringList junk = jinfo.filter(ID);
+    if(!junk.isEmpty()){
+      //This jail is running - add extra information
+      bool haspkg = QFile::exists(junk[0].section(" ",3,3)+"/usr/local/sbin/pkg-static");
+      HASH->insert("Jails/"+HOST+"/JID", junk[0].section(" ",0,0));
+      HASH->insert("Jails/"+HOST+"/jailIP", junk[0].section(" ",1,1));
+      HASH->insert("Jails/"+HOST+"/jailPath", junk[0].section(" ",3,3));
+      HASH->insert("Jails/"+HOST+"/haspkg", haspkg ? "true": "false" );
+    }else{
+      HASH->insert("Jails/"+HOST+"/JID", "");
+      HASH->insert("Jails/"+HOST+"/jailIP", "");
+      HASH->insert("Jails/"+HOST+"/jailPath", "");
+      HASH->insert("Jails/"+HOST+"/haspkg", "false" );
+    }
+    
       QString prefix = "Jails/"+HOST+"/";
       if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
       else{ found << HOST; }
@@ -959,8 +969,9 @@ void Syncer::syncJailInfo(){
 	# git remote update
 	# git status -uno | grep -q "is behind"
 	*/
-      QString hasup = "false"; //TO-DO
-      HASH->insert(prefix+"hasupdates", hasup);
+      //Only need the return code - 0=NoUpdates
+      bool hasup = (QProcess::execute("iocage update -n "+ID)!=0);
+      HASH->insert(prefix+"hasupdates", (hasup ? "true": "false") );
 
       installedcages << inst+" "+ID;
   }
@@ -1461,9 +1472,11 @@ void Syncer::syncPbi(){
     }
     //Now save the list of all cages
     HASH->insert("PBI/CAGES/list", allcages.join(LISTDELIMITER));
+    
+    //Update the timestamp
+    HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
   }
-  //Update the timestamp
-  HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
+  
 }
 
 void Syncer::LongProcFinished(int ret, QProcess::ExitStatus status){

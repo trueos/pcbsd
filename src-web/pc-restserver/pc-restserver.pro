@@ -4,10 +4,13 @@ LANGUAGE	= C++
 CONFIG	+= qt warn_on release
 QT = core network websockets
 
-HEADERS	+= WebServer.h
+HEADERS	+= WebServer.h \
+		syscache-client.h \
+		RestStructs.h
 		
 SOURCES	+= main.cpp \
-		WebServer.cpp
+		WebServer.cpp \
+		syscache-client.cpp
 
 
 TARGET=pc-restserver

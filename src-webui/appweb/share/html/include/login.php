@@ -7,47 +7,90 @@
   $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
   $scriptVersion = $detect->getScriptVersion();
 
-  if ( ! file_exists("/usr/local/etc/appcafe.pwd") )
+  $appsettings = parse_ini_file("/usr/local/etc/appcafe.conf");
+
+  if ( ! file_exists("/usr/local/etc/appcafe.pwd") and $appsettings['auth'] != "pam" )
      die( "No username / password setup!");
 
-  $userdb = parse_ini_file("/usr/local/etc/appcafe.pwd");
-  $username = $userdb['username'];
-  $password = $userdb['password'];
-
-  if ( empty($username) or empty($password) )
-     die( "No username / password setup!");
-
-  if(isset($_GET['logout'])) {
-      $_SESSION['username'] = '';
-      header('Location:  ' . $_SERVER['PHP_SELF']);
+  if ( empty($appsettings['auth']) or $appsettings['auth'] == "local" )
+  {
+    $userdb = parse_ini_file("/usr/local/etc/appcafe.pwd");
+    $username = $userdb['username'];
+    $password = $userdb['password'];
+    $auth="local";
+    if ( empty($username) or empty($password) )
+      die( "No username / password setup!");
+  } else {
+    $username = "root";
+    $auth="pam"; 
   }
 
-  if(isset($_POST['username'])) {
-      if($_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
-        $_SESSION['timeout'] = time();
-        $_SESSION['username'] = $_POST['username'];
-
-        // We logged in, so lets set the dispatcher ID and such
-        $rawpassword = $_POST['password'];
-	putenv("PHP_DISUSER=$username");
-	putenv("PHP_DISPASS=$rawpassword");
-        unset($output);
-        $return_var=1;
-        exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher getdisid", $output, $return_var);
-        $_SESSION['dispatchid'] = $output[0];
-        if ( $return_var != 0 )
-        {
-	  print_r($output);
-          die("Failed getting dispatcher ID!");
-        }
-
-	// Now we can relocate back to main page
-        header('Location:  ' . $_SERVER['PHP_SELF']);
-      }else {
-          //invalid login
-          $perror="error logging in!";
-      }
+  if (isset($_GET['logout'])) {
+    $_SESSION['username'] = '';
+    header('Location:  ' . $_SERVER['PHP_SELF']);
   }
+
+  if ( isset($_POST['username'])) {
+    $goodlogin = false;
+    if ( $auth == "local" && $_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
+      $goodlogin = true;
+     } else if ( $auth == "pam" ) {
+
+       $descriptorspec = array(
+         0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+         1 => array("pipe", "w")   // stdout is a pipe that the child will write to
+       );
+
+       $cwd = '/tmp';
+       $env = array();
+
+       $process = proc_open("/usr/local/bin/sudo -k -S /usr/local/share/appcafe/dispatcher-localauth-pam", $descriptorspec, $pipes, $cwd, $env);
+
+       if (is_resource($process)) {
+         fwrite($pipes[0], $_POST['password'] . "\n");
+         fclose($pipes[0]);
+
+         $idcontents = stream_get_contents($pipes[1]);
+         fclose($pipes[1]);
+
+         $return_value = proc_close($process);
+	 if ( $return_value == 0 ) {
+           $idcontents = str_replace(array("\n","\r"," "),"",$idcontents);
+           $goodlogin = true;
+           $_SESSION['dispatchid'] = $idcontents;
+         }
+       }
+
+     }
+
+     if ( $goodlogin ) {
+       $_SESSION['timeout'] = time();
+       $_SESSION['username'] = $_POST['username'];
+
+       if ( $auth == "local" ) {
+         // We logged in, so lets set the dispatcher ID and such
+         $rawpassword = $_POST['password'];
+         putenv("PHP_DISUSER=$username");
+         putenv("PHP_DISPASS=$rawpassword");
+         unset($output);
+         $return_var=1;
+         exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher getdisid", $output, $return_var);
+         $_SESSION['dispatchid'] = $output[0];
+         if ( $return_var != 0 )
+         {
+           print_r($output);
+           die("Failed getting dispatcher ID!");
+         }
+       }
+
+       // Now we can relocate back to main page
+       header('Location:  ' . $_SERVER['PHP_SELF']);
+     } else {
+       //invalid login
+       $perror="error logging in!";
+     }
+  }
+
 
 ?>
 <html>

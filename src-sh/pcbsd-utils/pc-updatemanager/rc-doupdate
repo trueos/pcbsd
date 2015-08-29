@@ -45,6 +45,14 @@ echo "Doing second phase freebsd-update..."
 # Now lets run sysctl, in case new version of linux compat was enabled
 /sbin/sysctl -f /etc/sysctl.conf
 
+# If the update left us without /root/.cshrc /root/.profile, due to hard-link funk, fix it
+if [ ! -e "/root/.cshrc" ] ; then
+  cp /.cshrc /root/.cshrc
+fi
+if [ ! -e "/root/.profile" ] ; then
+  cp /.profile /root/.profile.
+fi
+
 # Move the new rc file away, keep this upgrade file in place in case the system resets
 # during the long pkg installation process
 cp /etc/rc /etc/rc-orig

@@ -110,7 +110,7 @@ void wizardDisk::slotChangedDisk()
       sysDisks.at(i).at(3).toInt(&ok);
       if ( !ok )
         continue;
-      if ( sysDisks.at(i).at(3).toInt(&ok) < 10000 )
+      if ( sysDisks.at(i).at(3).toInt(&ok) < 6000 )
         continue;
     }
 

@@ -559,13 +559,15 @@ load_pbi_info_index()
 	# No Database? Ain't gona find much..
 	if [ ! -e "$PBI_INDEXDB" ] ; then return 1; fi
 	
-	# Search by name
-	local line=`cat ${PBI_INDEXDB} | grep "^PBI=" | grep -i "${d}${tPBI}${d}" | head -n 1`
-	if [ -z "$line" ] ; then
+	echo $tPBI | grep -q '/'
+	if [ $? -ne 0 ] ; then
+		# Search by name
+		local line=`cat ${PBI_INDEXDB} | grep "^PBI=" | grep -i "${d}${tPBI}${d}" | head -n 1`
+	else
 		# Not by name, search by ORIGIN
-		line=`cat ${PBI_INDEXDB} | grep "^PBI=${tPBI}${d}" | head -n 1`
-		if [ -z "$line" ] ; then return 1; fi
+		local line=`cat ${PBI_INDEXDB} | grep "^PBI=${tPBI}${d}" | head -n 1`
 	fi
+	if [ -z "$line" ] ; then return 1; fi
 
 	# Now get values from this list
 	PBI_PROGNAME=`echo $line | awk -F:::: '{print $2}'`
@@ -584,7 +586,6 @@ load_pbi_info_index()
 	PBI_CONFDIR=`echo $line | awk -F:::: '{print $16}'`
 	PBI_APPARCH=`uname -m`
 	PBI_PROGVERSION=`${PKG_CMD} ${PKG_FLAG} rquery '%v' $PBI_ORIGIN`
-	
 	return 0
 }
 
@@ -1171,7 +1172,7 @@ check_update_cageindex() {
 	if [ ! -e "${PBI_DBCAGEINDEXDIR}/README.md" ] ; then
 		echo "Checking out latest pbicage index..."
 		if [ ! -d "${PBI_DBCAGEINDEXDIR}" ] ; then
-			mkdir -d ${PBI_DBCAGEINDEXDIR} 
+			mkdir -p ${PBI_DBCAGEINDEXDIR} 
 		fi
 		git clone --depth=1 ${PBI_CAGEGITURL} ${PBI_DBCAGEINDEXDIR} >/dev/null 2>/dev/null
 		if [ $? -ne 0 ] ; then
@@ -1298,10 +1299,10 @@ load_pkg_metadata()
 		PBI_LICENSE="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%L' ${PBI_ORIGIN} 2>/dev/null | awk 1 ORS=' '`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
-		PBI_SHORTDESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%c' ${PBI_ORIGIN} 2>/dev/null | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
+		PBI_SHORTDESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%c' ${PBI_ORIGIN} 2>/dev/null | awk '{printf "%s<br>",$0} END {print ""}' | sed 's|*|-|g'`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
-		PBI_DESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%e' ${PBI_ORIGIN} 2>/dev/null | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
+		PBI_DESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%e' ${PBI_ORIGIN} 2>/dev/null | awk '{printf "%s<br>",$0} END {print ""}' | sed 's|*|-|g'`"
 	fi
 
 	# Grab all the pkgng info we can in one pass

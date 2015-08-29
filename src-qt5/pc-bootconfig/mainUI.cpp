@@ -1,6 +1,9 @@
 #include "mainUI.h"
 #include "ui_mainUI.h"
 
+#include "QuickEntries.h"
+#include "PartitionSelect.h"
+
 mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
 	  
   qDebug() << "Starting up pc-bootconfig...";
@@ -16,6 +19,15 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
     QString cmd = "cp "+file_GRUBdefaults+" "+file_GRUBdefaults+".old";
     QProcess::execute(cmd);
   }
+  //Initialize the Quick entry menu
+  quickEntryM = new QMenu;
+    ui->tool_add_custom->setMenu(quickEntryM);
+    QList<GEntry> qlist = GrubEntries::listAll();
+    for(int i=0; i<qlist.length(); i++){
+      QAction *act = new QAction(QIcon(qlist[i].icon), qlist[i].name,this);
+	act->setWhatsThis(qlist[i].ID);
+	quickEntryM->addAction(act);
+    }
   //initialize the QProcess
   proc = new QProcess(this);
     proc->setProcessChannelMode(QProcess::MergedChannels);
@@ -36,6 +48,7 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   connect(ui->spin_GRUBtimer,SIGNAL(valueChanged(int)),this,SLOT(GRUBchangedefaults()) );
   connect(ui->check_GRUBshowcountdown,SIGNAL(stateChanged(int)),this,SLOT(GRUBchangedefaults()) );
   connect(ui->text_GRUBentries,SIGNAL(textChanged()),this,SLOT(GRUBchangeentries()) );
+  connect(quickEntryM, SIGNAL(triggered(QAction*)), this, SLOT(makeQuickEntry(QAction*)) );
 }
 
 mainUI::~mainUI(){
@@ -349,19 +362,18 @@ void mainUI::updateGRUBentries(){
 }
 
 //UI Buttons - Boot Environments
-void mainUI::on_tool_BEadd_clicked(){
+void mainUI::on_tool_BEadd_clicked(QString oldname){
   //Check to see if we need to reset the GRUB defaults afterwards
   bool updateGRUB=false;
   if( ui->tree_BE->topLevelItemCount() == 1){updateGRUB=true;} //moving from 1 to 2
   //Get the new name from the user
   bool ok;
-  QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, "", &ok,0, Qt::ImhLowercaseOnly | Qt::ImhUppercaseOnly | Qt::ImhDigitsOnly); 
+  QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, oldname, &ok,0, Qt::ImhLowercaseOnly | Qt::ImhUppercaseOnly | Qt::ImhDigitsOnly); 
   if(ok && !newname.isEmpty()){
-    if( !validateInput(newname) ){
-      on_tool_BEadd_clicked(); //try again
+    if( !validateInput(newname) || !checkName(newname) ){
+      on_tool_BEadd_clicked(newname); //try again
       return;
     }
-    if( checkName(newname) ){
       if(updateGRUB && !G_showMenu){ 
 	G_showMenu=true; 
 	saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);  
@@ -369,7 +381,6 @@ void mainUI::on_tool_BEadd_clicked(){
       beadmCreate(newname);
       updateBEList();
       updateGRUBdefaults();
-    }
   }	
 }
 
@@ -389,7 +400,7 @@ void mainUI::on_tool_BEactivate_clicked(){
   }
 }
 
-void mainUI::on_tool_BEcp_clicked(){
+void mainUI::on_tool_BEcp_clicked(QString oldname){
  int index = getSelectedBE();
   if(index != -1){
     if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
@@ -399,15 +410,15 @@ void mainUI::on_tool_BEcp_clicked(){
     bool updateGRUB=false;
     if( ui->tree_BE->topLevelItemCount() == 1){updateGRUB=true;} //moving from 1 to 2
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
+    if(!oldname.isEmpty()){ name = oldname; }
     //Get the new name from the user
     bool ok;
     QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, name, &ok,0, Qt::ImhDigitsOnly | Qt::ImhUppercaseOnly | Qt::ImhLowercaseOnly); 
     if(ok && !newname.isEmpty()){
-      if( !validateInput(newname) ){
-        on_tool_BEcp_clicked(); //try again
+      if( !validateInput(newname) || !checkName(newname) ){
+        on_tool_BEcp_clicked(newname); //try again
         return;
       }
-      if( checkName(newname) ){
 	if(updateGRUB && !G_showMenu){ 
 	  G_showMenu=true; 
 	  saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);  
@@ -415,12 +426,11 @@ void mainUI::on_tool_BEcp_clicked(){
         beadmCopy(name,newname);
         updateBEList();
 	updateGRUBdefaults(true);
-      }
     }
   }	
 }
 
-void mainUI::on_tool_BEmv_clicked(){
+void mainUI::on_tool_BEmv_clicked(QString oldname){
   int index = getSelectedBE();
   if(index != -1){
     /*if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
@@ -436,19 +446,18 @@ void mainUI::on_tool_BEmv_clicked(){
       return;
     }
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
+    if(!oldname.isEmpty()){ name = oldname; }
     //Get the new name from the user
     bool ok;
     QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a new name for this boot environment"), QLineEdit::Normal, name, &ok,0, Qt::ImhLowercaseOnly | Qt::ImhUppercaseOnly | Qt::ImhDigitsOnly ); 
     if(ok && !newname.isEmpty()){
-      if( !validateInput(newname) ){
+      if( !validateInput(newname) || !checkName(newname)){
         on_tool_BEmv_clicked(); //try again
         return;
       }
-      if( checkName(newname) ){
         beadmRename(name,newname);
         updateBEList();
 	updateGRUBdefaults(true); //Make sure to rebuild the GRUB menu with the new name
-      }
     }
   }
 }
@@ -543,6 +552,21 @@ void mainUI::on_tool_GRUBsaveentries_clicked(){
 
 void mainUI::on_tool_GRUBresetentries_clicked(){
   updateGRUBentries();
+}
+
+void mainUI::makeQuickEntry(QAction *act){
+
+  //Prompt for the user to select the HD/Partition/<new name>
+  QString HD, PART, NAME;
+    NAME = act->text();
+  PartitionSelect dlg(this);
+    dlg.setupGui(NAME);
+    dlg.exec();
+  if(!dlg.selected){ return; } //cancelled
+  //now generate the entry
+  qDebug() << "Creating quick Entry:" << act->whatsThis();
+  ui->text_GRUBentries->appendPlainText( GrubEntries::CreateEntry(act->whatsThis(), dlg.HD, dlg.PART, NAME) );
+  GRUBchangeentries(); //flag as changed
 }
 
 //UI Buttons - other

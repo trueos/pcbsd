@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>635</width>
-    <height>273</height>
+    <height>281</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -404,6 +404,20 @@
                 </size>
                </property>
               </spacer>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_add_custom">
+               <property name="text">
+                <string notr="true"/>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+               </property>
+               <property name="popupMode">
+                <enum>QToolButton::InstantPopup</enum>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>

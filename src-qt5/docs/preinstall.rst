@@ -66,7 +66,7 @@ Supported Hardware
 ==================
 
 PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
-manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html#proc>`_ list the amd64
+manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html#proc>`_ list the amd64
 processors known to work.
 
 Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
@@ -89,7 +89,7 @@ driver and disable NVIDIA. This will change in the future when the NVIDIA driver
 A list of graphics cards which are known to work can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
-`FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
+`FreeBSD driver <http://www.freebsd.org/releases/10.2R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `Status of Atheros Wifi Hardware wiki page <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 A list of supported Intel devices and known limitations can be found on the `iwn(4) Intel 802.11n series NICs wiki page <https://wiki.freebsd.org/dev/iwn%284%29>`_.
 
@@ -100,7 +100,7 @@ Certain Broadcom devices, typically found in cheap laptops, are quite buggy and 
 mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
 If you wish to check your hardware before installing PC-BSD®, a good place to start is the
-`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html>`_. Another good resource is to start the installer and click the
+`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html>`_. Another good resource is to start the installer and click the
 :ref:`Hardware Compatibility` icon.
 
 While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. It should be remembered that
@@ -147,7 +147,7 @@ The `FreeBSD Tuning Power Consumption page <https://wiki.FreeBSD.org/TuningPower
 .. index:: thinkpad
 
 With regards to specific hardware, the ThinkPad T420 may panic during install. If it does, go into the BIOS and set the video mode to "discrete" which should allow you to complete an
-installation. Some Thinkpads have a BIOS bug that prevents them from booting from GPT labelled disks. If you are unable to boot into a new installation, restart the
+installation. Some Thinkpads have a BIOS bug that prevents them from booting from GPT labeled disks. If you are unable to boot into a new installation, restart the
 installer and go into "Advanced Mode" in the :ref:`Disk Selection Screen`. Make sure that the "Partition disk with GPT" box is unchecked. If it was checked
 previously, redo the installation with the box unchecked.
 
@@ -256,8 +256,6 @@ When selecting a virtual image file, choose a format that matches your virtualiz
 The following editions are available: 
 
 * :file:`consumer-desktop`: provides an installed version of PC-BSD® with the KDE and Fluxbox desktop environments.
-
-* :file:`freenas-builder`: can be used by developers and testers to build an alpha version of FreeNAS 10. 
 
 * :file:`trueos-server`: provides a pre-installed TrueOS® server that is command-line only.
 
@@ -648,15 +646,6 @@ When using the "trueos-server" edition, the virtual machine will boot into a pas
 recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
 to login with. You can do so by typing :command:`adduser` and following the prompts.
 
-When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username (the initial password is blank). It is
-recommended to immediately set the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers
-to build a copy of FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
-depending upon the recent source changes. To attempt a build, follow the instructions in the
-`Building the System Quickstart Flow <https://github.com/freenas/freenas/blob/master/README.md>`_ section of the FreeNAS README, but change the
-:command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
-"Requirements" listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the
-"freenas-builder" virtual machine.
-
 .. index:: virtualization
 .. _Using the Downloadable .ova File:
 
@@ -689,11 +678,3 @@ desktop.
 When using the "trueos-server" edition, the virtual machine will boot into a password prompt. Enter *root* as the username and *pcbsd* as the password. It is
 recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
 to login with. You can do so by typing :command:`adduser` and following the prompts.
-
-When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username (the initial password is blank).
-It is recommended to immediately set the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers
-and testers to build a copy of FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible
-that the build may fail, depending upon the recent source changes. To attempt a build, follow the instructions in the  section of the FreeNAS README, but change
-the :command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
-"Requirements" listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the "freenas-builder" virtual
-machine.

@@ -22,16 +22,19 @@ void MessageOutput(QtMsgType type, const QMessageLogContext &context, const QStr
   QString txt;
   switch(type){
   case QtDebugMsg:
-  	  txt = QString("Debug: %1").arg(msg);
+  	  txt = msg;
   	  break;
   case QtWarningMsg:
-  	  txt = QString("Warning: %1").arg(msg);
+  	  txt = QString("WARNING: %1").arg(msg);
+          txt += "\n Context: "+QString(context.file)+" Line: "+QString(context.line)+" Function: "+QString(context.function);
   	  break;
   case QtCriticalMsg:
   	  txt = QString("CRITICAL: %1").arg(msg);
+	  txt += "\n Context: "+QString(context.file)+" Line: "+QString(context.line)+" Function: "+QString(context.function);
   	  break;
   case QtFatalMsg:
   	  txt = QString("FATAL: %1").arg(msg);
+	  txt += "\n Context: "+QString(context.file)+" Line: "+QString(context.line)+" Function: "+QString(context.function);
   	  break;
   }
 
@@ -67,7 +70,7 @@ int main( int argc, char ** argv )
     WebServer *w = new WebServer(); 
     if( w->startServer() ){
       //Now start the event loop
-      QTimer::singleShot(1000, w, SLOT(stopServer()) ); //for testing purposes
+      //QTimer::singleShot(1000, w, SLOT(stopServer()) ); //for testing purposes
       int ret = a.exec();
       logfile.close();
       return ret;

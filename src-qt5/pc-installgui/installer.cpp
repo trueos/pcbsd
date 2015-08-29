@@ -68,8 +68,6 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     backButton->setVisible(false);
 
     // Update the status bar
-    // This makes the status text more "visible" instead of using the blue background
-    statusBar()->setStyleSheet("background: white");
 
     // Check if we are running in EFI mode
     if ( system("kenv grub.platform | grep -q 'efi'") == 0 )
@@ -827,6 +825,8 @@ void Installer::slotChangeLanguage()
        Scripts::Backend::changeKbMap("pc105", langCode, "" );
     }
     
+    // Reset the version label
+    labelVersion->setText(tr("Version:") + " " + PCBSDVERSION);
 }
 
 QStringList Installer::getGlobalCfgSettings()
@@ -1742,15 +1742,13 @@ void Installer::checkSpaceWarning()
   QString target;
   //qDebug() << "Disk layout:" << workingDisk << workingSlice;
 
-  if ( workingSlice == "ALL" ) {
-    targetType = "DRIVE";
-    target = workingDisk;
-    targetLoc = 1;
-  } else {
-    targetType = "SLICE";
-    target = workingDisk + workingSlice;
-    targetLoc = 2;
-  }
+  // Only check full-disk sizes. Other size checks are done in disk wizard
+  if ( workingSlice != "ALL" )
+    return;
+
+  targetType = "DRIVE";
+  target = workingDisk;
+  targetLoc = 1;
   
   // Lets get the size for this disk / partition
   for (int i=0; i < sysDisks.count(); ++i) {

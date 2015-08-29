@@ -10,6 +10,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   DEBUG = debugmode;
   AUTHCOMPLETE = false; //not performed yet
   this->setWindowTitle(tr("AppCafe"));
+  //Need 1024 wide if possible
   this->resize(1024,600);
   this->setWindowIcon( QIcon(":icons/appcafe.png") );
   if(this->centralWidget()==0){ this->setCentralWidget( new QWidget(this) ); }

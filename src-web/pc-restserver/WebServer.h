@@ -12,6 +12,13 @@
 #include <QSslError>
 #include <QList>
 #include <QObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QTimer>
+
+#include "syscache-client.h"
+#include "RestStructs.h"
 
 class WebServer : public QWebSocketServer{
 	Q_OBJECT
@@ -26,21 +33,31 @@ public slots:
 
 private:
 	QWebSocket *csock; //current socket connection
+	QTimer *idletimer;
 
-private slots:
 	//Main connection comminucations procedure
-	void EvaluateConnection(); //needs a current socket (csock), unsets it when done
+	void EvaluateREST(QString);
+	void EvaluateRequest(const RestInputStruct&); //This is where all the magic happens (needs csock)
 
+	//Simplification functions
+	QString JsonValueToString(QJsonValue);
+	QStringList JsonArrayToStringList(QJsonArray);
+private slots:
 	// Overall Server signals
 	void ServerClosed(); 						//closed() signal
 	void ServerError(QWebSocketProtocol::CloseCode);	//serverError() signal
+	void checkIdle(); //see if the currently-connected client is idle
         // New Connection Signals
 	void NewSocketConnection(); 					//newConnection() signal
 	void NewConnectError(QAbstractSocket::SocketError);	//acceptError() signal
+	void SocketClosing();
 	// SSL/Authentication Signals
 	void OriginAuthRequired(QWebSocketCorsAuthenticator*);	//originAuthenticationRequired() signal
 	void PeerVerifyError(const QSslError&);			//peerVerifyError() signal
 	void SslErrors(const QList<QSslError>&);			//sslErrors() signal
+	//Currently connected socket signal/slot connections
+	void EvaluateMessage(const QByteArray&); //needs a current socket (csock), unsets it when done (automatic)
+	void EvaluateMessage(const QString&); //needs a current socket (csock), unsets it when done (automatic)
 };
 
 #endif

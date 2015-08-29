@@ -20,6 +20,8 @@ cp dispatcher-auth ${PROGDIR}/dispatcher-auth
 chmod 755 ${PROGDIR}/dispatcher-auth
 cp dispatcher-localauth ${PROGDIR}/dispatcher-localauth
 chmod 755 ${PROGDIR}/dispatcher-localauth
+cp dispatcher-localauth-pam ${PROGDIR}/dispatcher-localauth-pam
+chmod 755 ${PROGDIR}/dispatcher-localauth-pam
 
 # Copy sudoers file
 if [ ! -d "$STAGEDIR/etc/sudoers.d" ] ; then

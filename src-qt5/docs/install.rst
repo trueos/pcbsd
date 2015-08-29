@@ -38,7 +38,7 @@ Starting on the left-hand side, the icons in the bottom navigation area allow yo
 
 * access :ref:`Hardware Compatibility` information 
 
-* manage :ref:`Network Configuration` for a system restore
+* manage :ref:`Network Configuration` for a network installation or system restore
 
 * read that screen's Help text 
 
@@ -130,7 +130,7 @@ The following components are available for installation.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
-* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "FreeNAS-Builder", "Internet", "Media", and
+* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "Internet", "Media", and
   "Office and Productivity".
 
 * **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
@@ -224,7 +224,7 @@ If you select advanced mode, the wizard will display the screen shown in Figure 
 
 **Figure 3.3d: Advanced Mode Options** 
 
-.. image:: images/install8.png
+.. image:: images/install8a.png
 
 This screen provides the following options: 
 
@@ -262,7 +262,8 @@ ZFS is an enterprise grade file-system, which provides many features including: 
 take snapshots, boot environments, continuous integrity checking and automatic repair, RAIDZ which was designed to overcome the limitations of hardware RAID,
 and native NFSv4 ACLs.
 
-If you are new to ZFS, the `Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/ZFS>`_ provides an excellent starting point to learn about its features.
+If you are new to ZFS, the `Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/ZFS>`_ provides an excellent starting point to learn about its features. Additionally, `FreeBSD Mastery: ZFS <http://zfsbook.com>`_ by Michael W Lucas and Allan Jude is a very helpful resource and is more specific to ZFS as it is implemented in FreeBSD.
+
 These resources are also useful to bookmark and refer to as needed: 
 
 * `ZFS Evil Tuning Guide <http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide>`_
@@ -336,16 +337,15 @@ In "Advanced Mode", the disk setup wizard allows you to configure your ZFS layou
 
 **Figure 3.3e: ZFS Configuration** 
 
-.. image:: images/install9.png
+.. image:: images/install9a.png
 
-If your system contains multiple drives and you would like to use them to create a ZFS mirror or RAIDZ, check the box "Enable ZFS mirror/raidz mode" which
-will enable the rest of the options in this screen. In the example shown in Figure 3.3e, the system has 7 disks, all of which are the same size. The first
-disk, :file:`ada0`, was pre-selected in Figure 3.3d and the remaining 6 disks (:file:`ada1` to :file:`ada6`) are available to be added to the ZFS pool.
+If your system contains multiple drives and you would like to use them to create a ZFS mirror or RAIDZ*, check the box "Add additional disks to zpool" which
+will enable this screen. Any available disks will be listed in the box below the "ZFS Virtual Device Mode" drop-down menu. Select the desired level of redundancy,
+then the desired number of disks.
 
+.. note:: the PC-BSD® installer requires you to use entire disks (not partitions) when adding additional disks to the pool.
 
-.. note:: the PC-BSD® installer requires you to use entire disks (not partitions) when creating a ZFS mirror or RAIDZ. 
-
-While ZFS will let you use disks of different sizes, this is discouraged as it will decrease decrease storage capacity and performance of the ZFS system.
+While ZFS will let you use disks of different sizes, this is discouraged as it will decrease storage capacity and ZFS performance.
 
 The PC-BSD® installer supports the following ZFS configurations: 
 
@@ -357,6 +357,9 @@ The PC-BSD® installer supports the following ZFS configurations:
 
 * **RAIDZ3:** requires a minimum of 5 disks. For best performance, a maximum of 11 disks is recommended.
 
+* **stripe:** requires a minimum of 2 disks.
+  **Note that a stripe does NOT provide ANY redundancy. If any disk fails in a stripe, all data in the pool is lost!**
+
 The installer will not let you save a configuration if your system does not meet the minimum number of disks required by that configuration. As you select a
 configuration, a message will indicate how many more disks you need to select.
 
@@ -365,15 +368,15 @@ like to add to that configuration. When finished, click the "Next" button to see
 
 **Figure 3.3f: Add L2ARC or ZIL**
 
-.. image:: images/install10.png
+.. image:: images/install10a.png
 
-This screen can be used to specify an SSD to use as an L2ARC or a secondary log device. Note that a separate SSD is needed for each type of device. Refer to
-the descriptions for ZIL and L2ARC in the :ref:`ZFS Overview` to determine if your system would benefit from any of these devices before adding them in this
-screen. When finished, click "Next" to see the screen shown in Figure 3.3g.
+This screen can be used to specify an SSD to use as an L2ARC or a secondary log device. Any available devices will be listed in the boxes in this screen.
+Note that a separate SSD is needed for each type of device. Refer to the descriptions for ZIL and L2ARC in the :ref:`ZFS Overview` to determine if your system
+would benefit from any of these devices before adding them in this screen. When finished, click "Next" to see the screen shown in Figure 3.3g.
 
 **Figure 3.3g: Configure Encryption**
 
-.. image:: images/install11.png
+.. image:: images/install11a.png
 
 This screen can be used to configure full-disk encryption which is meant to protect the data on the disks should the system itself be lost or stolen. This
 type of encryption prevents the data on the disks from being available during bootup, unless the correct passphrase is typed at the bootup screen. Once the
@@ -390,7 +393,7 @@ When finished, click "Next" to move on the screen shown in Figure 3.3h.
 
 **Figure 3.3h: Default ZFS Layout** 
 
-.. image:: images/install12.png
+.. image:: images/install12a.png
 
 Regardless of how many disks you selected for your ZFS configuration, the default layout will be the same. ZFS does not require separate partitions for
 :file:`/usr`, :file:`/tmp`, or :file:`/var`. Instead, you create one ZFS partition (pool) and specify a mount for each dataset. A :file:`/boot` partition is

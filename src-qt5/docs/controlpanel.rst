@@ -113,7 +113,7 @@ are comprised of ASCII text files, they can be easily edited using the graphical
 
 This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
 module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
-custom modules, refer to :ref:`Create Your Own PBI Repository` for instructions on how to add the custom repository to AppCafe®. 
+custom modules, add the custom repository to AppCafe® by clicking the "Repository Configuration" tab in the "Configure" button. 
 
 .. note:: if your goal is to make a change to a single PBI, rather than an entire custom package repository, use the instructions in :ref:`Make Minor Modifications to a PBI Module`. 
 
@@ -264,14 +264,15 @@ screen shown in Figure 8.1g.
 .. image:: images/easypbi7.png
 
 Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
-`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. A screenshot of
+`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-config.json>`_. A screenshot of
 the "Configuration" tab for Bitlbee can be seen in Figure 8.1h.
 
 **Figure 8.1h: Example Configuration Tab**
 
-.. image:: images/bitlbee.png
+.. image:: images/bitlbee1.png
 
-The following fields are available when adding a visual option:
+The following fields are available when adding a visual option. Example values can be found in the
+`README-service-configfile. <https://github.com/pcbsd/pcbsd/blob/master/src-webui/appweb/README-service-configfile>`_.
 
 * **Key:** the option to set.
 
@@ -820,6 +821,13 @@ The boot menu configuration can be found in the ASCII text file :file:`/usr/loca
  GRUB_FONT=/boot/grub/pcbsdfont.pf2
  GRUB_HIDDEN_TIMEOUT_QUIET=false
  GRUB_TIMEOUT=2
+ 
+To modify the maximum number of boot environments, change the number of this variable in :file:`/usr/local/etc/pcbsd.conf`::
+
+ MAXBE: 5
+ 
+Note that valid values range from *1* to
+*10*.
 
 .. index:: configuration
 .. _Hardware Compatibility:
@@ -911,8 +919,8 @@ A stealth session is similar to a web browser's private mode, except for your en
 this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
 **Allow Valid Users with UID under 1000:** check this box if you have imported existing users with a UID under 1000, for example from a Solaris NIS server. Checking this box
-will activate the "Additional Excluded Users" field.
-
+will activate the "Additional Excluded Users" field. You can then use the "+" icon to add an existing user to the exclude list. To remove a user from the exclude list, highlight their
+entry and click the "-" icon.
 
 **Figure 8.6d: Logging Into a Stealth Session**
 
@@ -1113,6 +1121,9 @@ Beginning with 10.1.2, PC-BSD® provides support for PersonaCrypt. A PersonaCryp
 and encrypted with GELI. This device is used to hold a specific user's home directory, meaning that they can securely transport and access their personal files on any
 PC-BSD® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
 protected by an encryption key and a password which is, and should be, separate from the user's login password.
+
+.. note:: when a user is configured to use a PersonaCrypt device, that user can not login using an unencrypted session on the same system. In other words, the PersonaCrypt username is
+   reserved for PersonaCrypt use. If you need to login to both encrypted and unencrypted sessions on the same system, create two different user accounts, one for each type of session.
 
 PersonaCrypt uses GELI's ability to split the key into two parts: one being your passphrase, and the other being a key stored on disk. Without both of these parts, the
 media cannot be decrypted. This means that if somebody steals the key and manages to get your password, it is still worthless without the system it was paired with.
@@ -1952,7 +1963,7 @@ Intel wireless interface that uses the *wlan* driver.
 
 **Figure 8.18b: Network Configuration Utility** 
 
-.. image:: images/network2.png
+.. image:: images/network2a.png
 
 The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both
 Ethernet and wireless devices. It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a
@@ -2455,7 +2466,7 @@ will open.
 .. image:: images/lpreserver7a.png
 
 The "Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
-to keep them. To configure a list of datasets to exclude from the snapshot, click the "+" button which will display the list of available dataets. Select a dataset to
+to keep them. To configure a list of datasets to exclude from the snapshot, click the "+" button which will display the list of available datasets. Select a dataset to
 add it to the "Excluded" section. Repeat for any datasets that you do not wish to backup. To remove a dataset from the excluded list, so that it is added back to the
 snapshot schedule, highlight its entry in the "Excluded" section and click the "-" button.
 
@@ -3072,7 +3083,7 @@ command needs to be run as the superuser. To display its usage, type the command
  Type in help <command> for information and usage about that command
        help - This help file or the help for the specified command
    cronsnap - Schedule snapshot creation via cron
-  cronscrub - Shcedule scrub via cron
+  cronscrub - Schedule scrub via cron
         get - Get list of lpreserver options
    listcron - Listing of scheduled snapshots
    listsnap - List snapshots of a zpool/dataset

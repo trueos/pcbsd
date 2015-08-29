@@ -143,8 +143,8 @@ the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translat
 When translating the documentation, be aware of the following:
 
 * At this time, some formatting tags are still displayed in raw text, as seen in the examples in Figures 11.2e and 11.2f.
-  **It is IMPORTANT that you do not accidently remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
-  translate the phrase "Using the Text Installer" but care must be taken to not accidently remove any of the surrounding colons and backticks, or to change the text
+  **It is IMPORTANT that you do not accidentally remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
+  translate the phrase "Using the Text Installer" but care must be taken to not accidental remove any of the surrounding colons and backticks, or to change the text
   of the "ref" tag. In the second example, the asterisks are used to bold the word "install". It is OK to translate "install", but do not remove the asterisks.
 
 
@@ -155,6 +155,33 @@ When translating the documentation, be aware of the following:
 **Figure 11.2e: Another Formatting Characters Example**
 
 .. image:: images/translate7.png
+
+If you would like to receive notifications of documentation changes that affect translations, subscribe to the
+`Translation-notifications <http://lists.pcbsd.org/mailman/listinfo/translations-notifications>`_ mailing list.
+
+If you would like to build a local HTML copy that includes the latest translations, either for your own use or to visualize the translated Guide, do the following from the command line.
+These instructions are for a PC-BSD® system::
+
+ sudo pkg install pcbsd-toolchain
+ rehash
+ git clone git://github.com/pcbsd/pcbsd.git
+ cd pcbsd/src-qt5/doc 
+ make i18n
+ make html
+ ls _build
+ doctrees                html-es                 html-uk                 pcbsd-handbook-i18n.txz
+ html                    html-fr                 locale
+ html-de                 html-pt_BR              locale-po
+
+ 
+This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
+Brazilian Portuguese, and UK English. To update the HTML at a later time::
+
+ cd ~/pcbsd
+ git pull
+ cd src-qt5/doc 
+ make i18n
+ make html
 
 .. index:: translations
 .. _Website Translation:
@@ -221,7 +248,7 @@ To compile the command line utilities::
 
 To compile the graphical utilities::
 
- cd src-qt4
+ cd src-qt5
 
  /usr/local/lib/qt5/bin/qmake
 

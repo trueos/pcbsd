@@ -27,10 +27,17 @@
 
 #include <QDialog>
 #include <QProcess>
+#include <QTreeWidgetItem>
 
 namespace Ui {
 class MainWindow;
 }
+
+typedef struct _SComponent
+{
+    QString Name;
+    QString Prefix;
+}SComponent;
 
 class MainWindow : public QDialog
 {
@@ -40,24 +47,18 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     
-    bool checkNG();
     bool checkNGPackage(QString name, QString& outVer);
-    void addDEItem(QString name, QString version);
+    void addComponentItem(QString name, QString version, QTreeWidgetItem* parrent);
+    void addComponents(QString groupName, const SComponent *components, int componentsSize);
 
 public slots:
     void slotSingleInstance();
     void slotPackagesFinished();
 
 private slots:
-    void on_pushButton_2_clicked();
 
     void on_BackButton_clicked();
-
-    void slotReadPkg();    
-
     void on_pushButton_clicked();
-
-    void on_BackButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

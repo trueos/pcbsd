@@ -308,7 +308,7 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       if(labs.length() > 0){
         labs[0] = labs[0].section(":",-1).section("/",-1).simplified();
 	if(!labs[0].isEmpty()){ label = labs[0]; }
-	label.replace("%20", " "); //this field code is often not replaced properly in glabel output
+	
       }
     }
     //Final check for getting a device label: camctl (based on type of device)
@@ -329,7 +329,7 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   if(label.isEmpty()){
     label = generateGenericLabel(type); //final option - just create a generic name
   }
-
+  label.replace("%20", " "); //this field code is often not replaced properly in glabel output
   if(fs.isEmpty()){ fs = "NONE"; }
   //Format the output
   out << fs << label << type;

@@ -1,4 +1,3 @@
-.. include global.rst
 
 **Preface** 
 
@@ -156,13 +155,15 @@ What's New in |version|
 
 The following features or enhancements were introduced for PC-BSD® |version|:
 
+* Based on FreeBSD 10.2 which adds these `features <https://www.freebsd.org/releases/10.2R/relnotes.html>`_.
+
 * CD-sized network installers are available for both the graphical and text installers. The installation looks the same for both, with the difference being the size of the
   downloaded media and the fact that the installation files are retrieved over the network rather than from the installation media.
 
-* Lumina has been updated to 0.8.5.
+* Lumina has been updated to `0.8.6 <http://blog.pcbsd.org/2015/08/lumina-desktop-0-8-6-released/>`_.
 
-* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Jails". The
-  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utlity.
+* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Plugins". The
+  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utility.
 
 * The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
 
@@ -183,14 +184,18 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * You can now create and manage more than two panels using the Lumina configuration utility.
 
+* The "Save Pkg List" option has been added to the "Configure" button of :ref:`AppCafe®`.
+
 * The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
   enterprise users that wish to only receive software updates which fix known security vulnerabilities.
+  
+* If you install or uninstall any software in AppCafe®, a "Status" tab will appear so that you can review the installation log.
 
 * The :menuselection:`System --> Branches` menu has been added to :ref:`Update Manager`. This can be used to change which software branch is used to track updates.
 
 * The **showeol** option has been added to :command:`pc-updatemanager`.
 
-* The "Allow Valid Users with UID under 1000" checkbox and "Additonal Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
+* The "Allow Valid Users with UID under 1000" checkbox and "Additional Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
 
 * The **probe-netdrives**,
   **list-mountednetdrives**,
