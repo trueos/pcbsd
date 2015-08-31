@@ -1019,6 +1019,16 @@ start_rep_task() {
     CMDPREFIX=""
   fi
 
+  # Check if the remote dataset exists
+  ${CMDPREFIX} zfs list -d 1 ${REMOTEDSET} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    echo_log "Cannot locate remote dataset ${REMOTEDSET}: LOGFILE: $FLOG"
+    queue_msg "Cannot locate remote dataset ${REMOTEDSET}: LOGFILE: $FLOG"
+    queue_msg "`cat ${FLOG}`"
+    rm ${pidFile}
+    return 1
+  fi
+
   # Check for the last snapshot marked as replicated already
   lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
