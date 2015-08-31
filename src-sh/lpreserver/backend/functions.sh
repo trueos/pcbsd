@@ -1019,7 +1019,7 @@ start_rep_task() {
     CMDPREFIX=""
   fi
 
-  # Check if the remote dataset exists
+  # Check if the remote dataset exists, bail if not
   ${CMDPREFIX} zfs list -d 1 ${REMOTEDSET} >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
     echo_log "Cannot locate remote dataset ${REMOTEDSET}: LOGFILE: $FLOG"
