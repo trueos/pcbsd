@@ -57,6 +57,7 @@ i18n:
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/es/LC_MESSAGES --strip-components 2 ./es/
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/fr/LC_MESSAGES --strip-components 2 ./fr/
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/pt_BR/LC_MESSAGES --strip-components 2 ./pt_BR/
+	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/tr/LC_MESSAGES --strip-components 2 ./tr/
 	@tar xpf $(BUILDDIR)/pcbsd-handbook-i18n.txz -C $(BUILDDIR)/locale-po/uk/LC_MESSAGES --strip-components 2 ./uk/
 	$(SPHINXINTL) build
 
@@ -70,6 +71,7 @@ html:
 	$(SPHINXBUILD) -D language='es' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-es
 	$(SPHINXBUILD) -D language='fr' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-fr
 	$(SPHINXBUILD) -D language='pt_BR' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-pt_BR
+	$(SPHINXBUILD) -D language='tr' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-tr
 	$(SPHINXBUILD) -D language='uk' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html-uk
 .endif
 	@echo
@@ -82,6 +84,7 @@ dirhtml:
 	$(SPHINXBUILD) -D language='es' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-es
 	$(SPHINXBUILD) -D language='fr' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-fr
 	$(SPHINXBUILD) -D language='pt_BR' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-pt_BR
+	$(SPHINXBUILD) -D language='tr' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-tr
 	$(SPHINXBUILD) -D language='uk' -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml-uk
 .endif
 	@echo
@@ -94,6 +97,7 @@ singlehtml:
 	$(SPHINXBUILD) -D language='es' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-es
 	$(SPHINXBUILD) -D language='fr' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-fr
 	$(SPHINXBUILD) -D language='pt_BR' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-pt_BR
+	$(SPHINXBUILD) -D language='tr' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-tr
 	$(SPHINXBUILD) -D language='uk' -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml-uk
 .endif
 	@echo
