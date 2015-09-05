@@ -1430,7 +1430,7 @@ prep_rc_script()
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade 2>&1 | tee -a ${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
   rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   rm ${STAGEMNT}/${FREEBSDUP}

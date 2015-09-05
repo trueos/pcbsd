@@ -140,7 +140,7 @@ function display_config_details()
 
 
   // Start the form
-  echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl#tabs-configure\">\n";
+  echo "<form method=\"post\" action=\"?p=plugininfo&app=".rawurlencode($pbiorigin)."#tabs-configure\">\n";
   echo " <table class=\"jaillist\" style=\"width:100%\">";
   echo "  <tr>\n";
   echo "   <th></th>\n";

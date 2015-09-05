@@ -1183,7 +1183,6 @@ check_update_cageindex() {
 	else
 		echo "Updating pbicage index..."
 		cd ${PBI_DBCAGEINDEXDIR}
-		git reset --hard >/dev/null 2>/dev/null
 		git pull origin master >/dev/null 2>/dev/null
 		if [ $? -ne 0 ] ; then
 			echo "WARNING: Failed updating pbicage index..."
