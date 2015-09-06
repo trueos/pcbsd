@@ -373,9 +373,11 @@ new_gpart_partitions()
     PARTLETTER="a"
     CURPART="1"
     if [ "${_pType}" = "mbr" ] ; then
-      # This is nasty, but at the moment it works to get rid of previous installs metadata
-      echo_log "Clearing partition data..."
-      rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+      if [ "${INSTALLTYPE}" != "GhostBSD" ] ; then
+        # This is nasty, but at the moment it works to get rid of previous installs metadata
+        echo_log "Clearing partition data..."
+        rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+      fi
       rc_halt "sync"
       sleep 5
       rc_halt "gpart create -s BSD ${_wSlice}"
