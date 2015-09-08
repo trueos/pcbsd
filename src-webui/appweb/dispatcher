@@ -372,6 +372,67 @@ run_iocage_cmd()
   syscache "startsync" >/dev/null 2>/dev/null
 }
 
+run_iocage_getfstab()
+{
+  jid="$3"
+  fstab=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/root/data||g')/fstab
+  if [ -e "$fstab" ] ; then
+     cat $fstab
+     exit 0
+  fi
+  exit 1
+}
+
+run_iocage_addfstab()
+{
+  jid="$3"
+  mnt=$(echo $4 | sed "s|^/||g")
+  jaildir=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')
+  fstab=$(echo $jaildir | sed 's|/root||g')/fstab
+  touch $fstab
+
+  if [ ! -d "/$mnt" ] ; then
+    echo "No such directory: /$mnt"
+    exit 1
+  fi
+
+  # Sanity check the request
+  case $mnt in
+    bin|boot|compat|dev|etc|iocage|lib|libexec|net|proc|rescue|sbin|sys|tmp|usr)
+         echo "Cowardly refusing to nullfs mount /$mnt"
+         exit 1
+         ;;
+      *) ;;
+  esac
+
+  if [ ! -d "$jaildir/$mnt" ] ; then
+    mkdir -p $jaildir/$mnt
+  fi
+
+  # Add the fstab entry
+  echo "nullfs	/$mnt	$jaildir/$mnt	rw	0	0" >> $fstab
+
+  # Mount the directory
+  mount_nullfs /$mnt $jaildir/$mnt
+
+  exit 0
+}
+
+run_iocage_delfstab()
+{
+  jid="$3"
+  mnt=$(echo $4 | sed "s|^/||g")
+  jaildir=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')
+  fstab=$(echo $jaildir | sed 's|/root||g')/fstab
+  touch $fstab
+
+  # Delete the fstab entry
+  cat $fstab | grep -v "$jaildir/$mnt	rw" > ${fstab}.new
+  mv ${fstab}.new ${fstab}
+  umount -f "${jaildir}/$mnt"
+  exit 0
+}
+
 run_service_cmd()
 {
 
@@ -551,6 +612,9 @@ case $1 in
 	    case $2 in
               # These commands will be queued
               destroy|pull) echo "$@" >>${QLIST} ;;
+	      addfstab) run_iocage_addfstab "$@" ;;
+	      delfstab) run_iocage_delfstab "$@" ;;
+	      getfstab) run_iocage_getfstab "$@" ;;
 	      # These commands can be run immediately
 	      start|stop|auto|set|get|activate) run_iocage_cmd $@ ;;
 	      *) echo "Invalid iocage command! $2" ; exit 1 ;;
