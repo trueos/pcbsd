@@ -255,10 +255,20 @@ setup_grub()
      echo "GRUB_ENABLE_CRYPTODISK=y" >> ${FSMNT}/usr/local/etc/default/grub
   fi
 
-  # Check if we need to install in EFI mode
+  # Check the first disk, see if this is EFI or BIOS formatted
   EFIMODE="FALSE"
   FORMATEFI="FALSE"
-  BOOTMODE=`kenv grub.platform`
+  BOOTMODE="pc"
+  while read gdisk
+  do
+     gpart show $gdisk | grep -q " efi "
+     if [ $? -eq 0 ] ; then
+       BOOTMODE="efi"
+     fi
+     break
+  done < ${TMPDIR}/.grub-install
+
+  # If on EFI mode, set some grub flags and see if we need to format the EFI partition
   if [ "$BOOTMODE" = "efi" ]; then
     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
     EFIMODE="TRUE"
