@@ -391,11 +391,11 @@ To launch this application, go to :menuselection:`Applications --> Internet --> 
 within any desktop. If you click :kbd:`F1` while in KRDC you can access the
 `Remote Connection Desktop Handbook <https://docs.kde.org/stable4/en/kdenetwork/krdc/index.html>`_ to learn more about how to use this application.
 
-Figure 9.6a shows the initial KRDC screen which allows you to specify which system you wish to connect to.
+:numref:`Figure %s: Creating a Connection Using KRDC <krdc1>` shows the initial KRDC screen which allows you to specify which system you wish to connect to.
 
-**Figure 9.6a: Creating a Connection Using KRDC** 
+.. _krdc1: 
 
-.. image:: images/krdc1.png
+.. figure:: images/krdc1.png
 
 Use the drop-down menu to indicate whether the remote system is using RDP or VNC for the connection. Then type in the IP address of the system you wish to
 connect to. If you are connecting to a VNC system, the IP address needs to be followed by a colon and a number indicating the number of the session.

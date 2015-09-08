@@ -10,11 +10,11 @@ regardless of which desktop you log into.
 .. note:: if a desktop does not contain an icon or menu item for Control Panel, type :command:`pc-controlpanel` from a shell prompt to launch the Control
    Panel.
 
-A screenshot of Control Panel started from the KDE desktop can be seen in Figure 8.a.
+A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1>`.
 
-**Figure 8.a: PC-BSD® Control Panel**
+.. _control1:
 
-.. image:: images/control1.png
+.. figure:: images/control1.png
 
 The available utilities are divided into sections. If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has
 down arrow) its icons. In this example, the display for the "Desktop environment" section is hidden.
@@ -29,14 +29,14 @@ If an icon includes a yellow exclamation mark, you will need to input your passw
    By default, the first user account that you create is made a member of the *wheel* group. You can log in as that user and use :ref:`User Manager` to add
    other accounts to this group.
 
-Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE,
-XFCE4, LXDE, or Lumina, assuming that they are installed, or just the utilities that came with PC-BSD®. Figure 8.b shows the desktop selector menu in use. In
+Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina,
+assuming that they are installed, or just the utilities that came with PC-BSD®. :numref:`Figure %s: Desktop Selector Menu <control2>`  shows the desktop selector menu in use. In
 this example, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities. The menu icon indicates the control panel
 view while "(current)" will be beside the desktop that is presently active.
 
-**Figure 8.b: Desktop Selector Menu** 
+.. _control2:
 
-.. image:: images/control2.png
+.. figure:: images/control2.png
 
 Switching between the icons in the selector changes the icons displayed within the control panel window to match those used in that desktop. If "All desktops"
 is set by the desktop selector, you will see every utility that is available, depending upon which desktops are currently installed. You can change which
@@ -128,17 +128,18 @@ EasyPBI can be launched from :ref:`Control Panel` or by typing :command:`EasyPBI
 
 .. note:: do not use EasyPBI while :ref:`AppCafe®` is running as both applications place a lock on the package database.
 
-When you first launch EasyPBI, everything will be greyed out, as seen in Figure 8.1a. This is because you have not created any modules yet.
+When you first launch EasyPBI, everything will be greyed out, as seen in :numref:`Figure %s: Initial EasyPBI Graphical Interface <easypbi1>`. This is because you have not created any
+modules yet.
 
-**Figure 8.1a: Initial EasyPBI Graphical Interface**
+.. _easypbi1:
 
-.. image:: images/easypbi1.png
+.. figure:: images/easypbi1.png
 
-Click the "New" button to create a PBI module and to open the screen shown in Figure 8.1b.
+Click the "New" button to create a PBI module and to open the screen shown in :numref:`Figure %s: Create a New Module Screen <easypbi2>`.
 
-**Figure 8.1b: Create a New Module Screen**
+.. _easypbi2:
 
-.. image:: images/easypbi2.png
+.. figure:: images/easypbi2.png
 
 The following options are available when creating a new module:
 
@@ -150,12 +151,12 @@ The following options are available when creating a new module:
 * **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package from the official repository in order to
   automatically fill in the module's information. This information can be filled in manually, as described in the next screen.
 
-After making your selections, click "OK". The information for the module will appear as seen in the example in Figure 8.1c. In this example, the
+After making your selections, click "OK". The information for the module will appear as seen in the example in :numref:`Figure %s: PBI Configuration Screen <easypbi3>`. In this example, the
 :file:`net-p2p/linuxdcpp` port has been selected.
 
-**Figure 8.1c: PBI Configuration Screen**
+.. _easypbi3:
 
-.. image:: images/easypbi3.png
+.. figure:: images/easypbi3.png
 
 The "Port/Package" and "Author" fields are mandatory and should be auto-filled for you, unless you checked the "Quick Module" box. If the port does not supply
 the "Author" name, check the application's website to see if you can find one. Otherwise, input the email address of the port maintainer. A generic icon will
@@ -190,12 +191,12 @@ The other items in the "PBI Configuration" tab are optional:
 Advanced Module Configuration
 -----------------------------
 
-The "XDG Shortcuts" tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop
-environment. This is important for graphical applications as it configures the primary method for interacting with the program.
+The "XDG Shortcuts" tab, shown in :numref:`Figure %s: XDG Shortcuts Configuration <easypbi4>`, is used to create desktop icons and menu entries so that the application can be easily started
+from within a desktop environment. This is important for graphical applications as it configures the primary method for interacting with the program.
 
-**Figure 8.1d: XDG Shortcuts Configuration**
+.. _easypbi4:
 
-.. image:: images/easypbi4.png
+.. figure:: images/easypbi4.png
 
 Any entries currently configured for the module will appear in the left side of the tab. Click an existing entry to display its details on the right. You can
 remove a highlighted entry by clicking the "-" (minus sign) button, or create a new entry by clicking on the white paper button under the entry list which
@@ -231,11 +232,11 @@ If you click "Menu", two more fields will be added to the "Entry Details" sectio
 
 If you make any changes in this tab, click the "Save" button to save them.
 
-The "Scripts" tab, shown in Figure 8.1e, is used to create custom installation and removal scripts for the PBI.
+The "Scripts" tab, shown in :numref:`Figure %s: Scripts Configuration <easypbi5>`, is used to create custom installation and removal scripts for the PBI.
 
-**Figure 8.1e: Scripts Configuration**
+.. _easypbi5:
 
-.. image:: images/easypbi5.png
+.. figure:: images/easypbi5.png
 
 If you click on the drop-down menu, you will see a list of available script types, with an icon indicating whether or not a custom script exists in the
 module. Selecting a script type will activate a "Create" button if the script does not exist, or will display the full script in a box for editing.
@@ -248,28 +249,28 @@ The possible script types are:
 
 If you add or remove any scripts in this tab, click the "Save" button to save them.
 
-The "Service Configuration" tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application. This is generally
-used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
+The "Service Configuration" tab, shown in :numref:`Figure %s: Service Configuration <easypbi6>`, allows you to setup a remote graphical configuration interface for the application. This is
+generally used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
 configuration options or starting, stopping, and restarting the service. Any configurations will appear in the "Configuration" tab of AppCafe®.
 
-**Figure 8.1f: Service Configuration**
+.. _easypbi6:
 
-.. image:: images/easypbi6.png
+.. figure:: images/easypbi6.png
 
 The "Visual Options" list is used to setup the options for controlling the service. To add an entry to this list, click "New Option" which will open the
-screen shown in Figure 8.1g. 
+screen shown in :numref:`Figure %s: Adding a Visual Option <easypbi7>`. 
 
-**Figure 8.1g: Adding a Visual Option**
+.. _easypbi7:
 
-.. image:: images/easypbi7.png
+.. figure:: images/easypbi7.png
 
 Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
 `service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-config.json>`_. A screenshot of
-the "Configuration" tab for Bitlbee can be seen in Figure 8.1h.
+the "Configuration" tab for Bitlbee can be seen in :numref:`Figure %s: Example Configuration Tab <bitlbee1>`.
 
-**Figure 8.1h: Example Configuration Tab**
+.. _bitlbee1:
 
-.. image:: images/bitlbee1.png
+.. figure:: images/bitlbee1.png
 
 The following fields are available when adding a visual option. Example values can be found in the
 `README-service-configfile. <https://github.com/pcbsd/pcbsd/blob/master/src-webui/appweb/README-service-configfile>`_.
@@ -316,11 +317,11 @@ Bulk Module Creator
 -------------------
 
 When creating a custom package repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
-To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in Figure 8.1i.
+To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in :numref:`Figure %s: Bulk Module Creator <easypbi8>`.
 
-**Figure 8.1i: Bulk Module Creator**
+.. _easypbi8:
 
-.. image:: images/easypbi8.png
+.. figure:: images/easypbi8.png
 
 Click the icon next to "Base Directory" and browse to the location to hold the modules. For example, if the custom repository is being created in
 :file:`~/myrepo`, browse to that directory.
@@ -338,11 +339,11 @@ does not install any files into :file:`/usr/local/etc/rc.d/`. This generally occ
 which do not install anything and just have a bunch of dependencies.
 
 After making your selections, click the "Start" button. A progress bar will indicate the status and summarize the number of
-modules built. An example is shown in Figure 8.1j. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
+modules built. An example is shown in :numref:`Figure %s: Summary of Modules <easypbi9>`. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
 
-**Figure 8.1j: Summary of Modules**
+.. _easypbi9:
 
-.. image:: images/easypbi9.png
+.. figure:: images/easypbi9.png
 
 When creating modules, Bulk Creator will skip the following:
 
@@ -362,11 +363,11 @@ Repeat for each category that you want to include in the custom repository.
 EasyPBI Settings
 ----------------
 
-To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1k. 
+To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in :numref:`Figure %s: EasyPBI Settings <easypbi10>`. 
 
-**Figure 8.1k: EasyPBI Settings** 
+.. _easypbi10: 
 
-.. image:: images/easypbi10.png
+.. figure:: images/easypbi10.png
 
 The options in this screen allow you to configure the following: 
 
@@ -527,7 +528,8 @@ If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located
 For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
 
 The :file:`xdg-mime/` directory is used to register file associations according to the
-`freedesktop MIME specs <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
+`freedesktop MIME specs <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. This requires the creation of an XML file. The example shown in
+:numref:`Figure %s: Create a New Module Screen <easypbi2>` adds the
 `MIME information for gimp <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/graphics/gimp/xdg-mime/gimp-xdg.xml>`_, so that it can be available as an application choice
 in a web browser: 
 
@@ -550,29 +552,29 @@ About
 =====
 
 The "About" icon of Control Panel can be used to quickly find information about the PC-BSD® system. To start the application, double-click its icon in
-Control Panel or type :command:`about-gui`. An example is seen in Figure 8.2a. 
+Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figure %s: About Information <about1>`. 
 
-**Figure 8.2a: About Information** 
+.. _about1:
 
-.. image:: images/about1.png
+.. figure:: images/about1.png
 
 The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
 hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
 memory.
 
 If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
-seen in the example shown in Figure 8.2b. 
+seen in the example shown in :numref:`Figure %s: System Components Screen <about2>`. 
 
-**Figure 8.2b: System Components Screen**
+.. _about2:
 
-.. image:: images/about2.png
+.. figure:: images/about2.png
 
 If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
-in Figure 8.2c.
+in :numref:`Figure %s: Desktop Environments Screen <about3>`.
 
-**Figure 8.2c: Desktop Environments Screen**
+.. _about3:
 
-.. image:: images/about3.png
+.. figure:: images/about3.png
 
 .. index:: configuration
 .. _Active Directory & LDAP:
@@ -586,16 +588,16 @@ OpenLDAP server, use this icon to input the settings needed to connect to your a
 This utility is to manage the settings of the client, not the Active Directory or OpenLDAP server itself. This application also needs more testing from users.
 If you have trouble using this utility or find a bug, please post the details using the :ref:`Report a bug` tool.
 
-To start the application, double-click its icon in Control Panel or type :command:`pc-su pc-adsldap`. You will be prompted to input your password. Figure 8.3a
-shows the configuration utility with the Active Directory tab open.
+To start the application, double-click its icon in Control Panel or type :command:`pc-su pc-adsldap`. You will be prompted to input your password.
+:numref:`Figure %s: Initial Active Directory & LDAP Screen <ldap1>` shows the configuration utility with the Active Directory tab open.
+
+.. _ldap1:
+
+.. figure:: images/ldap1.png
 
 .. note:: to prevent "DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED" errors, set the PC-BSD® hostname to include the realm name. For
    example, if the current hostname is "pcbsd-3881" and the realm name is "maloney.local", change the hostname to "pcbsd-3881.maloney.local" in
    :menuselection:`Control Panel --> Network Configuration (Advanced) -->  Misc`.
-
-**Figure 8.3a: Initial Active Directory & LDAP Screen**
-
-.. image:: images/ldap1.png
 
 If you need to connect to a network running Active Directory, check the box "Enable Active Directory". This will change the greyed-out status of the rest of
 the screen, allowing you to configure the following: 
@@ -618,11 +620,11 @@ The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-a
 
 .. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
-Figure 8.3b shows the configuration utility with the LDAP tab open.
+:numref:`Figure %s: Managing LDAP Client Settings <ldap2>` shows the configuration utility with the LDAP tab open.
 
-**Figure 8.3b: Managing LDAP Client Settings** 
+.. _ldap2:
 
-.. image:: images/ldap2.png
+.. figure:: images/ldap2.png
 
 If you need to connect to a network which contains a configured LDAP server, check the box "Enable LDAP". This will change the greyed-out status of the rest
 of the screen, allowing you to configure the following: 
@@ -690,12 +692,13 @@ option of booting into a backup boot environment. For example:
 To create and manage boot environments using a graphical interface, go to :menuselection:`Control Panel --> Boot Manager` or type
 :command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
-PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in Figure 8.4a, there
+PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in
+:numref:`Figure %s: Managing Boot Environments <be1>`, there
 is an entry named *default* that represents the original installation and an entry that was created when the operating system was updated to patch level 20.
 
-**Figure 8.4a: Managing Boot Environments**
+.. _be1:
 
-.. image:: images/be1.png
+.. figure:: images/be1.png
 
 To ensure that the files that the operating system needs are included when the system boots, all boot environments include :file:`/usr`, :file:`/usr/local`,
 and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
@@ -724,30 +727,30 @@ creates a boot environment before updating any software and the operating system
 number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment. However, it will not
 delete any boot environments you create manually.
 
-Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. If you do not pause
-this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated another boot environment, the environment
-that was set as the "Default". 
+Whenever there are multiple boot environments, a boot menu similar to the one seen in :numref:`Figure %s: Boot Menu With Multiple Boot Environments <be4>` will appear for two seconds during
+system boot. If you do not pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated another boot environment, the
+environment that was set as the "Default". 
 
-**Figure 8.4b: Boot Menu With Multiple Boot Environments** 
+.. _be4:
 
-.. image:: images/be4.png
+.. figure:: images/be4.png
 
 The "Boot Environment Menu" entry indicates that multiple boot environments are available. To browse the available boot environments, press the :kbd:`spacebar` to pause the screen,
-arrow down to "Boot Environment Menu" and press :kbd:`Enter`. In the example shown in Figure 8.4c, two boot environments are available. The entry with "default" in the
-name indicates the date and time of the initial installation. The first boot entry indicates the operating system's current patch level and the date the system was updated.
-It is first in the boot order and since it is highlighted in blue, it is the active boot environment, or the one the system will boot into unless another BE is manually
-selected in this menu. Use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd:`Enter` to continue booting into the selected boot
+arrow down to "Boot Environment Menu" and press :kbd:`Enter`. In the example shown in :numref:`Figure %s: Boot Menu Shows Created Boot Environments <be2>`, two boot environments are
+available. The entry with "default" in the name indicates the date and time of the initial installation. The first boot entry indicates the operating system's current patch level and the
+date the system was updated. It is first in the boot order and since it is highlighted in blue, it is the active boot environment, or the one the system will boot into unless another BE is
+manually selected in this menu. Use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd:`Enter` to continue booting into the selected boot
 environment. 
 
-**Figure 8.4c: Boot Menu Shows Created Boot Environments** 
+.. _be2:
 
-.. image:: images/be2.png
+.. figure:: images/be2.png
 
-To customize the appearance of the boot menu, click the "Grub Configuration" tab in Boot Manager to see the screen seen in Figure 8.4d. 
+To customize the appearance of the boot menu, click the "Grub Configuration" tab in Boot Manager to see the screen seen in :numref:`Figure %s: Managing GRUB Configuration <be3>`. 
 
-**Figure 8.4d: Managing GRUB Configuration** 
+.. _be3:
 
-.. image:: images/be3.png
+.. figure:: images/be3.png
 
 The fields in this screen are used to configure the:
 
@@ -841,17 +844,17 @@ PC-BSD®.
 A "Hardware Compatibility" icon in Control Panel provides a quick overview of the system's detected hardware. To start the application, double-click its icon
 in Control Panel or type :command:`pc-sysinstaller -checkhardware`.
 
-In the example shown in Figure 8.5a, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet device using the
-`em(4) <http://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`_ driver, and one wireless device using the
+In the example shown in :numref:`Figure %s: Sample Hardware Compatibility <hardware>`, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet
+device using the `em(4) <http://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`_ driver, and one wireless device using the
 `iwn(4) <http://www.freebsd.org/cgi/man.cgi?query=iwn&apropos=0&sektion=4>`_ driver. Currently no sound card is detected, meaning that the user should
 configure and test their sound card using the instructions in :ref:`PC-BSD Mixer Tray`. 
 
 Hardware that is currently incompatible may show with a green checkbox after a system upgrade or update. This indicates that the update added the driver for
 the device.
 
-**Figure 8.5a: Sample Hardware Compatibility** 
+.. _hardware:
 
-.. image:: images/hardware.png
+.. figure:: images/hardware.png
 
 .. index:: configuration
 .. _Login Manager:
@@ -859,18 +862,18 @@ the device.
 Login Manager
 =============
 
-A Login Manager utility is available in Control Panel. Figure 8.6a shows the initial screen when you click on this icon in Control Panel or type
+A Login Manager utility is available in Control Panel. :numref:`Figure %s: Login Manager <login2>` shows the initial screen when you click on this icon in Control Panel or type
 :command:`pc-su pc-dmconf` at the command line. Note that this utility will prompt you for your password.
 
-**Figure 8.6a: Login Manager**
+.. _login2:
 
-.. image:: images/login2.png
+.. figure:: images/login2.png
 
 For security reasons, PC-BSD® defaults to a login screen. This means that users are required to input their password before logging into the PC-BSD® system.
 If you are the only user on the PC-BSD® computer, always use the same window manager, and do not consider it a security risk for the system to automatically
 boot into that window manager, you can enable auto-login using the "Auto login" tab.
 
-As seen in the example in Figure 8.6a, the "Enable auto login" box is unchecked by default. If you check the box, the "Auto login user" drop-down menu will be
+As seen in the example in :numref:`Figure %s: Login Manager <login2>`, the "Enable auto login" box is unchecked by default. If you check the box, the "Auto login user" drop-down menu will be
 activated. Select the user account to automatically login as. If desired, the "Time Delay" can be changed to control how long the login manager will wait for
 the user to cancel the automated login. Do not set this setting too low if there are times that you wish to login as a different user or to select a different
 desktop. When finished, click "Apply" and you will be prompted to input the selected user's password.
@@ -878,10 +881,15 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
 .. note:: this change requires a reboot. Once the system is rebooted, a login screen will no longer appear unless the user interrupts the automatic boot or
    until this setting is changed again in Login Manager.
 
-The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
+The "Remote login" tab, shown in :numref:`Figure %s: Configuring Remote Login <login3>`, is used to enable a remote user to connect to a desktop session using
 `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
-be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will
-also need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
+be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will also
+need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in :numref:`Figure %s: Creating a Connection Using KRDC <krdc1>`)
+or from another VNC client.
+
+.. _login3:
+
+.. figure:: images/login3.png
 
 .. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
    a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
@@ -889,28 +897,24 @@ also need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the 
    after finishing your troubleshooting session. If you are instead using this option to login to your desktop from a remote location such as work or school,
    configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
 
-**Figure 8.6b: Configuring Remote Login**
+The "Misc" tab is shown in :numref:`Figure %s: Miscellaneous Options <login4a>`.
 
-.. image:: images/login3.png
+.. _login4a:
 
-The "Misc" tab is shown in Figure 8.6c.
-
-**Figure 8.6c: Miscellaneous Options**
-
-.. image:: images/login4a.png
+.. figure:: images/login4a.png
 
 This screen provides the following options:
 
-**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
-typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
-the typed password in the login screen, the asterisks will change to reveal the password.
+**Enable "show password" button:** by default, when a user types their password at the login prompt shown in :numref:`Figure %s: Optional Services <optional1a>`, "*" characters are displayed
+as the password is typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon
+next to the typed password in the login screen, the asterisks will change to reveal the password.
 
-**Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in Figure 8.6d. When a user logs into a stealth session, meaning
-that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
-zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without leaving any data from their login session
-on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also allows you to login and run
-applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the one-time key is lost, rendering the data useless.
-A stealth session is similar to a web browser's private mode, except for your entire desktop session.
+**Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in :numref:`Figure %s: Logging Into a Stealth Session <stealth>`.
+When a user logs into a stealth session, meaning that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary
+home directory. When the user logs out, the zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without
+leaving any data from their login session on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also
+allows you to login and run applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the one-time key is lost, rendering
+the data useless. A stealth session is similar to a web browser's private mode, except for your entire desktop session.
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
    PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
@@ -922,9 +926,9 @@ this box. For security reasons, the Login Manager will refuse logins from the *r
 will activate the "Additional Excluded Users" field. You can then use the "+" icon to add an existing user to the exclude list. To remove a user from the exclude list, highlight their
 entry and click the "-" icon.
 
-**Figure 8.6d: Logging Into a Stealth Session**
+.. _stealth:
 
-.. image:: images/stealth.png
+.. figure:: images/stealth.png
 
 .. index:: configuration
 .. _Service Manager:

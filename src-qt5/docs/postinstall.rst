@@ -244,11 +244,11 @@ unable to connect, or you wish to configure the connection at a later time, refe
 Enable Optional Services
 ========================
 
-The next screen is shown in Figure 4.8a.
+The next screen is shown in :numref:`Figure %s: Optional Services <optional1a>`.
 
-**Figure 4.8a: Optional Services**
+.. _optional1a:
 
-.. image:: images/optional1a.png
+.. figure:: images/optional1a.png
 
 If you check the "Disable IPV6" box, the system will be configured to only support IPv4 addresses. The default is to support both IPv4 and IPv6 and to prefer IPv6 over IPv4.
 
