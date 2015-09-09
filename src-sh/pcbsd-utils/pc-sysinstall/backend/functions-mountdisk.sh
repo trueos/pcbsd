@@ -82,7 +82,7 @@ mount_partition()
 
       if [ "${ZMNT}" = "/" ] ; then
 	# If creating ZFS / dataset, give it name that beadm works with
-        ZNAME="/ROOT/default"
+        ZNAME="/ROOT/${BENAME}"
         ZMKMNT=""
         echo_log "zfs create $zcopt -p ${ZPOOLNAME}/ROOT"
         rc_halt "zfs create $zcopt -p ${ZPOOLNAME}/ROOT"
@@ -135,8 +135,8 @@ mount_partition()
 
       # Do we need to make this / zfs dataset bootable?
       if [ "$ZMNT" = "/" ] ; then
-        echo_log "Stamping ${ZPOOLNAME}/ROOT/default as bootfs"
-        rc_halt "zpool set bootfs=${ZPOOLNAME}/ROOT/default ${ZPOOLNAME}"
+        echo_log "Stamping ${ZPOOLNAME}/ROOT/${BENAME} as bootfs"
+        rc_halt "zpool set bootfs=${ZPOOLNAME}/ROOT/${BENAME} ${ZPOOLNAME}"
       fi
 
       # Do we need to make this /boot zfs dataset bootable?

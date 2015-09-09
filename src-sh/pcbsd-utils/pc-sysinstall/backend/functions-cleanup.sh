@@ -49,7 +49,7 @@ zfs_cleanup_unmount()
           # Creating a dedicated "/boot" partition
           cat ${FSMNT}/boot/loader.conf 2>/dev/null | grep -q "vfs.root.mountfrom=" 2>/dev/null
           if [ $? -ne 0 ] ; then
-            echo "vfs.root.mountfrom=\"zfs:${ZPOOLNAME}/ROOT/default\"" >> ${FSMNT}/boot/loader.conf
+            echo "vfs.root.mountfrom=\"zfs:${ZPOOLNAME}/ROOT/${BENAME}\"" >> ${FSMNT}/boot/loader.conf
           fi
           export FOUNDZFSROOT="${ZPOOLNAME}"
         fi
@@ -205,7 +205,7 @@ setup_fstab()
       if [ "${PARTFS}" = "ZFS" ] ; then
         ROOTFSTYPE="zfs"
         ZPOOLNAME=$(get_zpool_name "${PARTDEV}")
-        ROOTFS="${ZPOOLNAME}/ROOT/default"
+        ROOTFS="${ZPOOLNAME}/ROOT/${BENAME}"
       else
         ROOTFS="${DEVICE}"
         ROOTFSTYPE="ufs"

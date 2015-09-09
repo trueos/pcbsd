@@ -139,7 +139,7 @@ unmount_all_filesystems()
   if [ ! -z "${FOUNDZFSROOT}" ]
   then
     rc_halt "zfs set mountpoint=legacy ${FOUNDZFSROOT}"
-    rc_halt "zfs set mountpoint=/ ${FOUNDZFSROOT}/ROOT/default"
+    rc_halt "zfs set mountpoint=/ ${FOUNDZFSROOT}/ROOT/${BENAME}"
   fi
 
   # If we need to relabel "/" do it now
