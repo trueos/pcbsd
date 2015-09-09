@@ -391,6 +391,11 @@ run_iocage_addfstab()
   fstab=$(echo $jaildir | sed 's|/root||g')/fstab
   touch $fstab
 
+  if [ -z "$mnt" ] ; then
+    echo "Cannot nullfs mount /"
+    exit 1
+  fi
+
   if [ ! -d "/$mnt" ] ; then
     echo "No such directory: /$mnt"
     exit 1
