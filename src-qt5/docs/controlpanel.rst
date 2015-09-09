@@ -936,11 +936,11 @@ entry and click the "-" icon.
 Service Manager
 ===============
 
-Service Manager, seen in Figure 8.7a, provides a graphical utility for managing PC-BSD® services.
+Service Manager, seen in :numref:`Figure %s: Managing Services Using Service Manager <service>`, provides a graphical utility for managing PC-BSD® services.
 
-**Figure 8.7a: Managing Services Using Service Manager** 
+.. _service:
 
-.. image:: images/service.png
+.. figure:: images/service.png
 
 Buttons make it easy to start, stop, or restart services and to set the highlighted service to be enabled or disabled whenever the system boots. To access
 this utility, go to PC-BSD® :menuselection:`Control Panel --> Service Manager` or type :command:`pc-su pc-servicemanager`. You will be prompted for your
@@ -972,7 +972,7 @@ System Manager
 This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
 :menuselection:`Control Panel --> System Manager` or by typing :command:`pc-su pc-sysmanager`. You will be prompted to input your password.
 
-The "General" tab, shown in Figure 8.8a, displays the following system information: 
+The "General" tab, shown in :numref:`Figure %s: General Tab of System Manager Utility <system1>`, displays the following system information: 
 
 * the version numbers for the PC-BSD® base and its command-line and graphical utilities
 
@@ -982,9 +982,9 @@ The "General" tab, shown in Figure 8.8a, displays the following system informati
 
 * the amount of physical memory 
 
-**Figure 8.8a: General Tab of System Manager Utility**
+.. _system1:
 
-.. image:: images/system1.png
+.. figure:: images/system1.png
 
 The "Generate" button can be used to create a report that includes the following items: 
 
@@ -1010,11 +1010,11 @@ When you click the "Generate" button, you will be prompted to input the name and
 can view its contents in any text editor. When troubleshooting your system, this file is handy to include when you :ref:`Report a bug`.
 
 During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
-"Tasks" tab of System Manager, shown in Figure 8.8b.
+"Tasks" tab of System Manager, shown in :numref:`Figure %s: Tasks Tab of the System Manager Utility <system2>`.
 
-**Figure 8.8b: Tasks Tab of the System Manager Utility**
+.. _system2:
 
-.. image:: images/system2.png
+.. figure:: images/system2.png
 
 This tab provides a graphical interface for installing system source or the ports tree using :command:`git`.
 
@@ -1024,11 +1024,11 @@ download is complete, a "Finished!" message will appear and you can click the "C
 If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
 "Finished!" message to the lower left corner of the message. Ports will be installed to :file:`/usr/ports/`.
 
-The "Misc" tab of System Manager is seen in Figure 8.8c.
+The "Misc" tab of System Manager is seen in :numref:`Figure %s: Misc Tab of the System Manager Utility <system3>`.
 
-**Figure 8.8c: Misc Tab of the System Manager Utility**
+.. _system3:
 
-.. image:: images/system3.png
+.. figure:: images/system3.png
 
 This tab contains a checkbox to "Force IBUS keyboard input". Check this box if you wish to to input Chinese, Japanese, Korean or Indic characters using a
 Latin keyboard.
@@ -1049,12 +1049,12 @@ access this utility.
 Managing User Accounts
 ----------------------
 
-In the example shown in Figure 8.9a, the system has two user accounts. The *dru* account has the ability to become the superuser as the "Can administrate
-system" checkbox is checked.
+In the example shown in :numref:`Figure %s: Viewing User Accounts in User Manager <user1>`, the system has two user accounts. The *dru* account has the ability to become the superuser
+as the "Can administrate system" checkbox is checked.
 
-**Figure 8.9a: Viewing User Accounts in User Manager**
+.. _user1:
 
-.. image:: images/user1.png
+.. figure:: images/user1.png
 
 If you click the "Remove" button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of
 their files). If you click "No", the user will still be deleted but their home directory will remain. If you have only created one user account, the "Remove"
@@ -1069,24 +1069,24 @@ password in order to reset a user's password; this can be handy if a user has fo
 click the "Change Admin Password" button, you can change the root user's password.
 
 If you click the "Advanced View" button, this screen will change to show all of the accounts on the system, not just the user accounts that you created. An
-example is seen in Figure 8.9b. 
+example is seen in :numref:`Figure %s: Viewing All Accounts and Their Details <user2>`. 
 
-**Figure 8.9b: Viewing All Accounts and Their Details**
+.. _user2:
 
-.. image:: images/user2.png
+.. figure:: images/user2.png
 
 The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. Do **not** delete
 any accounts that you did not create yourself as doing so may cause a previously working application to stop working. "Advanced View" provides additional
 information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group. System
 accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
 
-Figure 8.9c shows the add user account creation screen that opens when you click the "Add" button.
+:numref:`Figure %s: Creating a New User Account <user3>` shows the add user account creation screen that opens when you click the "Add" button.
+
+.. _user3:
+
+.. figure:: images/user3.png
 
 .. note:: if you click the "Add" button while in "Simple View", you will only be prompted to enter the username, full name, and password.
-
-**Figure 8.9c: Creating a New User Account** 
-
-.. image:: images/user3.png
 
 This screen is used to input the following information when adding a new user or system account: 
 
@@ -1134,12 +1134,12 @@ media cannot be decrypted. This means that if somebody steals the key and manage
 
 .. warning:: USB devices can and do eventually fail. Always backup any important files stored on the PersonaCrypt device to another device or system.
 
-Advanced Mode can be used to initialize a PersonaCrypt device for any created user, **except** for the currently logged in user. In the example shown in Figure 8.9d, a
-new user, named *dlavigne*, has been created and the entry for that user has been clicked.
+Advanced Mode can be used to initialize a PersonaCrypt device for any created user, **except** for the currently logged in user. In the example shown in
+:numref:`Figure %s: Initialize PersonaCrypt Device <user5>`, a new user, named *dlavigne*, has been created and the entry for that user has been clicked.
 
-**Figure 8.9d: Initialize PersonaCrypt Device** 
+.. _user5: 
 
-.. image:: images/user5.png
+.. figure:: images/user5.png
 
 Before a user is configured to use PersonaCrypt on a PC-BSD® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
 if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user to display these options:
@@ -1158,11 +1158,11 @@ will be wiped and that the device must be larger than the user's current home di
 
 Press "OK" in the pop-up menu. This will prompt you to input and confirm the password to associate with the device. Another message will ask if you are ready. Click "Yes" to
 initialize the device. The User Manager screen will be greyed out while the device is prepared. Once the initialization is complete, the User Manager screen will change to
-display the device's key options, as seen in Figure 8.9e.
+display the device's key options, as seen in :numref:`Figure %s: PersonaCrypt Key Options <user6>`.
 
-**Figure 8.9e: PersonaCrypt Key Options** 
+.. _user6:
 
-.. image:: images/user6.png
+.. figure:: images/user6.png
 
 The following options are now available:
 
@@ -1191,11 +1191,11 @@ PersonaCrypt device.
 Managing Groups
 ---------------
 
-If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9f. 
+If you click the "Groups" tab, you can view all of the groups on the system, as seen in :numref:`Figure %s: Managing Groups Using User Manager <user4>`. 
 
-**Figure 8.9f: Managing Groups Using User Manager** 
+.. _user4: 
 
-.. image:: images/user4.png
+.. figure:: images/user4.png
 
 This screen has 3 columns: 
 
@@ -1225,12 +1225,12 @@ The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well a
 :menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
 access this utility.
 
-As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets and their snapshots, the amount of space
-available to each dataset, and the amount of space each dataset is using.
+As seen in the example in :numref:`Figure %s: Viewing the System's ZFS Datasets <disk1>`, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets
+and their snapshots, the amount of space available to each dataset, and the amount of space each dataset is using.
 
-**Figure 8.10a: Viewing the System's ZFS Datasets**
+.. _disk1:
 
-.. image:: images/disk1.png
+.. figure:: images/disk1.png
 
 The name of the pool in this example is *tank1*. If the system has multiple pools, click the green arrow to select the desired pool.
 
@@ -1238,7 +1238,7 @@ If you right-click the pool name under "Filesystems", the following options are 
 
 * **Mount:** whether or not the filesystem can be mounted depends upon the value of the "canmount" property of the dataset.
 
-* **Create new dataset:** Figure 8.10b shows the options that are available when you create a new dataset.
+* **Create new dataset:** :numref:`Figure %s: Creating a New ZFS Dataset <disk2>` shows the options that are available when you create a new dataset.
 
 * **Create a clone dataset:** creates a copy of the dataset.
 
@@ -1249,17 +1249,17 @@ If you right-click the pool name under "Filesystems", the following options are 
   time, or edit its properties. If you forget when you made the snapshot, pick "Edit properties" from the snapshot's right-click menu as it will show its
   "creation" property.
 
-* **Edit properties:** allows you modify the ZFS properties for the pool, as seen in the example shown in Figure 8.10c. The available options depend upon the
-  property being modified. The options which are read-only will have a red minus sign icon next to them. ZFS options are described in :command:`man zfs` and 
-  you should not change any options unless you are familiar with the ramifications of doing so.
+* **Edit properties:** allows you modify the ZFS properties for the pool, as seen in the example shown in Figure :numref:`Figure %s: Editing the Pool's ZFS Properties <disk3>`. The
+  available options depend upon the property being modified. The options which are read-only will have a red minus sign icon next to them. ZFS options are described in
+  :command:`man zfs` and  you should not change any options unless you are familiar with the ramifications of doing so.
 
-**Figure 8.10b: Creating a New ZFS Dataset** 
+.. _disk2:
 
-.. image:: images/disk2.png
+.. figure:: images/disk2.png
 
-**Figure 8.10c: Editing the Pool's ZFS Properties** 
+.. _disk3:
 
-.. image:: images/disk3.png
+.. figure:: images/disk3.png
 
 When creating a new dataset or clone, the following options are available. Again, these options are described in :command:`man zfs` and you should not change
 any options unless you are familiar with the ramifications of doing so.
@@ -1285,12 +1285,12 @@ any options unless you are familiar with the ramifications of doing so.
   uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
 
-To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank1*
-was created from one disk. The state of "Online" indicates that the pool is healthy.
+To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in
+:numref:`Figure %s: Viewing the Status of the ZFS Pool <disk4>`, the ZFS pool named *tank1* was created from one disk. The state of "Online" indicates that the pool is healthy.
 
-**Figure 8.10d: Viewing the Status of the ZFS Pool** 
+.. _disk4: 
 
-.. image:: images/disk4.png
+.. figure:: images/disk4.png
 
 If you right-click the pool name, the following options are available: 
 
@@ -1322,11 +1322,11 @@ If you right-click a disk entry, such as *ada0p2* in this example, the following
 
 * **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
 
-An example of the "Disks" tab is seen in Figure 8.10e.
+An example of the "Disks" tab is seen in :numref:`Figure %s: Managing Disks <disk5>`.
 
-**Figure 8.10e: Managing Disks**
+.. _disk5:
 
-.. image:: images/disk5.png
+.. figure:: images/disk5.png
 
 This screen shows the size of each disk as well as its partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
 format it.
@@ -1343,11 +1343,11 @@ reconfigure your video driver and display settings.
 .. note:: if you have an NVIDIA card, double-check that "pcbsd-meta-nvidia" is installed in :ref:`AppCafe®` and install it if it is not. To check for this
    driver, search for "nvidia" in the "App Search" tab of AppCafe®. 
 
-If you click this icon in Control Panel, you will receive the message shown in Figure 8.11a. 
+If you click this icon in Control Panel, you will receive the message shown in :numref:`Figure %s: Display Wizard Will Run at Next Boot <display2>`. 
 
-**Figure 8.11a: Display Wizard Will Run at Next Boot**
+.. _display2:
 
-.. image:: images/display2.png
+.. figure:: images/display2.png
 
 Select "Yes" which will prompt for your password. You should then save your work and reboot the system.
 
@@ -1356,11 +1356,12 @@ GRUB boot menu. Unless you are dual booting or have configured boot environments
 :kbd:`Enter` and select "Run the Display Wizard" from the menu.
 
 Regardless of whether you started the Display Wizard from Control Panel or from the boot menu, it will finish booting the system and then prompt you to
-confirm the resolution if it finds an optimal one. To configure a different resolution, click "No" to access the display wizard, shown in Figure 8.11b. 
+confirm the resolution if it finds an optimal one. To configure a different resolution, click "No" to access the display wizard, shown in
+:numref:`Figure %s:  Display Settings Wizard <display3>`. 
 
-**Figure 8.11b: Display Settings Wizard** 
+.. _display3: 
 
-.. image:: images/display3.png
+.. figure:: images/display3.png
 
 This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
 provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
@@ -1368,11 +1369,11 @@ provide sub-optimal performance. Click on the drop-down menu to select the drive
 You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be that the
 selected driver does not support that resolution or depth.
 
-Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in Figure 8.11c.
+Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of Display Settings <display4>`.
 
-**Figure 8.11c: Advanced Tab of Display Settings**
+.. _display4:
 
-.. image:: images/display4.png
+.. figure:: images/display4.png
 
 Use caution and refer to your monitor's documentation if you make any changes here. If you are not sure what you are doing, leave the default values as-is.
 
@@ -1390,20 +1391,20 @@ Desktop Effects and Compositing
 To prevent problems with video cards that do not support them, desktop effects (used by KDE) and display compositing (used by XFCE) are disabled by default.
 You can change this default if your video card supports desktop effects.
 
-To enable desktop effects while logged into KDE, click :menuselection:`Favorites --> System Settings --> Desktop Effects` to access the configuration screen
-shown in Figure 8.11d. Check the box "Enable desktop effects at startup". You can use the "All Effects" tab to get more information about each possible
-effect and to enable the effects that interest you.
+To enable desktop effects while logged into KDE, click :menuselection:`Favorites --> System Settings --> Desktop Effects` to access the configuration screen shown in
+:numref:`Figure %s: Enabling Desktop Effects in KDE <display5>`. Check the box "Enable desktop effects at startup". You can use the "All Effects" tab to get more information about each
+possible effect and to enable the effects that interest you.
 
-**Figure 8.11d: Enabling Desktop Effects in KDE**
+.. _display5:
 
-.. image:: images/display5.png
+.. figure:: images/display5.png
 
-To enable display compositing while logged into XFCE, go to :menuselection:`Settings --> Window Manager Tweaks --> Compositor`. In the screen shown in Figure
-8.11e, check the "Enable display compositing" box to enable the compositing options.
+To enable display compositing while logged into XFCE, go to :menuselection:`Settings --> Window Manager Tweaks --> Compositor`. In the screen shown in
+:numref:`Figure %s: Enabling Compositing in XFCE <display6>`, check the "Enable display compositing" box to enable the compositing options.
 
-**Figure 8.11e: Enabling Compositing in XFCE** 
+.. _display6: 
 
-.. image:: images/display6.png
+.. figure:: images/display6.png
 
 .. index:: troubleshooting
 .. _Display Troubleshooting:
@@ -1448,12 +1449,12 @@ system tray, you can re-add it using :menuselection:`Control Panel --> Mount Tra
 
 .. note:: if you prefer to mount devices from the command line, see the section on :ref:`pc-sysconfig`. 
 
-In the example shown in Figure 8.12a, a USB device and a music CD are currently inserted and the user has clicked "More Options" to view the available
-options.
+In the example shown in :numref:`Figure %s: Mount Tray Example <mount1>`, a USB device and a music CD are currently inserted and the user has clicked "More Options" to view the
+available options.
 
-**Figure 8.12a: Mount Tray Example**
+.. _mount1:
 
-.. image:: images/mount1.png
+.. figure:: images/mount1.png
 
 When you first insert a USB drive, a "New Device" message should appear in the system tray. If you click Mount Tray and the filesystem on the device is
 recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop. Alternately, right-click
@@ -1468,7 +1469,7 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the
 `SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
-the "Play" button shown in figure 8.12a to restart it.
+the "Play" button shown in :numref:`Figure %s: Mount Tray Example <mount1>` to restart it.
 
 The following options are available in the "More Options" menu: 
 
@@ -1476,10 +1477,9 @@ The following options are available in the "More Options" menu:
   If the desktop does not provide a default file manager, Mount Tray will provide an "open with" dialogue so that you can select the utility to use to browse the
   contents of the USB device.
 
-* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS-formatted USB device is mounted at :file:`/Media/STECH-1d`. The amount of disk
-  space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space. The Mount Tray will turn yellow if
-  disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in
-  Mount Tray.
+* **View Disk Usage:** in the example shown in :numref:`Figure %s: View Disk Usage Using Mount Tray <mount2>`, a UFS-formatted USB device is mounted at :file:`/Media/STECH-1d`. The
+  amount of disk space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space. The Mount Tray will turn yellow if
+  disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in Mount Tray.
 
 * **Rescan Devices:** click this option if an entry for the USB device does not automatically appear.
 
@@ -1488,18 +1488,18 @@ The following options are available in the "More Options" menu:
   contents, close the file manager and click the "Eject" button for the memory device in Mount Tray and enter your password when prompted. As the ISO is
   unmounted, the memory disk is also detached from the system.
 
-* **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices. Leave
-  the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
+* **Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3>`, this screen allows you to configure how often Mount Tray checks the disk space used by
+  mounted devices. Leave the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
 
 * **Close Tray:** click this option to remove Mount Tray from the system tray.
 
-**Figure 8.12b: View Disk Usage Using Mount Tray**
+.. _mount2:
 
-.. image:: images/mount2.png
+.. figure:: images/mount2.png
 
-**Figure 8.12c: Configure Disk Space Check** 
+.. _mount3:
 
-.. image:: images/mount3.png
+.. figure:: images/mount3.png
 
 .. index:: mount
 .. _pc-sysconfig:
@@ -1566,11 +1566,11 @@ PC-BSD Keyboard Settings
 ========================
 
 The PC-BSD® control panel includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
-icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in Figure 8.13a. 
+icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in :numref:`Figure %s: Configuring Keyboard Settings <keyboard1>`. 
 
-**Figure 8.13a: Configuring Keyboard Settings**
+.. _keyboard1:
 
-.. image:: images/keyboard1.png
+.. figure:: images/keyboard1.png
 
 .. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
@@ -1579,12 +1579,12 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 Click the "Keyboard model" drop-down menu to select the type of keyboard. Note that the default model of "Generic 104-key PC" does **not** support special keys
 such as multimedia or Windows keys. You will need to change this default to enable support for hot keys.
 
-To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
-"Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
+To add another keyboard layout, click the "+" button, which will open the screen shown in :numref:`Figure %s: Adding Another Layout <keyboard2>`. Highlight the desired layout. This will
+activate the "Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
 
-**Figure 8.13b: Adding Another Layout**
+.. _keyboard2:
 
-.. image:: images/keyboard2.png
+.. figure:: images/keyboard2.png
 
 To edit an existing layout, highlight it then click the icon that looks like a pencil. You can then either change the "Layout variant" for that layout or
 select a different layout entirely. Selecting a different layout will replace the current layout.
@@ -1594,20 +1594,21 @@ that this icon is greyed out when there is only one entry as at least one keyboa
 
 After creating or editing a layout, you can test it by typing some text into the "Test here" field.
 
-To configure keyboard shortcuts, click the "Options" tab. As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
+To configure keyboard shortcuts, click the "Options" tab. As seen in :numref:`Figure %s: Configuring Layout Switch Keys <keyboard3>`, the default view is used to set the keyboard layout
+switch keys.
 
-**Figure 8.13c: Configuring Layout Switch Keys**
+.. _keyboard3:
 
-.. image:: images/keyboard3.png
+.. figure:: images/keyboard3.png
 
 If you wish to set the keys for terminating the graphical session, check the box "Ctrl+Alt+Backspace terminates xorg". 
 
-To configure many more keyboard shortcuts, click the "Advanced view" button which will open the screen shown in Figure 8.13d. In this example, several
-categories have been expanded to show their options. To enable an option, check its box.
+To configure many more keyboard shortcuts, click the "Advanced view" button which will open the screen shown in :numref:`Figure %s: Configuring Keyboard Shortcuts <keyboard4>`. In this
+example, several categories have been expanded to show their options. To enable an option, check its box.
 
-**Figure 8.13d: Configuring Keyboard Shortcuts**
+.. _keyboard4:
 
-.. image:: images/keyboard4.png
+.. figure:: images/keyboard4.png
 
 .. index:: sound
 .. _PC-BSD Mixer Tray:
@@ -1619,29 +1620,29 @@ PC-BSD® includes a graphical utility for managing the sound card's mixer settin
 which can be used to access this utility. If this icon does not appear in the system tray, either double-click the "PC-BSD Mixer Tray" icon in Control Panel or
 type :command:`pc-mixer &` to add it. Alternately, to open this application without adding it to the system tray, type :command:`pc-mixer -notray`.
 
-Figure 8.14a shows an example of right-clicking the icon in the system tray on a system with multiple audio outputs. If the system only has one audio output, the
-"Outputs" menu will not be displayed. To change the default output, click its entry in the "Output" menu.
+:numref:`Figure %s: Mixer Icon <sound1>` shows an example of right-clicking the icon in the system tray on a system with multiple audio outputs. If the system only has one audio output,
+the "Outputs" menu will not be displayed. To change the default output, click its entry in the "Output" menu.
 
-**Figure 8.14a: Mixer Icon**
+.. _sound1:
 
-.. image:: images/sound1.png
+.. figure:: images/sound1.png
 
-Figure 8.14b shows the mixer application which can be opened by either clicking the "Mixer" button shown in Figure 8.14a or by typing
+:numref:`Figure %s: Mixer Controls <sound2>` shows the mixer application which can be opened by either clicking the "Mixer" button shown in Figure 8.14a or by typing
 :command:`pc-mixer -notray`.
 
-**Figure 8.14b: Mixer Controls**
+.. _sound2:
 
-.. image:: images/sound2.png
+.. figure:: images/sound2.png
 
 The "Mixer Controls" screen provides sliders to modify the left and right channels that control volume, pcm (the sound driver), the speaker, the microphone,
 the recording level, and the sound provided by the monitor. Each control can be muted/unmuted individually by clicking its "Mute" or"Unmute" button, depending
 upon its current mute state.
 
-Figure 8.14c shows the "System Configuration" tab.
+:numref:`Figure %s: System Sound Configuration <sound3>` shows the "System Configuration" tab.
 
-**Figure 8.14c: System Sound Configuration**
+.. _sound3:
 
-.. image:: images/sound3.png
+.. figure:: images/sound3.png
 
 This tab contains the following options: 
 
