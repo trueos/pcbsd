@@ -1627,8 +1627,8 @@ the "Outputs" menu will not be displayed. To change the default output, click it
 
 .. figure:: images/sound1.png
 
-:numref:`Figure %s: Mixer Controls <sound2>` shows the mixer application which can be opened by either clicking the "Mixer" button shown in Figure 8.14a or by typing
-:command:`pc-mixer -notray`.
+:numref:`Figure %s: Mixer Controls <sound2>` shows the mixer application which can be opened by either clicking the "Mixer" button shown in :numref:`Figure %s: Mixer Icon <sound1>` or by
+typing :command:`pc-mixer -notray`.
 
 .. _sound2:
 
@@ -1727,17 +1727,18 @@ you are planning to purchase a printer, this is definitely good information to k
 `Open Printing Database <http://www.openprinting.org/printers>`_ which will indicate if the model is supported and if there are any known caveats with the
 print driver.
 
-Figure 8.15a shows a search for our example printer. There are two models in this series and this particular hardware supports wireless.
+:numref:`Figure %s: Using Open Printing Database to Locate a Driver <print1>` shows a search for our example printer. There are two models in this series and this particular hardware
+supports wireless.
 
-**Figure 8.15a: Using Open Printing Database to Locate a Driver** 
+.. _print1:
 
-.. image:: images/print1.png
+.. figure:: images/print1.png
 
-Once the model is selected, click on the "Show this printer" button to see the results, as demonstrated in Figure 8.15b. 
+Once the model is selected, click on the "Show this printer" button to see the results, as demonstrated in :numref:`Figure %s: Driver Recommendation from Open Printing Database <print2>`. 
 
-**Figure 8.15b: Driver Recommendation from Open Printing Database**
+.. _print2:
 
-.. image:: images/print2.png
+.. figure:: images/print2.png
 
 For this model, the HPLIP driver is recommended. In PC-BSD®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
 see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`.
@@ -1750,39 +1751,39 @@ Adding a Printer
 
 Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your
 computer and the printer are connected to the network. Then, go to :menuselection:`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
-password to see a window similar to Figure 8.15c. 
+password to see a window similar to :numref:`Figure %s: Printer Configuration Utility <print4>`. 
 
-**Figure 8.15c: Printer Configuration Utility** 
+.. _print4: 
 
-.. image:: images/print4.png
+.. figure:: images/print4.png
 
 To add a new printer, click the "+Add" button. The printing utility will pause for a few seconds as as the wizard searches to see if any printers are
-connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.15d. 
+connected to your computer or network. When it is finished, you should see a screen similar to :numref:`Figure %s: Select a Print Device <print5>`. 
 
-**Figure 8.15d: Select a Print Device** 
+.. _print5: 
 
-.. image:: images/print5.png
+.. figure:: images/print5.png
 
 In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the
 driver which includes "HP Fax". The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry
 in the "Devices" frame. Click "Forward" and the wizard will attempt to load the correct driver for the device. If it is successful, it will display the screen
-shown in Figure 8.15e. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
+shown in :numref:`Figure %s: Describe Printer Screen <print6>`. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
 
-**Figure 8.15e: Describe Printer Screen**
+.. _print6:
 
-.. image:: images/print6.png
+.. figure:: images/print6.png
 
 Since the configuration wizard found this printer, the "Describe Printer" screen automatically fills out the printer model series, a description, and the
 hostname of your computer, if the printer is locally attached, or the hostname of the network printer. If you wish, you can change the printer's name or
 description. Once you click the "Apply" button, the wizard will ask if you would like to print a test page. Ensure the printer has paper and click "Yes" to
 print the test page. If you can not print a successful test page, see the :ref:`Printer Troubleshooting` section.
 
-Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in Figure
-8.15f.
+Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in
+:numref:`Figure %s: Viewing the Settings of the Newly Created Printer <print7>`.
 
-**Figure 8.15f: Viewing the Settings of the Newly Created Printer**
+.. _print7:
 
-.. image:: images/print7.png
+.. figure:: images/print7.png
 
 You may wish to take a few minutes to review the settings in the "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
 configure options such as print banners, permissions, the default paper size, and double-sided printing. The available settings will vary, depending upon the
@@ -1797,7 +1798,7 @@ Manually Adding a Driver
 If the print configuration wizard fails, double-check that the printer is supported as described in :ref:`Researching your Printer` and that HPLIP is
 installed if it is a HP printer. Also check that the printer is plugged in and powered on.
 
-If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.15d) you will need to
+If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (:numref:`Figure %s: Select a Print Device <print5>`) you will need to
 highlight and configure the type of connection to the printer: 
 
 **USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the
@@ -1818,23 +1819,23 @@ select the hostname and queue name from the drop-down menus.
 
 Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
-If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.15g
-instead of the "Describe Printer" screen.
+If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in
+:numref:`Figure %s: Manually Select the Manufacturer <print8>` instead of the "Describe Printer" screen.
 
-**Figure 8.15g: Manually Select the Manufacturer**
+.. _print8:
 
-.. image:: images/print8.png
+.. figure:: images/print8.png
 
-Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.15h. 
+Select the manufacturer name and then click "Forward" to select the model, as seen in the example in :numref:`Figure %s: Manually Select the Driver <print9>`. 
 
-**Figure 8.15h: Manually Select the Driver**
+.. _print9:
 
-.. image:: images/print9.png
+.. figure:: images/print9.png
 
 Click "Forward" and the wizard should continue to the "Describe Printer" screen.
 
-If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.15g. This screen provides two additional options for installing
-the driver: 
+If the selected driver does not work, go back to the "Choose Driver" screen shown in :numref:`Figure %s: Manually Select the Manufacturer <print8>`. This screen provides two additional
+options for installing the driver: 
 
 1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a :file:`.ppd` extension. Sometimes the
    file will end with a :file:`.ppd.gz` extension, indicating that it has been compressed with :command:`gzip`. If the driver you need was not automatically
@@ -1877,11 +1878,11 @@ If a device is not detected, search for your device at the `list of supported sc
 .. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
    installed, and install it if it is not, using :ref:`AppCafe®`.
 
-Figure 8.16a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
+:numref:`Figure %s: XSane Interface <sane>` shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
 
-**Figure 8.16a: XSane Interface** 
+.. _sane:
 
-.. image:: images/sane.png
+.. figure:: images/sane.png
 
 The `XSane documentation <http://www.xsane.org/doc/sane-xsane-doc.html>`_ contains details on how to perform common tasks such as saving an image to a file,
 photocopying an image, and creating a fax. It also describes all of the icons in the interface and how to use them.
@@ -1903,11 +1904,11 @@ utility to view and modify the existing firewall rules.
    as any custom rules will be used to allow connections to your computer.
 
 To access the Firewall Manager, go to :menuselection:`Control Panel --> Firewall Manager` or type :command:`pc-su pc-fwmanager`. You will be prompted to input
-your password. Figure 8.17a shows the initial screen when you launch this utility.
+your password. :numref:`Figure %s: Firewall Manager Utility <firewall1>` shows the initial screen when you launch this utility.
 
-**Figure 8.17a: Firewall Manager Utility** 
+.. _firewall1:
 
-.. image:: images/firewall1.png
+.. figure:: images/firewall1.png
 
 The "General" tab of this utility allows you to: 
 
@@ -1918,12 +1919,12 @@ The "General" tab of this utility allows you to:
 
 * The "Restore Default Configuration" button allows you to return to the original, working configuration.
 
-To add or delete custom firewall rules, click the "Open Ports" tab to open the screen shown in Figure 8.17b. Note that your custom rules will allow
-**incoming** connections on the specified protocol and port number.
+To add or delete custom firewall rules, click the "Open Ports" tab to open the screen shown in :numref:`Figure %s: Adding a New Firewall Rule <firewall2>`. Note that your custom rules will
+allow **incoming** connections on the specified protocol and port number.
 
-**Figure 8.17b: Adding a New Firewall Rule** 
+.. _firewall2:
 
-.. image:: images/firewall2.png
+.. figure:: images/firewall2.png
 
 Any rules that you create will appear in this screen. To add a rule, input the port number to open. By default, "tcp" is selected. If the rule is for the
 UDP protocol, click the "tcp" drop-down menu and select "udp". Once you have the protocol and port number selected, click the "Open Port" button to add the
@@ -1932,8 +1933,8 @@ new rule to your custom list.
 If you have created any custom rules and wish to delete one, highlight the rule to delete and click the "Close Selected Ports" button to remove it from
 the custom rules list.
 
-.. note:: whenever you add or delete a custom rule, the rule will not be used until you click the "Restart" button shown in Figure 8.17a. Also, your custom
-   rules are not used whenever the system is in :ref:`Tor Mode`.
+.. note:: whenever you add or delete a custom rule, the rule will not be used until you click the "Restart" button shown in :numref:`Figure %s: Firewall Manager Utility <firewall1>`. Also,
+   your custom rules are not used whenever the system is in :ref:`Tor Mode`.
 
 Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow incoming SSH connections, try connecting
 to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
@@ -1947,13 +1948,13 @@ Network Configuration
 During installation, PC-BSD® configures your Ethernet interfaces to use DHCP and provides a screen to :ref:`Connect to a Wireless Network`. In most cases,
 this means that your connected interfaces should "just work" whenever you use your PC-BSD® system.
 
-For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card. If you hover over the
-wireless icon, shown in Figure 8.18a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
+For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card. If you hover over the wireless icon, shown in
+:numref:`Figure %s: Wireless Information in System Tray <network1>`, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
 connection strength, connection speed, MAC address, and type of wireless device.
 
-**Figure 8.18a: Wireless Information in System Tray** 
+.. _network1:
 
-.. image:: images/network1.png
+.. figure:: images/network1.png
 
 If you right-click the wireless icon, you will see a list of detected wireless networks. Simply click the name of a network to associate with it. The
 right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP
@@ -1961,14 +1962,14 @@ address), and to close the Network Monitor so that the icon no longer shows in t
 icon in the system tray. If you do not use one of the devices, click its "Close the Network Monitor" to remove it from the tray.
 
 To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
-:command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network
-Configuration, indicate the name of the new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of
-network interfaces that PC-BSD® recognizes. In the example seen in Figure 8.18b, the system has one Intel Ethernet interface that uses the *em* driver and an
-Intel wireless interface that uses the *wlan* driver.
+:command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network Configuration, indicate the name of the
+new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of network interfaces that PC-BSD® recognizes. In the example seen in
+:numref:`Figure %s: Network Configuration Utility <network2a>`, the system has one Intel Ethernet interface that uses the *em* driver and an Intel wireless interface that uses the
+*wlan* driver.
 
-**Figure 8.18b: Network Configuration Utility** 
+.. _network2a:
 
-.. image:: images/network2a.png
+.. figure:: images/network2a.png
 
 The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both
 Ethernet and wireless devices. It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a
@@ -1981,11 +1982,11 @@ Ethernet Adapters
 -----------------
 
 If you highlight an Ethernet interface in the "Devices" tab and either click the "Configure" button or double-click the interface name, you will see the
-screen shown in Figure 8.18c.
+screen shown in :numref:`Figure %s: Network Settings for an Ethernet Interface <network3>`.
 
-**Figure 8.18c: Network Settings for an Ethernet Interface** 
+.. _network3:
 
-.. image:: images/network3.png
+.. figure:: images/network3.png
 
 There are two ways to configure an Ethernet interface: 
 
@@ -2006,19 +2007,19 @@ to select the network and to input the authentication values required by the net
 By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
 network. The interface will remain inactive until this checkbox is unchecked.
 
-The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <https://en.wikipedia.org/wiki/MAC_address>`_ or to
-automatically obtain an `IPv6 address <https://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
-a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
+The "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of an Ethernet Interface's Network Settings <network4>`, allows advanced users to change their
+`MAC address <https://en.wikipedia.org/wiki/MAC_address>`_ or to automatically obtain an `IPv6 address <https://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless
+you are an advanced user who has a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
-**Figure 8.18d: Advanced Tab of an Ethernet Interface's Network Settings** 
+.. _network4:
 
-.. image:: images/network4.png
+.. figure:: images/network4.png
 
-The "Info" tab, seen in Figure 8.18e, will display the current network address settings and some traffic statistics.
+The "Info" tab, seen in :numref:`Figure %s: Info Tab of an Ethernet Interface's Network Settings <network5>`, will display the current network address settings and some traffic statistics.
 
-**Figure 8.18e: Info Tab of an Ethernet Interface's Network Settings** 
+.. _network5:
 
-.. image:: images/network5.png
+.. figure:: images/network5.png
 
 If you make any changes within any of the tabs, click the "Apply" button to activate them. Click the "OK" button when you are finished to go back to the main
 Network Configuration window.
@@ -2031,14 +2032,14 @@ You can repeat this procedure for each network interface that you wish to view o
 Wireless Adapters
 -----------------
 
-If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the
-security settings required by the wireless network. Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the
-"Devices" tab of Network Configuration and click the "Configure" button. Figure 8.18f demonstrates that this system's wireless interface is currently
+If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the security settings required by the
+wireless network. Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the "Devices" tab of Network Configuration and click the "Configure"
+button. :numref:`Figure %s: Wireless Configuration Window of Network Configuration Utility <network6>` demonstrates that this system's wireless interface is currently
 associated with the wireless network listed in the "Configured Network Profiles" section.
 
-**Figure 8.18f: Wireless Configuration Window of Network Configuration Utility** 
+.. _network6: 
 
-.. image:: images/network6.png
+.. figure:: images/network6.png
 
 To associate with a wireless network, click the "Scan" button to receive the list of possible wireless networks to connect to. Highlight the network you wish
 to associate with and click the "Add Selected" button. If the network requires authentication, a pop-up window will prompt you for the authentication details.
@@ -2052,48 +2053,48 @@ and will move down the list in order if it is unable to connect. When finished, 
 restarting the network. If all went well, there should be an IP address and status of "associated" when you hover over the wireless icon in the system tray.
 If this is not the case, double-check for typos in your configuration values and read the section on :ref:`Troubleshooting Network Settings`. 
 
-PC-BSD® supports the types of authentication shown in Figure 8.18g. You can access this screen (and change your authentication settings) by highlighting an
-entry in the "Configured Network Profiles" section and clicking the "Edit" button.
+PC-BSD® supports the types of authentication shown in :numref:`Figure %s: Configuring Wireless Authentication Settings <network7>`. You can access this screen (and change your authentication
+settings) by highlighting an entry in the "Configured Network Profiles" section and clicking the "Edit" button.
 
-**Figure 8.18g: Configuring Wireless Authentication Settings** 
+.. _network7: 
 
-.. image:: images/network7.png
+.. figure:: images/network7.png
 
 This screen allows you to configure the following types of wireless security: 
 
 * **Disabled:** if the network is open, no additional configuration is required.
 
 * **WEP:** this type of network can be configured to use either a hex or a plaintext key and Network Manager will automatically select the type of key that it has detected.
-  If you click "WEP" then the "Configure" button, you will see the screen shown in Figure 8.18h. Type the key into both network key boxes. If the key is complex, check the
-  "Show Key" box to make sure that the passwords are correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the "*"
-  symbol. A wireless access point that uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
+  If you click "WEP" then the "Configure" button, you will see the screen shown in :numref:`Figure %s: WEP Security Settings <network8>`. Type the key into both network key boxes. If the key
+  is complex, check the "Show Key" box to make sure that the passwords are correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the
+  "*" symbol. A wireless access point that uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
 
 * **WPA Personal:** this type of network uses a plaintext key. If you click "WPA Personal" then the "Configure" button, you will see the screen shown in
-  Figure 8.18i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
+  :numref:`Figure %s: WPA Personal Security Settings <network9>`. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
 
-* **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.18j. Select the authentication
-  method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
+* **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in :numref:`Figure %s: WPA Enterprise Security Settings <network10>`. Select
+  the authentication method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
   verify the password.
 
 .. note:: if you are unsure which type of encryption is being used, ask the person who setup the wireless router. They should also be able to give you the
    value of any of the settings seen in these configuration screens.
 
-**Figure 8.18h: WEP Security Settings** 
+.. _network8: 
 
-.. image:: images/network8.png
+.. figure:: images/network8.png
 
-**Figure 8.18i: WPA Personal Security Settings** 
+.. _network9: 
 
-.. image:: images/network9.jpg
+.. figure:: images/network9.jpg
 
-**Figure 8.18j: WPA Enterprise Security Settings** 
+.. _network10:
 
-.. image:: images/network10.png
+.. figure:: images/network10.png
 
 If you wish to disable this wireless interface, check the box "Disable this wireless device". This setting can be desirable if you want to temporarily prevent
 the wireless interface from connecting to untrusted wireless networks.
 
-The "Advanced" tab, seen in Figure 8.18k, allows you to configure the following: 
+The "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of a Wireless Interface <network11>`, allows you to configure the following: 
 
 * a custom MAC address. This setting is for advanced users and requires the "Use hardware default MAC address" box to be unchecked.
 
@@ -2103,15 +2104,15 @@ The "Advanced" tab, seen in Figure 8.18k, allows you to configure the following:
 * the country code. This setting is not required if you are in North America. For other countries, check the "Set Country Code" box and select your country
   from the drop-down menu.
 
-**Figure 8.18k: Advanced Tab of a Wireless Interface** 
+.. _network11:
 
-.. image:: images/network11.png
+.. figure:: images/network11.png
 
-The "Info" tab, seen in Figure 8.18l, shows the current network status and statistics for the wireless interface.
+The "Info" tab, seen in :numref:`Figure %s: Info Tab of a Wireless Interface <network12>`, shows the current network status and statistics for the wireless interface.
 
-**Figure 8.18l: Info Tab of a Wireless Interface** 
+.. _network12:
 
-.. image:: images/network12.png
+.. figure:: images/network12.png
 
 .. index:: network
 .. _Network Configuration (Advanced):
@@ -2119,13 +2120,14 @@ The "Info" tab, seen in Figure 8.18l, shows the current network status and stati
 Network Configuration (Advanced)
 --------------------------------
 
-The "Network Configuration (Advanced)" tab of the Network Configuration utility is seen in Figure 8.18m. The displayed information is for the currently
+The "Network Configuration (Advanced)" tab of the Network Configuration utility is seen in
+:numref:`Figure %s: Network Configuration (Advanced) tab of the Network Configuration Utility <network13a>`. The displayed information is for the currently
 highlighted interface. If you wish to edit these settings, make sure that the interface that you wish to configure is highlighted in the "Devices" tab.
 
 
-**Figure 8.18m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
+.. _network13a: 
 
-.. image:: images/network13a.png
+.. figure:: images/network13a.png
 
 If the interface receives its IP address information from a DHCP server, this screen allows you to view the received DNS information. If you wish to override
 the default DNS settings or set them manually, check the "Enable Custom DNS" box. You can then set the following: 
@@ -2170,11 +2172,11 @@ If you make any changes within this window, click the "Apply" button to apply th
 Proxy Settings 
 ---------------
 
-The "Proxy" tab, shown in Figure 8.18n, is used when your network requires you to go through a proxy server in order to access the Internet.
+The "Proxy" tab, shown in :numref:`Figure %s: Proxy Settings Configuration <network14>`, is used when your network requires you to go through a proxy server in order to access the Internet.
 
-**Figure 8.18n: Proxy Settings Configuration** 
+.. _network14: 
 
-.. image:: images/network14.png
+.. figure:: images/network14.png
 
 Check the "Proxy Configuration" check box to activate the settings. The follow settings can be configured in this screen: 
 
@@ -2201,17 +2203,17 @@ If you apply any changes to this tab, a pop-up message will warn that you may ha
 Configuring a Wireless Access Point
 -----------------------------------
 
-If you click the entry for a wireless device, as seen in Figure 8.18o, the right-click menu has an option to "Setup Access Point". 
+If you click the entry for a wireless device, as seen in :numref:`Figure %s: Setup Access Point Option <network15>`, the right-click menu has an option to "Setup Access Point". 
 
-**Figure 8.18o: Setup Access Point Option**
+.. _network15:
 
-.. image:: images/network15.png
+.. figure:: images/network15.png
 
-Figure 8.18p shows the configuration screen if you select "Setup Access Point". 
+:numref:`Figure %s: Access Point Basic Setup <network16>` shows the configuration screen if you select "Setup Access Point". 
 
-**Figure 8.18p: Access Point Basic Setup**
+.. _network16:
 
-.. image:: images/network16.png
+.. figure:: images/network16.png
 
 This screen contains two options: 
 
@@ -2220,11 +2222,11 @@ This screen contains two options:
 - **Set Password:** setting a WPA password is optional, though recommended if you only want authorized devices to use the access point. If used, the password
   must be a minimum of 8 characters.
 
-Figure 8.18q shows the "Advanced Configuration (optional)" screen.
+:numref:`Figure %s: Access Point Advanced Setup <network17>` shows the "Advanced Configuration (optional)" screen.
 
-**Figure 8.18q: Access Point Advanced Setup**
+.. _network17:
 
-.. image:: images/network17.png
+.. figure:: images/network17.png
 
 The settings in this screen are optional and allow you to fine-tune the access point's configuration: 
 
@@ -2366,20 +2368,20 @@ local ZFS pool and to optionally replicate those snapshots to another system ove
 Scheduling a Backup
 -------------------
 
-An icon to the Life Preserver utility, seen in Figure 8.19a, can be found in the system tray.
+An icon to the Life Preserver utility, seen in :numref:`Figure %s: Life Preserver Icon in System Tray <lpreserver1>`, can be found in the system tray.
 
-**Figure 8.19a: Life Preserver Icon in System Tray** 
+.. _lpreserver1: 
 
-.. image:: images/lpreserver1.png
+.. figure:: images/lpreserver1.png
 
 If you right-click this icon, the following options are available:
 
 * **Open Life Preserver:** starts Life Preserver, which will prompt for your password. The first time this utility is run, it will display the screen shown in
-  Figure 8.19b.
+  :numref:`Figure %s: Initial Life Preserver Screen <lpreserver2>`.
 
-**Figure 8.19b: Initial Life Preserver Screen**
+.. _lpreserver2:
 
-.. image:: images/lpreserver2.png
+.. figure:: images/lpreserver2.png
 
 * **View Messages:** opens a pop-up menu to display information messages and the Life Preserver log file. There won't be any messages until after Life Preserver is
   configured and starts to create backups. If a configured Life Preserver task fails, such as replication, check the "Log Files" tab.
@@ -2400,22 +2402,22 @@ The status of this icon changes when a snapshot, scrub, or replication task is o
 the current status of the running task.
 
 To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
-named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
-8.19c. 
+named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in
+:numref:`Figure %s: Snapshot Schedule Screen <lpreserver3>`. 
 
-**Figure 8.19c: Snapshot Schedule Screen**
+.. _lpreserver3:
 
-.. image:: images/lpreserver3.png
+.. figure:: images/lpreserver3.png
 
 This screen is used to schedule how often a snapshot is taken of the system. The default of "Automatic" creates a snapshot every 5 minutes, which are kept for
 an hour, then the hourly is kept for 24 hours, the daily is kept for a month, and the monthly is kept for a year. You can change this default to take one
 daily snapshot at a specified time or to take a snapshot once every hour, 30 minutes, 10 minutes or 5 minutes.
 
-If you change the default of "Automatic", the next screen, shown in Figure 8.19d, is used to configure how long to keep the snapshots.
+If you change the default of "Automatic", the next screen, shown in :numref:`Figure %s: Snapshot Pruning Screen <lpreserver4>`, is used to configure how long to keep the snapshots.
 
-**Figure 8.19d: Snapshot Pruning Screen**
+.. _lpreserver4:
 
-.. image:: images/lpreserver4.png
+.. figure:: images/lpreserver4.png
 
 Snapshots can be configured to be pruned after the specified number of days or after the specified number of snapshots. This screen will not appear for
 "Automatic" as it has its own pruning schedule, as explained in the previous paragraph.
@@ -2423,28 +2425,26 @@ Snapshots can be configured to be pruned after the specified number of days or a
 .. note:: auto-pruning only occurs on the snapshots generated by Life Preserver according to the configured schedule. Auto-pruning will not delete any
    snapshots you create manually using the "Snapshots" tab in Life Preserver.
 
-After making your selection, press "Next" to see the screen shown in Figure 8.19e.
+After making your selection, press "Next" to see the screen shown in :numref:`Figure %s: Scrub Schedule Screen <lpreserver19a>`.
 
-**Figure 8.19e: Scrub Schedule Screen**
+.. _lpreserver19a:
 
-.. image:: images/lpreserver19a.png
+.. figure:: images/lpreserver19a.png
 
 This screen is used to schedule when a ZFS scrub occurs. Scrubs are recommended as they can provide an early indication of a potential disk failure. To schedule the scrub,
 check the box "Enable scheduled scrub" which will activate the configurable options in this screen. Use the drop-down menu to select a frequency of "Daily",
 "Weekly", or "Monthly". If you select "Daily", you can configure the "Hour". If you select "Weekly", you can configure the "Day of week" and the "Hour". If you
 select "Monthly", you can configure the "Day of month", "Day of week", and "Hour". Since a scrub can be disk I/O intensive, it is recommended to pick a time when
-the system will not be in heavy use. When you are finished, click "Next" to see the screen shown in Figure 8.19f.
+the system will not be in heavy use. When you are finished, click "Next" to see the screen shown in :numref:`Figure %s: Select Advanced Configuration Screen <lpreserver21>`.
 
-**Figure 8.19f: Select Advanced Configuration Screen**
+.. _lpreserver21:
 
-.. image:: images/lpreserver21.png
+.. figure:: images/lpreserver21.png
 
 This screen provides the option to finish the configuration now or to continue on to the advanced options. If you only plan to store snapshots on this system or you have not
-yet configured another system to back up to, click "Finish" which will save your configuration, exit the wizard, take a system snapshot, and move on to the screen shown
-in Figure 8.19g.
-
-If you wish to replicate your backups to another system on the network which has already been prepared for this purpose, check the box for "Proceed directly to the advanced
-configuration options" before clicking "Finish". This will open the screen shown in Figure 8.19h so that you can configure the replication settings.
+yet configured another system to back up to, click "Finish".  If you wish to replicate your backups to another system on the network which has already been prepared for this purpose, check
+the box for "Proceed directly to the advanced configuration options" before clicking "Finish". Once you click "Finish", the wizard will save your configuration, exit the wizard, take a
+system snapshot, and move on to the screen shown in :numref:`Figure %s: Life Preserver's Basic View <lpreserver6a>`.
 
 .. index:: backup
 .. _Life Preserver Options:
@@ -2452,34 +2452,34 @@ configuration options" before clicking "Finish". This will open the screen shown
 Life Preserver Options
 ----------------------
 
-Once the snapshot schedule has been created, the "Status" tab shown in Figure 8.19g will become active and will show the name of the latest snapshot. If you have scheduled a
-scrub or replication, it will also show the status of the last running scheduled task. In this example, the ZFS pool is active, is comprised of one disk, and the date and time
-of the last snapshot indicates that it was created on June 23 at 1:55 in the afternoon. The most recent scheduled scrub occurred on June 3 at 10:52 in the evening and the green
-status indicates that it completed without finding any disk errors.
+Once the snapshot schedule has been created, the "Status" tab shown in :numref:`Figure %s: Life Preserver's Basic View <lpreserver6a>` will become active and will show the name of the latest
+snapshot. If you have scheduled a scrub or replication, it will also show the status of the last running scheduled task. In this example, the ZFS pool is active, is comprised of one disk,
+and the date and time of the last snapshot indicates that it was created on June 23 at 1:55 in the afternoon. The most recent scheduled scrub occurred on June 3 at 10:52 in the evening and
+the green status indicates that it completed without finding any disk errors.
 
-**Figure 8.19g: Life Preserver's Basic View**
+.. _lpreserver6a:
 
-.. image:: images/lpreserver6a.png
+.. figure:: images/lpreserver6a.png
 
 The "View" menu lets you select "Basic" or "Advanced" view. Clicking "Advanced" view will add the "Snapshots" and "Disks" tabs to the menu bar.
 
-If you click the "Configure" button, or if you checked the box to "Proceed directly to the advanced configuration options" in the wizard, the screen shown in Figure 8.19h
-will open. 
+If you click the "Configure" button, or if you checked the box to "Proceed directly to the advanced configuration options" in the wizard, the screen shown in
+:numref:`Figure %s: Modifying the Snapshot Schedule <lpreserver7a>` will open. 
 
-**Figure 8.19h: Modifying the Snapshot Schedule**
+.. _lpreserver7a:
 
-.. image:: images/lpreserver7a.png
+.. figure:: images/lpreserver7a.png
 
 The "Local Snapshots" tab can be used to modify the schedule and pruning options on the local system. In other words, this is how often backups occur and how long
 to keep them. To configure a list of datasets to exclude from the snapshot, click the "+" button which will display the list of available datasets. Select a dataset to
 add it to the "Excluded" section. Repeat for any datasets that you do not wish to backup. To remove a dataset from the excluded list, so that it is added back to the
 snapshot schedule, highlight its entry in the "Excluded" section and click the "-" button.
 
-The "Replication" tab, is shown in Figure 8.19i.
+The "Replication" tab, is shown in :numref:`Figure %s: Configuring Replication <lpreserver22>`.
 
-**Figure 8.19i: Configuring Replication**
+.. _lpreserver22:
 
-.. image:: images/lpreserver22.png
+.. figure:: images/lpreserver22.png
 
 If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. Life Preserver supports two replication schemes:
 
@@ -2496,22 +2496,23 @@ To exclude datasets from the snapshot from being replicated to the remote system
 .. note:: datasets which are excluded in the "Local Snapshots" tab are not backed up at all, and thus cannot be replicated. However, you do not have to replicate every dataset
           in the backup as you can use :menuselection:`Replication --> Excluded Data` to configure which datasets to exclude from the replication.
 
-The "Scrub" tab, shown in Figure 8.19j, can be used to modify the scrub schedule. It is a good idea to create a scrub schedule to verify the integrity of the ZFS pool.
+The "Scrub" tab, shown in :numref:`Figure %s: Modifying the Scrub Schedule <lpreserver23>`, can be used to modify the scrub schedule. It is a good idea to create a scrub schedule to verify
+the integrity of the ZFS pool.
 Typically, it is recommended to run a scrub once a week or before adding more disks to a pool. The status and results of a running scrub can be viewed from the command line by
 typing :command:`zpool status`. When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing
 disk. If you are getting errors, consider backing up your data and replacing the failing disk. Since a scrub is I/O intensive, it is recommended to schedule
 the scrub when the system is not in use, such as the early morning hours. Depending upon the size of the pool, the scrub may take some time.
 
-**Figure 8.19j: Modifying the Scrub Schedule**
+.. _lpreserver23:
 
-.. image:: images/lpreserver23.png
+.. figure:: images/lpreserver23.png
 
-The "Restore Data" tab, seen in Figure 8.19k, is used to view the contents of the local snapshots. This allows you to easily restore any file which has been modified
-or deleted since a snapshot occurred.
+The "Restore Data" tab, seen in :numref:`Figure %s: Viewing the Contents of the Snapshots <lpreserver8>`, is used to view the contents of the local snapshots. This allows you to easily
+restore any file which has been modified or deleted since a snapshot occurred.
 
-**Figure 8.19k: Viewing the Contents of the Snapshots**
+.. _lpreserver8:
 
-.. image:: images/lpreserver8.png
+.. figure:: images/lpreserver8.png
 
 In this example, the system has been configured to make a snapshot every 5 minutes. Since files have been modified on this system, the blue time slider bar
 indicates that several snapshots are available as a snapshot only occurs if changes have been made within the scheduled time increment. Click the arrows to go
@@ -2541,12 +2542,12 @@ The "File" menu contains the following options:
 The "Classic Backups" menu can be used to create an as-needed tarball of the user's home directory. This can be handy if you would like to make a backup of just your home
 directory in order to restore it in another directory or on another system.
 
-To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
-8.19l. 
+To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in
+:numref:`Figure %s: Backing Up a User's Home Directory <lpreserver9>`. 
 
-**Figure 8.19l: Backing Up a User's Home Directory**
+.. _lpreserver9:
 
-.. image:: images/lpreserver9.png
+.. figure:: images/lpreserver9.png
 
 If you want, you can change the filename of the archive to create. By default it will be in the format *username-YYYYMMDD-HHMM*. This screen also allows you to
 define which files to exclude from the backup. By default, it will exclude PBI shortcuts and, if it exists, the :file:`/bin` directory in the user's home
@@ -2642,11 +2643,12 @@ this version of FreeNAS® using the installation instructions in the
 In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS pool, create and configure the
 dataset to store the backups, create a user account that has permission to access that dataset, and enable the SSH service.
 
-In the example shown in Figure 8.19m, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create a ZFS pool to hold the backups.
+In the example shown in :numref:`Figure %s: Creating a ZFS Volume in FreeNAS® <lpreserver10>`, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create
+a ZFS pool to hold the backups.
 
-**Figure 8.19m: Creating a ZFS Volume in FreeNAS®** 
+.. _lpreserver10:
 
-.. image:: images/lpreserver10.png
+.. figure:: images/lpreserver10.png
 
 Input a "Volume Name", drag the slider to select the desired number of available disks, and click the "Add Volume" button. The Volume Manager will automatically
 select the optimal layout for both storage capacity and redundancy. In this example, a RAIDZ2 named *volume1* will be created.
@@ -2656,52 +2658,54 @@ select the optimal layout for both storage capacity and redundancy. In this exam
    data that has changed.
 
 To create the dataset to backup to, click the "+" next to the entry for the newly created volume, then click "Create ZFS Dataset". In the example shown in
-Figure 8.19n, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
+:numref:`Figure %s: Creating a ZFS Dataset in FreeNAS® <lpreserver11>`, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
 
-**Figure 8.19n: Creating a ZFS Dataset in FreeNAS®**
+.. _lpreserver11:
 
-.. image:: images/lpreserver11.png
+.. figure:: images/lpreserver11.png
 
-To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19o, input a "Username" that you will later
-configure Life Preserver to use. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
+To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in :numref:`Figure %s: Creating a User in FreeNAS® <lpreserver12>`, input a "Username"
+that you will later configure Life Preserver to use. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
 backups. Input a "Full Name", then input and confirm a "Password". When finished, click the "OK" button to create the user.
 
-**Figure 8.19o: Creating a User in FreeNAS®**
+.. _lpreserver12:
 
-.. image:: images/lpreserver12.png
+.. figure:: images/lpreserver12.png
 
 Next, give the user permissions to the dataset by going to :menuselection:`Storage --> Volumes`, click the + next to the name of the volume, click the "+"
-next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in Figure 8.19p, change the "Owner (user)"and
-"Owner (group)" to the user that you created. Click "Change" to save the change.
+next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in :numref:`Figure %s: Setting Permissions in FreeNAS® <lpreserver13a>`, change
+the "Owner (user)"and "Owner (group)" to the user that you created. Click "Change" to save the change.
 
-**Figure 8.19p: Setting Permissions in FreeNAS®**
+.. _lpreserver13a:
 
-.. image:: images/lpreserver13a.png
+.. figure:: images/lpreserver13a.png
 
 Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
  zfs allow -u dru atime,canmount,clone,compression,create,destroy,hold,mount,mountpoint,promote,receive,rename,send,userprop volume1/backups  
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
-Figure 8.19q. 
+:numref:`Figure %s: Start SSH in FreeNAS® <lpreserver14>`. 
 
-**Figure 8.19q: Start SSH in FreeNAS®**
+.. _lpreserver14:
 
-.. image:: images/lpreserver14.png
+.. figure:: images/lpreserver14.png
 
 Click the red "OFF" button next to SSH to enable that service. Once it turns to a blue "ON", the FreeNAS® system is ready to be used as the backup server.
 
-To finish the configuration, open Life Preserver on the PC-BSD® system and click :menuselection:`Configure --> Replication`. In the screen shown in Figure 8.19j, click the
-"+SSH" button. Life Preserver will scan the network for systems running SSHD and, if the scan is successful, a pop-up menu will show the hostnames of the available systems.
-If multiple systems are running SSH, use the drop-down menu to select the desired system and click "OK". If you instead receive an error message, check to see if there is a
-firewall between the PC-BSD® and the FreeNAS® system as this scan requires UDP port 5353 to be open on any firewalls running on or between the two systems.
+To finish the configuration, open Life Preserver on the PC-BSD® system and click :menuselection:`Configure --> Replication`. In the screen shown in
+:numref:`Figure %s: Configuring Replication <lpreserver22>`, click the "+SSH" button. Life Preserver will scan the network for systems running SSHD and, if the scan is successful, a pop-up
+menu will show the hostnames of the available systems. If multiple systems are running SSH, use the drop-down menu to select the desired system and click "OK". If you instead receive an
+error message, check to see if there is a firewall between the PC-BSD® and the FreeNAS® system as this scan requires UDP port 5353 to be open on any firewalls running on or between the two
+systems.
 
 Once the system is selected, its IP address will be added to the drop-down menu to the left of the "+SSH" button, the port number SSH is listening on will display in the
-"SSH Port" menu, and the rest of this screen will be activated. In the example shown in Figure 8.19r, the IP address of the FreeNAS® system is 192.168.1.73.
+"SSH Port" menu, and the rest of this screen will be activated. In the example shown in :numref:`Figure %s: Finishing the Configuration <lpreserver24>`, the IP address of the FreeNAS® system
+is 192.168.1.73.
 
-**Figure 8.19r: Finishing the Configuration**
+.. _lpreserver24:
 
-.. image:: images/lpreserver24.png
+.. figure:: images/lpreserver24.png
 
 Input the name of the user and the name of the dataset you created on the FreeNAS® system. In this example, the "User Name" is *dru* and the "Remote Dataset" is
 *volume1/backups*. If desired, click the "Frequency" drop-down menu to configure the snapshots to either be replicated at the same time that they are created ("Sync
@@ -2837,8 +2841,8 @@ Using FreeNAS® as the Backup System
 To instead prepare a FreeNAS® 9.3 system to use as the backup target, first ensure that the system has been updated to the latest software update using
 :menuselection:`System -> Update`. Then, perform the following configuration steps.
 
-Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19s, input
-the following values in these fields then press "OK" to create the account:
+Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in :numref:`Figure %s: Create the Service Account <iscsi4>`,
+input the following values in these fields then press "OK" to create the account:
 
 * **User ID:** 341
 
@@ -2850,51 +2854,52 @@ the following values in these fields then press "OK" to create the account:
 
 * **Disable password login:** check this box
 
-**Figure 8.19s: Create the Service Account** 
+.. _iscsi4: 
 
-.. image:: images/iscsi4.png
+.. figure:: images/iscsi4.png
 
 Next, create a zvol using the tree menu. Go to :menuselection:`Storage --> Volumes --> click the plus to expand name of volume --> Create zvol`. In the example
-shown in Figure 8.19t, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
+shown in :numref:`Figure %s: Create the zvol <iscsi5>`, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
 
-**Figure 8.19t: Create the zvol** 
+.. _iscsi5:
 
-.. image:: images/iscsi5.png
+.. figure:: images/iscsi5.png
 
-You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19u, change the
-default "Base Name" to *iqn.2012-06.com.lpreserver* and click "Save".
+You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in :numref:`Figure %s: Configure the IQN <iscsi6a>`,
+change the default "Base Name" to *iqn.2012-06.com.lpreserver* and click "Save".
 
-**Figure 8.19u: Configure the IQN** 
+.. _iscsi6a:
 
-.. image:: images/iscsi6a.png
+.. figure:: images/iscsi6a.png
 
 Click the "Portals" tab then the "Add Portal" button. Verify that the "IP Address" drop-down menu is set to *0.0.0.0* and that the "Port" field is set to
-*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in Figure 8.19v, this is
+*3260*, add a "Comment" if it is useful to you, then click "OK" to add the entry to the "Portals" tab. In the example shown in :numref:`Figure %s: Configure the Portal <iscsi7a>`, this is
 the first time iSCSI has been configured on this system, so it has a "Portal Group ID" of *1*. If you have already created other iSCSI targets, note the
 "Portal Group ID" you just created.
 
-**Figure 8.19v: Configure the Portal** 
+.. _iscsi7a:
 
-.. image:: images/iscsi7a.png
+.. figure:: images/iscsi7a.png
 
 In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initiators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
-it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19w,
-it is *1*.
+it is useful to you, and press "OK" to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in
+:numref:`Figure %s: Configure the Initiator <iscsi8>`, it is *1*.
 
-**Figure 8.19w: Configure the Initiator** 
+.. _iscsi8:
 
-.. image:: images/iscsi8.png
+.. figure:: images/iscsi8.png
 
 In the "Authorized Access" tab, click the "Add Authorized Access" button. Input a value for the "User" that is between 8 and 12 characters and a value in the "Secret" and
-"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19x, the "User" has a value of *mybackups*, the
-secret is *pcbsdbackups*, and the "Group ID" is
+"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in :numref:`Figure %s: Configure the Authorized Access <iscsi9>`, the "User" has a value
+of *mybackups*, the secret is
+*pcbsdbackups*, and the "Group ID" is
 *1*. Make note of the "Group ID" that is created for you.
 
-**Figure 8.19x: Configure the Authorized Access** 
+.. _iscsi9:
 
-.. image:: images/iscsi9.png
+.. figure:: images/iscsi9.png
 
-In the "Targets" tab, click the "Add Target" button. In the screen shown in Figure 8.19y, use the following values in these fields:
+In the "Targets" tab, click the "Add Target" button. In the screen shown in :numref:`Figure %s: Configure the Target <iscsi10a>`, use the following values in these fields:
 
 * **Target Name:** target0
 
@@ -2906,23 +2911,23 @@ In the "Targets" tab, click the "Add Target" button. In the screen shown in Figu
 
 * **Authentication Group number:** select "1" from the drop-down menu
 
-**Figure 8.19y: Configure the Target** 
+.. _iscsi10a: 
 
-.. image:: images/iscsi10a.png
+.. figure:: images/iscsi10a.png
 
-In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19z, input an "Extent Name", in this case it is *pcbsd-backup*, and make sure that
-the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
+In the "Extents" tab, click the "Add Extent" button. In the screen shown in :numref:`Figure %s: Configure the Extent <iscsi11>`, input an "Extent Name", in this case it is *pcbsd-backup*,
+and make sure that the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
 
-**Figure 8.19z: Configure the Extent** 
+.. _iscsi11:
 
-.. image:: images/iscsi11.png
+.. figure:: images/iscsi11.png
 
-Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in Figure 8.19aa, select the "Target"
-and the "Extent" that you created.
+Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in
+:numref:`Figure %s: Associate the Target With the Extent <iscsi12a>`, select the "Target" and the "Extent" that you created.
 
-**Figure 8.19aa: Associate the Target With the Extent** 
+.. _iscsi12a: 
 
-.. image:: images/iscsi12a.png
+.. figure:: images/iscsi12a.png
 
 Next, go to :menuselection:`Services` and click the red "OFF" button next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
 
@@ -2972,18 +2977,18 @@ Configuring the System to Backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once you have configured the backup system and the PC-BSD® system has a copy of the :file:`*.lps` file, open Life Preserver, go to :menuselection:`Configure --> Replication`
-and click the "iSCSI" button. This will start the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19ab.
+and click the "iSCSI" button. This will start the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure :numref:`Figure %s: Selecting the Configuration File <iscsi1>`.
 
-**Figure 8.19ab: Selecting the Configuration File** 
+.. _iscsi1: 
 
-.. image:: images/iscsi1.png
+.. figure:: images/iscsi1.png
 
 Click the "Select" button to browse to the location of your saved :file:`.lps` file. Once selected, the "Host", "Target", "User", and "Password" fields will
-auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19ac.
+auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in :numref:`Figure %s: Input the Encryption Key <iscsi2>`.
 
-**Figure 8.19ac: Input the Encryption Key** 
+.. _iscsi2:
 
-.. image:: images/iscsi2.png
+.. figure:: images/iscsi2.png
 
 This screen lets you configure the following:
 
@@ -2995,11 +3000,11 @@ This screen lets you configure the following:
   system, check this box and use the browse button to add the key to the "GELI Encryption File" field.
   
 When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
-Once the connection to the remote system is established, you will see the screen shown in Figure 8.19ad.
+Once the connection to the remote system is established, you will see the screen shown in :numref:`Figure %s: Save the Key <iscsi3>`.
 
-**Figure 8.19ad: Save the Key** 
+.. _iscsi3:
 
-.. image:: images/iscsi3.png
+.. figure:: images/iscsi3.png
 
 This screen creates the :file:`.lpiscsi` file that is needed when :ref:`Restoring the Operating System` from an encrypted backup.
 **It is VERY important that you remember the password that you set on this file and that you save this file on ANOTHER system or removable media. Without this file and the correct password, you will NOT be able to restore the system should there ever be a catastrophic failure.**
@@ -3015,11 +3020,11 @@ Restoring the Operating System
 ------------------------------
 
 If you have replicated the system's snapshots to a remote backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
-another system. Start the installation as usual until you get to the screen shown in Figure 8.19ae. 
+another system. Start the installation as usual until you get to the screen shown in :numref:`Figure %s: Selecting to Restore/Clone From Backup <lpreserver15>`. 
 
-**Figure 8.19ae: Selecting to Restore/Clone From Backup** 
+.. _lpreserver15: 
 
-.. image:: images/lpreserver15.png
+.. figure:: images/lpreserver15.png
 
 Before you can perform a restore, the network interface must be configured. Click the "network connectivity" icon (second from the left) in order to determine
 if the network connection was automatically detected. If it was not, refer to the instructions in :ref:`Network Configuration` and make sure that networking is
@@ -3030,11 +3035,11 @@ If it is saved on a remote system, click the black terminal icon and click "shel
 file from the remote system. When finished, type :command:`exit` to exit the shell then use your arrow keys to select "exit" in the menu to exit the menu.
 
 Once you are ready, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to select the type of restore using the
-screen shown in Figure 8.19af. 
+screen shown in :numref:`Figure %s: Restoring From an Encrypted Backup <lpreserver16>`. 
 
-**Figure 8.19af: Restoring From an Encrypted Backup** 
+.. _lpreserver16:
 
-.. image:: images/lpreserver16.png
+.. figure:: images/lpreserver16.png
 
 If you configured an encrypted backup using the instructions in :ref:`Replicating Encrypted Backups`, click the "+" button in the "Encrypted iSCSI Restore" tab to
 browse to the location of the :file:`*.lpiscsi` file that you either copied over or which is on the inserted USB stick, enter the password to decrypt this file, and click "Next".
@@ -3045,27 +3050,28 @@ However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed out
 any customizations, click "Next" to perform the restore.
 
 If you instead configured backups to a replication server using the instructions in :ref:`Scheduling a Backup`, click the "SSH Restore" tab. In the screen shown in
-Figure 8.19ag, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
-port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in Figure 8.19ah.
+:numref:`Figure %s: Input the Information for a SSH Restore <lpreserver20>`, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If
+the server is listening on a non-standard SSH port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in
+:numref:`Figure %s: Select the Authentication Method <lpreserver17>`.
 
-**Figure 8.19ag: Input the Information for a SSH Restore** 
+.. _lpreserver20: 
 
-.. image:: images/lpreserver20.png
+.. figure:: images/lpreserver20.png
 
-**Figure 8.19ah: Select the Authentication Method** 
+.. _lpreserver17: 
 
-.. image:: images/lpreserver17.png
+.. figure:: images/lpreserver17.png
 
 If you previously saved the SSH key to a USB stick, insert the stick then press "Next". Otherwise, change the selection to "Use password authentication" and
 press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
 connection to the server.
 
-Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ai, only one host has been backed up to the
-replication server.
+Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in :numref:`Figure %s: Select the Host to Restore <lpreserver18>`,
+only one host has been backed up to the replication server.
 
-**Figure 8.19ai: Select the Host to Restore**
+.. _lpreserver18:
 
-.. image:: images/lpreserver18.png
+.. figure:: images/lpreserver18.png
 
 After making your selection, click "Next". The restore wizard will provide a summary of which host it will restore from, the name of the user account
 associated with the replication, and the hostname of the target system. Click "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At
@@ -3234,26 +3240,26 @@ Report a bug
 The bug reporting tool in Control Panel can be used to easily send a bug report to the development team responsible for the software which produced the bug.
 
 To access this tool, go to :menuselection:`Control Panel --> Report a bug` or type :command:`pc-bugreport` from the command line.
-The initial screen for this tool is shown in Figure 8.20a. 
+The initial screen for this tool is shown in :numref:`Figure %s: PC-BSD® Bug Reporting Utility <report1>`. 
 
-**Figure 8.20a: PC-BSD® Bug Reporting Utility** 
+.. _report1:
 
-.. image:: images/report1.png
+.. figure:: images/report1.png
 
 Select the software component that most closely matches where the bug occurs. For example, if the bug occurs when using a KDE utility, select "Desktop
 environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
 "PC-BSD base system". 
 
-In the example shown in Figure 8.20b, the user has selected "PC-BSD base system" then "Next". 
+In the example shown in :numref:`Figure %s: Reporting a Bug <report2>`, the user has selected "PC-BSD base system" then "Next". 
 
 .. note:: regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing
    list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
    correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the
    error.
 
-**Figure 8.20b: Reporting a Bug** 
+.. _report2:
 
-.. image:: images/report2.png
+.. figure:: images/report2.png
 
 If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
 web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is
