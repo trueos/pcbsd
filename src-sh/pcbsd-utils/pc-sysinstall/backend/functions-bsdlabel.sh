@@ -377,6 +377,9 @@ new_gpart_partitions()
         # This is nasty, but at the moment it works to get rid of previous installs metadata
         echo_log "Clearing partition data..."
         rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
+      else
+        echo_log "Clearing partition data..."
+        rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m count=1"
       fi
       rc_halt "sync"
       sleep 5
