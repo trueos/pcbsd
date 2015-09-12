@@ -81,6 +81,15 @@ void wifiselectiondialog::slotConnect()
           return;
        }
 
+       // Check if the key is setup for WPA EAP-PEAP
+       if ( WPAEType == 3 && !(WPAEPhase2 < 4) )
+       {
+          QMessageBox::warning( this, tr("Warning"), tr("WPA-Enterprise is selected, but not configured!\nPlease configure your WPA settings before saving!"
+                                                        "\nValid Phase2 options are MD5 or MSCHAPV2 or GTC or OTP.") );
+          return;
+       }
+
+
     } // End of WPAEnt setting check
     
 
@@ -111,14 +120,14 @@ void wifiselectiondialog::slotConnect()
     
     if ( radioSecurityWPAEnt->isChecked() )
     {
-        emit signalSavedWPAE(selectedSSID, usingBSSID, WPAEType, WPAEIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt ); 
+        emit signalSavedWPAE(selectedSSID, usingBSSID, WPAEType, WPAEIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt, WPAEPhase2 );
     }
 
     close();
 }
 
 // Overloaded function which lets us set editing variables using WPA-Ent
-void wifiselectiondialog::initEdit(QString selectedSSID, bool usingBSSID, int editWPAEType, QString editWPAEIdent, QString editWPAECACert, QString editWPAEClientCert, QString editWPAEPrivKeyFile, QString editWPAEPassword, int keyMgmt)
+void wifiselectiondialog::initEdit(QString selectedSSID, bool usingBSSID, int editWPAEType, QString editWPAEIdent, QString editWPAECACert, QString editWPAEClientCert, QString editWPAEPrivKeyFile, QString editWPAEPassword, int keyMgmt, int editPhase2)
 {
    pushConnect->setText(tr("Save"));
    EditingSSID=selectedSSID;
@@ -133,6 +142,7 @@ void wifiselectiondialog::initEdit(QString selectedSSID, bool usingBSSID, int ed
    WPAEPrivKeyFile=editWPAEPrivKeyFile; 
    WPAEPassword=editWPAEPassword; 
    WPAEKeyMgmt = keyMgmt;
+   WPAEPhase2 = editPhase2;
 }
 
 // Overloaded function which lets us set editing variables using WPA-Personal
@@ -280,10 +290,10 @@ void wifiselectiondialog::slotConfigWPAE()
    
    if ( ! WPAEIdent.isEmpty() )
    {
-       libWPAE->setVariables(WPAEType, WPAEIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt);
+       libWPAE->setVariables(WPAEType, WPAEIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt, WPAEPhase2);
    }
    
-   connect( libWPAE, SIGNAL( saved(int, QString, QString, QString, QString, QString, int) ), this, SLOT( slotWPAEChanged(int, QString, QString, QString, QString, QString, int) ) ); 
+   connect( libWPAE, SIGNAL( saved(int, QString, QString, QString, QString, QString, int, int) ), this, SLOT( slotWPAEChanged(int, QString, QString, QString, QString, QString, int, int) ) );
    libWPAE->exec();
 }
 
@@ -295,7 +305,7 @@ void wifiselectiondialog::slotWPAPChanged( QString newKey )
 }
 
 
-void wifiselectiondialog::slotWPAEChanged( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt )
+void wifiselectiondialog::slotWPAEChanged( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 )
 {
   WPAEType = type;
   WPAEIdent=EAPIdent;
@@ -304,6 +314,7 @@ void wifiselectiondialog::slotWPAEChanged( int type, QString EAPIdent, QString C
   WPAEPrivKeyFile=PrivKeyFile;
   WPAEPassword=PrivKeyPass;
   WPAEKeyMgmt=keyMgmt;
+  WPAEPhase2=EAPPhase2;
 
   slotCheckSecurityRadio();
 
