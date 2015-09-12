@@ -24,7 +24,7 @@ rehash
 
 If you wish to generate a PDF version of the documentation, this software also needs to be installed:
 
-.. TODO add missing ports
+TODO add missing ports
 
 ```
 pkg install print/tex-formats (cd /usr/ports/print/tex-formats/ && make install)
