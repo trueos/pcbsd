@@ -329,6 +329,17 @@ setup_grub()
     rc_nohalt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
   fi
 
+  if [ -e "${FSMNT}/etc/rc.conf.ghostbsd" ] ; then
+    # Adding kern.vty=vt to grub.cfg
+    sed -i '' '/set kFreeBSD.vfs.root.mountfrom.options=rw/a\
+\       set kFreeBSD.kern.vty=vt\
+' ${FSMNT}/boot/grub/grub.cfg
+
+    # Replassing FreeBSD by GhostBSD
+    sed -i '' "s@'FreeBSD,@'GhostBSD,@g" /${FSMNT}boot/grub/grub.cfg
+    sed -i '' "s@FreeBSD'@GhostBSD'@g" ${FSMNT}/boot/grub/grub.cfg
+  fi
+
   # Sleep and cleanup
   if [ -e "${FSMNT}/root/beadm.install" ] ; then
      rc_halt "rm ${FSMNT}/root/beadm.install"
