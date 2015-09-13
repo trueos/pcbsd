@@ -17,6 +17,7 @@ xorg-drivers-\*.txz
 xorg-libraries-\*.txz
 xorg-server-\*.txz
 xf86-video-intel-\*.txz
+xf86-video-scfb-\*.txz
 xkbcomp-\*.txz
 xkeyboard-config-\*.txz
 xf86-input-synaptics-\*.txz
