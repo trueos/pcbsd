@@ -122,6 +122,12 @@ init_user() {
     usage
  fi
 
+ # Check if this user is logged in
+ w | grep -q "$UNAME "
+ if [ $? -eq 0 ] ; then
+   exit_err "This user is logged in, please run init on users not currently active"
+ fi
+
  CRYPTFILE="${PCDBDIR}/${UNAME}.key"
  if [ -e "${CRYPTFILE}" ] ; then
     exit_err "This user already has a personacrypt key saved, please remove it first"
