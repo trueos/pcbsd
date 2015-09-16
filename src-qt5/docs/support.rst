@@ -73,11 +73,12 @@ Pootle makes it possible to find out if your native language has been fully loca
 translated text as it provides a web editor and commenting system. This means that translators can spend their time making and reviewing translations rather
 than learning how to use a translation tool.
 
-To see the status of a localization, open up the `translation website <http://translate.pcbsd.org/>`_ in a web browser, as seen in Figure 11.2a. 
+To see the status of a localization, open up the `translation website <http://translate.pcbsd.org/>`_ in a web browser, as seen in
+:numref:`Figure %s: The PC-BSD® Pootle Translation System <translate1>`. 
 
-**Figure 11.2a: The PC-BSD® Pootle Translation System** 
+.. _translate1:
 
-.. image:: images/translate1.png
+.. figure:: images/translate1.png
 
 The localizations PC-BSD® users have requested are listed alphabetically on the left. If your language is missing and you would like to help in its
 translation, send an email to the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_ so it can be added.
@@ -85,30 +86,30 @@ translation, send an email to the `translations mailing list <http://lists.pcbsd
 The green bar in the "Progress" column indicates the percentage of PC-BSD® menus that have been localized. If a language is not at 100%, it means that the
 menus that currently are not translated will appear in English instead of in that language.
 
-If you click on a language name then click on the "PC-BSD" hyperlink under the "Name" column, you will see each menu item that is available for translation.
-The example shown in Figure 11.2b is for the Greek localization. In this example, the menu for "ethernetconfig" is complete, but the one for "LifePreserver"
-is not.
+If you click on a language name then click on the "PC-BSD" hyperlink under the "Name" column, you will see each menu item that is available for translation. The example shown in
+:numref:`Figure %s: Viewing a Language's Available Menus <translate2>` is for the Greek localization. In this example, the menu for "ethernetconfig" is complete, but the one for
+"LifePreserver" is not.
 
-**Figure 11.2b: Viewing a Language's Available Menus** 
+.. _translate2:
 
-.. image:: images/translate2.png
+.. figure:: images/translate2.png
 
 In order to edit a translation, you need to first create a Pootle login account. Once you are logged in to Pootle, navigate to the menu item that you wish to
-translate. In Figure 11.2c, the translator has clicked on "LifePreserver.ts" then clicked the "Translate" tab.
+translate. In :numref:`Figure %s: Using the Pootle Interface to Edit a Translation String <translate3>`, the translator has clicked on "LifePreserver.ts" then clicked the "Translate" tab.
 
-**Figure 11.2c: Using the Pootle Interface to Edit a Translation String**
+.. _translate3:
 
-.. image:: images/translate3.png
+.. figure:: images/translate3.png
 
 In this example, the first string, the phrase "Classic Home-Dir Backup" has not yet been translated. To add the translation, type the translated text into the
 white text field and click the "Submit" button. To translate another text field, click on the hyperlink associated with its name, or use the "Next" and
-"Previous" links to navigate between text fields. Sometimes, a text field exists in another screen and already has a translation. Figure 11.2d provides an
-example where the translator clicked the hyperlink for "Filename" which displays three previous translations. The translator then clicked the first suggestion
-and it was automatically added to the white text field.
+"Previous" links to navigate between text fields. Sometimes, a text field exists in another screen and already has a translation.
+:numref:`Figure %s: Selecting a Suggested Translation <translate4>` provides an example where the translator clicked the hyperlink for "Filename" which displays three previous translations.
+The translator then clicked the first suggestion and it was automatically added to the white text field.
 
-**Figure 11.2d: Selecting a Suggested Translation**
+.. _translate4:
 
-.. image:: images/translate4.png
+.. figure:: images/translate4.png
 
 If you need help with a translation or using the Pootle system, you can ask for help on the translations mailing list or in the
 `translations forum <https://forums.pcbsd.org/forum-40.html>`_. 
@@ -131,30 +132,31 @@ At this time, the PC-BSD® build server has been configured to automatically bui
 HTML or PDF version can be found in this `README.md <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_.
 
 The documentation source files have been integrated into the Pootle translation system so that the PC-BSD® documentation can be translated using a web browser.
-The process is similar to :ref:`Interface Translation` except that you must first select "PC-BSD Handbook" from the "Projects" drop-down menu shown in Figure 11.2e.
+The process is similar to :ref:`Interface Translation` except that you must first select "PC-BSD Handbook" from the "Projects" drop-down menu shown in
+:numref:`Figure %s: Selecting the Handbook Project <translate5>`.
 
-**Figure 11.2d: Selecting the Handbook Project**
+.. _translate5:
 
-.. image:: images/translate5.png
+.. figure:: images/translate5.png
 
 You can then select the language to translate into from the available languages list. If the language that you want to translate is not listed, send an email to
 the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_ and request that it be added.
 
 When translating the documentation, be aware of the following:
 
-* At this time, some formatting tags are still displayed in raw text, as seen in the examples in Figures 11.2e and 11.2f.
+* At this time, some formatting tags are still displayed in raw text, as seen in the examples in :numref:`Figure %s: Do Not Remove Formatting Characters <translate6>`
+  and :numref:`Figure %s: Another Formatting Characters Example <translate7>`.
   **It is IMPORTANT that you do not accidentally remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
   translate the phrase "Using the Text Installer" but care must be taken to not accidental remove any of the surrounding colons and backticks, or to change the text
   of the "ref" tag. In the second example, the asterisks are used to bold the word "install". It is OK to translate "install", but do not remove the asterisks.
 
+.. _translate6:
 
-**Figure 11.2e: Do Not Remove Formatting Characters**
+.. figure:: images/translate6.png
 
-.. image:: images/translate6.png
+.. _translate7:
 
-**Figure 11.2e: Another Formatting Characters Example**
-
-.. image:: images/translate7.png
+.. figure:: images/translate7.png
 
 If you would like to receive notifications of documentation changes that affect translations, subscribe to the
 `Translation-notifications <http://lists.pcbsd.org/mailman/listinfo/translations-notifications>`_ mailing list.
