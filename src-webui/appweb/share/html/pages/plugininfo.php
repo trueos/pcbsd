@@ -458,7 +458,7 @@ function display_install_chooser()
 	    display_service_details();
          echo "</div>\n";
          echo "<div id=\"tabs-fstab\">\n";
-         echo "<p>Plugins always run in secure mode, which means they do not have access to your system files. To share a directory with this plugin, please add it below.</p>\n";
+         echo "<p>App Containers always run in secure mode, which means they do not have access to your system files. To share a directory with this plugin, please add it below. (Example: /data)</p>\n";
 	 display_jail_fstab_editor();
          echo "</div>\n";
        }

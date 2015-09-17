@@ -24,6 +24,11 @@ defined('DS') OR die('No direct access allowed.');
   $output = run_cmd("iocage get ip4_autosubnet default");
   $ip4subnet = $output[0];
 
+  if ( ! empty($_POST['iocpool']) and ( empty($_POST['ip4start']) or empty($_POST['ip4end']) or empty($_POST['ip4subnet']) ) )
+  {
+    $errormsg="ERROR: You must specify a valid IPv4 range / netmask!";
+  }
+
   // Save the ip4 ranges / settings
   $setranges=true;
   if ( empty($_POST['ip4start']) or empty($_POST['ip4end']) or empty($_POST['ip4subnet']) ) {
@@ -77,14 +82,14 @@ defined('DS') OR die('No direct access allowed.');
   } else {
 
     if ( $firstrun )
-      echo "<h1>Welcome to AppCafe Plugins!</h1><br>";
+      echo "<h1>Welcome to AppCafe!</h1><br>";
     else
-      echo "<h1>Plugin Configuration</h1><br>";
+      echo "<h1>Apps Configuration</h1><br>";
 
-    echo "<p>Each AppCafe managed plugin requires an IP address on your network. Please specify a range of usable IPs which can be assigned to plugins.</p>";
+    echo "<p>Each AppCafe managed container requires an IP address on your network. Please specify a range of usable IPs which can be assigned to App containers.</p>";
 
     if ( ! empty($errormsg) ) {
-      echo "<br><p style=\"color:red;\">$errormsg</p><br>";
+      echo "<br><p style=\"color:red;\">$errormsg</p>";
     }
 ?>
 <table class="jaillist" style="width:100%">
