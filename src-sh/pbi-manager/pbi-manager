@@ -1347,63 +1347,6 @@ load_pbi_etcconf() {
 
 }
 
-do_ng_migration()
-{
-	local db="/var/db/pbi/installed"
-
-	# Duh
-	require_root
-
-	# Make sure we update the index first
-	pbi updateindex -f
-
-	# No Database? Ain't gona find much..
-	if [ ! -e "$PBI_INDEXDB" ] ; then
-		echo "No PBING index... Reboot or run this after INDEX is downloaded"
-		exit 1
-	fi
-
-	# Before doing any updates, need to make sure packages on system
-	# are up2date
-	pc-updatemanager pkgupdate
-	if [ $? -ne 0 ] ; then
-	   exit_err "Packages on system need updating before running 'pbi migrate' again."
-	fi
-
-	# Remove user *.desktop files
-	users=""
-	for h in `ls /usr/home`
-	do
-		if [ ! -d "/usr/home/$h/Desktop" ] ; then continue; fi
-		rm /usr/home/${h}/Desktop/PBI-*.desktop 2>/dev/null
-		rm /usr/home/${h}/.local/share/applications/PBI-*.desktop 2>/dev/null
-		users="$users $h"
-	done
-
-	for i in `ls $db`
-	do
-		# Get the PBI name
-		oName=`cat $db/${i}/pbi_name 2>/dev/null`
-		oPath=`cat $db/${i}/pbi_defaultpath 2>/dev/null`
-		if [ -n "$oPath" -a -n "$oName" ] ; then
-			echo "Removing old PBI: $oName"
-			echo "$oPath" | grep -q '/usr/pbi/'
-			if [ $? -eq 0 ] ; then
-				rm -rf $oPath
-			fi
-			rm -rf $db/$i
-
-			echo "Adding PBING: $oName"
-			pbi add $oName
-			pbi icon add-menu $oName
-			for u in $users
-			do
-				su $u -c "pbi icon add-desktop $oName" 2>/dev/null
-			done
-		fi
-	done
-}
-
 app_init()
 {
   cmd=$1
@@ -1420,12 +1363,6 @@ app_init()
 		makeindex) usage_makeindex_pbi ;;
 		*) exit_err "Unknown command" ;;
 	esac
-  fi
-
-  # User requested to run a migration from old PBIs to PBING
-  if [ "$cmd" = "migrate" ] ; then
-     do_ng_migration
-     exit 0
   fi
 
   which -s "pbi_${cmd}" 
