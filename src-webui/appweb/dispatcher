@@ -135,7 +135,13 @@ run_queue_cmd()
           echo "FAILED $ident $@" >> $QRESULTS
         fi	
 
-        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=DEFAULT|AUTOIP4"
+	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+          # System has VIMAGE enabled
+          cmd="iocage pull $target tag=pbicage-$neworigin boot=yes vnet=on dhcp=on bpf=on"
+	else
+	  # No VIMAGE, use fallback method
+	  cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=DEFAULT|AUTOIP4"
+	fi
      fi 
      if [ "$origin" = "destroy" ] ; then
         # Stop the jail first
@@ -371,6 +377,21 @@ run_iocage_cmd()
   esac
   syscache "startsync" >/dev/null 2>/dev/null
 }
+
+get_iocage_ip4()
+{
+  jid="$3"
+  if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+    # Using VIMAGE
+    uuid=$(iocage get all $jid | grep uuid | cut -d ":" -f 2)
+    jid=$(jls | grep $uuid | awk '{print $1}')
+    jexec $jid ifconfig | grep 'inet ' | grep broadcast | awk '{print $2}'
+  else
+    # Regular method
+    iocage get ip4_addr $jid
+  fi
+}
+
 
 run_iocage_getfstab()
 {
@@ -617,6 +638,7 @@ case $1 in
 	    case $2 in
               # These commands will be queued
               destroy|pull) echo "$@" >>${QLIST} ;;
+	      getip4) get_iocage_ip4 "$@" ;;
 	      addfstab) run_iocage_addfstab "$@" ;;
 	      delfstab) run_iocage_delfstab "$@" ;;
 	      getfstab) run_iocage_getfstab "$@" ;;

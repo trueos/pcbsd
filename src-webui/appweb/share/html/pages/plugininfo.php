@@ -361,16 +361,18 @@ function display_install_chooser()
 
     $cmd="jail $ioid";
     exec("$sc ". escapeshellarg("$cmd path") 
-         . " " . escapeshellarg("$cmd ipv4")
        , $ioarray);
 
     // Get the location of pbicage config files
     $pbicdir = $ioarray[0] . "/pbicage";
 
     // Get ipv4 address
-    $pbiip4 = $ioarray[1];
-    $pbiip4= substr(strstr($pbiip4, "|"), 1);
-    $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    $output = run_cmd("iocage getip4 $ioid");
+    $pbiip4 = $output[0];
+    if (strstr($pbiip4, "|") !== false ) {
+      $pbiip4= substr(strstr($pbiip4, "|"), 1);
+      $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    }
 
  
     // Check if this app has service details
