@@ -18,8 +18,8 @@ void dialogWPAEnterprise::init()
     if ( radioEAPTLS->isChecked() ) {
 	textPhase2->setHidden(true);
 	comboPhase2->setHidden(true);
-    textAnonIdentity->setHidden(true);
-    lineAnonIdentity->setHidden(true);
+	textAnonIdentity->setHidden(true);
+	lineAnonIdentity->setHidden(true);
     }
 }
 
@@ -35,8 +35,8 @@ void dialogWPAEnterprise::slotTypeChanged()
 	pushSelectPrivateKeyFile->setHidden(false);	
 	textPhase2->setHidden(true);
 	comboPhase2->setHidden(true);
-    textAnonIdentity->setHidden(true);
-    lineAnonIdentity->setHidden(true);
+	textAnonIdentity->setHidden(true);
+	lineAnonIdentity->setHidden(true);
     }
     
     if ( radioEAPTTLS->isChecked() ) {
@@ -93,7 +93,7 @@ void dialogWPAEnterprise::slotClose()
     {
 	QMessageBox::warning( this, "Network Key Error", "Error: The entered password keys do not match!\n" );
     } else {
-    emit saved( type, lineEAPIdentity->text(), lineAnonIdentity->text(), lineCACert->text(), lineClientCert->text(), linePrivateKeyFile->text(), linePrivateKeyPassword->text(), comboKeyMgmt->currentIndex(), comboPhase2->currentIndex() );
+	emit saved( type, lineEAPIdentity->text(), lineAnonIdentity->text(), lineCACert->text(), lineClientCert->text(), linePrivateKeyFile->text(), linePrivateKeyPassword->text(), comboKeyMgmt->currentIndex(), comboPhase2->currentIndex() );
 	close();
     }
 }
