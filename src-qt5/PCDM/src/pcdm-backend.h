@@ -74,7 +74,7 @@ public:
 private:	
     static void loadXSessionsData();
     static QStringList readXSessionsFile(QString, QString);
-    static void readSystemUsers();
+    static void readSystemUsers(bool directfile = false);
     static void readSystemLastLogin();
     static void writeSystemLastLogin(QString, QString);
     static QString readUserLastDesktop(QString);

@@ -4,7 +4,7 @@ defined('DS') OR die('No direct access allowed.');
  if ( ! empty($_GET['cat']) )
    $header="Browsing Category: ". $_GET['cat'];
  else
-   $header="Plugin Browser";
+   $header="Apps Browser";
 ?>
 
 <h1><?php echo $header; ?></h1>

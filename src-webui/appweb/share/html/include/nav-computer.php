@@ -11,7 +11,7 @@ if ( strpos($page, "plugin") === false and ! $pluginDispatcher)
   <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
   <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Apps</a></li>
   <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search"><img src="/images/search.png" height=32 width=32> &nbsp;&nbsp;App Search</a></li>
-  <li><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Plugins</a></li>
+  <li><a href="/?p=plugins" style="align:right;"><img src="/images/jail.png" height=32 width=32> &nbsp;&nbsp;App Containers</a></li>
 <?php
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
@@ -27,13 +27,13 @@ if (USERNAME)
 ?>
 <div id="cssmenu" style="height:3.50em;">
 <ul>
-  <li <?php if ( $page=="plugins" ) { echo "class='active'"; } ?>><a href="/?p=plugins"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
-  <li <?php if ( $page=="sysplugins" ) { echo "class='active'"; } ?>><a href="/?p=sysplugins"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Plugins</a></li>
+  <li <?php if ( $page=="plugins" ) { echo "class='active'"; } ?>><a href="/?p=plugins"><img src="/images/jail.png" height=32 width=32> &nbsp;&nbsp;Home</a></li>
+  <li <?php if ( $page=="sysplugins" ) { echo "class='active'"; } ?>><a href="/?p=sysplugins"><img src="/images/install.png" height=32 width=32> &nbsp;&nbsp;Installed Apps</a></li>
   <li <?php if ( $page=="pluginconfig" ) { echo "class='active'"; } ?>><a href="/?p=pluginconfig"><img src="/images/configure.png" height=32 width=32> &nbsp;&nbsp;Configuration</a></li>
 <?php
 if ( $sysType != "APPLIANCE" ) {
 ?>
-  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;System Apps</a></li>
+  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;System Packages</a></li>
 <?php
 }
 if (USERNAME)

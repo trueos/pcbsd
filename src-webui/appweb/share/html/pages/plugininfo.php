@@ -1,6 +1,8 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+/////////////////////////////////////////////////////
+// Parse post / get actions
 if ( ! empty($_GET['toggle']) )
 {
   $tjail = $_GET['toggle'];
@@ -18,6 +20,8 @@ if ( ! empty($_GET['autostart']) )
   run_cmd("iocage set boot=on $tjail");
   hideurl();
 }
+
+/////////////////////////////////////////////////////
 
 function parse_service_config()
 {
@@ -111,6 +115,50 @@ function get_cfg_value($cfg)
      return $output[0];
 
   return $default; 
+}
+
+function display_jail_fstab_editor()
+{
+  global $pbicdir;
+  global $pbiorigin;
+  global $jail;
+  global $jailUrl;
+  global $jailPath;
+  global $sc;
+
+  // Get the jail path
+  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
+  $jailPath=$jArray[0];
+
+  // Check for add action
+  if ( ! empty($_POST['mount']) ) {
+    $adderror = run_cmd("iocage" . " addfstab ". escapeshellarg($jail) . " " . $_POST['mount'] );
+  }
+  // Check for delete action
+  if ( ! empty($_GET['delMnt']) ) {
+    $delerror = run_cmd("iocage" . " delfstab ". escapeshellarg($jail) . " " . $_GET['delMnt'] );
+  }
+
+  // Get current fstab
+  $fstab = run_cmd("iocage" . " getfstab ". escapeshellarg($jail) );
+
+  echo "<br>";
+  echo "$adderror[0]$delerror[0]";
+  echo "<table width=\"95%\"><tr><th></th><th></th></tr>";
+  echo "<form method=\"post\" action=\"?p=plugininfo&app=".rawurlencode($pbiorigin)."#tabs-fstab\">\n";
+  echo "<tr><td><input name=\"mount\" type=\"text\"></td><td><input type=\"submit\" value=\"Add\" class=\"btn-style\"></td></tr>";
+  echo "</form>";
+
+  // Now display the existing fstab lines if any
+  foreach ($fstab as $mntline)
+  {
+    $mntarray = preg_split('/[\s]+/', $mntline);
+    if ( $mntarray[0] == "nullfs" and "$jailPath$mntarray[1]" == "$mntarray[2]" )
+      echo "<tr><td>$mntarray[1]</td><td><a href=\"?p=plugininfo&app=".rawurlencode($pbiorigin)."&delMnt=".rawurlencode($mntarray[1])."#tabs-fstab\"><img src=\"images/application-exit.png\" height=32 width=32></a></td></tr>";
+  }
+
+  echo "</table></form>";
+
 }
 
 // Display the configuration widget
@@ -313,16 +361,18 @@ function display_install_chooser()
 
     $cmd="jail $ioid";
     exec("$sc ". escapeshellarg("$cmd path") 
-         . " " . escapeshellarg("$cmd ipv4")
        , $ioarray);
 
     // Get the location of pbicage config files
     $pbicdir = $ioarray[0] . "/pbicage";
 
     // Get ipv4 address
-    $pbiip4 = $ioarray[1];
-    $pbiip4= substr(strstr($pbiip4, "|"), 1);
-    $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    $output = run_cmd("iocage getip4 $ioid");
+    $pbiip4 = $output[0];
+    if (strstr($pbiip4, "|") !== false ) {
+      $pbiip4= substr(strstr($pbiip4, "|"), 1);
+      $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    }
 
  
     // Check if this app has service details
@@ -392,6 +442,7 @@ function display_install_chooser()
    <ul class='etabs'>
      <?php  if ( $pbiInstalled ) { ?>
      <li class='tab'><a href="#tabs-service">Service Control</a></li>
+     <li class='tab'><a href="#tabs-fstab">Directory Access</a></li>
      <?php } ?>
      <?php  if ( $hasConfig and $pbirunning ) { ?>
      <li class='tab'><a href="#tabs-configure">Configuration</a></li>
@@ -407,6 +458,10 @@ function display_install_chooser()
          display_jail_control($ioid);
          if ( $hasService and $pbirunning )
 	    display_service_details();
+         echo "</div>\n";
+         echo "<div id=\"tabs-fstab\">\n";
+         echo "<p>App Containers always run in secure mode, which means they do not have access to your system files. To share a directory with this plugin, please add it below. (Example: /data)</p>\n";
+	 display_jail_fstab_editor();
          echo "</div>\n";
        }
 

@@ -625,6 +625,13 @@ Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QObject(parent){
     longProc->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
     longProc->setProcessChannelMode(QProcess::MergedChannels);   
     connect(longProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(LongProcFinished(int, QProcess::ExitStatus)) );
+  applianceMode = false;
+  //Check if the system/appcafe is running in appliance mode (for FreeNAS, etc)
+  QStringList chk = readFile("/usr/local/etc/appcafe.conf").filter("mode").filter("=").filter("appliance");
+  for(int i=0; i<chk.length(); i++){
+    //Just verify that this line is not commented out (filtering above ensures this list is extremely small or empty)
+    if(chk[i].section(";",0,0).section("=",1,1).simplified()=="appliance"){ applianceMode = true; break;}
+  }
 }
 
 Syncer::~Syncer(){
@@ -738,6 +745,7 @@ void Syncer::clearPbi(){
 
 bool Syncer::needsLocalSync(QString jail){
   //Checks the pkg database file for modification since the last sync
+  if(applianceMode){ return false; } //never sync pkg info for appliances
   if(!HASH->contains("Jails/"+jail+"/lastSyncTimeStamp")){ return true; }
   else{
     //Previously synced - look at the DB modification time
@@ -763,6 +771,7 @@ bool Syncer::needsLocalSync(QString jail){
 }
 
 bool Syncer::needsRemoteSync(QString jail){
+  if(applianceMode){ return false; } //never sync pkg info for appliances
   //Checks the pkg repo files for changes since the last sync
   if( (jail!=LOCALSYSTEM) && HASH->value("Jails/"+jail+"/haspkg") != "true" ){ return false; } //pkg not installed
   else if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
@@ -794,6 +803,7 @@ bool Syncer::needsPbiSync(){
 }
 
 bool Syncer::needsSysSync(){
+  if(applianceMode){ return false; } //never sync freebsd-update info for appliances
   //Check how long since the last check the
   if(longProc->state() != QProcess::NotRunning){ return false; } //currently running
   if(!HASH->contains("System/lastSyncTimeStamp")){ return true; }

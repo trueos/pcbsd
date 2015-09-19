@@ -355,11 +355,11 @@ new_gpart_partitions()
     else
       rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     fi
-    # This is nasty, but at the moment it works to get rid of previous installs metadata
-    echo_log "Clearing partition data..."
-    rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
-    rc_halt "sync"
-    sleep 5
+    sleep 2
+    # Use a trick from FreeBSD, create / destroy / create to remove any
+    # backup meta-data which still may exist on the disk/slice
+    rc_halt "gpart create -s BSD ${_wSlice}"
+    rc_halt "gpart destroy ${_wSlice}"
     rc_halt "gpart create -s BSD ${_wSlice}"
     rc_halt "sync"
     _pType="mbr"
@@ -373,11 +373,10 @@ new_gpart_partitions()
     PARTLETTER="a"
     CURPART="1"
     if [ "${_pType}" = "mbr" ] ; then
-      # This is nasty, but at the moment it works to get rid of previous installs metadata
-      echo_log "Clearing partition data..."
-      rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
-      rc_halt "sync"
-      sleep 5
+      # Use a trick from FreeBSD, create / destroy / create to remove any
+      # backup meta-data which still may exist on the disk/slice
+      rc_halt "gpart create -s BSD ${_wSlice}"
+      rc_halt "gpart destroy ${_wSlice}"
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
@@ -569,7 +568,11 @@ new_gpart_partitions()
       else
         sleep 2
 	# MBR type
-        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	if [ "$PARTLETTER" = "a" ] ; then
+          aCmd="gpart add -b 8 ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	else
+          aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	fi
       fi
 
       # Run the gpart add command now

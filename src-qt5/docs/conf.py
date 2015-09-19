@@ -30,8 +30,13 @@ import os
 # ones.
 extensions = [
     'sphinx.ext.ifconfig',
-    'sphinxcontrib.httpdomain'
+    'sphinxcontrib.httpdomain',
+    'sphinx.ext.numfig'
 ]
+
+# -- Options for automatic Figure numbering
+numfig = True
+numfig_secnum_depth = (2)
 
 #Keep these comments as we will be using these directives once there is a new Python version to provide automagic figure numbering
 #numfig:
