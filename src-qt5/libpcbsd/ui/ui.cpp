@@ -163,23 +163,23 @@ dialogWPAE::dialogWPAE() {
 }
 
 void dialogWPAE::show() {
-  QObject::connect( (QObject*)d_wpae, SIGNAL( saved(int, QString, QString, QString, QString, QString, int, int) ), (QObject*)this, SLOT( slotSigInt(int, QString, QString, QString, QString, QString, int, int) ) );
+  QObject::connect( (QObject*)d_wpae, SIGNAL( saved(int, QString, QString, QString, QString, QString, QString, int, int) ), (QObject*)this, SLOT( slotSigInt(int, QString, QString, QString, QString, QString, QString, int, int) ) );
   d_wpae->show();
 }
 
 void dialogWPAE::exec() {
-  QObject::connect( (QObject*)d_wpae, SIGNAL( saved(int, QString, QString, QString, QString, QString, int, int) ), (QObject*)this, SLOT( slotSigInt(int, QString, QString, QString, QString, QString, int, int) ) );
+  QObject::connect( (QObject*)d_wpae, SIGNAL( saved(int, QString, QString, QString, QString, QString, QString, int, int) ), (QObject*)this, SLOT( slotSigInt(int, QString, QString, QString, QString, QString, QString, int, int) ) );
   d_wpae->exec();
 }
 
-void dialogWPAE::setVariables( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 )
+void dialogWPAE::setVariables( int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 )
 {
-  d_wpae->setVariables(type, EAPIdent, CACert, ClientCert, PrivKeyFile, Password, keyMgmt, EAPPhase2 );
+  d_wpae->setVariables(type, EAPIdent, AnonIdent, CACert, ClientCert, PrivKeyFile, Password, keyMgmt, EAPPhase2 );
 }
 
-void dialogWPAE::slotSigInt(int type, QString EAPIdent, QString CACert, QString CliCert, QString PrivKeyFile, QString Pass, int kMgmt, int EAPPhase2)
+void dialogWPAE::slotSigInt(int type, QString EAPIdent, QString AnonIdent, QString CACert, QString CliCert, QString PrivKeyFile, QString Pass, int kMgmt, int EAPPhase2)
 {
-  emit saved(type, EAPIdent, CACert, CliCert, PrivKeyFile, Pass, kMgmt, EAPPhase2);
+  emit saved(type, EAPIdent, AnonIdent, CACert, CliCert, PrivKeyFile, Pass, kMgmt, EAPPhase2);
 }
 
 //=== Old Qt4 Code ===

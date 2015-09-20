@@ -18,6 +18,8 @@ void dialogWPAEnterprise::init()
     if ( radioEAPTLS->isChecked() ) {
 	textPhase2->setHidden(true);
 	comboPhase2->setHidden(true);
+    textAnonIdentity->setHidden(true);
+    lineAnonIdentity->setHidden(true);
     }
 }
 
@@ -33,6 +35,8 @@ void dialogWPAEnterprise::slotTypeChanged()
 	pushSelectPrivateKeyFile->setHidden(false);	
 	textPhase2->setHidden(true);
 	comboPhase2->setHidden(true);
+    textAnonIdentity->setHidden(true);
+    lineAnonIdentity->setHidden(true);
     }
     
     if ( radioEAPTTLS->isChecked() ) {
@@ -44,6 +48,8 @@ void dialogWPAEnterprise::slotTypeChanged()
 	pushSelectPrivateKeyFile->setHidden(true);	
 	textPhase2->setHidden(false);
 	comboPhase2->setHidden(false);
+    textAnonIdentity->setHidden(false);
+    lineAnonIdentity->setHidden(false);
     }
     
     if ( radioEAPPEAP->isChecked() ) {
@@ -55,6 +61,8 @@ void dialogWPAEnterprise::slotTypeChanged()
 	pushSelectPrivateKeyFile->setHidden(true);
 	textPhase2->setHidden(false);
 	comboPhase2->setHidden(false);
+    textAnonIdentity->setHidden(false);
+    lineAnonIdentity->setHidden(false);
     }
 
 }
@@ -85,7 +93,7 @@ void dialogWPAEnterprise::slotClose()
     {
 	QMessageBox::warning( this, "Network Key Error", "Error: The entered password keys do not match!\n" );
     } else {
-	emit saved( type, lineEAPIdentity->text(), lineCACert->text(), lineClientCert->text(), linePrivateKeyFile->text(), linePrivateKeyPassword->text(), comboKeyMgmt->currentIndex(), comboPhase2->currentIndex() );
+    emit saved( type, lineEAPIdentity->text(), lineAnonIdentity->text(), lineCACert->text(), lineClientCert->text(), linePrivateKeyFile->text(), linePrivateKeyPassword->text(), comboKeyMgmt->currentIndex(), comboPhase2->currentIndex() );
 	close();
     }
 }
@@ -125,7 +133,7 @@ void dialogWPAEnterprise::slotSelectPrivateKeyFile()
 }
 
 
-void dialogWPAEnterprise::setVariables( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 )
+void dialogWPAEnterprise::setVariables( int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 )
 {
     // Load the existing settings for this configuration
     
@@ -142,6 +150,7 @@ void dialogWPAEnterprise::setVariables( int type, QString EAPIdent, QString CACe
     comboPhase2->setCurrentIndex(EAPPhase2);
 
     lineEAPIdentity->setText(EAPIdent);
+    lineAnonIdentity->setText(AnonIdent);
     lineCACert->setText(CACert);
     lineClientCert->setText(ClientCert);
     linePrivateKeyFile->setText(PrivKeyFile);
