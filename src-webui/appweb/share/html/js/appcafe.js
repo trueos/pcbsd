@@ -29,14 +29,21 @@ function addConfirm(appname, origin, cmd, target) {
     }
 }
 
-function delJailConfirm(name, origin, ioid) {
+function delJailConfirm(name) {
+    if (confirm("Are you sure you want to delete jail: " + name + "?") == true) {
+	var newURL = window.location.pathname;
+	window.location.href = newURL + "?p=jails&deleteJail=" + name;
+    }
+}
+
+function delAppConfirm(name, origin, ioid) {
     if (confirm("Are you sure you want to delete plugin: " + name + "?") == true) {
 	var newURL = window.location.pathname;
 	window.location.href = newURL + "?p=plugininfo&app=" + origin + "&deletePlugin=" + ioid;
     }
 }
 
-function addJailConfirm(name, origin, ghurl) {
+function addAppConfirm(name, origin, ghurl) {
     if (confirm("Are you sure you want to install the plugin: " + name + "?") == true) {
 	var newURL = window.location.pathname;
 	window.location.href = newURL + "?p=plugininfo&app=" + origin + "&installPlugin=" + origin + "&installPluginGH=" + ghurl;

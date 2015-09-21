@@ -6,7 +6,11 @@
     return(0);
   }
 
-  if ( $page != "dispatcher" and ! $pluginDispatcher ) {
+  if ( stripos($page, "jail") !== false) {
+    return(0);
+  }
+
+  if ( $page != "dispatcher" and ! $pluginDispatcher )  {
     display_cats();
   }
 ?>

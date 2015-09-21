@@ -15,6 +15,7 @@ share/appcafe/php.ini
 share/appcafe/html/index.php
 share/appcafe/html/css/_reset.css
 share/appcafe/html/css/cssmenu.css
+share/appcafe/html/css/subcssmenu.css
 share/appcafe/html/css/main.css
 share/appcafe/html/css/popbox.css
 share/appcafe/html/css/tabs.css
@@ -70,6 +71,9 @@ share/appcafe/html/pages/appinfo.php
 share/appcafe/html/pages/dispatcher.php
 share/appcafe/html/pages/error.php
 share/appcafe/html/pages/exportpbis.php
+share/appcafe/html/pages/jails.php
+share/appcafe/html/pages/jailcreate.php
+share/appcafe/html/pages/jailinfo.php
 share/appcafe/html/pages/plugins.php
 share/appcafe/html/pages/pluginconfig.php
 share/appcafe/html/pages/plugininfo.php

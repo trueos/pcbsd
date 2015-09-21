@@ -1,5 +1,7 @@
 <?
 defined('DS') OR die('No direct access allowed.');
+$jail = "#system";
+$jailUrl="__system__";
 ?>
 <table class="header" style="width:100%">
 <tr>

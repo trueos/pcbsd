@@ -3,5 +3,7 @@
 <br>
 
 <?php
+   $jail = "#system";
+   $jailUrl="__system__";
    display_cats("64");
 ?>

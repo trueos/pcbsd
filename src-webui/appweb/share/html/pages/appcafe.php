@@ -1,5 +1,7 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
+$jail = "#system";
+$jailUrl="__system__";
 
 
  if ( ! empty($_GET['cat']) )
