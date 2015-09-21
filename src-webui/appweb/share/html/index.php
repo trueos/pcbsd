@@ -126,14 +126,27 @@
 
   // If we are on plugins section, make sure we have a start-end range
   if ( stripos($page, "plugin") !== false ) {
-    $output = run_cmd("iocage get ip4_autostart default");
-    $ip4start = $output[0];
-    $output = run_cmd("iocage get ip4_autoend default");
-    $ip4end = $output[0];
-    if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
+    // Check for VIMAGE support
+    $vimage = exec("/sbin/sysctl -qn kern.features.vimage");
+    if ( $vimage == 1 )
     {
-      $firstrun=true;
-      $page="pluginconfig";
+      // Get the iocage pool
+      $curpool = get_iocage_pool();
+      if ( empty($curpool) )
+      {
+        $firstrun=true;
+        $page="pluginconfig";
+      }
+    } else {
+      $output = run_cmd("iocage get ip4_autostart default");
+      $ip4start = $output[0];
+      $output = run_cmd("iocage get ip4_autoend default");
+      $ip4end = $output[0];
+      if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
+      {
+        $firstrun=true;
+        $page="pluginconfig";
+      }
     }
   }
 

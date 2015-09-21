@@ -361,16 +361,18 @@ function display_install_chooser()
 
     $cmd="jail $ioid";
     exec("$sc ". escapeshellarg("$cmd path") 
-         . " " . escapeshellarg("$cmd ipv4")
        , $ioarray);
 
     // Get the location of pbicage config files
     $pbicdir = $ioarray[0] . "/pbicage";
 
     // Get ipv4 address
-    $pbiip4 = $ioarray[1];
-    $pbiip4= substr(strstr($pbiip4, "|"), 1);
-    $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    $output = run_cmd("iocage getip4 $ioid");
+    $pbiip4 = $output[0];
+    if (strstr($pbiip4, "|") !== false ) {
+      $pbiip4= substr(strstr($pbiip4, "|"), 1);
+      $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    }
 
  
     // Check if this app has service details
@@ -458,7 +460,7 @@ function display_install_chooser()
 	    display_service_details();
          echo "</div>\n";
          echo "<div id=\"tabs-fstab\">\n";
-         echo "<p>Plugins always run in secure mode, which means they do not have access to your system files. To share a directory with this plugin, please add it below.</p>\n";
+         echo "<p>App Containers always run in secure mode, which means they do not have access to your system files. To share a directory with this plugin, please add it below. (Example: /data)</p>\n";
 	 display_jail_fstab_editor();
          echo "</div>\n";
        }

@@ -568,11 +568,11 @@ new_gpart_partitions()
       else
         sleep 2
 	# MBR type
-	if [ "$CURPART" = "1" ] ; then
+	if [ "$PARTLETTER" = "a" ] ; then
           aCmd="gpart add -b 8 ${SOUT} -t ${PARTYPE} ${_wSlice}"
-        else
+	else
           aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
-        fi
+	fi
       fi
 
       # Run the gpart add command now
