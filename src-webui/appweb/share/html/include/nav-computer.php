@@ -62,7 +62,7 @@ if ( $dflag == "appcafe" )
 
 <body>
 <?php if ( $page != "dispatcher" and stripos($page, "jail") === false ) { ?>
-<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin:16px;">
+<div id="leftmenu" style="height:100%;width:120px;position:absolute;margin:16px;">
   <?php 
      require("include/leftmenu.php");
   ?>
@@ -89,7 +89,7 @@ $(document).ready(function () {
 </script>
 <?php if ( $page != "dispatcher" and stripos($page, "jail") === false )  { ?>
 
-<div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:12.50em;">
+<div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:200px;">
 <?php } else { ?>
 <div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:0.50em;">
 <?php } ?>
