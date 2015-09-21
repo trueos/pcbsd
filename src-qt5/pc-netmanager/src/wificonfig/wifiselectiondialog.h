@@ -26,7 +26,7 @@ public:
    void initEdit(QString selectedSSID, bool usingBSSID);
    void initEdit(QString selectedSSID, bool usingBSSID, QString editWEPKey, int editWEPIndex, bool editWEPHex);
    void initEdit(QString selectedSSID, bool usingBSSID, QString editWPAPersonalKey);
-   void initEdit(QString selectedSSID, bool usingBSSID, int editWPAEType, QString editWPAEIdent, QString editWPAECACert, QString editWPAEClientCert, QString editWPAEPrivKeyFile, QString editWPAEPassword, int keyMgmt, int editPhase2);
+   void initEdit(QString selectedSSID, bool usingBSSID, int editWPAEType, QString editWPAEIdent, QString editWPAEAnonIdent, QString editWPAECACert, QString editWPAEClientCert, QString editWPAEPrivKeyFile, QString editWPAEPassword, int keyMgmt, int editPhase2);
    void setWPAOnly(bool);
 
 
@@ -44,7 +44,7 @@ private slots:
     void slotConfigWPAP();
     void slotConfigWPAE();
     void slotWPAPChanged( QString newKey );
-    void slotWPAEChanged( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 );
+    void slotWPAEChanged( int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 );
 
 private:
     QString DeviceName;
@@ -68,6 +68,7 @@ private:
     // WPAE Variables
     int WPAEType;
     QString WPAEIdent;
+    QString WPAEAnonIdent;
     QString WPAECACert;
     QString WPAEClientCert;
     QString WPAEPrivKeyFile;
@@ -80,7 +81,7 @@ signals:
    void signalSavedOpen(QString, bool);
    void signalSavedWEP(QString, bool, QString, int, bool );
    void signalSavedWPA(QString, bool, QString);
-   void signalSavedWPAE(QString, bool, int, QString, QString, QString, QString, QString, int, int);
+   void signalSavedWPAE(QString, bool, int, QString, QString, QString, QString, QString, QString, int, int);
 
 } ;
 #endif // WIFISELECTIONDIALOG_H

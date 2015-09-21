@@ -89,7 +89,7 @@ class dialogWPAE:public QObject {
 
 public:
   dialogWPAE();
-  void setVariables( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 );
+  void setVariables( int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 );
   void show();
   void exec();
 
@@ -97,10 +97,10 @@ private:
   dialogWPAEnterprise *d_wpae;
 
 private slots:
-  void slotSigInt(int, QString, QString, QString, QString, QString, int, int);
+  void slotSigInt(int, QString, QString, QString, QString, QString, QString, int, int);
 
 signals:
-  void saved(int, QString, QString, QString, QString, QString, int, int);
+  void saved(int, QString, QString, QString, QString, QString, QString, int, int);
 
 };
 
