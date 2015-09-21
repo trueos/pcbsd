@@ -893,7 +893,7 @@ void Syncer::syncJailInfo(){
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
     if(ID.isEmpty()){ continue; }
     QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
-    if(!TAG.startsWith("pbicage-")){ continue; } //skip this jail
+    if(!TAG.startsWith("pbicage-") && !TAG.startsWith("pbijail-")){ continue; } //skip this jail
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
@@ -923,7 +923,7 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
       else if(tmp[j].startsWith("release:")) {RELEASE = val; }
     }
-      QString inst = TAG.section("pbicage-",1,10); //installed cage for this jail
+      QString inst = TAG.section("-",1,100); //installed cage for this jail
       //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
       int catdash = inst.indexOf("-");
       if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
@@ -952,8 +952,12 @@ void Syncer::syncJailInfo(){
     }
     
       QString prefix = "Jails/"+HOST+"/";
-      if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
-      else{ found << HOST; }
+      if(!TAG.startsWith("pbicage-")){
+        if(!isRunning){ inactive << HOST+" "+TAG; } //only save inactive jails - active are already taken care of
+       else{ found << HOST+" "+TAG; }
+      }else{
+	installedcages << inst+" "+ID;
+      }
       HASH->insert(prefix+"WID", ID); //iocage ID
       HASH->insert(prefix+"tag",TAG); //iocage tag
       HASH->insert(prefix+"installed", inst); //Installed pbicage origin
@@ -982,8 +986,6 @@ void Syncer::syncJailInfo(){
       //Only need the return code - 0=NoUpdates
       bool hasup = (QProcess::execute("iocage update -n "+ID)!=0);
       HASH->insert(prefix+"hasupdates", (hasup ? "true": "false") );
-
-      installedcages << inst+" "+ID;
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
