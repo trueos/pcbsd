@@ -103,7 +103,6 @@ share/appcafe/html/vendor/composer/ClassLoader.php
 share/appcafe/html/vendor/composer/LICENSE
 share/appcafe/html/vendor/textalk/websocket/Makefile
 share/appcafe/html/vendor/textalk/websocket/phpunit.xml.dist
-share/appcafe/html/vendor/textalk/websocket/tests/unit
 share/appcafe/html/vendor/textalk/websocket/tests/unit/ClientTest.php
 share/appcafe/html/vendor/textalk/websocket/.gitignore
 share/appcafe/html/vendor/textalk/websocket/composer.lock
