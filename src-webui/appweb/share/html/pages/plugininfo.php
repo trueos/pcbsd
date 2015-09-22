@@ -340,6 +340,7 @@ function display_install_chooser()
   // Check if this app is installed
   $pkgoutput = syscache_ins_plugin_list();
   $pkglist = explode(", ", $pkgoutput[0]);
+
   if ( array_search_partial($pbiorigin . " ", $pkglist) !== false)
      $pbiInstalled = true;
   else
@@ -353,7 +354,7 @@ function display_install_chooser()
   if ( $pbiInstalled ) {
     $ioid = get_iocage_id_from_origin($pbiorigin);
     $jail = $ioid;
-    $pbirunning = is_jail_running($ioid);
+    $pbirunning = is_pbicage_running($ioid);
   }
 
 
