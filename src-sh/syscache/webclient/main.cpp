@@ -8,6 +8,8 @@
 #include <QTextStream>
 #include <QTimer>
 #include <QDir>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "WebServer.h"
 
