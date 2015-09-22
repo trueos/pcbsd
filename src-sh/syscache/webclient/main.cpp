@@ -17,7 +17,7 @@
 
 #define DEBUG 1
 
-QFile logfile("/var/log/pc-restserver.log");
+QFile logfile("/var/log/syscache-webclient.log");
 void MessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg){
   QString txt;
   switch(type){
@@ -48,12 +48,12 @@ int main( int argc, char ** argv )
     QCoreApplication a(argc, argv);
     //Check whether running as root
     if( getuid() != 0){
-      qDebug() << "pc-restserver must be started as root!";
+      qDebug() << "syscache-webclient must be started as root!";
       return 1;
     }
       //Setup the log file
     if(DEBUG){
-      qDebug() << "pc-restserver Log File:" << logfile.fileName();
+      qDebug() << "Log File:" << logfile.fileName();
       if(QFile::exists(logfile.fileName()+".old")){ QFile::remove(logfile.fileName()+".old"); }
       if(logfile.exists()){ QFile::rename(logfile.fileName(), logfile.fileName()+".old"); }
       //Make sure the parent directory exists
@@ -66,11 +66,10 @@ int main( int argc, char ** argv )
     }
       
     //Create and start the daemon
-    qDebug() << "Starting the PC-BSD REST server interface....";
+    qDebug() << "Starting the PC-BSD syscache websocket client interface....";
     WebServer *w = new WebServer(); 
     if( w->startServer() ){
       //Now start the event loop
-      //QTimer::singleShot(1000, w, SLOT(stopServer()) ); //for testing purposes
       int ret = a.exec();
       logfile.close();
       return ret;
