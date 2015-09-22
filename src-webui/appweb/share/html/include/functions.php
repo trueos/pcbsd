@@ -38,6 +38,10 @@ function syscache_ins_plugin_list()
 {
    exec("/usr/local/bin/syscache ".escapeshellarg("jail stoppedcages"), $output);
    exec("/usr/local/bin/syscache ".escapeshellarg("jail runningcages"), $output1);
+   if ( empty($output) )
+     return $output1;
+   if ( empty($output1) )
+     return $output;
    $clist[] = $output[0]. ", " .$output1[0];
    return $clist;
 }
@@ -46,6 +50,28 @@ function syscache_pbidb_list($flag="allapps")
 {
    exec("/usr/local/bin/syscache ".escapeshellarg("pbi list $flag"), $output);
    return $output;
+}
+
+function send_sc_query($cmdarray)
+{
+   global $scclient;
+
+   $jarray = array();
+
+   // Build the json array
+   $num = 0;
+   foreach($cmdarray as $cmd)
+   {
+     // Make sure we don't have a duplicate in the cmd list
+     if ( array_search($cmd, $jarray) === false ) {
+       $jarray["request$num"] = "$cmd";
+       $num++;
+     }
+   }
+   $scclient->send(json_encode($jarray));
+   $rjson = $scclient->receive();
+   $rarray = json_decode($rjson, true);
+   return $rarray;
 }
 
 function queueInstallApp()
@@ -133,9 +159,9 @@ function getDispatcherStatus()
 
 function get_installed_list($target = "#system")
 {
-  global $sc;
-  exec("$sc ". escapeshellarg("pkg " . $target . " installedlist"), $insarray);
-  return explode(", ", $insarray[0]);
+  $sccmd = array("pkg ". $target . " installedlist");
+  $response = send_sc_query($sccmd);
+  $pbilist = $response["pkg" . $target . " installedlist"];
 }
 
 function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
@@ -153,8 +179,9 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
 
-  exec("$sc ".escapeshellarg("$jail app-summary $pbiorigin"),$pbiarray);
-  $pbiarray = explode("::::",$pbiarray[0]); //only one line output based on cmd above
+  $sccmd = array("$jail app-summary $pbiorigin");
+  $response = send_sc_query($sccmd);
+  $pbiarray = $response["$jail app-summary $pbiorigin"];
   // Output format (4/7/15): [origin, name, version, iconpath, rating, type, comment, confdir, isInstalled, canRemove]
   $pbiname = $pbiarray[1];
   $pbiver = $pbiarray[2];
@@ -445,9 +472,9 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
   global $sysType;
   global $cage_installed;
 
-
-  exec("$sc ".escapeshellarg("cage-summary $origin"),$pbiarray);
-  $pbiarray = explode("::::",$pbiarray[0]); //only one line output based on cmd above
+  $sccmd = array("cage-summary $origin");
+  $response = send_sc_query($sccmd);
+  $pbiarray = $response["cage-summary $origin"];
   // Output format (4/7/15): [origin, name, iconpath, arch, fbsdver]
   $pbiname = $pbiarray[1];
   $pbiicon = $pbiarray[2];
@@ -460,7 +487,11 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
 
   // Set our $cage_installed only once
   if ( empty($cage_installed) ) {
-    exec("$sc ".escapeshellarg("jail stoppedcages") . " " . escapeshellarg("jail runningcages"),$cage_installed);
+    $sccmd = array("jail stoppedcages", "jail runningcages");
+    $response = send_sc_query($sccmd);
+    $cage_installed[] = $response["jail stoppedcages"];
+    $cage_installed[] = $response["jail runningcages"];
+
   }
 
   $pbiinstalled=false;

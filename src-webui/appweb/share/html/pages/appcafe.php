@@ -58,9 +58,10 @@ $jailUrl="__system__";
       $pbilist = array_filter($fulllist, function($var) use ($catsearch) { return preg_match("|^$catsearch|", $var); });
 
    } else {
-      exec("$sc ". escapeshellarg("pbi list recommended")." ". escapeshellarg("pbi list new"), $pbiarray);
-      $pbilist = explode(", ", $pbiarray[0]);
-      $newlist = explode(", ", $pbiarray[1]);
+      $sccmd = array("pbi list recommended", "pbi list new");
+      $response = send_sc_query($sccmd);
+      $pbilist = $response["pbi list recommended"];
+      $newlist = $response["pbi list new"];
       $pbilist = array_merge($pbilist, $newlist);
       //array_splice($pbilist, 16);
    }

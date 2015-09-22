@@ -21,17 +21,19 @@ defined('DS') OR die('No direct access allowed.');
 
    if ( ! empty($_GET['cat']) )
    {
-      exec("$sc ". escapeshellarg("pbi list cages"), $pbiarray);
-
-      $fulllist = explode(", ", $pbiarray[0]);
+      $sccmd = array("pbi list cages");
+      $response = send_sc_query($sccmd);
+      $fulllist = $response["pbi list cages"];
       $catsearch = $_GET['cat'] . "/";
       $pbilist = array_filter($fulllist, function($var) use ($catsearch) { return preg_match("|^$catsearch|", $var); });
 
    } else {
-      exec("$sc ". escapeshellarg("pbi list cages"), $pbiarray);
-      $pbilist = explode(", ", $pbiarray[0]);
+      $sccmd = array("pbi list cages");
+      $response = send_sc_query($sccmd);
+      $pbilist = $response["pbi list cages"];
       shuffle($pbilist);
       array_splice($pbilist, 16);
+
    }
 
    // Now loop through pbi origins

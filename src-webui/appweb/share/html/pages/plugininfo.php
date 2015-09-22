@@ -69,8 +69,9 @@ function done_cfg()
   global $pbicdir;
   global $sc;
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
+  $sccmd = array("jail " . $jail . " id");
+  $response = send_sc_query($sccmd);
+  $jid = $response[0];
 
   // Talk to dispatcher to run done script
   $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
@@ -316,20 +317,19 @@ function display_install_chooser()
 
   // Load the PBI details page
   $cmd="pbi cage $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name") 
-     . " " . escapeshellarg("$cmd icon") 
-     . " " . escapeshellarg("$cmd description")
-     . " " . escapeshellarg("$cmd screenshots")
-     . " " . escapeshellarg("$cmd tags")
-     . " " . escapeshellarg("$cmd website")
-     , $pbiarray);
-
-  $pbiname = $pbiarray[0];
-  $pbiicon = $pbiarray[1];
-  $pbidesc = $pbiarray[2];
-  $pbiss = $pbiarray[3];
-  $pbitags = $pbiarray[4];
-  $pbiweb = $pbiarray[5];
+  $sccmd = array("$cmd name",
+	"$cmd icon",
+	"$cmd description",
+	"$cmd screenshots",
+	"$cmd tags",
+	"$cmd website");
+  $pbiarray = send_sc_query($sccmd);
+  $pbiname = $pbiarray["$cmd name"];
+  $pbiicon = $pbiarray["$cmd icon"];
+  $pbidesc = $pbiarray["$cmd description"];
+  $pbiss = $pbiarray["$cmd screenshots"];
+  $pbitags = $pbiarray["$cmd tags"];
+  $pbiweb = $pbiarray["$cmd website"];
 
   if ( $pbiss == $SCERROR )
     $pbiss = "";

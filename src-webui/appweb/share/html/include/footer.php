@@ -19,3 +19,10 @@
 
 </body>
 </html>
+
+<?php
+
+// Close websocket connection to syscache
+$scclient->send("", "close");
+
+?>
