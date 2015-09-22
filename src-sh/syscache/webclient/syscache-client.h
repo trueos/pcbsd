@@ -1,5 +1,5 @@
-#ifndef _SYSCACHE_CLIENT_MAIN_H
-#define _SYSCACHE_CLIENT_MAIN_H
+#ifndef _WEB_SERVER_SYSCACHE_CLIENT_MAIN_H
+#define _WEB_SERVER_SYSCACHE_CLIENT_MAIN_H
 
 #include <QString>
 #include <QStringList>

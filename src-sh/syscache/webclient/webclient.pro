@@ -5,11 +5,13 @@ CONFIG	+= qt warn_on release
 QT = core network websockets
 
 HEADERS	+= WebServer.h \
+		WebSocket.h \
 		syscache-client.h \
 		RestStructs.h
 		
 SOURCES	+= main.cpp \
 		WebServer.cpp \
+		WebSocket.cpp \
 		syscache-client.cpp
 
 
