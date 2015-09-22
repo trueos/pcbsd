@@ -65,7 +65,7 @@ private slots:
     void slotAddNewProfileOpen( QString SSID, bool isBSSID );
     void slotAddNewProfileWEP( QString SSID, bool isBSSID, QString newKey, int newIndex, bool hexkey );
     void slotAddNewProfileWPA( QString SSID, bool isBSSID, QString newKey );
-    void slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 );
+    void slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 );
     void slotCheckDisabled();
     void slotOK();
     void slotMACClicked();
@@ -114,6 +114,7 @@ private:
     bool WEPHex[150];
     QString WPAPersonalKey[150];
     QString WPAEIdent[150];
+    QString WPAEAnonIdent[150];
     QString WPAECACert[150];
     QString WPAEClientCert[150];
     QString WPAEPrivKeyFile[150];

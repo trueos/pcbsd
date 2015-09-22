@@ -192,6 +192,8 @@ void wificonfigwidgetbase::updateWPASupp()
 	    } else if (WPAEType[curItem] == 2) {
               streamout << " proto=RSN\n key_mgmt=" << keyType << "\n eap=TTLS\n";
 	      streamout << " identity=\"" + WPAEIdent[curItem] + "\"\n";
+	      if ( ! WPAEAnonIdent[curItem].isEmpty() )
+  	          streamout << " anonymous_identity=\"" + WPAEAnonIdent[curItem] + "\"\n";
 	      streamout << " password=\"" + WPAEPassword[curItem] + "\"\n";
 	      if ( ! WPAECACert[curItem].isEmpty() )
 	        streamout << " ca_cert=\"" + WPAECACert[curItem] + "\"\n";
@@ -221,6 +223,8 @@ void wificonfigwidgetbase::updateWPASupp()
 	    } else if (WPAEType[curItem] == 3) {
               streamout << " proto=RSN\n key_mgmt=" << keyType << "\n eap=PEAP\n";
 	      streamout << " identity=\"" + WPAEIdent[curItem] + "\"\n";
+	      if ( ! WPAEAnonIdent[curItem].isEmpty() )
+  	          streamout << " anonymous_identity=\"" + WPAEAnonIdent[curItem] + "\"\n";
 	      streamout << " password=\"" + WPAEPassword[curItem] + "\"\n";
 	      if ( ! WPAECACert[curItem].isEmpty() )
 	        streamout << " ca_cert=\"" + WPAECACert[curItem] + "\"\n";
@@ -464,6 +468,10 @@ void wificonfigwidgetbase::slotMoveUp()
             WPAEIdent[i-1] = WPAEIdent[i];
             WPAEIdent[i] = tmpString;
 
+            tmpString = WPAEAnonIdent[i-1];
+            WPAEAnonIdent[i-1] = WPAEAnonIdent[i];
+            WPAEAnonIdent[i] = tmpString;
+
             tmpString = WPAECACert[i-1];
             WPAECACert[i-1] = WPAECACert[i];
             WPAECACert[i] = tmpString;
@@ -559,6 +567,10 @@ void wificonfigwidgetbase::slotMoveDown()
             WPAEIdent[i+1] = WPAEIdent[i];
             WPAEIdent[i] = tmpString;
 
+            tmpString = WPAEAnonIdent[i+1];
+            WPAEAnonIdent[i+1] = WPAEAnonIdent[i];
+            WPAEAnonIdent[i] = tmpString;
+
             tmpString = WPAECACert[i+1];
             WPAECACert[i+1] = WPAECACert[i];
             WPAECACert[i] = tmpString;
@@ -643,7 +655,7 @@ void wificonfigwidgetbase::slotEditProfile()
              wifiselect->initEdit(SSIDList[curItem], BSSID[curItem], WPAPersonalKey[curItem]);
           }
           if ( SSIDEncType[curItem] == WPAE_ENCRYPTION) {
-             wifiselect->initEdit(SSIDList[curItem], BSSID[curItem], WPAEType[curItem], WPAEIdent[curItem], WPAECACert[curItem], WPAEClientCert[curItem], WPAEPrivKeyFile[curItem], WPAEPassword[curItem], WPAEKeyMgmt[curItem], WPAEPhase2[curItem]);
+             wifiselect->initEdit(SSIDList[curItem], BSSID[curItem], WPAEType[curItem], WPAEIdent[curItem], WPAEAnonIdent[curItem], WPAECACert[curItem], WPAEClientCert[curItem], WPAEPrivKeyFile[curItem], WPAEPassword[curItem], WPAEKeyMgmt[curItem], WPAEPhase2[curItem]);
           }
 
 
@@ -654,7 +666,7 @@ void wificonfigwidgetbase::slotEditProfile()
           connect( wifiselect, SIGNAL( signalSavedOpen(QString, bool) ), this, SLOT( slotAddNewProfileOpen(QString, bool) ) );
           connect( wifiselect, SIGNAL( signalSavedWEP( QString, bool, QString, int, bool ) ), this, SLOT( slotAddNewProfileWEP( QString, bool, QString, int, bool) ) );
           connect( wifiselect, SIGNAL( signalSavedWPA(QString, bool, QString) ), this, SLOT( slotAddNewProfileWPA(QString, bool, QString) ) );
-          connect( wifiselect, SIGNAL( signalSavedWPAE(QString, bool, int, QString, QString, QString, QString, QString, int, int) ), this, SLOT ( slotAddNewProfileWPAE(QString, bool, int, QString, QString, QString, QString, QString, int, int) ) );
+          connect( wifiselect, SIGNAL( signalSavedWPAE(QString, bool, int, QString, QString, QString, QString, QString, QString, int, int) ), this, SLOT ( slotAddNewProfileWPAE(QString, bool, int, QString, QString, QString, QString, QString, QString, int, int) ) );
 
           wifiselect->exec();
       }
@@ -783,6 +795,7 @@ void wificonfigwidgetbase::slotRemoveProfileSSID(QString RemoveSSID)
        WEPHex[remItem] = WEPHex[remItem+1];
        WPAPersonalKey[remItem] = WPAPersonalKey[remItem+1];
        WPAEIdent[remItem] = WPAEIdent[remItem+1];
+       WPAEAnonIdent[remItem] = WPAEAnonIdent[remItem+1];
        WPAECACert[remItem] = WPAECACert[remItem+1];
        WPAEClientCert[remItem] = WPAEClientCert[remItem+1];
        WPAEPrivKeyFile[remItem] = WPAEPrivKeyFile[remItem+1];
@@ -894,7 +907,7 @@ void wificonfigwidgetbase::slotAddNewProfileWPA( QString SSID, bool isBSSID, QSt
 }
 
 
-void wificonfigwidgetbase::slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 )
+void wificonfigwidgetbase::slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 )
 {
 
    for (int dupItem = 0; dupItem < 145; dupItem++)
@@ -918,6 +931,7 @@ void wificonfigwidgetbase::slotAddNewProfileWPAE( QString SSID, bool isBSSID, in
    BSSID[curItem] = isBSSID;
    WPAEType[curItem] = type;
    WPAEIdent[curItem] = EAPIdent;
+   WPAEAnonIdent[curItem] = AnonIdent;
    WPAECACert[curItem] = CACert;
    WPAEClientCert[curItem] = ClientCert;
    WPAEPrivKeyFile[curItem] = PrivKeyFile;
@@ -1292,6 +1306,16 @@ void wificonfigwidgetbase::slotFinishLoading()
 		WPAEIdent[curItem] = tmp2;
 	   }
 		    
+           // Check for a anonymous_identity= line
+           if ( line.indexOf("anonymous_identity=") != -1 )
+       {
+        tmp2 = line.remove(0, line.indexOf("\"") + 1 );
+        tmp2.truncate( tmp2.indexOf("\"") );
+
+        // Save the keycode
+        WPAEAnonIdent[curItem] = tmp2;
+       }
+
 	   // Check for a ca_cert= line
            if ( line.indexOf("ca_cert=") != -1 )
 	   {		       

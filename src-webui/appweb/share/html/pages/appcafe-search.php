@@ -1,6 +1,9 @@
 <?php
  defined('DS') OR die('No direct access allowed.');
 
+$jail = "#system";
+$jailUrl="__system__";
+
 if ( ! empty($_GET['search']) )
     $header="Searching for: ". $_GET['search'];
 if ( ! empty($_GET['searchtext']) ) {

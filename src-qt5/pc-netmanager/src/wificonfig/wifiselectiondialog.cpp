@@ -120,14 +120,14 @@ void wifiselectiondialog::slotConnect()
     
     if ( radioSecurityWPAEnt->isChecked() )
     {
-        emit signalSavedWPAE(selectedSSID, usingBSSID, WPAEType, WPAEIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt, WPAEPhase2 );
+        emit signalSavedWPAE(selectedSSID, usingBSSID, WPAEType, WPAEIdent, WPAEAnonIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt, WPAEPhase2 );
     }
 
     close();
 }
 
 // Overloaded function which lets us set editing variables using WPA-Ent
-void wifiselectiondialog::initEdit(QString selectedSSID, bool usingBSSID, int editWPAEType, QString editWPAEIdent, QString editWPAECACert, QString editWPAEClientCert, QString editWPAEPrivKeyFile, QString editWPAEPassword, int keyMgmt, int editPhase2)
+void wifiselectiondialog::initEdit(QString selectedSSID, bool usingBSSID, int editWPAEType, QString editWPAEIdent, QString editWPAEAnonIdent, QString editWPAECACert, QString editWPAEClientCert, QString editWPAEPrivKeyFile, QString editWPAEPassword, int keyMgmt, int editPhase2)
 {
    pushConnect->setText(tr("Save"));
    EditingSSID=selectedSSID;
@@ -137,6 +137,7 @@ void wifiselectiondialog::initEdit(QString selectedSSID, bool usingBSSID, int ed
    radioSecurityWPAEnt->setChecked(true);
    WPAEType=editWPAEType; 
    WPAEIdent=editWPAEIdent; 
+   WPAEAnonIdent=editWPAEAnonIdent;
    WPAECACert=editWPAECACert; 
    WPAEClientCert=editWPAEClientCert; 
    WPAEPrivKeyFile=editWPAEPrivKeyFile; 
@@ -290,10 +291,10 @@ void wifiselectiondialog::slotConfigWPAE()
    
    if ( ! WPAEIdent.isEmpty() )
    {
-       libWPAE->setVariables(WPAEType, WPAEIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt, WPAEPhase2);
+       libWPAE->setVariables(WPAEType, WPAEIdent, WPAEAnonIdent, WPAECACert, WPAEClientCert, WPAEPrivKeyFile, WPAEPassword, WPAEKeyMgmt, WPAEPhase2);
    }
    
-   connect( libWPAE, SIGNAL( saved(int, QString, QString, QString, QString, QString, int, int) ), this, SLOT( slotWPAEChanged(int, QString, QString, QString, QString, QString, int, int) ) );
+   connect( libWPAE, SIGNAL( saved(int, QString, QString, QString, QString, QString, QString, int, int) ), this, SLOT( slotWPAEChanged(int, QString, QString, QString, QString, QString, QString, int, int) ) );
    libWPAE->exec();
 }
 
@@ -305,10 +306,11 @@ void wifiselectiondialog::slotWPAPChanged( QString newKey )
 }
 
 
-void wifiselectiondialog::slotWPAEChanged( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 )
+void wifiselectiondialog::slotWPAEChanged( int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 )
 {
   WPAEType = type;
   WPAEIdent=EAPIdent;
+  WPAEAnonIdent=AnonIdent;
   WPAECACert=CACert;
   WPAEClientCert=ClientCert;
   WPAEPrivKeyFile=PrivKeyFile;

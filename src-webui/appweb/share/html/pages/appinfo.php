@@ -1,12 +1,15 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+$jail = "#system";
+$jailUrl="__system__";
+
 function do_service_action()
 {
   global $pbiorigin;
   global $sc;
-  global $jail;
-  global $jailUrl;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $sname=$_GET['service'];
   $sscript=$_GET['servicerc'];
@@ -14,15 +17,7 @@ function do_service_action()
   if ( empty($sname) or empty($sscript) or empty($action) )
     return;
 
-  if ( $jail == "#system" )
-     $output = run_cmd("service $action $sname $sscript $jailUrl");
-  else {
-     // Get jail ID
-     exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-     $jid=$jarray[0];
-     $output = run_cmd("service $action $sname $sscript $jid");
-  }
-
+  $output = run_cmd("service $action $sname $sscript $jailUrl");
   if ( $action == "start" )
      echo "Started $sname on $jail<br>";  
   if ( $action == "stop" )
@@ -46,9 +41,9 @@ function parse_service_start()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
-  global $jail;
-  global $jailUrl;
   global $sc;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $lines = file($pbicdir . "/service-start");
   foreach($lines as $line_num => $line)
@@ -96,8 +91,9 @@ function parse_service_config()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
-  global $jail;
   global $sc;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $lines = file($pbicdir . "/service-configure");
   foreach($lines as $line_num => $line)
@@ -143,12 +139,13 @@ function parse_service_config()
 // Run the done_cfg script
 function done_cfg()
 {
-  global $jail;
-  global $jailUrl;
   global $pbicdir;
   global $sc;
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $jid = "__system__";
+
   if ( $jail != "#system" ) {
     exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
     $jid=$jarray[0];
@@ -161,8 +158,6 @@ function done_cfg()
 // Set the current value for a config file setting
 function set_cfg_value($cfg, $value)
 {
-  global $jail;
-  global $jailUrl;
   global $updatedConfig;
   global $pbicdir;
   global $sc;
@@ -170,6 +165,8 @@ function set_cfg_value($cfg, $value)
 
   $key = $cfg['key'];
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $jid = "__system__";
   if ( $jail != "#system" ) {
     exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
@@ -183,11 +180,11 @@ function set_cfg_value($cfg, $value)
 // Get the current value for a config file setting
 function get_cfg_value($cfg)
 {
-  global $jail;
-  global $jailUrl;
   global $pbicdir;
   global $sc;
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $key = $cfg['key'];
   $default = $cfg['default'];
 
@@ -206,10 +203,11 @@ function display_config_details()
 {
   global $pbicdir;
   global $pbiorigin;
-  global $jail;
-  global $jailUrl;
   global $jailPath;
   global $sc;
+
+  $jail = "#system";
+  $jailUrl="__system__";
 
   global $updatedConfig;
   $updatedConfig = false;
@@ -311,11 +309,12 @@ function display_install_chooser()
 {
   global $pbiorigin;
   global $pbiname;
-  global $jailUrl;
-  global $jail;
   global $pbiInstalled;
   global $pkgCmd;
   global $SCERROR;
+
+  $jail = "#system";
+  $jailUrl="__system__";
 
    if ( $pbiInstalled ) {
      $output="";

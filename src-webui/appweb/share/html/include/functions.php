@@ -29,11 +29,7 @@ function run_cmd($cmd)
 
 function syscache_ins_pkg_list($jail="")
 {
-   if ( empty($jail) )
-      $jail = "#system";
-   else
-      $jail = "$jail";
-
+   $jail = "#system";
    exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail installedlist"), $output);
    return $output;
 }
@@ -52,8 +48,8 @@ function syscache_pbidb_list($flag="allapps")
 
 function queueInstallApp()
 {
-   global $jail;
-   global $jailUrl;
+   $jail = "#system";
+   $jailUrl="__system__";
 
    $app = $_GET['installApp'];
    $type = $_GET['installAppCmd'];
@@ -73,8 +69,8 @@ function queueInstallApp()
 
 function queueDeleteApp()
 {
-   global $jail;
-   global $jailUrl;
+   $jail = "#system";
+   $jailUrl="__system__";
 
    $app = $_GET['deleteApp'];
    $type = $_GET['deleteAppCmd'];
@@ -143,15 +139,14 @@ function get_installed_list($target = "#system")
 function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
 {
   global $sc;
-  global $jailUrl;
   global $totalCols;
   global $inslist;
   global $SCERROR;
   global $sysType;
   global $allPBI;
 
-  if ( empty($jail) )
-    $jail="#system";
+  $jail = "#system";
+  $jailUrl="__system__";
 
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
@@ -249,9 +244,9 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
     }
   }
 
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&allPBI=$allPBI\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
   if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
     if ( strpos($pbirating, "5") === 0 )
       print("<img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\">");
@@ -275,11 +270,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
 function display_cats($iconsize = "32")
 {
   global $sc;
-  global $jailUrl;
-  global $jail;
   global $SCERROR;
   global $sysType;
   global $allPBI;
+
+  $jail = "#system";
+  $jailUrl="__system__";
 
 ?>
 <center>- <b>Categories</b> -&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</center><br>
@@ -310,7 +306,7 @@ function display_cats($iconsize = "32")
     if ( "$catdetails[0]" == "$SCERROR" ) 
        continue;
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl&allPBI=$allPBI\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&allPBI=$allPBI\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
     unset($catdetails);
   }
 
@@ -327,12 +323,41 @@ function get_jail_list($force=false)
 
   unset($jail_list_array);
 
-  // Query the system for the jail list
+  // Query the system for the running jail list
   exec("$sc ". escapeshellarg("jail list")
-       . " " . escapeshellarg("jail stoppedlist")
        , $jail_list_array);
 
-  return $jail_list_array;
+  // Get the UUID of the jails only
+  $jarray = array();
+  foreach($jail_list_array as $jline) {
+    $jitem = explode(", ", $jline);
+    foreach($jitem as $jia) {
+      $jail = explode(" ", $jia);
+      if ( empty($jrunning) )
+        $jrunning =  $jail[0];
+      else
+        $jrunning = $jrunning . ", " . $jail[0];
+    }
+  }
+  $jarray[] = $jrunning;
+
+  // Query the system for the stopped jail list
+  unset($jail_list_array);
+  exec("$sc ". escapeshellarg("jail stoppedlist")
+       , $jail_list_array);
+  foreach($jail_list_array as $jline) {
+    $jitem = explode(", ", $jline);
+    foreach($jitem as $jia) {
+      $jail = explode(" ", $jia);
+      if ( empty($jstopped) )
+        $jstopped =  $jail[0];
+      else
+        $jstopped = $jstopped . ", " . $jail[0];
+    }
+  }
+  $jarray[] = $jstopped;
+
+  return $jarray;
 
 }
 
@@ -400,7 +425,6 @@ function check_update_reboot() {
 function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
 {
   global $sc;
-  global $jailUrl;
   global $totalCols;
   global $SCERROR;
   global $sysType;
@@ -456,10 +480,10 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
      // Is this app installed?
      if ( $pbiinstalled == true ){
        $ioid = get_iocage_id_from_origin($origin);
-       print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+       print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
      } else {
        exec("$sc ".escapeshellarg("pbi cage " . $origin . " git"), $ghrepo);
-       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addJailConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
      }
   }
 
@@ -485,8 +509,6 @@ function array_search_partial($keyword, $arr) {
 function display_plugin_cats($iconsize = "32")
 {
   global $sc;
-  global $jailUrl;
-  global $jail;
   global $SCERROR;
   global $sysType;
   global $allPBI;
