@@ -36,8 +36,10 @@ function syscache_ins_pkg_list($jail="")
 
 function syscache_ins_plugin_list()
 {
-   exec("/usr/local/bin/syscache ".escapeshellarg("jail cages"), $output);
-   return $output;
+   exec("/usr/local/bin/syscache ".escapeshellarg("jail stoppedcages"), $output);
+   exec("/usr/local/bin/syscache ".escapeshellarg("jail runningcages"), $output1);
+   $clist[] = $output[0]. ", " .$output1[0];
+   return $clist;
 }
 
 function syscache_pbidb_list($flag="allapps")
@@ -374,6 +376,19 @@ function is_jail_running($jail)
   return false;
 }
 
+// Check if a particular iocage pbicage is running
+function is_pbicage_running($jail)
+{
+  global $sc;
+  exec("$sc ". escapeshellarg("jail runningcages")
+       , $jail_list_array);
+
+  if ( array_search_partial($jail, $jail_list_array) !== false )
+    return true;
+
+  return false;
+}
+
 function get_nics()
 {
    exec("/sbin/ifconfig ".escapeshellarg("-l"), $output);
@@ -445,7 +460,7 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
 
   // Set our $cage_installed only once
   if ( empty($cage_installed) ) {
-    exec("$sc ".escapeshellarg("jail cages"),$cage_installed);
+    exec("$sc ".escapeshellarg("jail stoppedcages") . " " . escapeshellarg("jail runningcages"),$cage_installed);
   }
 
   $pbiinstalled=false;
@@ -548,7 +563,20 @@ function display_plugin_cats($iconsize = "32")
 function get_iocage_id_from_origin($origin)
 {
   global $sc;
-  exec("$sc ". escapeshellarg("jail cages")
+
+  // Check stopped cages first
+  exec("$sc ". escapeshellarg("jail stoppedcages")
+       , $jail_list_array);
+ 
+  foreach ( $jail_list_array as $jail ) {
+    if ( stripos($jail, $origin . " ") !== false ) {
+      $jitem = explode(" ", $jail);
+      return $jitem[1];
+    }
+  }
+
+  unset($jail_list_array);
+  exec("$sc ". escapeshellarg("jail runningcages")
        , $jail_list_array);
  
   foreach ( $jail_list_array as $jail ) {

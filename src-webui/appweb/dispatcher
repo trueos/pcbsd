@@ -607,7 +607,7 @@ print_usage()
 {
   echo "Dispatcher usage:
 --------------------------------
-   iocage {start|stop} {jail}
+   iocage {cmd} [args]
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}

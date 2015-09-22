@@ -31,6 +31,7 @@ cp appcafe-sudoers ${STAGEDIR}/etc/sudoers.d/
 chmod 644 ${STAGEDIR}/etc/sudoers.d/appcafe-sudoers
 
 cp -r share/* ${PROGDIR}/
+cp -r vendor ${PROGDIR}/html/
 
 if [ ! -d "${STAGEDIR}/etc/rc.d" ] ; then
    mkdir ${STAEGDIR}/etc/rc.d
