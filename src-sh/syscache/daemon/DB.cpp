@@ -123,7 +123,8 @@ QString DB::fetchInfo(QStringList request, bool noncli){
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
-      else if(request[1]=="cages"){ hashkey = "JailCages"; }
+      else if(request[1]=="stoppedcages"){ hashkey = "JailCages"; }
+      else if(request[1]=="runningcages"){ hashkey = "JailCagesRunning"; }
       else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
     
@@ -886,7 +887,7 @@ void Syncer::syncJailInfo(){
   //Now also fetch the list of inactive jails on the system
   QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
-  QStringList installedcages;
+  QStringList installedcages, runningcages;
   //qDebug() << "Warden Jail Info:" << info;
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
@@ -956,7 +957,8 @@ void Syncer::syncJailInfo(){
         if(!isRunning){ inactive << HOST+" "+TAG; } //only save inactive jails - active are already taken care of
        else{ found << HOST+" "+TAG; }
       }else{
-	installedcages << inst+" "+ID;
+	if(isRunning){ runningcages << inst+" "+ID; }
+	else{ installedcages << inst+" "+ID; }
       }
       HASH->insert(prefix+"WID", ID); //iocage ID
       HASH->insert(prefix+"tag",TAG); //iocage tag
@@ -990,6 +992,7 @@ void Syncer::syncJailInfo(){
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
   HASH->insert("JailCages", installedcages.join(LISTDELIMITER));
+  HASH->insert("JailCagesRunning", runningcages.join(LISTDELIMITER));
   //Remove any old jails from the hash (ones that no longer exist)
   for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
