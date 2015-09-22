@@ -166,7 +166,6 @@ function get_installed_list($target = "#system")
 
 function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
 {
-  global $sc;
   global $totalCols;
   global $inslist;
   global $SCERROR;
@@ -298,7 +297,6 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
 
 function display_cats($iconsize = "32")
 {
-  global $sc;
   global $SCERROR;
   global $sysType;
   global $allPBI;
@@ -325,18 +323,21 @@ function display_cats($iconsize = "32")
      $listcmd="pbi list servercats";
 
 
-  exec("$sc ". escapeshellarg($listcmd), $catarray);
-  $catlist = explode(", ", $catarray[0]);
+  $sccmd = array("$listcmd");
+  $response = send_sc_query($sccmd);
+  $catlist = $response["$listcmd"];
+
   foreach ( $catlist as $cat ) {
     if ( empty($cat) )
       continue;
-    exec("$sc ". escapeshellarg("pbi cat $cat name"). " " . escapeshellarg("pbi cat $cat icon"). " " . escapeshellarg("pbi cat $cat comment"), $catdetails);
-    
-    if ( "$catdetails[0]" == "$SCERROR" ) 
-       continue;
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&allPBI=$allPBI\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
-    unset($catdetails);
+    $sccmd = array("pbi cat $cat name", "pbi cat $cat icon", "pbi cat $cat comment");
+    $response = send_sc_query($sccmd);
+    $catname = $response["pbi cat $cat name"];
+    $caticon = $response["pbi cat $cat icon"];
+    $catcomment = $response["pbi cat $cat comment"];
+
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$caticon\"><a href=\"?p=appcafe&cat=$cat&allPBI=$allPBI\" title=\"$catcomment\">$catname</a><br>\n";
   }
 
 }
@@ -466,7 +467,6 @@ function check_update_reboot() {
 
 function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
 {
-  global $sc;
   global $totalCols;
   global $SCERROR;
   global $sysType;
@@ -554,7 +554,6 @@ function array_search_partial($keyword, $arr) {
 
 function display_plugin_cats($iconsize = "32")
 {
-  global $sc;
   global $SCERROR;
   global $sysType;
   global $allPBI;
@@ -564,14 +563,15 @@ function display_plugin_cats($iconsize = "32")
 <?php
 
   // Get a list of available plugins
-  $pcmd="pbi list cages";
-  exec("$sc ". escapeshellarg($pcmd), $plugarray);
-
+  $sccmd = array("pbi list cages");
+  $response = send_sc_query($sccmd);
+  $plugarray = $response["pbi list cages"];
 
   // Get all the PBI categories
-  $listcmd="pbi list allcats";
-  exec("$sc ". escapeshellarg($listcmd), $catarray);
-  $catlist = explode(", ", $catarray[0]);
+  $sccmd = array("pbi list allcats");
+  $response = send_sc_query($sccmd);
+  $catlist = $response["pbi list allcats"];
+
   foreach ( $catlist as $cat ) {
     if ( empty($cat) )
       continue;
@@ -580,37 +580,35 @@ function display_plugin_cats($iconsize = "32")
     if ( array_search_partial($cat, $plugarray) == false )
       continue;
 
-    exec("$sc ". escapeshellarg("pbi cat $cat name"). " " . escapeshellarg("pbi cat $cat icon"). " " . escapeshellarg("pbi cat $cat comment"), $catdetails);
-    
-    if ( "$catdetails[0]" == "$SCERROR" ) 
-       continue;
+    $sccmd = array("pbi cat $cat name", "pbi cat $cat icon", "pbi cat $cat comment");
+    $response = send_sc_query($sccmd);
+    $catname = $response["pbi cat $cat name"];
+    $caticon = $response["pbi cat $cat icon"];
+    $catcomment = $response["pbi cat $cat comment"];
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=plugins&cat=$cat\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
-    unset($catdetails);
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$caticon\"><a href=\"?p=plugins&cat=$cat\" title=\"$catcomment\">$catname</a><br>\n";
   }
 
 }
 
 function get_iocage_id_from_origin($origin)
 {
-  global $sc;
+  $sccmd = array("jail stoppedcages", "jail runningcages");
+  $response = send_sc_query($sccmd);
+  $stopped = $response["jail stoppedcages"];
+  $running = $response["jail runningcages"];
+  $stoppedarray = explode(", ", $stopped);
+  $runningarray = explode(", ", $running);
 
   // Check stopped cages first
-  exec("$sc ". escapeshellarg("jail stoppedcages")
-       , $jail_list_array);
- 
-  foreach ( $jail_list_array as $jail ) {
+  foreach ( $stoppedarray as $jail ) {
     if ( stripos($jail, $origin . " ") !== false ) {
-      $jitem = explode(" ", $jail);
-      return $jitem[1];
+       $jitem = explode(" ", $jail);
+       return $jitem[1];
     }
   }
 
-  unset($jail_list_array);
-  exec("$sc ". escapeshellarg("jail runningcages")
-       , $jail_list_array);
- 
-  foreach ( $jail_list_array as $jail ) {
+  foreach ( $runningarray as $jail ) {
     if ( stripos($jail, $origin . " ") !== false ) {
       $jitem = explode(" ", $jail);
       return $jitem[1];
