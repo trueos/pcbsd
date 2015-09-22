@@ -20,16 +20,16 @@
 WebServer::WebServer() : QWebSocketServer("pc-restserver", QWebSocketServer::NonSecureMode){
   csock = 0; //no current socket connected
   //Setup all the various settings
-  idletimer = new QTimer(this);
-    idletimer->setInterval(5000); //every 5 seconds
-    idletimer->setSingleShot(true);
+  //idletimer = new QTimer(this);
+    //idletimer->setInterval(5000); //every 5 seconds
+    //idletimer->setSingleShot(true);
   //Any SSL changes
     /*QSslConfiguration ssl = this->sslConfiguration();
       ssl.setProtocol(QSsl::SecureProtocols);
     this->setSslConfiguration(ssl);*/
 
   //Setup Connections
-  connect(idletimer, SIGNAL(timeout()), this, SLOT(checkIdle()) );
+  //connect(idletimer, SIGNAL(timeout()), this, SLOT(checkIdle()) );
   connect(this, SIGNAL(closed()), this, SLOT(ServerClosed()) );
   connect(this, SIGNAL(serverError(QWebSocketProtocol::CloseCode)), this, SLOT(ServerError(QWebSocketProtocol::CloseCode)) );
   connect(this, SIGNAL(newConnection()), this, SLOT(NewSocketConnection()) );
@@ -211,20 +211,20 @@ void WebServer::ServerError(QWebSocketProtocol::CloseCode code){
   qWarning() << "Server Error["+QString::number(code)+"]:" << this->errorString();
 }
 
-void WebServer::checkIdle(){
+/*void WebServer::checkIdle(){
   //This function is called automatically every few seconds that a client is connected
   if(csock !=0){
     qDebug() << " - Client Timeout: Closing connection...";
     csock->close(); //timeout - close the connection to make way for others
   }
-}
+}*/
 
 // New Connection Signals
 void WebServer::NewSocketConnection(){
   if(!this->hasPendingConnections()){ return; }
   qDebug() << "New Socket Connection";	
   if(csock!=0){ qDebug() << " - Placed in queue"; return;}
-  if(idletimer->isActive()){ idletimer->stop(); }
+  //if(idletimer->isActive()){ idletimer->stop(); }
   csock = this->nextPendingConnection();
   connect(csock, SIGNAL(textMessageReceived(const QString&)), this, SLOT(EvaluateMessage(const QString&)) );
   connect(csock, SIGNAL(binaryMessageReceived(const QByteArray&)), this, SLOT(EvaluateMessage(const QByteArray&)) );
@@ -232,7 +232,7 @@ void WebServer::NewSocketConnection(){
   connect(csock, SIGNAL(disconnected()), this, SLOT(NewSocketConnection()) );
   if(csock == 0){ qWarning() << " - new connection invalid, skipping..."; QTimer::singleShot(10, this, SLOT(NewSocketConnection())); return; }
   qDebug() <<  " - Accepting connection:" << csock->origin();
-  idletimer->start();
+  //idletimer->start();
   //QTimer::singleShot(0,this, SLOT(EvaluateConnection()));
 }
 
@@ -250,7 +250,7 @@ void WebServer::NewConnectError(QAbstractSocket::SocketError err){
 
 void WebServer::SocketClosing(){
   qDebug() << "Socket Closing...";
-  if(idletimer->isActive()){ idletimer->stop(); }
+  //if(idletimer->isActive()){ idletimer->stop(); }
   //Stop any current requests
 
   //Reset the pointer
@@ -286,17 +286,17 @@ void WebServer::SslErrors(const QList<QSslError> &list){
 void WebServer::EvaluateMessage(const QByteArray &msg){
   //needs a current socket (csock), unsets it when done
   qDebug() << "New Binary Message:";
-  if(idletimer->isActive()){ idletimer->stop(); }
+  //if(idletimer->isActive()){ idletimer->stop(); }
   EvaluateREST( QString(msg) );
-  idletimer->start(); 
+  //idletimer->start(); 
   qDebug() << "Done with Message";
 }
 
 void WebServer::EvaluateMessage(const QString &msg){ 
   //needs a current socket (csock), unsets it when done
   qDebug() << "New Text Message:";
-  if(idletimer->isActive()){ idletimer->stop(); }
+  //if(idletimer->isActive()){ idletimer->stop(); }
   EvaluateREST(msg);
-  idletimer->start(); 
+  //idletimer->start(); 
   qDebug() << "Done with Message";
 }

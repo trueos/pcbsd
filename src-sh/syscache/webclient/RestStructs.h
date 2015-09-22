@@ -62,6 +62,7 @@ public:
 	~RestOutputStruct(){}
 		
 	QString assembleMessage(){
+	  /* JUST OUTPUT RAW JSON - DISABLE REST FOR THE MOMENT
 	  QStringList headers;
 	  QString firstline = HTTPVERSION;
 	  switch(CODE){
@@ -95,7 +96,8 @@ public:
 	  //Now add the body of the return
 	  if(!Body.isEmpty()){ headers << "Content-Length: "+QString::number(Body.length()); }
 	  headers << Body;
-	  return headers.join("\n");
+	  return headers.join("\n");*/
+	  return Body;
 	}
 };
 

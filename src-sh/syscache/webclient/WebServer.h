@@ -33,7 +33,7 @@ public slots:
 
 private:
 	QWebSocket *csock; //current socket connection
-	QTimer *idletimer;
+	//QTimer *idletimer;
 
 	//Main connection comminucations procedure
 	void EvaluateREST(QString);
@@ -46,7 +46,7 @@ private slots:
 	// Overall Server signals
 	void ServerClosed(); 						//closed() signal
 	void ServerError(QWebSocketProtocol::CloseCode);	//serverError() signal
-	void checkIdle(); //see if the currently-connected client is idle
+	//void checkIdle(); //see if the currently-connected client is idle
         // New Connection Signals
 	void NewSocketConnection(); 					//newConnection() signal
 	void NewConnectError(QAbstractSocket::SocketError);	//acceptError() signal
