@@ -3047,7 +3047,7 @@ A "Restore Summary" screen will indicate the name of the :file:`*.lpiscsi` file 
 provide a summary of which host it will restore from, the name of the user account associated with the replication, and the hostname of the target system. Click
 "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At this point, you can click the "Customize" button to customize the disk options.
 However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed out as they will be recreated from the backup during the restore. Once you are finished
-any customizations, click "Next" to perform the restore.
+with any customizations, click "Next" to perform the restore.
 
 If you instead configured backups to a replication server using the instructions in :ref:`Scheduling a Backup`, click the "SSH Restore" tab. In the screen shown in
 :numref:`Figure %s: Input the Information for a SSH Restore <lpreserver20>`, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If
@@ -3076,7 +3076,7 @@ only one host has been backed up to the replication server.
 After making your selection, click "Next". The restore wizard will provide a summary of which host it will restore from, the name of the user account
 associated with the replication, and the hostname of the target system. Click "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At
 this point, you can click the "Customize" button to customize the disk options. However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed
-out as they will be recreated from the backup during the restore. Once you are finished any customizations, click "Next" to perform the restore.
+out as they will be recreated from the backup during the restore. Once you are finished with any customizations, click "Next" to perform the restore.
 
 .. index:: backup
 .. _Using the lpreserver CLI:
