@@ -16,7 +16,7 @@ name="syscache"
 rcvar=syscache_enable
 
 command="/usr/local/bin/syscache-daemon"
-command2="/usr/local/bin/syscache"
+command2="/usr/local/bin/syscache-webclient"
 start_cmd="syscache_start"
 stop_cmd="syscache_stop"
 
@@ -24,18 +24,26 @@ stop_cmd="syscache_stop"
 
 load_rc_config $name
 
+syscache_stop()
+{
+  if [ -e "/var/run/syscache.pid" ] ; then
+    pkill -9 -F /var/run/syscache.pid
+  fi
+  if [ -e "/var/run/syscache-websocket.pid" ] ; then
+    pkill -9 -F /var/run/syscache-websocket.pid
+  fi
+}
+
 syscache_start()
 {
+  export PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
+  syscache_stop
   echo "Starting syscache..."
   if [ -e "/var/run/syscache.pipe" ] ; then
     rm /var/run/syscache.pipe >/dev/null 2>/dev/null
   fi
-  (export PATH="${PATH}:/usr/local/bin:/usr/local/sbin"; nice $command >/dev/null 2>/dev/null) &
-}
-
-syscache_stop()
-{
-  ${command2} shutdowndaemon >/dev/null 2>/dev/null
+  daemon -p /var/run/syscache.pid $command >/dev/null 2>/dev/null
+  daemon -p /var/run/syscache-websocket.pid $command2 >/dev/null 2>/dev/null
 }
 
 run_rc_command "$1"
