@@ -1,6 +1,13 @@
 <?
    defined('DS') OR die('No direct access allowed.');
 
+   // Load our websocket library
+   require('vendor/autoload.php');
+   use WebSocket\Client;
+
+   // Create a websocket connection to syscache
+   $scclient = new Client("ws://echo.websocket.org/");
+
    // Check if we need to display desktop apps, or just server / CLI
    if ( file_exists("/usr/local/bin/startx") === false )
      $hasDesktop=false;

@@ -1,5 +1,4 @@
 <?
-
   // Few defaults
   $remoteAccess = false;
   if ( file_exists("/usr/local/etc/appcafe.conf") )
