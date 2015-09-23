@@ -32,7 +32,7 @@ function print_jail($jail, $status)
 {
 
   // Get some information about this jail
-  $sccmd = array("jail $jail autostart", "jail $jail type", "$jail $jail tag");
+  $sccmd = array("jail $jail autostart", "jail $jail type", "jail $jail tag");
   $response = send_sc_query($sccmd);
   $jauto = $response["jail $jail autostart"];
   $jtype = $response["jail $jail type"];
