@@ -23,11 +23,11 @@ if ( strpos($page, "plugin") !== false or $pluginDispatcher) {
 ?>
   <li <?php if ( stripos($page, "plugin") !== false ) { echo "class='active'"; } ?>><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=28 width=28> &nbsp;&nbsp;App Containers</a></li>
   <li <?php if ( stripos($page, "jail") !== false ) { echo "class='active'"; } ?>><a href="/?p=jails" style="align:right;"><img src="/images/jail.png" height=28 width=28> &nbsp;&nbsp;Jails</a></li>
+  <li id="notifier"></li>
 <?php
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=28 width=28> Logout</a></li>";
 ?>
-  <li id="notifier"></li>
 </ul>
 </div>
 <div style="height:2px;">

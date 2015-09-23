@@ -80,6 +80,8 @@
   }
 
   $login_on_fail = true;
+  // Load our websocket library
+  require('vendor/autoload.php');
   require("include/globals.php");
   require("include/functions.php");
   require("include/functions-config.php");
@@ -121,6 +123,11 @@
   if ( $page == "dispatcher-plugins" ) {
     $page = "dispatcher";
     $pluginDispatcher = true;
+  }
+  $jailDispatcher = false;
+  if ( $page == "dispatcher-jails" ) {
+    $page = "dispatcher";
+    $jailDispatcher = true;
   }
 
   // If we are on plugins section, make sure we have a start-end range

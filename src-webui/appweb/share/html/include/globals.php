@@ -1,8 +1,6 @@
 <?
    defined('DS') OR die('No direct access allowed.');
 
-   // Load our websocket library
-   require('vendor/autoload.php');
    use WebSocket\Client;
 
    // Create a websocket connection to syscache

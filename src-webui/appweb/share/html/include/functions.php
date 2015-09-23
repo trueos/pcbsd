@@ -344,18 +344,17 @@ function display_cats($iconsize = "32")
 
 function get_jail_list($force=false)
 {
-  global $sc;
-  global $jail_list_array;
+  global $saved_jail_list_array;
 
   // If this is set, we have the jail list already
-  if ( ! empty( $jail_list_array) and ! $force )
-     return $jail_list_array;
-
-  unset($jail_list_array);
+  if ( ! empty( $saved_jail_list_array) and ! $force )
+     return $saved_jail_list_array;
 
   // Query the system for the running jail list
-  exec("$sc ". escapeshellarg("jail list")
-       , $jail_list_array);
+  $sccmd = array("jail list", "jail stoppedlist");
+  $response = send_sc_query($sccmd);
+  $jail_list_array = $response["jail list"];
+  $jail_stopped_list_array = $response["jail stoppedlist"];
 
   // Get the UUID of the jails only
   $jarray = array();
@@ -373,9 +372,7 @@ function get_jail_list($force=false)
 
   // Query the system for the stopped jail list
   unset($jail_list_array);
-  exec("$sc ". escapeshellarg("jail stoppedlist")
-       , $jail_list_array);
-  foreach($jail_list_array as $jline) {
+  foreach($jail_stopped_list_array as $jline) {
     $jitem = explode(", ", $jline);
     foreach($jitem as $jia) {
       $jail = explode(" ", $jia);
@@ -387,17 +384,19 @@ function get_jail_list($force=false)
   }
   $jarray[] = $jstopped;
 
+  $saved_jail_list_array = $jarray;
   return $jarray;
-
 }
 
 // Check if a particular iocage jail ID is running
 function is_jail_running($jail)
 {
-  global $sc;
-  exec("$sc ". escapeshellarg("jail list")
-       , $jail_list_array);
- 
+  // Query the system for the running jail list
+  $sccmd = array("jail list");
+  $response = send_sc_query($sccmd);
+  $string = $response["jail list"];
+  $jail_list_array = explode(", ", $string);
+
   if ( array_search($jail, $jail_list_array) !== false )
     return true; 
 
@@ -407,9 +406,11 @@ function is_jail_running($jail)
 // Check if a particular iocage pbicage is running
 function is_pbicage_running($jail)
 {
-  global $sc;
-  exec("$sc ". escapeshellarg("jail runningcages")
-       , $jail_list_array);
+  // Query the system for the running jail list
+  $sccmd = array("jail runningcages");
+  $response = send_sc_query($sccmd);
+  $string = $response["jail runningcages"];
+  $jail_list_array = explode(", ", $string);
 
   if ( array_search_partial($jail, $jail_list_array) !== false )
     return true;
@@ -528,8 +529,11 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
        $ioid = get_iocage_id_from_origin($origin);
        print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
      } else {
-       exec("$sc ".escapeshellarg("pbi cage " . $origin . " git"), $ghrepo);
-       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+       $sccmd = array("pbi cage " . $origin . " git");
+       $response = send_sc_query($sccmd);
+       $ghrepo = $response["pbi cage ". $origin . " git"];
+
+       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo)."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
      }
   }
 

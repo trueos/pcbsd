@@ -50,6 +50,9 @@
   // Get the page this was requested from
   $page = $_GET['p'];
 
+  // Load our websocket library
+  require('../vendor/autoload.php');
+
   require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";
@@ -103,9 +106,9 @@
        continue;
 
     unset($jarray);
-    exec("$sc ". escapeshellarg("pkg ". $jname . " hasupdates"), $jarray);
-    $hasupdates=$jarray[0];
- 
+    $sccmd = array("pkg $jname hasupdates");
+    $response = send_sc_query($sccmd);
+    $hasupdates = $response["pkg $jname hasupdates"];
     if ( $hasupdates == "true" ) {
        $pkgUpdates=true;
        break;
@@ -126,9 +129,14 @@
   elseif ( $status == "FAILED" ) 
      $output = "<img align=absmiddle height=32 width=32 src=\"../images/application-exit.png\"> Failure";
   
-  if ( $page == "plugins" or $page == "plugininfo" or $page == "sysplugins" )
+  if ( stripos($page, "plugin") !== false )
     echo "<a href=\"?p=dispatcher-plugins\">$output</a>";
+  elseif ( stripos($page, "jail") !== false )
+    echo "<a href=\"?p=dispatcher-jails\">$output</a>";
   else
     echo "<a href=\"?p=dispatcher\">$output</a>";
+
+  // Close websocket connection to syscache
+  $scclient->send("", "close");
 
 ?>

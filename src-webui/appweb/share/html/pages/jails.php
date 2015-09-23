@@ -32,15 +32,11 @@ function print_jail($jail, $status)
 {
 
   // Get some information about this jail
-  global $sc;
-
-  exec("$sc ". escapeshellarg("jail $jail autostart")
-       . " " . escapeshellarg("jail $jail type")
-       . " " . escapeshellarg("jail $jail tag")
-       , $jailinfo);
-  $jauto = $jailinfo[0];
-  $jtype = $jailinfo[1];
-  $jtag = $jailinfo[2];
+  $sccmd = array("jail $jail autostart", "jail $jail type", "$jail $jail tag");
+  $response = send_sc_query($sccmd);
+  $jauto = $response["jail $jail autostart"];
+  $jtype = $response["jail $jail type"];
+  $jtag = $response["jail $jail tag"];
 
   $jtag = substr($jtag, 8);
 

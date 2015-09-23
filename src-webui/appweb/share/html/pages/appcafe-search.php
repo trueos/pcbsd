@@ -77,8 +77,9 @@ if ( ! empty($_GET['searchtext']) ) {
  else
    $cmd = "pbi search '$searchtext' all 20";
 
- exec("$sc ". escapeshellarg("$cmd"), $pbiarray);
- $pbilist = explode(", ", $pbiarray[0]);
+ $sccmd = array("$cmd");
+ $response = send_sc_query($sccmd);
+ $pbilist = $response["$cmd"];
  $found=0;
 
  // Now loop through pbi origins

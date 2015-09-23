@@ -47,13 +47,18 @@ $jailUrl="__system__";
    if ( ! empty($_GET['cat']) )
    {
       if ( $allPBI == "true" )
-        exec("$sc ". escapeshellarg("pbi list allapps"), $pbiarray);
+        $cmd = "pbi list allapps";
       elseif ( $jail == "#system" && $sysType == "DESKTOP" )
-        exec("$sc ". escapeshellarg("pbi list graphicalapps"), $pbiarray);
+        $cmd = "pbi list graphicalapps";
       else
-        exec("$sc ". escapeshellarg("pbi list serverapps"), $pbiarray);
+        $cmd = "pbi list serverapps";
 
-      $fulllist = explode(", ", $pbiarray[0]);
+      $sccmd = array("$cmd");
+      $response = send_sc_query($sccmd);
+      $pbiarray = $response["$cmd"];
+
+
+      $fulllist = $pbiarray;
       $catsearch = $_GET['cat'] . "/";
       $pbilist = array_filter($fulllist, function($var) use ($catsearch) { return preg_match("|^$catsearch|", $var); });
 
