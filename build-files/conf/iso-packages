@@ -54,3 +54,4 @@ www/nspluginwrapper
 www/firefox
 www/chromium
 x11/lumina
+x11-drivers/xf86-video-scfb
