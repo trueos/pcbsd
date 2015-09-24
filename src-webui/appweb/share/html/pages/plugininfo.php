@@ -30,7 +30,6 @@ function parse_service_config()
   global $pbiindexdir;
   global $pbiip4;
   global $ioid;
-  global $sc;
 
   $lines = file($pbicdir . "/service-configure");
   foreach($lines as $line_num => $line)
@@ -67,10 +66,10 @@ function done_cfg()
   global $jail;
   global $jailUrl;
   global $pbicdir;
-  global $sc;
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
+  $sccmd = array("jail " . $jail . " id");
+  $response = send_sc_query($sccmd);
+  $jid = $response[0];
 
   // Talk to dispatcher to run done script
   $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
@@ -83,13 +82,13 @@ function set_cfg_value($cfg, $value)
   global $jailUrl;
   global $updatedConfig;
   global $pbicdir;
-  global $sc;
   $updatedConfig=true;
 
   $key = $cfg['key'];
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
+  $sccmd = array("jail $jail id");
+  $response = send_sc_query($sccmd);
+  $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to set config value
   $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
@@ -101,14 +100,15 @@ function get_cfg_value($cfg)
   global $jail;
   global $jailUrl;
   global $pbicdir;
-  global $sc;
 
   $key = $cfg['key'];
   $default = $cfg['default'];
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
-  
+  // Query the system for the running jail list
+  $sccmd = array("jail $jail id");
+  $response = send_sc_query($sccmd);
+  $jid = $response["jail $jail id"];
+
   // Talk to dispatcher to get config value
   $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
   if ( ! empty($output[0]) )
@@ -124,11 +124,12 @@ function display_jail_fstab_editor()
   global $jail;
   global $jailUrl;
   global $jailPath;
-  global $sc;
 
   // Get the jail path
-  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
-  $jailPath=$jArray[0];
+  // Query the system for the running jail list
+  $sccmd = array("jail $jail path");
+  $response = send_sc_query($sccmd);
+  $jailPath = $response["jail $jail path"];
 
   // Check for add action
   if ( ! empty($_POST['mount']) ) {
@@ -169,15 +170,15 @@ function display_config_details()
   global $jail;
   global $jailUrl;
   global $jailPath;
-  global $sc;
 
   global $updatedConfig;
   $updatedConfig = false;
 
   // Get the jail path
-  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
-  $jailPath=$jArray[0];
-  
+  $sccmd = array("jail $jail path");
+  $response = send_sc_query($sccmd);
+  $jailPath = $response["jail $jail path"];
+
   // Init the array to load in config data
   unset($appConfig);
   $appConfig = array();
@@ -267,7 +268,6 @@ function display_service_details()
 function display_jail_control($ioid)
 {
   // Get some information about this jail
-  global $sc;
   global $pbirunning;
   global $pbiorigin;
 
@@ -275,9 +275,9 @@ function display_jail_control($ioid)
   if ( $pbirunning )
     $status = "Running";
 
-  exec("$sc ". escapeshellarg("jail $ioid autostart")
-       , $jailinfo);
-  $jauto = $jailinfo[0];
+  $sccmd = array("jail $ioid autostart");
+  $response = send_sc_query($sccmd);
+  $jauto = $response["jail $ioid autostart"];
 
   if ( $jauto == "true" )
      $autostatus="Enabled";
@@ -296,14 +296,15 @@ function display_install_chooser()
   global $pbiname;
   global $ioid;
   global $pbiInstalled;
-  global $sc;
 
    if ( $pbiInstalled ) {
      $output="";
      print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delAppConfirm('".$pbiname."','".rawurlencode($pbiorigin)."','".$ioid."')\" height=48 width=48></button>\n");
    } else {
-     exec("$sc ".escapeshellarg("pbi cage " . $pbiorigin . " git"), $ghrepo);
-     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+     $sccmd = array("pbi cage $pbiorigin git");
+     $response = send_sc_query($sccmd);
+     $ghrepo = $response["pbi cage $pbiorigin git"];
+     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".rawurlencode($ghrepo)."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
   }
 
 }
@@ -316,25 +317,24 @@ function display_install_chooser()
 
   // Load the PBI details page
   $cmd="pbi cage $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name") 
-     . " " . escapeshellarg("$cmd icon") 
-     . " " . escapeshellarg("$cmd description")
-     . " " . escapeshellarg("$cmd screenshots")
-     . " " . escapeshellarg("$cmd tags")
-     . " " . escapeshellarg("$cmd website")
-     , $pbiarray);
+  $sccmd = array("$cmd name",
+	"$cmd icon",
+	"$cmd description",
+	"$cmd screenshots",
+	"$cmd tags",
+	"$cmd website");
+  $pbiarray = send_sc_query($sccmd);
+  $pbiname = $pbiarray["$cmd name"];
+  $pbiicon = $pbiarray["$cmd icon"];
+  $pbidesc = $pbiarray["$cmd description"];
+  $pbiss = $pbiarray["$cmd screenshots"];
+  $pbitags = $pbiarray["$cmd tags"];
+  $pbiweb = $pbiarray["$cmd website"];
 
-  $pbiname = $pbiarray[0];
-  $pbiicon = $pbiarray[1];
-  $pbidesc = $pbiarray[2];
-  $pbiss = $pbiarray[3];
-  $pbitags = $pbiarray[4];
-  $pbiweb = $pbiarray[5];
-
-  if ( $pbiss == $SCERROR )
+  if ( $pbiss == " " )
     $pbiss = "";
 
-  if ( empty($pbiname) )
+  if ( empty($pbiname) or $pbiname == " " )
     die("No such app: $pbi");
 
   // Check if this app is installed
@@ -361,11 +361,9 @@ function display_install_chooser()
   if ( $pbirunning ) {
 
     $cmd="jail $ioid";
-    exec("$sc ". escapeshellarg("$cmd path") 
-       , $ioarray);
-
-    // Get the location of pbicage config files
-    $pbicdir = $ioarray[0] . "/pbicage";
+    $sccmd = array("$cmd path");
+    $response = send_sc_query($sccmd);
+    $pbicdir = $response["$cmd path"] . "/pbicage";
 
     // Get ipv4 address
     $output = run_cmd("iocage getip4 $ioid");

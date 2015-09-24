@@ -16,6 +16,7 @@
       border-radius:5px;
       box-shadow:0px 0px 15px #999;
       position:absolute;
+      z-index:1000;
     }
 
       .box a.close {

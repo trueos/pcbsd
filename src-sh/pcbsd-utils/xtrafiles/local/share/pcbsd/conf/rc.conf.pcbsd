@@ -17,8 +17,8 @@ if [ -e "/etc/defaults/trueos" ] ; then
   # FSCK Enhancements
   fsck_y_enable="YES"
 
-  # Enable the Warden
-  warden_enable="YES"
+  # Enable iocage
+  iocage_enable="YES"
 
   # Load the following kernel modules
   kld_list="libiconv libmchain msdosfs_iconv sem fdescfs linsysfs fuse"
@@ -163,4 +163,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
 
   # Support for iSCSI with Life-Preserver
   iscsid_enable="YES"
+
+  # Enable iocage
+  iocage_enable="YES"
 fi

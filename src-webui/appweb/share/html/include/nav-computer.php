@@ -17,20 +17,20 @@ if ( strpos($page, "plugin") !== false or $pluginDispatcher) {
 <?php
   if ( $sysType != "APPLIANCE" ) {
 ?>
-  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=32 width=32> &nbsp;&nbsp;System Packages</a></li>
+  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=28 width=28> &nbsp;&nbsp;System Packages</a></li>
 <?php
   }
 ?>
-  <li <?php if ( stripos($page, "plugin") !== false ) { echo "class='active'"; } ?>><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=32 width=32> &nbsp;&nbsp;App Containers</a></li>
-  <li <?php if ( stripos($page, "jail") !== false ) { echo "class='active'"; } ?>><a href="/?p=jails" style="align:right;"><img src="/images/jail.png" height=32 width=32> &nbsp;&nbsp;Jails</a></li>
+  <li <?php if ( stripos($page, "plugin") !== false ) { echo "class='active'"; } ?>><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=28 width=28> &nbsp;&nbsp;App Containers</a></li>
+  <li <?php if ( stripos($page, "jail") !== false ) { echo "class='active'"; } ?>><a href="/?p=jails" style="align:right;"><img src="/images/jail.png" height=28 width=28> &nbsp;&nbsp;Jails</a></li>
+  <li id="notifier"></li>
 <?php
 if (USERNAME)
-  echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
+  echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=28 width=28> Logout</a></li>";
 ?>
-  <li id="notifier"></li>
 </ul>
 </div>
-<div style="height:0.1em;">
+<div style="height:2px;">
 &nbsp;
 </div>
 <div id="subcssmenu" style="height:2.30em;">
@@ -62,7 +62,7 @@ if ( $dflag == "appcafe" )
 
 <body>
 <?php if ( $page != "dispatcher" and stripos($page, "jail") === false ) { ?>
-<div id="leftmenu" style="height:100%;width:120px;position:absolute;margin:16px;">
+<div id="leftmenu" style="height:100%;width:140px;position:absolute;margin:16px;">
   <?php 
      require("include/leftmenu.php");
   ?>

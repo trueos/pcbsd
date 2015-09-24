@@ -783,6 +783,11 @@ update_freebsd()
   check_valid_uptarget
   touch_updateinprogress
 
+  pc-fbsdupdatecheck | grep -q "will be updated"
+  if [ $? -ne 0 ] ; then
+    exit_err "No FreeBSD updates available!"
+  fi
+
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi

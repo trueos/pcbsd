@@ -4,6 +4,8 @@ defined('DS') OR die('No direct access allowed.');
    $newpage="dispatcher";
    if ( $pluginDispatcher)
      $newpage="dispatcher-plugins";
+   if ( $jailDispatcher)
+     $newpage="dispatcher-jails";
 
    // Did the user request to start updates on a jail / system?
    if ( ! empty($_GET['updateTarget']) ) {
@@ -87,14 +89,17 @@ defined('DS') OR die('No direct access allowed.');
 
 
        unset($jarray);
-       exec("$sc ". escapeshellarg("pkg ". $jname . " hasupdates"), $jarray);
-       $hasupdates=$jarray[0];
+       $sccmd = array("pkg $jname hasupdates");
+       $response = send_sc_query($sccmd);
+       $hasupdates = $response["pkg $jname hasupdates"];
 
        if ( $hasupdates == "true" ) {
           $pkgUpdates=true;
           // Get the list of updates to show user
           unset($jarray);
-          exec("$sc ". escapeshellarg("pkg ". $jname . " updatemessage"), $jarray);
+          $sccmd = array("pkg $jname updatemessage");
+          $response = send_sc_query($sccmd);
+          $upmsg = $response["pkg $jname updatemessage"];
 
           echo "<div class=\"popbox\">\n";
           echo "  <a href=\"/?p=$newpage&updateTarget=$targetUrl\" style=\"text-decoration: underline;\"><img src=\"/images/warning.png\" height=35 width=35 title=\"Updates available!\">Update packages for $target</a>";
@@ -104,7 +109,7 @@ defined('DS') OR die('No direct access allowed.');
           echo "      <div class=\"arrow\"></div>\n";
           echo "      <div class=\"arrow-border\"></div>\n";
 	  echo "        <p align=\"left\">\n";
-	  echo "        $jarray[0]</p>\n";
+	  echo "        $upmsg</p>\n";
 	  echo "        <a href=\"#\" class=\"close\">close</a>\n";
           echo "    </div>\n";
           echo "   </div>\n";
