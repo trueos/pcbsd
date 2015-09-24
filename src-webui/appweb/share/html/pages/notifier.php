@@ -52,11 +52,13 @@
 
   // Load our websocket library
   require('../vendor/autoload.php');
-
   require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";
   $status="UP2DATE";
+
+  $sccmd = array("username" => "root");
+  $response = send_sc_query($sccmd, "auth");
 
   // Command to prod dispatcher for current status
   // Eventually we will pep this up with extra parsing about

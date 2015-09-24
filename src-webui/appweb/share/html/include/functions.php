@@ -52,25 +52,26 @@ function syscache_pbidb_list($flag="allapps")
    return $output;
 }
 
-function send_sc_query($cmdarray)
+function send_sc_query($cmdarray, $cmdname="syscache")
 {
    global $scclient;
 
    $jarray = array();
    $jarray["namespace"] = "rpc";
-   $jarray["name"] = "syscache";
+   $jarray["name"] = "$cmdname";
    $jarray["id"] = uniqid("", true);
 
    // Build the json array
    $num = 0;
-   foreach($cmdarray as $cmd)
+   foreach($cmdarray as $key => $cmd)
    {
      // Make sure we don't have a duplicate in the cmd list
      if ( array_search($cmd, $jarray) === false ) {
-       $jarray["args"][] = "$cmd";
+       $jarray["args"][$key] = "$cmd";
        $num++;
      }
    }
+   //echo "<pre>" . json_encode($jarray, JSON_PRETTY_PRINT) ."</pre>";
    $scclient->send(json_encode($jarray));
    $rjson = $scclient->receive();
    $rarray = json_decode($rjson, true);
