@@ -772,10 +772,6 @@ check_valid_uptarget()
   if [ $? -ne 0 ] ; then
      exit_err "No beadm installed! Is this a jail or non PC-BSD / TrueOS box?"
   fi
-
-  if [ ! -e '/boot/grub/grub.cfg' ] ; then
-     exit_err "No GRUB setup! Is this a jail or non PC-BSD / TrueOS box?"
-  fi
 }
 
 update_freebsd()
@@ -1481,7 +1477,11 @@ mk_stage_be_default()
   # Rename the nickname
   rc_nohalt "beadm rename -n ${TMPNICK} ${newBEName}"
   rc_halt "beadm activate $newBEName"
-  rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+
+  # Only update grub if its installed
+  if [ -e "/boot/grub/grub.cfg" ] ; then
+    rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
 }
 
 do_auto_be()
