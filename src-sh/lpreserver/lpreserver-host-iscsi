@@ -8,6 +8,23 @@ if [ "`id -u`" != "0" ] ;then
   exit 1
 fi
 
+which stunnel > /dev/null;
+if [ $? -ne 0 ] ; then
+  echo "stunnel not found, would you like to install now?"
+  echo -e "(y/n)>\c"
+  read tmp
+  if [ $tmp != "y" ] ; then
+   	exit 1
+  fi
+
+  pkg install -y stunnel;
+
+  which stunnel > /dev/null;
+  if [ $? -ne 0 ]; then
+    exit 1 
+  fi
+fi
+
 echo "Enter the target host name (example.com or IP)"
 echo -e ">\c"
 read targetHost
