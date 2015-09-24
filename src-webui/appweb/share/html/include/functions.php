@@ -57,6 +57,9 @@ function send_sc_query($cmdarray)
    global $scclient;
 
    $jarray = array();
+   $jarray["namespace"] = "rpc";
+   $jarray["name"] = "syscache";
+   $jarray["id"] = uniqid("", true);
 
    // Build the json array
    $num = 0;
@@ -64,14 +67,14 @@ function send_sc_query($cmdarray)
    {
      // Make sure we don't have a duplicate in the cmd list
      if ( array_search($cmd, $jarray) === false ) {
-       $jarray["request$num"] = "$cmd";
+       $jarray["args"]["request$num"] = "$cmd";
        $num++;
      }
    }
    $scclient->send(json_encode($jarray));
    $rjson = $scclient->receive();
    $rarray = json_decode($rjson, true);
-   return $rarray;
+   return $rarray["args"];
 }
 
 function queueInstallApp()
