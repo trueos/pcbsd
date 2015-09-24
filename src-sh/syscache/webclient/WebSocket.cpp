@@ -77,75 +77,101 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
     QJsonDocument doc = QJsonDocument::fromJson(REQ.Body.toUtf8());
     if(doc.isNull()){ qWarning() << "Empty JSON Message Body!!" << REQ.Body.toUtf8(); }
     //Define the output structures
-    QJsonDocument ret; //return message
-    //parse the message and do something
+    QJsonObject ret; //return message
+
     //Objects contain other key/value pairs - this is 99% of cases
     if(doc.isObject()){
-      QJsonObject obj;
-      QStringList keys = doc.object().keys();
-      if(REQ.URI.toLower()=="/syscache"){
-        QStringList reqs = keys.filter("request",Qt::CaseInsensitive);
-        if(!reqs.isEmpty()){
-	  if(DEBUG){ qDebug() << "Parsing Inputs:" << reqs; }
-	  for(int r=0; r<reqs.length(); r++){
-	    QString req =  JsonValueToString(doc.object().value(reqs[r]));
-	    qDebug() << "  ["+reqs[r]+"]="+req;
-	    QStringList values = SysCacheClient::parseInputs( QStringList() << req ); 
-	    values.removeAll("");
-	    //Quick check if a list of outputs was returned
-	    if(values.length()==1){
-	      values = values[0].split(SCLISTDELIM); //split up the return list (if necessary)
-	      values.removeAll("");
-	    }
-	    if(DEBUG){ qDebug() << " - Returns:" << values; }
-	    keys.removeAll(reqs[r]); //this key was already processed
-	    if(values.length()<2){
-	      obj.insert(req,values.join(""));
-	    }else{
-	      //This is an array of outputs
-	      QJsonArray arr;
-              for(int i=0; i<values.length(); i++){ arr.append(values[i]); }
-	      obj.insert(req,arr);
-            }
-          }
-        } //end of special "request" objects
-      
+      //First check/set all the various required fields (both in and out)
+      bool good = doc.object().contains("namespace") \
+	    && doc.object().contains("name") \
+	    && doc.object().contains("id") \
+	    && doc.object().contains("args");
+      //Can add some fallbacks for missing fields here - but not implemented yet
+	    
+      //parse the message and do something
+      if(good && (JsonValueToString(doc.object().value("namespace"))=="rpc") ){
+	//Pre-set any output fields
+        ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+        QJsonObject outargs;
+	//Now fetch the outputs from the appropriate subsection
+	//Note: Each subsection needs to set the "name", "namespace", and "args" output objects
+	QString name = JsonValueToString(doc.object().value("name")).toLower();
+        if(name == "syscache"){
+          EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
+	  ret.insert("namespace", QJsonValue("rpc"));
+	  ret.insert("name", QJsonValue("response"));
+	}
+	      
+        ret.insert("args",outargs);
       }else{
-        if(DEBUG){ qDebug() << "Object Variables:" << keys; }
-        for(int i=0; i<keys.length(); i++){
-          qDebug() << keys[i]+"="+JsonValueToString(doc.object().value(keys[i]) );
-        }	  
+        //Error in inputs - assemble the return error message
+	
       }
-      ret.setObject(obj);
-    //Special case for a single syscache input (array of strings)
-    }else if(doc.isArray() && REQ.URI.toLower()=="/syscache"){
-        QStringList inputs = JsonArrayToStringList(doc.array());
-        if(DEBUG){ qDebug() << " syscache inputs:" << inputs; }
-        QJsonObject obj;
-        QStringList values = SysCacheClient::parseInputs(inputs );
-        for(int i=0; i<values.length(); i++){
-	  if(values[i].contains(SCLISTDELIM)){
-	    //This is an array of values
-	    QStringList vals = values[i].split(SCLISTDELIM);
-	    vals.removeAll("");
-	    QJsonArray arr;
-                for(int j=0; j<vals.length(); j++){ arr.append(vals[j]); }
-	      obj.insert(inputs[i],arr);
-	  }else{
-            obj.insert(inputs[i],values[i]);
-	  }
-        }
-      ret.setObject(obj);
+    }else{
+      //Unknown type of JSON input - nothing to do
     }
     //Assemble the outputs for this "GET" request
     out.CODE = RestOutputStruct::OK;
-    out.Body = ret.toJson();
+      //Assemble the output JSON document/text
+      QJsonDocument retdoc; 
+      retdoc.setObject(ret);
+    out.Body = retdoc.toJson();
     out.Header << "Content-Type: text/json; charset=utf-8";
   }
   //Return any information
   SOCKET->sendTextMessage(out.assembleMessage());
 }
 
+// === SYSCACHE REQUEST INTERACTION ===
+void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out){
+  QJsonObject obj; //output object
+  if(args.isObject()){
+    //For the moment: all arguments are full syscache DB calls - no special ones
+    QStringList reqs = args.toObject().keys();
+    if(!reqs.isEmpty()){
+      if(DEBUG){ qDebug() << "Parsing Inputs:" << reqs; }
+      for(int r=0; r<reqs.length(); r++){
+        QString req =  JsonValueToString(args.toObject().value(reqs[r]));
+        if(DEBUG){ qDebug() << "  ["+reqs[r]+"]="+req; }
+        QStringList values = SysCacheClient::parseInputs( QStringList() << req ); 
+        values.removeAll("");
+        //Quick check if a list of outputs was returned
+        if(values.length()==1){
+          values = values[0].split(SCLISTDELIM); //split up the return list (if necessary)
+          values.removeAll("");
+        }
+        if(DEBUG){ qDebug() << " - Returns:" << values; }
+        if(values.length()<2){ out->insert(req, QJsonValue(values.join("")) ); }
+        else{
+          //This is an array of outputs
+          QJsonArray arr;
+          for(int i=0; i<values.length(); i++){ arr.append(values[i]); }
+          out->insert(req,arr);
+        }
+      }
+    } //end of special "request" objects
+  }else if(args.isArray()){
+    QStringList inputs = JsonArrayToStringList(args.toArray());
+    if(DEBUG){ qDebug() << " syscache inputs:" << inputs; }
+    QStringList values = SysCacheClient::parseInputs(inputs );
+    for(int i=0; i<values.length(); i++){
+      if(values[i].contains(SCLISTDELIM)){
+	  //This is an array of values
+	  QStringList vals = values[i].split(SCLISTDELIM);
+	  vals.removeAll("");
+	  QJsonArray arr;
+	    for(int j=0; j<vals.length(); j++){ arr.append(vals[j]); }
+	    out->insert(inputs[i],arr);
+      }else{
+          out->insert(inputs[i],values[i]);
+      }
+    }
+  } //end array of inputs
+
+}
+
+
+// === GENERAL PURPOSE UTILITY FUNCTIONS ===
 QString WebSocket::JsonValueToString(QJsonValue val){
   //Note: Do not use this on arrays - only use this on single-value values
   QString out;

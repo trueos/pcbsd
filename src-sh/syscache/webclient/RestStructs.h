@@ -31,16 +31,17 @@ public:
 	  if(!message.startsWith("{")){ 
 	    Header = message.section("\n{",0,0).split("\n");
 	  }
-	  Body = message.remove(Header.join("\n")+"\n"); //chop the headers off the front
 	  if(!Header.isEmpty()){
 	    QString line = Header.takeFirst(); //The first line is special (not a generic header)
 	    VERB = line.section(" ",0,0);
 	    URI = line.section(" ",1,1);
 	    HTTPVERSION = line.section(" ",2,2);
+	    Body = message.remove(Header.join("\n")+"\n"); //chop the headers off the front
 	  }else{
 	    //simple bypass for any non-REST inputs - just have it go straight to JSON parsing
 	    VERB = "GET"; 
 	    URI = "/syscache";
+	    Body = message;
 	  }
 	}
 	~RestInputStruct(){}

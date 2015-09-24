@@ -12,6 +12,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QJsonValue>
 #include <QTimer>
 
 #include "syscache-client.h"
@@ -32,7 +33,9 @@ private:
 
 	//Main connection comminucations procedure
 	void EvaluateREST(QString);
-	void EvaluateRequest(const RestInputStruct&); //This is where all the magic happens (needs csock)
+	void EvaluateRequest(const RestInputStruct&); //This is where all the magic happens
+	void EvaluateSysCacheRequest(const QJsonValue in_args, QJsonObject *out);
+
 
 	//Simplification functions
 	QString JsonValueToString(QJsonValue);
