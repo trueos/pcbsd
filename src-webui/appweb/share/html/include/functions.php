@@ -67,7 +67,7 @@ function send_sc_query($cmdarray)
    {
      // Make sure we don't have a duplicate in the cmd list
      if ( array_search($cmd, $jarray) === false ) {
-       $jarray["args"]["request$num"] = "$cmd";
+       $jarray["args"][] = "$cmd";
        $num++;
      }
    }
