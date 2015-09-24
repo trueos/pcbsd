@@ -5,7 +5,7 @@
 // =================================
 #include "AuthorizationManager.h"
 #include <QDebug>
-#include <QProcess>
+//#include <QProcess>
 
 // Stuff for PAM to work
 #include <sys/types.h>
@@ -61,10 +61,14 @@ QString AuthorizationManager::LoginUP(bool localhost, QString user, QString pass
   bool ok = false;
   if(localhost){
     //only need to check that the username is valid
-    ok = QProcess::execute("id \""+user+"\"")==0;
+    if(user!="root" && user!="toor"){ //exclude root/toor users
+      ok = system( QString("id \""+user+"\" > /dev/null").toLocal8Bit() )==0;
+    }
   }else{
     //Need to run the full username/password through PAM
-    ok = pam_checkPW(user,pass);
+    if(user!="root" && user!="toor"){ //exclude root/toor users
+      ok = pam_checkPW(user,pass);
+    }
   }
   qDebug() << "User Login Attempt:" << user << " Success:" << ok;
   if(!ok){ return ""; } //invalid login
