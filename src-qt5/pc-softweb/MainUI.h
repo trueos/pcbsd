@@ -47,6 +47,7 @@ private:
 	QToolButton *tool_search;
 	QString lastsearch;
 	QShortcut *ctrlF, *esc;
+        QShortcut *ctrlQ, *Close;
 	
 	bool sameUrls(QUrl U1, QUrl U2);
 	bool actionUrl(QUrl U1);

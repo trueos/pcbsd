@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QStringList>
 #include <QDebug>
+#include <QShortcut>
 
 MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
@@ -76,6 +77,8 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   ctrlF = new QShortcut( key, this );
   key = QKeySequence(Qt::Key_Escape);
   esc = new QShortcut( key, this );
+  QKeySequence key2(QKeySequence::Close);
+  ctrlQ = new QShortcut ( key2, this );
     
   //Connect signals/slots
   connect(webview, SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClicked(const QUrl&)) );
@@ -87,6 +90,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   connect(line_search, SIGNAL(returnPressed()), this, SLOT(GoSearch()) );
   connect(ctrlF, SIGNAL(activated()), this, SLOT(openSearch()) );
   connect(esc, SIGNAL(activated()), this, SLOT(closeSearch()) );
+  connect(ctrlQ, SIGNAL(activated()), this, SLOT(GoClose()) );
   if(DEBUG){
     //connect(webview, SIGNAL(statusBarMessage(const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
     connect(webview->page(), SIGNAL(linkHovered(const QString&, const QString&, const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
