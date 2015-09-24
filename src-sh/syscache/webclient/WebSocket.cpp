@@ -1,5 +1,5 @@
 // ===============================
-//  PC-BSD REST API Server
+//  PC-BSD REST/JSON API Server
 // Available under the 3-clause BSD License
 // Written by: Ken Moore <ken@pcbsd.org> July 2015
 // =================================
@@ -9,9 +9,11 @@
 #define DEBUG 1
 #define SCLISTDELIM QString("::::") //SysCache List Delimiter
 
-WebSocket::WebSocket(QWebSocket *sock, QString ID){
+WebSocket::WebSocket(QWebSocket *sock, QString ID, AuthorizationManager *auth){
   SockID = ID;
+  SockAuthToken.clear(); //nothing set initially
   SOCKET = sock;
+  AUTHSYSTEM = auth;
   idletimer = new QTimer(this);
     idletimer->setInterval(600000); //10-minute timeout
     idletimer->setSingleShot(true);
@@ -90,29 +92,67 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	    
       //parse the message and do something
       if(good && (JsonValueToString(doc.object().value("namespace"))=="rpc") ){
-	//Pre-set any output fields
-        ret.insert("id", doc.object().value("id")); //use the same ID for the return message
-        QJsonObject outargs;
 	//Now fetch the outputs from the appropriate subsection
 	//Note: Each subsection needs to set the "name", "namespace", and "args" output objects
 	QString name = JsonValueToString(doc.object().value("name")).toLower();
-        if(name == "syscache"){
-	  ret.insert("namespace", QJsonValue("rpc"));
-	  ret.insert("name", QJsonValue("response"));
-          EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
+	QJsonValue args = doc.object().value("args");
+	if(name.startsWith("auth")){
+	  //Now perform authentication based on type of auth given
+	  //Note: This sets/changes the current SockAuthToken
+	  AUTHSYSTEM->clearAuth(SockAuthToken); //new auth requested - clear any old token
+	  if(DEBUG){ qDebug() << "Authenticate Peer:" << SOCKET->peerAddress().toString(); }
+	  bool localhost = (SOCKET->peerAddress() == QHostAddress::LocalHost) || (SOCKET->peerAddress() == QHostAddress::LocalHostIPv6);
+	  //Now do the auth
+	  if(name=="auth" && args.isObject() ){
+	    //username/password authentication
+	    QString user, pass;
+	    if(args.toObject().contains("username")){ user = JsonValueToString(args.toObject().value("username"));  }
+	    if(args.toObject().contains("password")){ user = JsonValueToString(args.toObject().value("password"));  }
+	    SockAuthToken = AUTHSYSTEM->LoginUP(localhost, user, pass);
+	  }else if(name == "auth_token" && args.isObject()){
+	    SockAuthToken = JsonValueToString(args.toObject().value("token"));
+	  }else if(name == "auth_service" && args.isObject()){
+	    SockAuthToken = AUTHSYSTEM->LoginService(localhost, JsonValueToString(args.toObject().value("service")) );
+	  }
+	  
+	  //Now check the auth and respond appropriately
+	  if(AUTHSYSTEM->checkAuth(SockAuthToken)){
+	    //Good Authentication - return the new token 
+	    ret.insert("namespace", QJsonValue("rpc"));
+	    ret.insert("name", QJsonValue("response"));
+	    ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+	    QJsonArray array;
+	      array.append(SockAuthToken);
+	      array.append(AUTHSYSTEM->checkAuthTimeoutSecs(SockAuthToken));
+	    ret.insert("args", array);
+	  }else{
+	    SockAuthToken.clear(); //invalid token
+	    //Bad Authentication - return error
+	    SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
+	  }
+		
+	}else if( AUTHSYSTEM->checkAuth(SockAuthToken) ){ //validate current Authentication token	 
+	  //Now provide access to the various subsystems
+	  //Pre-set any output fields
+          QJsonObject outargs;	
+	    ret.insert("namespace", QJsonValue("rpc"));
+	    ret.insert("name", QJsonValue("response"));
+	    ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+		
+          if(name == "syscache"){
+            EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
+	  }
+          ret.insert("args",outargs);	  
+        }else{
+	  //Bad/No authentication
+	  SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
 	}
 	      
-        ret.insert("args",outargs);
       }else{
         //Error in inputs - assemble the return error message
-	ret.insert("namespace", QJsonValue("rpc"));
-	ret.insert("name", QJsonValue("error"));
-	if(doc.object().contains("id")){ ret.insert("id", doc.object().value("id")); } //use the same ID
-	else{ ret.insert("id",QJsonValue("error")); }
-	QJsonObject obj;
-		obj.insert("code", 400);
-		obj.insert("message", QJsonValue("Bad Request"));
-	ret.insert("args",obj);
+	QString id = "error";
+	if(doc.object().contains("id")){ id = JsonValueToString(doc.object().value("id")); } //use the same ID
+	SetOutputError(&ret, id, 400, "Bad Request");
       }
     }else{
       //Unknown type of JSON input - nothing to do
@@ -207,6 +247,16 @@ QStringList WebSocket::JsonArrayToStringList(QJsonArray array){
   return out;  
 }
 
+void WebSocket::SetOutputError(QJsonObject *ret, QString id, int err, QString msg){
+  ret->insert("namespace", QJsonValue("rpc"));
+  ret->insert("name", QJsonValue("error"));
+  ret->insert("id",QJsonValue(id));
+  QJsonObject obj;
+  	obj.insert("code", err);
+	obj.insert("message", QJsonValue(msg));
+  ret->insert("args",obj);	
+}
+
 // =====================
 //       PRIVATE SLOTS
 // =====================
@@ -220,7 +270,12 @@ void WebSocket::checkIdle(){
 
 void WebSocket::SocketClosing(){
   qDebug() << "Socket Closing...";
-  if(idletimer->isActive()){ idletimer->stop(); }
+  if(idletimer->isActive()){ 
+    //This means the client deliberately closed the connection - not the idle timer
+    idletimer->stop(); 
+    //Clear the current authentication token
+    AUTHSYSTEM->clearAuth(SockAuthToken);
+  }
   //Stop any current requests
 
   //Reset the pointer

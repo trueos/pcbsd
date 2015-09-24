@@ -17,6 +17,7 @@
 #include <QtDebug> //for better syntax of qDebug() / qWarning() / qCritical() / qFatal()
 
 #include "WebSocket.h"
+#include "AuthorizationManager.h"
 
 class WebServer : public QWebSocketServer{
 	Q_OBJECT
@@ -31,6 +32,7 @@ public slots:
 
 private:
 	QList<WebSocket*> OpenSockets;
+	AuthorizationManager *AUTH;
 
 	QString generateID(); //generate a new ID for a socket
 

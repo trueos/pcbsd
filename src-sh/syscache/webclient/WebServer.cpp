@@ -22,7 +22,7 @@ WebServer::WebServer() : QWebSocketServer("syscache-webclient", QWebSocketServer
     /*QSslConfiguration ssl = this->sslConfiguration();
       ssl.setProtocol(QSsl::SecureProtocols);
     this->setSslConfiguration(ssl);*/
-
+  AUTH = new AuthorizationManager();
   //Setup Connections
   connect(this, SIGNAL(closed()), this, SLOT(ServerClosed()) );
   connect(this, SIGNAL(serverError(QWebSocketProtocol::CloseCode)), this, SLOT(ServerError(QWebSocketProtocol::CloseCode)) );
@@ -34,6 +34,7 @@ WebServer::WebServer() : QWebSocketServer("syscache-webclient", QWebSocketServer
 }
 
 WebServer::~WebServer(){
+  delete AUTH;
 }
 
 bool WebServer::startServer(){
@@ -83,7 +84,7 @@ void WebServer::NewSocketConnection(){
   QWebSocket *csock = this->nextPendingConnection();
   if(csock == 0){ qWarning() << " - new connection invalid, skipping..."; QTimer::singleShot(10, this, SLOT(NewSocketConnection())); return; }
   qDebug() <<  " - Accepting connection:" << csock->origin();
-  WebSocket *sock = new WebSocket(csock, generateID());
+  WebSocket *sock = new WebSocket(csock, generateID(), AUTH);
   connect(sock, SIGNAL(SocketClosed(QString)), this, SLOT(SocketClosed(QString)) );
   OpenSockets << sock;
 }

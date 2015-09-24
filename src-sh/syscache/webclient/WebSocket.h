@@ -1,5 +1,5 @@
 // ===============================
-//  PC-BSD REST API Server
+//  PC-BSD REST/JSON API Server
 // Available under the 3-clause BSD License
 // Written by: Ken Moore <ken@pcbsd.org> July 2015
 // =================================
@@ -17,11 +17,12 @@
 
 #include "syscache-client.h"
 #include "RestStructs.h"
+#include "AuthorizationManager.h"
 
 class WebSocket : public QObject{
 	Q_OBJECT
 public:
-	WebSocket(QWebSocket*, QString ID);
+	WebSocket(QWebSocket*, QString ID, AuthorizationManager *auth);
 	~WebSocket();
 
 	QString ID();
@@ -29,7 +30,8 @@ public:
 private:
 	QTimer *idletimer;
 	QWebSocket *SOCKET;
-	QString SockID;
+	QString SockID, SockAuthToken;
+	AuthorizationManager *AUTHSYSTEM;
 
 	//Main connection comminucations procedure
 	void EvaluateREST(QString);
@@ -40,6 +42,7 @@ private:
 	//Simplification functions
 	QString JsonValueToString(QJsonValue);
 	QStringList JsonArrayToStringList(QJsonArray);
+	void SetOutputError(QJsonObject *ret, QString id, int err, QString msg);
 
 private slots:
 	void checkIdle(); //see if the currently-connected client is idle

@@ -1,5 +1,5 @@
 // ===============================
-//  PC-BSD REST API Server
+//  PC-BSD REST/JSON API Server
 // Available under the 3-clause BSD License
 // Written by: Ken Moore <ken@pcbsd.org> July 2015
 // =================================
