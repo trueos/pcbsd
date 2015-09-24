@@ -601,7 +601,7 @@ new_gpart_partitions()
       fi
 
       # Check if this is a root / boot partition, and stamp the right loader
-      for TESTMNT in `echo ${MNT} | sed 's|,| |g'`
+      for TESTMNT in `echo ${MNT} | sed 's|,| |g' | cut -d '(' -f 1`
       do
         if [ "${TESTMNT}" = "/" -a -z "${BOOTTYPE}" ] ; then
            BOOTTYPE="${PARTYPE}" 
@@ -678,8 +678,8 @@ new_gpart_partitions()
       # If this is the boot disk, stamp the right gptboot
       if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" ] ; then
         case ${BOOTTYPE} in
-          freebsd-ufs) rc_halt "gpart bootcode -p /boot/gptboot -i 1 ${_pDisk}" ;;
-          freebsd-zfs) rc_halt "gpart bootcode -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
+          freebsd-ufs) rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ${_pDisk}" ;;
+          freebsd-zfs) rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
         esac 
       fi
 
