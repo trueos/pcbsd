@@ -107,7 +107,7 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	    //username/password authentication
 	    QString user, pass;
 	    if(args.toObject().contains("username")){ user = JsonValueToString(args.toObject().value("username"));  }
-	    if(args.toObject().contains("password")){ user = JsonValueToString(args.toObject().value("password"));  }
+	    if(args.toObject().contains("password")){ pass = JsonValueToString(args.toObject().value("password"));  }
 	    SockAuthToken = AUTHSYSTEM->LoginUP(localhost, user, pass);
 	  }else if(name == "auth_token" && args.isObject()){
 	    SockAuthToken = JsonValueToString(args.toObject().value("token"));
