@@ -77,8 +77,8 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   ctrlF = new QShortcut( key, this );
   key = QKeySequence(Qt::Key_Escape);
   esc = new QShortcut( key, this );
-  QKeySequence key2(QKeySequence::Close);
-  ctrlQ = new QShortcut ( key2, this );
+  key = QKeySequence(Qt::CTRL | Qt::Key_Q);
+  ctrlQ = new QShortcut( key, this );
     
   //Connect signals/slots
   connect(webview, SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClicked(const QUrl&)) );
