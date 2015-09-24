@@ -97,15 +97,22 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	//Note: Each subsection needs to set the "name", "namespace", and "args" output objects
 	QString name = JsonValueToString(doc.object().value("name")).toLower();
         if(name == "syscache"){
-          EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
 	  ret.insert("namespace", QJsonValue("rpc"));
 	  ret.insert("name", QJsonValue("response"));
+          EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
 	}
 	      
         ret.insert("args",outargs);
       }else{
         //Error in inputs - assemble the return error message
-	
+	ret.insert("namespace", QJsonValue("rpc"));
+	ret.insert("name", QJsonValue("error"));
+	if(doc.object().contains("id")){ ret.insert("id", doc.object().value("id")); } //use the same ID
+	else{ ret.insert("id",QJsonValue("error")); }
+	QJsonObject obj;
+		obj.insert("code", 400);
+		obj.insert("message", QJsonValue("Bad Request"));
+	ret.insert("args",obj);
       }
     }else{
       //Unknown type of JSON input - nothing to do
