@@ -676,7 +676,7 @@ new_gpart_partitions()
     then
 
       # If this is the boot disk, stamp the right gptboot
-      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" ] ; then
+      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" -a -z "$EFI_POST_SETUP" ] ; then
         case ${BOOTTYPE} in
           freebsd-ufs) rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ${_pDisk}" ;;
           freebsd-zfs) rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
