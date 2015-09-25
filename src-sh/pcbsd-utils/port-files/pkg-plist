@@ -108,6 +108,7 @@ share/pcbsd/conf/desktop-excludes
 share/pcbsd/conf/server-excludes
 share/pcbsd/conf/loader.conf.pcbsd
 share/pcbsd/conf/loader.conf.trueos
+share/pcbsd/conf/logo-pcbsd.4th
 share/pcbsd/conf/ntpd.conf
 share/pcbsd/conf/rc.conf.pcbsd
 share/pcbsd/conf/smb4.conf

@@ -126,11 +126,12 @@
 <center>AppCafe Login
 </td></tr>
 <tr>
-<td><p align="right"><label for="username">Username</label></p></td><td><input type="text" id="username" name="username" value="" /></p></td>
+<td colspan=2><p align="center"><label for="username">Username</label><br>
+<input type="text" id="username" name="username" value="" /></p></td>
  </tr>
 <tr>
-<td><p align="right"><label for="password">Password</label></p></td>
-<td><input type="password" id="password" name="password" value="" /></td>
+<td colspan=2><p align="center"><label for="password">Password</label><br>
+<input type="password" id="password" name="password" value="" /></p></td>
 </tr>
 
 <tr><td colspan=2 align=center><center><input type="submit" name="submit" value="Login" class="btn-style"/></td></tr>

@@ -541,25 +541,35 @@ QStringList Backend::readXSessionsFile(QString filePath, QString locale){
 
 }
 
-void Backend::readSystemUsers(){
+void Backend::readSystemUsers(bool directfile){
   //make sure the lists are empty
   usernameList.clear(); displaynameList.clear(); homedirList.clear();
   QStringList uList;	
-    //Use "getent" to get all possible users
-    QProcess p;
-    p.setProcessChannelMode(QProcess::MergedChannels);
-      QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-      //Make sure to set all the possible UTF-8 flags before reading users
-      env.insert("LANG", "en_US.UTF-8");
-      env.insert("LC_ALL", "en_US.UTF-8");
-      env.insert("MM_CHARSET","UTF-8");
-    p.setProcessEnvironment(env);
-    p.start("getent passwd");
-    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
-      p.waitForFinished(200);
-      QCoreApplication::processEvents();
+    if(directfile){
+      //This is a general fallback for reading the file directly in case something goes wrong with the getent case below
+      QFile file("/etc/passwd");
+      if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream in(&file);
+        while (!in.atEnd()){ uList << in.readLine().simplified(); }
+        file.close();
+      }
+    }else{
+      //Use "getent" to get all possible users (detects LDAP/AD users - preferred)
+      QProcess p;
+      p.setProcessChannelMode(QProcess::MergedChannels);
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+        //Make sure to set all the possible UTF-8 flags before reading users
+        env.insert("LANG", "en_US.UTF-8");
+        env.insert("LC_ALL", "en_US.UTF-8");
+        env.insert("MM_CHARSET","UTF-8");
+      p.setProcessEnvironment(env);
+      p.start("getent passwd");
+      while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
+        p.waitForFinished(200);
+        QCoreApplication::processEvents();
+      }
+      uList = QString::fromUtf8( p.readAllStandardOutput() ).split("\n");
     }
-    uList = QString::fromUtf8( p.readAllStandardOutput() ).split("\n");
     
     //Remove all users that have:
    QStringList filter; filter << "server" << "daemon" << "database" << "system"<< "account"<<"pseudo";
@@ -602,7 +612,11 @@ void Backend::readSystemUsers(){
       else{ usershellList << uList[i].section(":",6,6).simplified(); }
     }
    } //end loop over uList
-  
+  if(usernameList.isEmpty() && !directfile){
+    //We need to find a valid user somewhere - try to directly read the file instead
+    qWarning() << "No users found with \"getent passwd\", reading the database directly...";
+    readSystemUsers(true);
+  }
 }
 
 void Backend::readSystemLastLogin(){

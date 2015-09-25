@@ -1,12 +1,14 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+$jail = "#system";
+$jailUrl="__system__";
+
 function do_service_action()
 {
   global $pbiorigin;
-  global $sc;
-  global $jail;
-  global $jailUrl;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $sname=$_GET['service'];
   $sscript=$_GET['servicerc'];
@@ -14,15 +16,7 @@ function do_service_action()
   if ( empty($sname) or empty($sscript) or empty($action) )
     return;
 
-  if ( $jail == "#system" )
-     $output = run_cmd("service $action $sname $sscript $jailUrl");
-  else {
-     // Get jail ID
-     exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-     $jid=$jarray[0];
-     $output = run_cmd("service $action $sname $sscript $jid");
-  }
-
+  $output = run_cmd("service $action $sname $sscript $jailUrl");
   if ( $action == "start" )
      echo "Started $sname on $jail<br>";  
   if ( $action == "stop" )
@@ -46,9 +40,8 @@ function parse_service_start()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
-  global $jail;
-  global $jailUrl;
-  global $sc;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $lines = file($pbicdir . "/service-start");
   foreach($lines as $line_num => $line)
@@ -67,8 +60,9 @@ function parse_service_start()
        $rcconf="/etc/rc.conf";
     else {
        // Get jail path
-       exec("$sc ". escapeshellarg("jail ". $jail . " path"), $jarray);
-       $rcconf=$jarray[0] . "/etc/rc.conf";
+       $sccmd = array("jail " . $jail . " path");
+       $response = send_sc_query($sccmd);
+       $rcconf = $response["jail ". $jail . " path"] . "/etc/rc.conf";
     }
 
     // Now look if the service is already enabled
@@ -96,8 +90,8 @@ function parse_service_config()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
-  global $jail;
-  global $sc;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $lines = file($pbicdir . "/service-configure");
   foreach($lines as $line_num => $line)
@@ -115,10 +109,9 @@ function parse_service_config()
       $ip = "localhost";
     else {
       // Get jail address
-      exec("$sc " 
-           . escapeshellarg("jail ". $jail . " ipv4")
-           , $jarray);
-      $ip = $jarray[0];
+      $sccmd = array("jail " . $jail . " ipv4");
+      $response = send_sc_query($sccmd);
+      $ip = $response["jail " . $jail . " ipv4"];
       $ip = substr(strstr($ip, "|"), 1);
       $ip = substr($ip, 0, strpos($ip, "/"));
     }
@@ -143,15 +136,17 @@ function parse_service_config()
 // Run the done_cfg script
 function done_cfg()
 {
-  global $jail;
-  global $jailUrl;
   global $pbicdir;
-  global $sc;
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $jid = "__system__";
+
   if ( $jail != "#system" ) {
-    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-    $jid=$jarray[0];
+    // Get the jail ID
+    $sccmd = array("jail " . $jail . " id");
+    $response = send_sc_query($sccmd);
+    $jid = $response["jail " . $jail . " id"];
   }
 
   // Talk to dispatcher to run done script
@@ -161,19 +156,20 @@ function done_cfg()
 // Set the current value for a config file setting
 function set_cfg_value($cfg, $value)
 {
-  global $jail;
-  global $jailUrl;
   global $updatedConfig;
   global $pbicdir;
-  global $sc;
   $updatedConfig=true;
 
   $key = $cfg['key'];
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $jid = "__system__";
   if ( $jail != "#system" ) {
-    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-    $jid=$jarray[0];
+    // Get the jail ID
+    $sccmd = array("jail " . $jail . " id");
+    $response = send_sc_query($sccmd);
+    $jid = $response["jail " . $jail . " id"];
   }
 
   // Talk to dispatcher to set config value
@@ -183,11 +179,10 @@ function set_cfg_value($cfg, $value)
 // Get the current value for a config file setting
 function get_cfg_value($cfg)
 {
-  global $jail;
-  global $jailUrl;
   global $pbicdir;
-  global $sc;
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $key = $cfg['key'];
   $default = $cfg['default'];
 
@@ -206,18 +201,19 @@ function display_config_details()
 {
   global $pbicdir;
   global $pbiorigin;
-  global $jail;
-  global $jailUrl;
   global $jailPath;
-  global $sc;
+
+  $jail = "#system";
+  $jailUrl="__system__";
 
   global $updatedConfig;
   $updatedConfig = false;
 
   // Get the jail path
-  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
-  $jailPath=$jArray[0];
-  
+  $sccmd = array("jail " . $jail . " path" );
+  $response = send_sc_query($sccmd);
+  $jailPath = $response["jail " . $jail . " path"];
+
   // Init the array to load in config data
   unset($appConfig);
 
@@ -311,11 +307,12 @@ function display_install_chooser()
 {
   global $pbiorigin;
   global $pbiname;
-  global $jailUrl;
-  global $jail;
   global $pbiInstalled;
   global $pkgCmd;
   global $SCERROR;
+
+  $jail = "#system";
+  $jailUrl="__system__";
 
    if ( $pbiInstalled ) {
      $output="";
@@ -376,29 +373,30 @@ function display_app_link($pbilist, $jail)
   $repo="remote";
   // Load the PBI details page
   $cmd="pbi app $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name") 
-     . " " . escapeshellarg("pkg $jail $repo $pbiorigin version") 
-     . " " . escapeshellarg("$cmd author")
-     . " " . escapeshellarg("$cmd website") 
-     . " " . escapeshellarg("$cmd comment")
-     . " " . escapeshellarg("$cmd confdir")
-     . " " . escapeshellarg("$cmd description")
-     . " " . escapeshellarg("pkg $jail $repo $pbiorigin name")
-     . " " . escapeshellarg("pkg $jail $repo $pbiorigin size")
-     , $pbiarray);
 
-  $pbiname = $pbiarray[0];
-  $pbiver = $pbiarray[1];
-  $pbiauth = $pbiarray[2];
-  $pbiweb = $pbiarray[3];
-  $pbicomment = $pbiarray[4];
-  $pbicdir = $pbiarray[5];
-  $pbidesc = $pbiarray[6];
-  $pkgsize = $pbiarray[8];
+  $sccmd = array("$cmd name",
+           "pkg $jail $repo $pbiorigin version",
+           "$cmd author",
+           "$cmd website",
+           "$cmd comment",
+           "$cmd confdir",
+           "$cmd description",
+           "pkg $jail $repo $pbiorigin name",
+           "pkg $jail $repo $pbiorigin size"
+           );
+  $response = send_sc_query($sccmd);
+  $pbiname = $response["$cmd name"];
+  $pbiver = $response["pkg $jail $repo $pbiorigin version"];
+  $pbiauth = $response["$cmd author"];
+  $pbiweb = $response["$cmd website"];
+  $pbicomment = $response["$cmd comment"];
+  $pbicdir = $response["$cmd confdir"];
+  $pbidesc = $response["$cmd description"];
+  $pkgsize = $response["pkg $jail $repo $pbiorigin size"];
 
   if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
      $isPBI = false;
-     $pbiname = $pbiarray[7];
+     $pbiname = $response["pkg $jail $repo $pbiorigin name"];
   } else {
      $isPBI = true;
   }
@@ -410,42 +408,52 @@ function display_app_link($pbilist, $jail)
     // Get second tier PBI data
     $cmd="pbi app $pbiorigin";
     unset($pbiarray);
-    exec("$sc ". escapeshellarg("$cmd license") 
-      . " " . escapeshellarg("$cmd type") 
-      . " " . escapeshellarg("$cmd tags") 
-      . " " . escapeshellarg("$cmd relatedapps") 
-      . " " . escapeshellarg("$cmd plugins") 
-      . " " . escapeshellarg("$cmd options") 
-      . " " . escapeshellarg("$cmd rating")
-      . " " . escapeshellarg("$cmd screenshots")
-      . " " . escapeshellarg("pkg $jail remote $pbiorigin dependencies")
-      , $pbiarray);
-    $pbilicense = $pbiarray[0];
-    $pbitype = $pbiarray[1];
-    $pbitags = $pbiarray[2];
-    $pbirelated = $pbiarray[3];
-    $pbiplugins = $pbiarray[4];
-    $pbioptions = $pbiarray[5];
-    $pbirating = $pbiarray[6];
-    $pbiss = $pbiarray[7];
-    $pbideps = $pbiarray[8];
-    if ( $pbideps == $SCERROR)
+
+    $sccmd = array("$cmd license",
+             "$cmd type",
+             "$cmd tags",
+             "$cmd relatedapps",
+             "$cmd plugins",
+             "$cmd options",
+             "$cmd rating",
+             "$cmd screenshots",
+             "pkg $jail remote $pbiorigin dependencies"
+             );
+    $response = send_sc_query($sccmd);
+    $pbilicense = $response["$cmd license"];
+    $pbitype = $response["$cmd type"];
+    $pbitags = $response["$cmd tags"];
+    $pbirelated = $response["$cmd relatedapps"];
+    $pbiplugins = $response["$cmd plugins"];
+    $pbioptions = $response["$cmd options"];
+    $pbirating = $response["$cmd rating"];
+    $pbiss = $response["$cmd screenshots"];
+    $pbideps = $response["pkg $jail remote $pbiorigin dependencies"];
+    if ( $pbideps == " ")
        unset($pbideps);
+    if ( $pbiss == " " )
+      unset($pbiss);
+    if ( $pbirelated == " " )
+      unset($pbirelated);
+    if ( $pbiplugins == " " )
+      unset($pbiplugins);
+    if ( $pbioptions == " " )
+      unset($pbioptions);
     $pkgCmd="pbi";
   } else {
     $pkgCmd="pkg";
 
     // Not a PBI, fallback to loading data from PKGNG
-    exec("$sc ". escapeshellarg("pkg $jail $repo $pbiorigin maintainer") 
-       . " " . escapeshellarg("pkg $jail $repo $pbiorigin website")
-       . " " . escapeshellarg("pkg $jail $repo $pbiorigin comment")
-       . " " . escapeshellarg("pkg $jail $repo $pbiorigin description")
-       , $pkgarray);
-    $pbiauth = $pkgarray[0];
-    $pbiweb = $pkgarray[1];
-    $pbicomment = $pkgarray[2];
-    $pbidesc = $pkgarray[3];
-
+    $sccmd = array("pkg " . $jail . " " . $repo . " " . $pbiorigin . " maintainer",
+             "pkg " . $jail . " " . $repo . " " . $pbiorigin . " website",
+             "pkg " . $jail . " " . $repo . " " . $pbiorigin . " comment",
+             "pkg " . $jail . " " . $repo . " " . $pbiorigin . " description"
+             );
+    $response = send_sc_query($sccmd);
+    $pbiauth = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " maintainer" ];
+    $pbiweb = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " website" ];
+    $pbicomment = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " comment" ];
+    $pbidesc = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " description" ];
   }
 
   // Get the current work queue status of the dispatcher
@@ -635,8 +643,7 @@ function display_app_link($pbilist, $jail)
 	 // Do we have deps to show?
          if ( ! empty($pbideps) ) {
             echo "<div id=\"tabs-deps\">\n";
-            $dlist = explode(" ", $pbideps);
-            foreach($dlist as $dep)
+            foreach($pbideps as $dep)
               echo "  <b>$dep</b><br>\n";
 	    echo "</div>\n";
          }

@@ -1,7 +1,10 @@
 <?
    defined('DS') OR die('No direct access allowed.');
 
-   // Setup global variables and such
+   use WebSocket\Client;
+
+   // Create a websocket connection to syscache
+   $scclient = new Client("ws://127.0.0.1:12142");
 
    // Check if we need to display desktop apps, or just server / CLI
    if ( file_exists("/usr/local/bin/startx") === false )
@@ -17,10 +20,6 @@
 
    // Probally shouldn't modify these below
    ///////////////////////////////////////////////////
-
-   // Legacy stuff from old AppCafe 1.0 - Could be removed at some point
-   $jail = "#system";
-   $jailUrl = "__system__";
 
    // Set if we are viewing recommended or all PBI
    $allPBI = "false";

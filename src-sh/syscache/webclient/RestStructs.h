@@ -1,5 +1,5 @@
 // ===============================
-//  PC-BSD REST API Server
+//  PC-BSD REST/JSON API Server
 // Available under the 3-clause BSD License
 // Written by: Ken Moore <ken@pcbsd.org> July 2015
 // =================================
@@ -28,13 +28,20 @@ public:
 
 	RestInputStruct(QString message){
 	  HTTPVERSION = CurHttpVersion;
-	  Header = message.section("\n{",0,0).split("\n");
-	  Body = message.remove(Header.join("\n")+"\n"); //chop the headers off the front
+	  if(!message.startsWith("{")){ 
+	    Header = message.section("\n{",0,0).split("\n");
+	  }
 	  if(!Header.isEmpty()){
 	    QString line = Header.takeFirst(); //The first line is special (not a generic header)
 	    VERB = line.section(" ",0,0);
 	    URI = line.section(" ",1,1);
 	    HTTPVERSION = line.section(" ",2,2);
+	    Body = message.remove(Header.join("\n")+"\n"); //chop the headers off the front
+	  }else{
+	    //simple bypass for any non-REST inputs - just have it go straight to JSON parsing
+	    VERB = "GET"; 
+	    URI = "/syscache";
+	    Body = message;
 	  }
 	}
 	~RestInputStruct(){}
@@ -56,6 +63,7 @@ public:
 	~RestOutputStruct(){}
 		
 	QString assembleMessage(){
+	  /* JUST OUTPUT RAW JSON - DISABLE REST FOR THE MOMENT
 	  QStringList headers;
 	  QString firstline = HTTPVERSION;
 	  switch(CODE){
@@ -89,7 +97,8 @@ public:
 	  //Now add the body of the return
 	  if(!Body.isEmpty()){ headers << "Content-Length: "+QString::number(Body.length()); }
 	  headers << Body;
-	  return headers.join("\n");
+	  return headers.join("\n");*/
+	  return Body;
 	}
 };
 

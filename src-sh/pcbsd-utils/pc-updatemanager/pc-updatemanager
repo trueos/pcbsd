@@ -772,16 +772,17 @@ check_valid_uptarget()
   if [ $? -ne 0 ] ; then
      exit_err "No beadm installed! Is this a jail or non PC-BSD / TrueOS box?"
   fi
-
-  if [ ! -e '/boot/grub/grub.cfg' ] ; then
-     exit_err "No GRUB setup! Is this a jail or non PC-BSD / TrueOS box?"
-  fi
 }
 
 update_freebsd()
 {
   check_valid_uptarget
   touch_updateinprogress
+
+  pc-fbsdupdatecheck | grep -q "will be updated"
+  if [ $? -ne 0 ] ; then
+    exit_err "No FreeBSD updates available!"
+  fi
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
@@ -1430,7 +1431,7 @@ prep_rc_script()
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade 2>&1 | tee -a ${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
   rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   rm ${STAGEMNT}/${FREEBSDUP}
@@ -1476,7 +1477,11 @@ mk_stage_be_default()
   # Rename the nickname
   rc_nohalt "beadm rename -n ${TMPNICK} ${newBEName}"
   rc_halt "beadm activate $newBEName"
-  rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+
+  # Only update grub if its installed
+  if [ -e "/boot/grub/grub.cfg" ] ; then
+    rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
 }
 
 do_auto_be()

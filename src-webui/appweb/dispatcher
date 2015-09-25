@@ -91,7 +91,7 @@ run_queue_cmd()
             ;;
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
-	       destroy|pull) ;;
+	       destroy|pull|create) ;;
 		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
@@ -125,6 +125,7 @@ run_queue_cmd()
        cmd="iocage pkgupdate $target"
      fi
   elif [ "$app" == "iocage" ];then
+     # App Container / gitjail
      if [ "$origin" = "pull" ] ; then
         neworigin="`echo $flag | sed 's|/|-|g'`"
 
@@ -133,10 +134,35 @@ run_queue_cmd()
         if [ $? -eq 0 ] ; then
 	  echo "ERROR: The plugin jail pbicage-$neworigin is already installed!" >> ${QLOGFILE}
           echo "FAILED $ident $@" >> $QRESULTS
-        fi	
+        fi
 
-        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=DEFAULT|AUTOIP4"
+	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+          # System has VIMAGE enabled
+          cmd="iocage pull $target tag=pbicage-$neworigin devfs_ruleset=5 boot=on vnet=on dhcp=on bpf=on"
+	else
+	  # No VIMAGE, use fallback method
+	  cmd="iocage pull $target tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4"
+	fi
      fi 
+     # Regular jail creation
+     if [ "$origin" = "create" ] ; then
+        newtag="$flag"
+
+	# First make sure this jail doesn't exist
+	iocage get ip4_addr pbijail-$newtag 2>/dev/null >/dev/null
+        if [ $? -eq 0 ] ; then
+	  echo "ERROR: The plugin jail pbijail-$newtag is already installed!" >> ${QLOGFILE}
+          echo "FAILED $ident $@" >> $QRESULTS
+        fi
+
+	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+          # System has VIMAGE enabled
+          cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on"
+	else
+	  # No VIMAGE, use fallback method
+	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=DEFAULT|AUTOIP4"
+	fi
+     fi
      if [ "$origin" = "destroy" ] ; then
         # Stop the jail first
         iocage stop $target >>${QLOGFILE} 2>>${QLOGFILE}
@@ -164,7 +190,10 @@ run_queue_cmd()
 
   # If we created a new jail, lets bootstrap iocage with pkgng
   if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
-     local jdir="/`cat ${QLOGFILE} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
+     # Start the jail
+     echo "#Starting the jail..." >>${QLOGFILE}
+     iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
+     local jdir="/`iocage get jail_zfs_dataset pbijail-$newtag | sed 's|/data$|/root|g'`"
      bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
   fi
 
@@ -218,7 +247,7 @@ unblock_jail_ip4()
 bootstrap_pkgng_iocage()
 {
   local jaildir="${1}"
-  local outfile="${1}/.pkgBS.sh"
+  local outfile="${1}/tmp/.pkgBS.sh"
   echo "Bootstrapping pkgng for jail ${jaildir}"
 
   if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
@@ -279,7 +308,7 @@ exit 0
 __EOF__
 
   # Run the file to bootstrap pkg
-  chroot $jaildir sh /.pkgBS.sh
+  chroot $jaildir sh /tmp/.pkgBS.sh
   rm ${outfile}
 
   # Now boot-strap the real pkgng pkg
@@ -370,6 +399,87 @@ run_iocage_cmd()
           *) echo "Non-dispatch-approved iocage command: $2" ;;
   esac
   syscache "startsync" >/dev/null 2>/dev/null
+}
+
+get_iocage_ip4()
+{
+  jid="$3"
+  if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+    # Using VIMAGE
+    uuid=$(iocage get all $jid | grep uuid | cut -d ":" -f 2)
+    jid=$(jls | grep $uuid | awk '{print $1}')
+    jexec $jid ifconfig | grep 'inet ' | grep broadcast | awk '{print $2}'
+  else
+    # Regular method
+    iocage get ip4_addr $jid
+  fi
+}
+
+
+run_iocage_getfstab()
+{
+  jid="$3"
+  fstab=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')/fstab
+  if [ -e "$fstab" ] ; then
+     cat $fstab
+     exit 0
+  fi
+  exit 1
+}
+
+run_iocage_addfstab()
+{
+  jid="$3"
+  mnt=$(echo $4 | sed "s|^/||g")
+  jaildir=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')/root
+  fstab=$(echo $jaildir | sed 's|/root||g')/fstab
+  touch $fstab
+
+  if [ -z "$mnt" ] ; then
+    echo "Cannot nullfs mount /"
+    exit 1
+  fi
+
+  if [ ! -d "/$mnt" ] ; then
+    echo "No such directory: /$mnt"
+    exit 1
+  fi
+
+  # Sanity check the request
+  case $mnt in
+    bin|boot|compat|dev|etc|iocage|lib|libexec|net|proc|rescue|sbin|sys|tmp|usr)
+         echo "Cowardly refusing to nullfs mount /$mnt"
+         exit 1
+         ;;
+      *) ;;
+  esac
+
+  if [ ! -d "$jaildir/$mnt" ] ; then
+    mkdir -p $jaildir/$mnt
+  fi
+
+  # Add the fstab entry
+  echo "nullfs	/$mnt	$jaildir/$mnt	rw	0	0" >> $fstab
+
+  # Mount the directory
+  mount_nullfs /$mnt $jaildir/$mnt
+
+  exit 0
+}
+
+run_iocage_delfstab()
+{
+  jid="$3"
+  mnt=$(echo $4 | sed "s|^/||g")
+  jaildir=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')/root
+  fstab=$(echo $jaildir | sed 's|/root||g')/fstab
+  touch $fstab
+
+  # Delete the fstab entry
+  cat $fstab | grep -v "$jaildir/$mnt	rw" > ${fstab}.new
+  mv ${fstab}.new ${fstab}
+  umount -f "${jaildir}/$mnt"
+  exit 0
 }
 
 run_service_cmd()
@@ -497,7 +607,7 @@ print_usage()
 {
   echo "Dispatcher usage:
 --------------------------------
-   iocage {start|stop} {jail}
+   iocage {cmd} [args]
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
@@ -550,7 +660,11 @@ case $1 in
     iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              destroy|pull) echo "$@" >>${QLIST} ;;
+              create|destroy|pull) echo "$@" >>${QLIST} ;;
+	      getip4) get_iocage_ip4 "$@" ;;
+	      addfstab) run_iocage_addfstab "$@" ;;
+	      delfstab) run_iocage_delfstab "$@" ;;
+	      getfstab) run_iocage_getfstab "$@" ;;
 	      # These commands can be run immediately
 	      start|stop|auto|set|get|activate) run_iocage_cmd $@ ;;
 	      *) echo "Invalid iocage command! $2" ; exit 1 ;;

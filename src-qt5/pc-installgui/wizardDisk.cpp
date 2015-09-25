@@ -873,6 +873,11 @@ void wizardDisk::slotTreeMountsRightClick()
   popupCM->addAction( "off", this, SLOT(slotZCMOFF()));
   popupCM->addAction( "noauto", this, SLOT(slotZCMNOAUTO()));
 
+  // Case sensitivity
+  popupCI = popup->addMenu("casesensitivity");
+  popupCI->addAction( "sensitive", this, SLOT(slotZCION()));
+  popupCI->addAction( "insensitive", this, SLOT(slotZCIOFF()));
+
   // Create Checksum sub-menu
   popupCH = popup->addMenu("checksum");
   popupCH->addAction( "on", this, SLOT(slotZChkON()));
@@ -906,6 +911,16 @@ void wizardDisk::slotTreeMountsRightClick()
 
   popup->exec( QCursor::pos() );
 
+}
+
+void wizardDisk::slotZCION()
+{
+  toggleZFSOpt(QString("casesensitivity=sensitive"));
+}
+
+void wizardDisk::slotZCIOFF()
+{
+  toggleZFSOpt(QString("casesensitivity=insensitive"));
 }
 
 void wizardDisk::slotZCMNOAUTO()

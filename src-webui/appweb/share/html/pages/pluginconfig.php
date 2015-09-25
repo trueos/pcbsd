@@ -7,6 +7,9 @@ defined('DS') OR die('No direct access allowed.');
   // Get the default IP4 base range
   $defaultip4base = exec("netstat -f inet -nrW | grep '^default' | awk '{ print $2 }' | cut -d '.' -f 1-3");
 
+  // Check for VIMAGE support
+  $vimage = exec("/sbin/sysctl -qn kern.features.vimage");
+
   // Get the iocage pool
   $curpool = get_iocage_pool();
 
@@ -23,6 +26,11 @@ defined('DS') OR die('No direct access allowed.');
   $ip4end = $output[0];
   $output = run_cmd("iocage get ip4_autosubnet default");
   $ip4subnet = $output[0];
+
+  if ( (! empty($_POST['iocpool']) and $vimage != 1) and ( empty($_POST['ip4start']) or empty($_POST['ip4end']) or empty($_POST['ip4subnet']) ) )
+  {
+    $errormsg="ERROR: You must specify a valid IPv4 range / netmask!";
+  }
 
   // Save the ip4 ranges / settings
   $setranges=true;
@@ -77,14 +85,17 @@ defined('DS') OR die('No direct access allowed.');
   } else {
 
     if ( $firstrun )
-      echo "<h1>Welcome to AppCafe Plugins!</h1><br>";
+      echo "<h1>Welcome to AppCafe!</h1><br>";
     else
-      echo "<h1>Plugin Configuration</h1><br>";
+      echo "<h1>Apps Configuration</h1><br>";
 
-    echo "<p>Each AppCafe managed plugin requires an IP address on your network. Please specify a range of usable IPs which can be assigned to plugins.</p>";
+    if ( $vimage == 1 )
+      echo "<p>The following ZFS pool will be used to store your Apps:</p>";
+    else
+      echo "<p>Each AppCafe managed container requires an IP address on your network. Please specify a range of usable IPs which can be assigned to App containers.</p>";
 
     if ( ! empty($errormsg) ) {
-      echo "<br><p style=\"color:red;\">$errormsg</p><br>";
+      echo "<br><p style=\"color:red;\">$errormsg</p>";
     }
 ?>
 <table class="jaillist" style="width:100%">
@@ -94,6 +105,7 @@ defined('DS') OR die('No direct access allowed.');
 </tr>
 
 <form method="post" action="?p=pluginconfig&firstrun=<?php if ( $firstrun ) { echo "1"; } ?>">
+<?php if ( $vimage != 1) { ?>
 <tr>
   <td style="text-align: center; vertical-align: middle;">
   Available IPv4 Range
@@ -105,6 +117,7 @@ defined('DS') OR die('No direct access allowed.');
     <input name="ip4subnet" type="text" size=2 maxlength=2 value="<?php echo "$ip4subnet"; ?>" />
   </td>
 </tr>
+<?php } ?>
 <tr>
   <td style="text-align: center; vertical-align: middle;">Plugin zpool:</td>
   <td style="text-align: left; vertical-align: middle;">

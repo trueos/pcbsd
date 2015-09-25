@@ -84,7 +84,7 @@ fi
 export UNAME_r="`freebsd-version`"
 
 # Get the GIT tag
-ghtag=`git log -n 1 . | grep '^commit ' | awk '{print $2}' | cut -c 1-6`
+ghtag=`git log -n 1 . | grep '^commit ' | awk '{print $2}'`
 
 
 # Read the list of ports and build them now

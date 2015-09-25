@@ -11,7 +11,6 @@ misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
 misc/pcbsd-meta-awesome
-misc/pcbsd-meta-cinnamon
 misc/pcbsd-meta-fvwm
 misc/pcbsd-meta-gnome
 misc/pcbsd-meta-hplip
@@ -55,3 +54,4 @@ www/nspluginwrapper
 www/firefox
 www/chromium
 x11/lumina
+x11-drivers/xf86-video-scfb

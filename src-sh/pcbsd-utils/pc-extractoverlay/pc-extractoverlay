@@ -115,6 +115,9 @@ post_extract_setup()
     fi
   fi
 
+  # Copy over the 4th loader logo file
+  cp /usr/local/share/pcbsd/conf/logo-pcbsd.4th /boot/logo-pcbsd.4th
+
   # Stuff not for jails
   if [ -e "/boot/grub/grub.cfg" ] ; then
 

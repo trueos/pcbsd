@@ -36,7 +36,7 @@ public slots:
 private:
 	QHash<QString,QString> *HASH;
 	QProcess *longProc;
-	bool stopping;
+	bool stopping, applianceMode;
 
 	//System Command functions 
 	QStringList sysCmd(QString cmd); // ensures only 1 running at a time (for things like pkg)

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>365</width>
-    <height>361</height>
+    <height>457</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,16 +18,166 @@
     <normaloff>:/tray_wifi85.png</normaloff>:/tray_wifi85.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="spacer8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>261</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushClose">
+       <property name="text">
+        <string>&amp;Close</string>
+       </property>
+       <property name="shortcut">
+        <string>Alt+C</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>WPA Enterprise Configuration</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="textLabel1">
+      <item row="10" column="1">
+       <widget class="QComboBox" name="comboPhase2">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <item>
+         <property name="text">
+          <string>MD5</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>MSCHAPV2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>GTC</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>OTP</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>PAP</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CHAP</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>MSCHAP</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QPushButton" name="pushSelectCACert">
         <property name="text">
-         <string>EAP authentication method</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="libpcbsd-ui.qrc">
+          <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="textPrivateKey">
+        <property name="text">
+         <string>Password:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0" colspan="2">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="comboKeyMgmt">
+        <item>
+         <property name="text">
+          <string notr="true">WPA-EAP</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">IEE8021X</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0" alignment="Qt::AlignRight">
+       <widget class="QLabel" name="labelKeyMgmt">
+        <property name="text">
+         <string>Key Management</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QPushButton" name="pushSelectPrivateKeyFile">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="libpcbsd-ui.qrc">
+          <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="QLineEdit" name="lineEAPIdentity"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="textLabel2">
+        <property name="text">
+         <string>EAP Identity:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
         <property name="wordWrap">
          <bool>false</bool>
@@ -62,23 +212,24 @@
         </item>
        </layout>
       </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="textLabel2">
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="textLabel1">
         <property name="text">
-         <string>EAP Identity:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <string>EAP authentication method</string>
         </property>
         <property name="wordWrap">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="4" column="1" colspan="2">
-       <widget class="QLineEdit" name="lineEAPIdentity"/>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineClientCert">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
-      <item row="5" column="0">
+      <item row="6" column="0">
        <widget class="QLabel" name="textCACert">
         <property name="text">
          <string>CA Certificate:</string>
@@ -91,56 +242,7 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="lineCACert">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="2">
-       <widget class="QPushButton" name="pushSelectCACert">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="libpcbsd-ui.qrc">
-          <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="textClientCert">
-        <property name="text">
-         <string>Client Certificate:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="wordWrap">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QLineEdit" name="lineClientCert">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QPushButton" name="pushSelectClientCert">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="libpcbsd-ui.qrc">
-          <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
+      <item row="8" column="0">
        <widget class="QLabel" name="textPrivateKeyFile">
         <property name="text">
          <string>Private Key File:</string>
@@ -153,28 +255,24 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
-       <widget class="QLineEdit" name="linePrivateKeyFile">
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineCACert">
         <property name="readOnly">
          <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="7" column="2">
-       <widget class="QPushButton" name="pushSelectPrivateKeyFile">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="libpcbsd-ui.qrc">
-          <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
+      <item row="11" column="1">
+       <widget class="QLineEdit" name="linePrivateKeyPassword">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="textPrivateKey">
+      <item row="7" column="0">
+       <widget class="QLabel" name="textClientCert">
         <property name="text">
-         <string>Password:</string>
+         <string>Client Certificate:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -184,14 +282,25 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="1" colspan="2">
-       <widget class="QLineEdit" name="linePrivateKeyPassword">
-        <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
+      <item row="7" column="2">
+       <widget class="QPushButton" name="pushSelectClientCert">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="libpcbsd-ui.qrc">
+          <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
         </property>
        </widget>
       </item>
-      <item row="9" column="0">
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="linePrivateKeyFile">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
        <widget class="QLabel" name="textPrivateKey2">
         <property name="text">
          <string>Repeat Password:</string>
@@ -204,51 +313,37 @@
         </property>
        </widget>
       </item>
-      <item row="9" column="1" colspan="2">
+      <item row="10" column="0" alignment="Qt::AlignRight">
+       <widget class="QLabel" name="textPhase2">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="text">
+         <string>Phase 2 Auth:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1">
        <widget class="QLineEdit" name="linePrivateKeyPassword2">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
        </widget>
       </item>
-      <item row="10" column="0" colspan="3">
+      <item row="13" column="0">
        <widget class="QCheckBox" name="checkShowKey">
         <property name="text">
          <string>Show Key</string>
         </property>
        </widget>
       </item>
-      <item row="11" column="0" colspan="2">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
+      <item row="5" column="1" colspan="2">
+       <widget class="QLineEdit" name="lineAnonIdentity"/>
       </item>
-      <item row="3" column="1">
-       <widget class="QComboBox" name="comboKeyMgmt">
-        <item>
-         <property name="text">
-          <string notr="true">WPA-EAP</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string notr="true">IEE8021X</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="labelKeyMgmt">
+      <item row="5" column="0">
+       <widget class="QLabel" name="textAnonIdentity">
         <property name="text">
-         <string>Key Management</string>
+         <string>Anonymous Identity:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -258,39 +353,28 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <spacer name="spacer8">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>261</width>
-         <height>21</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushClose">
-       <property name="text">
-        <string>&amp;Close</string>
-       </property>
-       <property name="shortcut">
-        <string>Alt+C</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>radioEAPTLS</tabstop>
+  <tabstop>radioEAPTTLS</tabstop>
+  <tabstop>radioEAPPEAP</tabstop>
+  <tabstop>comboKeyMgmt</tabstop>
+  <tabstop>lineEAPIdentity</tabstop>
+  <tabstop>lineAnonIdentity</tabstop>
+  <tabstop>lineCACert</tabstop>
+  <tabstop>pushSelectCACert</tabstop>
+  <tabstop>lineClientCert</tabstop>
+  <tabstop>pushSelectClientCert</tabstop>
+  <tabstop>linePrivateKeyFile</tabstop>
+  <tabstop>pushSelectPrivateKeyFile</tabstop>
+  <tabstop>comboPhase2</tabstop>
+  <tabstop>linePrivateKeyPassword</tabstop>
+  <tabstop>linePrivateKeyPassword2</tabstop>
+  <tabstop>checkShowKey</tabstop>
+  <tabstop>pushClose</tabstop>
+ </tabstops>
  <includes>
   <include location="local">qmessagebox.h</include>
  </includes>

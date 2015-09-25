@@ -40,13 +40,12 @@ Configuring AppCafe®
 AppCafe® includes the ability to remotely manage software and jails from another system or mobile device. During the installation
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
 a web browser. On a desktop installation, AppCafe® can be run as a local application and optionally configured for remote access. To launch the
-AppCafe® application on a PC-BSD® desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type 
-:command:`appcafe` from a command prompt. When prompted, input your password. Figure 7.1a shows the initial AppCafe® screen when it is started from
-a desktop.
+AppCafe® application on a PC-BSD® desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type  :command:`appcafe` from a command prompt. When
+prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>` shows the initial AppCafe® screen when it is started from a desktop.
 
-**Figure 7.1a: Running AppCafe® from a Desktop**
+.. _remote1c:
 
-.. image:: images/remote1c.png
+.. figure:: images/remote1c.png
 
 .. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
    If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
@@ -62,11 +61,11 @@ The top bar contains navigational arrows and a refresh icon. Click the icon at t
 
 * **Close AppCafe:** used to exit this application.
 
-Figure 7.1b shows the menu that appears if you click the "Configure" option. 
+:numref:`Figure %s: Configuring the AppCafe® Repository <remote2a>` shows the menu that appears if you click the "Configure" option. 
 
-**Figure 7.1b: Configuring the AppCafe® Repository**
+.. _remote2a:
 
-.. image:: images/remote2a.png
+.. figure:: images/remote2a.png
 
 The "Repository Configuration" tab is used to determine which package set to use, where:
 
@@ -80,11 +79,11 @@ The "Repository Configuration" tab is used to determine which package set to use
 * **Custom:** assumes that you have followed the instructions to :ref:`Create a Local Package Mirror` and are ready to click the "+" button to browse to the location of the custom
   :file:`.rpo` file. To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
 
-To configure remote access, use the "Remote Access" tab shown in Figure 7.1c. 
+To configure remote access, use the "Remote Access" tab shown in :numref:`Figure %s: Configuring Remote Access <remote3>`. 
 
-**Figure 7.1c: Configuring Remote Access**
+.. _remote3:
 
-.. image:: images/remote3.png
+.. figure:: images/remote3.png
 
 Check the box to "Enable AppCafe Remote". Then, input a username and password to use for remote access and select a port number. If the system has a public IP
 address, be sure to use a hard-to-guess username and password. If you change the port number, make sure it does not conflict with another application running
@@ -94,13 +93,13 @@ When using AppCafe® to access a system from a public network, it is highly reco
 the specified port number and from allowed IP address(es).
 
 AppCafe® uses SSL by default and will automatically create a certificate for this purpose. Once remote access is configured, use :file:`https://` and
-specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The
-AppCafe® interface will load in the web browser. It will be similar to the one shown in Figure 7.1a, except the top navigational buttons and configure
+specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The AppCafe® interface will load in
+the web browser. It will be similar to the one shown in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>`, except the top navigational buttons and configure
 button will not be displayed and a "Logout" option will be added to the dark grey bar. Note that AppCafe® will automatically log you out after 60
 minutes of inactivity.
 
-The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
-"port", and "ssl" options are set using the information you provided either during a server installation or using the screen shown in Figure 7.1c.
+The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote", "port", and "ssl" options are set using
+the information you provided either during a server installation or using the screen shown in :numref:`Figure %s: Configuring Remote Access <remote3>`.
 The "mode" option is not set by default, but can be configured by removing the comment symbol (";") from that option and setting its value to either
 "desktop", "server", or "appliance". Here are the descriptions of the available modes as listed in that file::
 
@@ -122,10 +121,10 @@ The rest of this section describes how to manage software using AppCafe®.
 Software Management
 -------------------
 
-The "Home" tab, seen in Figure 7.1a, is used to browse for available PBIs. Applications which are already installed and which are not required by other applications have a red "X".
-If you click a red "X", a pop-up message will ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to
-install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow "Required" triangle will be
-displayed and a "Related" tab will indicate the name of the application(s) which require it.
+The "Home" tab, seen in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>`, is used to browse for available PBIs. Applications which are already installed and which are not
+required by other applications have a red "X". If you click a red "X", a pop-up message will ask if you would like to uninstall that application. Applications which are not installed have a
+grey download icon. Click the icon to install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow
+"Required" triangle will be displayed and a "Related" tab will indicate the name of the application(s) which require it.
 
 The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
 
@@ -136,11 +135,11 @@ PBIs within that category.
 To view all of the applications installed on the system, click the "Installed Apps" tab. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application.
 
-In the example shown in Figure 7.1d, the user has clicked "Firefox" on a system that has Firefox installed.
+In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4b>`, the user has clicked "Firefox" on a system that has Firefox installed.
 
-**Figure 7.1d: Viewing the Details of an Installed Application**
+.. _remote4b:
 
-.. image:: images/remote4b.png
+.. figure:: images/remote4b.png
 
 The information for an application includes the following: 
 
@@ -179,23 +178,23 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-The "App Search" tab is shown in Figure 7.1e. 
+The "App Search" tab is shown in :numref:`Figure %s: Searching for Applications <remote5b>`. 
 
-**Figure 7.1e: Searching for Applications**
+.. _remote5b:
 
-.. image:: images/remote5b.png
+.. figure:: images/remote5b.png
 
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
 
 By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBIs and packages" box.
 
-If you install or uninstall any software, a "Status" tab will be added. In the example shown in Figure 7.1f, the firefox application was installed. Click the hyperlink under
-the "Result" column to review the installation log.
+If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <appcafe6>`, the firefox application was installed.
+Click the hyperlink under the "Result" column to review the installation log.
 
-**Figure 7.1f: Example Status Tab**
+.. _appcafe6:
 
-.. image:: images/appcafe6.png
+.. figure:: images/appcafe6.png
 
 .. index:: AppCafe®
 .. _Jail Management:
@@ -224,11 +223,12 @@ To create, delete, and manage plugins within AppCafe®, click the "Plugins" tab.
 
 * **Status:** this tab appears if you have installed or uninstalled any software and contains the logs for each action.
 
-The first time you use plugins, the "Configuration" tab shown in Figure 7.1g will prompt you to configure the range of IP addresses on your network that you will reserve for plugins.
+The first time you use plugins, the "Configuration" tab shown in :numref:`Figure %s: Initial Plugins Configuration <remote6c>` will prompt you to configure the range of IP addresses on your
+network that you will reserve for plugins.
 
-**Figure 7.1g: Initial Plugins Configuration**
+.. _remote6c:
 
-.. image:: images/remote6c.png
+.. figure:: images/remote6c.png
 
 In this example, AppCafe® has detected that the PC-BSD® system is on the *192.168.1.x* network and the user has input a range of available addresses from
 *192.168.1.5* to
@@ -238,33 +238,34 @@ you have control over the DHCP server in your network, make a reservation for th
 In this example, AppCafe® has also detected that the name of the ZFS pool is *tank*. If you have multiple ZFS pools and would like to specify which one is used for plugins, use the
 "Plugin zpool" drop-down menu to select the desired pool.
 
-When finished, click "Save". This will open the "Installed Plugins" tab, showing the listing of available plugins. In the example shown in Figure 7.1h, the
-`Plex Media Server <https://plex.tv/>`_ plugin is available for installation.
+When finished, click "Save". This will open the "Installed Plugins" tab, showing the listing of available plugins. In the example shown in
+:numref:`Figure %s: List of Available Plugins <remote7a>`, the `Plex Media Server <https://plex.tv/>`_ plugin is available for installation.
 
-**Figure 7.1h: List of Available Plugins**
+.. _remote7a:
 
-.. image:: images/remote7a.png
+.. figure:: images/remote7a.png
 
 .. note:: at this time, only the Plex Media Server is available as a plugin. More plugins will be added in future updates to PC-BSD®. If you would like to install other, isolated
    applications, refer to the section on :ref:`Managing Jails from the CLI`.
 
 Click the plugin's install icon to begin the installation. Installation will take a few minutes as a new jail will be created, the jail will be assigned the next available reserved IP
-address, and the application will be installed into the jail. Once installed, a screen similar to Figure 7.1i will indicate that the plugin is installed.
+address, and the application will be installed into the jail. Once installed, a screen similar to :numref:`Figure %s: Plugin is Installed <plugin1>` will indicate that the plugin is
+installed.
 
-**Figure 7.1i: Plugin is Installed**
+.. _plugin1:
 
-.. image:: images/plugin1.png
+.. figure:: images/plugin1.png
 
 The title bar will indicate the name of the application that was installed and the IP address assigned to the jail where the application was installed. To configure the application,
-click the hyperlink for the "Plex Web Interface" configuration icon. This will open the configuration screen shown in Figure 7.1j.
+click the hyperlink for the "Plex Web Interface" configuration icon. This will open the configuration screen shown in :numref:`Figure %s: Plugin Configuration <plugin2>`.
+
+.. _plugin2:
+
+.. figure:: images/plugin2.png
 
 .. note:: depending upon the window manager's default web browser, the configuration link may or may not display properly. For example, the default web browser for the KDE window manager is
    Konqueror, which does not render the configuration page. To change the default web browser within KDE, click
    :menuselection:`Kickoff --> System Settings --> Default Applications -->Web Browser --> in the following browser` and use the browse button to select another web browser, such as Firefox.
-
-**Figure 7.1j: Plugin Configuration**
-
-.. image:: images/plugin2.png
 
 Click the "Agree" button to accept the application's license. You can now configure your channels and playlists. If you are new to Plex, refer to the
 `Plex Getting Started Guide <https://support.plex.tv/hc/en-us/categories/200007268-Getting-Started>`_.
@@ -474,11 +475,11 @@ The system is currently updating.
 
 The system needs to restart in order for the newly installed update to take effect.
 
-If you right-click the icon, you will see the menu shown in Figure 7.3a. 
+If you right-click the icon, you will see the menu shown in :numref:`Figure %s: Right-click Menu for Update Manager <update8a>`. 
 
-**Figure 7.3a: Right-click Menu for Update Manager** 
+.. _update8a:
 
-.. image:: images/update8a.png
+.. figure:: images/update8a.png
 
 This menu contains the following options:
 
@@ -522,61 +523,61 @@ version 10.1.1, the following steps occur automatically during an update:
   failure occur in the middle of an update, the system will reboot into the current boot environment, returning the system to the point before the upgrade started.
   Simply restart the update to continue the update process.
 
-* Once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system
-  will boot into it, unless you pause the boot menu and specify otherwise. A pop-up message, shown in Figure 7.3b, will indicate that a reboot is required.
+* Once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system will boot into it, unless you
+  pause the boot menu and specify otherwise. A pop-up message, shown in :numref:`Figure %s: Managing the Reboot After Update <update9>`, will indicate that a reboot is required.
   You can either finish what you are doing and reboot now into the upgraded snapshot, or ask the system to remind you again at a later time. To configure the
   time of the next warning, click the "Next Reminder" drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login
   session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
   until you reboot.
 
-* As the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update
-  Manager utility, shown in Figure 7.3c. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
+* As the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update Manager utility, shown in
+  :numref:`Figure %s: Viewing the Update Log <update10a>`. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
   the previous log is written to :file:`/var/log/pc-updatemanager.log.prev`, so that you also have a copy of the previous update's log.
 
 * You no longer need to initiate updates manually. PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20
   minutes after a reboot and then every 24 hours. You can configure what gets updated using the "Configure Automatic Updates" tab of Update Manager, shown in
-  Figure 7.3d. Choices are "Security & Packages" (all updates), "Security" (only security patches and operating system updates), "Packages" (only installed
-  software), or "Nothing" (disables automatic updating).
+  :numref:`Figure %s: Configuring What to Update <update11a>`. Choices are "Security & Packages" (all updates), "Security" (only security patches and operating system updates), "Packages"
+  (only installed software), or "Nothing" (disables automatic updating).
 
-**Figure 7.3b: Managing the Reboot After Update**
+.. _update9:
 
-.. image:: images/update9.png
+.. figure:: images/update9.png
 
-**Figure 7.3c: Viewing the Update Log**
+.. _update10a:
 
-.. image:: images/update10a.png
+.. figure:: images/update10a.png
 
-**Figure 7.3d: Configuring What to Update**
+.. _update11a:
 
-.. image:: images/update11a.png
+.. figure:: images/update11a.png
 
 The "View" menu of Update Manager provides the following information:
 
-* **Vulnerabilities:** click this entry to determine if any of the installed software has a known, unpatched vulnerability. In the example shown in Figure 7.3e,
-  two installed packages have known vulnerabilities. If you highlight an entry and click the "More info..." button, the default web browser will open to a page that
-  provides more details about the vulnerability.
+* **Vulnerabilities:** click this entry to determine if any of the installed software has a known, unpatched vulnerability. In the example shown in
+  :numref:`Figure %s: Viewing Installed Software Vulnerability Information <update14>`, two installed packages have known vulnerabilities. If you highlight an entry and click the "More
+  info..." button, the default web browser will open to a page that provides more details about the vulnerability.
 
 * **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
-  against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown
-  in Figure 7.3f, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA). More information about each
-  advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
+  against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown in
+  :numref:`Figure %s: Viewing Operating System Patches <update15>`, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA).
+  More information about each advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
 
-**Figure 7.3e: Viewing Installed Software Vulnerability Information**
+.. _update14:
 
-.. image:: images/update14.png
+.. figure:: images/update14.png
 
-**Figure 7.3f: Viewing Operating System Patches**
+.. _update15:
 
-.. image:: images/update15.png
+.. figure:: images/update15.png
 
 The "System" menu of Update Manager provides one option:
 
-* **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in Figure 7.3g, this
-  system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
+* **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in
+  :numref:`Figure %s: Switching Branches <branch1>`, this system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
 
-**Figure 7.3g: Switching Branches**
+.. _branch1:
 
-.. image:: images/branch1.png
+.. figure:: images/branch1.png
 
 Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
 either the GUI or the command-line method.
@@ -587,18 +588,18 @@ either the GUI or the command-line method.
 Manual Updates (GUI Method)
 ---------------------------
 
-Beginning in version 10.1.1, the automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up
-menu, shown in Figure 7.3b, indicates that a reboot is needed to complete the update process. The automatic updater will only update what it has been
+Beginning in version 10.1.1, the automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up menu, shown in
+:numref:`Figure %s: Managing the Reboot After Update <update9>`, indicates that a reboot is needed to complete the update process. The automatic updater will only update what it has been
 configured to update. If you would like to double-check or change what gets updated, start Update Manager, enter your password, and use the drop-down menu in
-the "Configure Automatic Updates" screen shown in Figure 7.3d. 
+the "Configure Automatic Updates" screen shown in :numref:`Figure %s: Configuring What to Update <update11a>`. 
 
 Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period. To manually check for updates, right-click the
 Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
-will appear, as seen in the example in Figure 7.3h. If no updates are available, of if the system is currently updating, this tab will not appear.
+will appear, as seen in the example in :numref:`Figure %s: Updates are Available <update12a>`. If no updates are available, of if the system is currently updating, this tab will not appear.
 
-**Figure 7.3h: Updates are Available**
+.. _update12a:
 
-.. image:: images/update12a.png
+.. figure:: images/update12a.png
 
 In this example, a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
 boot into the newly patched operating system.
@@ -844,11 +845,11 @@ After editing each client's file, run :command:`pc-updatemanager syncconf` on th
 changes. 
 
 Alternately, on each client, configure :ref:`Appcafe®` to use the custom repository. Go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen
-shown in Figure 7.4a, then the "+" button. Input the URL to the repository and click "OK". 
+shown in :numref:`Figure %s: Add the Custom Repository to AppCafe® <repo1>`, then the "+" button. Input the URL to the repository and click "OK". 
 
-**Figure 7.4a: Add the Custom Repository to AppCafe®**
+.. _repo1:
 
-.. image:: images/repo1.png
+.. figure:: images/repo1.png
 
 It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
 

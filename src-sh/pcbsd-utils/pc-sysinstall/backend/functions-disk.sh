@@ -804,11 +804,6 @@ run_gpart_gpt_part()
 
   # We only install boot-loader if using GRUB for dual-boot GPT
   if [ "${_intBOOT}" = "GRUB" ] ; then
-    # Check if the first partition is a bios-boot partition and convert if not
-    gpart show $DISK | grep ' 1 ' | grep -q bios-boot
-    if [ $? -ne 0 ] ; then
-      rc_halt "gpart modify -t bios-boot -i 1 ${DISK}"
-    fi
     # Doing a GRUB stamp? Lets save it for post-install
     grep -q "$DISK" ${TMPDIR}/.grub-install 2>/dev/null
     if [ $? -ne 0 ] ; then

@@ -123,7 +123,8 @@ QString DB::fetchInfo(QStringList request, bool noncli){
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
-      else if(request[1]=="cages"){ hashkey = "JailCages"; }
+      else if(request[1]=="stoppedcages"){ hashkey = "JailCages"; }
+      else if(request[1]=="runningcages"){ hashkey = "JailCagesRunning"; }
       else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
     
@@ -625,6 +626,13 @@ Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QObject(parent){
     longProc->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
     longProc->setProcessChannelMode(QProcess::MergedChannels);   
     connect(longProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(LongProcFinished(int, QProcess::ExitStatus)) );
+  applianceMode = false;
+  //Check if the system/appcafe is running in appliance mode (for FreeNAS, etc)
+  QStringList chk = readFile("/usr/local/etc/appcafe.conf").filter("mode").filter("=").filter("appliance");
+  for(int i=0; i<chk.length(); i++){
+    //Just verify that this line is not commented out (filtering above ensures this list is extremely small or empty)
+    if(chk[i].section(";",0,0).section("=",1,1).simplified()=="appliance"){ applianceMode = true; break;}
+  }
 }
 
 Syncer::~Syncer(){
@@ -738,6 +746,7 @@ void Syncer::clearPbi(){
 
 bool Syncer::needsLocalSync(QString jail){
   //Checks the pkg database file for modification since the last sync
+  if(applianceMode){ return false; } //never sync pkg info for appliances
   if(!HASH->contains("Jails/"+jail+"/lastSyncTimeStamp")){ return true; }
   else{
     //Previously synced - look at the DB modification time
@@ -763,6 +772,7 @@ bool Syncer::needsLocalSync(QString jail){
 }
 
 bool Syncer::needsRemoteSync(QString jail){
+  if(applianceMode){ return false; } //never sync pkg info for appliances
   //Checks the pkg repo files for changes since the last sync
   if( (jail!=LOCALSYSTEM) && HASH->value("Jails/"+jail+"/haspkg") != "true" ){ return false; } //pkg not installed
   else if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
@@ -794,6 +804,7 @@ bool Syncer::needsPbiSync(){
 }
 
 bool Syncer::needsSysSync(){
+  if(applianceMode){ return false; } //never sync freebsd-update info for appliances
   //Check how long since the last check the
   if(longProc->state() != QProcess::NotRunning){ return false; } //currently running
   if(!HASH->contains("System/lastSyncTimeStamp")){ return true; }
@@ -876,14 +887,14 @@ void Syncer::syncJailInfo(){
   //Now also fetch the list of inactive jails on the system
   QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
-  QStringList installedcages;
+  QStringList installedcages, runningcages;
   //qDebug() << "Warden Jail Info:" << info;
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
     if(ID.isEmpty()){ continue; }
     QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
-    if(!TAG.startsWith("pbicage-")){ continue; } //skip this jail
+    if(!TAG.startsWith("pbicage-") && !TAG.startsWith("pbijail-")){ continue; } //skip this jail
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
@@ -913,7 +924,7 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
       else if(tmp[j].startsWith("release:")) {RELEASE = val; }
     }
-      QString inst = TAG.section("pbicage-",1,10); //installed cage for this jail
+      QString inst = TAG.section("-",1,100); //installed cage for this jail
       //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
       int catdash = inst.indexOf("-");
       if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
@@ -942,8 +953,13 @@ void Syncer::syncJailInfo(){
     }
     
       QString prefix = "Jails/"+HOST+"/";
-      if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
-      else{ found << HOST; }
+      if(!TAG.startsWith("pbicage-")){
+        if(!isRunning){ inactive << HOST+" "+TAG; } //only save inactive jails - active are already taken care of
+       else{ found << HOST+" "+TAG; }
+      }else{
+	if(isRunning){ runningcages << inst+" "+ID; }
+	else{ installedcages << inst+" "+ID; }
+      }
       HASH->insert(prefix+"WID", ID); //iocage ID
       HASH->insert(prefix+"tag",TAG); //iocage tag
       HASH->insert(prefix+"installed", inst); //Installed pbicage origin
@@ -972,12 +988,11 @@ void Syncer::syncJailInfo(){
       //Only need the return code - 0=NoUpdates
       bool hasup = (QProcess::execute("iocage update -n "+ID)!=0);
       HASH->insert(prefix+"hasupdates", (hasup ? "true": "false") );
-
-      installedcages << inst+" "+ID;
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
   HASH->insert("JailCages", installedcages.join(LISTDELIMITER));
+  HASH->insert("JailCagesRunning", runningcages.join(LISTDELIMITER));
   //Remove any old jails from the hash (ones that no longer exist)
   for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
