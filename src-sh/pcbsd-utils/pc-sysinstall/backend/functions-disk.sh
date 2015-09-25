@@ -693,9 +693,9 @@ init_gpt_full_disk()
     echo "${_intDISK}" >> ${TMPDIR}/.grub-install
   fi
 
-  BOOTMODE=`kenv grub.platform`
+  BOOTMODE=`sysctl -n machdep.bootmethod`
   # Check the boot mode we are using {pc|efi}
-  if [ "$BOOTMODE" = "efi" ]; then
+  if [ "$BOOTMODE" = "UEFI" ]; then
     # Need to enable EFI booting, lets add the partition
     rc_halt "gpart add -s 100M -t efi ${_intDISK}"
     rc_halt "newfs_msdos -F 16 ${_intDISK}p1"
