@@ -96,6 +96,7 @@ public:
 	//Request Format: [<type>, <cmd1>, <cmd2>, .... ]
 
 	void writeToLog(QString message);
+	QStringList fetchHelpInfo(QString subsystem="");
 
 public slots:
 	void startSync();
