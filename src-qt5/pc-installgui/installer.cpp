@@ -48,7 +48,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     nextButton->setText(tr("&Next"));
 
     // Init the boot-loader
-    bootLoader = QString("GRUB");
+    bootLoader = QString("BSD");
 
     // We use GPT by default now
     sysPartType="GPT";

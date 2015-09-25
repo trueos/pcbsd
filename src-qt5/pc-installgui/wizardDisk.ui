@@ -317,6 +317,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QCheckBox" name="checkGRUB">
+          <property name="text">
+           <string>Use GRUB bootloader</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer_4">
           <property name="orientation">
            <enum>Qt::Vertical</enum>

@@ -153,7 +153,10 @@ void wizardDisk::accept()
   }
 
   // Get the boot-loader
-  bootLoader="GRUB";
+  if ( checkGRUB->isChecked() )
+    bootLoader="GRUB";
+  else
+    bootLoader="BSD";
 
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )

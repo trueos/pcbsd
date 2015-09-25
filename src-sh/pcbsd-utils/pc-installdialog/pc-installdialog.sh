@@ -389,7 +389,7 @@ get_sys_type()
 get_sys_bootmanager()
 {
   # Ask the boot-manager
-  get_dlg_ans "--radiolist \"Boot Manager\" 12 50 5 GRUB \"GRUB - Recommended\" on none \"No boot-loader\" off"
+  get_dlg_ans "--radiolist \"Boot Manager\" 12 50 5 BSD \"BSD - Recommended\" on GRUB \"GRUB\" off none \"No boot-loader\" off"
   if [ -z "$ANS" ] ; then
      exit_err "Invalid bootmanager type"
   fi
