@@ -86,6 +86,11 @@
   require("include/functions.php");
   require("include/functions-config.php");
 
+  // Auth this WS connection
+  $sccmd = array("username" => "root");
+  $response = send_sc_query($sccmd, "auth");
+
+
   // Check if we have updates to display
   check_update_reboot();
 
