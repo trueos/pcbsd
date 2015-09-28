@@ -71,3 +71,4 @@ net.graph.maxdata=65536
 # Set the brand/loader logo
 brand_logo="pcbsd"
 loader_logo="pcbsd"
+loader_menu_title="Welcome to PC-BSD"
