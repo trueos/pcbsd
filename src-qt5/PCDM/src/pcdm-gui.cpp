@@ -376,6 +376,7 @@ void PCDMgui::slotLoginFailure(){
     notice.exec();
   
   //Re-Enable user input
+  this->activateWindow();
   loginW->setEnabled(true);
   loginW->setFocus(Qt::ActiveWindowFocusReason); //window is gone - focus back on login widget
   loginW->resetFocus("password");
