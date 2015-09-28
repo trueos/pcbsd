@@ -97,6 +97,8 @@ share/pc-sysinstall/doc/help-disk-list
 share/pc-sysinstall/doc/help-index
 share/pc-sysinstall/doc/help-disk-size
 share/pc-sysinstall/doc/help-start-autoinstall
+share/pcbsd/conf/brand-pcbsd.4th
+share/pcbsd/conf/brand-trueos.4th
 share/pcbsd/conf/freebsd-update.conf
 share/pcbsd/conf/pcbsd-mirrors
 share/pcbsd/conf/pbi-mirror

@@ -1,6 +1,5 @@
-\ Copyright (c) 2003 Scott Long <scottl@FreeBSD.org>
-\ Copyright (c) 2006-2015 Devin Teske <dteske@FreeBSD.org>
 \ Copyright (c) 2015 Kris Moore <kmoore@FreeBSD.org>
+\ Copyright (c) 2006-2015 Devin Teske <dteske@FreeBSD.org>
 \ All rights reserved.
 \ 
 \ Redistribution and use in source and binary forms, with or without
@@ -26,29 +25,23 @@
 \ 
 \ $FreeBSD$
 
-52 logoX ! 9 logoY ! \ Initialize logo placement defaults
+2 brandX ! 1 brandY ! \ Initialize brand placement defaults
 
-: logo+ ( x y c-addr/u -- x y' )
+: brand+ ( x y c-addr/u -- x y' )
 	2swap 2dup at-xy 2swap \ position the cursor
 	type \ print to the screen
 	1+ \ increase y for next time we're called
 ;
 
-: logo ( x y -- ) \ TODO  in B/W (13 rows x 21 columns)
+: brand ( x y -- ) \ "TrueOS" [wide] logo in B/W (7 rows x 42 columns)
 
-	s"                  "      logo+
-	s"                  "      logo+
-	s"                  "      logo+
-	s"                  "      logo+
-	s"                  "      logo+
-	s"                  "      logo+
-	s"                     "   logo+
-	s"                     "   logo+
-	s"                     "   logo+
-	s"                     "   logo+
-	s"                     "   logo+
-	s"                     "   logo+
-	s"                     "  logo+
-
+	s"  _______               ____   _____       " brand+
+	s" |__   __|             / __ \ / ____|      " brand+
+	s"    | |_ __ _   _  ___| |  | | (___        " brand+
+	s"    | | '__| | | |/ _ \ |  | |\___ \       " brand+
+	s"    | | |  | |_| |  __/ |__| |____) |      " brand+
+	s"    |_|_|   \__,_|\___|\____/|_____/       " brand+
+                                     
+                                         
 	2drop
 ;

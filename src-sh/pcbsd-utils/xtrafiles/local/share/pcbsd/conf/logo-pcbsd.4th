@@ -34,21 +34,21 @@
 	1+ \ increase y for next time we're called
 ;
 
-: logo ( x y -- ) \ "PC-BSD" logo in B/W (13 rows x 21 columns)
+: logo ( x y -- ) \ TODO  in B/W (13 rows x 21 columns)
 
-	s"    _____   _____"       logo+
-	s"   |  __ \ / ____|"      logo+
-	s"   | |__) | |"           logo+
-	s"   |  ___/| |"           logo+
-	s"   | |    | |____"       logo+
-	s"   |_|     \_____|"      logo+
-	s"  ____   _____ _____"   logo+
-	s" |  _ \ / ____|  __ \"  logo+
-	s" | |_) | (___ | |  | |" logo+
-	s" |  _ < \___ \| |  | |" logo+
-	s" | |_) |____) | |__| |" logo+
-	s" |     |      |      |" logo+
-	s" |____/|_____/|_____/"  logo+
+	s"                  "      logo+
+	s"                  "      logo+
+	s"                  "      logo+
+	s"                  "      logo+
+	s"                  "      logo+
+	s"                  "      logo+
+	s"                     "   logo+
+	s"                     "   logo+
+	s"                     "   logo+
+	s"                     "   logo+
+	s"                     "   logo+
+	s"                     "   logo+
+	s"                     "  logo+
 
 	2drop
 ;
