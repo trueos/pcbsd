@@ -67,3 +67,6 @@ net.inet.ip.fw.one_pass=0
 
 # Increase maxdata for net.graph, fixes issues with scp / ssh wile running VirtualBox
 net.graph.maxdata=65536
+
+# Set the loader logo
+loader_logo="pcbsd"
