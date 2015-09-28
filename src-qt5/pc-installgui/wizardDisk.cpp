@@ -189,7 +189,7 @@ int wizardDisk::nextId() const
 	 checkForce4K->setVisible(false);
 	 groupZFSPool->setVisible(false);
          // Check if we are running in EFI mode
-         if ( system("kenv grub.platform | grep -q 'efi'") == 0 ) {
+         if ( system("sysctl -n machdep.bootmethod | grep -q 'UEFI'") == 0 ) {
             radioUEFI->setChecked(true);
 	    radioMBR->setEnabled(false);
          } else {
