@@ -161,7 +161,6 @@ void Installer::initInstall(QSplashScreen *splash)
 
     // Load any package scheme data
     splash->showMessage("Loading packages", Qt::AlignHCenter | Qt::AlignBottom);
-    listDeskPkgs = Scripts::Backend::getPackageData(availDesktopPackageData, QString());
 
     // Do check for available meta-pkgs on boot media
     if ( QFile::exists("/tmp/no-meta-pkgs") )
