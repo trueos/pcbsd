@@ -208,8 +208,6 @@ void Installer::initInstall(QSplashScreen *splash)
     splash->showMessage("Loading disk information", Qt::AlignHCenter | Qt::AlignBottom);
     loadDiskInfo();
     
-    // Init the desktop wheel
-    initDesktopSelector();
 }
 
 void Installer::loadDiskInfo()
@@ -506,31 +504,6 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->raise();
 }
 
-void Installer::slotDesktopCustomizeClicked()
-{
-  if ( ! radioDesktop->isChecked() )
-     return;
-  desks = new desktopSelection();
-  desks->programInit(listDeskPkgs,selectedPkgs);
-  desks->setWindowModality(Qt::ApplicationModal);
-  customPkgsSet = true;
-  connect(desks, SIGNAL(saved(QStringList)), this, SLOT(slotSaveMetaChanges(QStringList)));
-  desks->show();
-  desks->raise();
-}
-
-void Installer::slotSaveMetaChanges(QStringList sPkgs)
-{
-  selectedPkgs = sPkgs;
-
-  if ( radioDesktop->isChecked() )
-     groupDeskSummary->setTitle(tr("PC-BSD Package Selection"));
-  else
-     groupDeskSummary->setTitle(tr("TrueOS Package Selection"));
-
-  textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
-}
-
 void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce, QString biosMode )
 {
 
@@ -558,82 +531,6 @@ void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, 
  
   // Regenerate the config
   startConfigGen();
-}
-
-void Installer::slotChangedMetaPkgSelection()
-{
-
-  selectedPkgs.clear();
-  pushDeskCustomize->setEnabled(false);
-  pushDeskCustomize->setVisible(false);
-  if ( radioRestore->isChecked() )
-  {
-     textDeskSummary->setText(tr("Performing a restore from a Life-Preserver backup. Click next to start the restore wizard."));
-     return;
-  }
-
-
-  // Set the default desktop meta-pkgs based upon the selection
-  if ( radioDesktop->isChecked() )
-  {
-      pushDeskCustomize->setEnabled(true);
-      pushDeskCustomize->setVisible(true);
-      selectedPkgs << "KDE";
-      selectedPkgs << "Firefox";
-
-      // Include i18n stuff?
-      if ( comboLanguage->currentIndex() != 0 )
-	 selectedPkgs << "pcbsd-i18n" << "KDE-l10n" << "pcbsd-i18n-qt5";
-
-      // Check if we are using NVIDIA driver and include it automatically
-      QFile file("/var/log/Xorg.0.log");
-      if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-          
-        QTextStream in(&file);
-        while (!in.atEnd()) {
-           QString line = in.readLine();
-           if ( line.indexOf("NVIDIA Unified Driver") != -1 ) {
-	     selectedPkgs << "NVIDIA";
-             break;
-           }
-        }     
-        file.close();
-      } // Done with NVIDIA check
-
-      // Are we on VirtualBox or VMware?
-      QFile filev("/var/log/Xorg.0.log");
-      if (filev.open(QIODevice::ReadOnly | QIODevice::Text)) {
-          
-        QTextStream inv(&filev);
-        while (!inv.atEnd()) {
-           QString line = inv.readLine();
-           if ( line.indexOf("VirtualBox") != -1 ) {
-	     selectedPkgs << "VirtualBoxGuest";
-             break;
-           }
-           if ( line.indexOf("VMware") != -1 ) {
-	     selectedPkgs << "VMwareGuest";
-             break;
-           }
-        }     
-        filev.close();
-      } // End of VM checks
-  }
-
-  slotSaveMetaChanges(selectedPkgs);
-  qDebug() << selectedPkgs;
-
-}
-
-void Installer::initDesktopSelector()
-{
-    // Using default pkg sets for now
-    customPkgsSet = false;
-    connect(pushDeskCustomize,SIGNAL(clicked()), this, SLOT(slotDesktopCustomizeClicked()));
-    connect(radioDesktop,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
-    connect(radioServer,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
-    connect(radioRestore,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
-    slotChangedMetaPkgSelection();
 }
 
 void Installer::proceed(bool forward)
@@ -680,11 +577,6 @@ void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userN
 void Installer::slotNext()
 {
    QString tmp;
-
-   // Update package selection in case user changed language, etc
-   if ( installStackWidget->currentIndex() == 0 && hasPkgsOnMedia && !customPkgsSet) {
-     slotChangedMetaPkgSelection();
-   }
 
    // If no pkgs on media
    if ( installStackWidget->currentIndex() == 0 && ! hasPkgsOnMedia) {
@@ -1642,45 +1534,65 @@ QStringList Installer::getDeskPkgCfg()
    QStringList cfgList, pkgList;
    QString line;
 
-   QList<QStringList> curList;
-
    if ( radioDesktop->isChecked() ) {
-     curList = listDeskPkgs;
-     pkgList << "pcbsd-base";
+     // Our default list of packages that makeup a desktop
+     // This is always able to be changed by user post-install
+     pkgList << "misc/pcbsd-base" << "sysutils/pcbsd-appweb" << "x11/lumina";
+
+     // The default web-browser and plugins
+     pkgList << "www/firefox" << "www/linux-c6-flashplugin11" << "www/nspluginwrapper" << "java/icedtea-web";
+
+     // The default mail client
+     pkgList << "mail/thunderbird";
+
+     // VirtualBox
+     pkgList << "misc/pcbsd-meta-virtualbox";
+
+     // Office Suite
+     pkgList << "editors/libreoffice";
+
+     // Include i18n stuff?
+     if ( comboLanguage->currentIndex() != 0 )
+       pkgList << "misc/pcbsd-i18n" << "misc/pcbsd-i18n-qt5";
+
+     // Check if we are using NVIDIA driver and include it automatically
+     QFile file("/var/log/Xorg.0.log");
+     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+       QTextStream in(&file);
+       while (!in.atEnd()) {
+          QString line = in.readLine();
+          if ( line.indexOf("NVIDIA Unified Driver") != -1 ) {
+            pkgList << "x11/nvidia-driver";
+            break;
+          }
+       }     
+       file.close();
+     } // Done with NVIDIA check
+
+     // Are we on VirtualBox or VMware?
+     QFile filev("/var/log/Xorg.0.log");
+     if (filev.open(QIODevice::ReadOnly | QIODevice::Text)) {
+       QTextStream inv(&filev);
+       while (!inv.atEnd()) {
+          QString line = inv.readLine();
+          if ( line.indexOf("VirtualBox") != -1 ) {
+            pkgList << "misc/pcbsd-meta-virtualboxguest";
+            break;
+          }
+          if ( line.indexOf("VMware") != -1 ) {
+            pkgList << "misc/pcbsd-meta-vmwareguest";
+            break;
+          }
+       }     
+       filev.close();
+     } // End of VM checks
+
+     // End of desktop packages
    } else {
-     curList = listServerPkgs;
-     pkgList << "trueos-base";
+     pkgList << "misc/trueos-base";
      // If the user enabled AppCafe remote, install it now
      if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
-       pkgList << "pcbsd-appweb";
-   }
-
-   // Loop though list of pkgs, see what to install
-   for ( int d=0; d < curList.count(); ++d) {
-     for ( int i=0; i < selectedPkgs.count(); ++i)
-        // Is the package selected or the base-system?
-	if ( curList.at(d).at(0) == selectedPkgs.at(i) || curList.at(d).at(0) == "base-system" ) {
-
-           // Yay! Lets get a list of packages to install
-	   QFile mFile;
-           mFile.setFileName(curList.at(d).at(6));
-           if ( ! mFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-	      qDebug() << "Invalid meta-pkg list:" << curList.at(d).at(6);
-	      break;
-	   }
-  
-           // Read in the meta pkg list
-           QTextStream in(&mFile);
-           while ( !in.atEnd() ) {
-             line = in.readLine().simplified();
-	     if ( line.isEmpty() )
-                 continue; 
-	     
-             pkgList << line;
-           }
-           mFile.close();
-	   break;
-	}
+       pkgList << "sysutils/pcbsd-appweb";
    }
 
    cfgList << "installPackages=" + pkgList.join(" ");
