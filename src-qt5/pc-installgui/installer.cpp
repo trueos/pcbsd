@@ -1550,6 +1550,9 @@ QStringList Installer::getDeskPkgCfg()
      // Office Suite
      pkgList << "editors/libreoffice";
 
+     // Utilities
+     pkgList << "archivers/unrar" << "archivers/unzip";
+
      // Include i18n stuff?
      if ( comboLanguage->currentIndex() != 0 )
        pkgList << "misc/pcbsd-i18n" << "misc/pcbsd-i18n-qt5";
