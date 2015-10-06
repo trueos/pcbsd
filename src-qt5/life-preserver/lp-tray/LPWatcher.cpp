@@ -34,7 +34,7 @@ const static int activeCheckTime = 60000; // 1 minute
 // "startup" time allotted before polling begins.
 const static int startupTime = 30000; // 30 seconds.
 // "Disabled" timer value
-const static int disabledTime = 600000; // 10 minutes
+const static int disabledTime = INT_MAX; // 10 minutes
 
 LPWatcher::LPWatcher() : QObject(){
   //Initialize the path variables
