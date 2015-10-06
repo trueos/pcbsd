@@ -594,8 +594,7 @@ void LPWatcher::checkPoolStatus(){
 	  cDev << device;
 	}
       }
-      // Once all status has been processed, we can "safely"
-      // set another timer. -1 represents the condition that no timer was set.
+      // Once all status has been processed, we can "safely" set another timer.
       if((nextPoll < disabledTime) && (timer->interval() != nextPoll)) { timer->start(nextPoll); }
     } //end of loop over zpool status lines
     
