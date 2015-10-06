@@ -26,12 +26,21 @@
     
 */
 
+// Standard system polling interval
+const static int sysCheckTime = 300000; // 5 minutes
+// If there is an active process (scrub, resilver), we poll
+// more frequently than the normal polling interval.
+const static int activeCheckTime = 60000; // 1 minute
+// "startup" time allotted before polling begins.
+const static int startupTime = 30000; // 30 seconds.
+// "Disabled" timer value
+const static int disabledTime = 600000; // 10 minutes
+
 LPWatcher::LPWatcher() : QObject(){
   //Initialize the path variables
   FILE_LOG = "/var/log/lpreserver/lpreserver.log";
   FILE_ERROR="/var/log/lpreserver/error.log";
   FILE_REPLICATION=""; //this is set automatically based on the log file outputs
-  sysCheckTime = 300000; // 5 minutes
   //initialize the watcher and timer
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(fileChanged(QString)),this,SLOT(fileChanged(QString)) );
@@ -65,7 +74,7 @@ void LPWatcher::start(){
   checkPoolStatus();
   //And start up the error file watcher
   if(!timer->isActive()){ timer->start(sysCheckTime); }
-  iniTimer->start(30000); //30 seconds of initialization phase
+  iniTimer->start(startupTime);
 }
 
 void LPWatcher::stop(){
@@ -417,7 +426,11 @@ void LPWatcher::checkPoolStatus(){
   if(watcher->files().isEmpty()){
     setupLogFile(); //try it now - might have been created in the meantime
   }
+  int nextPoll = (timer->isActive()) ? timer->interval() : disabledTime;
   //Now check zpool status for bad/running statuses
+  // Note: the following command can hang on a zpool that 
+  // is heavily tasked. If the machine has multiple zpools,
+  // this can cause concurrency issues.
   QStringList zstat = getCmdOutput("zpool status");
     //parse the output
     QString pool, state, timestamp;
@@ -456,7 +469,7 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.insert(61,pool);
 	    LOGS.insert(64, timestamp);
 	    LOGS.insert(65, timestamp.section(" ",3,3) );
-	    if(timer->interval() != sysCheckTime){ timer->start(sysCheckTime); }
+	    nextPoll = (nextPoll < sysCheckTime) ? nextPoll : sysCheckTime;
           }else if(zstat[i].contains(" scrub cancel")){
 	    //Scrub was cancelled before finishing
 	    zstat[i]  = zstat[i].replace("\t"," ").simplified();
@@ -479,7 +492,7 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.insert(63, QString(tr("Scrubbing %1: %2 (%3 remaining)")).arg(pool, percent, remain) );
 	    LOGS.insert(64, timestamp);
 	    LOGS.insert(65, timestamp.section(" ",3,3) );
-	    if(timer->interval() != 60000){ timer->start(60000); } //put the timer on a 1 minute refresh since it is running
+	    nextPoll = (nextPoll < activeCheckTime) ? nextPoll : activeCheckTime;
 	  }
 	  if(LOGS.contains(50) ){
 	    //Only resilvering OR scrub is shown at a time - so remove the resilver info
@@ -515,7 +528,7 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.remove(64);
 	    LOGS.remove(65);
 	  }
-	  if(timer->interval() != 60000){ timer->start(60000); }//put the timer on a 1 minute refresh since it is running
+	  nextPoll = (nextPoll < activeCheckTime) ? nextPoll : activeCheckTime;
 	}else if(zstat[i].contains("resilvered")){
 	  //Resilvering is finished
 	  timestamp = zstat[i].section(" ",9,13,QString::SectionSkipEmpty);
@@ -544,7 +557,7 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.remove(64);
 	    LOGS.remove(65);
 	  }
-	  if(timer->interval() != sysCheckTime){ timer->start(sysCheckTime); }
+	  nextPoll = (nextPoll < sysCheckTime) ? nextPoll : sysCheckTime;
 	}
       }else if(zstat[i].startsWith("errors:")){
 	if(zstat[i] != "errors: No known data errors"){
@@ -581,6 +594,9 @@ void LPWatcher::checkPoolStatus(){
 	  cDev << device;
 	}
       }
+      // Once all status has been processed, we can "safely"
+      // set another timer. -1 represents the condition that no timer was set.
+      if((nextPoll < disabledTime) && (timer->interval() != nextPoll)) { timer->start(nextPoll); }
     } //end of loop over zpool status lines
     
   //Add the critical messages to the hash
