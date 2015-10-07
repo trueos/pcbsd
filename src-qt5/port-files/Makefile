@@ -32,7 +32,9 @@ ONLY_FOR_ARCHS=	amd64
 USE_LDCONFIG=	yes
 USE_QT5=	core gui network svg linguist \
 		buildtools x11extras
-USES=		desktop-file-utils python qmake tar:xz
+USES=		desktop-file-utils python qmake shebangfix tar:xz
+SHEBANG_FILES=	pc-netmanager/src/NetworkManager/resources/umts_stick \
+		pc-sysmanager/scripts/fastest_cvsup
 
 WRKSRC_SUBDIR=	src-qt5
 
