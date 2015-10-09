@@ -37,7 +37,7 @@ do_zfs_restore_iscsi()
 
   restore_zfs_from_local
 
-  restore_stamp_grub
+  restore_boot_setup
 
   restore_umount_zfs
 }
@@ -48,9 +48,16 @@ do_zfs_restore()
 
   restore_zfs_from_remote
 
-  restore_stamp_grub
+  restore_boot_setup
 
   restore_umount_zfs
+}
+
+restore_boot_setup()
+{
+  rc_halt "cp ${TMPDIR}/zpool.cache /boot/zfs/zpool.cache"
+
+  post_install_boot_setup
 }
 
 # Function to load Life-Preserver security file
@@ -207,12 +214,6 @@ restore_zfs_from_remote()
   # Lastly, lets set bootfs
   rc_halt "zpool set bootfs=${lastBE} ${ZPOOLNAME}"
 
-}
-
-restore_stamp_grub()
-{
-  rc_halt "cp ${TMPDIR}/zpool.cache /boot/zfs/zpool.cache"
-  setup_grub
 }
 
 restore_umount_zfs()
@@ -417,8 +418,9 @@ restore_zfs_from_local()
 
   # Lets export / import the pool
   rc_halt "cp /boot/zfs/zpool.cache ${TMPDIR}/zpool.cache"
+  GUID=$(zpool list -H -o guid ${ZPOOLNAME})
   rc_halt "zpool export ${ZPOOLNAME}"
-  rc_halt "zpool import -N -R ${FSMNT} ${ZPOOLNAME}"
+  rc_halt "zpool import -N -R ${FSMNT} ${GUID}"
 
   # Lets mount the default dataset
   lastBE="`zfs list | grep ${ZPOOLNAME}/ROOT/ | tail -n 1 | awk '{print $1}'`"
