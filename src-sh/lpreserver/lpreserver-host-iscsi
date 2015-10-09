@@ -127,7 +127,7 @@ echo "Username: $userName"
 echo "Password: $userPass"
 echo "ZVOL name: $zvolName"
 echo "ZVOL size: $zvolSize"
-echo -e "(y/n/>\c"
+echo -e "(y/n)>\c"
 read tmp
 case $tmp in
   y|Y) break ;;
