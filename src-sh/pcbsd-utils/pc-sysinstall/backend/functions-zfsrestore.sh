@@ -158,8 +158,10 @@ restore_zfs_from_remote()
 
   # Lets export / import the pool
   rc_halt "cp /boot/zfs/zpool.cache ${TMPDIR}/zpool.cache"
+  # Get the ID of the pool
+  GUID=$(zpool list -H -o guid ${ZPOOLNAME})
   rc_halt "zpool export ${ZPOOLNAME}"
-  rc_halt "zpool import -N -R ${FSMNT} ${ZPOOLNAME}"
+  rc_halt "zpool import -N -R ${FSMNT} ${GUID}"
 
   # Lets mount the default dataset
   lastBE="`zfs list | grep ${ZPOOLNAME}/ROOT/ | tail -n 1 | awk '{print $1}'`"

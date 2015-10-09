@@ -119,7 +119,7 @@ theme.path=/usr/local/share/PCDM
 theme.extra=cp -r themes $(INSTALL_ROOT)/usr/local/share/PCDM/.
 
 session.path=/usr/local/share/PCDM
-session.extra=cc -o pcdm-session src/pcdm-session.c && strip pcdm-session && install -o root -g wheel -m 755 pcdm-session $(INSTALL_ROOT)/usr/local/share/PCDM/
+session.extra=cc -o pcdm-session src/pcdm-session.c && strip pcdm-session && install -m 755 pcdm-session $(INSTALL_ROOT)/usr/local/share/PCDM/
 
 conf=pcdm.conf
 conf.path=/usr/local/etc

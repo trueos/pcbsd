@@ -72,7 +72,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:-0.5, stop:0 
        <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -341,8 +341,8 @@ selection-background-color: rgb(160, 160, 160);</string>
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
-       <layout class="QGridLayout" name="gridLayout_14">
-        <item row="0" column="2">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="1">
          <spacer name="verticalSpacer_4">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -358,7 +358,14 @@ selection-background-color: rgb(160, 160, 160);</string>
           </property>
          </spacer>
         </item>
-        <item row="1" column="0" rowspan="6">
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Please select the type of installation to perform</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -374,7 +381,94 @@ selection-background-color: rgb(160, 160, 160);</string>
           </property>
          </spacer>
         </item>
-        <item row="1" column="3" rowspan="6">
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="groupSystemSelect">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: transparent;</string>
+          </property>
+          <property name="title">
+           <string>System Selection</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QRadioButton" name="radioDesktop">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="statusTip">
+              <string>Graphical desktop</string>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>PC-BSD (Graphical desktop)</string>
+             </property>
+             <property name="icon">
+              <iconset resource="sysinstaller.qrc">
+               <normaloff>:/modules/images/pcbsd.png</normaloff>:/modules/images/pcbsd.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>64</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QRadioButton" name="radioServer">
+             <property name="statusTip">
+              <string>Best for servers and headless systems</string>
+             </property>
+             <property name="text">
+              <string>TrueOS (Console based server)</string>
+             </property>
+             <property name="icon">
+              <iconset resource="sysinstaller.qrc">
+               <normaloff>:/modules/images/pcbsd-server.png</normaloff>:/modules/images/pcbsd-server.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>64</width>
+               <height>64</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QRadioButton" name="radioRestore">
+             <property name="statusTip">
+              <string>Restore from an existing backup</string>
+             </property>
+             <property name="text">
+              <string>Restore from Life-Preserver backup</string>
+             </property>
+             <property name="icon">
+              <iconset resource="sysinstaller.qrc">
+               <normaloff>:/modules/images/lifepreserver.png</normaloff>:/modules/images/lifepreserver.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>64</width>
+               <height>64</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="2">
          <spacer name="horizontalSpacer_5">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -390,7 +484,7 @@ selection-background-color: rgb(160, 160, 160);</string>
           </property>
          </spacer>
         </item>
-        <item row="7" column="1" colspan="2">
+        <item row="3" column="1">
          <spacer name="verticalSpacer_3">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -405,218 +499,6 @@ selection-background-color: rgb(160, 160, 160);</string>
            </size>
           </property>
          </spacer>
-        </item>
-        <item row="5" column="1" colspan="2">
-         <spacer name="verticalSpacer_11">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>5</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="2" column="1" colspan="2">
-         <spacer name="verticalSpacer_12">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>5</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="6" column="1" colspan="2">
-         <widget class="QGroupBox" name="groupDeskSummary">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: transparent;</string>
-          </property>
-          <property name="title">
-           <string>Summary</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="1" column="0">
-            <widget class="QTextEdit" name="textDeskSummary">
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOff</enum>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="1" column="1" colspan="2">
-         <widget class="QGroupBox" name="groupSystemSelect">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: transparent;</string>
-          </property>
-          <property name="title">
-           <string>System Selection</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
-            <widget class="QRadioButton" name="radioDesktop">
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Desktop (PC-BSD)</string>
-             </property>
-             <property name="icon">
-              <iconset resource="sysinstaller.qrc">
-               <normaloff>:/PCBSD/images/pbidiricon.png</normaloff>:/PCBSD/images/pbidiricon.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>32</width>
-               <height>32</height>
-              </size>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QRadioButton" name="radioServer">
-             <property name="text">
-              <string>Server (TrueOS)</string>
-             </property>
-             <property name="icon">
-              <iconset resource="sysinstaller.qrc">
-               <normaloff>:/modules/images/pcbsd-server.png</normaloff>:/modules/images/pcbsd-server.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>32</width>
-               <height>32</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QRadioButton" name="radioRestore">
-             <property name="text">
-              <string>Restore from Life-Preserver backup</string>
-             </property>
-             <property name="icon">
-              <iconset resource="sysinstaller.qrc">
-               <normaloff>:/modules/images/lifepreserver.png</normaloff>:/modules/images/lifepreserver.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>32</width>
-               <height>32</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QGroupBox" name="groupBox_4">
-          <property name="styleSheet">
-           <string notr="true">background: transparent;</string>
-          </property>
-          <property name="title">
-           <string/>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_12">
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <spacer name="horizontalSpacer_6">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>35</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushDeskCustomize">
-               <property name="statusTip">
-                <string>Customize the selected system</string>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(238, 238, 238);</string>
-               </property>
-               <property name="text">
-                <string>&amp;Customize</string>
-               </property>
-               <property name="icon">
-                <iconset resource="sysinstaller.qrc">
-                 <normaloff>:/modules/images/configure.png</normaloff>:/modules/images/configure.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>21</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="autoDefault">
-                <bool>false</bool>
-               </property>
-               <property name="default">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>35</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
         </item>
        </layout>
       </widget>

@@ -477,7 +477,7 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  diskutil unmountDisk /dev/disk1
  Unmount of all volumes on disk1 was successful
 
- sudo dd if=/Users/dru/Downloads/ PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4M
+ sudo dd if=/Users/dru/Downloads/ PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m # 4M for older OS X
  Password:
  3658+1 records in
  3658+1 records out 
