@@ -15,7 +15,7 @@ defined('DS') OR die('No direct access allowed.');
   $dnic = strstr($jailipv4, "|", TRUE);
   $jailipv4 = substr(strstr($jailipv4, "|"), 1);
   $jailipv6 = $response["jail $jail ipv6"];
-  $jailtag = $response["jail $jail tag"];
+  $jtag = $response["jail $jail tag"];
 
   // Get the default network interface for this jail
   $defaultnic = exec("netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'");
