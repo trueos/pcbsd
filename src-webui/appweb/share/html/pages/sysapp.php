@@ -29,8 +29,8 @@ $jailUrl="__system__";
    else
      $pbioutput = syscache_pbidb_list("serverapps");
 
-   $pkglist = explode(", ", $pkgoutput[0]);
-   $pbilist = explode(", ", $pbioutput[0]);
+   $pkglist = $pkgoutput;
+   $pbilist = $pbioutput;
 
    // Now loop through pbi origins
    $col=1;

@@ -40,8 +40,9 @@ function syscache_ins_plugin_list()
 
 function syscache_pbidb_list($flag="allapps")
 {
-   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list $flag"), $output);
-   return $output;
+   $sccmd = array("pbi list $flag");
+   $output = send_sc_query($sccmd);
+   return $output["pbi list $flag"];
 }
 
 function send_dc_cmd($cmdarray)

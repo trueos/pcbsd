@@ -482,7 +482,7 @@ function display_app_link($pbilist, $jail)
 
    // Check if this app is installed
    $pkgoutput = syscache_ins_pkg_list("$jail");
-   $pkglist = explode(", ", $pkgoutput);
+   $pkglist = $pkgoutput;
    if ( array_search($pbiorigin, $pkglist) !== false)
       $pbiInstalled = true;
    else
