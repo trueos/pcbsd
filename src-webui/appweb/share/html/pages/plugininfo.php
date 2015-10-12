@@ -363,7 +363,9 @@ function display_install_chooser()
     $cmd="jail $ioid";
     $sccmd = array("$cmd path");
     $response = send_sc_query($sccmd);
-    $pbicdir = $response["$cmd path"] . "/pbicage";
+    // This is a bit weird, but the pbicage meta-data isn't visible in the jail mount
+    // Set it to the "real" location of the data
+    $pbicdir = $response["$cmd path"] . "/../_/pbicage";
 
     // Get ipv4 address
     $output = run_cmd("iocage getip4 $ioid");
@@ -408,7 +410,7 @@ function display_install_chooser()
       <?php
  	 $appbusy=false;
          foreach($dStatus as $curStatus) {
-  	   if ( strpos($curStatus, "iocage pull $pbiorigin") !== false ) {
+  	   if ( strpos($curStatus, "iocage fetch $pbiorigin") !== false ) {
 	      $appbusy=true;
 	      break;
 	   }

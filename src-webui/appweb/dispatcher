@@ -91,7 +91,7 @@ run_queue_cmd()
             ;;
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
-	       destroy|pull|create) ;;
+	       destroy|fetch|create) ;;
 		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
@@ -126,7 +126,7 @@ run_queue_cmd()
      fi
   elif [ "$app" == "iocage" ];then
      # App Container / gitjail
-     if [ "$origin" = "pull" ] ; then
+     if [ "$origin" = "fetch" ] ; then
         neworigin="`echo $flag | sed 's|/|-|g'`"
 
 	# First make sure this jail doesn't exist
@@ -138,10 +138,10 @@ run_queue_cmd()
 
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
           # System has VIMAGE enabled
-          cmd="iocage pull $target tag=pbicage-$neworigin devfs_ruleset=5 boot=on vnet=on dhcp=on bpf=on"
+          cmd="iocage fetch $target tag=pbicage-$neworigin devfs_ruleset=5 boot=on vnet=on dhcp=on bpf=on"
 	else
 	  # No VIMAGE, use fallback method
-	  cmd="iocage pull $target tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4"
+	  cmd="iocage fetch $target tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4"
 	fi
      fi 
      # Regular jail creation
@@ -198,7 +198,7 @@ run_queue_cmd()
   fi
 
   # If we create a new plugin, lets start it now
-  if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
+  if [ "$app" = "iocage" -a "$origin" = "fetch" -a $err -eq 0 ] ; then
      iocage start pbicage-$neworigin >>${QLOGFILE} 2>>${QLOGFILE}
      if [ $? -eq 0 ] ; then
        unblock_jail_ip4 "pbicage-$neworigin"
@@ -660,7 +660,7 @@ case $1 in
     iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              create|destroy|pull) echo "$@" >>${QLIST} ;;
+              create|destroy|fetch) echo "$@" >>${QLIST} ;;
 	      getip4) get_iocage_ip4 "$@" ;;
 	      addfstab) run_iocage_addfstab "$@" ;;
 	      delfstab) run_iocage_delfstab "$@" ;;

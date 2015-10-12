@@ -126,7 +126,7 @@ function queueInstallPlugin()
    $ghurl = $_GET['installPluginGH'];
 
    if ( ! empty($origin) and ! empty($ghurl) )
-     $output = run_cmd("queue iocage pull $origin $ghurl");
+     $output = run_cmd("queue iocage fetch $origin $ghurl");
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -515,7 +515,7 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
   $appbusy=false;
   $dStatus = getDispatcherStatus();
   foreach($dStatus as $curStatus) {
-    if ( strpos($curStatus, "iocage pull $origin") !== false ) {
+    if ( strpos($curStatus, "iocage fetch $origin") !== false ) {
       $appbusy=true;
       break;
      }

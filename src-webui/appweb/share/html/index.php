@@ -42,41 +42,18 @@
 
   // Check if calling from a remote host
   if ( (!USERNAME or isset($_GET['logout'])) ) {
-    // Bypass if called from localhost
-    if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
-      $timeout = false;
-      include('include/login.php');
-      exit(0);
-    }
+    $timeout = false;
+    include('include/login.php');
+    exit(0);
   }
 
   // See if the timeout has been met (60 minutes)
-  if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
-    if ( $_SESSION['timeout'] + 60 * 60 < time() ) {
-      $timeout = true;
-      include('include/login.php');
-      exit(0);
-    } else {
-      $_SESSION['timeout'] = time();
-    }
-  }
-
-
-  // Calling from the local system, desktop most likely
-  if ( $CLIENTIP == "127.0.0.1" or $CLIENTIP == "::1" ) {
-
-    // If the client just wants to set a dispatcher ID
-    if ( ! empty($_GET["setDisId"])) {
-       header('Location:  ' . $_SERVER['PHP_SELF']);
-       $_SESSION['dispatchid'] = $_GET["setDisId"];
-       exit(0);
-    }
-
-    // No dispatch ID set? User probably trying to access through browser
-    if ( (! isset($DISPATCHID)) ) {
-       echo "Please access through the AppCafe utility! (pc-softweb command)";
-       exit(0);
-    }
+  if ( $_SESSION['timeout'] + 60 * 60 < time() ) {
+    $timeout = true;
+    include('include/login.php');
+    exit(0);
+  } else {
+    $_SESSION['timeout'] = time();
   }
 
   $login_on_fail = true;
