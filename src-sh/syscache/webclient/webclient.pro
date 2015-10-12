@@ -7,6 +7,7 @@ QT = core network websockets
 HEADERS	+= WebServer.h \
 		WebSocket.h \
 		syscache-client.h \
+		dispatcher-client.h \
 		RestStructs.h \
 		AuthorizationManager.h
 		
@@ -14,6 +15,7 @@ SOURCES	+= main.cpp \
 		WebServer.cpp \
 		WebSocket.cpp \
 		syscache-client.cpp \
+		dispatcher-client.cpp \
 		AuthorizationManager.cpp
 
 

@@ -5,6 +5,7 @@
 // =================================
 #include "WebSocket.h"
 #include "syscache-client.h"
+#include "dispatcher-client.h"
 
 #define DEBUG 1
 #define SCLISTDELIM QString("::::") //SysCache List Delimiter
@@ -138,11 +139,8 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	    ret.insert("namespace", QJsonValue("rpc"));
 	    ret.insert("name", QJsonValue("response"));
 	    ret.insert("id", doc.object().value("id")); //use the same ID for the return message
-		
-          if(name == "syscache"){
-            EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
-	  }
-          ret.insert("args",outargs);	  
+	  EvaluateBackendRequest(name, doc.object().value("args"), &outargs);
+            ret.insert("args",outargs);	  
         }else{
 	  //Bad/No authentication
 	  SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
@@ -170,7 +168,7 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 }
 
 // === SYSCACHE REQUEST INTERACTION ===
-void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out){
+void WebSocket::EvaluateBackendRequest(QString name, const QJsonValue args, QJsonObject *out){
   QJsonObject obj; //output object
   if(args.isObject()){
     //For the moment: all arguments are full syscache DB calls - no special ones
@@ -180,10 +178,12 @@ void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out)
       for(int r=0; r<reqs.length(); r++){
         QString req =  JsonValueToString(args.toObject().value(reqs[r]));
         if(DEBUG){ qDebug() << "  ["+reqs[r]+"]="+req; }
-        QStringList values = SysCacheClient::parseInputs( QStringList() << req ); 
+        QStringList values;
+	if(name.toLower()=="syscache"){values = SysCacheClient::parseInputs( QStringList() << req ); }
+	else if(name.toLower()=="dispatcher"){values = DispatcherClient::parseInputs( QStringList() << req, AUTHSYSTEM); }
         values.removeAll("");
         //Quick check if a list of outputs was returned
-        if(values.length()==1){
+        if(values.length()==1 && name.toLower()=="syscache"){
           values = values[0].split(SCLISTDELIM); //split up the return list (if necessary)
           values.removeAll("");
         }
@@ -199,11 +199,14 @@ void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out)
     } //end of special "request" objects
   }else if(args.isArray()){
     QStringList inputs = JsonArrayToStringList(args.toArray());
-    if(DEBUG){ qDebug() << " syscache inputs:" << inputs; }
-    QStringList values = SysCacheClient::parseInputs(inputs );
+    if(DEBUG){ qDebug() << "Parsing Array inputs:" << inputs; }
+    QStringList values;
+      if(name.toLower()=="syscache"){values = SysCacheClient::parseInputs( inputs ); }
+      else if(name.toLower()=="dispatcher"){values = DispatcherClient::parseInputs( inputs , AUTHSYSTEM); }
+    if(DEBUG){ qDebug() << " - Returns:" << values; }
     for(int i=0; i<values.length(); i++){
-      if(values[i].contains(SCLISTDELIM)){
-	  //This is an array of values
+      if(name.toLower()=="syscache" && values[i].contains(SCLISTDELIM)){
+	  //This is an array of values from syscache
 	  QStringList vals = values[i].split(SCLISTDELIM);
 	  vals.removeAll("");
 	  QJsonArray arr;
@@ -216,7 +219,6 @@ void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out)
   } //end array of inputs
 
 }
-
 
 // === GENERAL PURPOSE UTILITY FUNCTIONS ===
 QString WebSocket::JsonValueToString(QJsonValue val){
