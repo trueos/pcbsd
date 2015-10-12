@@ -9,7 +9,6 @@
 MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
   DEBUG = debugmode;
-  AUTHCOMPLETE = false; //not performed yet
   this->setWindowTitle(tr("AppCafe"));
   //Need 1024 wide if possible
   this->resize(1024,600);
@@ -241,31 +240,11 @@ void MainUI::loadHomePage(){
   if(usessl){ baseURL = baseURL.replace("http://","https://"); }
   if(DEBUG){ qDebug() << "Base URL:" << baseURL; }
   QString tmpURL = baseURL;
-  if( !AUTHCOMPLETE ){
-    //Only perform the authorization if necessary
-    QString authkey = pcbsd::Utils::getLineFromCommandOutput("/usr/local/bin/pc-su /usr/local/share/appcafe/dispatcher-localauth 2>/dev/null").simplified();
-    AUTHCOMPLETE = !authkey.isEmpty();
-    if(DEBUG){ qDebug() << "Got Auth Key:" << AUTHCOMPLETE << authkey; }
-    if ( authkey.indexOf(":") != -1 )
-      authkey = authkey.section(":", 1, 1);
-    if(AUTHCOMPLETE){ tmpURL.append("/?setDisId="+authkey); }
-  }
   //Now clear the history (if any)
   
   //Now load the page
-  if(AUTHCOMPLETE){
-    webview->load( QUrl(tmpURL) );
-    webview->show();
-  }else{
-    //System waiting to reboot - put up a notice and disable the web viewer
-    webview->setHtml("<p><strong>"+tr("You are not authorized to view the AppCafe. Please contact a system administrator for assistance.")+"</strong></p>");
-    backA->setEnabled(false);
-    forA->setEnabled(false);
-    refA->setVisible(false);
-    stopA->setVisible(false);
-    progA->setVisible(false);	  
-  }
-
+  webview->load( QUrl(tmpURL) );
+  webview->show();
 }
 
 void MainUI::GoBack(){

@@ -126,7 +126,7 @@ function queueInstallPlugin()
    $ghurl = $_GET['installPluginGH'];
 
    if ( ! empty($origin) and ! empty($ghurl) )
-     $output = run_cmd("queue iocage pull $origin $ghurl");
+     $output = run_cmd("queue iocage fetch $origin $ghurl");
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -357,8 +357,17 @@ function get_jail_list($force=false)
   // Query the system for the running jail list
   $sccmd = array("jail list", "jail stoppedlist");
   $response = send_sc_query($sccmd);
-  $jail_list_array = $response["jail list"];
-  $jail_stopped_list_array = $response["jail stoppedlist"];
+
+  // Check if this is a single-item string or array of items
+  if ( gettype($response["jail list"]) == "string" )
+    $jail_list_array[] = $response["jail list"];
+  else
+    $jail_list_array = $response["jail list"];
+
+  if ( gettype($response["jail stoppedlist"]) == "string" )
+    $jail_stopped_list_array[] = $response["jail stoppedlist"];
+  else
+    $jail_stopped_list_array = $response["jail stoppedlist"];
 
   // Get the UUID of the jails only
   $jarray = array();
@@ -515,7 +524,7 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
   $appbusy=false;
   $dStatus = getDispatcherStatus();
   foreach($dStatus as $curStatus) {
-    if ( strpos($curStatus, "iocage pull $origin") !== false ) {
+    if ( strpos($curStatus, "iocage fetch $origin") !== false ) {
       $appbusy=true;
       break;
      }

@@ -4,7 +4,7 @@
 # License: BSD
 
 if [ "`id -u`" != "0" ] ;then
-  echo "Needs to be run as root on the remote ISCSI backup server"
+  echo "Needs to be run as root on the remote iSCSI backup server"
   exit 1
 fi
 
@@ -21,9 +21,11 @@ if [ $? -ne 0 ] ; then
 
   which stunnel > /dev/null;
   if [ $? -ne 0 ]; then
-    exit 1 
+    exit 1
   fi
 fi
+
+getInfos() {
 
 echo "Enter the target host name (example.com or IP)"
 echo -e ">\c"
@@ -114,6 +116,10 @@ if [ $? -ne 0 ] ; then
   fi
 fi
 
+}
+
+getInfos
+
 echo "Does this look correct?"
 echo "Target host: $targetHost"
 echo "Target name: $targetName"
@@ -123,9 +129,12 @@ echo "ZVOL name: $zvolName"
 echo "ZVOL size: $zvolSize"
 echo -e "(y/n)>\c"
 read tmp
-if [ $tmp != "y" ] ; then
-   exit 1
-fi
+case $tmp in
+  y|Y) break ;;
+  n|N) getInfos ;;
+  *) exit 1 ;;
+esac
+done
 
 # Lets first create the new ZVOL
 zfs create -s -V $zvolSize $zvolName
