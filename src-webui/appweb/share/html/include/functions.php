@@ -357,8 +357,17 @@ function get_jail_list($force=false)
   // Query the system for the running jail list
   $sccmd = array("jail list", "jail stoppedlist");
   $response = send_sc_query($sccmd);
-  $jail_list_array = $response["jail list"];
-  $jail_stopped_list_array = $response["jail stoppedlist"];
+
+  // Check if this is a single-item string or array of items
+  if ( gettype($response["jail list"]) == "string" )
+    $jail_list_array[] = $response["jail list"];
+  else
+    $jail_list_array = $response["jail list"];
+
+  if ( gettype($response["jail stoppedlist"]) == "string" )
+    $jail_stopped_list_array[] = $response["jail stoppedlist"];
+  else
+    $jail_stopped_list_array = $response["jail stoppedlist"];
 
   // Get the UUID of the jails only
   $jarray = array();
