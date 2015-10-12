@@ -52,9 +52,12 @@ function print_jail($jail, $status)
     print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: green; text-decoration: underline;\">$status</a></td>\n");
   else
     print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: red; text-decoration: underline;\">$status</a></td>\n");
-  if ( $status == "Running" ) 
-    print("  <td>IP HERE</td>\n");
-  else
+  if ( $status == "Running" ) {
+    $sccmd = array("jail $jail ip");
+    $response = send_sc_query($sccmd);
+    $jip = $response["jail $jail ip"];
+    print("  <td>$jip</td>\n");
+  } else
     print("  <td></td>\n");
 
   print ("</tr>\n");
