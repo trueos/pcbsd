@@ -17,7 +17,8 @@ defined('DS') OR die('No direct access allowed.');
         $updateTargetName="$updateTarget";
 
       // Queue it up now
-      run_cmd("pkgupdate $updateTarget");
+      $dccmd = array("pkgupdate $updateTarget");
+      send_dc_cmd($dccmd);
 
       // Now we can remove those values from the URL
       $newUrl=http_build_query($_GET);
@@ -30,7 +31,9 @@ defined('DS') OR die('No direct access allowed.');
    // Did the user request log files?
    if ( ! empty($_GET['log']) )
    {
-      $logoutput=run_cmd("log ". $_GET['log']);
+      $dccmd = array("log ". $_GET['log']);
+      $response = send_dc_cmd($dccmd);
+      $logoutput = explode("\n", $response["log " . $_GET['log']]);
 
 ?>
 
@@ -141,12 +144,16 @@ echo "<script type='text/javascript' charset='utf-8'>
 
 <?
 
-     $rarray = run_cmd("results");
+     $dccmd = array("results");
+     $response = send_dc_cmd($dccmd);
+     $rarray = explode("\n", $response["results"]);
 
      // Loop through the results
      $rarray = array_reverse($rarray);
      foreach ($rarray as $res) {
        $results = explode(" ", $res);
+       if ( empty($results[0]) )
+         continue;
        if ( $results[2] == "iocage" ) {
          echo "<tr><td>jail: $results[3]</td>";
          echo "<td>$results[4]</td>";

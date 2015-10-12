@@ -16,7 +16,9 @@ function do_service_action()
   if ( empty($sname) or empty($sscript) or empty($action) )
     return;
 
-  $output = run_cmd("service $action $sname $sscript $jailUrl");
+  $dccmd = array("service $action $sname $sscript $jailUrl");
+  send_dc_cmd($dccmd);
+
   if ( $action == "start" )
      echo "Started $sname on $jail<br>";  
   if ( $action == "stop" )
@@ -150,7 +152,8 @@ function done_cfg()
   }
 
   // Talk to dispatcher to run done script
-  $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
+  $dccmd = array("donecfg " . $pbicdir . " " . $jid);
+  send_dc_cmd($dccmd);
 }
 
 // Set the current value for a config file setting
@@ -173,7 +176,8 @@ function set_cfg_value($cfg, $value)
   }
 
   // Talk to dispatcher to set config value
-  $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  $dccmd = array("setcfg " . $pbicdir . " " . $jid . " " . $key .  " " . $value);
+  send_dc_cmd($dccmd);
 }
 
 // Get the current value for a config file setting
@@ -189,7 +193,8 @@ function get_cfg_value($cfg)
   $jid = "__system__";
   
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
+  $dccmd = array("getcfg $pbicdir $jid $key");
+  $output = send_dc_cmd($dccmd);
   if ( ! empty($output[0]) )
      return $output[0];
 
@@ -477,7 +482,7 @@ function display_app_link($pbilist, $jail)
 
    // Check if this app is installed
    $pkgoutput = syscache_ins_pkg_list("$jail");
-   $pkglist = explode(", ", $pkgoutput[0]);
+   $pkglist = explode(", ", $pkgoutput);
    if ( array_search($pbiorigin, $pkglist) !== false)
       $pbiInstalled = true;
    else

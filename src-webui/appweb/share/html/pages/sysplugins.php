@@ -23,7 +23,7 @@ defined('DS') OR die('No direct access allowed.');
    $atEnd = true;
 
    $pbilist = syscache_ins_plugin_list();
-   $parray = explode(", ", $pbilist[0]);
+   $parray = explode(", ", $pbilist);
 
    foreach ($parray as $pbiline) {
      $pbiarray = explode(" ",$pbiline); 

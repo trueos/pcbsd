@@ -126,10 +126,10 @@
         $page="pluginconfig";
       }
     } else {
-      $output = run_cmd("iocage get ip4_autostart default");
-      $ip4start = $output[0];
-      $output = run_cmd("iocage get ip4_autoend default");
-      $ip4end = $output[0];
+      $dccmd = array("iocage get ip4_autostart default", "iocage get ip4_autoend default");
+      $output = send_dc_cmd($dccmd);
+      $ip4start = $output["iocage get ip4_autostart default"][0];
+      $ip4end = $output["iocage get ip4_autoend default"][0];
       if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
       {
         $firstrun=true;
