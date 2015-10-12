@@ -5,7 +5,6 @@
 #define DISPATCH QString("/usr/local/share/appcafe/dispatcher")
 #define DISPATCHIDFILE QString("/var/tmp/appcafe/dispatch-id")
 #define DISPATCHENVVAR QString("PHP_DISID")
-#define RANDOMCHARS QString(
 
 DispatcherClient::DispatcherClient(AuthorizationManager *auth, QObject *parent) : QProcess(parent){
     this->setProcessChannelMode(QProcess::MergedChannels);
