@@ -695,7 +695,7 @@ case $1 in
   verify_disid) verify_disid
                 exit $?
                 ;;
-         *) print_usage ; exit 1 ;;
+         *) print_usage ; exit 150 ;;
 esac
 
 exit 0
