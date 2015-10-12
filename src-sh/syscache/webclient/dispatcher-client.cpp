@@ -2,7 +2,7 @@
 #include <QFile>
 #include <QCoreApplication>
 
-#define DISPATCH QString("/usr/local/share/appcage/dispatcher")
+#define DISPATCH QString("/usr/local/share/appcafe/dispatcher")
 #define DISPATCHIDFILE QString("/var/tmp/appcafe/dispatch-id")
 #define DISPATCHENVVAR QString("PHP_DISID")
 #define RANDOMCHARS QString(
@@ -17,7 +17,7 @@ DispatcherClient::~DispatcherClient(){
 
 bool DispatcherClient::setupProcAuth(){
   //First check  that the dispatcher binary actually exists
-  if(!QFile::exists(DISPATCH) || AUTH==0){ return false; }
+  if(!QFile::exists(DISPATCH) || AUTH==0){ qWarning() << "AppCafe Dispatcher binary not found:"; return false; }
   //Now check the current authorization key
   QString key = ReadKey();
   if(!AUTH->checkAuth(key) ){
