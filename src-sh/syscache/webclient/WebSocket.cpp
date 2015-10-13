@@ -14,6 +14,7 @@ WebSocket::WebSocket(QWebSocket *sock, QString ID, AuthorizationManager *auth){
   SockID = ID;
   SockAuthToken.clear(); //nothing set initially
   SOCKET = sock;
+  SendAppCafeEvents = false;
   AUTHSYSTEM = auth;
   idletimer = new QTimer(this);
     idletimer->setInterval(600000); //10-minute timeout
@@ -146,7 +147,37 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	  SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
 	}
 	      
-      }else{
+      }else if(good && (JsonValueToString(doc.object().value("namespace"))=="events") ){
+        if( AUTHSYSTEM->checkAuth(SockAuthToken) ){ //validate current Authentication token	 
+	    //Pre-set any output fields
+            QJsonObject outargs;	
+	      ret.insert("namespace", QJsonValue("events"));
+	      ret.insert("name", QJsonValue("response"));
+	      ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+	    //Assemble the list of input events
+	    QStringList evlist;
+	    if(doc.object().value("args").isObject()){ evlist << JsonValueToString(doc.object().value("args")); }
+	    else if(doc.object().value("args").isArray()){ evlist = JsonArrayToStringList(doc.object().value("args").toArray()); }
+	    //Now subscribe/unsubscribe to these events
+	    if(JsonValueToString(doc.object().value("name"))=="subscribe"){
+	      if(evlist.contains("dispatcher")){ 
+	        SendAppCafeEvents = true; 
+	        outargs.insert("subscribe",QJsonValue("dispatcher"));   
+	      }
+	    }else if(JsonValueToString(doc.object().value("name"))=="unsubscribe"){
+	      if(evlist.contains("dispatcher")){ 
+		SendAppCafeEvents = false; 
+		outargs.insert("unsubscribe",QJsonValue("dispatcher"));    
+	      }
+	    }else{
+	      outargs.insert("unknown",QJsonValue("unknown"));
+	    }
+            ret.insert("args",outargs);	  
+          }else{
+	    //Bad/No authentication
+	    SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
+	  }
+	}else{
         //Error in inputs - assemble the return error message
 	QString id = "error";
 	if(doc.object().contains("id")){ id = JsonValueToString(doc.object().value("id")); } //use the same ID
@@ -297,4 +328,29 @@ void WebSocket::EvaluateMessage(const QString &msg){
   EvaluateREST(msg);
   idletimer->start(); 
   qDebug() << "Done with Message";
+}
+
+// ======================
+//       PUBLIC SLOTS
+// ======================
+void WebSocket::AppCafeStatusUpdate(QString msg){
+ if(!SendAppCafeEvents){ return; } //don't report events on this socket
+  RestOutputStruct out;
+  //Define the output structures
+  QJsonObject ret; //return message
+  //Pre-set any output fields
+   QJsonObject outargs;	
+   ret.insert("namespace", QJsonValue("events"));
+   ret.insert("name", QJsonValue("event"));
+   ret.insert("id", QJsonValue(""));
+     outargs.insert("name", "dispatcher");
+     outargs.insert("args",QJsonValue(msg));
+   ret.insert("args",outargs);	
+   out.CODE = RestOutputStruct::OK;
+      //Assemble the output JSON document/text
+      QJsonDocument retdoc; 
+      retdoc.setObject(ret);
+    out.Body = retdoc.toJson();
+    out.Header << "Content-Type: text/json; charset=utf-8";
+   SOCKET->sendTextMessage(out.assembleMessage());
 }

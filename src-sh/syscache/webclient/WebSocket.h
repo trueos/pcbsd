@@ -32,12 +32,12 @@ private:
 	QWebSocket *SOCKET;
 	QString SockID, SockAuthToken;
 	AuthorizationManager *AUTHSYSTEM;
+	bool SendAppCafeEvents;
 
 	//Main connection comminucations procedure
 	void EvaluateREST(QString);
 	void EvaluateRequest(const RestInputStruct&); //This is where all the magic happens
 	void EvaluateBackendRequest(QString name, const QJsonValue in_args, QJsonObject *out);
-
 
 	//Simplification functions
 	QString JsonValueToString(QJsonValue);
@@ -52,6 +52,8 @@ private slots:
 	void EvaluateMessage(const QByteArray&); 
 	void EvaluateMessage(const QString&);
 
+public slots:
+	void AppCafeStatusUpdate(QString);
 
 signals:
 	void SocketClosed(QString); //ID
