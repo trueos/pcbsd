@@ -5,7 +5,8 @@
 // =================================
 #include "AuthorizationManager.h"
 #include <QDebug>
-//#include <QProcess>
+#include <QProcess>
+#include <QCoreApplication>
 
 // Stuff for PAM to work
 #include <sys/types.h>
@@ -59,14 +60,15 @@ int AuthorizationManager::checkAuthTimeoutSecs(QString token){
 QString AuthorizationManager::LoginUP(bool localhost, QString user, QString pass){
 	//Login w/ username & password
   bool ok = false;
-  if(localhost){
-    //only need to check that the username is valid
-    ok = system( QString("id \""+user+"\" > /dev/null").toLocal8Bit() )==0;
-  }else{
-    //Need to run the full username/password through PAM
-    ok = pam_checkPW(user,pass);
+  //First check that the user is valid on the system and part of the operator group
+  if(user!="root"){
+    if(!getUserGroups(user).contains("operator")){ return ""; } //invalid user - needs to be part of operator group
   }
-  qDebug() << "User Login Attempt:" << user << " Success:" << ok;
+	
+  //Need to run the full username/password through PAM
+  ok = pam_checkPW(user,pass);
+  
+  qDebug() << "User Login Attempt:" << user << " Success:" << ok << " Local Login:" << localhost;
   if(!ok){ return ""; } //invalid login
   else{ return generateNewToken(); } //valid login - generate a new token for it
 }
@@ -98,6 +100,23 @@ QString AuthorizationManager::generateNewToken(){
     HASH.insert(tok, QDateTime::currentDateTime().addSecs(TIMEOUTSECS) );
   }
   return tok;
+}
+
+QStringList AuthorizationManager::getUserGroups(QString user){
+  QProcess proc;
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert("LANG", "C");
+  env.insert("LC_All", "C");
+  proc.setProcessEnvironment(env);
+  proc.setProcessChannelMode(QProcess::MergedChannels);
+  proc.start("id", QStringList() << "-nG" << user);
+  if(!proc.waitForStarted(30000)){ return QStringList(); } //process never started - max wait of 30 seconds
+  while(!proc.waitForFinished(500)){
+    if(proc.state() != QProcess::Running){ break; } //somehow missed the finished signal
+    QCoreApplication::processEvents();
+  }
+  QStringList out = QString(proc.readAllStandardOutput()).split(" ");
+  return out;	
 }
 
 /*

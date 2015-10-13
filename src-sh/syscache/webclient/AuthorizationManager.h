@@ -27,6 +27,7 @@ public:
 private:
 	QHash<QString, QDateTime> HASH;
 	QString generateNewToken();
+	QStringList getUserGroups(QString user);
 
 	//PAM login/check files
 	bool pam_checkPW(QString user, QString pass);
