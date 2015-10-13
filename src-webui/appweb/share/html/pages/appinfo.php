@@ -315,15 +315,26 @@ function display_install_chooser()
   global $pbiInstalled;
   global $pkgCmd;
   global $SCERROR;
+  global $isPBI;
 
   $jail = "#system";
   $jailUrl="__system__";
 
    if ( $pbiInstalled ) {
-     $output="";
-     exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
+     $sccmd = array("$jail app-summary $pbiorigin");
+     $response = send_sc_query($sccmd);
+     $pbiarray = $response["$jail app-summary $pbiorigin"];
+     if ( $isPBI )
+       $pbicanremove = $pbiarray[9];
+     else
+       $pbicanremove = $pbiarray[5];
+
+     if ( $pbiorigin == "ports-mgmt/pkg" )
+       $pbicanremove = false;
+
+
      // Dont display removal option unless app is not required by others
-     if ( "$output[0]" == "$SCERROR" )
+     if ( "$pbicanremove" == "true" )
        print("    <button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\" height=48 width=48></button>\n");
      else
 	print("<center><img align=\"center\" height=48 width=48 src=\"/images/warning.png\" alt=\"This application has dependencies which prevent it from being removed.\"><p>Required</p></center>");

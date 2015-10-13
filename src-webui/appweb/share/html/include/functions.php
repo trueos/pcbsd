@@ -166,7 +166,7 @@ function getDispatcherStatus()
 
   $sccmd = array("status");
   $response = send_dc_cmd($sccmd);
-  $dispatcherstatus = $response["status"];
+  $dispatcherstatus = explode("\n", $response["status"]);
   return $dispatcherstatus;
 }
 
@@ -177,7 +177,7 @@ function get_installed_list($target = "#system")
   $pbilist = $response["pkg" . $target . " installedlist"];
 }
 
-function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
+function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true, $pbiarray)
 {
   global $totalCols;
   global $inslist;
@@ -191,9 +191,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
 
-  $sccmd = array("$jail app-summary $pbiorigin");
-  $response = send_sc_query($sccmd);
-  $pbiarray = $response["$jail app-summary $pbiorigin"];
+  // If provided the $pbiarray summary, we can skip the 2nd request for it
+  if ( ! isset($pbiarray) ) {
+    $sccmd = array("$jail app-summary $pbiorigin");
+    $response = send_sc_query($sccmd);
+    $pbiarray = $response["$jail app-summary $pbiorigin"];
+  }
   // Output format (4/7/15): [origin, name, version, iconpath, rating, type, comment, confdir, isInstalled, canRemove]
   $pbiname = $pbiarray[1];
   $pbiver = $pbiarray[2];
@@ -202,15 +205,25 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   $pbitype = $pbiarray[5];
   $pbicomment = $pbiarray[6];
   $pbicdir = $pbiarray[7];
-  $pbiinstalled = $pbiarray[8];
-  $pbicanremove = $pbiarray[9];
-  if ( empty($pbitype) ) {
+  if ( ! isset($pbiarray[9]) ) {
     $isPBI=false;
     $pkgCmd="pkg";
   } else {
     $isPBI=true;
     $pkgCmd="pbi";
   }
+
+  if ( $isPBI ) {
+    $pbiinstalled = $pbiarray[8];
+    $pbicanremove = $pbiarray[9];
+  } else {
+    $pbiinstalled = $pbiarray[4];
+    $pbicanremove = $pbiarray[5];
+  }
+
+  if ( $pbiorigin == "ports-mgmt/pkg" )
+    $pbicanremove = false;
+
   // If no match, return false
   if ( empty($pbiname) or $pbiname == "$SCERROR" )
      return 1;
