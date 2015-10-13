@@ -7,7 +7,7 @@
 #include "syscache-client.h"
 #include "dispatcher-client.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #define SCLISTDELIM QString("::::") //SysCache List Delimiter
 
 WebSocket::WebSocket(QWebSocket *sock, QString ID, AuthorizationManager *auth){
