@@ -64,7 +64,7 @@ QString AuthorizationManager::LoginUP(bool localhost, QString user, QString pass
   if(user!="root"){
     if(!getUserGroups(user).contains("operator")){ return ""; } //invalid user - needs to be part of operator group
   }
-	
+  //qDebug() << "Check username/password" << user << pass;
   //Need to run the full username/password through PAM
   ok = pam_checkPW(user,pass);
   
@@ -135,7 +135,7 @@ bool AuthorizationManager::pam_checkPW(QString user, QString pass){
   bool result = false;
   int ret;
   //Initialize PAM
-  ret = pam_start("login", cUser, &pamc, &pamh);
+  ret = pam_start( user=="root" ? "system": "login", cUser, &pamc, &pamh);
   if( ret == PAM_SUCCESS ){
     //Place the user-supplied password into the structure 
     ret = pam_set_item(pamh, PAM_AUTHTOK, cPassword);
