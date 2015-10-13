@@ -275,8 +275,6 @@ void WebSocket::SocketClosing(){
   if(idletimer->isActive()){ 
     //This means the client deliberately closed the connection - not the idle timer
     idletimer->stop(); 
-    //Clear the current authentication token
-    AUTHSYSTEM->clearAuth(SockAuthToken);
   }
   //Stop any current requests
 
