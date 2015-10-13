@@ -57,8 +57,13 @@
   $bgcolor="white";
   $status="UP2DATE";
 
-  $sccmd = array("username" => "root");
-  $response = send_sc_query($sccmd, "auth");
+  // Auth this WS connection
+  $APIKEY = $_SESSION['apikey'];
+  $sccmd = array("token" => "$APIKEY");
+  $response = send_sc_query($sccmd, "auth_token");
+  if ( $response["code"] == "401" or $response["message"] == "Unauthorized" ) {
+    exit(0);
+  }
 
   // Command to prod dispatcher for current status
   // Eventually we will pep this up with extra parsing about

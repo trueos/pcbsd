@@ -38,11 +38,12 @@
   define('DS',  TRUE); // used to protect includes
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
-  $DISPATCHID = $_SESSION['dispatchid'];
+  $APIKEY = $_SESSION['apikey'];
 
-  // Check if calling from a remote host
+  // Check if we need to bring up login page again
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     $timeout = false;
+    $_SESSION['apikey'] = "";
     include('include/login.php');
     exit(0);
   }
@@ -57,6 +58,7 @@
   }
 
   $login_on_fail = true;
+
   // Load our websocket library
   require('vendor/autoload.php');
   require("include/globals.php");
@@ -64,9 +66,12 @@
   require("include/functions-config.php");
 
   // Auth this WS connection
-  $sccmd = array("username" => "root");
-  $response = send_sc_query($sccmd, "auth");
-
+  $sccmd = array("token" => "$APIKEY");
+  $response = send_sc_query($sccmd, "auth_token");
+  if ( $response["code"] == "401" or $response["message"] == "Unauthorized" ) {
+    include('include/login.php');
+    exit(0);
+  }
 
   // Check if we have updates to display
   check_update_reboot();

@@ -16,19 +16,6 @@ cd ${DIR}
 # Copy dispatcher script
 cp dispatcher ${PROGDIR}/dispatcher
 chmod 755 ${PROGDIR}/dispatcher
-cp dispatcher-auth ${PROGDIR}/dispatcher-auth
-chmod 755 ${PROGDIR}/dispatcher-auth
-cp dispatcher-localauth ${PROGDIR}/dispatcher-localauth
-chmod 755 ${PROGDIR}/dispatcher-localauth
-cp dispatcher-localauth-pam ${PROGDIR}/dispatcher-localauth-pam
-chmod 755 ${PROGDIR}/dispatcher-localauth-pam
-
-# Copy sudoers file
-if [ ! -d "$STAGEDIR/etc/sudoers.d" ] ; then
-   mkdir -p ${STAGEDIR}/etc/sudoers.d
-fi
-cp appcafe-sudoers ${STAGEDIR}/etc/sudoers.d/
-chmod 644 ${STAGEDIR}/etc/sudoers.d/appcafe-sudoers
 
 cp -r share/* ${PROGDIR}/
 cp -r vendor ${PROGDIR}/html/
@@ -45,7 +32,5 @@ cp etc/appcafe.conf.dist ${STAGEDIR}/etc/appcafe.conf.dist
 if [ ! -d "${STAGEDIR}/bin" ] ; then
    mkdir ${STAEGDIR}/bin
 fi
-cp appcafe-setpass ${STAGEDIR}/bin/
-chmod 755 ${STAGEDIR}/bin/appcafe-setpass
 
 exit 0
