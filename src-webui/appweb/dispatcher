@@ -188,6 +188,14 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
+  # If we nuked packages, lets run autoremove also
+  if [ "$flag" = "delete" ] ; then
+    if [ "$app" = "pbi" -o "$app" = "pkg" ] ; then
+      echo "Running: pkg autoremove" >>$QLOGFILE 2>>$QLOGFILE
+      pkg autoremove -y >>$QLOGFILE 2>>$QLOGFILE
+    fi
+  fi
+
   # If we created a new jail, lets bootstrap iocage with pkgng
   if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
      # Start the jail

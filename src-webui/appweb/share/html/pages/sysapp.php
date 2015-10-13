@@ -29,8 +29,8 @@ $jailUrl="__system__";
    else
      $pbioutput = syscache_pbidb_list("serverapps");
 
-   $pkglist = explode(", ", $pkgoutput[0]);
-   $pbilist = explode(", ", $pbioutput[0]);
+   $pkglist = $pkgoutput;
+   $pbilist = $pbioutput;
 
    // Now loop through pbi origins
    $col=1;
@@ -39,23 +39,29 @@ $jailUrl="__system__";
    $curItem=0;
    $atEnd = true;
 
-   foreach ($pbilist as $pbiorigin)
+   foreach ($pkglist as $pbiorigin) {
      // Is this PBIs origin package installed?
-     if ( array_search($pbiorigin, $pkglist) !== false) {
-       // Is this PBI just a DEP for another app? If so, skip it
-       $output="";
-       exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
-       if ( "$output[0]" != "$SCERROR" )
-          continue;
+     $sccmd = array("$jail app-summary $pbiorigin");
+     $response = send_sc_query($sccmd);
+     $pbiarray = $response["$jail app-summary $pbiorigin"];
 
-       parse_details($pbiorigin, "$jail", $col, true, false);
-       if ( $col == $totalCols )
-         $col = 1;
-       else
-         $col++;
+     // If we have PBI data for this, the canremove will be on section 9
+     if ( array_search($pbiorigin, $pbilist) !== false)
+       $pbicanremove = $pbiarray[9];
+     else
+       $pbicanremove = $pbiarray[5];
 
-       $curItem++;
-     }
+     if ( "$pbicanremove" != "true" )
+        continue;
+
+     parse_details($pbiorigin, "$jail", $col, true, false, $pbiarray);
+     if ( $col == $totalCols )
+       $col = 1;
+     else
+       $col++;
+
+     $curItem++;
+   }
 
    echo "</tr>";
 ?>

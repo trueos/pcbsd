@@ -63,9 +63,12 @@
   // Command to prod dispatcher for current status
   // Eventually we will pep this up with extra parsing about
   // the status
-  $narray = run_cmd("status");
-  if ( $narray[0] == "Idle" or empty($narray) ) {
-    $rarray = run_cmd("results");
+  $dccmd = array("status");
+  $narray = send_dc_cmd($dccmd);
+  if ( $narray["status"] == "Idle" or empty($narray["status"]) ) {
+    $dccmd = array("results");
+    $response = send_dc_cmd($dccmd);
+    $rarray = explode("\n", $response["results"]);
     $lastElement=count($rarray);
     $lastElement--;
     if ( ! empty($rarray[$lastElement]) ) {
@@ -121,7 +124,7 @@
   if ( $pkgUpdates and $status != "WORKING" )
     $status = "UPDATES";
 
-  $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\">";
+  $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status";
   if ( $status == "WORKING" )
     $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"Working...\"> Working";
   elseif ( $status == "UPDATES" )

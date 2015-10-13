@@ -12,9 +12,6 @@
    else
      $hasDesktop=true;
 
-   // Location of syscache client
-   $sc="/usr/local/bin/syscache";
-
    // Location of PBI index dir
    $pbiindexdir="/var/db/pbi/index";
 
@@ -30,19 +27,4 @@
    $onDesktop = "false";
    if ( ! empty($_GET['AppCafeUI']))
      $onDesktop = $_GET['AppCafeUI'];
-
-   // Lets verify that the dispatcher ID is good
-   unset($vdisid);
-   $return_var=1;
-   putenv("PHP_DISID=$DISPATCHID");
-   exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher verify_disid", $output, $return_var);
-   if ( $return_var != 0 )
-   { 
-     if ( $login_on_fail ) {
-       include('include/login.php');
-       exit(0);
-     } else {
-       die("Invalid auth token!");
-     }
-   }
 ?>

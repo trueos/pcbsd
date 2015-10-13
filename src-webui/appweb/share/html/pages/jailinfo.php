@@ -45,8 +45,8 @@ defined('DS') OR die('No direct access allowed.');
      {
   	$jailnic = $postjailnic;
      }
-     run_cmd("iocage set ip4_addr=\"$postjailnic|$postjailipv4\" $jail");
-
+     $dccmd = array("iocage set ip4_addr=\"$postjailnic|$postjailipv4\" $jail");
+     send_dc_cmd($dccmd);
   }
 
 ?>

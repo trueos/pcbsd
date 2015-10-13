@@ -17,15 +17,15 @@ defined('DS') OR die('No direct access allowed.');
   if ( ! empty($_POST['iocpool']) and $curpool != $_POST['iocpool'] )
   {
     $curpool = $_POST['iocpool'];
-    run_cmd("iocage activate " . $curpool);
+    $dccmd = array("iocage activate " . $curpool);
+    send_dc_cmd($dccmd);
   }
-
-  $output = run_cmd("iocage get ip4_autostart default");
-  $ip4start = $output[0];
-  $output = run_cmd("iocage get ip4_autoend default");
-  $ip4end = $output[0];
-  $output = run_cmd("iocage get ip4_autosubnet default");
-  $ip4subnet = $output[0];
+  
+  $dccmd = array("iocage get ip4_autostart default", "iocage get ip4_autoend default", "iocage get ip4_autosubnet default");
+  $output = send_dc_cmd($dccmd);
+  $ip4start = $output["iocage get ip4_autostart default"];
+  $ip4end = $output["iocage get ip4_autoend default"];
+  $ip4subnet = $output["iocage get ip4_autosubnet default"];
 
   if ( (! empty($_POST['iocpool']) and $vimage != 1) and ( empty($_POST['ip4start']) or empty($_POST['ip4end']) or empty($_POST['ip4subnet']) ) )
   {
@@ -74,9 +74,8 @@ defined('DS') OR die('No direct access allowed.');
     $ip4subnet="";
 
   if ( $setranges ) {
-    run_cmd("iocage set ip4_autostart=$ip4start default");
-    run_cmd("iocage set ip4_autoend=$ip4end default");
-    run_cmd("iocage set ip4_autosubnet=$ip4subnet default");
+    $dccmd = array("iocage set ip4_autostart=$ip4start default", "iocage set ip4_autoend=$ip4end default", "iocage set ip4_autosubnet=$ip4subnet default");
+    send_dc_cmd($dccmd);
   }
 
   if ( $setranges and ! empty($_GET['firstrun']) )
