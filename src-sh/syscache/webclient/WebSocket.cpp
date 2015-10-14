@@ -114,8 +114,7 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	  }else if(name == "auth_token" && args.isObject()){
 	    SockAuthToken = JsonValueToString(args.toObject().value("token"));
 	  }else if(name == "auth_clear"){
-	    AUTHSYSTEM->clearAuth(SockAuthToken);
-	    return; //don't send a return message after clearing an auth
+	    return; //don't send a return message after clearing an auth (already done)
 	  }
 	  
 	  //Now check the auth and respond appropriately
