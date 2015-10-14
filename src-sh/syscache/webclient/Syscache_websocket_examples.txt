@@ -50,6 +50,46 @@ Once a websocket connection is made to the server, the client needs to authentic
     "namespace": "rpc"
 }
 
+-JSON Request - Clear the current pre-saved authentication token (such as signing out)
+{
+"namespace" : "rpc",
+"name" : "auth_clear",
+"id" : "sampleID",
+"args" : "junk argument"
+}
+
+==================================
+ - Event notifications
+==================================
+The client may subscribe to event notifications as well (per-connection)
+
+-JSON Request - Subscribe to "dispatcher" events
+{
+"namespace" : "events",
+"name" : "subscribe",
+"id" : "sampleID",
+"args" : ["dispatcher"]
+}
+
+-JSON Request - Unsubscribe to "dispatcher" events
+{
+"namespace" : "events",
+"name" : "unsubscribe",
+"id" : "sampleID",
+"args" : ["dispatcher"]
+}
+
+-JSON Reply - a "dispatcher" event has occured 
+{
+"namespace" : "events",
+"name" : "event",
+"id" : "",
+"args" : {
+    "name" : "dispatcher",
+    "args" : "<message"
+  }
+}
+
 ===================================
  - General syscache system information/summaries
  ===================================
