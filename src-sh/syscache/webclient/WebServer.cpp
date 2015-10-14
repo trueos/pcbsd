@@ -10,7 +10,7 @@
 #include <QFile>
 #include <QTextStream>
 
-#define DEBUG 0
+#define DEBUG 1
 
 #define PORTNUMBER 12142
 
@@ -157,6 +157,7 @@ void WebServer::WatcherUpdate(QString path){
     //Read the file contents
     QString stat = readFile(APPCAFEWORKING);
     if(stat.simplified().isEmpty()){ stat = "idle"; }
+    if(DEBUG){ qDebug() << "Dispatcher Update:" << stat; }
     //Forward those contents on to the currently-open sockets
     emit AppCafeStatusUpdate(stat);
   }

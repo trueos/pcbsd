@@ -19,7 +19,7 @@
 #include <login_cap.h>
 
 //Internal defines
-#define TIMEOUTSECS 300 // (5 minutes) time before a token becomes invalid
+#define TIMEOUTSECS 900 // (15 minutes) time before a token becomes invalid
 #define AUTHCHARS QString("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
 #define TOKENLENGTH 20
 

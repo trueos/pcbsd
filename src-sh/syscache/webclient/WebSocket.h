@@ -30,7 +30,7 @@ public:
 private:
 	QTimer *idletimer;
 	QWebSocket *SOCKET;
-	QString SockID, SockAuthToken;
+	QString SockID, SockAuthToken, lastDispatchEvent;
 	AuthorizationManager *AUTHSYSTEM;
 	bool SendAppCafeEvents;
 
@@ -53,7 +53,7 @@ private slots:
 	void EvaluateMessage(const QString&);
 
 public slots:
-	void AppCafeStatusUpdate(QString);
+	void AppCafeStatusUpdate(QString msg = "");
 
 signals:
 	void SocketClosed(QString); //ID

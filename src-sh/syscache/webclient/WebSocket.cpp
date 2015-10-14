@@ -162,12 +162,13 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	    if(JsonValueToString(doc.object().value("name"))=="subscribe"){
 	      if(evlist.contains("dispatcher")){ 
 	        SendAppCafeEvents = true; 
-	        outargs.insert("subscribe",QJsonValue("dispatcher"));   
+	        outargs.insert("subscribe",QJsonValue("dispatcher"));  
+		QTimer::singleShot(100, this, SLOT(AppCafeStatusUpdate()) );
 	      }
 	    }else if(JsonValueToString(doc.object().value("name"))=="unsubscribe"){
 	      if(evlist.contains("dispatcher")){ 
 		SendAppCafeEvents = false; 
-		outargs.insert("unsubscribe",QJsonValue("dispatcher"));    
+		outargs.insert("unsubscribe",QJsonValue("dispatcher"));
 	      }
 	    }else{
 	      outargs.insert("unknown",QJsonValue("unknown"));
@@ -334,7 +335,9 @@ void WebSocket::EvaluateMessage(const QString &msg){
 //       PUBLIC SLOTS
 // ======================
 void WebSocket::AppCafeStatusUpdate(QString msg){
- if(!SendAppCafeEvents){ return; } //don't report events on this socket
+  if(!msg.isEmpty()){ lastDispatchEvent = msg; }
+  else{ msg = lastDispatchEvent; }
+  if(!SendAppCafeEvents){ return; } //don't report events on this socket
   RestOutputStruct out;
   //Define the output structures
   QJsonObject ret; //return message
