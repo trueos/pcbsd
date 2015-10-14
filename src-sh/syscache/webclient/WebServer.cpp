@@ -9,6 +9,7 @@
 #include <QUrl>
 #include <QFile>
 #include <QTextStream>
+#include <QProcess>
 
 #define DEBUG 1
 
@@ -51,6 +52,7 @@ bool WebServer::startServer(){
     qDebug() << "Server Started:" << QDateTime::currentDateTime().toString(Qt::ISODate);
     qDebug() << " Name:" << this->serverName() << "Port:" << this->serverPort();
     qDebug() << " URL:" << this->serverUrl().toString() << "Remote Address:" << this->serverAddress().toString();
+    if(!QFile::exists(APPCAFEWORKING)){ QProcess::execute("touch "+APPCAFEWORKING); }
     watcher->addPath(APPCAFEWORKING);
   }else{ qCritical() << "Could not start server - exiting..."; }
   return ok;
