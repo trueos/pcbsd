@@ -37,7 +37,12 @@ WebSocket::~WebSocket(){
 QString WebSocket::ID(){
   return SockID;
 }
-	
+
+void WebSocket::setLastDispatch(QString msg){ 
+  //used on initialization only
+  lastDispatchEvent = msg;
+}
+
 //=======================
 //             PRIVATE
 //=======================
@@ -337,6 +342,7 @@ void WebSocket::EvaluateMessage(const QString &msg){
 void WebSocket::AppCafeStatusUpdate(QString msg){
   if(!msg.isEmpty()){ lastDispatchEvent = msg; }
   else{ msg = lastDispatchEvent; }
+  qDebug() << "Socket Status Update:" << msg;
   if(!SendAppCafeEvents){ return; } //don't report events on this socket
   RestOutputStruct out;
   //Define the output structures

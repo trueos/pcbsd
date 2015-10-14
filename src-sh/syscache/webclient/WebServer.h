@@ -35,6 +35,8 @@ private:
 	QList<WebSocket*> OpenSockets;
 	AuthorizationManager *AUTH;
 	QFileSystemWatcher *watcher;
+	QString lastDispatch;
+
 	QString generateID(); //generate a new ID for a socket
 	QString readFile(QString path);
 
@@ -58,7 +60,7 @@ private slots:
 	void WatcherUpdate(QString);
 
 signals:
-	void AppCafeStatusUpdate(QString);
+	void DispatchStatusUpdate(QString);
 
 };
 

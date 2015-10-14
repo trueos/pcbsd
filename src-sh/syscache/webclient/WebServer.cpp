@@ -53,7 +53,9 @@ bool WebServer::startServer(){
     qDebug() << " Name:" << this->serverName() << "Port:" << this->serverPort();
     qDebug() << " URL:" << this->serverUrl().toString() << "Remote Address:" << this->serverAddress().toString();
     if(!QFile::exists(APPCAFEWORKING)){ QProcess::execute("touch "+APPCAFEWORKING); }
+    qDebug() << " Dispatcher Events:" << APPCAFEWORKING;
     watcher->addPath(APPCAFEWORKING);
+    WatcherUpdate(APPCAFEWORKING); //load it initially
   }else{ qCritical() << "Could not start server - exiting..."; }
   return ok;
 }
@@ -79,6 +81,7 @@ QString WebServer::readFile(QString path){
   QTextStream in(&file);
   QString contents = in.readAll();
   file.close();
+  if(contents.endsWith("\n")){ contents.chop(1); }
   return contents;  
 }
 
@@ -105,7 +108,8 @@ void WebServer::NewSocketConnection(){
   qDebug() <<  " - Accepting connection:" << csock->origin();
   WebSocket *sock = new WebSocket(csock, generateID(), AUTH);
   connect(sock, SIGNAL(SocketClosed(QString)), this, SLOT(SocketClosed(QString)) );
-  connect(this, SIGNAL(AppCafeStatusUpdate(QString)), sock, SLOT(AppCafeStatusUpdate(QString)) );
+  connect(this, SIGNAL(DispatchStatusUpdate(QString)), sock, SLOT(AppCafeStatusUpdate(QString)) );
+  sock->setLastDispatch(lastDispatch); //make sure this socket is aware of the latest notification
   OpenSockets << sock;
 }
 
@@ -159,9 +163,10 @@ void WebServer::WatcherUpdate(QString path){
     //Read the file contents
     QString stat = readFile(APPCAFEWORKING);
     if(stat.simplified().isEmpty()){ stat = "idle"; }
-    if(DEBUG){ qDebug() << "Dispatcher Update:" << stat; }
+    //qDebug() << "Dispatcher Update:" << stat;
+    lastDispatch = stat; //save for later
     //Forward those contents on to the currently-open sockets
-    emit AppCafeStatusUpdate(stat);
+    emit DispatchStatusUpdate(stat);
   }
   //Make sure this file/dir is not removed from the watcher
   if(!watcher->files().contains(path) && !watcher->directories().contains(path)){

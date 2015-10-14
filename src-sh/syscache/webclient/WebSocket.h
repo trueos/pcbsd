@@ -26,7 +26,8 @@ public:
 	~WebSocket();
 
 	QString ID();
-	
+	void setLastDispatch(QString); //used on initialization only
+
 private:
 	QTimer *idletimer;
 	QWebSocket *SOCKET;
