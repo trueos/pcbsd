@@ -1,5 +1,6 @@
 var notices;
 var nstatus;
+var wstatus;
 
 function init_ws_notification()
 {
@@ -20,6 +21,7 @@ function onOpen(evt)
 {
   var authjson = '{ "namespace":"rpc", "name":"auth_token", "id":"authrequest", "args": { "token":"' + wstoken + '" } }';
   nstatus = "auth";
+  wstatus = "idle";
   doSend(authjson);
 }
 
@@ -58,10 +60,14 @@ function parseNoticeEvents(incoming)
 
   if ( jsonobj['args'].args == "idle" ) {
     replaceContents('<a href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status</a>');
+    if ( wstatus == "working" )
+      var t = setTimeout('location.reload(true)', 2000);
+    wstatus = "idle";
     return;
   }
   //window.alert(incoming);
   replaceContents('<a href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"' + jsonobj['args'].args + '\"> Working</a>');
+  wstatus = "working";
 }
 
 function onError(evt)
