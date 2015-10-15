@@ -342,7 +342,7 @@ run_daemon()
   do
     # Check if we have anything to do?
     if [ ! -e "$QLIST" ] ; then
-       sleep 10
+       sleep 3
        continue
     fi
 
