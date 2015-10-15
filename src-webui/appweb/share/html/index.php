@@ -35,13 +35,14 @@
 
   require("include/Mobile_Detect.php");
 
+  $loadedglobals = false;
   define('DS',  TRUE); // used to protect includes
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
   $APIKEY = $_SESSION['apikey'];
 
   // Check if we need to bring up login page again
-  if ( (!USERNAME or isset($_GET['logout'])) ) {
+  if ( !USERNAME or isset($_GET['logout']) ) {
     $timeout = false;
     $_SESSION['apikey'] = "";
     include('include/login.php');
@@ -65,6 +66,7 @@
   require("include/functions.php");
   require("include/functions-config.php");
 
+  $loadedglobals = true;
   // Auth this WS connection
   $sccmd = array("token" => "$APIKEY");
   $response = send_sc_query($sccmd, "auth_token");
@@ -103,18 +105,6 @@
   if ( "$page" == "exportpbis" ) {
     require("pages/exportpbis.php");
     exit(0);
-  }
-
-  // Check if we are on the dispatcher plugin page
-  $pluginDispatcher = false;
-  if ( $page == "dispatcher-plugins" ) {
-    $page = "dispatcher";
-    $pluginDispatcher = true;
-  }
-  $jailDispatcher = false;
-  if ( $page == "dispatcher-jails" ) {
-    $page = "dispatcher";
-    $jailDispatcher = true;
   }
 
   // If we are on plugins section, make sure we have a start-end range

@@ -1,6 +1,14 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+ $refPage = $_GET["ref"];
+ $pluginDispatcher = false;
+ $jailDispatcher = false;
+ if ( stripos($refPage, "plugin") !== false )
+   $pluginDispatcher = true;
+ if ( stripos($refPage, "jail") !== false )
+   $jailDispatcher = true;
+
 if ( strpos($page, "plugin") !== false or $pluginDispatcher) {
   $dflag="plugins";
 } elseif ( strpos($page, "jail") !== false or $jailDispatcher) {
@@ -23,7 +31,7 @@ if ( strpos($page, "plugin") !== false or $pluginDispatcher) {
 ?>
   <li <?php if ( stripos($page, "plugin") !== false ) { echo "class='active'"; } ?>><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=28 width=28> &nbsp;&nbsp;App Containers</a></li>
   <li <?php if ( stripos($page, "jail") !== false ) { echo "class='active'"; } ?>><a href="/?p=jails" style="align:right;"><img src="/images/jail.png" height=28 width=28> &nbsp;&nbsp;Jails</a></li>
-  <li id="notifier"></li>
+  <li id="notifier"><a href="?p=dispatcher"><img align=absmiddle height=32 width=32 src="../images/dialog-ok.png"> Status</a></li>
 <?php
 if (USERNAME)
   echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=28 width=28> Logout</a></li>";
@@ -69,24 +77,6 @@ if ( $dflag == "appcafe" )
 </div>
 <?php } ?>
 
-<script type="text/javascript">
-$(document).ready(function () {
-    var interval = 10000;   //number of mili seconds between each call
-    var refresh = function() {
-        $.ajax({
-            url: "/pages/notifier.php?p=<?php echo $dflag; ?>",
-            cache: false,
-            success: function(html) {
-                $('#notifier').html(html);
-                setTimeout(function() {
-                    refresh();
-                }, interval);
-            }
-        });
-    };
-    refresh();
-});
-</script>
 <?php if ( $page != "dispatcher" and stripos($page, "jail") === false )  { ?>
 
 <div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:200px;">

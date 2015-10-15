@@ -573,7 +573,6 @@ function display_app_link($pbilist, $jail)
          }
 	 if ( $appbusy ) {
 	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
-	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
          } else {
 	   display_install_chooser();
 	 }

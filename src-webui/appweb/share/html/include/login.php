@@ -16,12 +16,15 @@
 
   if ( isset($_POST['username'])) {
     $goodlogin = false;
-    // Lets try auth with WebSocket server
-    require('vendor/autoload.php');
-    require("include/globals.php");
-    require("include/functions.php");
+    if ( ! $loadedglobals ) {
+      require('vendor/autoload.php');
+      require("include/globals.php");
+      require("include/functions.php");
+    }
+
     $user = $_POST['username'];
     $pass = $_POST['password'];
+    // Lets try auth with WebSocket server
     $sccmd = array("username" => "$user", "password" => "$pass");
     $response = send_sc_query($sccmd, "auth");
     if ( $response["code"] == "401" or $response["message"] == "Unauthorized" ) {
@@ -50,6 +53,7 @@
 ?>
 <html>
 <head>
+<title>AppCafe Login</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="/css/_reset.css" />
 <link rel="stylesheet" href="/css/main.css" />

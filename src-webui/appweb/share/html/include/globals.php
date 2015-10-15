@@ -4,7 +4,10 @@
    use WebSocket\Client;
 
    // Create a websocket connection to syscache
-   $scclient = new Client("ws://127.0.0.1:12142");
+   $wsport = "12142";
+   $wslocal = "ws://127.0.0.1:" . $wsport;
+   $wsremote = "ws://" . $_SERVER['SERVER_ADDR'] . ":" . $wsport;
+   $scclient = new Client("$wslocal");
 
    // Check if we need to display desktop apps, or just server / CLI
    if ( file_exists("/usr/local/bin/startx") === false )
