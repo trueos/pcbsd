@@ -342,7 +342,7 @@ void WebSocket::EvaluateMessage(const QString &msg){
 void WebSocket::AppCafeStatusUpdate(QString msg){
   if(!msg.isEmpty()){ lastDispatchEvent = msg; }
   else{ msg = lastDispatchEvent; }
-  qDebug() << "Socket Status Update:" << msg;
+  //qDebug() << "Socket Status Update:" << msg;
   if(!SendAppCafeEvents){ return; } //don't report events on this socket
   RestOutputStruct out;
   //Define the output structures

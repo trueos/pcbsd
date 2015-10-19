@@ -11,7 +11,7 @@
 #include <QTextStream>
 #include <QProcess>
 
-#define DEBUG 1
+#define DEBUG 0
 
 #define PORTNUMBER 12142
 
@@ -163,7 +163,7 @@ void WebServer::WatcherUpdate(QString path){
     //Read the file contents
     QString stat = readFile(APPCAFEWORKING);
     if(stat.simplified().isEmpty()){ stat = "idle"; }
-    //qDebug() << "Dispatcher Update:" << stat;
+    qDebug() << "Dispatcher Update:" << stat;
     lastDispatch = stat; //save for later
     //Forward those contents on to the currently-open sockets
     emit DispatchStatusUpdate(stat);
