@@ -219,8 +219,12 @@ fetch_file()
   EXITFILE="${TMPDIR}/.fetchExit"
 
   rm ${FETCHOUTFILE} 2>/dev/null >/dev/null
+  FSIZE=$(`fetch -s "${FETCHFILE}"`)
+  is_num "$FSIZE"
+  if [ $? -eq 0 ] ; then
+    SIZE=$(expr $FSIZE / 1024 )
+  fi
 
-  SIZE=$(( `fetch -s "${FETCHFILE}"` / 1024 ))
   echo "Downloading: `basename ${FETCHFILE}`"
   echo "FETCH: ${FETCHFILE}"
   echo "FETCH: ${FETCHOUTFILE}" >>${LOGOUT}
