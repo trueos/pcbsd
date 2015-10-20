@@ -4,6 +4,7 @@
 
 #define LINEBREAK QString("<LINEBREAK>")
 
+#define DEBUG 1
 SysCacheClient::SysCacheClient(QObject *parent) : QLocalSocket(parent){
     connect(this, SIGNAL(connected()), this, SLOT(startRequest()));
     connect(this, SIGNAL(error(QLocalSocket::LocalSocketError)), this, SLOT(connectionError()));
@@ -17,7 +18,7 @@ QStringList SysCacheClient::parseInputs(QStringList inputs){
   SysCacheClient client;
   client.userRequest = inputs;
   client.servRequest = inputs;
-  //qDebug() << "Syscache Request:" << inputs;
+  if(DEBUG){ qDebug() << "Syscache Request:" << inputs; }
   //Convert the user request into server request formatting
 
   
@@ -52,7 +53,7 @@ void SysCacheClient::requestFinished(){
   static bool running = false;
   if(running){ return; } //already reading stream
   running = true;
-  //qDebug() << "Client Request Finished";
+  if(DEBUG){ qDebug() << "Client Request Finished"; }
   QTextStream in(this);
   QString line;
   while(!line.endsWith("[FINISHED]")){
@@ -60,11 +61,11 @@ void SysCacheClient::requestFinished(){
     QCoreApplication::processEvents();
   }
   line.remove("[FINISHED]");
-  //qDebug() << "Reply:" << line;
+  if(DEBUG){ qDebug() << "Reply:" << line; }
   QStringList output = line.split("[INFOSTART]");
     output.removeAll("[/]");
     output.removeAll("");
-  //qDebug() << " - In List:" << output;
+  if(DEBUG){ qDebug() << " - In List:" << output; }
       ans = output; //save it for later
   running = false;
   //qDebug() << " - Syscache connection closing" << ans;
