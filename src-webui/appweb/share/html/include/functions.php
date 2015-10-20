@@ -674,6 +674,8 @@ function get_zpools()
    {
      $pline=str_replace("\t", " ", $pline);
      $zarray = explode(" ", $pline);
+     if ( $zarray[0] == "freenas-boot" )
+       continue;
      $zpools[] = $zarray[0];
    }
    return $zpools;
