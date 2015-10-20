@@ -163,6 +163,7 @@ run_queue_cmd()
 	# Next make sure this RELEASE is downloaded, if not fetch it
         iocage list -r | grep -q "$NEWUNAME"
 	if [ $? -ne 0 ] ; then
+          echo "iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist" >>$QLOGFILE
           iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist >>$QLOGFILE 2>>$QLOGFILE
 	fi
 
