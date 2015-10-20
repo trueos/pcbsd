@@ -26,6 +26,8 @@ defined('DS') OR die('No direct access allowed.');
    $parray = explode(", ", $pbilist);
 
    foreach ($parray as $pbiline) {
+     if ( $pbiline == " " )
+       continue;
      $pbiarray = explode(" ",$pbiline); 
      parse_plugin_details($pbiarray[0], $col, true, false);
      if ( $col == $totalCols )
