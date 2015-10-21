@@ -96,6 +96,6 @@ desktop.path=/usr/local/share/applications/
 desktop.files=pc-dmconf.desktop
 
 appicon.path=/usr/local/share/pcbsd/icons
-appicon.files=pc-dmconf.png
+appicon.files=icons/pc-dmconf.png
 
 INSTALLS += target appicon desktop
