@@ -29,6 +29,7 @@ bin/pc-sysconfig-daemon
 bin/pc-systemflag
 bin/personacrypt
 bin/restamp-grub
+bin/warden-to-iocage
 sbin/pc-sysinstall
 share/pc-sysinstall/examples/pcinstall.cfg.upgrade
 share/pc-sysinstall/examples/pc-autoinstall.conf
