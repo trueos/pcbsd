@@ -303,7 +303,8 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       if(lab.length()==2 && lab[0].startsWith("Failed ") ){ label = lab[2]; } //special catch for Windows 8
       else if(!lab.isEmpty()){ label = lab[0]; }
       //qDebug() << "label:" << label;
-    }else{
+    }
+    if(label.isEmpty()){
       QStringList labs = runShellCommand("glabel list "+node).filter("Name: ");
       if(labs.length() > 0){
         labs[0] = labs[0].section(":",-1).section("/",-1).simplified();
