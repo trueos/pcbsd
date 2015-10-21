@@ -151,7 +151,7 @@ run_queue_cmd()
         if [ $? -eq 0 ] ; then
           NEWUNAME="`echo $SYSUNAME | cut -d '-' -f 1`-RELEASE"
 	fi
-        tags="release=$NEWUNAME"
+        tags="base=$NEWUNAME"
 
 	# First make sure this jail doesn't exist
 	iocage get ip4_addr pbijail-$newtag 2>/dev/null >/dev/null
