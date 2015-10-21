@@ -131,7 +131,7 @@ run_queue_cmd()
 
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
           # System has VIMAGE enabled
-          cmd="iocage fetch $target tag=pbicage-$neworigin devfs_ruleset=5 boot=on vnet=on dhcp=on bpf=on"
+          cmd="iocage fetch $target tag=pbicage-$neworigin boot=on vnet=on dhcp=on bpf=on"
 	else
 	  # No VIMAGE, use fallback method
 	  cmd="iocage fetch $target tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4"
