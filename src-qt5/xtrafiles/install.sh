@@ -29,7 +29,7 @@ fi
 cd local
 for i in `find .`
 do
-   chown root:wheel ${LB}/${i}
+   chown root:wheel ${LB}/${i} 2>/dev/null >/dev/null
 done
 cd ..
 

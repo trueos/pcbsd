@@ -7,17 +7,21 @@ if ( ! empty($_GET['toggle']) )
 {
   $tjail = $_GET['toggle'];
   $sjail = $_GET['status'];
-  if ( $sjail == "Running" )
-    $output = run_cmd("iocage stop $tjail");
-  else
-    $output = run_cmd("iocage start $tjail");
+  if ( $sjail == "Running" ) {
+    $dccmd = array("iocage stop $tjail");
+    send_dc_cmd($dccmd);
+  } else {
+    $dccmd = array("iocage start $tjail");
+    send_dc_cmd($dccmd);
+  }
   hideurl("/?p=plugininfo");
 }
 
 if ( ! empty($_GET['autostart']) )
 {
   $tjail = $_GET['autostart'];
-  run_cmd("iocage set boot=on $tjail");
+  $dccmd = array("iocage set boot=on $tjail");
+  send_dc_cmd($dccmd);
   hideurl();
 }
 
@@ -69,10 +73,11 @@ function done_cfg()
 
   $sccmd = array("jail " . $jail . " id");
   $response = send_sc_query($sccmd);
-  $jid = $response[0];
+  $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to run done script
-  $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
+  $dccmd = array("donecfg " . $pbicdir . " " . $jid);
+  send_dc_cmd($dccmd);
 }
 
 // Set the current value for a config file setting
@@ -91,7 +96,9 @@ function set_cfg_value($cfg, $value)
   $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to set config value
-  $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  $dccmd = array("setcfg $pbicdir ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  send_dc_cmd($dccmd);
+
 }
 
 // Get the current value for a config file setting
@@ -110,9 +117,11 @@ function get_cfg_value($cfg)
   $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
-  if ( ! empty($output[0]) )
-     return $output[0];
+  $dccmd = array("getcfg $pbicdir $jid $key");
+  $output = send_dc_cmd($dccmd);
+
+  if ( ! empty($output["getcfg $pbicdir $jid $key"]) )
+     return $output["getcfg $pbicdir $jid $key"];
 
   return $default; 
 }
@@ -133,15 +142,24 @@ function display_jail_fstab_editor()
 
   // Check for add action
   if ( ! empty($_POST['mount']) ) {
-    $adderror = run_cmd("iocage" . " addfstab ". escapeshellarg($jail) . " " . $_POST['mount'] );
+    $cmd = "iocage addfstab $jail " . $_POST['mount'];
+    $dccmd = array("$cmd");
+    $response = send_dc_cmd($dccmd);
+    $adderror = $response["$cmd"];
   }
   // Check for delete action
   if ( ! empty($_GET['delMnt']) ) {
-    $delerror = run_cmd("iocage" . " delfstab ". escapeshellarg($jail) . " " . $_GET['delMnt'] );
+    $cmd = "iocage delfstab $jail " . $_POST['delMnt'];
+    $dccmd = array("$cmd");
+    $response = send_dc_cmd($dccmd);
+    $delerror = $response["$cmd"];
   }
 
   // Get current fstab
-  $fstab = run_cmd("iocage" . " getfstab ". escapeshellarg($jail) );
+  $cmd = "iocage getfstab $jail ";
+  $dccmd = array("$cmd");
+  $response = send_dc_cmd($dccmd);
+  $fstab = explode("\n", $response["$cmd"]);
 
   echo "<br>";
   echo "$adderror[0]$delerror[0]";
@@ -339,7 +357,7 @@ function display_install_chooser()
 
   // Check if this app is installed
   $pkgoutput = syscache_ins_plugin_list();
-  $pkglist = explode(", ", $pkgoutput[0]);
+  $pkglist = explode(", ", $pkgoutput);
 
   if ( array_search_partial($pbiorigin . " ", $pkglist) !== false)
      $pbiInstalled = true;
@@ -363,10 +381,15 @@ function display_install_chooser()
     $cmd="jail $ioid";
     $sccmd = array("$cmd path");
     $response = send_sc_query($sccmd);
-    $pbicdir = $response["$cmd path"] . "/pbicage";
+    // This is a bit weird, but the pbicage meta-data isn't visible in the jail mount
+    // Set it to the "real" location of the data
+    $pbicdir = $response["$cmd path"] . "/../_/pbicage";
 
     // Get ipv4 address
-    $output = run_cmd("iocage getip4 $ioid");
+    $dccmd = array("iocage getip4 $ioid");
+    $output = send_dc_cmd($dccmd);
+    $oarray = explode(" ", $output["iocage getip4 $ioid"]);
+
     $pbiip4 = $output[0];
     if (strstr($pbiip4, "|") !== false ) {
       $pbiip4= substr(strstr($pbiip4, "|"), 1);
@@ -408,7 +431,7 @@ function display_install_chooser()
       <?php
  	 $appbusy=false;
          foreach($dStatus as $curStatus) {
-  	   if ( strpos($curStatus, "iocage pull $pbiorigin") !== false ) {
+  	   if ( strpos($curStatus, "iocage fetch $pbiorigin") !== false ) {
 	      $appbusy=true;
 	      break;
 	   }

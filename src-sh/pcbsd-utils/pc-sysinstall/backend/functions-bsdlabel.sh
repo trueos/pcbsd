@@ -569,7 +569,7 @@ new_gpart_partitions()
         sleep 2
 	# MBR type
 	if [ "$PARTLETTER" = "a" ] ; then
-          aCmd="gpart add -b 8 ${SOUT} -t ${PARTYPE} ${_wSlice}"
+          aCmd="gpart add -b 16 ${SOUT} -t ${PARTYPE} ${_wSlice}"
 	else
           aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
 	fi

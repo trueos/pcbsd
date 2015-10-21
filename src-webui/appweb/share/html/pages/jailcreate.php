@@ -22,7 +22,8 @@ if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
   }
 
   if ( ! $badData ) {
-     $output = run_cmd("iocage create $jailname");
+     $dccmd = array("iocage create $jailname");
+     send_dc_cmd($dccmd);
      $showForm = false;
 ?>
 <h1>Jail Creation</h1>

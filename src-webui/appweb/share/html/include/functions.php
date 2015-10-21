@@ -18,38 +18,36 @@ function hideurl($newurl = "")
    <?php
 }
 
-// Runs commands through the sudo dispatcher
-function run_cmd($cmd)
-{
-   global $DISPATCHID;
-   putenv("PHP_DISID=$DISPATCHID");
-   exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher $cmd", $output);
-   return $output;
-}
-
 function syscache_ins_pkg_list($jail="")
 {
    $jail = "#system";
-   exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail installedlist"), $output);
+   $sccmd = array("pkg $jail installedlist");
+   $response = send_sc_query($sccmd);
+   $output = $response["pkg $jail installedlist"];
    return $output;
 }
 
 function syscache_ins_plugin_list()
 {
-   exec("/usr/local/bin/syscache ".escapeshellarg("jail stoppedcages"), $output);
-   exec("/usr/local/bin/syscache ".escapeshellarg("jail runningcages"), $output1);
-   if ( empty($output) )
-     return $output1;
-   if ( empty($output1) )
-     return $output;
-   $clist[] = $output[0]. ", " .$output1[0];
-   return $clist;
+   $sccmd = array("jail stoppedcages", "jail runningcages");
+   $output = send_sc_query($sccmd);
+   if ( empty($output["jail stoppedcages"]) or $output["jail stoppedcages"] == " " )
+     return $output["jail runningcages"];
+   if ( empty($output["jail runningcages"]) or $output["jail runningcages"] == " " )
+     return $output["jail stoppedcages"];
+   return $output["jail stoppedcages"]. "," . $output["jail runningcages"];
 }
 
 function syscache_pbidb_list($flag="allapps")
 {
-   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list $flag"), $output);
-   return $output;
+   $sccmd = array("pbi list $flag");
+   $output = send_sc_query($sccmd);
+   return $output["pbi list $flag"];
+}
+
+function send_dc_cmd($cmdarray)
+{
+  return send_sc_query($cmdarray, "dispatcher");
 }
 
 function send_sc_query($cmdarray, $cmdname="syscache")
@@ -74,6 +72,7 @@ function send_sc_query($cmdarray, $cmdname="syscache")
    //echo "<pre>" . json_encode($jarray, JSON_PRETTY_PRINT) ."</pre>";
    $scclient->send(json_encode($jarray));
    $rjson = $scclient->receive();
+   //  echo "<pre>" . $rjson ."</pre>";
    $rarray = json_decode($rjson, true);
    return $rarray["args"];
 }
@@ -86,8 +85,10 @@ function queueInstallApp()
    $app = $_GET['installApp'];
    $type = $_GET['installAppCmd'];
 
-   if ( ! empty($app) and ! empty($type) and ! empty($jail) )
-      run_cmd("queue $type $app install $jailUrl");
+   if ( ! empty($app) and ! empty($type) and ! empty($jail) ) {
+      $dccmd = array("queue $type $app install $jailUrl");
+      send_dc_cmd($dccmd);
+   }
  
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -107,8 +108,10 @@ function queueDeleteApp()
    $app = $_GET['deleteApp'];
    $type = $_GET['deleteAppCmd'];
 
-   if ( ! empty($app) and ! empty($type) and ! empty($jail) )
-     run_cmd("queue $type $app delete $jailUrl");
+   if ( ! empty($app) and ! empty($type) and ! empty($jail) ) {
+     $dccmd = array("queue $type $app delete $jailUrl");
+     send_dc_cmd($dccmd);
+   }
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -125,8 +128,10 @@ function queueInstallPlugin()
    $origin = $_GET['installPlugin'];
    $ghurl = $_GET['installPluginGH'];
 
-   if ( ! empty($origin) and ! empty($ghurl) )
-     $output = run_cmd("queue iocage pull $origin $ghurl");
+   if ( ! empty($origin) and ! empty($ghurl) ) {
+     $dccmd = array("queue iocage fetch $origin $ghurl");
+     send_dc_cmd($dccmd);
+   }
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -141,8 +146,10 @@ function queueDeletePlugin()
    $ioid = $_GET['deletePlugin'];
    $app = $_GET['app'];
 
-   if ( ! empty($ioid) )
-     run_cmd("queue iocage destroy $app $ioid");
+   if ( ! empty($ioid) ) {
+     $dccmd = array("queue iocage destroy $app $ioid");
+     send_dc_cmd($dccmd);
+   }
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -153,12 +160,14 @@ function queueDeletePlugin()
 
 function getDispatcherStatus()
 {
-   global $dispatcherstatus;
-   if ( ! empty($dispatcherstatus) )
-     return $dispatcherstatus;
+  global $dispatcherstatus;
+  if ( ! empty($dispatcherstatus) )
+    return $dispatcherstatus;
 
-   $dispatcherstatus = run_cmd("status");
-   return $dispatcherstatus;
+  $sccmd = array("status");
+  $response = send_dc_cmd($sccmd);
+  $dispatcherstatus = explode("\n", $response["status"]);
+  return $dispatcherstatus;
 }
 
 function get_installed_list($target = "#system")
@@ -168,7 +177,7 @@ function get_installed_list($target = "#system")
   $pbilist = $response["pkg" . $target . " installedlist"];
 }
 
-function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
+function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true, $pbiarray)
 {
   global $totalCols;
   global $inslist;
@@ -182,9 +191,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
 
-  $sccmd = array("$jail app-summary $pbiorigin");
-  $response = send_sc_query($sccmd);
-  $pbiarray = $response["$jail app-summary $pbiorigin"];
+  // If provided the $pbiarray summary, we can skip the 2nd request for it
+  if ( ! isset($pbiarray) ) {
+    $sccmd = array("$jail app-summary $pbiorigin");
+    $response = send_sc_query($sccmd);
+    $pbiarray = $response["$jail app-summary $pbiorigin"];
+  }
   // Output format (4/7/15): [origin, name, version, iconpath, rating, type, comment, confdir, isInstalled, canRemove]
   $pbiname = $pbiarray[1];
   $pbiver = $pbiarray[2];
@@ -193,15 +205,25 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   $pbitype = $pbiarray[5];
   $pbicomment = $pbiarray[6];
   $pbicdir = $pbiarray[7];
-  $pbiinstalled = $pbiarray[8];
-  $pbicanremove = $pbiarray[9];
-  if ( empty($pbitype) ) {
+  if ( ! isset($pbiarray[9]) ) {
     $isPBI=false;
     $pkgCmd="pkg";
   } else {
     $isPBI=true;
     $pkgCmd="pbi";
   }
+
+  if ( $isPBI ) {
+    $pbiinstalled = $pbiarray[8];
+    $pbicanremove = $pbiarray[9];
+  } else {
+    $pbiinstalled = $pbiarray[4];
+    $pbicanremove = $pbiarray[5];
+  }
+
+  if ( $pbiorigin == "ports-mgmt/pkg" )
+    $pbicanremove = false;
+
   // If no match, return false
   if ( empty($pbiname) or $pbiname == "$SCERROR" )
      return 1;
@@ -357,8 +379,17 @@ function get_jail_list($force=false)
   // Query the system for the running jail list
   $sccmd = array("jail list", "jail stoppedlist");
   $response = send_sc_query($sccmd);
-  $jail_list_array = $response["jail list"];
-  $jail_stopped_list_array = $response["jail stoppedlist"];
+
+  // Check if this is a single-item string or array of items
+  if ( gettype($response["jail list"]) == "string" )
+    $jail_list_array[] = $response["jail list"];
+  else
+    $jail_list_array = $response["jail list"];
+
+  if ( gettype($response["jail stoppedlist"]) == "string" )
+    $jail_stopped_list_array[] = $response["jail stoppedlist"];
+  else
+    $jail_stopped_list_array = $response["jail stoppedlist"];
 
   // Get the UUID of the jails only
   $jarray = array();
@@ -515,7 +546,7 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
   $appbusy=false;
   $dStatus = getDispatcherStatus();
   foreach($dStatus as $curStatus) {
-    if ( strpos($curStatus, "iocage pull $origin") !== false ) {
+    if ( strpos($curStatus, "iocage fetch $origin") !== false ) {
       $appbusy=true;
       break;
      }
@@ -628,8 +659,10 @@ function get_iocage_id_from_origin($origin)
 
 function get_iocage_pool()
 {
-   $output = run_cmd("iocage activate");
-   $rtn = explode( " ", $output[0]);
+   $dccmd = array("iocage activate");
+   $response = send_dc_cmd($dccmd);
+   $rtn = explode("\n", $response["iocage activate"]);
+   $rtn = explode( " ", $rtn[0]);
    return $rtn[1];
 }
 
@@ -641,6 +674,8 @@ function get_zpools()
    {
      $pline=str_replace("\t", " ", $pline);
      $zarray = explode(" ", $pline);
+     if ( $zarray[0] == "freenas-boot" )
+       continue;
      $zpools[] = $zarray[0];
    }
    return $zpools;

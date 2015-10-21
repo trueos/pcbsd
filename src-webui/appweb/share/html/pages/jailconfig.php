@@ -20,7 +20,7 @@ defined('DS') OR die('No direct access allowed.');
     $dccmd = array("iocage activate " . $curpool);
     send_dc_cmd($dccmd);
   }
-
+  
   $dccmd = array("iocage get ip4_autostart default", "iocage get ip4_autoend default", "iocage get ip4_autosubnet default");
   $output = send_dc_cmd($dccmd);
   $ip4start = $output["iocage get ip4_autostart default"];
@@ -76,23 +76,22 @@ defined('DS') OR die('No direct access allowed.');
   if ( $setranges ) {
     $dccmd = array("iocage set ip4_autostart=$ip4start default", "iocage set ip4_autoend=$ip4end default", "iocage set ip4_autosubnet=$ip4subnet default");
     send_dc_cmd($dccmd);
-
   }
 
   if ( $setranges and ! empty($_GET['firstrun']) )
   {
-    require("pages/plugins.php");
+    require("pages/jails.php");
   } else {
 
     if ( $firstrun )
       echo "<h1>Welcome to AppCafe!</h1><br>";
     else
-      echo "<h1>Apps Configuration</h1><br>";
+      echo "<h1>Jail Configuration</h1><br>";
 
     if ( $vimage == 1 )
-      echo "<p>The following ZFS pool will be used to store your Apps:</p>";
+      echo "<p>The following ZFS pool will be used to store your Jails:</p>";
     else
-      echo "<p>Each AppCafe managed container requires an IP address on your network. Please specify a range of usable IPs which can be assigned to App containers.</p>";
+      echo "<p>Each AppCafe managed jail requires an IP address on your network. Please specify a range of usable IPs which can be assigned to jails.</p>";
 
     if ( ! empty($errormsg) ) {
       echo "<br><p style=\"color:red;\">$errormsg</p>";
@@ -104,7 +103,7 @@ defined('DS') OR die('No direct access allowed.');
    <th></th>
 </tr>
 
-<form method="post" action="?p=pluginconfig&firstrun=<?php if ( $firstrun ) { echo "1"; } ?>">
+<form method="post" action="?p=jailconfig&firstrun=<?php if ( $firstrun ) { echo "1"; } ?>">
 <?php if ( $vimage != 1) { ?>
 <tr>
   <td style="text-align: center; vertical-align: middle;">

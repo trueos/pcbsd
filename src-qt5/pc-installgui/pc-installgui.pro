@@ -8,7 +8,6 @@ QT += core gui widgets
 LIBS += -L/usr/local/lib
 SOURCES += main.cpp \
     dialogCheckHardware.cpp \
-    dialogDesktopSelection.cpp \
     dialogFSSize.cpp \
     dialogInfoBox.cpp \
     dialogKeyboard.cpp \
@@ -20,7 +19,6 @@ SOURCES += main.cpp \
     backend.cpp
 HEADERS += installer.h \
     dialogCheckHardware.h \
-    dialogDesktopSelection.h \
     dialogFSSize.h \
     dialogInfoBox.h \
     dialogKeyboard.h \
@@ -104,6 +102,6 @@ scripts.extra=cp scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/ 
 
 INSTALLS += target scripts
 
-FORMS += installer.ui dialogCheckHardware.ui dialogDesktopSelection.ui dialogFSSize.ui dialogHelp.ui wizardFreeBSD.ui dialogKeyboard.ui wizardDisk.ui dialogInfoBox.ui wizardRestore.ui
+FORMS += installer.ui dialogCheckHardware.ui dialogFSSize.ui dialogHelp.ui wizardFreeBSD.ui dialogKeyboard.ui wizardDisk.ui dialogInfoBox.ui wizardRestore.ui
 
 RESOURCES += sysinstaller.qrc

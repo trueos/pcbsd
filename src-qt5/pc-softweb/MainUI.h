@@ -35,7 +35,7 @@ public:
 	~MainUI();
 
 private:
-	bool DEBUG, AUTHCOMPLETE;
+	bool DEBUG;
 	QString baseURL;
 	QWebView *webview;
 	QProgressBar *progressBar;

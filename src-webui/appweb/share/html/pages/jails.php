@@ -5,7 +5,8 @@ if ( ! empty($_GET['deleteJail'] ) )
 {
    // Time to schedule a deletion
    $delJail=$_GET['deleteJail'];
-   run_cmd("iocage destroy -f $delJail");
+   $dccmd = array("iocage destroy -f $delJail");
+   send_dc_cmd($dccmd);
    hideurl();
 }
  
@@ -14,17 +15,21 @@ if ( ! empty($_GET['toggle']) )
 {
   $tjail = $_GET['toggle'];
   $sjail = $_GET['status'];
-  if ( $sjail == "Running" )
-    run_cmd("iocage stop $tjail");
-  else
-    run_cmd("iocage start $tjail");
+  if ( $sjail == "Running" ) {
+    $dccmd = array("iocage stop $tjail");
+    send_dc_cmd($dccmd);
+  } else {
+    $dccmd = array("iocage start $tjail");
+    send_dc_cmd($dccmd);
+  }
   hideurl();
 }
 
 if ( ! empty($_GET['autostart']) )
 {
   $tjail = $_GET['autostart'];
-  run_cmd("iocage set boot=on $tjail");
+  $dccmd = array("iocage set boot=on $tjail");
+  send_dc_cmd($dccmd);
   hideurl();
 }
 
@@ -52,9 +57,12 @@ function print_jail($jail, $status)
     print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: green; text-decoration: underline;\">$status</a></td>\n");
   else
     print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: red; text-decoration: underline;\">$status</a></td>\n");
-  if ( $status == "Running" ) 
-    print("  <td>IP HERE</td>\n");
-  else
+  if ( $status == "Running" ) {
+    $sccmd = array("jail $jail ip");
+    $response = send_sc_query($sccmd);
+    $jip = $response["jail $jail ip"];
+    print("  <td>$jip</td>\n");
+  } else
     print("  <td></td>\n");
 
   print ("</tr>\n");

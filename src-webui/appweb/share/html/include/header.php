@@ -19,6 +19,12 @@
         <link rel="stylesheet" href="/css/cssmenu.css" />
         <link rel="stylesheet" href="/css/subcssmenu.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+<?php
+print "<script type=\"text/javascript\">\n";
+print " var wsserver=\"" . $wsremote . "\";\n";
+print " var wstoken=\"" . $_SESSION['apikey'] . "\";\n";
+print "</script>\n";
+?>
 	<script type="text/javascript" src="/js/appcafe.js"></script>
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.easytabs.min.js"></script>
@@ -28,6 +34,7 @@
 	<script type="text/javascript" src="/js/popbox.min.js"></script>
 	<script type="text/javascript" src="/js/lightbox.min.js"></script>
 	<script type="text/javascript" src="/js/cssmenu.js"></script>
+	<script type="text/javascript" src="/js/notifications.js"></script>
 	<style>
 	<style>
 

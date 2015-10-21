@@ -9,6 +9,7 @@
 #include <QWebSocketServer>
 #include <QWebSocket>
 #include <QWebSocketCorsAuthenticator>
+#include <QFileSystemWatcher>
 #include <QSslError>
 #include <QList>
 #include <QObject>
@@ -33,8 +34,11 @@ public slots:
 private:
 	QList<WebSocket*> OpenSockets;
 	AuthorizationManager *AUTH;
+	QFileSystemWatcher *watcher;
+	QString lastDispatch;
 
 	QString generateID(); //generate a new ID for a socket
+	QString readFile(QString path);
 
 private slots:
 	// Overall Server signals
@@ -51,6 +55,13 @@ private slots:
 	void SslErrors(const QList<QSslError>&);	//sslErrors() signal
 
 	void SocketClosed(QString ID);
+
+	//File watcher signals
+	void WatcherUpdate(QString);
+
+signals:
+	void DispatchStatusUpdate(QString);
+
 };
 
 #endif

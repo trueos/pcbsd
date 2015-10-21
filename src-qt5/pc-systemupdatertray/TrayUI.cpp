@@ -147,7 +147,7 @@ void TrayUI::watcherFileChange(QString file){
 void TrayUI::checkForUpdates(){
   if(PerformingCheck){ return; } //Already checking
   PerformingCheck = true;
-  this->setIcon( QIcon(":/images/working.png") );
+  //this->setIcon( QIcon(":/images/working.png") );
   //Verify that the proper files/dirs are currently being watched
   if(watcher->directories().isEmpty()){ watcher->addPath(UPDATE_PROC_DIR); }
   if(watcher->files().isEmpty()){ watcher->addPaths( QStringList() << SYSCACHE_LOG_FILE << PCBSD_CONF_FILE ); }
