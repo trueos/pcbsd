@@ -802,8 +802,6 @@ update_freebsd()
 
   set_update_vars
 
-  kill_syscache
-
   if [ "$doPkgUpdates" = "YES" ] ; then
     mk_pkg_conf
     build_pkg_list
@@ -830,7 +828,6 @@ update_freebsd()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
-  start_syscache
   if [ "$doPkgUpdates" = "YES" ] ; then
     run_update_post "PKG"
   else
@@ -846,8 +843,13 @@ update_pkgs_only()
 {
   check_valid_uptarget
 
+  FULLUPDATE="NO"
+  if [ "$1" = "-f" ] ; then
+    FULLUPDATE="YES"
+  fi
+
   # Make sure there are really packages to update
-  if [ "$1" != "-f" ] ; then
+  if [ "$FULLUPDATE" != "YES" ] ; then
     checkup_pkgs >/dev/null 2>/dev/null
     if [ $? -eq 0 ] ; then
        echo "Your packages are already up to date!"
@@ -864,15 +866,25 @@ update_pkgs_only()
 
   set_update_vars
 
-  kill_syscache
   run_update_pre "PKG"
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
   mk_stage_be
   mount_stage_be
-  prep_pkgs_chroot
-  install_pkgs_chroot
+  if [ "$FULLUPDATE" = "YES" ] ; then
+    # We are doing a forced / full update, lets nuke and re-install all
+    prep_pkgs_chroot
+    install_pkgs_chroot
+  else
+    # Lets attempt a traditional PKG upgrade, fallback to full if that fails
+    do_lite_pkgupdate_chroot
+    if [ $? -ne 0 ] ; then
+      echo_log "Failed incremental pkg upgrade! Doing full package upgrade now."
+      prep_pkgs_chroot
+      install_pkgs_chroot
+    fi
+  fi
   umount_stage_be
   mk_stage_be_default
 
@@ -880,7 +892,6 @@ update_pkgs_only()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
-  start_syscache
   run_update_post "PKG"
 
   touch_reboot
@@ -904,7 +915,6 @@ update_world_and_pkgs()
 
   set_update_vars
 
-  kill_syscache
   run_update_pre "SYSTEM"
   mk_pkg_conf
   build_pkg_list
@@ -920,29 +930,12 @@ update_world_and_pkgs()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
-  start_syscache
   run_update_post "SYSTEM"
 
   touch_reboot
   echo_log "Update stage one is finished! Please reboot to start stage 2."
 
   exit 0
-}
-
-start_syscache()
-{
-  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
-     echo_log "Starting syscache..."
-     /usr/local/etc/rc.d/syscache start >/dev/null 2>/dev/null
-  fi
-}
-
-kill_syscache()
-{
-  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
-     echo_log "Stopping syscache..."
-     /usr/local/etc/rc.d/syscache stop >/dev/null 2>/dev/null
-  fi
 }
 
 mk_pkg_conf()
@@ -1038,7 +1031,6 @@ build_pkg_list()
     if [ -e "/usr/local/bin/pc-systemflag" ] ; then
       pc-systemflag PKGUPDATE ERROR
     fi
-    start_syscache
     exit_err "You have LOCKED packages in your repo! These must be unlocked, or you can run pkg upgrade manually."
   fi
 
@@ -1090,7 +1082,6 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
-     start_syscache
      echo_log "Failed fetching: ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
@@ -1105,7 +1096,6 @@ dl_pkgs()
         if [ -e "/usr/local/bin/pc-systemflag" ] ; then
           pc-systemflag PKGUPDATE ERROR
         fi
-        start_syscache
 	echo_log "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg" >> ${PKGUPGRADELOG}
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
@@ -1124,7 +1114,6 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
-     start_syscache
      echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
      echo "Failed fetching: $SYSBASE - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
@@ -1135,7 +1124,6 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
-     start_syscache
      echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
      echo "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE" >> ${PKGUPGRADELOG}
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
@@ -1182,7 +1170,6 @@ dl_pkgs()
          cat /tmp/.pkgOut.$$ >> ${LOGOUT}
          echo_log "*****" >> ${PKGUPGRADELOG}
          rm /tmp/.pkgOut.$$
-         start_syscache
          echo_log "Failed fetching: $pkgOrigin" >> ${PKGUPGRADELOG}
          exit_err "Failed fetching: $pkgOrigin"
        fi
@@ -1194,7 +1181,6 @@ dl_pkgs()
        #cat /tmp/.pkgOut.$$ >> ${LOGOUT}
        #echo_log "*****" >> ${PKGUPGRADELOG}
        #rm /tmp/.pkgOut.$$
-       #start_syscache
        #echo_log "Failed fetching: $pkgOrigin"
        #exit_err "Failed fetching: $pkgOrigin"
     #fi
@@ -1275,6 +1261,19 @@ mount_stage_be()
   chmod 600 ${STAGEMNT}/var/db/freebsd-update
 }
 
+do_lite_pkgupdate_chroot()
+{
+  # Need to export this before cleaning pkgs, some scripts may try to be interactive
+  PACKAGE_BUILDING="YES"
+  export PACKAGE_BUILDING
+
+  echo_log "Starting pkg upgrade..."
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
+  echo_log "Running: pkg upgrade -y"
+  chroot ${STAGEMNT} pkg upgrade -y 2>&1 | tee -a ${LOGOUT}
+  return $?
+}
+
 prep_pkgs_chroot()
 {
   # Now start our chroot commands
@@ -1296,6 +1295,7 @@ tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/
 PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
 echo \"PKG_CACHEDIR: $PKGDLCACHE\" > /tmp/.pkgUpdate.conf
 
+/usr/local/sbin/pkg-static \${PKG_CFLAG} update
 /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
 if [ \$? -ne 0 ] ; then exit 1; fi
 cd ${REALPKGDLCACHE}

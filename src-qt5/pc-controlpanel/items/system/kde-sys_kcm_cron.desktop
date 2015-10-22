@@ -1,0 +1,59 @@
+[Desktop Entry]
+Exec=pc-su kcmshell4 kcm_cron
+Icon=kde-cron.png
+
+X-DocPath=kcron/index.html
+OnlyShowIn=KDE
+Type=Service
+X-KDE-ServiceTypes=KCModule
+X-KDE-Library=kcm_cron
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=system-administration
+
+Name=System cron tasks
+
+X-KDE-Keywords=cron,crontab,scheduled,tasks,task,schedule,vixie
+X-KDE-Keywords[bs]=cron,crontab,scheduled,tasks,raspoređeni,zadaci,zadato, redoslijed,task,schedule,vixie
+X-KDE-Keywords[ca]=cron,crontab,planificat,tasques,tasca,planificació,vixie
+X-KDE-Keywords[ca@valencia]=cron,crontab,planificat,tasques,tasca,planificació,vixie
+X-KDE-Keywords[cs]=cron,crontab,naplánováno,úlohy,úloha,naplánovat,vixie
+X-KDE-Keywords[da]=cron,crontab,skemalagt,opgaver,opgaveskema,skema,vixie
+X-KDE-Keywords[de]=cron,crontab,scheduled,tasks,task,schedule,vixie,aufgaben,planung
+X-KDE-Keywords[el]=cron,crontab,προγραμματισμένες,εργασίες,εργασία,προγραμματισμός,vixie
+X-KDE-Keywords[en_GB]=cron,crontab,scheduled,tasks,task,schedule,vixie
+X-KDE-Keywords[es]=cron,crontab,programado,tareas,tarea,programar,vixie
+X-KDE-Keywords[et]=cron,crontab,ajastamine,ülesanded,ülesanne,ajastaja,vixie
+X-KDE-Keywords[eu]=cron,crontab,scheduled,antolatuta,tasks,task,atazak,ataza,schedule,antolatu,vixie
+X-KDE-Keywords[fi]=cron,crontab,ajastus,ajasta,tehtävät,työt,ajastin,vixie
+X-KDE-Keywords[fr]=cron, crontab, planification, tâche, tâches, planifiée, vixie
+X-KDE-Keywords[ga]=cron,crontab,sceidealta,tascanna,tasc,sceideal,vixie
+X-KDE-Keywords[gl]=cron,crontab,planificada,tarefa,planificar,vixie
+X-KDE-Keywords[hu]=cron,crontab,ütemezett,feladatok,feladat,ütemezés,vixie
+X-KDE-Keywords[ia]=cron,crontab,planificate,cargas,carga,planifica,vixie
+X-KDE-Keywords[it]=cron,crontab,piano,compiti,compito,pianificare,vixie
+X-KDE-Keywords[kk]=cron,crontab,scheduled,tasks,task,schedule,vixie
+X-KDE-Keywords[ko]=cron,crontab,scheduled,tasks,task,schedule,vixie,작업,예약,예약된 작업
+X-KDE-Keywords[lt]=cron,crontab,nustatyta,užduotys,užduotis,tvarkaraštis,vixie
+X-KDE-Keywords[mr]=क्रोन,क्रोनटॅब,नियोजीत,कार्य,कार्ये,नियोजन,विक्सी
+X-KDE-Keywords[nb]=cron,crontab,planlagt,oppgaver,oppgave,plan,vixie
+X-KDE-Keywords[nds]=cron,Opgaav,Opgaven,Opgaventabell,plaant,Plaan,vixie
+X-KDE-Keywords[nl]=cron,crontab,gepland,taken,taak,planning,vixie
+X-KDE-Keywords[pl]=cron,crontab,program_planujący,zadania,zadanie,planuj,vixie
+X-KDE-Keywords[pt]=cron,crontab,agendadas,tarefas,tarefa,agendar,vixie
+X-KDE-Keywords[pt_BR]=cron,crontab,agendadas,tarefas,tarefa,agendar,vixie
+X-KDE-Keywords[ro]=cron,crontab,sarcini,sarcină,planifica,planifica,vixie,plan
+X-KDE-Keywords[ru]=cron,crontab,scheduled,tasks,task,schedule,vixie,планирование,задания,задание,задачи,задача,планировщик,запуск,автозапуск
+X-KDE-Keywords[sk]=cron,crontab,plánované,úlohy,úloha,plánovanie,vixie
+X-KDE-Keywords[sl]=cron,crontab,razporejeno,opravila,opravilo,razpored,vixie
+X-KDE-Keywords[sr]=cron,crontab,scheduled,tasks,task,schedule,vixie,крон,кронтаб,распоред,задаци,распоређен
+X-KDE-Keywords[sr@ijekavian]=cron,crontab,scheduled,tasks,task,schedule,vixie,крон,кронтаб,распоред,задаци,распоређен
+X-KDE-Keywords[sr@ijekavianlatin]=cron,crontab,scheduled,tasks,task,schedule,vixie,cron,crontab,raspored,zadaci,raspoređen
+X-KDE-Keywords[sr@latin]=cron,crontab,scheduled,tasks,task,schedule,vixie,cron,crontab,raspored,zadaci,raspoređen
+X-KDE-Keywords[sv]=cron,crontab,schemalagd,uppgifter,uppgift,schema,vixie
+X-KDE-Keywords[tr]=cron,crontab,scheduled,tasks,task,schedule,vixie
+X-KDE-Keywords[uk]=cron;crontab;scheduled;tasks;task;schedule;vixie;таблиця планування;список планування;завдання;план;запуск
+X-KDE-Keywords[x-test]=xxcron,crontab,scheduled,tasks,task,schedule,vixiexx
+X-KDE-Keywords[zh_CN]=cron,crontab,scheduled,tasks,task,schedule,vixie,计划,计划任务,任务
+X-KDE-Keywords[zh_TW]=cron,crontab,scheduled,tasks,task,schedule,vixie
+Categories=Qt;KDE;X-KDE-settings-system;

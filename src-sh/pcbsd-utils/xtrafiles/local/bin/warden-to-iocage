@@ -1,0 +1,138 @@
+#!/bin/sh
+
+# Make sure iocage is init'd
+IOPOOL=`iocage activate | awk '{print $2}'`
+if [ -z "$IOPOOL" ] ; then
+  echo "iocage needs to be activated for a zpool!"
+  echo "Run iocage activate"
+  exit 1
+fi
+
+ALTROOT=`zpool get -H altroot $IOPOOL | awk '{print $3}'`
+if [ $ALTROOT = "-" ] ; then
+  IOROOT="/iocage"
+else
+  IOROOT="$ALTROOT/iocage"
+fi
+
+if [ ! -d "$IOROOT" ] ; then
+  echo "Missing $IOROOT"
+  exit 1
+fi
+
+if [ ! -d "$IOROOT/images" ] ; then
+  mkdir ${IOROOT}/images
+fi
+if [ ! -d "$IOROOT/log" ] ; then
+  mkdir ${IOROOT}/log
+fi
+
+echo "Using zpool: $IOPOOL"
+echo "Using iocage location: ${IOROOT}"
+
+# Default NIC
+DNIC=`cat /usr/local/etc/warden.conf | grep "^NIC:" | awk '{print $2}'`
+JDIR=`cat /usr/local/etc/warden.conf | grep "^JDIR:" | awk '{print $2}'`
+
+migrate_jail() {
+  jail="$1"
+
+  if [ ! -d "${JDIR}/${jail}" -o ! -d "${JDIR}/.${jail}.meta" ] ; then
+    echo "Skipping missing jail: $jail"
+    continue;
+  fi
+
+  FLAGS=""
+  STARTJAIL="NO"
+  JMETADIR="${JDIR}/.${jail}.meta"
+
+  # Get the settings for conversion
+  NEWUUID=`uuidgen`
+  JVER=`chroot ${JDIR}/${jail} freebsd-version | cut -d '-' -f 1-2`
+
+  if [ -e "$JMETADIR/iface" ] ; then
+    JNIC="`cat ${JMETADIR}/iface`"
+  else
+    JNIC="$DNIC"
+  fi
+
+  echo "Starting warden->iocage migration of: $jail"
+
+  warden list $jail | grep -q "Stopped"
+  if [ $? -ne 0 ] ; then
+    STARTJAIL="YES"
+    echo "Stopping jail: $jail"
+    warden stop $jail 2>/dev/null
+    echo " "
+  fi
+
+  echo "Exporting jail for iocage... This may take a while"
+  day=`date '+%Y_%m_%d'`
+  tar cvJf ${IOROOT}/images/${NEWUUID}-thickjail-${day}_${JVER}.tar.xz -C ${JDIR}/${jail} . 2>/dev/null
+  sha256 -q ${IOROOT}/images/${NEWUUID}-thickjail-${day}_${JVER}.tar.xz > ${IOROOT}/images/${NEWUUID}-thickjail-${day}_${JVER}.sha256
+  echo " "
+
+  echo "Importing image into iocage"
+  echo "iocage import $NEWUUID tag=$jail"
+  iocage import $NEWUUID tag=$jail
+  echo " "
+
+  # Get the new iocage uuid
+  NEWIOUUID=`iocage get host_hostuuid $jail`
+
+  if [ -e "${JMETADIR}/ipv4" ] ; then
+    FLAGS="ip4_addr=${JNIC}|`cat ${JMETADIR}/ipv4`"
+    echo "iocage set $FLAGS $NEWIOUUID"
+    iocage set $FLAGS $NEWIOUUID
+  fi
+  if [ -e "${JMETADIR}/ipv6" ] ; then
+    FLAGS="ip6_addr=${JNIC}|`cat ${JMETADIR}/ipv6`"
+    echo "iocage set $FLAGS $NEWIOUUID"
+    iocage set $FLAGS $NEWIOUUID
+  fi
+
+  if [ -e "$JMETADIR/autostart" ] ; then
+    FLAGS="boot=on"
+    echo "iocage set $FLAGS $NEWIOUUID"
+    iocage set $FLAGS $NEWIOUUID
+    STARTJAIL="YES"
+  fi
+
+  if [ -e "$JMETADIR/jail-flags" ] ; then
+    for i in `cat ${JMETADIR}/jail-flags`
+    do
+      fixed=`echo $i | sed 's|allow.|allow_|g' | sed 's|true|1|g' | sed 's|false|0|g'`
+      echo "iocage set $fixed $NEWIOUUID"
+      iocage set $fixed $NEWIOUUID
+    done
+  fi
+
+
+  # Copy the fstab file
+  if [ -e "$JMETADIR/fstab" ] ; then
+    cp ${JMETADIR}/fstab ${IOROOT}/jails/${NEWIOUUID}/fstab
+    # Change the fstab file
+    sed -i '' "s|${JDIR}/${jail}|${IOROOT}/jails/${NEWIOUUID}/root|g" ${IOROOT}/jails/${NEWIOUUID}/fstab
+  fi
+
+  if [ "$STARTJAIL" = "YES" ] ; then
+    echo "Starting jail..."
+    iocage start $jail
+    echo " "
+  fi
+
+  echo "Cleaning up..."
+  rm ${IOROOT}/images/${NEWUUID}-thickjail-${day}_${JVER}.tar.xz
+  rm ${IOROOT}/images/${NEWUUID}-thickjail-${day}_${JVER}.sha256
+  rm ${JMETADIR}/autostart >/dev/null 2>/dev/null
+}
+
+if [ -z "$1" ] ; then
+  for j in `warden list | grep -v "^ID" | grep -v '^\-' | awk '{print $1}'`
+  do
+    migrate_jail "$j"
+  done
+else
+  migrate_jail "$1"
+fi
+

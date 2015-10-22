@@ -119,7 +119,7 @@ post_extract_setup()
   cp /usr/local/share/pcbsd/conf/logo-pcbsd.4th /boot/logo-pcbsd.4th
 
   # Stuff not for jails
-  if [ -e "/boot/grub/grub.cfg" ] ; then
+  if [ -e "/boot/kernel/kernel" ] ; then
 
     # Remove the legacy setting of default linux compat, let user control that
     uname -r | grep -q "10.1"

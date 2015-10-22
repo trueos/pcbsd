@@ -29,6 +29,7 @@ bin/pc-sysconfig-daemon
 bin/pc-systemflag
 bin/personacrypt
 bin/restamp-grub
+bin/warden-to-iocage
 sbin/pc-sysinstall
 share/pc-sysinstall/examples/pcinstall.cfg.upgrade
 share/pc-sysinstall/examples/pc-autoinstall.conf
@@ -97,6 +98,8 @@ share/pc-sysinstall/doc/help-disk-list
 share/pc-sysinstall/doc/help-index
 share/pc-sysinstall/doc/help-disk-size
 share/pc-sysinstall/doc/help-start-autoinstall
+share/pcbsd/conf/brand-pcbsd.4th
+share/pcbsd/conf/brand-trueos.4th
 share/pcbsd/conf/freebsd-update.conf
 share/pcbsd/conf/pcbsd-mirrors
 share/pcbsd/conf/pbi-mirror

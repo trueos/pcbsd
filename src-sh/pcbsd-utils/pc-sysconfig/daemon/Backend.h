@@ -169,7 +169,7 @@ private:
 	  QStringList info = runShellCommand("sysctl hw.acpi.supported_sleep_state");
 	  bool ok = false;
 	  if(!info.isEmpty()){
-    	    ok = info.first().section("=",1,1).split(" ").contains("S3");
+    	    ok = info.first().section(":",1,1).split(" ").contains("S3");
 	  }
 	  return ok ? "TRUE": "FALSE";
 	}

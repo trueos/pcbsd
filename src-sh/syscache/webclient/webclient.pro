@@ -7,12 +7,16 @@ QT = core network websockets
 HEADERS	+= WebServer.h \
 		WebSocket.h \
 		syscache-client.h \
-		RestStructs.h
+		dispatcher-client.h \
+		RestStructs.h \
+		AuthorizationManager.h
 		
 SOURCES	+= main.cpp \
 		WebServer.cpp \
 		WebSocket.cpp \
-		syscache-client.cpp
+		syscache-client.cpp \
+		dispatcher-client.cpp \
+		AuthorizationManager.cpp
 
 
 TARGET=syscache-webclient
@@ -23,4 +27,6 @@ INSTALLS += target
 
 
 QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
-LIBS += -L/usr/local/lib
+
+INCLUDEPATH += /usr/local/include
+LIBS += -L/usr/local/lib -lpam -lutil

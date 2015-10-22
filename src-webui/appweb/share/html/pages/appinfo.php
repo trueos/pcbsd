@@ -16,7 +16,9 @@ function do_service_action()
   if ( empty($sname) or empty($sscript) or empty($action) )
     return;
 
-  $output = run_cmd("service $action $sname $sscript $jailUrl");
+  $dccmd = array("service $action $sname $sscript $jailUrl");
+  send_dc_cmd($dccmd);
+
   if ( $action == "start" )
      echo "Started $sname on $jail<br>";  
   if ( $action == "stop" )
@@ -150,7 +152,8 @@ function done_cfg()
   }
 
   // Talk to dispatcher to run done script
-  $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
+  $dccmd = array("donecfg " . $pbicdir . " " . $jid);
+  send_dc_cmd($dccmd);
 }
 
 // Set the current value for a config file setting
@@ -173,7 +176,8 @@ function set_cfg_value($cfg, $value)
   }
 
   // Talk to dispatcher to set config value
-  $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  $dccmd = array("setcfg " . $pbicdir . " " . $jid . " " . $key .  " " . $value);
+  send_dc_cmd($dccmd);
 }
 
 // Get the current value for a config file setting
@@ -189,7 +193,8 @@ function get_cfg_value($cfg)
   $jid = "__system__";
   
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
+  $dccmd = array("getcfg $pbicdir $jid $key");
+  $output = send_dc_cmd($dccmd);
   if ( ! empty($output[0]) )
      return $output[0];
 
@@ -310,15 +315,26 @@ function display_install_chooser()
   global $pbiInstalled;
   global $pkgCmd;
   global $SCERROR;
+  global $isPBI;
 
   $jail = "#system";
   $jailUrl="__system__";
 
    if ( $pbiInstalled ) {
-     $output="";
-     exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
+     $sccmd = array("$jail app-summary $pbiorigin");
+     $response = send_sc_query($sccmd);
+     $pbiarray = $response["$jail app-summary $pbiorigin"];
+     if ( $isPBI )
+       $pbicanremove = $pbiarray[9];
+     else
+       $pbicanremove = $pbiarray[5];
+
+     if ( $pbiorigin == "ports-mgmt/pkg" )
+       $pbicanremove = false;
+
+
      // Dont display removal option unless app is not required by others
-     if ( "$output[0]" == "$SCERROR" )
+     if ( "$pbicanremove" == "true" )
        print("    <button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\" height=48 width=48></button>\n");
      else
 	print("<center><img align=\"center\" height=48 width=48 src=\"/images/warning.png\" alt=\"This application has dependencies which prevent it from being removed.\"><p>Required</p></center>");
@@ -477,7 +493,7 @@ function display_app_link($pbilist, $jail)
 
    // Check if this app is installed
    $pkgoutput = syscache_ins_pkg_list("$jail");
-   $pkglist = explode(", ", $pkgoutput[0]);
+   $pkglist = $pkgoutput;
    if ( array_search($pbiorigin, $pkglist) !== false)
       $pbiInstalled = true;
    else
@@ -557,7 +573,6 @@ function display_app_link($pbilist, $jail)
          }
 	 if ( $appbusy ) {
 	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
-	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
          } else {
 	   display_install_chooser();
 	 }

@@ -1,10 +1,5 @@
-bin/appcafe-setpass
 etc/appcafe.conf.dist
-etc/sudoers.d/appcafe-sudoers
 share/appcafe/dispatcher
-share/appcafe/dispatcher-auth
-share/appcafe/dispatcher-localauth
-share/appcafe/dispatcher-localauth-pam
 share/appcafe/fastcgi_params
 share/appcafe/mime.types
 share/appcafe/nginx.conf
@@ -72,6 +67,7 @@ share/appcafe/html/pages/dispatcher.php
 share/appcafe/html/pages/error.php
 share/appcafe/html/pages/exportpbis.php
 share/appcafe/html/pages/jails.php
+share/appcafe/html/pages/jailconfig.php
 share/appcafe/html/pages/jailcreate.php
 share/appcafe/html/pages/jailinfo.php
 share/appcafe/html/pages/plugins.php
@@ -92,6 +88,7 @@ share/appcafe/html/js/jquery.simplemodal.1.4.4.min.js
 share/appcafe/html/js/jquery.timer.js
 share/appcafe/html/js/lightbox.min.js
 share/appcafe/html/js/main.js
+share/appcafe/html/js/notifications.js
 share/appcafe/html/js/popbox.min.js
 share/appcafe/html/vendor/autoload.php
 share/appcafe/html/vendor/composer/installed.json

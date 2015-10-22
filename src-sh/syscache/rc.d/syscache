@@ -42,6 +42,12 @@ syscache_start()
   if [ -e "/var/run/syscache.pipe" ] ; then
     rm /var/run/syscache.pipe >/dev/null 2>/dev/null
   fi
+  # Make sure the working file exists
+  if [ ! -d "/var/tmp/appcafe" ] ; then
+    mkdir -p /var/tmp/appcafe
+  fi
+  touch /var/tmp/appcafe/dispatcher-queue.working
+
   daemon -p /var/run/syscache.pid $command >/dev/null 2>/dev/null
   daemon -p /var/run/syscache-websocket.pid $command2 >/dev/null 2>/dev/null
 }

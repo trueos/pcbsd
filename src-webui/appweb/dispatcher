@@ -40,7 +40,7 @@ init_daemon()
   chmod 600 ${QLOGDIR}
 
   # Cleanup some working / temp files
-  for rmFile in ${QDISID} ${QLIST} ${QWRK}
+  for rmFile in ${QLIST}
   do
      if [ -e "$rmFile" ] ; then
        rm $rmFile
@@ -55,13 +55,6 @@ init_daemon()
       chmod 600 $i
     fi
   done
-
-  # Create the random string we will pass to authenticated clients
-  # This changes after a login, and used to invalidate a previous login
-  touch ${QDISID}
-  chmod 600 ${QDISID}
-  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1 > ${QDISID}
-
 }
 
 run_queue_cmd()
@@ -91,7 +84,7 @@ run_queue_cmd()
             ;;
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
-	       destroy|pull|create) ;;
+	       destroy|fetch|create) ;;
 		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
@@ -126,7 +119,7 @@ run_queue_cmd()
      fi
   elif [ "$app" == "iocage" ];then
      # App Container / gitjail
-     if [ "$origin" = "pull" ] ; then
+     if [ "$origin" = "fetch" ] ; then
         neworigin="`echo $flag | sed 's|/|-|g'`"
 
 	# First make sure this jail doesn't exist
@@ -138,15 +131,27 @@ run_queue_cmd()
 
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
           # System has VIMAGE enabled
-          cmd="iocage pull $target tag=pbicage-$neworigin devfs_ruleset=5 boot=on vnet=on dhcp=on bpf=on"
+          cmd="iocage fetch $target tag=pbicage-$neworigin boot=on vnet=on dhcp=on bpf=on"
 	else
 	  # No VIMAGE, use fallback method
-	  cmd="iocage pull $target tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4"
+	  cmd="iocage fetch $target tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4"
 	fi
      fi 
      # Regular jail creation
      if [ "$origin" = "create" ] ; then
         newtag="$flag"
+
+	# Do some uname checking
+        SYSUNAME=$(uname -r)
+	echo $SYSUNAME | grep -q "CURRENT"
+        if [ $? -eq 0 ] ; then
+          NEWUNAME="$SYSUNAME"
+	fi
+	echo $SYSUNAME | grep -q "STABLE"
+        if [ $? -eq 0 ] ; then
+          NEWUNAME="`echo $SYSUNAME | cut -d '-' -f 1`-RELEASE"
+	fi
+        tags="base=$NEWUNAME"
 
 	# First make sure this jail doesn't exist
 	iocage get ip4_addr pbijail-$newtag 2>/dev/null >/dev/null
@@ -155,12 +160,19 @@ run_queue_cmd()
           echo "FAILED $ident $@" >> $QRESULTS
         fi
 
+	# Next make sure this RELEASE is downloaded, if not fetch it
+        iocage list -r | grep -q "$NEWUNAME"
+	if [ $? -ne 0 ] ; then
+          echo "iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist" >>$QLOGFILE
+          iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist >>$QLOGFILE 2>>$QLOGFILE
+	fi
+
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
           # System has VIMAGE enabled
-          cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on"
+          cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on $tags"
 	else
 	  # No VIMAGE, use fallback method
-	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=DEFAULT|AUTOIP4"
+	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=DEFAULT|AUTOIP4 $tags"
 	fi
      fi
      if [ "$origin" = "destroy" ] ; then
@@ -188,6 +200,14 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
+  # If we nuked packages, lets run autoremove also
+  if [ "$flag" = "delete" ] ; then
+    if [ "$app" = "pbi" -o "$app" = "pkg" ] ; then
+      echo "Running: pkg autoremove" >>$QLOGFILE 2>>$QLOGFILE
+      pkg autoremove -y >>$QLOGFILE 2>>$QLOGFILE
+    fi
+  fi
+
   # If we created a new jail, lets bootstrap iocage with pkgng
   if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
      # Start the jail
@@ -198,7 +218,7 @@ run_queue_cmd()
   fi
 
   # If we create a new plugin, lets start it now
-  if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
+  if [ "$app" = "iocage" -a "$origin" = "fetch" -a $err -eq 0 ] ; then
      iocage start pbicage-$neworigin >>${QLOGFILE} 2>>${QLOGFILE}
      if [ $? -eq 0 ] ; then
        unblock_jail_ip4 "pbicage-$neworigin"
@@ -334,7 +354,7 @@ run_daemon()
   do
     # Check if we have anything to do?
     if [ ! -e "$QLIST" ] ; then
-       sleep 10
+       sleep 3
        continue
     fi
 
@@ -621,19 +641,6 @@ print_usage()
 " 
 }
 
-# Login is requesting the dispatcher ID for security
-# Check the username / password and if OK pass the ID back
-getdisid() {
-  # Verify the username / password match what is passed
-  php /usr/local/share/appcafe/dispatcher-auth >/dev/null 2>/dev/null
-  if [ $? -ne 0 ] ; then exit 1; fi
-
-  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 > ${QDISID}
-  chmod 600 ${QDISID}
-  cat $QDISID >&1
-  exit 0
-}
-
 bad_disid() {
   echo "Invalid dispatcher ID!"
   exit 1
@@ -660,7 +667,7 @@ case $1 in
     iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              create|destroy|pull) echo "$@" >>${QLIST} ;;
+              create|destroy|fetch) echo "$@" >>${QLIST} ;;
 	      getip4) get_iocage_ip4 "$@" ;;
 	      addfstab) run_iocage_addfstab "$@" ;;
 	      delfstab) run_iocage_delfstab "$@" ;;
@@ -691,11 +698,10 @@ case $1 in
    donecfg) verify_disid
 	    pbicdir="$2" ; jail="$3"
             donecfg ;;
-  getdisid) getdisid ;;
   verify_disid) verify_disid
                 exit $?
                 ;;
-         *) print_usage ; exit 1 ;;
+         *) print_usage ; exit 150 ;;
 esac
 
 exit 0

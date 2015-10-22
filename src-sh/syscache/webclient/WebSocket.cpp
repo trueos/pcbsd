@@ -1,17 +1,21 @@
 // ===============================
-//  PC-BSD REST API Server
+//  PC-BSD REST/JSON API Server
 // Available under the 3-clause BSD License
 // Written by: Ken Moore <ken@pcbsd.org> July 2015
 // =================================
 #include "WebSocket.h"
 #include "syscache-client.h"
+#include "dispatcher-client.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #define SCLISTDELIM QString("::::") //SysCache List Delimiter
 
-WebSocket::WebSocket(QWebSocket *sock, QString ID){
+WebSocket::WebSocket(QWebSocket *sock, QString ID, AuthorizationManager *auth){
   SockID = ID;
+  SockAuthToken.clear(); //nothing set initially
   SOCKET = sock;
+  SendAppCafeEvents = false;
+  AUTHSYSTEM = auth;
   idletimer = new QTimer(this);
     idletimer->setInterval(600000); //10-minute timeout
     idletimer->setSingleShot(true);
@@ -33,7 +37,12 @@ WebSocket::~WebSocket(){
 QString WebSocket::ID(){
   return SockID;
 }
-	
+
+void WebSocket::setLastDispatch(QString msg){ 
+  //used on initialization only
+  lastDispatchEvent = msg;
+}
+
 //=======================
 //             PRIVATE
 //=======================
@@ -90,29 +99,95 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 	    
       //parse the message and do something
       if(good && (JsonValueToString(doc.object().value("namespace"))=="rpc") ){
-	//Pre-set any output fields
-        ret.insert("id", doc.object().value("id")); //use the same ID for the return message
-        QJsonObject outargs;
 	//Now fetch the outputs from the appropriate subsection
 	//Note: Each subsection needs to set the "name", "namespace", and "args" output objects
 	QString name = JsonValueToString(doc.object().value("name")).toLower();
-        if(name == "syscache"){
-	  ret.insert("namespace", QJsonValue("rpc"));
-	  ret.insert("name", QJsonValue("response"));
-          EvaluateSysCacheRequest(doc.object().value("args"), &outargs);
+	QJsonValue args = doc.object().value("args");
+	if(name.startsWith("auth")){
+	  //Now perform authentication based on type of auth given
+	  //Note: This sets/changes the current SockAuthToken
+	  AUTHSYSTEM->clearAuth(SockAuthToken); //new auth requested - clear any old token
+	  if(DEBUG){ qDebug() << "Authenticate Peer:" << SOCKET->peerAddress().toString(); }
+	  bool localhost = (SOCKET->peerAddress() == QHostAddress::LocalHost) || (SOCKET->peerAddress() == QHostAddress::LocalHostIPv6);
+	  //Now do the auth
+	  if(name=="auth" && args.isObject() ){
+	    //username/password authentication
+	    QString user, pass;
+	    if(args.toObject().contains("username")){ user = JsonValueToString(args.toObject().value("username"));  }
+	    if(args.toObject().contains("password")){ pass = JsonValueToString(args.toObject().value("password"));  }
+	    SockAuthToken = AUTHSYSTEM->LoginUP(localhost, user, pass);
+	  }else if(name == "auth_token" && args.isObject()){
+	    SockAuthToken = JsonValueToString(args.toObject().value("token"));
+	  }else if(name == "auth_clear"){
+	    return; //don't send a return message after clearing an auth (already done)
+	  }
+	  
+	  //Now check the auth and respond appropriately
+	  if(AUTHSYSTEM->checkAuth(SockAuthToken)){
+	    //Good Authentication - return the new token 
+	    ret.insert("namespace", QJsonValue("rpc"));
+	    ret.insert("name", QJsonValue("response"));
+	    ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+	    QJsonArray array;
+	      array.append(SockAuthToken);
+	      array.append(AUTHSYSTEM->checkAuthTimeoutSecs(SockAuthToken));
+	    ret.insert("args", array);
+	  }else{
+	    SockAuthToken.clear(); //invalid token
+	    //Bad Authentication - return error
+	    SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
+	  }
+		
+	}else if( AUTHSYSTEM->checkAuth(SockAuthToken) ){ //validate current Authentication token	 
+	  //Now provide access to the various subsystems
+	  //Pre-set any output fields
+          QJsonObject outargs;	
+	    ret.insert("namespace", QJsonValue("rpc"));
+	    ret.insert("name", QJsonValue("response"));
+	    ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+	  EvaluateBackendRequest(name, doc.object().value("args"), &outargs);
+            ret.insert("args",outargs);	  
+        }else{
+	  //Bad/No authentication
+	  SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
 	}
 	      
-        ret.insert("args",outargs);
-      }else{
+      }else if(good && (JsonValueToString(doc.object().value("namespace"))=="events") ){
+        if( AUTHSYSTEM->checkAuth(SockAuthToken) ){ //validate current Authentication token	 
+	    //Pre-set any output fields
+            QJsonObject outargs;	
+	      ret.insert("namespace", QJsonValue("events"));
+	      ret.insert("name", QJsonValue("response"));
+	      ret.insert("id", doc.object().value("id")); //use the same ID for the return message
+	    //Assemble the list of input events
+	    QStringList evlist;
+	    if(doc.object().value("args").isObject()){ evlist << JsonValueToString(doc.object().value("args")); }
+	    else if(doc.object().value("args").isArray()){ evlist = JsonArrayToStringList(doc.object().value("args").toArray()); }
+	    //Now subscribe/unsubscribe to these events
+	    if(JsonValueToString(doc.object().value("name"))=="subscribe"){
+	      if(evlist.contains("dispatcher")){ 
+	        SendAppCafeEvents = true; 
+	        outargs.insert("subscribe",QJsonValue("dispatcher"));  
+		QTimer::singleShot(100, this, SLOT(AppCafeStatusUpdate()) );
+	      }
+	    }else if(JsonValueToString(doc.object().value("name"))=="unsubscribe"){
+	      if(evlist.contains("dispatcher")){ 
+		SendAppCafeEvents = false; 
+		outargs.insert("unsubscribe",QJsonValue("dispatcher"));
+	      }
+	    }else{
+	      outargs.insert("unknown",QJsonValue("unknown"));
+	    }
+            ret.insert("args",outargs);	  
+          }else{
+	    //Bad/No authentication
+	    SetOutputError(&ret, JsonValueToString(doc.object().value("id")), 401, "Unauthorized");
+	  }
+	}else{
         //Error in inputs - assemble the return error message
-	ret.insert("namespace", QJsonValue("rpc"));
-	ret.insert("name", QJsonValue("error"));
-	if(doc.object().contains("id")){ ret.insert("id", doc.object().value("id")); } //use the same ID
-	else{ ret.insert("id",QJsonValue("error")); }
-	QJsonObject obj;
-		obj.insert("code", 400);
-		obj.insert("message", QJsonValue("Bad Request"));
-	ret.insert("args",obj);
+	QString id = "error";
+	if(doc.object().contains("id")){ id = JsonValueToString(doc.object().value("id")); } //use the same ID
+	SetOutputError(&ret, id, 400, "Bad Request");
       }
     }else{
       //Unknown type of JSON input - nothing to do
@@ -130,7 +205,7 @@ void WebSocket::EvaluateRequest(const RestInputStruct &REQ){
 }
 
 // === SYSCACHE REQUEST INTERACTION ===
-void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out){
+void WebSocket::EvaluateBackendRequest(QString name, const QJsonValue args, QJsonObject *out){
   QJsonObject obj; //output object
   if(args.isObject()){
     //For the moment: all arguments are full syscache DB calls - no special ones
@@ -140,10 +215,12 @@ void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out)
       for(int r=0; r<reqs.length(); r++){
         QString req =  JsonValueToString(args.toObject().value(reqs[r]));
         if(DEBUG){ qDebug() << "  ["+reqs[r]+"]="+req; }
-        QStringList values = SysCacheClient::parseInputs( QStringList() << req ); 
+        QStringList values;
+	if(name.toLower()=="syscache"){values = SysCacheClient::parseInputs( QStringList() << req ); }
+	else if(name.toLower()=="dispatcher"){values = DispatcherClient::parseInputs( QStringList() << req, AUTHSYSTEM); }
         values.removeAll("");
         //Quick check if a list of outputs was returned
-        if(values.length()==1){
+        if(values.length()==1 && name.toLower()=="syscache"){
           values = values[0].split(SCLISTDELIM); //split up the return list (if necessary)
           values.removeAll("");
         }
@@ -159,11 +236,14 @@ void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out)
     } //end of special "request" objects
   }else if(args.isArray()){
     QStringList inputs = JsonArrayToStringList(args.toArray());
-    if(DEBUG){ qDebug() << " syscache inputs:" << inputs; }
-    QStringList values = SysCacheClient::parseInputs(inputs );
+    if(DEBUG){ qDebug() << "Parsing Array inputs:" << inputs; }
+    QStringList values;
+      if(name.toLower()=="syscache"){values = SysCacheClient::parseInputs( inputs ); }
+      else if(name.toLower()=="dispatcher"){values = DispatcherClient::parseInputs( inputs , AUTHSYSTEM); }
+    if(DEBUG){ qDebug() << " - Returns:" << values; }
     for(int i=0; i<values.length(); i++){
-      if(values[i].contains(SCLISTDELIM)){
-	  //This is an array of values
+      if(name.toLower()=="syscache" && values[i].contains(SCLISTDELIM)){
+	  //This is an array of values from syscache
 	  QStringList vals = values[i].split(SCLISTDELIM);
 	  vals.removeAll("");
 	  QJsonArray arr;
@@ -176,7 +256,6 @@ void WebSocket::EvaluateSysCacheRequest(const QJsonValue args, QJsonObject *out)
   } //end array of inputs
 
 }
-
 
 // === GENERAL PURPOSE UTILITY FUNCTIONS ===
 QString WebSocket::JsonValueToString(QJsonValue val){
@@ -207,6 +286,16 @@ QStringList WebSocket::JsonArrayToStringList(QJsonArray array){
   return out;  
 }
 
+void WebSocket::SetOutputError(QJsonObject *ret, QString id, int err, QString msg){
+  ret->insert("namespace", QJsonValue("rpc"));
+  ret->insert("name", QJsonValue("error"));
+  ret->insert("id",QJsonValue(id));
+  QJsonObject obj;
+  	obj.insert("code", err);
+	obj.insert("message", QJsonValue(msg));
+  ret->insert("args",obj);	
+}
+
 // =====================
 //       PRIVATE SLOTS
 // =====================
@@ -220,7 +309,10 @@ void WebSocket::checkIdle(){
 
 void WebSocket::SocketClosing(){
   qDebug() << "Socket Closing...";
-  if(idletimer->isActive()){ idletimer->stop(); }
+  if(idletimer->isActive()){ 
+    //This means the client deliberately closed the connection - not the idle timer
+    idletimer->stop(); 
+  }
   //Stop any current requests
 
   //Reset the pointer
@@ -242,4 +334,32 @@ void WebSocket::EvaluateMessage(const QString &msg){
   EvaluateREST(msg);
   idletimer->start(); 
   qDebug() << "Done with Message";
+}
+
+// ======================
+//       PUBLIC SLOTS
+// ======================
+void WebSocket::AppCafeStatusUpdate(QString msg){
+  if(!msg.isEmpty()){ lastDispatchEvent = msg; }
+  else{ msg = lastDispatchEvent; }
+  //qDebug() << "Socket Status Update:" << msg;
+  if(!SendAppCafeEvents){ return; } //don't report events on this socket
+  RestOutputStruct out;
+  //Define the output structures
+  QJsonObject ret; //return message
+  //Pre-set any output fields
+   QJsonObject outargs;	
+   ret.insert("namespace", QJsonValue("events"));
+   ret.insert("name", QJsonValue("event"));
+   ret.insert("id", QJsonValue(""));
+     outargs.insert("name", "dispatcher");
+     outargs.insert("args",QJsonValue(msg));
+   ret.insert("args",outargs);	
+   out.CODE = RestOutputStruct::OK;
+      //Assemble the output JSON document/text
+      QJsonDocument retdoc; 
+      retdoc.setObject(ret);
+    out.Body = retdoc.toJson();
+    out.Header << "Content-Type: text/json; charset=utf-8";
+   SOCKET->sendTextMessage(out.assembleMessage());
 }

@@ -35,56 +35,45 @@
 
   require("include/Mobile_Detect.php");
 
+  $loadedglobals = false;
   define('DS',  TRUE); // used to protect includes
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
-  $DISPATCHID = $_SESSION['dispatchid'];
+  $APIKEY = $_SESSION['apikey'];
 
-  // Check if calling from a remote host
-  if ( (!USERNAME or isset($_GET['logout'])) ) {
-    // Bypass if called from localhost
-    if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
-      $timeout = false;
-      include('include/login.php');
-      exit(0);
-    }
+  // Check if we need to bring up login page again
+  if ( !USERNAME or isset($_GET['logout']) ) {
+    $timeout = false;
+    $_SESSION['apikey'] = "";
+    include('include/login.php');
+    exit(0);
   }
 
   // See if the timeout has been met (60 minutes)
-  if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
-    if ( $_SESSION['timeout'] + 60 * 60 < time() ) {
-      $timeout = true;
-      include('include/login.php');
-      exit(0);
-    } else {
-      $_SESSION['timeout'] = time();
-    }
-  }
-
-
-  // Calling from the local system, desktop most likely
-  if ( $CLIENTIP == "127.0.0.1" or $CLIENTIP == "::1" ) {
-
-    // If the client just wants to set a dispatcher ID
-    if ( ! empty($_GET["setDisId"])) {
-       header('Location:  ' . $_SERVER['PHP_SELF']);
-       $_SESSION['dispatchid'] = $_GET["setDisId"];
-       exit(0);
-    }
-
-    // No dispatch ID set? User probably trying to access through browser
-    if ( (! isset($DISPATCHID)) ) {
-       echo "Please access through the AppCafe utility! (pc-softweb command)";
-       exit(0);
-    }
+  if ( $_SESSION['timeout'] + 60 * 60 < time() ) {
+    $timeout = true;
+    include('include/login.php');
+    exit(0);
+  } else {
+    $_SESSION['timeout'] = time();
   }
 
   $login_on_fail = true;
+
   // Load our websocket library
   require('vendor/autoload.php');
   require("include/globals.php");
   require("include/functions.php");
   require("include/functions-config.php");
+
+  $loadedglobals = true;
+  // Auth this WS connection
+  $sccmd = array("token" => "$APIKEY");
+  $response = send_sc_query($sccmd, "auth_token");
+  if ( $response["code"] == "401" or $response["message"] == "Unauthorized" ) {
+    include('include/login.php');
+    exit(0);
+  }
 
   // Check if we have updates to display
   check_update_reboot();
@@ -118,18 +107,6 @@
     exit(0);
   }
 
-  // Check if we are on the dispatcher plugin page
-  $pluginDispatcher = false;
-  if ( $page == "dispatcher-plugins" ) {
-    $page = "dispatcher";
-    $pluginDispatcher = true;
-  }
-  $jailDispatcher = false;
-  if ( $page == "dispatcher-jails" ) {
-    $page = "dispatcher";
-    $jailDispatcher = true;
-  }
-
   // If we are on plugins section, make sure we have a start-end range
   if ( stripos($page, "plugin") !== false ) {
     // Check for VIMAGE support
@@ -144,10 +121,10 @@
         $page="pluginconfig";
       }
     } else {
-      $output = run_cmd("iocage get ip4_autostart default");
-      $ip4start = $output[0];
-      $output = run_cmd("iocage get ip4_autoend default");
-      $ip4end = $output[0];
+      $dccmd = array("iocage get ip4_autostart default", "iocage get ip4_autoend default");
+      $output = send_dc_cmd($dccmd);
+      $ip4start = $output["iocage get ip4_autostart default"][0];
+      $ip4end = $output["iocage get ip4_autoend default"][0];
       if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
       {
         $firstrun=true;
