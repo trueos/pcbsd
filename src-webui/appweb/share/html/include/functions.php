@@ -283,8 +283,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
     }
   }
   if ( $appbusy ) {
-    print("<img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\">");
-    echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+    print("<div id='item-working'><img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\"></div>");
   } else {
 
 
@@ -556,8 +555,7 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
      }
    }
    if ( $appbusy ) {
-     print("<img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\">");
-     echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+     print("<div id='item-working'><img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\"></div>");
    } else {
      // Is this app installed?
      if ( $pbiinstalled == true ){
