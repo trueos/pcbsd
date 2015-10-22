@@ -843,8 +843,13 @@ update_pkgs_only()
 {
   check_valid_uptarget
 
+  FULLUPDATE="NO"
+  if [ "$1" = "-f" ] ; then
+    FULLUPDATE="YES"
+  fi
+
   # Make sure there are really packages to update
-  if [ "$1" != "-f" ] ; then
+  if [ "$FULLUPDATE" != "YES" ] ; then
     checkup_pkgs >/dev/null 2>/dev/null
     if [ $? -eq 0 ] ; then
        echo "Your packages are already up to date!"
@@ -867,8 +872,19 @@ update_pkgs_only()
   dl_pkgs
   mk_stage_be
   mount_stage_be
-  prep_pkgs_chroot
-  install_pkgs_chroot
+  if [ "$FULLUPDATE" = "YES" ] ; then
+    # We are doing a forced / full update, lets nuke and re-install all
+    prep_pkgs_chroot
+    install_pkgs_chroot
+  else
+    # Lets attempt a traditional PKG upgrade, fallback to full if that fails
+    do_lite_pkgupdate_chroot
+    if [ $? -ne 0 ] ; then
+      echo_log "Failed incremental pkg upgrade! Doing full package upgrade now."
+      prep_pkgs_chroot
+      install_pkgs_chroot
+    fi
+  fi
   umount_stage_be
   mk_stage_be_default
 
@@ -1243,6 +1259,19 @@ mount_stage_be()
   rm -rf ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
   mkdir -p ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
   chmod 600 ${STAGEMNT}/var/db/freebsd-update
+}
+
+do_lite_pkgupdate_chroot()
+{
+  # Need to export this before cleaning pkgs, some scripts may try to be interactive
+  PACKAGE_BUILDING="YES"
+  export PACKAGE_BUILDING
+
+  echo_log "Starting pkg upgrade..."
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
+  echo_log "Running: pkg upgrade -y"
+  chroot ${STAGEMNT} pkg upgrade -y 2>&1 | tee -a ${LOGOUT}
+  return $?
 }
 
 prep_pkgs_chroot()
