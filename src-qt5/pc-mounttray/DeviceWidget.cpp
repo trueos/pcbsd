@@ -246,9 +246,13 @@ void DeviceWidget::runButtonClicked(){
     //Open the mountpoint directory
     QProcess::startDetached("xdg-open \""+mountpoint()+"\"");
   }else if(type()=="CD-AUDIO"){
-    QProcess::startDetached("smplayer cdda://1");
+    if(QFile::exists("/usr/local/bin/vlc")){ QProcess::startDetached("vlc cdda://1");}
+    else if(QFile::exists("/usr/local/bin/smplayer")){ QProcess::startDetached("smplayer cdda://1"); }
+    else{ QProcess::startDetached("xdg-open cdda://1"); }
   }else if(type()=="CD-VIDEO"){
-    QProcess::startDetached("smplayer dvd://1");
+    if(QFile::exists("/usr/local/bin/vlc")){ QProcess::startDetached("vlc dvd://1");}
+    else if(QFile::exists("/usr/local/bin/smplayer")){ QProcess::startDetached("smplayer dvd://1"); }
+    else{ QProcess::startDetached("xdg-open dvd://1"); }
   }
   emit CloseMenu();
 }
