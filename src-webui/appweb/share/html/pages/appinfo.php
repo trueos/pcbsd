@@ -572,7 +572,7 @@ function display_app_link($pbilist, $jail)
 	   }
          }
 	 if ( $appbusy ) {
-	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
+	   print("<div id='item-working'><img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\"></div>");
          } else {
 	   display_install_chooser();
 	 }

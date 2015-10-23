@@ -441,8 +441,7 @@ function display_install_chooser()
 	   }
          }
 	 if ( $appbusy ) {
-	   print("<img align=\"right\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
-	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+	   print("<div id='item-working'><img align=\"right\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\"></div>");
          } else {
 	   display_install_chooser();
 	 }

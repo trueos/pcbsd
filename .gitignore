@@ -132,4 +132,4 @@ src-sh/pcbsd-utils/pc-sysconfig/client/Makefile
 src-sh/pcbsd-utils/pc-sysconfig/client/pc-sysconfig
 src-sh/pcbsd-utils/pc-sysconfig/daemon/Makefile
 src-sh/pcbsd-utils/pc-sysconfig/daemon/pc-sysconfig-daemon
-
+pc-netmanager/src/Makefile

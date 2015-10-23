@@ -112,7 +112,7 @@ migrate_jail() {
   if [ -e "$JMETADIR/fstab" ] ; then
     cp ${JMETADIR}/fstab ${IOROOT}/jails/${NEWIOUUID}/fstab
     # Change the fstab file
-    sed -i '' "s|${JDIR}/${jail}|${IOROOT}/jails/${NEWIOUUID}/root|g"
+    sed -i '' "s|${JDIR}/${jail}|${IOROOT}/jails/${NEWIOUUID}/root|g" ${IOROOT}/jails/${NEWIOUUID}/fstab
   fi
 
   if [ "$STARTJAIL" = "YES" ] ; then

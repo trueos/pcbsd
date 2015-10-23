@@ -59,6 +59,13 @@ function parseNoticeEvents(incoming)
   var page = getAppUrlVars()["p"];
 
   if ( jsonobj['args'].args == "idle" ) {
+
+    // Look for a previous busy indicator
+    // If found, refresh the page, since we aren't busy anymore
+    if ( document.getElementById('item-working') !== null ) {
+      var t = setTimeout('location.reload(true)', 500);
+    }
+
     replaceContents('<a href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status</a>');
     if ( wstatus == "working" )
       var t = setTimeout('location.reload(true)', 2000);
