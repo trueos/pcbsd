@@ -1,9 +1,0 @@
-[Basic Settings]
-Indexing-Enabled=true
-
-[General]
-exclude filters=autom4te,*.rcore,CTestTestfile.cmake,*.o,*.omf,*.swap,.hg,*.m4,*.orig,.obj,moc_*.cpp,conftest,.pch,.xsession-errors*,CMakeTmpQmake,*.tmp,qrc_*.cpp,po,.svn,.histfile.*,lzo,.bzr,.git,litmain.sh,cmake_install.cmake,CMakeFiles,*.pc,*.nvram,*.elc,*.la,.moc,CMakeCache.txt,confdefs.h,*.gmo,*.csproj,*.rej,config.status,lost+found,confstat,*.pyc,_darcs,CVS,.uic,*.part,libtool,*.aux,*.po,CMakeTmp,Makefile.am,*.lo,ui_*.h,*.loT,*~,*.moc,*.vm*,*.class,core-dumps
-exclude filters version=2
-exclude folders[$e]=$HOME/.kde4
-first run=true
-folders[$e]=$HOME/
