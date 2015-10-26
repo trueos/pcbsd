@@ -37,8 +37,7 @@ fi
 # Lets get the target name automatically
 if [ -e "/etc/ctl.conf" ] ; then
  tNum=0
- while :
- do
+ while : do
    grep -q "target${tNum}" /etc/ctl.conf
    if [ $? -ne 0 ] ; then
       targetName="target${tNum}"
@@ -134,7 +133,6 @@ case $tmp in
   n|N) getInfos ;;
   *) exit 1 ;;
 esac
-done
 
 # Lets first create the new ZVOL
 zfs create -s -V $zvolSize $zvolName
