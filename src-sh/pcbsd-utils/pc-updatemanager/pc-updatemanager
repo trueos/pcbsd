@@ -1295,9 +1295,15 @@ tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/
 PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
 echo \"PKG_CACHEDIR: $PKGDLCACHE\" > /tmp/.pkgUpdate.conf
 
-/usr/local/sbin/pkg-static \${PKG_CFLAG} update
 /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
-if [ \$? -ne 0 ] ; then exit 1; fi
+if [ \$? -ne 0 ] ; then
+  # If we fail to install pkgng, try updating first
+  /usr/local/sbin/pkg-static \${PKG_CFLAG} update
+  /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
+  if [ \$? -ne 0 ] ; then
+    exit 1
+  fi
+fi
 cd ${REALPKGDLCACHE}
 
 # Need to export this before installing pkgs, some scripts may try to be interactive
