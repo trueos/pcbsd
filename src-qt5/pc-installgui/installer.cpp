@@ -1544,6 +1544,9 @@ QStringList Installer::getDeskPkgCfg()
      // The default mail client
      pkgList << "mail/thunderbird";
 
+     // Multimedia player
+     pkgList << "multimedia/vlc";
+
      // VirtualBox
      pkgList << "misc/pcbsd-meta-virtualbox";
 
