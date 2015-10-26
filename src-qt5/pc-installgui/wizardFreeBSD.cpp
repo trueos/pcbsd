@@ -114,12 +114,9 @@ void wizardFreeBSD::accept()
     << lineIPv6DNS->text();
 
   QStringList appCafeSettings;
-  if ( groupAppCafe->isChecked() )
+  if ( checkAppCafe->isChecked() )
   {
-    appCafeSettings << "TRUE" \
-    << lineAppCafeUser->text() \
-    << lineAppCafePass->text() \
-    << spinAppCafePort->cleanText();
+    appCafeSettings << "TRUE";
   } else {
     appCafeSettings << "FALSE";
   }
@@ -195,26 +192,6 @@ bool wizardFreeBSD::validatePage()
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_AppCafe:
-         if ( ! groupAppCafe->isChecked() ) {
-           button(QWizard::NextButton)->setEnabled(true);
-           return true;
-         }
-         if ( lineAppCafeUser->text().isEmpty() ) {
-           button(QWizard::NextButton)->setEnabled(false);
-           return true;
-	 }
-         if ( lineAppCafePass->text().isEmpty() ) {
-           button(QWizard::NextButton)->setEnabled(false);
-           return true;
-         }
-         if ( lineAppCafePass->text().isEmpty() ) {
-           button(QWizard::NextButton)->setEnabled(false);
-           return true;
-         }
-         if ( lineAppCafePass->text() != lineAppCafePass2->text() ) {
-           button(QWizard::NextButton)->setEnabled(false);
-           return false;
-         }
          // if we get this far, all the fields are filled in
          button(QWizard::NextButton)->setEnabled(true);
          return true;
