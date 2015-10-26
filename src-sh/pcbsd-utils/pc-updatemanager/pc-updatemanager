@@ -1301,6 +1301,7 @@ if [ \$? -ne 0 ] ; then
   /usr/local/sbin/pkg-static \${PKG_CFLAG} update
   /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
   if [ \$? -ne 0 ] ; then
+    echo "FAILED INSTALLING ports-mgmt/pkg"
     exit 1
   fi
 fi
@@ -1326,6 +1327,7 @@ echo \"Installing $SYSBASEORIGIN...\"
 pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
 if [ \$? -ne 0 ] ; then
   cat /pkg-add.log
+  echo "FAILED INSTALLING $SYSBASEORIGIN"
   exit 1
 fi
 
