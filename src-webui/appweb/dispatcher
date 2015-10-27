@@ -140,18 +140,22 @@ run_queue_cmd()
      # Regular jail creation
      if [ "$origin" = "create" ] ; then
         newtag="$flag"
+        ssh=`echo $1 | cut -d " " -f 4`
+        sshkey=`echo $1 | awk -F:::: '{print $2}'`
 
 	# Do some uname checking
         SYSUNAME=$(uname -r)
 	echo $SYSUNAME | grep -q "CURRENT"
         if [ $? -eq 0 ] ; then
-          NEWUNAME="$SYSUNAME"
+          # Ugly hack, iocage hates -CURRENT right now
+	  NEWUNAME="10.2-RELEASE"
 	fi
 	echo $SYSUNAME | grep -q "STABLE"
         if [ $? -eq 0 ] ; then
           NEWUNAME="`echo $SYSUNAME | cut -d '-' -f 1`-RELEASE"
 	fi
         tags="base=$NEWUNAME"
+        btags="release=$NEWUNAME"
 
 	# First make sure this jail doesn't exist
 	iocage get ip4_addr pbijail-$newtag 2>/dev/null >/dev/null
@@ -164,7 +168,7 @@ run_queue_cmd()
         iocage list -r | grep -q "$NEWUNAME"
 	if [ $? -ne 0 ] ; then
           echo "iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist" >>$QLOGFILE
-          iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist >>$QLOGFILE 2>>$QLOGFILE
+          iocage fetch $btags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist >>$QLOGFILE 2>>$QLOGFILE
 	fi
 
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
@@ -215,6 +219,11 @@ run_queue_cmd()
      iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
      local jdir="/`iocage get jail_zfs_dataset pbijail-$newtag | sed 's|/data$|/root|g'`"
      bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
+     if [ "$ssh" = "sshd" ] ; then
+       enable_sshd_jail "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
+       iocage stop pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
+       iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
+    fi
   fi
 
   # If we create a new plugin, lets start it now
@@ -230,6 +239,25 @@ run_queue_cmd()
 
   # Save the log file for later diagnostics
   return $err
+}
+
+enable_sshd_jail()
+{
+  local jaildir="${1}"
+
+  # Enable SSHD
+  echo "sshd_enable=\"YES\"" >> ${jaildir}/etc/rc.conf
+
+  # Create the 'freebsd' user
+  chroot ${jaildir} pw user add freebsd -d /usr/home/freebsd -s /bin/csh -m -G wheel
+
+  mkdir -p ${jaildir}/usr/home/freebsd/.ssh
+  mkdir -p ${jaildir}/usr/local/etc/sudoers.d 2>/dev/null
+  echo "%wheel ALL=(ALL) NOPASSWD: ALL" > ${jaildir}/usr/local/etc/sudoers.d/appcafe
+  echo "$sshkey" > ${jaildir}/usr/home/freebsd/.ssh/authorized_keys
+  chroot ${jaildir} chown -R freebsd:freebsd /usr/home/freebsd
+  chroot ${jaildir} chmod 700 /usr/home/freebsd/.ssh
+  chroot ${jaildir} chmod 644 /usr/home/freebsd/.ssh/authorized_keys
 }
 
 block_jail_ip4()
@@ -333,6 +361,7 @@ __EOF__
 
   # Now boot-strap the real pkgng pkg
   pkg -c ${jaildir} install -qy ports-mgmt/pkg
+  pkg -c ${jaildir} install -qy security/sudo
 }
 
 run_daemon()

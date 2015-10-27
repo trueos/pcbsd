@@ -1,5 +1,6 @@
 <br>
 <?php
+  $page = $_GET['p'];
   defined('DS') OR die('No direct access allowed.');
 
   // Set some globals for mobile detection
@@ -41,7 +42,7 @@
        $_SESSION['apikey'] = $apikey;
 
        // Now we can relocate back to main page
-       header('Location:  ' . $_SERVER['PHP_SELF']);
+       header('Location:  ' . $_SERVER['PHP_SELF'] . "?p=" . $page);
     } else {
        //invalid login
        $perror="error logging in!";
@@ -74,7 +75,7 @@
   }
 ?>
 <p><?php echo "$perror"; ?></p>
-<form method="post" action="<?php echo "$SELF"; ?>">
+<form method="post" action="<?php echo "$SELF" . "?p=" . $page; ?>">
 <table class="login" width="<?php if ($deviceType == "computer") { echo "400"; } else { echo "100%"; } ?>">
 <tr>
   <th></th>
