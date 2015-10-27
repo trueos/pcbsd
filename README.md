@@ -40,16 +40,16 @@ Source Map
 Contacting Us
 ---------------------------------
 
-IRC (FreeNode)
+######IRC (FreeNode)
 ---------------------------------
 `#pcbsd-dev` (Developer questions / talk)
 
 `#pcbsd` (General user information)
 
-Mailing Lists
+######Mailing Lists
 ---------------------------------
 http://lists.pcbsd.org
 
-Bug Tracker
+######Bug Tracker
 ---------------------------------
 http://bugs.pcbsd.org
