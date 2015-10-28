@@ -118,7 +118,7 @@ defined('DS') OR die('No direct access allowed.');
 </tr>
 <?php } ?>
 <tr>
-  <td style="text-align: center; vertical-align: middle;">Plugin zpool:</td>
+  <td style="text-align: center; vertical-align: middle;">Jail zpool:</td>
   <td style="text-align: left; vertical-align: middle;">
   <select name="iocpool">
   <?php

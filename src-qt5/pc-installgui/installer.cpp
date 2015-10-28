@@ -929,36 +929,6 @@ void Installer::startConfigGen()
 
     cfgList+= "";
 
-    // Check for any AppCafe setup
-    if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
-    {
-      // Save the files
-      QFile appuserfile( "/tmp/appcafe-user" );
-      if ( appuserfile.open( QIODevice::WriteOnly ) ) {
-        QTextStream streamuser( &appuserfile );
-        streamuser <<  appCafeSettings.at(1);
-        appuserfile.close();
-      }
-      QFile apppassfile( "/tmp/appcafe-pass" );
-      if ( apppassfile.open( QIODevice::WriteOnly ) ) {
-        QTextStream streampass( &apppassfile );
-        streampass <<  appCafeSettings.at(2);
-        apppassfile.close();
-      }
-      QFile appportfile( "/tmp/appcafe-port" );
-      if ( appportfile.open( QIODevice::WriteOnly ) ) {
-        QTextStream streamport( &appportfile );
-        streamport <<  appCafeSettings.at(3);
-        appportfile.close();
-      }
-
-      // Add the files to the pc-sysinstall config
-      cfgList << "";
-      cfgList << "runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/";
-      cfgList << "runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
-      cfgList << "runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/";
-    }
-
     if ( radioDesktop->isChecked() ) {
       // Doing PC-BSD Install
 
@@ -1543,6 +1513,9 @@ QStringList Installer::getDeskPkgCfg()
 
      // The default mail client
      pkgList << "mail/thunderbird";
+
+     // Multimedia player
+     pkgList << "multimedia/vlc";
 
      // VirtualBox
      pkgList << "misc/pcbsd-meta-virtualbox";

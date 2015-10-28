@@ -944,14 +944,19 @@ gen_pc-sysinstall_cfg()
 
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
-     echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde ${EXTRAPKGS}" >> ${CFGFILE}
+     echo "installPackages=misc/pcbsd-base x11/lumina sysutils/pcbsd-appweb www/firefox www/linux-c6-flashplugin www/nspluginwrapper java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip ${EXTRAPKGS}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstboot" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
-     echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS}" >> ${CFGFILE}
+     # TrueOS install
+     if [ "$APPCAFEINSTALL" = "YES" ] ; then
+       echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS}" >> ${CFGFILE}
+     else
+       echo "installPackages=misc/trueos-base ${EXTRAPKGS}" >> ${CFGFILE}
+     fi
      echo "" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
 
@@ -964,20 +969,6 @@ gen_pc-sysinstall_cfg()
      echo "userHome=/home/${USERNAME}" >> ${CFGFILE}
      echo "userGroups=wheel,operator" >> ${CFGFILE}
      echo "commitUser" >> ${CFGFILE}
-   fi
-
-   # If AppCafe is enabled
-   if [ -n "$APPUSER" ] ; then
-     # Save appcafe data to file
-     echo "$APPUSER" > /tmp/appcafe-user
-     echo "$APPPASS" > /tmp/appcafe-pass
-     echo "$APPPORT" > /tmp/appcafe-port
-
-     # Now add pc-sysinstall config stuff
-     echo "" >> ${CFGFILE}
-     echo 'runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/' >> ${CFGFILE}
-     echo 'runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/' >> ${CFGFILE}
-     echo 'runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/' >> ${CFGFILE}
    fi
 
    # Run the sys-init
@@ -1007,94 +998,10 @@ gen_pc-sysinstall_cfg()
 #ask if user wants to install appweb
 zans_appweb()
 {
-   if dialog --yesno "Do you want to enable remote access to the AppCafe browser based package manager now?  You will be asked to setup an additional user name and password"  8 60; then
-     install_appweb
+   APPCAFEINSTALL="NO"
+   if dialog --yesno "Do you want to install the AppCafe browser based package manager? This allows remove package / jail management."  8 60; then
+     APPCAFEINSTALL="YES"
    fi
-}
-
-#ask for AppWeb User Name
-appweb_user() {
-  while :
-  do
-    #Ask for user name and make sure it is not empty
-    get_dlg_ans "--inputbox 'Enter a username for AppWeb' 8 40"
-    if [ -z "$ANS" ] ; then
-       echo "Invalid username entered!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 35
-       rm /tmp/.vartemp.$$
-       continue
-    fi   
-    #check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z0-9]*$'
-    if [ $? -eq 1 ] ; then
-       echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 35
-       rm /tmp/.vartemp.$$
-       continue      
-    fi
-    APPUSER="$ANS"
-    break
-  done
-}
-
-#ask for AppWeb Password
-appweb_pass() {
-  while :
-  do
-    get_dlg_ans "--passwordbox \"Enter the password for $APPUSER\" 8 40"
-    if [ -z "$ANS" ] ; then
-       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 35
-       rm /tmp/.vartemp.$$
-       continue
-    fi
-    # Check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
-    if [ $? -eq 0 ] ; then      
-    else   
-       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 40
-       rm /tmp/.vartemp.$$
-       continue  
-    fi
-    APPPASS="$ANS"   
-    get_dlg_ans "--passwordbox 'Confirm password' 8 40"
-    if [ -z "$ANS" ] ; then
-       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 35
-       rm /tmp/.vartemp.$$
-       continue
-    fi
-    APPPWCONFIRM="$ANS"
-    if [ "$APPPWCONFIRM" = "$APPPASS" ] ; then break; fi
-    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 30
-    if [ $? -eq 0 ] ; then continue ; fi
-    exit_err "Failed setting password!"
-  done
-}
-
-appweb_port()
-{
-  while :
-  do
-    get_dlg_ans "--inputbox \"Enter the port to listen on.  The default is 8885.\" 8 35"
-    if [ -z "$ANS" ] ; then
-      echo "Port number can not be blank"  >> /tmp/.vartemp.$$
-      dialog --tailbox /tmp/.vartemp.$$ 8 40
-      rm /tmp/.vartemp.$$
-      continue
-    fi
-    echo "$ANS" | grep -q '^[0-9]*$'
-    if [ $? -eq 1 ] ; then
-      echo "Port number contains invalid characters!" >> /tmp/.vartemp.$$
-      dialog --tailbox /tmp/.vartemp.$$ 8 48
-      rm /tmp/.vartemp.$$
-      continue  
-    else 
-      break
-    fi
-  done
-  APPPORT="$ANS"
 }
 
 change_packages()
@@ -1167,13 +1074,6 @@ change_networking() {
   get_netconfig
   get_sshd
   gen_pc-sysinstall_cfg
-}
-
-# Setup appweb and syscache
-install_appweb() {
-  appweb_user
-  appweb_pass
-  appweb_port
 }
 
 start_edit_menu_loop()
