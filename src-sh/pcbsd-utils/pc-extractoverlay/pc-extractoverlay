@@ -149,14 +149,18 @@ post_extract_setup()
     # Copy over the default loader.conf file
     if [ -e "/boot/loader.conf.pcbsd" ] ; then
        cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+       cp /usr/local/share/pcbsd/conf/brand-pcbsd.4th /boot/brand-pcbsd.4th
     elif [ -e "/boot/loader.conf.trueos" ] ; then
        cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+       cp /usr/local/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
     else
        # No default loader.conf? Lets figure out which to copy
        if [ -e "/etc/defaults/pcbsd" ] ; then
          cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+         cp /usr/local/share/pcbsd/conf/brand-pcbsd.4th /boot/brand-pcbsd.4th
        else
          cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+         cp /usr/local/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
        fi
     fi
 
