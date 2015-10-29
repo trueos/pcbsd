@@ -6,6 +6,10 @@ mail/thunderbird
 misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
+misc/pcbsd-meta-nvidia
+misc/pcbsd-meta-virtualbox
+misc/pcbsd-meta-virtualboxguest
+misc/pcbsd-meta-vmwareguest
 misc/trueos-base
 multimedia/vlc
 ports-mgmt/pkg
@@ -18,5 +22,4 @@ www/linux-c6-flashplugin11
 www/nspluginwrapper
 www/firefox
 x11/lumina
-x11/nvidia-driver
 x11-drivers/xf86-video-scfb
