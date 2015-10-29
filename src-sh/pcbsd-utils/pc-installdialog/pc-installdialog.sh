@@ -999,7 +999,7 @@ gen_pc-sysinstall_cfg()
 zans_appweb()
 {
    APPCAFEINSTALL="NO"
-   if dialog --yesno "Do you want to install the AppCafe browser based package manager? This allows remove package / jail management."  8 60; then
+   if dialog --yesno "Do you want to install the AppCafe browser based package manager? This allows remote package / jail management."  8 60; then
      APPCAFEINSTALL="YES"
    fi
 }
@@ -1063,8 +1063,10 @@ start_full_wizard()
      get_user_realname
      get_user_shell
      change_networking
+     zans_appweb
+  else
+     APPCAFEINSTALL="YES"
   fi
-  zans_appweb
   gen_pc-sysinstall_cfg
 }
 
