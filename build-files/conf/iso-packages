@@ -18,4 +18,5 @@ www/linux-c6-flashplugin11
 www/nspluginwrapper
 www/firefox
 x11/lumina
+x11/nvidia-driver
 x11-drivers/xf86-video-scfb
