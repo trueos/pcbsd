@@ -357,7 +357,10 @@ function display_install_chooser()
 
   // Check if this app is installed
   $pkgoutput = syscache_ins_plugin_list();
-  $pkglist = explode(", ", $pkgoutput);
+  if ( is_array($pkgoutput) )
+    $pkglist = $pkgoutput;
+  else
+    $pkglist = explode(", ", $pkgoutput);
 
   if ( array_search_partial($pbiorigin . " ", $pkglist) !== false)
      $pbiInstalled = true;
