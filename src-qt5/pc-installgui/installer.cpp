@@ -1486,7 +1486,7 @@ void Installer::slotReadInstallerOutput()
 
         // Cleanup the installation line
 	if ( tmp.indexOf("-- ") != -1 )
-	   tmp = tmp.remove(0, tmp.indexOf("-- "));
+	   tmp = tmp.remove(0, tmp.indexOf("-- ") + 3);
 
 	// Show other pkgng output text now
         labelInstallStatus2->setText(tmp);
