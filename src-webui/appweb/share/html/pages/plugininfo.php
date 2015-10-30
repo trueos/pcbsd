@@ -388,9 +388,8 @@ function display_install_chooser()
     // Get ipv4 address
     $dccmd = array("iocage getip4 $ioid");
     $output = send_dc_cmd($dccmd);
-    $oarray = explode(" ", $output["iocage getip4 $ioid"]);
 
-    $pbiip4 = $output[0];
+    $pbiip4 = $output["iocage getip4 $ioid"];
     if (strstr($pbiip4, "|") !== false ) {
       $pbiip4= substr(strstr($pbiip4, "|"), 1);
       $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));

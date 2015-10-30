@@ -144,7 +144,8 @@ run_queue_cmd()
         sshkey=`echo $1 | awk -F:::: '{print $2}'`
 
 	# Do some uname checking
-        SYSUNAME=$(uname -r)
+        SYSUNAME=$(uname -r | cut -d '-' -f 1-2)
+	NEWUNAME=${SYSUNAME}
 	echo $SYSUNAME | grep -q "CURRENT"
         if [ $? -eq 0 ] ; then
           # Ugly hack, iocage hates -CURRENT right now
