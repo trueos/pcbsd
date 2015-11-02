@@ -66,7 +66,7 @@ run_queue_cmd()
   target=`echo $1 | cut -d " " -f 4`
 
   # Get the uniq identifier for this cmd
-  local ident="`uuidgen`"
+  local ident="${2}"
   QLOGFILE="${QLOGDIR}/${ident}.log"
   touch ${QLOGFILE}
   chmod 644 ${QLOGFILE}
@@ -144,7 +144,8 @@ run_queue_cmd()
         sshkey=`echo $1 | awk -F:::: '{print $2}'`
 
 	# Do some uname checking
-        SYSUNAME=$(uname -r)
+        SYSUNAME=$(uname -r | cut -d '-' -f 1-2)
+	NEWUNAME=${SYSUNAME}
 	echo $SYSUNAME | grep -q "CURRENT"
         if [ $? -eq 0 ] ; then
           # Ugly hack, iocage hates -CURRENT right now
@@ -391,8 +392,9 @@ run_daemon()
     mv $QLIST ${QLIST}.tmp
     while read line
     do
-       echo "$line" > $QWRK
-       run_queue_cmd "$line"
+       TASKIDENT=`uuidgen`
+       echo "$line :::${TASKIDENT}:::" > $QWRK
+       run_queue_cmd "$line" "$TASKIDENT"
        echo "" > $QWRK
     done < ${QLIST}.tmp
     rm ${QLIST}.tmp

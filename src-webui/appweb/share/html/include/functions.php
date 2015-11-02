@@ -444,7 +444,10 @@ function is_pbicage_running($jail)
   $sccmd = array("jail runningcages");
   $response = send_sc_query($sccmd);
   $string = $response["jail runningcages"];
-  $jail_list_array = explode(", ", $string);
+  if ( is_array($string) )
+    $jail_list_array = $string;
+  else
+    $jail_list_array = explode(", ", $string);
 
   if ( array_search_partial($jail, $jail_list_array) !== false )
     return true;
@@ -634,8 +637,14 @@ function get_iocage_id_from_origin($origin)
   $response = send_sc_query($sccmd);
   $stopped = $response["jail stoppedcages"];
   $running = $response["jail runningcages"];
-  $stoppedarray = explode(", ", $stopped);
-  $runningarray = explode(", ", $running);
+  if ( is_array($running) )
+    $runningarray = $running;
+  else
+    $runningarray = explode(", ", $running);
+  if ( is_array($stopped) )
+    $stoppedarray = $stopped;
+  else
+    $stoppedarray = explode(", ", $stopped);
 
   // Check stopped cages first
   foreach ( $stoppedarray as $jail ) {
