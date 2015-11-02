@@ -127,6 +127,12 @@ echo "<script type='text/javascript' charset='utf-8'>
      if ( ! $pkgUpdates )
        echo "<h1><center><img src=\"/images/noupdates.png\" height=24 width=24 title=\"Up to date!\">All packages and jails are up to date!</h1><br>";
 
+  // Check if we are currently busy
+  $status = getDispatcherStatus();
+  if ( ! empty($status) and $status != " " )
+  {
+    echo "<div id=\"status-working\"></div>";
+  }
 ?>
 <h1><center>Recent application actions</h1>
 <br>
