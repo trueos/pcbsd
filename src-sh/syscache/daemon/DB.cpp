@@ -1656,6 +1656,8 @@ void Syncer::syncPbi(){
 	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
 	// ==== NO LINE BREAKS IN VALUES ====
       }
+      //If there is a non-empty manifest - go ahead and save the raw contents
+      if(cinfo.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/manifest", cinfo.join("\n")); }
       //Now add the description/icon
       HASH->insert("PBI/CAGES/"+cages[i]+"/description", readFile(cprefix+cages[i]+"/description").join("<br>") );
       HASH->insert("PBI/CAGES/"+cages[i]+"/icon", cprefix+cages[i]+"/icon.png");
