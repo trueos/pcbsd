@@ -73,7 +73,7 @@ function parseNoticeEvents(incoming)
     return;
   }
   //window.alert(incoming);
-  replaceContents('<a href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"' + jsonobj['args'].args + '\"> Working</a>');
+  replaceContents('<a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"> Working</a>');
   wstatus = "working";
 }
 
