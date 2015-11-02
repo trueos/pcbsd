@@ -102,6 +102,8 @@ share/pcbsd/conf/brand-pcbsd.4th
 share/pcbsd/conf/brand-trueos.4th
 share/pcbsd/conf/freebsd-update.conf
 share/pcbsd/conf/pcbsd-mirrors
+share/pcbsd/conf/pcbsd-menu-commands.4th
+share/pcbsd/conf/pcbsd-menu.rc
 share/pcbsd/conf/pbi-mirror
 share/pcbsd/conf/pkg-mirror
 share/pcbsd/conf/iso-mirror
