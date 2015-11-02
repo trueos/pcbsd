@@ -174,10 +174,10 @@ run_queue_cmd()
 
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
           # System has VIMAGE enabled
-          cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on $tags"
+          cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on mount_linprocfs=1 $tags"
 	else
 	  # No VIMAGE, use fallback method
-	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=DEFAULT|AUTOIP4 $tags"
+	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=DEFAULT|AUTOIP4 mount_linprocfs=1 $tags"
 	fi
      fi
      if [ "$origin" = "destroy" ] ; then
