@@ -1068,6 +1068,7 @@ dl_pkgs()
   sleep 2
 
   if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
+  touch ${NEWPKGLIST}
 
   # Save the PKGNG filename
   PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
