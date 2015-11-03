@@ -1659,7 +1659,7 @@ void Syncer::syncPbi(){
       for(int h=0; h<dockeys.length(); h++){
 	QString val = doc.object().value(dockeys[h]).toString();
 	//qDebug() << " - Variable/Value:" << dockeys[h] << val;
-	if(!val.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+dockeys[h], val); }
+	HASH->insert("PBI/CAGES/"+cages[i]+"/"+dockeys[h], val);
 	//Note: this will automatically load any variables in the manifest into syscache (lowercase)
 	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
 	// ==== NO LINE BREAKS IN VALUES ====
