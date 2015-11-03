@@ -211,7 +211,7 @@ function display_config_details()
   echo " <table class=\"jaillist\" style=\"width:100%\">";
   echo "  <tr>\n";
   echo "   <th></th>\n";
-  echo "   <th width=99%></th>\n";
+  echo "   <th></th>\n";
   echo "  </tr>";
 
   // Set some globals we use for widget items
