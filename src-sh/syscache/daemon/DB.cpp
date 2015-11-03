@@ -192,6 +192,7 @@ QString DB::fetchInfo(QStringList request, bool noncli){
         hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="cage"){
 	hashkey = "PBI/CAGES/"+request[2]+"/"+request[3]; //pkg origin and variable
+	//qDebug() << "Cage Request:" << hashkey;
       }else if(request[1]=="cat"){
 	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="search"){
@@ -1649,19 +1650,23 @@ void Syncer::syncPbi(){
     for(int i=0; i<cages.length(); i++){
       if( !QFile::exists(cprefix+cages[i]+"/MANIFEST.json")){ continue; }
       allcages << cages[i];
-      QString cinfo = readFile(cprefix+cages[i]+"/MANIFEST.json").join("\n");
-      QJsonDocument doc = QJsonDocument::fromRawData(cinfo.toLocal8Bit(),QJsonDocument::Validate);
+      //QString cinfo = readFile(cprefix+cages[i]+"/MANIFEST.json").join("\n");
+      //qDebug() << "Manifest File:" << cinfo;
+      QJsonDocument doc = readJsonFile(cprefix+cages[i]+"/MANIFEST.json");  /*QJsonDocument::fromBinaryData(cinfo.toLocal8Bit(),QJsonDocument::BypassValidation);*/
+      //qDebug() << " - JSON Document:" << doc.isObject() << doc.isArray() << doc.isEmpty();
       QStringList dockeys;
       if(doc.isObject()){ dockeys = doc.object().keys(); }
       for(int h=0; h<dockeys.length(); h++){
-	QString val = doc.object().value(dockeys[i]).toString();
-	if(!val.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+dockeys[i], val); }
+	QString val = doc.object().value(dockeys[h]).toString();
+	//qDebug() << " - Variable/Value:" << dockeys[h] << val;
+	if(!val.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+dockeys[h], val); }
 	//Note: this will automatically load any variables in the manifest into syscache (lowercase)
 	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
 	// ==== NO LINE BREAKS IN VALUES ====
       }
       //If there is a non-empty manifest - go ahead and save the raw contents
-      if(cinfo.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/manifest", cinfo); }
+      //qDebug() << " - Cage HASH:" << "PBI/CAGES/"+cages[i]+"/manifest";
+      if(!doc.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/manifest", doc.toJson(QJsonDocument::Compact) ); }
       //Now add the description/icon
       HASH->insert("PBI/CAGES/"+cages[i]+"/description", readFile(cprefix+cages[i]+"/description").join("<br>") );
       HASH->insert("PBI/CAGES/"+cages[i]+"/icon", cprefix+cages[i]+"/icon.png");

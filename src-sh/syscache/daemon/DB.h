@@ -19,6 +19,7 @@
 #include <QTextStream>
 #include <QThread>
 #include <QTime>
+#include <QJsonDocument>
 
 class Syncer : public QObject{
 	Q_OBJECT
@@ -42,6 +43,13 @@ private:
 	QStringList sysCmd(QString cmd); // ensures only 1 running at a time (for things like pkg)
 	QStringList directSysCmd(QString cmd); //run command immediately
 	QStringList readFile(QString filepath); //read the contents of a text file
+	QJsonDocument readJsonFile(QString fileName){
+	  QFile jsonFile(fileName);
+	  jsonFile.open(QFile::ReadOnly);
+	  QJsonDocument doc = QJsonDocument::fromJson(jsonFile.readAll());
+	  jsonFile.close();
+	  return doc;
+	}
 	void UpdatePkgDB(QString jail);
 
 	//Internal Hash maintenance functions
