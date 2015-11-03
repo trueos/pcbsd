@@ -1,4 +1,6 @@
 #include "DB.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 
 /* === Representation of Database ====
   HASH -> Info: [JailList, RepoList] 
@@ -1645,19 +1647,21 @@ void Syncer::syncPbi(){
     QStringList cages = readFile(cprefix+"CAGE-INDEX");
     QStringList allcages;
     for(int i=0; i<cages.length(); i++){
-      if( !QFile::exists(cprefix+cages[i]+"/MANIFEST")){ continue; }
+      if( !QFile::exists(cprefix+cages[i]+"/MANIFEST.json")){ continue; }
       allcages << cages[i];
-      QStringList cinfo = readFile(cprefix+cages[i]+"/MANIFEST");
-      for(int h=0; h<cinfo.length(); h++){
-        QString var = cinfo[h].section(": ",0,0).toLower();
-	QString val = cinfo[h].section(": ",1,100).simplified();
-	if(!var.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+var, val); }
+      QString cinfo = readFile(cprefix+cages[i]+"/MANIFEST.json").join("\n");
+      QJsonDocument doc = QJsonDocument::fromRawData(cinfo.toLocal8Bit(),QJsonDocument::Validate);
+      QStringList dockeys;
+      if(doc.isObject()){ dockeys = doc.object().keys(); }
+      for(int h=0; h<dockeys.length(); h++){
+	QString val = doc.object().value(dockeys[i]).toString();
+	if(!val.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+dockeys[i], val); }
 	//Note: this will automatically load any variables in the manifest into syscache (lowercase)
 	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
 	// ==== NO LINE BREAKS IN VALUES ====
       }
       //If there is a non-empty manifest - go ahead and save the raw contents
-      if(cinfo.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/manifest", cinfo.join("\n")); }
+      if(cinfo.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/manifest", cinfo); }
       //Now add the description/icon
       HASH->insert("PBI/CAGES/"+cages[i]+"/description", readFile(cprefix+cages[i]+"/description").join("<br>") );
       HASH->insert("PBI/CAGES/"+cages[i]+"/icon", cprefix+cages[i]+"/icon.png");
