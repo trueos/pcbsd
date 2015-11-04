@@ -134,12 +134,7 @@ listZFSSnap() {
 rmZFSSnap() {
   `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || return 1
 
-  if [ "$RECURMODE" = "ON" ] ; then
-     flags="-r"
-  else
-     flags="-r"
-  fi
-  zfs destroy -r ${1}@${2} >${CMDLOG} 2>${CMDLOG}
+  zfs destroy -R ${1}@${2} >${CMDLOG} 2>${CMDLOG}
   return $?
 }
 
@@ -974,7 +969,7 @@ prune_old_remote_snaps() {
     if [ $? -eq 0 ]; then continue; fi
     
     queue_msg "`date`: Removing old snapshot ${2}@${rsnap}"
-    ${CMDPREFIX} zfs destroy ${2}@${rsnap}
+    ${CMDPREFIX} zfs destroy -R ${2}@${rsnap}
     if [ $? -ne 0 ] ; then
       echo_log "FAILED Removing old snapshot ${2}@${rsnap}"
       queue_msg "`date`: FAILED Removing old snapshot ${2}@${rsnap}"
