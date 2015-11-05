@@ -263,7 +263,10 @@ QString DB::fetchInfo(QStringList request, bool noncli){
   else{
     validateHash(hashkey);
     //Check if a sync is running and wait a moment until it is done
-    while(isRunning(hashkey)){ pausems(500); } //re-check every 500 ms
+    while(isRunning(hashkey)){
+	if(noncli){ return "[BUSY]"; }
+	pausems(500);  //re-check every 500 ms
+    }
     //Now check for info availability
     if(!searchterm.isEmpty()){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
