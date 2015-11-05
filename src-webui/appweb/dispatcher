@@ -393,7 +393,7 @@ run_daemon()
     while read line
     do
        TASKIDENT=`uuidgen`
-       echo "$line :::${TASKIDENT}:::" > $QWRK
+       echo "$line ###${TASKIDENT}###" > $QWRK
        run_queue_cmd "$line" "$TASKIDENT"
        echo "" > $QWRK
     done < ${QLIST}.tmp
