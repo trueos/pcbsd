@@ -28,11 +28,13 @@ QStringList SysCacheClient::parseInputs(QStringList inputs){
   usleep(100);
   //Wait for the socket to connect to the server
   while(client.state() != QLocalSocket::ConnectedState){
+    usleep(100); //this connection should happen very fast
     QCoreApplication::processEvents();
   }
   //qDebug() << "Syscache connected";
   //Now wait for the server to process the request and send a reply
   while( client.state() != QLocalSocket::UnconnectedState && client.isValid() && client.ans.isEmpty()){
+    usleep(400);
     QCoreApplication::processEvents();
   }
   //qDebug() << " - Syscache disconnected:" << client.ans;
