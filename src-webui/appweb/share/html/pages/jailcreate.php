@@ -76,7 +76,7 @@ function chk_onchange()
   <td><input name="sshd" type="checkbox" value="checked" enableWhenTrue="sshkey" onchange="chk_onchange.call(this)"></td>
 </tr>
 <tr>
-  <td>SSH Public Key</td>
+  <td>SSH Public Key (Username "freebsd")</td>
   <td><textarea id="sshkey" name="sshkey" disabled></textarea></td>
 </tr>
 <tr>
