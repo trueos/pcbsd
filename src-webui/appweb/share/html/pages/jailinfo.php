@@ -6,16 +6,30 @@ defined('DS') OR die('No direct access allowed.');
   if ( empty($jail) or $jail == "#system" )
      die("Invalid jail specified!");
 
-  $sccmd = array("jail $jail ipv4",
+  if ( $vimage == 1 )
+  {
+    $sccmd = array("jail $jail tag");
+    $response = send_sc_query($sccmd);
+    $jtag = $response["jail $jail tag"];
+
+    // Get IPv4
+    $dccmd = array("iocage getip4 $jail");
+    $response = send_dc_cmd($dccmd);
+    $jailipv4 = $response["iocage getip4 $jail"];
+
+    $dnic = "";
+  } else {
+    $sccmd = array("jail $jail ipv4",
            "jail $jail ipv6",
            "jail $jail tag"
            );
-  $response = send_sc_query($sccmd);
-  $jailipv4 = $response["jail $jail ipv4"];
-  $dnic = strstr($jailipv4, "|", TRUE);
-  $jailipv4 = substr(strstr($jailipv4, "|"), 1);
-  $jailipv6 = $response["jail $jail ipv6"];
-  $jtag = $response["jail $jail tag"];
+    $response = send_sc_query($sccmd);
+    $jailipv4 = $response["jail $jail ipv4"];
+    $dnic = strstr($jailipv4, "|", TRUE);
+    $jailipv4 = substr(strstr($jailipv4, "|"), 1);
+    $jailipv6 = $response["jail $jail ipv6"];
+    $jtag = $response["jail $jail tag"];
+  }
 
   // Get the default network interface for this jail
   $defaultnic = exec("netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'");
@@ -66,7 +80,15 @@ defined('DS') OR die('No direct access allowed.');
 </tr>
 <tr>
   <td>Jail IPv4 Address</td>
-  <td><input name="jailipv4" type="text" value="<?php echo "$jailipv4"; ?>" /></td>
+  <td>
+  <?php 
+    if ( $vimage == 1 ) {
+      echo "$jailipv4";
+    } else {
+      echo "<input name=\"jailipv4\" type=\"text\" value=\"$jailipv4\" />";
+    }
+  ?>
+  </td>
 </tr>
 <tr>
   <td>Network Interface</td>

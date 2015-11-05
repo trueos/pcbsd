@@ -58,9 +58,9 @@ function print_jail($jail, $status)
   else
     print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: red; text-decoration: underline;\">$status</a></td>\n");
   if ( $status == "Running" ) {
-    $sccmd = array("jail $jail ip");
-    $response = send_sc_query($sccmd);
-    $jip = $response["jail $jail ip"];
+    $dccmd = array("iocage getip4 $jail");
+    $response = send_dc_cmd($dccmd);
+    $jip = $response["iocage getip4 $jail"];
     print("  <td>$jip</td>\n");
   } else
     print("  <td></td>\n");
