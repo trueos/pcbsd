@@ -615,6 +615,8 @@ setcfg()
     jdir=`jls | grep " ${jid} " | awk '{print $4}'`
     rm ${jdir}/tmp/.appcafe-setcfg.sh.$$ >/dev/null 2>/dev/null
     cp $cscript ${jdir}/tmp/.appcafe-setcfg.sh.$$
+    chmod 755 ${jdir}/tmp/.appcafe-setcfg.sh.$$
+    sync
     jexec $jid sh /tmp/.appcafe-setcfg.sh.$$ "$key" "$value"
     err=$?
     rm ${jdir}/tmp/.appcafe-setcfg.sh.$$
@@ -639,6 +641,9 @@ donecfg()
     jdir=`jls | grep " ${jid} " | awk '{print $4}'`
     rm ${jdir}/tmp/.appcafe-donecfg.sh.$$ >/dev/null 2>/dev/null
     cp $cscript ${jdir}/tmp/.appcafe-donecfg.sh.$$
+    chmod 755 ${jdir}/tmp/.appcafe-donecfg.sh.$$
+    sync
+    sleep 1
     jexec $jid sh /tmp/.appcafe-donecfg.sh.$$
     err=$?
     rm ${jdir}/tmp/.appcafe-donecfg.sh.$$
@@ -724,7 +729,11 @@ case $1 in
 	    pbicdir="$2" ; jail="$3" ; key="$4"
             getcfg ;;
     setcfg) verify_disid
-	    pbicdir="$2" ; jail="$3" ; key="$4" ; value="$5"
+	    pbicdir="$2" ; jail="$3" ; key="$4"
+	    value="$5"
+	    if [ -n "$6" ] ; then value="$value $6" ; fi
+	    if [ -n "$7" ] ; then value="$value $7" ; fi
+	    if [ -n "$8" ] ; then value="$value $8" ; fi
             setcfg ;;
    donecfg) verify_disid
 	    pbicdir="$2" ; jail="$3"

@@ -96,7 +96,7 @@ function set_cfg_value($cfg, $value)
   $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to set config value
-  $dccmd = array("setcfg $pbicdir ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  $dccmd = array("setcfg $pbicdir $jid $key $value" );
   send_dc_cmd($dccmd);
 
 }
