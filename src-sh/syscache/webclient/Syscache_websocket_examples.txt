@@ -91,6 +91,27 @@ The client may subscribe to event notifications as well (per-connection)
 }
 
 ===================================
+ - Dispatcher Usage
+===================================
+JSON flags to for dispatcher interaction
+ "namespace": "rpc"
+ "name": "dispatcher"
+ 
+ Usage (possible "args"):
+ --------------------------------
+   iocage {cmd} [args]
+   queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
+   pkgupdate {__system__|<jailname>}
+   service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
+   getcfg {pbicdir} {__system__|<jid>} {key}
+   setcfg {pbicdir} {__system__|<jid>} {key} {value}
+   donecfg {pbicdir} {__system__|<jid>}
+   daemon
+   status
+   results
+   log {hash}
+ 
+===================================
  - General syscache system information/summaries
  ===================================
 For a query of the syscache information daemon, the "name" field of the input JSON object needs to be set to "syscache". 
