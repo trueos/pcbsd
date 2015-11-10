@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="/css/lightbox.css" />
         <link rel="stylesheet" href="/css/cssmenu.css" />
         <link rel="stylesheet" href="/css/subcssmenu.css" />
+        <link rel="stylesheet" href="/css/thickbox.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
 <?php
 print "<script type=\"text/javascript\">\n";
@@ -35,6 +36,7 @@ print "</script>\n";
 	<script type="text/javascript" src="/js/lightbox.min.js"></script>
 	<script type="text/javascript" src="/js/cssmenu.js"></script>
 	<script type="text/javascript" src="/js/notifications.js"></script>
+	<script type="text/javascript" src="/js/thickbox-compressed.js"></script>
 	<style>
 	<style>
 

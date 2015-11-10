@@ -15,6 +15,7 @@ share/appcafe/html/css/main.css
 share/appcafe/html/css/popbox.css
 share/appcafe/html/css/tabs.css
 share/appcafe/html/css/lightbox.css
+share/appcafe/html/css/thickbox.css
 share/appcafe/html/images/add.png
 share/appcafe/html/images/appcafe.png
 share/appcafe/html/images/application-exit.png
@@ -28,6 +29,7 @@ share/appcafe/html/images/info-tips.png
 share/appcafe/html/images/install.png
 share/appcafe/html/images/jail.png
 share/appcafe/html/images/loading.gif
+share/appcafe/html/images/loadingAnimation.gif
 share/appcafe/html/images/logout.png
 share/appcafe/html/images/next.png
 share/appcafe/html/images/notifier.png
@@ -90,6 +92,7 @@ share/appcafe/html/js/lightbox.min.js
 share/appcafe/html/js/main.js
 share/appcafe/html/js/notifications.js
 share/appcafe/html/js/popbox.min.js
+share/appcafe/html/js/thickbox-compressed.js
 share/appcafe/html/vendor/autoload.php
 share/appcafe/html/vendor/composer/installed.json
 share/appcafe/html/vendor/composer/autoload_classmap.php

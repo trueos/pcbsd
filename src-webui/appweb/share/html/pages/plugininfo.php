@@ -54,10 +54,19 @@ function parse_service_config()
       $snickname = $snickname . " " . $selem;
 
     if ( $stype == "URL" ) {
-      $newurl = str_replace("{IP}", $pbiip4, $surl);
-      if ( strpos($newurl, "http") === false )
-         $newurl = "http://" . $newurl;
-      echo "<a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a><br>\n";
+      if ( strpos($surl, "{IP}") === false ) {
+	// Regular external URL
+	$newurl = $surl;
+        if ( strpos($newurl, "http") === false )
+          $newurl = "http://" . $newurl;
+        echo "<a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a><br>\n";
+      } else {
+        // This is pointing to an IP address of the jail, lets load it in thickbox
+        $newurl = str_replace("{IP}", $pbiip4, $surl);
+        if ( strpos($newurl, "http") === false )
+           $newurl = "http://" . $newurl;
+	echo "<a href=\"$newurl?KeepThis=true&TB_iframe=true\" class=\"thickbox\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a>";
+      }
     }
 
   }
