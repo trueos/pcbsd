@@ -452,7 +452,7 @@ function display_install_chooser()
 	   }
          }
 	 if ( $appbusy ) {
-	   print("<div id='item-working'><img align=\"right\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\"></div>");
+	   print("<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=" . $page . "\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"> Working...</a></div>");
          } else {
 	   display_install_chooser();
 	 }
