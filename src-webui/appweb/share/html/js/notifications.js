@@ -93,7 +93,7 @@ function parseNoticeEvents(incoming)
     statusbox = document.getElementById("status-working");
 
     // Get the UUID of the log file
-    var linearray = statusline.split(":::");
+    var linearray = statusline.split("###");
     var itemuuid = linearray[1];
 
     // Start the loop checking for log file output

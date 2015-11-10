@@ -65,8 +65,11 @@
   require("include/globals.php");
   require("include/functions.php");
   require("include/functions-config.php");
-
   $loadedglobals = true;
+
+  // Check for VIMAGE support
+  $vimage = exec("/sbin/sysctl -qn kern.features.vimage");
+
   // Auth this WS connection
   $sccmd = array("token" => "$APIKEY");
   $response = send_sc_query($sccmd, "auth_token");
@@ -109,8 +112,6 @@
 
   // If we are on plugins section, make sure we have a start-end range
   if ( stripos($page, "plugin") !== false ) {
-    // Check for VIMAGE support
-    $vimage = exec("/sbin/sysctl -qn kern.features.vimage");
     if ( $vimage == 1 )
     {
       // Get the iocage pool
