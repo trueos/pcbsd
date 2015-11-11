@@ -1,23 +1,45 @@
-function delConfirm(appname, origin, cmd, target, divid) {
+
+// HTML to replace add/remove buttons with during queue action of pkg
+var appWorkingHTML= "<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=appinfo\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"></a></div>";
+var appWorkingHTMLFloat = "<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=appinfo\"><img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"></a></div>";
+
+// HTML to replace add/remove buttons with during queue action of plugin
+var pluginWorkingHTML = "<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=plugininfo\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"></a></div>";
+var pluginWorkingHTMLFloat = "<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=plugininfo\"><img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"></a></div>";
+
+function delConfirm(appname, origin, cmd, divid) {
     if (confirm("Are you sure you want to delete " + appname + "?") == true) {
-	var newURL = window.location.pathname + window.location.search;
-	if (window.location.search.length === 0 ) {
-		window.location.href = window.location.pathname + "?p=appcafe&jail=" + target + "&deleteApp=" + origin + "&deleteAppCmd=" + cmd;
-	} else {
-		window.location.href = newURL + "&deleteApp=" + origin + "&deleteAppCmd=" + cmd;
-	}
+        // This function is in notifications.js
+        queueDeleteApp(origin, cmd);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = appWorkingHTML;
     }
 }
 
-// These functions need to be replaced with jquery modal dialogs
-function addConfirm(appname, origin, cmd, target, divid) {
+function addConfirm(appname, origin, cmd, divid) {
     if (confirm("Are you sure you want to install " + appname + "?") == true) {
-	var newURL = window.location.pathname + window.location.search;
-	if (window.location.search.length === 0 ) {
-		window.location.href = window.location.pathname + "?p=appcafe&jail=" + target + "&installApp=" + origin + "&installAppCmd=" + cmd ;
-	} else {
-		window.location.href = newURL + "&installApp=" + origin + "&installAppCmd=" + cmd ;
-	}
+        // This function is in notifications.js
+        queueInstallApp(origin, cmd);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = appWorkingHTML;
+    }
+}
+
+function delConfirmTiny(appname, origin, cmd, divid) {
+    if (confirm("Are you sure you want to delete " + appname + "?") == true) {
+        // This function is in notifications.js
+        queueDeleteApp(origin, cmd);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = appWorkingHTMLFloat;
+    }
+}
+
+function addConfirmTiny(appname, origin, cmd, divid) {
+    if (confirm("Are you sure you want to install " + appname + "?") == true) {
+        // This function is in notifications.js
+        queueInstallApp(origin, cmd);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = appWorkingHTMLFloat;
     }
 }
 
@@ -30,15 +52,37 @@ function delJailConfirm(name) {
 
 function delAppConfirm(name, origin, ioid, divid) {
     if (confirm("Are you sure you want to delete plugin: " + name + "?") == true) {
-	var newURL = window.location.pathname;
-	window.location.href = newURL + "?p=plugininfo&app=" + origin + "&deletePlugin=" + ioid;
+        // This function is in notifications.js
+        queueDeletePlugin(origin, ioid);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = pluginWorkingHTML;
     }
 }
 
 function addAppConfirm(name, origin, ghurl, divid) {
     if (confirm("Are you sure you want to install the plugin: " + name + "?") == true) {
-	var newURL = window.location.pathname;
-	window.location.href = newURL + "?p=plugininfo&app=" + origin + "&installPlugin=" + origin + "&installPluginGH=" + ghurl;
+        // This function is in notifications.js
+        queueInstallPlugin(origin, ghurl);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = pluginWorkingHTML;
+    }
+}
+
+function delAppConfirmTiny(name, origin, ioid, divid) {
+    if (confirm("Are you sure you want to delete plugin: " + name + "?") == true) {
+        // This function is in notifications.js
+        queueDeletePlugin(origin, ioid);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = pluginWorkingHTMLFloat;
+    }
+}
+
+function addAppConfirmTiny(name, origin, ghurl, divid) {
+    if (confirm("Are you sure you want to install the plugin: " + name + "?") == true) {
+        // This function is in notifications.js
+        queueInstallPlugin(origin, ghurl);
+        replaceid = document.getElementById(divid);
+	replaceid.innerHTML = pluginWorkingHTMLFloat;
     }
 }
 

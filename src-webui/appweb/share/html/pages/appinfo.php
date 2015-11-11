@@ -335,11 +335,11 @@ function display_install_chooser()
 
     // Dont display removal option unless app is not required by others
     if ( "$pbicanremove" == "true" )
-      print("<div id='". $appdivid ."'><button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$appdivid."')\" height=48 width=48></button></div>\n");
+      print("<div id='". $appdivid ."'><button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','".$pkgCmd."','".$appdivid."')\" height=48 width=48></button></div>\n");
     else
       print("<center><img align=\"center\" height=48 width=48 src=\"/images/warning.png\" alt=\"This application has dependencies which prevent it from being removed.\"><p>Required</p></center>");
   } else {
-    print("<div id='".$appdivid."'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$appdivid."')\"><img src=\"/images/install.png\" height=48 width=48></button></div>\n");
+    print("<div id='".$appdivid."'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','".$pkgCmd."','".$appdivid."')\"><img src=\"/images/install.png\" height=48 width=48></button></div>\n");
   }
 
 }
