@@ -204,6 +204,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   $pbirating = $pbiarray[4];
   $pbitype = $pbiarray[5];
   $pbicomment = $pbiarray[6];
+  $pbicomment = str_replace('"', '', $pbicomment);
   $pbicdir = $pbiarray[7];
   if ( ! isset($pbiarray[9]) ) {
     $isPBI=false;
@@ -286,14 +287,16 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
     print("<div id='item-working'><img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" height=22 width=22 src=\"images/working.gif\" title=\"Working...\"></div>");
   } else {
 
+    // Get the divid for this entry
+    $appdivid = "button-" . str_replace("/", "-", $pbiorigin);
 
     // Is this app installed?
     //if ( array_search($pbiorigin, $inslist) !== false ) {
     if ( $pbiinstalled == "true" ){
       if ( $pbicanremove == "true" )
-        print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+        print("<div id='" . $appdivid . "'><button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$appdivid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button></div>\n");
     } else {
-     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+     print("<div id='" . $appdivid . "'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$appdivid."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
     }
   }
 
@@ -562,14 +565,18 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
    } else {
      // Is this app installed?
      if ( $pbiinstalled == true ){
+
+      // Get the divid for this entry
+      $appdivid = "button-" . str_replace("/", "-", $origin);
+
        $ioid = get_iocage_id_from_origin($origin);
-       print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+       print("<div id='". $appdivid ."'><button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".$ioid."','".$appdivid."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button></div>\n");
      } else {
        $sccmd = array("pbi cage " . $origin . " git");
        $response = send_sc_query($sccmd);
        $ghrepo = $response["pbi cage ". $origin . " git"];
 
-       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo)."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+       print("<div id='". $appdivid ."'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($origin)."','".rawurlencode($ghrepo)."','".$appdivid."')\"><img src=\"/images/install.png\" height=22 width=22></button></div>\n");
      }
   }
 

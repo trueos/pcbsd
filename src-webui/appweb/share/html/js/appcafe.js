@@ -1,4 +1,4 @@
-function delConfirm(appname, origin, cmd, target) {
+function delConfirm(appname, origin, cmd, target, divid) {
     if (confirm("Are you sure you want to delete " + appname + "?") == true) {
 	var newURL = window.location.pathname + window.location.search;
 	if (window.location.search.length === 0 ) {
@@ -10,15 +10,7 @@ function delConfirm(appname, origin, cmd, target) {
 }
 
 // These functions need to be replaced with jquery modal dialogs
-function addConfirmLic(appname, origin, cmd, target, lictxt) {
-    if (confirm("You must accept the license agreement to continue:<br>" + lictxt) == true) {
-	var newURL = window.location.pathname + window.location.search;
-	window.location.href = newURL + "&installApp=" + origin + "&installAppCmd=" + cmd ;
-    }
-}
-
-// These functions need to be replaced with jquery modal dialogs
-function addConfirm(appname, origin, cmd, target) {
+function addConfirm(appname, origin, cmd, target, divid) {
     if (confirm("Are you sure you want to install " + appname + "?") == true) {
 	var newURL = window.location.pathname + window.location.search;
 	if (window.location.search.length === 0 ) {
@@ -36,14 +28,14 @@ function delJailConfirm(name) {
     }
 }
 
-function delAppConfirm(name, origin, ioid) {
+function delAppConfirm(name, origin, ioid, divid) {
     if (confirm("Are you sure you want to delete plugin: " + name + "?") == true) {
 	var newURL = window.location.pathname;
 	window.location.href = newURL + "?p=plugininfo&app=" + origin + "&deletePlugin=" + ioid;
     }
 }
 
-function addAppConfirm(name, origin, ghurl) {
+function addAppConfirm(name, origin, ghurl, divid) {
     if (confirm("Are you sure you want to install the plugin: " + name + "?") == true) {
 	var newURL = window.location.pathname;
 	window.location.href = newURL + "?p=plugininfo&app=" + origin + "&installPlugin=" + origin + "&installPluginGH=" + ghurl;
