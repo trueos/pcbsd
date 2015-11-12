@@ -171,8 +171,8 @@ run_queue_cmd()
      # Regular jail creation
      if [ "$origin" = "create" ] ; then
         newtag="$flag"
-        ssh=`echo $1 | cut -d " " -f 4`
         sshkey=`echo $1 | awk -F:::: '{print $2}'`
+        customipv4=`echo $1 | awk -F:::: '{print $4}'`
 
 	# Check the iocage bases we have
 	check_iocage_bases
@@ -184,12 +184,21 @@ run_queue_cmd()
           echo "FAILED $ident $@" >> $QRESULTS
         fi
 
+	IPFLAGS="DEFAULT|AUTOIP4"
+	if [ -n "$customipv4" -a "$customipv4" != "" ] ; then
+	  IPFLAGS="DEFAULT|$customipv4"
+	fi
+
 	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
           # System has VIMAGE enabled
-          cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on mount_linprocfs=1 $tags"
+	  if [ -n "$customipv4" -a "$customipv4" != "" ] ; then
+            cmd="iocage create tag=pbijail-$newtag ip4_addr=$IPFLAGS mount_linprocfs=1 $tags"
+	  else
+            cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on mount_linprocfs=1 $tags"
+	  fi
 	else
 	  # No VIMAGE, use fallback method
-	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=DEFAULT|AUTOIP4 mount_linprocfs=1 $tags"
+	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=$IPFLAGS mount_linprocfs=1 $tags"
 	fi
      fi
      if [ "$origin" = "destroy" ] ; then
@@ -232,7 +241,7 @@ run_queue_cmd()
      iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
      local jdir="/`iocage get jail_zfs_dataset pbijail-$newtag | sed 's|/data$|/root|g'`"
      bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
-     if [ "$ssh" = "sshd" ] ; then
+     if [ -n "$sshkey" -a "$sshkey" != "" ] ; then
        enable_sshd_jail "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
        iocage stop pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
        iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
