@@ -262,7 +262,7 @@ enable_sshd_jail()
   echo "sshd_enable=\"YES\"" >> ${jaildir}/etc/rc.conf
 
   # Create the 'freebsd' user
-  chroot ${jaildir} pw user add freebsd -d /usr/home/freebsd -s /bin/csh -m -G wheel
+  chroot ${jaildir} pw useradd freebsd -b /usr/home -s /bin/csh -d /usr/home/freebsd -m -G wheel
 
   mkdir -p ${jaildir}/usr/home/freebsd/.ssh
   mkdir -p ${jaildir}/usr/local/etc/sudoers.d 2>/dev/null
