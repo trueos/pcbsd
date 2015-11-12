@@ -365,7 +365,7 @@ function display_cats($iconsize = "32")
     $caticon = $response["pbi cat $cat icon"];
     $catcomment = $response["pbi cat $cat comment"];
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$caticon\"><a href=\"?p=appcafe&cat=$cat&allPBI=$allPBI\" title=\"$catcomment\">$catname</a><br>\n";
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$caticon\"><a href=\"?p=appcafe&cat=$cat&allPBI=$allPBI\" class=\"tooltip\" title=\"$catcomment\">$catname</a><br>\n";
   }
 
 }
@@ -632,7 +632,7 @@ function display_plugin_cats($iconsize = "32")
     $caticon = $response["pbi cat $cat icon"];
     $catcomment = $response["pbi cat $cat comment"];
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$caticon\"><a href=\"?p=plugins&cat=$cat\" title=\"$catcomment\">$catname</a><br>\n";
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$caticon\"><a href=\"?p=plugins&cat=$cat\" class=\"tooltip\" title=\"$catcomment\">$catname</a><br>\n";
   }
 
 }
