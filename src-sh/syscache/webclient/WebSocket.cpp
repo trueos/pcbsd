@@ -9,6 +9,7 @@
 
 #define DEBUG 0
 #define SCLISTDELIM QString("::::") //SysCache List Delimiter
+#define IDLETIMEOUTMINS 30
 
 WebSocket::WebSocket(QWebSocket *sock, QString ID, AuthorizationManager *auth){
   SockID = ID;
@@ -17,7 +18,7 @@ WebSocket::WebSocket(QWebSocket *sock, QString ID, AuthorizationManager *auth){
   SendAppCafeEvents = false;
   AUTHSYSTEM = auth;
   idletimer = new QTimer(this);
-    idletimer->setInterval(600000); //10-minute timeout
+    idletimer->setInterval(IDLETIMEOUTMINS*60000); //connection timout for idle sockets
     idletimer->setSingleShot(true);
   connect(idletimer, SIGNAL(timeout()), this, SLOT(checkIdle()) );
   connect(SOCKET, SIGNAL(textMessageReceived(const QString&)), this, SLOT(EvaluateMessage(const QString&)) );
