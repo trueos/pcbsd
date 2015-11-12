@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/css/cssmenu.css" />
         <link rel="stylesheet" href="/css/subcssmenu.css" />
         <link rel="stylesheet" href="/css/thickbox.css" />
+        <link rel="stylesheet" href="/css/tooltipster.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
 <?php
 print "<script type=\"text/javascript\">\n";
@@ -26,9 +27,10 @@ print " var wsserver=\"" . $wsremote . "\";\n";
 print " var wstoken=\"" . $_SESSION['apikey'] . "\";\n";
 print "</script>\n";
 ?>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.tooltipster.min.js"></script>
 	<script type="text/javascript" src="/js/notifications.js"></script>
 	<script type="text/javascript" src="/js/appcafe.js"></script>
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.easytabs.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.jscroll.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.ba-hashchange.min.js"></script>
@@ -258,4 +260,10 @@ print "</script>\n";
 		}
 
 	</style>
+    <script>
+var $jq = jQuery.noConflict();
+$jq(document).ready(function() {
+  $jq('.tooltip').tooltipster();
+});
+</script>
 </head>

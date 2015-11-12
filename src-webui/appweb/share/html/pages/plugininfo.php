@@ -524,5 +524,5 @@ function display_install_chooser()
 </table>
 
 <script type="text/javascript">
-  $('#tab-container').easytabs();
+  $jq('#tab-container').easytabs();
 </script>

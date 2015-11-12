@@ -77,14 +77,21 @@ function parseNoticeEvents(incoming)
       var t = setTimeout('location.reload(true)', 500);
     }
 
-    replaceContents('<a href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status</a>');
+    replaceContents('<a href=\"?p=dispatcher&ref=' + page + '\" id="idlestatus" class="tooltip" title="AppCafe status and logs"><img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status</a>');
+    $jq('.tooltip').tooltipster();
     if ( wstatus == "working" && doingstatus == "none" )
       var t = setTimeout('location.reload(true)', 2000);
     wstatus = "idle";
     return;
   }
   //window.alert(incoming);
-  replaceContents('<a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"> Working</a>');
+  replaceContents('<a id="statusid" href=\"?p=dispatcher&ref=' + page + '\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\"> Working</a>');
+  $jq('#statusid').tooltipster({
+		contentAsHTML: true,
+		interactive: true,
+                content: $('<a href="?p=dispatcher&ref=' + page + '" style="color: white">AppCafe is working. Click for details</a>')
+  });
+  $jq('#statusid').tooltipster('show');
   wstatus = "working";
 
   // Check if we are on the status page and can show log output
