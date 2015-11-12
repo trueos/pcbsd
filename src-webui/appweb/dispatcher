@@ -239,7 +239,7 @@ run_queue_cmd()
      # Start the jail
      echo "#Starting the jail..." >>${QLOGFILE}
      iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
-     local jdir="/`iocage get jail_zfs_dataset pbijail-$newtag | sed 's|/data$|/root|g'`"
+     local jdir="`iocage get mountpoint pbijail-$newtag`/root"
      bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
      if [ -n "$sshkey" -a "$sshkey" != "" ] ; then
        enable_sshd_jail "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
@@ -491,7 +491,7 @@ get_iocage_ip4()
 run_iocage_getfstab()
 {
   jid="$3"
-  fstab=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')/fstab
+  fstab=$(iocage get mountpoint $jid)/root/fstab
   if [ -e "$fstab" ] ; then
      cat $fstab
      exit 0
@@ -503,7 +503,7 @@ run_iocage_addfstab()
 {
   jid="$3"
   mnt=$(echo $4 | sed "s|^/||g")
-  jaildir=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')/root
+  jaildir=$(iocage get mountpoint $jid)/root
   fstab=$(echo $jaildir | sed 's|/root||g')/fstab
   touch $fstab
 
@@ -543,7 +543,7 @@ run_iocage_delfstab()
 {
   jid="$3"
   mnt=$(echo $4 | sed "s|^/||g")
-  jaildir=/$(iocage get all $jid | grep jail_zfs_dataset | cut -d ':' -f 2 | sed 's|/data||g')/root
+  jaildir=$(iocage get mountpoint $jid)/root
   fstab=$(echo $jaildir | sed 's|/root||g')/fstab
   touch $fstab
 
