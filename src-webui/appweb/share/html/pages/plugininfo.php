@@ -324,14 +324,16 @@ function display_install_chooser()
   global $ioid;
   global $pbiInstalled;
 
-   if ( $pbiInstalled ) {
-     $output="";
-     print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delAppConfirm('".$pbiname."','".rawurlencode($pbiorigin)."','".$ioid."')\" height=48 width=48></button>\n");
-   } else {
-     $sccmd = array("pbi cage $pbiorigin git");
-     $response = send_sc_query($sccmd);
-     $ghrepo = $response["pbi cage $pbiorigin git"];
-     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".rawurlencode($ghrepo)."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+  $appdivid = "button-" . str_replace("/", "-", $pbiorigin);
+
+  if ( $pbiInstalled ) {
+    $output="";
+    print("<div id='".$appdivid."'><button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delAppConfirm('".$pbiname."','".$pbiorigin."','".$ioid."','".$appdivid."')\" height=48 width=48></button></div>\n");
+  } else {
+    $sccmd = array("pbi cage $pbiorigin git");
+    $response = send_sc_query($sccmd);
+    $ghrepo = $response["pbi cage $pbiorigin git"];
+    print("<div id='".$appdivid."'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".$pbiorigin."','".$ghrepo."','".$appdivid."')\"><img src=\"/images/install.png\" height=22 width=22></button></div>\n");
   }
 
 }

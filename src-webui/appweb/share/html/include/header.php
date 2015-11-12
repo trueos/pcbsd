@@ -26,6 +26,7 @@ print " var wsserver=\"" . $wsremote . "\";\n";
 print " var wstoken=\"" . $_SESSION['apikey'] . "\";\n";
 print "</script>\n";
 ?>
+	<script type="text/javascript" src="/js/notifications.js"></script>
 	<script type="text/javascript" src="/js/appcafe.js"></script>
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.easytabs.min.js"></script>
@@ -35,7 +36,6 @@ print "</script>\n";
 	<script type="text/javascript" src="/js/popbox.min.js"></script>
 	<script type="text/javascript" src="/js/lightbox.min.js"></script>
 	<script type="text/javascript" src="/js/cssmenu.js"></script>
-	<script type="text/javascript" src="/js/notifications.js"></script>
 	<script type="text/javascript" src="/js/thickbox-compressed.js"></script>
 	<style>
 	<style>

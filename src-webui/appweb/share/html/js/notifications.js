@@ -152,4 +152,32 @@ function getAppUrlVars() {
     return vars;
 }
 
+// Send a request to install an application
+function queueInstallApp(installApp, installAppCmd)
+{
+  var sendjson = '{ "namespace":"rpc", "name":"dispatcher", "id":"queueapp", "args":["queue ' + installAppCmd + ' ' + installApp + ' install  __system__"] }';
+  doSend(sendjson);
+}
+
+// Send a request to delete an application
+function queueDeleteApp(installApp, installAppCmd)
+{
+  var sendjson = '{ "namespace":"rpc", "name":"dispatcher", "id":"queueapp", "args":["queue ' + installAppCmd + ' ' + installApp + ' delete  __system__"] }';
+  doSend(sendjson);
+}
+
+// Send a request to install a plugin
+function queueInstallPlugin(origin, ghurl)
+{
+  var sendjson = '{ "namespace":"rpc", "name":"dispatcher", "id":"queueapp", "args":["queue iocage fetch ' + origin + ' ' + ghurl + '"] }';
+  doSend(sendjson);
+}
+
+// Send a request to delete a plugin
+function queueDeletePlugin(origin, ioid)
+{
+  var sendjson = '{ "namespace":"rpc", "name":"dispatcher", "id":"queueapp", "args":["queue iocage destroy ' + origin + ' ' + ioid + '"] }';
+  doSend(sendjson);
+}
+
 window.addEventListener("load", init_ws_notification, false);
