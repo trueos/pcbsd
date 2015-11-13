@@ -26,16 +26,6 @@ misc/pcbsd-meta-window_maker
 misc/pcbsd-meta-windowlab
 misc/pcbsd-meta-kodi
 misc/pcbsd-meta-xfce
-misc/pcbsd-role-artphoto
-misc/pcbsd-role-avstudio
-misc/pcbsd-role-cad
-misc/pcbsd-role-devel
-misc/pcbsd-role-freenasbuild
-misc/pcbsd-role-internet
-misc/pcbsd-role-media
-misc/pcbsd-role-office
-misc/pcbsd-role-science
-misc/pcbsd-role-server
 misc/pcbsd-toolchain
 misc/trueos-base
 multimedia/plexhometheater
