@@ -2,25 +2,29 @@
 # $FreeBSD$
 
 PORTNAME=	pcbsd-syscache
-PORTVERSION=	CHGVERSION
+PORTVERSION=	%%CHGVERSION%%
 CATEGORIES=	sysutils
-MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
-		ftp://ftp.pcbsd.org/pub/software/
 
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD SysCache Utility
 
 LICENSE=	BSD3CLAUSE
 
-WRKSRC=		${WRKDIR}/syscache
-USE_QT5=	core network buildtools qmake
+WRKSRC_SUBDIR=	src-sh/syscache
+USE_QT5=	core network buildtools qmake websockets
 USES=		pkgconfig tar:xz
 NO_BUILD=	yes
 MAKE_ARGS=	PREFIX=${STAGEDIR}${PREFIX}
 
 PLIST_FILES=	bin/syscache \
 		bin/syscache-daemon \
+		bin/syscache-webclient \
 		etc/rc.d/syscache
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	pcbsd
+GH_PROJECT=	pcbsd
+GH_TAGNAME=	%%GHTAG%%
 
 .include <bsd.port.pre.mk>
 
