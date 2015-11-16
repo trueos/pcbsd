@@ -26,10 +26,6 @@ pcbsdinit_start()
 	# Cleanup cups print jobs
 	/usr/local/bin/cancel -a 2>/dev/null >/dev/null
 
-	# Cleanup any old nvidia libs from PBI 10.x cruft
-	rm /usr/lib/libnvidia* >/dev/null 2>/dev/null
-	rm /usr/lib/libGL* >/dev/null 2>/dev/null
-
 	# Change Xorg priority
 	( sleep 40; rtprio 31 -`pgrep Xorg` 2>/dev/null)&
 }
