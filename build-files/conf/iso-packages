@@ -1,6 +1,10 @@
 archivers/unrar
 archivers/unzip
+audio/linux-c6-alsa-lib
+audio/linux-c6-alsa-plugins-oss
 editors/libreoffice
+editors/vim
+emulators/linux_base-c6
 java/icedtea-web
 mail/thunderbird
 misc/pcbsd-base
@@ -14,6 +18,7 @@ misc/trueos-base
 multimedia/vlc
 ports-mgmt/pkg
 security/openvpn
+security/linux-c6-openssl-compat
 sysutils/diskscrub
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt5
