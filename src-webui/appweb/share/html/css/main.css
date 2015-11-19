@@ -377,3 +377,5 @@ table.pbidescription td.example_code
 	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6',GradientType=0 );
 
 }
+
+.no-close .ui-dialog-titlebar-close {display: none }

@@ -74,7 +74,24 @@ function send_sc_query($cmdarray, $cmdname="syscache")
    $rjson = $scclient->receive();
    //  echo "<pre>" . $rjson ."</pre>";
    $rarray = json_decode($rjson, true);
+
+   // Search the array for a [BUSY] indicator
+   if ( in_array("[BUSY]", $rarray["args"]))
+     display_busy_dialog();
+
    return $rarray["args"];
+}
+
+function display_busy_dialog()
+{
+  echo "<div class=\"busydialog\" title=\"AppCafe is busy... Please wait...\"><center><img style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" height=64 width=64 src=\"images/working.gif\" title=\"Working...\"></center></div>";
+  echo "<script>setTimeout(function(){ window.location.reload(1); }, 3000);</script>";
+  echo "<script>
+     var \$jq = jQuery.noConflict();
+     \$jq( \".busydialog\" ).dialog({ dialogClass: 'no-close' });
+     \$jq(\".ui-dialog-titlebar-close\", $(\".busydialog\").parent()).hide();
+  </script>";
+  exit(0);
 }
 
 function queueInstallApp()
