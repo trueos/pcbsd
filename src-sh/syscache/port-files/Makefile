@@ -18,7 +18,6 @@ MAKE_ARGS=	PREFIX=${STAGEDIR}${PREFIX}
 
 PLIST_FILES=	bin/syscache \
 		bin/syscache-daemon \
-		bin/syscache-webclient \
 		etc/rc.d/syscache
 
 USE_GITHUB=	yes
