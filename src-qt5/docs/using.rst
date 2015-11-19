@@ -24,23 +24,24 @@ If Adobe Flash does not seem to be working, running the following command as you
 The Adobe Flash Player preferences icon in :ref:`Control Panel` can be used to modify how websites interact with your browser using Adobe Flash. Many of the
 same configurations can be done via right-click within an active flash object in a web browser.
 
-To access the utility shown in Figure 9.1a, use :menuselection:`Control Panel --> Adobe Flash Player preferences` or type :command:`flash-player-properties`.
+To access the utility shown in :numref:`Figure %s: Flash Player Configuration Utility <flash>`, use :menuselection:`Control Panel --> Adobe Flash Player preferences` or type
+:command:`flash-player-properties`.
 
-**Figure 9.1a: Flash Player Configuration Utility** 
+.. _flash:
 
-.. image:: images/flash.png
+.. figure:: images/flash.png
 
 The options available in each tab and when to use them are described at the Adobe website: 
 
-* `Storage <http://adobe.com/go/flash-player-settings-storage>`_ describes private browsing support and the privacy issues associated with local storage of
-  flash information.
+* `Storage <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7fff.html>`_ describes private browsing support and the privacy issues associated with
+  local storage of flash information.
 
-* `Camera and Mic <http://adobe.com/go/flash-player-settings-camera-and-mic>`_ controls how websites can use your computer's camera and microphone.
+* `Camera and Mic <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7ff8.html>`_ controls how websites can use your computer's camera and microphone.
 
-* `Playback <http://adobe.com/go/flash-player-settings-playback>`_ describes how to configure peer-assisted networking to improve bandwidth.
+* `Playback <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7ff5.html>`_ describes how to configure peer-assisted networking to improve bandwidth.
 
-* `Advanced <http://adobe.com/go/flash-player-settings-advanced>`_ controls how Flash Player handles browsing data, updates, trusted locations, and protected
-  content.
+* `Advanced <http://help.adobe.com/en_US/FlashPlayer/LSM/WS6aa5ec234ff3f285139dc56112e3786b68c-7ff0.html>`_ controls how Flash Player handles browsing data, updates, trusted locations,
+  and protected content.
 
 .. index:: configuration
 .. _Installing Custom Fonts:
@@ -57,12 +58,12 @@ depends upon which window manager you have logged into.
 .. note:: many fonts are available from :ref:`AppCafe®`. Check the "Search all available PBI and packages" box in the "App Search" tab to search for fonts. Any font installed using
    AppCafe® should not require any additional configuration to "just work". 
 
-To install custom fonts within KDE, go to :menuselection:`System Settings --> Font Management`. In Figure 9.2a, "All Fonts" is currently selected under the
-"Group" column, showing all of the fonts installed on this system.
+To install custom fonts within KDE, go to :menuselection:`System Settings --> Font Management`. In :numref:`Figure %s: Using KDE's Font Installer to Install Custom Fonts <font1>`, "All
+Fonts" is currently selected under the "Group" column, showing all of the fonts installed on this system.
 
-**Figure 9.2a: Using KDE's Font Installer to Install Custom Fonts** 
+.. _font1:
 
-.. image:: images/font1.png
+.. figure:: images/font1.png
 
 To install your fonts, highlight "Personal Fonts" under the "Group" column, then click the "+Add" button. This will allow you to browse to the font you wish
 to add. You can add multiple fonts in the same directory by holding down the :kbd:`Ctrl` key while making your selection. Click the "Open" button, which will
@@ -71,12 +72,12 @@ affect. Your newly installed font(s) should now show up in the "Personal Fonts" 
 
 To install custom fonts within GNOME, go to :menuselection:`Activities --> Files`. Navigate to the location of the font that you would like to install and
 either double-click the font name or select "Font Viewer" from the icon's right-click menu. This will open the font in Font Viewer, allowing you to view it.
-If you like the font, click the "Install Font" button to make it available to your applications. In the example shown in Figure 9.2b, the user is installing
-the BlackFlag font.
+If you like the font, click the "Install Font" button to make it available to your applications. In the example shown in
+:numref:`Figure %s: Using Files to Install a Custom Font <font2>`, the user is installing the BlackFlag font.
 
-**Figure 9.2b: Using Files to Install a Custom Font** 
+.. _font2:
 
-.. image:: images/font2.png
+.. figure:: images/font2.png
 
 To install custom fonts within XFCE, use :menuselection:`Applications --> System --> Thunar File Manager`. Once you browse to the location of the font and
 double- or right-click it, you will see the same Font Viewer used by GNOME.
@@ -110,7 +111,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 * `aTunes <http://www.atunes.org/?page_id=5>`_: full-featured audio player and manager that can play mp3, ogg, wma, wav, flac, mp4 and radio streaming,
   allowing users to easily edit tags, organize music and rip audio CDs.
 
-* `Audacity <http://audacity.sourceforge.net/about/screenshots?lang=en>`_: multilingual audio editor and recorder.
+* `Audacity <http://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
 
 * `DeaDBeeF <http://deadbeef.sourceforge.net/screenshots.html>`_: music player that supports most audio formats.
 
@@ -158,7 +159,7 @@ of your desktop. You can also start this application by typing :command:`plexhom
 Once installed, an entry for "Plex Home Theater" will also be added to the login manager so that you can login directly to the home theater instead of a desktop.
 
 The first time you run or log into Plex Home Theater, a wizard will check your audio settings and sign into your Plex account. If you do not have a Plex account yet,
-create one at `plex.tv <http://www.plex.tv>`_. The wizard will give you a PIN code and an URL to enter the code. Once you enter the PIN, the wizard will connect and sign you in.
+create one at `plex.tv <https://plex.tv/>`_. The wizard will give you a PIN code and an URL to enter the code. Once you enter the PIN, the wizard will connect and sign you in.
 You can now search for and watch media. To exit Plex, click the "<" then "Quit".
 
 .. index:: files
@@ -191,7 +192,7 @@ another desktop.
 +---------------+--------------+--------------------------------------------------------------------+
 | pcmanfm       | LXDE, PBI    | `<http://lxde.org/easy_fast_file_management_pcmanfm>`_             |
 +---------------+--------------+--------------------------------------------------------------------+
-| thunar        | XFCE, PBI    | `<http://www.xfce.org/projects/thunar>`_                           |
+| thunar        | XFCE, PBI    | `<http://docs.xfce.org/xfce/thunar/start>`_                        |
 +---------------+--------------+--------------------------------------------------------------------+
 | xfe           | PBI          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
 +---------------+--------------+--------------------------------------------------------------------+
@@ -293,19 +294,19 @@ separate PBI is available, and a short description of how to access the availabl
 Windows Emulation
 =================
 
-`Wine <http://www.winehq.org/>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
+`Wine <https://www.winehq.org/>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
 favorite Windows game or productivity application has not been ported to Linux or BSD.
 
 Wine is not guaranteed to work with every Windows application. If you are unsure if the application that you require is supported, search for it in the
-"Browse Apps" section of the `Wine application database <http://appdb.winehq.org/>`_. The  `Wine wiki <http://wiki.winehq.org/>`_ contains many resources to
+"Browse Apps" section of the `Wine application database <https://appdb.winehq.org/>`_. The  `Wine wiki <http://wiki.winehq.org/>`_ contains many resources to
 get you started and to refer to if you encounter problems with your Windows application.
 
 Wine can be installed during installation or from :ref:`AppCafe®`. Once installed, it can be started by clicking the entry for "Wine Configuration" from the
-desktop's application menu or by typing :command:`winecfg` at the command line. The initial Wine configuration menu shown in Figure 9.5a.
+desktop's application menu or by typing :command:`winecfg` at the command line. The initial Wine configuration menu shown in :numref:`Figure %s: Wine Configuration Menu <wine1>`.
 
-**Figure 9.5a: Wine Configuration Menu** 
+.. _wine1:
 
-.. image:: images/wine1.jpg
+.. figure:: images/wine1.jpg
 
 Click the "Add application" button to browse to the application's installer file. By default, the contents of your hard drive will be listed under "drive_c".
 If the installer is on a CD/DVD, use the drop-down menu to browse to your :menuselection:`home directory --> *.wine --> dosdevices` folder. The contents of
@@ -316,22 +317,23 @@ media, type the following as the superuser::
 
 You should hear the media spin and be able to select the installer file. Once selected, press "Apply" then "OK" to exit the configuration utility.
 
-To install the application, click the Winefile desktop icon or type :command:`winefile` to see the screen shown in Figure 9.5b.
+To install the application, click the Winefile desktop icon or type :command:`winefile` to see the screen shown in :numref:`Figure %s: Installing the Application Using winefile <wine2>`.
 
-**Figure 9.5b: Installing the Application Using winefile** 
+.. _wine2: 
 
-.. image:: images/wine2.jpg
+.. figure:: images/wine2.jpg
 
 Click the button representing the drive containing the installer and double-click on the installation file (e.g. :file:`setup.exe`).
 The installer should launch and you can proceed to install the application as you would on a Windows system.
 
 .. note:: if you had to manually mount the CD/DVD, you will need to unmount it before it will eject. As the superuser, use the command :command:`umount /mnt`.
 
-Once the installation is complete, browse to the application's location. Figure 9.5c shows an example of running Internet Explorer within :command:`winefile`.
+Once the installation is complete, browse to the application's location. :numref:`Figure %s: Running the Installed Application <wine3>` shows an example of running Internet Explorer within
+:command:`winefile`.
 
-**Figure 9.5c: Running the Installed Application** 
+.. _wine3:
 
-.. image:: images/wine3.jpg
+.. figure:: images/wine3.jpg
 
 .. index:: games
 .. _Running Steam:
@@ -354,13 +356,13 @@ Occasionally it is useful to allow connections between desktop sessions running 
 both users will be able to see the error on the problematic system and either user can take control of the mouse and keyboard in order to fix the problem.
 Typically this is a temporary situation as providing access to one's computer allows a remote user the ability to both view and modify its settings.
 
-The `remote desktop protocol (RDP) <http://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
+The `remote desktop protocol (RDP) <https://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
 Depending upon the operating system, you may have to first install or enable RDP software on the remote computer:
 
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
   the full version of RDP is included, remote access may or may not be enabled by default. If you have trouble connecting using RDP, do a web search for
   "remote desktop" and the name of the version of Windows you are using to find out how to configure its remote desktop settings. If you still can not
-  connect, you can instead download, install, and configure `VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
+  connect, you can instead download, install, and configure `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
 
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
@@ -391,20 +393,20 @@ To launch this application, go to :menuselection:`Applications --> Internet --> 
 within any desktop. If you click :kbd:`F1` while in KRDC you can access the
 `Remote Connection Desktop Handbook <https://docs.kde.org/stable4/en/kdenetwork/krdc/index.html>`_ to learn more about how to use this application.
 
-Figure 9.6a shows the initial KRDC screen which allows you to specify which system you wish to connect to.
+:numref:`Figure %s: Creating a Connection Using KRDC <krdc1>` shows the initial KRDC screen which allows you to specify which system you wish to connect to.
 
-**Figure 9.6a: Creating a Connection Using KRDC** 
+.. _krdc1: 
 
-.. image:: images/krdc1.png
+.. figure:: images/krdc1.png
 
 Use the drop-down menu to indicate whether the remote system is using RDP or VNC for the connection. Then type in the IP address of the system you wish to
 connect to. If you are connecting to a VNC system, the IP address needs to be followed by a colon and a number indicating the number of the session.
 Typically, the number will be 1 unless the VNC server is hosting multiple simultaneous connections. Once you press enter, the connection will be initiated
-and, if it is an RDP connection, you will see the screen shown in Figure 9.6b.
+and, if it is an RDP connection, you will see the screen shown in :numref:`Figure %s: Settings for the RDP Connection <krdc2>`.
 
-**Figure 9.6b: Settings for the RDP Connection** 
+.. _krdc2:
 
-.. image:: images/krdc2.png
+.. figure:: images/krdc2.png
 
 Here is a quick overview of the settings: 
 
@@ -433,7 +435,7 @@ disable sound during the connection.
 need to change the settings at a later time, you can right-click the connection (which will appear in a list as a past connection) and choose "Settings" from
 the right-click menu.
 
-**Remember password:** `KWallet <http://utils.kde.org/projects/kwalletmanager/>`_ is KDE's password storage system. If this box stays checked, you will only
+**Remember password:** `KWallet <https://utils.kde.org/projects/kwalletmanager/>`_ is KDE's password storage system. If this box stays checked, you will only
 need to input the password the first time you make this connection as it will be saved for you. If this is the first time you have stored a password using
 KWallet, it will prompt you for some information to set up your wallet.
 
@@ -471,11 +473,11 @@ application can be installed using :ref:`AppCafe®`. Check the "Search all avail
 To launch this application within KDE, go to :menuselection:`Applications --> Internet --> Desktop Sharing` or type :command:`krfb` from the command prompt of
 any desktop. If you press :kbd:`F1` while in this application, it will open the
 `Desktop Sharing Handbook <https://docs.kde.org/stable4/en/kdenetwork/krfb/index.html>`_ where you can learn more about using this utility.
-Figure 9.6c shows the initial screen for this application.
+:numref:`Figure %s: Initiating a Connection Request Using krfb <krfb1>` shows the initial screen for this application.
 
-**Figure 9.6c: Initiating a Connection Request Using krfb** 
+.. _krfb1: 
 
-.. image:: images/krfb1.png
+.. figure:: images/krfb1.png
 
 To share your desktop, check the box "Enable Desktop Sharing". This will activate the "Connection Details" portion of this screen. If you click the blue icon
 next to the "Address", a pop-up menu will indicate that this is just a hint and that the remote user should use the IP address for your computer. If you wish,
@@ -493,11 +495,11 @@ other person as they connect so that you can walk them through the problem you a
 as you watch them do it.
 
 The other person should input the IP address and password into their VNC client in order to start the connection. You will know when they try to connect as a
-pop-up message will appear on your screen similar to Figure 9.6d. 
+pop-up message will appear on your screen similar to :numref:`Figure %s: The Other User is Trying to Connect Using the Invitation <krfb2>`. 
 
-**Figure 9.6d: The Other User is Trying to Connect Using the Invitation** 
+.. _krfb2:
 
-.. image:: images/krfb2.png
+.. figure:: images/krfb2.png
 
 In this example, a computer with an IP address of 192.168.1.111 is trying to connect. Buttons are provided to either accept or refuse the connection. You can
 also check or uncheck the box to "allow remote user to control keyboard and mouse". If you accept the connection, the other user will be prompted to input the
@@ -523,8 +525,8 @@ This section demonstrates how to configure and use both the PXE Boot Desktop Ser
 PXE Boot Desktop Server
 -----------------------
 
-A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <http://en.wikipedia.org/wiki/Diskless_node>`_ where
-each computer has a network interface card capable of `PXE <http://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
+A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <https://en.wikipedia.org/wiki/Diskless_node>`_ where
+each computer has a network interface card capable of `PXE <https://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
 their network interface instead of their hard disk, they automatically connect to the PXE Boot Desktop Server and receive a login window. Once authenticated,
 they can use PC-BSD®, even if PC-BSD® is not installed on their own computer and even if their computer does not have a hard drive.
 
@@ -697,11 +699,11 @@ You will then be prompted to input the interface to be used by the server and th
  Your system is now setup to do PXE booting! 
 
 Once the PXE Boot Install Server is installed, try to PXE boot a client which is connected to the same network. If the client boots successfully, you will see
-the installation screen shown in Figure 9.7a. 
+the installation screen shown in :numref:`Figure %s: PXE Boot Installation Menu <pxe1>`. 
 
-**Figure 9.7a: PXE Boot Installation Menu** 
+.. _pxe1:
 
-.. image:: images/pxe.png
+.. figure:: images/pxe.png
 
 By default, selecting "install" from the boot menu will use the :file:`/usr/home/thinclient/installscripts/pc-sysinstall.example` script which installs a
 basic FreeBSD system. In addition to starting an installation, this menu provides an emergency shell prompt. This can be useful if you have a system which can
@@ -737,10 +739,9 @@ The security features built into PC-BSD® include:
   switch to administrative access and can not enter or list the contents of a directory that has not been set for universal access.
 
 * **Built-in firewall:** the default firewall ruleset allows you to access the Internet and the shares available on your network but does not allow
-  any inbound connections to your computer. In addition,
-  `Fail2ban <http://www.fail2ban.org/wiki/>`_ is installed. This service can be configured to identify possible break-in attempts and to respond with an
-  action such as creating a firewall rule to ban the intruder. Instructions for configuring fail2ban can be found on the
-  `fail2ban wiki <http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Usage>`_. 
+  any inbound connections to your computer. In addition, `Fail2ban <http://www.fail2ban.org/wiki/index.php/Main_Page>`_ is installed. This service can be
+  configured to identify possible break-in attempts and to respond with an action such as creating a firewall rule to ban the intruder. Instructions for
+  configuring fail2ban can be found on the `fail2ban wiki <http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Usage>`_. 
 
 * **Very few services are enabled by default:** you can easily view which services are started at boot time using :ref:`Service Manager` or by reading through
   :file:`/etc/rc.conf`. You can disable the services that you do not use by disabling that service in :ref:`Service Manager` or by commenting out that
@@ -757,7 +758,7 @@ The security features built into PC-BSD® include:
   default, the first user you create during installation is added to the *wheel* group. You can use :ref:`User Manager` to add other users to this group. You
   can change the default :command:`sudo` configuration using the :command:`visudo` command as the superuser.
 
-* `AESNI <http://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
+* `AESNI <https://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
   encryption set. This support speeds up AES encryption and decryption.
 
 * **Automatic notification of security advisories:** :ref:`Update Manager` will automatically notify you if an update is available as the result of a
@@ -779,7 +780,7 @@ information about security on FreeBSD-based operating systems:
 
 * `FreeBSD Security Information <http://www.freebsd.org/security/>`_
 
-* `Security Section of FreeBSD Handbook <http://www.freebsd.org/handbook/security.html>`_
+* `Security Section of FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/security.html>`_
 
 * `Hardening FreeBSD <http://www.bsdguides.org/2005/hardening-freebsd/>`_
 
@@ -793,18 +794,18 @@ Tor mode uses `Tor <https://www.torproject.org/>`_, `socat <http://www.dest-unre
 rules to enable and disable tor mode at the user's request. While in tor mode, the firewall will redirect all outgoing port 80 (HTTP), 443 (HTTPS), and DNS traffic through the
 Tor transparent proxy network.
 
-To start tor mode, right-click Update Manager and check the "Routing through Tor" box. The pop-up message shown in Figure 9.8a will appear.
+To start tor mode, right-click Update Manager and check the "Routing through Tor" box. The pop-up message shown in :numref:`Figure %s: Enabling Tor Mode <tor1>` will appear.
 
-**Figure 9.8a: Enabling Tor Mode**
+.. _tor1:
 
-.. image:: images/tor1.png
+.. figure:: images/tor1.png
 
 If you have never used the Tor network before, it is recommended to read the link for the Tor FAQ. Click "Yes" to enable tor mode and enter your password when prompted
 so that the firewall rules can be updated for you.
 
 While in tor mode, a small onion will be added to the Update Manager icon and, if you hover over the icon, it will say "(Routing through Tor)". You can also verify that
 you are connected to the Tor network by right-clicking Update Manager and clicking "Check Tor connection". It will take a moment or so, but a pop-up message should
-indicate that the connection to `<check.torproject.org>`_ succeeded.
+indicate that the connection to `<https://check.torproject.org/>`_ succeeded.
 
 .. note:: the system will remain in tor mode, even after a reboot, until you disable it. To disable tor mode, right-click Update Manager and uncheck the "Routing through Tor"
    box. Now when you "Check Tor connection", it should indicate that you are not using Tor.
@@ -833,23 +834,23 @@ GNOME Universal Access
 ----------------------
 
 GNOME3 provides a "Universal Access" utility for configuring the desktop for accessibility. To open this utility, open "Activities" and search for "Universal
-Access". This will open the screen shown in Figure 9.9a. 
+Access". This will open the screen shown in :numref:`Figure %s: Universal Access Screen <access1>`. 
 
-**Figure 9.9a: Universal Access Screen**
+.. _access1:
 
-.. image:: images/access1.png
+.. figure:: images/access1.png
 
 The "Seeing" section of this screen has options for assisting users with low vision.
 
 Click "Off" in the "Hearing" section to open a pop-up screen used to enable visual alerts, either to the window title of the current window or the entire
 screen. The pop-up screen provides a "Test flash" button for testing the settings.
 
-If you click "Off" next to "Typing Assist (AccessX)" in the "Typing" section, it will open the screen shown in Figure 9.9b. "Sticky Keys", "Slow Keys", and
-"Bounce Keys" can be enabled in this screen to assist users with mobility impairments.
+If you click "Off" next to "Typing Assist (AccessX)" in the "Typing" section, it will open the screen shown in :numref:`Figure %s: Keyboard and Key Options <access2>`. "Sticky Keys", "Slow
+Keys", and "Bounce Keys" can be enabled in this screen to assist users with mobility impairments.
 
-**Figure 9.9b: Keyboard and Key Options**
+.. _access2:
 
-.. image:: images/access2.png
+.. figure:: images/access2.png
 
 If you click the "Off" next to "Click Assist" in the "Pointing and Clicking" section, you can configure a simulated secondary click and a hover click.
 
@@ -865,21 +866,21 @@ To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search 
 
 The KDE-Accessibility component installs the following software: 
 
-* `KMag <http://docs.kde.org/stable/en/kdeaccessibility/kmag/>`_: a screen magnifier. In KDE, this application is in
+* `KMag <https://docs.kde.org/stable4/en/kdeaccessibility/kmag/index.html>`_: a screen magnifier. In KDE, this application is in
   :menuselection:`Applications --> Utilities --> Screen Magnifier` or you can type :command:`kmag` from the command line. Drag the magnifier window over the
   text you wish to magnify or click its "Settings" button to view the shortcuts for its various modes. Click :kbd:`F1` while the application is open to access
   the Kmagnifier Handbook.
 
 * `KMouseTool <https://docs.kde.org/stable4/en/kdeaccessibility/kmousetool/>`_: clicks the mouse whenever the mouse cursor pauses briefly. It can also drag the
-  mouse, although this takes a bit more practice. To start this utility in KDE, click :menuselection:`Applications --> Utilities --> Automatic Mouse Click` or
-  type :command:`kmousetool` from the command line. In the screen shown in Figure 9.9c, check the settings you wish to use, click the "Apply" button, then click
-  the "Start" button. If you quit this screen, it will be added to the system tray and will continue to run until you launch its icon and click the "Stop" button.
+  mouse, although this takes a bit more practice. To start this utility in KDE, click :menuselection:`Applications --> Utilities --> Automatic Mouse Click` or type
+  :command:`kmousetool` from the command line. In the screen shown in :numref:`Figure %s: Configuring KMouseTool <access3>`, check the settings you wish to use, click the "Apply" button,
+  then click the "Start" button. If you quit this screen, it will be added to the system tray and will continue to run until you launch its icon and click the "Stop" button.
 
-**Figure 9.9c: Configuring KMouseTool** 
+.. _access3:
 
-.. image:: images/access3.png
+.. figure:: images/access3.png
 
-* `KMouth <http://docs.kde.org/stable/en/kdeaccessibility/kmouth/>`_: enables persons that cannot speak to speak through their computer. It keeps a
+* `KMouth <https://docs.kde.org/stable4/en/kdeaccessibility/kmouth/index.html>`_: enables persons that cannot speak to speak through their computer. It keeps a
   history of spoken sentences from which the user can select to be re-spoken. To start this program, click
   :menuselection:`Applications --> Utilities --> Speech Synthesizer Frontend` or type :command:`kmouth` from the command line. The first time you run
   this application, a configuration wizard will prompt you to set the command to use for speaking texts (such as :file:`/usr/local/bin/espeak`) and the

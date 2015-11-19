@@ -29,11 +29,11 @@ If you Encrypted Your Disks
 ---------------------------
 
 If you selected the "Encrypt disk with GELI" checkbox during installation, you will need physical access to the PC-BSD® system when it boots. As the system
-starts to boot, it will display a message similar to the one shown in Figure 4.1a.
+starts to boot, it will display a message similar to the one shown in :numref:`Figure %s:  Input Password to Decrypt Master Key <encrypt1>`.
 
-**Figure 4.1a: Input Password to Decrypt Master Key**
+.. _encrypt1:
 
-.. image:: images/encrypt1.png
+.. figure:: images/encrypt1.png
 
 The boot process will wait for you to successfully input the password that you created in the installation screen shown in Figure 3.3g. If the correct
 password is typed in, the system will continue to boot.
@@ -44,11 +44,11 @@ password is typed in, the system will continue to boot.
 Interrupting the Boot to Access the Boot Menu
 ---------------------------------------------
 
-By default, the graphical PC-BSD® bootloader menu shown in Figure 4.1b is not displayed at first boot.
+By default, the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1>`  is not displayed at first boot.
 
-**Figure 4.1b: PC-BSD® Graphical Boot Menu**
+.. _boot1:
 
-.. image:: images/boot1.png
+.. figure:: images/boot1.png
 
 The boot menu is used to display the installation of PC-BSD®, any boot environments, and other operating systems installed on a dual-boot system.
 
@@ -57,11 +57,11 @@ To access this menu, you have to be quick. As soon as the boot process starts an
 
 Once you access the graphical menu, it will pause for a few seconds then continue to boot PC-BSD®. If you wish to select a different operating system or
 specify how PC-BSD® boots, press a key to pause this screen. If multiple operating systems are available and you want to boot into PC-BSD®, make sure it is
-highlighted and press enter. This will load the PC-BSD® boot options screen shown in Figure 4.1c. 
+highlighted and press enter. This will load the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2>`. 
 
-**Figure 4.1c: PC-BSD® Graphical Boot Menu Options**
+.. _boot2:
 
-.. image:: images/boot2.png
+.. figure:: images/boot2.png
 
 The following boot options are available: 
 
@@ -88,11 +88,11 @@ If Your Display is Not Automatically Detected
 ----------------------------------------------
 
 If the optimal display settings can not be determined during first boot, if you select "No"in the "Confirm Resolution" screen when asked to confirm the
-display settings, or if you select "Run the Display Wizard" from the boot menu, the "Display Settings" screen shown in Figure 4.1d will launch.
+display settings, or if you select "Run the Display Wizard" from the boot menu, the "Display Settings" screen shown in :numref:`Figure %s: Display Settings Wizard <display1>` will launch.
 
-**Figure 4.1d: Display Settings Wizard**
+.. _display1:
 
-.. image:: images/display1.png
+.. figure:: images/display1.png
 
 The settings in this screen are described in more detail in :ref:`Display`. If you wish to return to this display wizard at a later time, go to
 :menuselection:`Control Panel --> Display`.
@@ -107,11 +107,11 @@ to proceed.
 Language Screen
 ===============
 
-The language selection screen is seen in Figure 4.2a. 
+The language selection screen is seen in :numref:`Figure %s: Language Selection Screen <config1>`. 
 
-**Figure 4.2a: Language Selection Screen** 
+.. _config1:
 
-.. image:: images/config1.png
+.. figure:: images/config1.png
 
 This allows you to select the language you will use to access the installed system.
 
@@ -123,18 +123,19 @@ Once you have made your selection from the drop-down menu, click "Next" to go to
 Time Zone Selection Screen
 ==========================
 
-The next configuration screen, shown in Figure 4.3a, allows you to select your timezone.
+The next configuration screen, shown in :numref:`Figure %s: Select Time Zone <config2a>`, allows you to select your timezone.
 
-**Figure 4.3a: Select Time Zone** 
+.. _config2a:
 
-.. image:: images/config2.png
+.. figure:: images/config2a.png
 
 Use the drop-down menu to select the city closest to your location. If the system is connected to the Internet, the installer will most likely have the
 correct timezone already selected.
 
 If the system is dual booting and the other operating system expects the BIOS to use UTC, also check the box "Set BIOS to UTC time".
 
-A default system hostname will be created for you. If you wish to change the default, type in the desired hostname in the "System Hostname" field.
+A default system hostname will be created for you. If you wish to change the default, type in the desired hostname in the "System Hostname" field. If the computer is a
+member of a DNS domain, you can also input the "Domain Name".
 
 When finished, click "Next" to proceed to the next screen.
 
@@ -144,11 +145,11 @@ When finished, click "Next" to proceed to the next screen.
 Set Root Password Screen
 ========================
 
-This configuration screen, seen in Figure 4.4a, requires you to set the root password.
+This configuration screen, seen in :numref:`Figure %s: Set Root Password <config3>`, requires you to set the root password.
 
-**Figure 4.4a: Set Root Password** 
+.. _config3:
 
-.. image:: images/config3.png
+.. figure:: images/config3.png
 
 The password must be a minimum of 4 characters and you are required to type it in twice to confirm the password. Click the "Next" button when you are
 finished.
@@ -162,11 +163,11 @@ Create a User Screen
 This screen is used to create the primary user account that will be used to login to the system. Set a good value for the password as it is used whenever the
 system indicates that administrative access is required.
 
-Figure 4.5a shows the configuration screen used to create the initial user account.
+:numref:`Figure %s: User Creation Screen <config4>` shows the configuration screen used to create the initial user account.
 
-**Figure 4.5a: User Creation Screen**
+.. _config4:
 
-.. image:: images/config4.png
+.. figure:: images/config4.png
 
 The "User Details" tab is used to create a login user. This screen requires you to complete the following fields: 
 
@@ -180,16 +181,16 @@ The "User Details" tab is used to create a login user. This screen requires you 
 * **Specify UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
   cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
   
-A new feature in 10.1.2 is the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
+PC-BSD® provides the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
 or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use :ref:`PersonaCrypt`, their username
 will only appear in the login menu if the removable media associated with that PC-BSD® system is inserted and they must input the password associated with the
 removable device in order to login.
 
-The "PersonaCrypt" tab, shown in Figure 4.5b, is used to initialize PersonaCrypt for the user.
+The "PersonaCrypt" tab, shown in :numref:`Figure %s: Initializing PersonaCrypt for this User <persona1>`, is used to initialize PersonaCrypt for the user.
 
-**Figure 4.5b: Initializing PersonaCrypt for this User**
+.. _persona1:
 
-.. image:: images/persona1.png
+.. figure:: images/persona1.png
 
 Check the box "Initialize PersonaCrypt Device", insert a removable media that is large enough to hold the files you plan to store in your home directory, and click
 the "Select" button.
@@ -209,11 +210,11 @@ If you share your computer with other users, you will be able to create addition
 Configure Audio Output
 ======================
 
-The next screen, seen in Figure 4.6a, is used to configure the default audio output.
+The next screen, seen in :numref:`Figure %s: Configure Audio Output <audio1>`, is used to configure the default audio output.
 
-**Figure 4.6a: Configure Audio Output**
+.. _audio1:
 
-.. image:: images/audio1.png
+.. figure:: images/audio1.png
 
 Click the "Output Device" drop-down menu to select the desired sound device. You can click the "Test" button to verify the setting as a working configuration will result in
 a test sound. You can also use the "Testing Volume" slider to set the default volume level.
@@ -226,22 +227,40 @@ You can view and edit these settings at a later time using the instructions in :
 Connect to a Wireless Network
 =============================
 
-If the system has an active wireless interface, a screen similar to Figure 4.7a will indicate the wireless networks which were automatically detected. Available networks
-will be ordered by signal strength.
+If the system has an active wireless interface, a screen similar to :numref:`Figure %s: Connect to a Wireless Network <config5>` will indicate the wireless networks which were automatically
+detected. Available networks will be ordered by signal strength.
 
-**Figure 4.7a: Connect to a Wireless Network**
+.. _config5:
 
-.. image:: images/config5.png
+.. figure:: images/config5.png
 
 If you would like to set the default wireless connection, highlight the network that you would like to connect to. If the network requires a password, it will prompt you
 to input it and will indicate the type of security used on the network. If the network you wish to connect to does not appear, try clicking the "Rescan" button. If you are
 unable to connect, or you wish to configure the connection at a later time, refer to the instructions in :ref:`Network Configuration`.
 
-When finished, click the "Next" button. The screen in Figure 4.7b indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
+.. index:: SSH, IPv6
+.. _Enable Optional Services:
 
-**Figure 4.7b: Setup is Complete** 
+Enable Optional Services
+========================
 
-.. image:: images/config6.png
+The next screen is shown in :numref:`Figure %s: Optional Services <optional1a>`.
+
+.. _optional1a:
+
+.. figure:: images/optional1a.png
+
+If you check the "Disable IPV6" box, the system will be configured to only support IPv4 addresses. The default is to support both IPv4 and IPv6 and to prefer IPv6 over IPv4.
+
+If you check the "Enable SSH" box, the SSH service will start and be configured to start whenever the system boots. It will also create the firewall rules needed to allow
+incoming SSH connections to the PC-BSD® system. **DO NOT check this box if you do not want to allow SSH connections to the system.**
+
+When finished, click the "Next" button. The screen in :numref:`Figure %s: Setup is Complete <config6>` indicates that the post-installation setup is complete. Click the "Finish" button to
+access the login menu.
+
+.. _config6:
+
+.. figure:: images/config6.png
 
 .. index:: login
 .. _Logging In:
@@ -249,11 +268,12 @@ When finished, click the "Next" button. The screen in Figure 4.7b indicates that
 Logging In
 ==========
 
-Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen. An example is seen in Figure 4.8a.
+Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen. An example is seen in
+:numref:`Figure %s: PC-BSD® Login Screen <login1>`.
 
-**Figure 4.8a: PC-BSD® Login Screen** 
+.. _login1:
 
-.. image:: images/login1.png
+.. figure:: images/login1.png
 
 The hostname of the system will be displayed at the top of the login window. In this example, it is *pcbsd-5320*. The login window lets you select or input
 the following: 
@@ -268,12 +288,13 @@ the following:
 * **desktop:** if you installed any desktops, use the drop-down menu to select the desktop to log into. If you did not install any desktops, :ref:`Fluxbox`
   will be the only available desktop. You can install or uninstall desktops using :ref:`AppCafe®`.
 
-.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in Figure 4.8b, this will
-   add an extra field to the login screen so that you can input the password associated with the PersonaCrypt device.
+.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in
+   :numref:`Figure %s: PC-BSD® PersonaCrypt Login Screen <login5>`, this will add an extra field to the login screen so that you can input the password associated with the PersonaCrypt
+   device.
 
-**Figure 4.8b: PC-BSD® PersonaCrypt Login Screen** 
+.. _login5:
 
-.. image:: images/login5.png
+.. figure:: images/login5.png
 
 The toolbar at the bottom of the screen allows you to select the following options:
 
@@ -287,11 +308,11 @@ Once you have made your selections, input the password associated with the selec
 
 .. index:: welcome
 
-The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.8c. 
+The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in :numref:`Figure %s: PC-BSD® Getting Started Screen <welcome1>`. 
 
-**Figure 4.8c: PC-BSD® Getting Started Screen** 
+.. _welcome1:
 
-.. image:: images/welcome1.png
+.. figure:: images/welcome1.png
 
 If you click the "Next" button, you can read an overview of the utilities that are used to configure your network connection, install applications, configure
 your system, make a backup, and keep the system updated, as well as how to get involved with the PC-BSD® community. Check the box "Don't show on next
@@ -330,7 +351,8 @@ its highest value. Also check to see if the BIOS is set to prefer built-in graph
 order of the devices listed; in this case, make sure that the preferred device is listed first. If you can not see your BIOS settings you may need to move a
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
-If that change did not help, try rebooting and selecting the "Graphical Install (Failsafe VESA mode)" option from the boot menu shown in Figure 3a. 
+If that change did not help, try rebooting and selecting the "Graphical Install (Failsafe VESA mode)" option from the boot menu shown in
+:numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`. 
 
 A not uncommon cause for problems is the LBA (Logical Block Addressing) setting in the BIOS. If your PC is not booting up before or after installation, check
 your BIOS and turn LBA off (do not leave it on automatic).
@@ -345,5 +367,5 @@ If you boot the installer and receive a *mountroot>* command prompt, it may be d
 if the enumeration of a card reader changes. The solution is to enter *ufs:/dev/da1* at the prompt. Depending on
 the exact location of the boot media, it may be different than :file:`da1`. Type *?* at the prompt to display the available devices.
 
-If none of the above has fixed your problem, search the `PC-BSD® forums <http://forums.pcbsd.org/>`_ to see if a solution exists, try a web search, or check
+If none of the above has fixed your problem, search the `PC-BSD® forums <https://forums.pcbsd.org/>`_ to see if a solution exists, try a web search, or check
 the section on :ref:`Finding Help`. 

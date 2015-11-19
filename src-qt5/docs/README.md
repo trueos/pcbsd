@@ -19,10 +19,12 @@ portsnap fetch extract
 pkg install devel/git (cd /usr/ports/devel/git/ && make install)
 pkg install textproc/py-sphinx (cd /usr/ports/textproc/py-sphinx/ && make install)
 pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphinxcontrib-httpdomain && make install)
+pkg install textproc/py-sphinx_numfig (cd /usr/ports/textproc/py-sphinx_numfig && make install)
 rehash
 ```
 
 If you wish to generate a PDF version of the documentation, this software also needs to be installed:
+
 
 ```
 pkg install print/tex-formats (cd /usr/ports/print/tex-formats/ && make install)
@@ -41,9 +43,10 @@ cd pcbsd/src-qt5/docs/
 
 ##Building the Documentation
 
-All of the following commands need to be run from /path/to/your-build-directory/pcbsd/src-qt5/docs/. Three formats are currently available: HTML, single
-HTML, and PDF. The output of either HTML can be found in /path/to/your-build-directory/pcbsd/src-qt5/docs/_build/ and can be viewed in a web browser. The
-PDF output will be found in /path/to/your-build-directory/pcbsd/src-qt5/docs/_build/latex/PCBSD.pdf.
+All of the following commands need to be run from /path/to/your-build-directory/pcbsd/src-qt5/docs/. These formats are currently available: HTML, single
+HTML, PDF, and EPUB. The output of either HTML can be found in /path/to/your-build-directory/pcbsd/src-qt5/docs/_build/ and can be viewed in a web browser. The
+PDF output will be found in /path/to/your-build-directory/pcbsd/src-qt5/docs/_build/latex/PCBSD.pdf. The EPUB output will be found in
+/path/to/your-build-directory/pcbsd/src-qt5/docs/_build/pcbsd_userguide.epub.
 
 To build a local copy of the HTML, with a separate page for each chapter and that chapter's table of contents in the left frame with navigational links
 to browse between chapters, run the following command:
@@ -65,11 +68,22 @@ yes '' | gmake latexpdf
 yes '' | gmake latexpdf
 ```
 
+To build a local EPUB, run this command:
+
+```
+sphinx-build -b epub . _build
+```
+
 ##Editing the Documentation
 
-If you want to edit the User Guide, make changes to the *.rst file for the chapter to edit, using any ASCII text editor.
-Refer to http://docutils.sourceforge.net/docs/user/rst/quickref.html for help with formatting syntax.
-Refer to http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
+If you want to edit the User Guide, make changes to the \*.rst file for the chapter to edit, using any ASCII text editor.
+Refer to the [Quick reStructuredText guide](http://docutils.sourceforge.net/docs/user/rst/quickref.html) for help with formatting syntax.
+Also refer to this [list of reST editors](http://wiki.typo3.org/Editors_%28reST%29).
+
+Some very helpful tools for editing the documentation are listed below by editor.
+
+[Vim](http://www.vim.org):
+* [vim-rst-tables](https://github.com/nvie/vim-rst-tables) will help you create and reformat grid tables
 
 Need help getting started or want to discuss edits? Join the http://lists.pcbsd.org/mailman/listinfo/docs mailing list.
 

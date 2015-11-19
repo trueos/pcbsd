@@ -30,12 +30,11 @@ Anyone can become a beta tester. Follow these tips so that you can accurately de
 * Before you :ref:`Report a bug`, search the testing mailing list to see if anyone else has reported a similar problem.
 
 * When reporting a new issue, use a descriptive subject that includes the error and the version of PC-BSD®. Ideally, the subject is short (8 words or less)
-  and contains key words about the error. An example would be "Warden on 10-STABLE-p4 fails to export jail". 
+  and contains key words about the error. An example would be "AppCafe on 10.2-RELEASE-p1 fails to create jail". 
 
 * Ensure that the body of the bug report includes the PC-BSD® version.
 
-* Give a short (2-3 sentences) description of how to recreate the error (e.g. when I right click a jail in warden and select Export jail to a .wdn file, it
-  lets me select a file name, but then it freezes). If there is an error message, include its complete text.
+* Give a short (2-3 sentences) description of how to recreate the error. If there is an error message, include its complete text.
 
 * Include any other info that may be useful (e.g. this used to work on 10.0).
 
@@ -69,16 +68,17 @@ updates that affect translators.
 Interface Translation
 ---------------------
 
-PC-BSD® uses `Pootle <http://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
+PC-BSD® uses `Pootle <https://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
 Pootle makes it possible to find out if your native language has been fully localized for PC-BSD®. Pootle also makes it easy for users to check and submit
 translated text as it provides a web editor and commenting system. This means that translators can spend their time making and reviewing translations rather
 than learning how to use a translation tool.
 
-To see the status of a localization, open up the `translation website <http://translate.pcbsd.org/>`_ in a web browser, as seen in Figure 11.2a. 
+To see the status of a localization, open up the `translation website <http://translate.pcbsd.org/>`_ in a web browser, as seen in
+:numref:`Figure %s: The PC-BSD® Pootle Translation System <translate1>`. 
 
-**Figure 11.2a: The PC-BSD® Pootle Translation System** 
+.. _translate1:
 
-.. image:: images/translate1.png
+.. figure:: images/translate1.png
 
 The localizations PC-BSD® users have requested are listed alphabetically on the left. If your language is missing and you would like to help in its
 translation, send an email to the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_ so it can be added.
@@ -86,30 +86,30 @@ translation, send an email to the `translations mailing list <http://lists.pcbsd
 The green bar in the "Progress" column indicates the percentage of PC-BSD® menus that have been localized. If a language is not at 100%, it means that the
 menus that currently are not translated will appear in English instead of in that language.
 
-If you click on a language name then click on the "PC-BSD" hyperlink under the "Name" column, you will see each menu item that is available for translation.
-The example shown in Figure 11.2b is for the Greek localization. In this example, the menu for "ethernetconfig" is complete, but the one for "LifePreserver"
-is not.
+If you click on a language name then click on the "PC-BSD" hyperlink under the "Name" column, you will see each menu item that is available for translation. The example shown in
+:numref:`Figure %s: Viewing a Language's Available Menus <translate2>` is for the Greek localization. In this example, the menu for "ethernetconfig" is complete, but the one for
+"LifePreserver" is not.
 
-**Figure 11.2b: Viewing a Language's Available Menus** 
+.. _translate2:
 
-.. image:: images/translate2.png
+.. figure:: images/translate2.png
 
 In order to edit a translation, you need to first create a Pootle login account. Once you are logged in to Pootle, navigate to the menu item that you wish to
-translate. In Figure 11.2c, the translator has clicked on "LifePreserver.ts" then clicked the "Translate" tab.
+translate. In :numref:`Figure %s: Using the Pootle Interface to Edit a Translation String <translate3>`, the translator has clicked on "LifePreserver.ts" then clicked the "Translate" tab.
 
-**Figure 11.2c: Using the Pootle Interface to Edit a Translation String**
+.. _translate3:
 
-.. image:: images/translate3.png
+.. figure:: images/translate3.png
 
 In this example, the first string, the phrase "Classic Home-Dir Backup" has not yet been translated. To add the translation, type the translated text into the
 white text field and click the "Submit" button. To translate another text field, click on the hyperlink associated with its name, or use the "Next" and
-"Previous" links to navigate between text fields. Sometimes, a text field exists in another screen and already has a translation. Figure 11.2d provides an
-example where the translator clicked the hyperlink for "Filename" which displays three previous translations. The translator then clicked the first suggestion
-and it was automatically added to the white text field.
+"Previous" links to navigate between text fields. Sometimes, a text field exists in another screen and already has a translation.
+:numref:`Figure %s: Selecting a Suggested Translation <translate4>` provides an example where the translator clicked the hyperlink for "Filename" which displays three previous translations.
+The translator then clicked the first suggestion and it was automatically added to the white text field.
 
-**Figure 11.2d: Selecting a Suggested Translation**
+.. _translate4:
 
-.. image:: images/translate4.png
+.. figure:: images/translate4.png
 
 If you need help with a translation or using the Pootle system, you can ask for help on the translations mailing list or in the
 `translations forum <https://forums.pcbsd.org/forum-40.html>`_. 
@@ -120,7 +120,7 @@ If you need help with a translation or using the Pootle system, you can ask for 
 Documentation Translation
 -------------------------
 
-Beginning with version 10.1.2, the source for the PC-BSD® Users Handbook has moved from the wiki and is now stored in the
+The source for the PC-BSD® Users Handbook is stored in the
 `PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the documentation and any translations can be built
 with the operating system and updates to this documentation can be automatically installed when the system is updated using :ref:`Update Manager`. This has the
 added advantage of making sure that the installed version of the Handbook always matches the operating system version and that, as new features are added,
@@ -131,9 +131,59 @@ At this time, the PC-BSD® build server has been configured to automatically bui
 :file:`Makefiles` will be tested and added to provide the documentation in other formats, such as single HTML, PDF, and EPUB. Instructions for building your own
 HTML or PDF version can be found in this `README.md <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_.
 
-Once 10.1.2 is released, the PC-BSD® developers will integrate the documentation source files into the Pootle translation system so that the PC-BSD® documentation
-can be translated using a web browser. Once the doc Pootle system is ready for translators to use, an announcement will be made on the PC-BSD® blog and to the
-translations mailing list and translations forum so that translators can start translating the documentation into their native language. 
+The documentation source files have been integrated into the Pootle translation system so that the PC-BSD® documentation can be translated using a web browser.
+The process is similar to :ref:`Interface Translation` except that you must first select "PC-BSD Handbook" from the "Projects" drop-down menu shown in
+:numref:`Figure %s: Selecting the Handbook Project <translate5>`.
+
+.. _translate5:
+
+.. figure:: images/translate5.png
+
+You can then select the language to translate into from the available languages list. If the language that you want to translate is not listed, send an email to
+the `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_ and request that it be added.
+
+When translating the documentation, be aware of the following:
+
+* At this time, some formatting tags are still displayed in raw text, as seen in the examples in :numref:`Figure %s: Do Not Remove Formatting Characters <translate6>`
+  and :numref:`Figure %s: Another Formatting Characters Example <translate7>`.
+  **It is IMPORTANT that you do not accidentally remove the formatting as this can break the documentation build for that language.** In the first example, it is OK to
+  translate the phrase "Using the Text Installer" but care must be taken to not accidental remove any of the surrounding colons and backticks, or to change the text
+  of the "ref" tag. In the second example, the asterisks are used to bold the word "install". It is OK to translate "install", but do not remove the asterisks.
+
+.. _translate6:
+
+.. figure:: images/translate6.png
+
+.. _translate7:
+
+.. figure:: images/translate7.png
+
+If you would like to receive notifications of documentation changes that affect translations, subscribe to the
+`Translation-notifications <http://lists.pcbsd.org/mailman/listinfo/translations-notifications>`_ mailing list.
+
+If you would like to build a local HTML copy that includes the latest translations, either for your own use or to visualize the translated Guide, do the following from the command line.
+These instructions are for a PC-BSD® system::
+
+ sudo pkg install pcbsd-toolchain
+ rehash
+ git clone git://github.com/pcbsd/pcbsd.git
+ cd pcbsd/src-qt5/doc 
+ make i18n
+ make html
+ ls _build
+ doctrees                html-es                 html-uk                 pcbsd-handbook-i18n.txz
+ html                    html-fr                 locale
+ html-de                 html-pt_BR              locale-po
+
+ 
+This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
+Brazilian Portuguese, and UK English. To update the HTML at a later time::
+
+ cd ~/pcbsd
+ git pull
+ cd src-qt5/doc 
+ make i18n
+ make html
 
 .. index:: translations
 .. _Website Translation:
@@ -200,15 +250,15 @@ To compile the command line utilities::
 
 To compile the graphical utilities::
 
- cd src-qt4
+ cd src-qt5
 
  /usr/local/lib/qt5/bin/qmake
 
  make
 
-Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://qt-project.org/wiki/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
+Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://wiki.qt.io/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
 to help new Qt users get up and running faster while boosting the productivity of experienced Qt developers.
-`Qt Designer <http://qt-project.org/doc/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
+`Qt Designer <http://doc.qt.io/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
 other IDE functionality. To install this package, check the "Search all available PBI and packages" in the "App Search" tab of AppCafe® and search for "qt5-designer".
 Alternately, install it using :command:`pkg install qt5-designer`.
 
@@ -229,7 +279,7 @@ tools for PC-BSD®. The Project aims to present a unified design so that program
 
 This section describes a small list of guidelines for menu and program design in PC-BSD®.
 
-Any graphical program that is a full-featured utility, such as :ref:`Warden®` or :ref:`Life Preserver`, should have a "File" menu. However, file menus are not
+Any graphical program that is a full-featured utility, such as :ref:`Life Preserver`, should have a "File" menu. However, file menus are not
 necessary for small widget programs or dialogue boxes. When making a file menu, a good rule of thumb is keep it simple. Most PC-BSD® utilities do not need
 more than two or three items on the file menu.
 
@@ -263,7 +313,7 @@ PC-BSD® utilities use these buttons as follows:
 
 * **Save:** saves settings and closes window.
 
-Fully functional programs like :ref:`Life Preserver` and :ref:`Warden®` do not use close buttons on the front of the application. Basically, whenever there is a
+Fully functional programs like :ref:`Life Preserver` do not use close buttons on the front of the application. Basically, whenever there is a
 "File" menu, that and an "x" in the top right corner of the application are used instead. Dialogues and widget programs are exceptions to this rule. A good
 example of a widget program would be :ref:`Update Manager`. 
 

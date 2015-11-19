@@ -23,11 +23,11 @@ Using the Text Installer
 ========================
 
 If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, select the option "Text Install/Emergency Console" from
-the PC-BSD® installer boot menu shown in Figure 3a. Once the installer finishes loading, you will see the screen shown in Figure 5.1a.
+the PC-BSD® installer boot menu shown in Figure 3a. Once the installer finishes loading, you will see the screen shown in :numref:`Figure %s: Text Installation Menu <text1>`.
 
-**Figure 5.1a: Text Installation Menu** 
+.. _text1:
 
-.. image:: images/text1.png
+.. figure:: images/text1.png
 
 This initial menu provides the following options: 
 
@@ -44,11 +44,11 @@ This initial menu provides the following options:
 Use the up/down arrows to highlight a menu item then press the :kbd:`spacebar` to select the highlighted item. When finished, press :kbd:`Enter` to save the
 selection and move on to the next screen.
 
-If you keep the default selection of "install", the next screen will prompt to install a desktop or a server, as seen in Figure 5.1b. 
+If you keep the default selection of "install", the next screen will prompt to install a desktop or a server, as seen in :numref:`Figure %s: Select Desktop or Server <text2>`. 
 
-**Figure 5.1b: Select Desktop or Server**
+.. _text2:
 
-.. image:: images/text2.png
+.. figure:: images/text2.png
 
 If you choose to install a desktop, the KDE and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
 system will boot into the usual post-installation configuration screens.
@@ -56,43 +56,44 @@ system will boot into the usual post-installation configuration screens.
 If you choose to install a server, neither X nor a window manager will be installed, resulting in a command-line only TrueOS® installation. Once the server installation
 is complete, the system will boot into a command prompt where you can enter the username and password that was created during the installation.
 
-After making a selection and pressing enter, the next screen will display the available disks on the system. In the example shown in Figure 5.1c, one disk is
-available.
+After making a selection and pressing enter, the next screen will display the available disks on the system. In the example shown in :numref:`Figure %s: Select Installation Disk <text3>`,
+one disk is available.
 
-**Figure 5.1c: Select Installation Disk** 
+.. _text3:
 
-.. image:: images/text3.png
+.. figure:: images/text3.png
 
 Select the disk to install into and press :kbd:`Enter`. In the next screen, the installer will display all available primary or GPT partitions. In the example
-shown in Figure 5.1d, there is only one partition and the installer has selected the default of installing to the entire disk.
+shown in :numref:`Figure %s: Select Partition <text4>`, there is only one partition and the installer has selected the default of installing to the entire disk.
 **If you have multiple partitions and disks, carefully select the disk and partition to install to.**
 
-**Figure 5.1d: Select Partition** 
+.. _text4:
 
-.. image:: images/text4.png
+.. figure:: images/text4.png
 
-The next screen, shown in Figure 5.1e, is used to select the type of disk format. If the installation disk or partition is larger than 2 TB, *GPT* **must** be
-selected. Otherwise, selecting *GPT* should work for most modern hardware. When installing on older hardware, or if the newly installed system will not boot after
-selecting *GPT*, select *MBR* instead.
+The next screen, shown in :numref:`Figure %s: Select Disk Format <text5>`, is used to select the type of disk format. If the installation disk or partition is larger than 2 TB, *GPT*
+**must** be selected. Otherwise, selecting 
+*GPT* should work for most modern hardware. When installing on older hardware, or if the newly installed system will not boot after selecting
+*GPT*, select
+*MBR* instead.
 
-**Figure 5.1e: Select Disk Format**
+.. _text5:
 
-.. image:: images/text5.png
+.. figure:: images/text5.png
 
-The next screen, shown in Figure 5.1f, is used to select whether or not to use the GRUB boot manager.
+The next screen, shown in :numref:`Figure %s: Select Boot Manager <text6>`, is used to select whether or not to use the GRUB boot manager.
 
-**Figure 5.1f: Select Boot Manager** 
+.. _text6:
 
-.. image:: images/text6.png
+.. figure:: images/text6.png
 
-The default is to use *GRUB* as it is required to support boot environments. If you select *none*, no boot manager will be installed and boot environments
-will not be available.
+The default is to use *GRUB* as it is required to support boot environments. If you select *none*, no boot manager will be installed and boot environments will not be available.
 
-The next screen is shown in Figure 5.1g.
+The next screen is shown in :numref:`Figure %s: Full Disk Encryption <text7>`.
 
-**Figure 5.1g: Full Disk Encryption**
+.. _text7:
 
-.. image:: images/text7.png
+.. figure:: images/text7.png
 
 This screen provides the option to encrypt the selected disk(s) with the FreeBSD `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli/qgit/>`_ framework. If
 you keep the default of *Yes* and press enter, you will be prompted to enter and confirm a passphrase. You will be prompted to enter this passphrase whenever
@@ -107,7 +108,7 @@ song or piece of literature.
    found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
    will render that partition as inaccessible.
 
-If you choose to install a server in the screen shown in Figure 5.1b, the installer will next prompt for the following information: 
+If you choose to install a server in the screen shown in :numref:`Figure %s: Select Desktop or Server <text2>`, the installer will next prompt for the following information: 
 
 * the *root* password 
 
@@ -131,16 +132,16 @@ If you choose to install a server in the screen shown in Figure 5.1b, the instal
 
 * whether or not you want to enable SSH access to the server.
 
-For both a desktop and a server install, the next screen is shown in Figure 5.1h.
+For both a desktop and a server install, the next screen is shown in :numref:`Figure %s: Configure Remote Access to AppCafe <text8>`.
 
-**Figure 5.1h: Configure Remote Access to AppCafe**
+.. _text8:
 
-.. image:: images/text8.png
+.. figure:: images/text8.png
 
 If you would like to manage installed software or jails from your phone or a remote system, press enter to select the default option of *Yes*. If you only
 plan to use :ref:`AppCafe®` from the system you are installing, arrow over to *No* instead.
 
-The next screen, shown in Figure 5.1i, provides the following options: 
+The next screen, shown in :numref:`Figure %s: Review Installation Options <text9>`, provides the following options: 
 
 * **install:** to start the installation, select this option and press enter.
 
@@ -148,36 +149,36 @@ The next screen, shown in Figure 5.1i, provides the following options:
 
 * **edit:** used to review, and possibly change any of the installation parameters.
 
-* **hardware:** selecting this option will display a summary of the system's hardware. The example shown in Figure 5.1j is from a system with a disabled sound
-  card and no wireless card.
+* **hardware:** selecting this option will display a summary of the system's hardware. The example shown in :numref:`Figure %s: Hardware Summary <text10>` is from a system with a disabled
+  sound card and no wireless card.
 
-* **quit:** select this option to return to the screen shown in Figure 5.1a. 
+* **quit:** select this option to return to the screen shown in :numref:`Figure %s: Text Installation Menu <text1>`. 
 
-**Figure 5.1i: Review Installation Options** 
+.. _text9: 
 
-.. image:: images/text9.png
+.. figure:: images/text9.png
 
-**Figure 5.1j: Hardware Summary**
+.. _text10:
 
-.. image:: images/text10.png
+.. figure:: images/text10.png
 
-If you select "edit", the menu shown in Figure 5.1k will open.
+If you select "edit", the menu shown in :numref:`Figure %s: Edit Menu <text11>` will open.
 
-**Figure 5.1k: Edit Menu** 
+.. _text11:
 
-.. image:: images/text11.png
+.. figure:: images/text11.png
 
 This screen contains the following options: 
 
-* **disk:** used to change the disk to install into. Selecting this option will re-open the screens shown in Figures 5.1c through 5.1g, and then return you
-  back to this menu.
+* **disk:** used to change the disk to install into. Selecting this option will re-open the screens shown in :numref:`Figure %s: Select Installation Disk <text3>` through
+  :numref:`Figure %s: Full Disk Encryption <text7>`, and then return you back to this menu.
 
 * **zpool:** select this option if the system contains multiple disks and you wish to change the disk layout to a mirror or RAIDZ. The allowable layouts for
   the number of available disks will be displayed so that you can select the desired layout.
 
-* **zfs:** used to modify the default ZFS layout. Selecting this option will open the screen shown in Figure 5.1l. To edit the properties of an existing
+* **zfs:** used to modify the default ZFS layout. Selecting this option will open the screen shown in :numref:`Figure %s: ZFS Layout <text12>`. To edit the properties of an existing
   dataset, highlight the dataset's name and press enter. This will show the list of available ZFS properties for that dataset, as seen in the example shown in
-  Figure 5.1m. To change the value of a ZFS property, highlight it and press enter. The available values will vary, depending upon the selected property. If
+  :numref:`Figure %s: ZFS Properties for a Dataset <text13>`. To change the value of a ZFS property, highlight it and press enter. The available values will vary, depending upon the selected property. If
   you wish to add additional datasets, select *add*. This will prompt for the full path of the mountpoint to create. For example, you could create a dataset
   named :file:`/usr/shares`. The dataset you create will be added to the bottom of the list. If you select the dataset and press enter, you can set its ZFS
   properties. Once you are finished customizing the ZFS layout, select *done*.
@@ -196,15 +197,15 @@ This screen contains the following options:
 * **edit:** if you select this option, the configuration script will open in the :command:`ee` editor, allowing you to make changes. The parameters supported
   by the installation script are described in . 
 
-* **back:** select this option to return you to the menu shown in Figure 5.1i.
+* **back:** select this option to return you to the menu shown in :numref:`Figure %s: Review Installation Options <text9>`.
 
-**Figure 5.1l: ZFS Layout** 
+.. _text12:
 
-.. image:: images/text12.png
+.. figure:: images/text12.png
 
-**Figure 5.1m: ZFS Properties for a Dataset** 
+.. _text13:
 
-.. image:: images/text13.png
+.. figure:: images/text13.png
 
 .. index:: install
 .. _Using the System Utilities Menu:
@@ -214,27 +215,28 @@ Using the System Utilities Menu
 
 The text installer contains some handy tools for troubleshooting and fixing an existing PC-BSD® or TrueOS® installation.
 
-If you click the *utility* option in the main menu of the text based installer shown in Figure 5.1a, it will open the screen shown in Figure 5.1n. 
+If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: Text Installation Menu <text1>`, it will open the screen shown in
+:numref:`Figure %s: System Utilities Menu <util1>`. 
 
-**Figure 5.1n: System Utilities Menu**
+.. _util1:
 
-.. image:: images/util1.png
+.. figure:: images/util1.png
 
 This screen provides the following options: 
 
 * **shell:** this option is useful if you are troubleshooting a PC-BSD® system that no longer boots. It will open a shell with administrative access that
   includes the base FreeBSD utilities. You can use this shell to try to determine what the problem is and, if necessary, to create a backup or copy essential
-  files to another system. When you are finished using the shell, type :command:`exit` to return to the screen shown in Figure 5.1n. 
+  files to another system. When you are finished using the shell, type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`. 
 
 * **zimport** this option will display the names of available ZFS pools. Type the name of an available pool and it will import it then display the available boot environments (BEs).
   Type the name of the desired BE and this option will mount it then offer to open a chroot shell so that you can view its contents and manipulate files as
   needed in order to perform maintenance on that boot environment. When you are finished, type :command:`exit` to leave the boot environment and return to the screen
-  shown in Figure 5.1n.
+  shown in :numref:`Figure %s: System Utilities Menu <util1>`.
 
 * **fixgrub:** this option can be used to restamp the GRUB boot loader should the installed system no longer boot. When this option is selected, it will first
   show the available ZFS pools and prompt you to input the name of the pool to import.
 
-* **exit:** this option will return you to the main menu seen in Figure 5.1a. 
+* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: Text Installation Menu <text1>`. 
 
 .. index:: install
 .. _Install a Server:
@@ -245,9 +247,9 @@ Install a Server
 The :ref:`System Selection Screen` of the PC-BSD® installer can be used to install TrueOS®, a FreeBSD-based server operating system, rather than a PC-BSD®
 desktop operating system.
 
-TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, the command line version of :command:`warden`, and the command line
-versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs this
-`list <https://github.com/pcbsd/pcbsd/blob/27962929c9bbbe3707c2a0e38c01469acf1122b1/build-files/conf/trueos/iso-packages>`_ of additional shells and utilities.
+TrueOS® adds the following to a vanilla installation of FreeBSD: :command:`iocage` for jail management and the command line
+versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs the software mentioned in
+`the RUN_DEPENDS= section of this file <https://github.com/pcbsd/freebsd-ports/blob/master/misc/trueos-base/Makefile>`_.
 
 For a server installation, using the PC-BSD® installer rather than the FreeBSD installer offers several benefits: 
 
@@ -261,23 +263,23 @@ For a server installation, using the PC-BSD® installer rather than the FreeBSD 
    :ref:`Using the TrueOS® CD` or :ref:`Using the Text Installer`.
 
 To perform a server installation, start the PC-BSD® installer as usual. When you get to the :ref:`System Selection Screen` of the installer, select "Server
-(TrueOS)", as shown in Figure 5.2a.
+(TrueOS)", as shown in :numref:`Figure %s: Selecting to Install TrueOS® <server1>`.
 
-**Figure 5.2a: Selecting to Install TrueOS®**
+.. _server1:
 
-.. image:: images/server1.png
+.. figure:: images/server1.png
 
-Click "Next" to start the "Server Setup Wizard" then click "Next" again to see the screen shown in Figure 5.2b.
+Click "Next" to start the "Server Setup Wizard" then click "Next" again to see the screen shown in :numref:`Figure %s: Set the Root Password <server2>`.
 
-**Figure 5.2b: Set the Root Password**
+.. _server2:
 
-.. image:: images/server2.png
+.. figure:: images/server2.png
 
-Input and confirm the root password then click "Next" to proceed to the screen shown in Figure 5.2c. 
+Input and confirm the root password then click "Next" to proceed to the screen shown in :numref:`Figure %s: Create the Primary User Account <server3>`. 
 
-**Figure 5.2c: Create the Primary User Account** 
+.. _server3:
 
-.. image:: images/server3.png
+.. figure:: images/server3.png
 
 For security reasons, you should not login as the *root* user. For this reason, the wizard requires you to create a primary user account that will be used to
 login to the server. This account will automatically be added to the *wheel* group, allowing that user to :command:`su` to the root account when
@@ -293,18 +295,18 @@ This screen contains the following fields:
 
 * **Default shell:** use the drop-down menu to select the **csh**, **tcsh**, **sh**, or **bash** login shell.
 
-When finished, click "Next" to proceed to the screen shown in Figure 5.2d. 
+When finished, click "Next" to proceed to the screen shown in :numref:`Figure %s: Set the Hostname <server4>`. 
 
-**Figure 5.2d: Set the Hostname** 
+.. _server4:
 
-.. image:: images/server4.png
+.. figure:: images/server4.png
 
 Input the system's hostname. If you will be using :command:`ssh` to connect to the system, check the box "Enable remote SSH login". Click "Next" to proceed to
-the network configuration screen shown in Figure 5.2e. 
+the network configuration screen shown in :numref:`Figure %s: Configure the Network <server5>`. 
 
-**Figure 5.2e: Configure the Network** 
+.. _server5:
 
-.. image:: images/server5.png
+.. figure:: images/server5.png
 
 Use the "Network Interface" drop-down menu to select from the following: 
 
@@ -315,28 +317,28 @@ Use the "Network Interface" drop-down menu to select from the following:
 * **IPv6-SLAAC:** will configure every active interface for DHCP and for IPv6 
 
 Alternately, select the device name for the interface that you wish to manually configure and input the IPv4 and/or IPv6 addressing information. When
-finished, click "Next" to proceed to the screen shown in Figure 5.2f. 
+finished, click "Next" to proceed to the screen shown in :numref:`Figure %s: Configure Remote Access to AppCafe <server6>`. 
 
-**Figure 5.2f: Configure Remote Access to AppCafe**
+.. _server6:
 
-.. image:: images/server6.png
+.. figure:: images/server6.png
 
 If you would like to manage installed software or jails from your phone or a remote system, check the box "Enable AppCafe Remote". If you only plan to use
 :ref:`AppCafe®` from the system you are installing, click "Next" to instead continue to the next screen.
 
 If you check the box to configure remote access, input a username and password and select the port number to use when accessing AppCafe® from another device.
-When finished, click "Next" to access the screen shown in Figure 5.2g.
+When finished, click "Next" to access the screen shown in :numref:`Figure %s: Install Ports <server7>`.
 
-**Figure 5.2g: Install Ports** 
+.. _server7:
 
-.. image:: images/server7.png
+.. figure:: images/server7.png
 
 If you wish to install the FreeBSD ports collection, check the "Install ports tree" box then click "Finish" to exit the wizard and access the summary screen
-shown in Figure 5.2h.
+shown in :numref:`Figure %s: Review Installation Summary <install5>`.
 
-**Figure 5.2h: Review Installation Summary**
+.. _install5:
 
-.. image:: images/install5.png
+.. figure:: images/install5.png
 
 Click "Customize" if you wish to proceed to the  screen in order to configure the system's disk(s).
 
@@ -346,7 +348,7 @@ Once you are ready to start the installation, click "Next". A pop-up menu will a
 
 Once the system is installed, it will boot to a command-line login prompt. Login using the primary user account that was configured during installation. You
 can now configure and use the server as you would any other FreeBSD server installation. The
-`FreeBSD Handbook <http://www.freebsd.org/handbook/>`_ is an excellent reference for performing common FreeBSD server tasks.
+`FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`_ is an excellent reference for performing common FreeBSD server tasks.
 
 .. index:: install
 .. _Using the TrueOS® CD:
@@ -357,18 +359,18 @@ Using the TrueOS® CD
 PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your
 intent is to only install servers and you do not need a graphical installer, this ISO is convenient to use and quick to download.
 
-To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu, shown in Figure 5.3a, indicates that this is a
+To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu, shown in :numref:`Figure %s: TrueOS® Boot Menu <cd1>`, indicates that this is a
 TrueOS® installation.
 
-**Figure 5.3a: TrueOS® Boot Menu**
+.. _cd1:
 
-.. image:: images/cd1.png
+.. figure:: images/cd1.png
 
-The installer will finish booting and display the installation menu shown in Figure 5.3b. 
+The installer will finish booting and display the installation menu shown in :numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
 
-**Figure 5.3b: TrueOS® Installation Menu**
+.. _cd2:
 
-.. image:: images/cd2.png
+.. figure:: images/cd2.png
 
 To begin the installation, press :kbd:`Enter`. The server installation will proceed as described in :ref:`Using the Text Installer`.
 
@@ -387,7 +389,7 @@ taken that PC-BSD® is installed into the correct partition; otherwise, you may 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 
 * a partition for each operating system. Many operating systems, including PC-BSD®, can only be installed into a primary or GPT partition. This means that
-  you will need to use partitioning software as described in :ref:`Partitioning the Hard Drive`. 
+  you will need to use partitioning software as described in :ref:`Creating Free Space`. 
 
 * a backup of any existing data. This backup should not be stored on your computer's hard drive but on another computer or on a removable media such as a USB
   drive or burnt onto a DVD media. If you are careful in your installation, everything should go fine. However, you will be glad that you made a backup should
