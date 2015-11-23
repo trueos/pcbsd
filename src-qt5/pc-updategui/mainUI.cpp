@@ -76,6 +76,21 @@ void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current val
   UpdateUI();
 }
 
+void MainUI::ShowUpdatingNotice(){
+  //Now pop up a dialog about updates starting until the update procedure is detected
+  bool started = false;
+  QMessageBox dlg(QMessageBox::NoIcon, tr("Please Wait"), tr("Starting update procedures..."), QMessageBox::NoButton, this, Qt::FramelessWindowHint);
+  dlg.setStandardButtons(QMessageBox::NoButton); //force it again
+  dlg.show();
+  for(int i=0; i<200 && !started; i++){ //60 second maximum wait (200*300ms = 60000 ms)
+    QApplication::processEvents();
+    this->thread()->usleep(300000); //300 ms
+    started = (0==QProcess::execute("pgrep -F /tmp/.updateInProgress"));
+  }
+  dlg.close();
+  QProcess::startDetached("syscache startsync"); //re-sync the database now as well	
+}
+
 void MainUI::watcherChange(QString change){
   if(change==UPDATE_LOG_FILE){ 
     updateLogChanged();
@@ -254,17 +269,7 @@ void MainUI::startUpdates(){ //Start selected update
   QString cmd = up.first();
   qDebug() << "Starting Update:" << cmd;
   QProcess::startDetached(cmd);
-  //Now pop up a dialog about updates starting until the update procedure is detected
-  bool started = false;
-  QMessageBox dlg(QMessageBox::NoIcon, tr("Please Wait"), tr("Starting update procedures..."), QMessageBox::NoButton, this, Qt::FramelessWindowHint);
-  dlg.setStandardButtons(QMessageBox::NoButton); //force it again
-  dlg.show();
-  for(int i=0; i<200 && !started; i++){ //60 second maximum wait (200*300ms = 60000 ms)
-    QApplication::processEvents();
-    this->thread()->usleep(300000); //300 ms
-    started = (0==QProcess::execute("pgrep -F /tmp/.updateInProgress"));
-  }
-  dlg.close();
+  ShowUpdatingNotice();
   UpdateUI();
 }
 
@@ -287,7 +292,8 @@ void MainUI::startPatches(){
   QString cmd = "nice pc-updatemanager install "+ups.join(" ");
   qDebug() << "Starting Patches:" << cmd;
   QProcess::startDetached(cmd);
-  QTimer::singleShot(500, this, SLOT(UpdateUI()) );
+  ShowUpdatingNotice();
+  QTimer::singleShot(200, this, SLOT(UpdateUI()) );
 }
 
 //Log tab
@@ -378,7 +384,9 @@ void MainUI::on_actionBranches_triggered()
             QString cmd = "pc-updatemanager chbranch "+dst_branch;
             qDebug() << "Starting changing branch:" << cmd;
             QProcess::startDetached(cmd);
-            QTimer::singleShot(500, this, SLOT(UpdateUI()) );
+	    this->thread()->usleep(30000); //300 milliseconds
+	    QProcess::startDetached("syscache startsync");
+            QTimer::singleShot(200, this, SLOT(UpdateUI()) );
         }
     }
 }

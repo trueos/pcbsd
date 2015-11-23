@@ -31,6 +31,8 @@ private:
 
 	void InitUI(); //initialize the UI (widgets, options, menus, current values)
 	
+	void ShowUpdatingNotice();
+
 private slots:
 	void CloseUI(){
 	  this->close();
