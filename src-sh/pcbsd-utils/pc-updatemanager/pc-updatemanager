@@ -1321,9 +1321,6 @@ mkdir -p /compat/linux/sys
 mkdir -p /compat/linux/usr
 ln -s /usr/home /compat/linux/usr/home
 
-# KPM 3/26/2015 - Some left-over fonts cause pkg install failures? :-/
-rm -rf /usr/local/share/fonts
-
 echo \"Installing $SYSBASEORIGIN...\"
 pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
 if [ \$? -ne 0 ] ; then
