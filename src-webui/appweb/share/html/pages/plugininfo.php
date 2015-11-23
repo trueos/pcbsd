@@ -411,7 +411,7 @@ function display_install_chooser()
 
  
     // Check if this app has service details
-    if ( file_exists($pbicdir . "/service-start") or file_exists($pbicdir . "/service-configure") )
+    if ( file_exists($pbicdir . "/service-configure") )
        $hasService=true;
 
     // Check if this app has config files to edit
@@ -524,5 +524,5 @@ function display_install_chooser()
 </table>
 
 <script type="text/javascript">
-  $('#tab-container').easytabs();
+  $jq('#tab-container').easytabs();
 </script>

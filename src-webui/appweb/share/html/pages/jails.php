@@ -35,6 +35,7 @@ if ( ! empty($_GET['autostart']) )
 
 function print_jail($jail, $status)
 {
+  global $vimage;
 
   // Get some information about this jail
   $sccmd = array("jail $jail autostart", "jail $jail type", "jail $jail tag");

@@ -1513,7 +1513,10 @@ QStringList Installer::getDeskPkgCfg()
      pkgList << "misc/pcbsd-base" << "sysutils/pcbsd-appweb" << "x11/lumina";
 
      // The default web-browser and plugins
-     pkgList << "www/firefox" << "www/linux-c6-flashplugin11" << "www/nspluginwrapper" << "java/icedtea-web";
+     pkgList << "www/firefox" << "java/icedtea-web";
+
+     // Linux Compat stuff
+     pkgList << "emulators/linux_base-c6" << "www/linux-c6-flashplugin11" << "audio/linux-c6-alsa-plugins-oss" << "security/linux-c6-openssl-compat" << "www/nspluginwrapper";
 
      // The default mail client
      pkgList << "mail/thunderbird";
@@ -1528,7 +1531,7 @@ QStringList Installer::getDeskPkgCfg()
      pkgList << "editors/libreoffice";
 
      // Utilities
-     pkgList << "archivers/unrar" << "archivers/unzip";
+     pkgList << "archivers/unrar" << "archivers/unzip" << "editors/vim";
 
      // Include i18n stuff?
      if ( comboLanguage->currentIndex() != 0 )

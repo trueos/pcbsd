@@ -944,7 +944,7 @@ gen_pc-sysinstall_cfg()
 
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
-     echo "installPackages=misc/pcbsd-base x11/lumina sysutils/pcbsd-appweb www/firefox www/linux-c6-flashplugin www/nspluginwrapper java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip ${EXTRAPKGS}" >> ${CFGFILE}
+     echo "installPackages=misc/pcbsd-base x11/lumina sysutils/pcbsd-appweb www/firefox emulators/linux_base-c6 www/linux-c6-flashplugin www/nspluginwrapper java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip editors/vim ${EXTRAPKGS}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}

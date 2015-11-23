@@ -46,19 +46,6 @@ Type=Application" > ${FSMNT}/usr/share/skel/.kde4/Autostart/tray-${NIC}.desktop
 
 };
 
-# Function which checks is a nic is wifi or not
-check_is_wifi()
-{
-  NIC="$1"
-  ifconfig ${NIC} | grep -q "802.11" 2>/dev/null
-  if [ $? -eq 0 ]
-  then
-    return 0
-  else 
-    return 1
-  fi
-};
-
 # Function to get the first available wired nic, used for setup
 get_first_wired_nic()
 {
@@ -70,12 +57,8 @@ get_first_wired_nic()
     while read line
     do
       NIC="`echo $line | cut -d ':' -f 1`"
-      check_is_wifi ${NIC}
-      if [ $? -ne 0 ]
-      then
-        export VAL="${NIC}"
-        return
-      fi
+      export VAL="${NIC}"
+      return
     done < ${TMPDIR}/.niclist
   fi
 
@@ -93,31 +76,30 @@ enable_dhcp_all()
   if [ -e "${TMPDIR}/.niclist" ]
   then
     echo "# Auto-Enabled NICs from pc-sysinstall" >>${FSMNT}/etc/rc.conf
-    WLANCOUNT="0"
     while read line
     do
       NIC="`echo $line | cut -d ':' -f 1`"
       DESC="`echo $line | cut -d ':' -f 2`"
       echo_log "Setting $NIC to DHCP on the system."
-      check_is_wifi ${NIC}
-      if [ $? -eq 0 ]
-      then
-        # We have a wifi device, setup a wlan* entry for it
-        WLAN="wlan${WLANCOUNT}"
-	cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${NIC}="
-	if [ $? -ne 0 ] ; then
-          echo "wlans_${NIC}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
-	fi
-        echo "ifconfig_${WLAN}=\"DHCP\"" >>${FSMNT}/etc/rc.conf
-        CNIC="${WLAN}"
-        WLANCOUNT=$((WLANCOUNT+1))
-      else
-        echo "ifconfig_${NIC}=\"DHCP\"" >>${FSMNT}/etc/rc.conf
-        CNIC="${NIC}"
-      fi
- 
+      echo "ifconfig_${NIC}=\"DHCP\"" >>${FSMNT}/etc/rc.conf
+      CNIC="${NIC}"
     done < ${TMPDIR}/.niclist 
   fi
+
+  WLANCOUNT="0"
+  for wnic in `sysctl -b net.wlan.devices`
+  do
+    # We have a wifi device, setup a wlan* entry for it
+    WLAN="wlan${WLANCOUNT}"
+    echo_log "Creating parent $WLAN for $wnic"
+    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+    if [ $? -ne 0 ] ; then
+      echo "wlans_${wnic}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
+    fi
+    echo "ifconfig_${WLAN}=\"DHCP\"" >>${FSMNT}/etc/rc.conf
+    CNIC="${WLAN}"
+    WLANCOUNT=$((WLANCOUNT+1))
+  done
 };
 
 
@@ -142,29 +124,27 @@ enable_slaac_all()
       NIC="`echo $line | cut -d ':' -f 1`"
       DESC="`echo $line | cut -d ':' -f 2`"
       echo_log "Setting $NIC to accepting RAs on the system."
-      check_is_wifi ${NIC}
-      if [ $? -eq 0 ]
-      then
-        # We have a wifi device, setup a wlan* entry for it
-        # Given we cannot have DHCP and SLAAC the same time currently
-	# it's save to just duplicate.
-        WLAN="wlan${WLANCOUNT}"
-	cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${NIC}="
-	if [ $? -ne 0 ] ; then
-          echo "wlans_${NIC}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
-	fi
-	#echo "ifconfig_${NIC}=\"up\"" >>${FSMNT}/etc/rc.conf
-        echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >>${FSMNT}/etc/rc.conf
-        CNIC="${WLAN}"
-        WLANCOUNT=$((WLANCOUNT+1))
-      else
-	#echo "ifconfig_${NIC}=\"up\"" >>${FSMNT}/etc/rc.conf
-        echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >>${FSMNT}/etc/rc.conf
-        CNIC="${NIC}"
-      fi
- 
+      echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >>${FSMNT}/etc/rc.conf
+      CNIC="${NIC}"
     done < ${TMPDIR}/.niclist 
   fi
+
+  WLANCOUNT="0"
+  for wnic in `sysctl -b net.wlan.devices`
+  do
+     # We have a wifi device, setup a wlan* entry for it
+     # Given we cannot have DHCP and SLAAC the same time currently
+     # it's save to just duplicate.
+     WLAN="wlan${WLANCOUNT}"
+     echo_log "Setting $WLAN to accepting RAs on the system."
+     cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+     if [ $? -ne 0 ] ; then
+       echo "wlans_${wnic}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
+     fi
+     echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >>${FSMNT}/etc/rc.conf
+     CNIC="${WLAN}"
+     WLANCOUNT=$((WLANCOUNT+1))
+  done
 
   # Given we cannot yet rely on RAs to provide DNS information as much
   # as we can in the DHCP world, we should append a given nameserver.

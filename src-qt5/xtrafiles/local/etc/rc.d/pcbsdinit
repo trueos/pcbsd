@@ -26,12 +26,31 @@ pcbsdinit_start()
 	# Cleanup cups print jobs
 	/usr/local/bin/cancel -a 2>/dev/null >/dev/null
 
-	# Cleanup any old nvidia libs from PBI 10.x cruft
-	rm /usr/lib/libnvidia* >/dev/null 2>/dev/null
-	rm /usr/lib/libGL* >/dev/null 2>/dev/null
-
 	# Change Xorg priority
 	( sleep 40; rtprio 31 -`pgrep Xorg` 2>/dev/null)&
+
+	# Check for any new wifi devices to setup
+	for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
+	do
+		cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+		if [ $? -ne 0 ] ; then
+			# We have a wifi device, setup a wlan* entry for it
+			grep -q "^wlans_" /etc/rc.conf
+			if [ $? -eq 0 ] ; then
+				WLANCOUNT=`cat /etc/rc.conf | grep "^wlans_" | wc -l | awk '{print $1}'`
+			else
+				WLANCOUNT="0"
+			fi
+			WLAN="wlan${WLANCOUNT}"
+
+			# Save the wlan interface
+			echo "wlans_${wnic}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
+
+			# Create the wlanX device
+			ifconfig $WLAN create wlandev $wnic
+		fi
+	done
+
 }
 
 pcbsdinit_stop()

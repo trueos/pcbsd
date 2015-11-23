@@ -25,16 +25,16 @@ if ( strpos($page, "plugin") !== false or $pluginDispatcher) {
 <?php
   if ( $sysType != "APPLIANCE" ) {
 ?>
-  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe"><img src="/images/appcafe.png" height=28 width=28> &nbsp;&nbsp;System Packages</a></li>
+  <li <?php if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe" class="tooltip" title="Packages installed directly on the system"><img src="/images/appcafe.png" height=28 width=28> &nbsp;&nbsp;System Packages</a></li>
 <?php
   }
 ?>
-  <li <?php if ( stripos($page, "plugin") !== false ) { echo "class='active'"; } ?>><a href="/?p=plugins" style="align:right;"><img src="/images/warden.png" height=28 width=28> &nbsp;&nbsp;App Containers</a></li>
-  <li <?php if ( stripos($page, "jail") !== false ) { echo "class='active'"; } ?>><a href="/?p=jails" style="align:right;"><img src="/images/jail.png" height=28 width=28> &nbsp;&nbsp;Jails</a></li>
-  <li id="notifier"><a href="?p=dispatcher"><img align=absmiddle height=32 width=32 src="../images/dialog-ok.png"> Status</a></li>
+  <li <?php if ( stripos($page, "plugin") !== false ) { echo "class='active'"; } ?>><a href="/?p=plugins" class="tooltip" title="Stand-Alone Application Containers" style="align:right;"><img src="/images/warden.png" height=28 width=28> &nbsp;&nbsp;App Containers</a></li>
+  <li <?php if ( stripos($page, "jail") !== false ) { echo "class='active'"; } ?>><a href="/?p=jails" class="tooltip" title="Jail Management" style="align:right;"><img src="/images/jail.png" height=28 width=28> &nbsp;&nbsp;Jails</a></li>
+  <li id="notifier"><a href="?p=dispatcher" class="tooltip" title="AppCafe Status and Logs"><img align=absmiddle height=32 width=32 src="../images/dialog-ok.png"> Status</a></li>
 <?php
 if (USERNAME)
-  echo "  <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=28 width=28> Logout</a></li>";
+  echo "  <li><a href=\"/?logout=true\" class=\"tooltip\" title=\"End your session\"><img src=\"/images/logout.png\" height=28 width=28> Logout</a></li>";
 ?>
 </ul>
 </div>
@@ -47,20 +47,20 @@ if (USERNAME)
 if ( $dflag == "appcafe" )
 {
 ?>
-  <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp"><img src="/images/install.png" height=24 width=24> &nbsp;&nbsp;Installed Apps</a></li>
-  <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search"><img src="/images/search.png" height=24 width=24> &nbsp;&nbsp;App Search</a></li>
+  <li <?php if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp" class="tooltip" title="Installed packages on your system"><img src="/images/install.png" height=24 width=24> &nbsp;&nbsp;Installed Apps</a></li>
+  <li <?php if ( $page=="appcafe-search" ) { echo "class='active'"; } ?>><a href="/?p=appcafe-search" class="tooltip" title="Search for packages"><img src="/images/search.png" height=24 width=24> &nbsp;&nbsp;App Search</a></li>
 <?php
 } elseif ( $dflag == "plugins" )
 {
 ?>
-  <li><a href="/?p=sysplugins"><img src="/images/install.png" height=24 width=24> &nbsp;&nbsp;Installed Apps</a></li>
-  <li><a href="/?p=pluginconfig"><img src="/images/configure.png" height=24 width=24> &nbsp;&nbsp;Configuration</a></li>
+  <li><a href="/?p=sysplugins" class="tooltip" title="Installed App containers"><img src="/images/install.png" height=24 width=24> &nbsp;&nbsp;Installed Apps</a></li>
+  <li><a href="/?p=pluginconfig" class="tooltip" title="App container settings"><img src="/images/configure.png" height=24 width=24> &nbsp;&nbsp;Configuration</a></li>
 <?php
 } elseif ( $dflag == "jails" )
 {
 ?>
-  <li><a href="/?p=jailcreate"><img src="/images/add.png" height=24 width=24> &nbsp;&nbsp;New Jail</a></li>
-  <li><a href="/?p=jailconfig"><img src="/images/configure.png" height=24 width=24> &nbsp;&nbsp;Configuration</a></li>
+  <li><a href="/?p=jailcreate" class="tooltip" title="Create a new jail"><img src="/images/add.png" height=24 width=24> &nbsp;&nbsp;New Jail</a></li>
+  <li><a href="/?p=jailconfig" class="tooltip" title="Jail settings"><img src="/images/configure.png" height=24 width=24> &nbsp;&nbsp;Configuration</a></li>
 <?php
 }
 ?>

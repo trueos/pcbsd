@@ -666,5 +666,5 @@ function display_app_link($pbilist, $jail)
 </table>
 
 <script type="text/javascript">
-  $('#tab-container').easytabs();
+  $jq('#tab-container').easytabs();
 </script>
