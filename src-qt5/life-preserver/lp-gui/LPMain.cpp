@@ -226,6 +226,7 @@ void LPMain::updateTabs(){
   //qDebug() << "Update Tabs" << poolSelected;
   qDebug() << "[DEBUG] start updateTabs():" << poolSelected;
   viewChanged();
+  ui->tabWidget->setCurrentWidget(ui->tab_status);
   ui->tabWidget->setEnabled(poolSelected);
   ui->menuView->setEnabled(poolSelected);	
   ui->menuDisks->setEnabled(poolSelected); 

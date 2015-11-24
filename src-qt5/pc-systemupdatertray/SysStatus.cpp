@@ -33,17 +33,27 @@ void SysStatus::checkSystem(bool checkjails){
       //Use the syscache info
       complete = (upinfo[0]=="true");
       updating = (upinfo[1]=="true");
+      //Check for syscache return errors
+      qDebug() << "SYSCACHE Update Info:" << upinfo;
+      if(!complete && upinfo[0]!="false"){ error=true; }
+      if(!updating && upinfo[1]!="false"){ error=true; }
     }
     if(!updating && !complete){
       //Run syscache to probe for updates that are available
       QString cmd = "syscache hasmajorupdates hassecurityupdates haspcbsdupdates \"pkg #system hasupdates\" \"jail cages\"";
       QStringList info = pcbsd::Utils::runShellCommand(cmd);
-      if(info.length() < 5){ error = true; return; } //no info from syscache
+      qDebug() << "SYSCACHE Info:" << info;
+      if(info.length() < 5){error = true; return; } //no info from syscache
+      else if(info.join(" ").contains("[ERROR]") ){ 
+        for(int i=0; i<info.length()-1; i++){ //skip the last "jails" update - might not have jails on this system
+	  if(info[i].contains("[ERROR]")){ error = true; return; }
+	}
+      }
       sys = (info[0] == "true");
       sec = (info[1] == "true") || (info[2] == "true"); //combine security updates with pcbsd patches for notifications
       pkg = (info[3] == "true");
       //Now look for jail updates
-      if(checkjails && !info[4].simplified().isEmpty() ){
+      if(checkjails && !info[4].simplified().isEmpty() && !info[4].contains("[ERROR]") ){
 	QStringList jls = info[4].split(", ");
 	  //Note: jls format: [<origin> <ID>]
 	cmd = "syscache";
