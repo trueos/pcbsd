@@ -609,8 +609,15 @@ function parse_plugin_details($origin, $col, $showRemoval=false, $filter=true)
 
 function array_search_partial($keyword, $arr) {
   foreach($arr as $index => $string) {
-      if (strpos($string, $keyword) !== FALSE)
-          return true;
+      if ( is_array($string) ) {
+        foreach($string as $subindex => $substring) {
+          if (strpos($substring, $keyword) !== FALSE)
+              return true;
+        }
+      } else {
+        if (strpos($string, $keyword) !== FALSE)
+            return true;
+      }
   }
   return false;
 }
