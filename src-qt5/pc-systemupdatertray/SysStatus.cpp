@@ -33,12 +33,15 @@ void SysStatus::checkSystem(bool checkjails){
       //Use the syscache info
       complete = (upinfo[0]=="true");
       updating = (upinfo[1]=="true");
+      //Check for syscache return errors
+      if(!complete && upinfo[0]!="false"){ error=true; }
+      if(!updating && upinfo[1]!="false"){ error=true; }
     }
     if(!updating && !complete){
       //Run syscache to probe for updates that are available
       QString cmd = "syscache hasmajorupdates hassecurityupdates haspcbsdupdates \"pkg #system hasupdates\" \"jail cages\"";
       QStringList info = pcbsd::Utils::runShellCommand(cmd);
-      if(info.length() < 5){ error = true; return; } //no info from syscache
+      if(info.length() < 5 || info.join(" ").contains("[ERROR]") ){ error = true; return; } //no info from syscache
       sys = (info[0] == "true");
       sec = (info[1] == "true") || (info[2] == "true"); //combine security updates with pcbsd patches for notifications
       pkg = (info[3] == "true");
