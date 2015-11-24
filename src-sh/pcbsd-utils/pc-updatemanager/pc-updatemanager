@@ -1076,10 +1076,8 @@ dl_pkgs()
   # First off, fetch the pkgng pkg
   echo_log "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME"
   echo "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
-  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg 2>&1 | tee /tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg 2>&1 | tee -a ${PKGUPGRADELOG}
   if [ $? -ne 0 ] ; then
-     cat /tmp/.pkgOut.$$ >> $LOGOUT
-     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
@@ -1108,10 +1106,8 @@ dl_pkgs()
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
   echo_log "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
   echo "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
-  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} 2>&1 | tee /tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} 2>&1 | tee  -a ${PKGUPGRADELOG}
   if [ $? -ne 0 ] ; then
-     cat /tmp/.pkgOut.$$ >> $LOGOUT
-     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
@@ -1155,22 +1151,19 @@ dl_pkgs()
     # Fetch the pkg now
     echo_log "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
-    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee -a ${PKGUPGRADELOG}
     # PKGNG lies, we need to verify if the package was really downloaded as well
     if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
       #Try one more time
       sleep 2
       echo_log " - Failure: Trying again"
       echo " - Failure: Trying again" >> ${PKGUPGRADELOG}
-      ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
+      ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee -a ${PKGUPGRADELOG}
        #Check again for success
        if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
          echo_log " - Failed again: Try again later"
 	 echo " - Failed again: Try again later" >> ${PKGUPGRADELOG}
          echo_log "*****" ${PKGUPGRADELOG}
-         cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-         echo_log "*****" >> ${PKGUPGRADELOG}
-         rm /tmp/.pkgOut.$$
          echo_log "Failed fetching: $pkgOrigin" >> ${PKGUPGRADELOG}
          exit_err "Failed fetching: $pkgOrigin"
        fi
@@ -1320,9 +1313,6 @@ mkdir -p /compat/linux/proc
 mkdir -p /compat/linux/sys
 mkdir -p /compat/linux/usr
 ln -s /usr/home /compat/linux/usr/home
-
-# KPM 3/26/2015 - Some left-over fonts cause pkg install failures? :-/
-rm -rf /usr/local/share/fonts
 
 echo \"Installing $SYSBASEORIGIN...\"
 pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
