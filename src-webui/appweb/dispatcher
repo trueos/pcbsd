@@ -40,7 +40,7 @@ init_daemon()
   chmod 600 ${QLOGDIR}
 
   # Cleanup some working / temp files
-  for rmFile in ${QLIST}
+  for rmFile in ${QLIST} ${QWRK}
   do
      if [ -e "$rmFile" ] ; then
        rm $rmFile
