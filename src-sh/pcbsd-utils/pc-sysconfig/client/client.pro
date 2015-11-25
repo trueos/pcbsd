@@ -14,8 +14,8 @@ TARGET=pc-sysconfig
 target.path=/usr/local/bin
 
 
-MANPAGES.extra="gzip -c pc-sysconfig.8 > pc-sysconfig.8.gz ; mv -f pc-sysconfig.8.gz /usr/local/man/man8/pc-sysconfig.8.gz"
-MANPAGES.path=/usr/local/man/man8
+MANPAGES.extra="gzip -c pc-sysconfig.8 > pc-sysconfig.8.gz ; mv -f pc-sysconfig.8.gz $(INSTALL_ROOT)/usr/local/man/man8/pc-sysconfig.8.gz"
+MANPAGES.path=$(INSTALL_ROOT)/usr/local/man/man8
 
 INSTALLS += target MANPAGES
 
