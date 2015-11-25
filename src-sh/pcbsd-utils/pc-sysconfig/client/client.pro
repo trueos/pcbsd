@@ -14,7 +14,10 @@ TARGET=pc-sysconfig
 target.path=/usr/local/bin
 
 
-INSTALLS += target
+MANPAGES.files= pc-sysconfig.8.gz
+MANPAGES.path=/usr/local/man/man8
+
+INSTALLS += target MANPAGES
 
 
 QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
