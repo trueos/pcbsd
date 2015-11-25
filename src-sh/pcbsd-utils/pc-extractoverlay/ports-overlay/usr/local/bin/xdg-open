@@ -309,29 +309,31 @@ fi
 
 detectDE()
 {
-  UR_PROCS=`ps -ax -o comm` #Get the current running processes
-  #Check for the PCDM_SESSION environment variable first
-  if [ "${PCDM_SESSION}" = "KDE" ]; then DE=kde;
-  elif [ "${PCDM_SESSION}" = "LXDE" ]; then DE=lxde;
-  elif [ "${PCDM_SESSION}" = "MATE" ]; then DE=mate;
-  elif [ "${PCDM_SESSION}" = "GNOME" ]; then DE=gnome;
-  elif [ "${PCDM_SESSION}" = "CINNAMON" ]; then DE=gnome;
-  elif [ "${PCDM_SESSION}" = "XFCE" ]; then DE=xfce;
-  elif [ "${PCDM_SESSION}" = "LUMINA" ]; then DE=lumina;
-  #otherwise scan the running procs for DE-specific indicators
-  elif [ -n "`echo "${UR_PROCS}" | grep startxfce`" ]; then DE=xfce;
-  elif [ -n "`echo "${UR_PROCS}" | grep gnome-session`" ]; then DE=gnome;
-  elif [ -n "`echo "${UR_PROCS}" | grep mate-session`" ]; then DE=mate;
-  elif [ -n "`echo "${UR_PROCS}" | grep lxsession`" ]; then DE=lxde;
-  elif [ -n "`echo "${UR_PROCS}" | grep kuiserver`" ]; then DE=kde;
-  #Otherwise use the classic methods for detection
-  elif [ x"$KDE_FULL_SESSION" = x"true" ]; then DE=kde;
+  #First check the XDG_CURRENT_DESKTOP environment variable (latest standards - case sensitive)
+  if [ "${XDG_CURRENT_DESKTOP}" == "KDE" ]; then DE=kde;
+  elif [ "${XDG_CURRENT_DESKTOP}" == "LXDE" ]; then DE=lxde;
+  elif [ "${XDG_CURRENT_DESKTOPN}" == "MATE" ]; then DE=mate;
+  elif [ "${XDG_CURRENT_DESKTOP}" == "GNOME" ]; then DE=gnome;
+  elif [ "${XDG_CURRENT_DESKTOP}" == "CINNAMON" ]; then DE=gnome;
+  elif [ "${XDG_CURRENT_DESKTOP}" == "XFCE" ]; then DE=xfce;
+  elif [ "${XDG_CURRENT_DESKTOP}" == "Lumina" ]; then DE=lumina;  
+  #Check for the PCDM_SESSION environment variable (always uppercase)
+  elif [ "${PCDM_SESSION}" == "KDE" ]; then DE=kde;
+  elif [ "${PCDM_SESSION}" == "LXDE" ]; then DE=lxde;
+  elif [ "${PCDM_SESSION}" == "MATE" ]; then DE=mate;
+  elif [ "${PCDM_SESSION}" == "GNOME" ]; then DE=gnome;
+  elif [ "${PCDM_SESSION}" == "CINNAMON" ]; then DE=gnome;
+  elif [ "${PCDM_SESSION}" == "XFCE" ]; then DE=xfce;
+  elif [ "${PCDM_SESSION}" == "LUMINA" ]; then DE=lumina;
+  #Otherwise use the old/classic methods for detection
+  elif [ x"$KDE_FULL_SESSION" == x"true" ]; then DE=kde;
   elif [ x"$GNOME_DESKTOP_SESSION_ID" != x"" ]; then DE=gnome;
   elif `dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.gnome.SessionManager > /dev/null 2>&1` ; then DE=gnome;
   elif xprop -root _DT_SAVE_MODE 2> /dev/null | grep ' = \"xfce4\"$' >/dev/null 2>&1; then DE=xfce;
   elif [ x"$DESKTOP_SESSION" == x"LXDE" ]; then DE=lxde;
-  #Check for kdeinit4 last, can cause false positives, but dolphin usually comes with it
-  elif [ -n "`echo "${UR_PROCS}" | grep kdeinit4`" ]; then DE=kde; #(better than nothing)
+  #Simple fallback for non-XDG window managers if Lumina is installed in the normal place (no heavy runtime dependencies)
+  elif [ -x "/usr/local/bin/lumina-open" ]; then DE=lumina;
+  #No DE found
   else DE=""
   fi
   unset UR_PROCS
