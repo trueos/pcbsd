@@ -27,4 +27,8 @@ fi
 cp -r backend ${PROGDIR}
 chmod 755 ${PROGDIR}/backend/*.sh
 
+#Also install the man page
+gzip -c lpreserver.8 > lpreserver.8.gz
+mv -f lpreserver.8.gz ${STAGEDIR}/man/man8/lpreserver.8.gz
+
 exit 0

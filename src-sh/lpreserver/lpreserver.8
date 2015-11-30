@@ -1,0 +1,156 @@
+.Dd November 24, 2015
+.Dt lpreserver 8
+.Os
+.Sh NAME
+.Nm lpreserver
+.Nd "Life Preserver"
+.Sh SYNOPSIS
+.Nm
+.Op  "<cmd> <subcmd> <option> <setting>"
+.Sh DESCRIPTION
+The built-in Life Preserver utility was designed to take full advantage of ZFS snapshot functionality. This utility allows you to schedule snapshots of a local ZFS pool and to optionally replicate those snapshots to another system using SSH
+.Bl -tag indent -width
+.It \fBhelp\fR 
+Help for the specified command.
+.It \fBcronsnap <dataset> <action> <frequency> <numToKeep>\fR
+Schedule snapshot creation via cron
+.br 
+<action> can be start / stop
+.br
+.br
+<frequeny> can be auto / daily@XX / hourly / 30min / 10min / 5min
+         XX is the hour at which it should execute
+When set to auto the following will take place:
+    * Snapshots will be created every 5 minutes and kept for
+      an hour.
+    * A hourly snapshot will be kept for a day.
+    * A daily snapshot will be kept for a month.
+    * A Monthly snapshot will be kept for a year.
+    * The life-preserver daemon will also keep track of the 
+      zpool disk space,
+      if the capacity falls below 75%, the oldest snapshot 
+      will be auto-pruned.
+.br
+.br
+<numToKeep> is the total number of snapshots to keep
+.It \fBcronscrub <dataset> <action> <frequency>\fR
+Schedule scrub via cron
+.br
+     <action> can be start or stop
+.br
+     <frequency> can be daily@XX / weekly@YY@XX monthly@ZZ@XX
+                Where XX is the hour to execute
+                YY is the day of week to execute
+                ZZ is day of month to execute
+
+.It \fBget\fR
+List lpreserver options
+.It \fBlistcron <scrub|snap>\fR
+List of scheduled snapshots and scrubs not using scrub or snap results in both being displayed
+.It \fBlistsnap <dataset>\fR
+List snapshots that are part of <dataset> zpool or data set.
+.It \fBmksnap <dataset> <snapshotname> <comment>\fR
+Create a snapshot of a zpool or data set.
+.It \fBreplicate <subcmd> <flags>\fR
+Sub command of replication tasks
+.br
+Available sub commands are
+.br
+    add - Add a new replication target
+.br
+      add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
+.br
+      add iscsi <*.lps file> <hostdataset> <time> [geli key] [password file]
+.br
+    expand - Expand the remote iSCSI zpool
+.br
+      expand <localdataset/zpool> <target host>
+.br
+    export - Export / Offline an iSCSI zpool
+.br
+      export <localdataset/zpool> <target host>
+.br
+    import - Import / Online an iSCSI zpool
+.br
+      import <localdataset/zpool> <target host>
+.br
+    init - Initialize the remote side again
+.br
+      init <localdataset/zpool> <target host>
+.br
+    list - List replication targets
+.br
+    remove - Remove a replication target
+.br
+      remove <dataset> <target host>
+.br
+    run - Start a replication manually
+.br
+      run <dataset> <target host> 
+.br
+    saveiscsi - Save the iSCSI config data / GELI key
+.br
+      saveiscsi <localdataset/zpool> <target host> [password file]
+.It \fBrevertsnap <dataset> <snapshot>\fR
+Revert zpool or data set to a snapshot
+.It \fBrmsnap <dataset> <snapshot>\fR
+Remove a snapshot
+.It \fBset <subcmd> <setting>\fR
+Set lpreserver options
+.br
+     duwarn <percentage>- Set to a disk 
+          percentage at which to warn of low 
+          disk space
+.br
+     email <email address>- Set the e-mail address to 
+          receive notifications.  This will require that 
+          the "mail" command is setup for outgoing mail
+.br
+  emailopts <all|warn|error)-
+          all - Send mail for every snapshot, plus 
+                warnings and errors
+          warn - Send mail for warnings and errors
+          error - Send mail for errors only
+.br
+  recursive <on|off> 
+          on - Will create / destroy snapshots recursively, 
+               for all children of a target zpool/dataset
+          off - Will only create / destroy snapshots on 
+                the specified dataset
+.It \fBstatus\fR
+List data sets along with last snapshot and replication data
+.It \fBzpool\fR
+Manage a zpool by attaching and detaching disks
+.br
+Available sub commands
+.br
+	list <zpool>- List zpool disks
+.br
+        attach <zpool> <new disk>- Attach a new zpool disk
+.br
+               When a drive is first attached to a zpool, it 
+               will be re-formatted with a new gpart layout 
+               and made bootable with GRUB. For this reason 
+               the disk must be the same size, or larger, 
+               than the first array disk SWAP + ZFS
+               partition size.
+.br
+        detach <zpool> <disk>- Remove a zpool disk
+.br
+        offline <zpool> <disk>- Mark a disk as offline
+.br
+        online <zpool> <disk>- Mark a disk as being online again
+.E1
+.Sh EXAMPLES
+lpreserver mksnap tank1/usr/home/kris mysnapshot "Added user boba
+.br
+    Will create a snapshot mysnapshot of /usr/home/kris with the comment Added user bob.
+.br
+lpreserver replicate add freenas.8343 backupuser 22 tank1 tankbackup/backups 22
+.br
+   Will schedule replication of tank1 to tankbackup/backups at 10PM,
+.br
+   notated in 24hour time
+
+.Sh SEE ALSO
+http://wiki.pcbsd.org/index.php/Life_Preserver/
