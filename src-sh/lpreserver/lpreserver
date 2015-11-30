@@ -429,7 +429,7 @@ Usage:
 
   For a listing of all scheduled scrubs
 
-  # lpreserver listcron
+  # lpreserver listcron scrub
 
   or
 
@@ -438,17 +438,36 @@ Usage:
   # lpreserver cronscrub <dataset> <action> <frequency>
   
   action = start / stop
-  frequency = daily@XX / weekly@YY@XX / monthly@ZZ@XX
-      XX = Hour to execute, YY = Day of week to execute, ZZ = Day of month
+  frequency = VV / daily@XX / weekly@YY@XX / monthly@ZZ@XX
+      VV = Execute at every VV days, XX = Hour to execute, 
+      YY = Day of week to execute, ZZ = Day of month to execute
 
   NOTE: 
+    Frequency has two modes, regular cron and anacron.
+    If you specify a number or 'daily', 'weekly' and 'monthly' without 
+    the '@' sign you setup anacron. When you specify with the '@' sign you setup cron. 
+    If you want to be sure that your scrub is always run use anacron.
     
-    If 'daily' is given without hour the default is 22.
-    If 'weekly' is given without day or hour the default is day 1 and hour 22.
+    If 'daily' is given you set the period to every day.
+    If 'weekly' is given you set the period to every 7 days.
+    If 'monthly' is given you set the period to every 30 days.
+
+    If 'daily@' is given without hour the default is 22.
+    If 'weekly@' is given without day or hour the default is day 1 and hour 22.
     (1 = Mon, 7 = Sun)
-    If 'monthly' is given without day or hour the default is day 1 and hour 22.
+    If 'monthly@' is given without day or hour the default is day 1 and hour 22.
 
 Example:
+
+  lpreserver cronscrub tank1 start weekly
+  (run scrub weekly)
+
+  or
+
+  lpreserver cronscrub tank1 start 45
+  (run scrub every 45 days)
+
+  or
 
   lpreserver cronscrub tank1 start daily@22
   (run scrub everyday at 10 AM)

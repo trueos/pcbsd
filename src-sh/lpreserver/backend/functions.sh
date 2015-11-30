@@ -174,8 +174,12 @@ enable_cron_scrub()
    cronscript="${PROGDIR}/backend/runscrub.sh"
 
    # Make sure we remove any old entries for this dataset
-   cat /etc/crontab | grep -v " $cronscript $1" > /etc/crontab.new
+   cat /etc/crontab | grep -v "$cronscript $1" > /etc/crontab.new
    mv /etc/crontab.new /etc/crontab
+   
+   cat /usr/local/etc/anacrontab | grep -v "$cronscript $1" > /usr/local/etc/anacrontab.new
+   mv /usr/local/etc/anacrontab.new /usr/local/etc/anacrontab
+   
    if [ "$2" = "OFF" ] ; then
       return 
    fi
@@ -184,10 +188,15 @@ enable_cron_scrub()
        daily) cLine="0       $3      *       *       *" ;;
        weekly) cLine="0       $4      *       *       $3" ;;
        monthly) cLine="0       $4      $3       *       *" ;;
+       anacron) cLine="$3\t60\tautoscrub";;
            *) exit_err "Invalid time specified" ;;
    esac 
 
-   echo -e "$cLine\troot    ${cronscript} $1" >> /etc/crontab
+   if [ "$2" = "anacron" ]; then
+      echo -e "$cLine\t${cronscript} $1" >> /usr/local/etc/anacrontab
+   else
+     echo -e "$cLine\troot    ${cronscript} $1" >> /etc/crontab
+   fi
 }
 
 list_cron_snap()
@@ -230,6 +239,14 @@ do
    echo "$i - $time"
    echo ""
 done
+
+for i in `grep "${PROGDIR}/backend/runscrub.sh" /usr/local/etc/anacrontab | awk '{print $5}'`
+do
+   time=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /usr/local/etc/anacrontab | awk '{print $1}'`
+   echo "$i - every $time days"
+   echo ""
+done
+
 }
 
 enable_watcher()
