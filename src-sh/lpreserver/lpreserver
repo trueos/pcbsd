@@ -158,7 +158,7 @@ Usage:
 Available Flags:
 
          add - Add a new replication target
-      expand - Expand the remote iscsi zpool
+      expand - Expand the remote iSCSI zpool
       export - Export / Offline an iSCSI zpool
       import - Import / Online an iSCSI zpool
         init - Initialize the remote side again
