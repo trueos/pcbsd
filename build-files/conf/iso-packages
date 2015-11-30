@@ -22,6 +22,7 @@ security/linux-c6-openssl-compat
 sysutils/diskscrub
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt5
+sysutils/grub2-pcbsd
 sysutils/grub2-efi
 www/linux-c6-flashplugin11
 www/nspluginwrapper
