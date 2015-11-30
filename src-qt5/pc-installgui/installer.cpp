@@ -1512,6 +1512,10 @@ QStringList Installer::getDeskPkgCfg()
      // This is always able to be changed by user post-install
      pkgList << "misc/pcbsd-base" << "sysutils/pcbsd-appweb" << "x11/lumina";
 
+     // If using GRUB, make sure the pkgs get loaded
+     if ( bootLoader == "GRUB" )
+       pkgList << "sysutils/grub2-pcbsd" << "sysutils/grub2-efi";
+
      // The default web-browser and plugins
      pkgList << "www/firefox" << "java/icedtea-web";
 

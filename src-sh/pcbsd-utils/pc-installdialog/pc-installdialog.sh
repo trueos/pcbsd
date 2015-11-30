@@ -942,9 +942,15 @@ gen_pc-sysinstall_cfg()
    echo "commitDiskLabel" >> ${CFGFILE}
    echo "" >> ${CFGFILE}
 
+   if [ "$SYSBOOTMANAGER" = "GRUB" ]; then
+     BLPKG="sysutils/grub2-pcbsd sysutils/grub2-efi"
+   else
+     BLPKG=""
+   fi
+
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
-     echo "installPackages=misc/pcbsd-base x11/lumina sysutils/pcbsd-appweb www/firefox emulators/linux_base-c6 www/linux-c6-flashplugin www/nspluginwrapper java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip editors/vim ${EXTRAPKGS}" >> ${CFGFILE}
+     echo "installPackages=misc/pcbsd-base x11/lumina sysutils/pcbsd-appweb www/firefox emulators/linux_base-c6 www/linux-c6-flashplugin www/nspluginwrapper java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip editors/vim ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}
@@ -953,9 +959,9 @@ gen_pc-sysinstall_cfg()
    else
      # TrueOS install
      if [ "$APPCAFEINSTALL" = "YES" ] ; then
-       echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS}" >> ${CFGFILE}
+       echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
      else
-       echo "installPackages=misc/trueos-base ${EXTRAPKGS}" >> ${CFGFILE}
+       echo "installPackages=misc/trueos-base ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
      fi
      echo "" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
