@@ -1047,6 +1047,12 @@ build_pkg_list()
   # Build top-level list of pkgs installed
   ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'ports-mgmt/pkg ' | grep -v 'misc/pcbsd-base ' | grep -v 'misc/trueos-base ' > $OLDPKGLIST
 
+  # If GRUB is used for boot, require it to be installed
+  if [ -e "/boot/grub/grub.cfg" ]; then
+     echo "sysutils/grub2-pcbsd grub2-pcbsd" >> $OLDPKGLIST
+     echo "sysutils/grub2-efi grub2-efi" >> $OLDPKGLIST
+  fi
+
   echo "Original top-level packages:" > $PKGUPGRADELOG
   echo "-----------------------------------------------" >> $PKGUPGRADELOG
   cat $OLDPKGLIST >> $PKGUPGRADELOG
