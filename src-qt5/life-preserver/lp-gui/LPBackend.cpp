@@ -251,12 +251,12 @@ bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
 
 bool LPBackend::setupScrub(QString dataset, int time, int day, QString schedule){
   //Create the command
-  QString cmd = "";
-  if(schedule == "daily"){
-    cmd = "lpreserver cronscrub "+dataset+" start "+schedule+"@"+QString::number(time);
-  }
-  if((schedule == "weekly") || (schedule == "monthly")){
-    cmd = "lpreserver cronscrub "+dataset+" start "+schedule+"@"+QString::number(day)+"@"+QString::number(time);
+  QString cmd = "lpreserver  cronscrub "+dataset+" start ";
+  if(schedule == "daily"){ cmd.append(schedule+"@"+QString::number(time) ); }
+  else if((schedule == "weekly") || (schedule == "monthly")){
+    cmd.append(schedule+"@"+QString::number(day)+"@"+QString::number(time));
+  }else{
+    cmd.append(QString::number(day)); //a set number of days
   }
   int ret = LPBackend::runCmd(cmd);
   qDebug() << "Lpreserver Command:" << cmd;
@@ -286,6 +286,11 @@ bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedul
 	schedule = "monthly";
         day = sch.section(" @ ",1,1).simplified().toInt();
         time = sch.section(" @ ",2,2).simplified().toInt();
+      } 
+      else{
+        schedule = "days";
+	day = sch.section("every",1,1).section("days",0,0).simplified().toInt();
+	time = 0;
       }
       ok=true;
       break;
