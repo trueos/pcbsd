@@ -89,6 +89,10 @@ AUTO_UPDATE="securitypkg"
 _upChk="`sed -n 's/AUTO_UPDATE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
 if [ -n "${_upChk}" ] ; then AUTO_UPDATE="$_upChk" ; fi
 
+CDN_TYPE="HTTP"
+_cdnChk="`sed -n 's/CDN_TYPE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+if [ -n "${_cdnChk}" ] ; then CDN_TYPE="$_cdnChk" ; fi
+
 # Check the PACKAGE_SET variable
 case $PACKAGE_SET in
   ENTERPRISE|PRODUCTION|EDGE) ;;
@@ -210,19 +214,41 @@ pcbsd-major: {
               }
 EOF
   else
-     # Using PC-BSD CDN
-     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+     # Not using a CUSTOM repo
+     if [ "$CDN_TYPE" = "IPFS" -a -e "/usr/local/etc/rc.d/ipfs-go" ] ; then
+        # Get current IPFS CDN Hash for this release
+	fetch -o /tmp/.ipfs-cdn.$$ "http://download.pcbsd.org/ipfs/$MAJORVER/$ARCH/hash-current" 2>/dev/null >/dev/null
+	_err=$?
+	PKGHASH=`cat /tmp/.ipfs-cdn.$$ 2>/dev/null`
+        rm /tmp/.ipfs-cdn.$$ >/dev/null 2>/dev/null
+	if [ $_err -ne 0 -o -z "$PKGHASH" ] ; then
+	   echo "Falling back to HTTP mirror"
+	   sed_pkg_repo_file_http
+	   return 0
+	fi
+
+	# Save the new IPFS CDN pkg config
+        cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
+pcbsd-major: {
+               url: "http://127.0.0.1:8080/ipfs/${PKGHASH}",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+     else
+	sed_pkg_repo_file_http
+     fi
+  fi
+}
+
+sed_pkg_repo_file_http() {
+  cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|pcbsd: |pcbsd-major: |g" \
 	| sed "s|%VERSION%|$MAJORVER|g" \
 	| sed "s|%ARCH%|$ARCH|g" \
 	| sed "s|VERSION|$MAJORVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
-  fi
-
-  if [ -e "/usr/local/etc/pkg/repos/01pcbsd.conf" ] ; then
-     rm /usr/local/etc/pkg/repos/local-pcbsd.conf >/dev/null 2>/dev/null #eventually remove
-     rm /usr/local/etc/pkg/repos/01pcbsd.conf
-  fi
 }
 
 get_update_file() {
