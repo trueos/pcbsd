@@ -21,7 +21,7 @@ do_prune()
   done <${PRUNEFILE}
 }
 
-do_i3dvorak ()
+do_i3dvorak()
 {
 	distfile="/usr/local/share/pcbsd/distfiles/i3dvorak.txz"
 	do_ports_overlay
@@ -249,6 +249,7 @@ usage: `basename $0` [options]
                 
 Options:
   ports          -- Extract port overlay files
+  i3dvorak	 -- Extract i3 dvorak system config
   desktop        -- Extract desktop overlay files (Excluding user-configurable)
   server         -- Extract server overlay files (Excluding user-configurable)
   --sysinit      -- Overwrite user-configurable files (Used for first time init)
@@ -267,7 +268,7 @@ while [ $# -gt 0 ]; do
      desktop) target="desktop" ;;
       server) target="server" ;;
        ports) target="ports" ;;
-       porti3dv) target="i3dvorak" ;;
+       i3dvorak) target="i3dvorak" ;;
    --sysinit) sysinit="YES" ;;
            *) echo "Invalid option $1 specified!"
 	      show_opts
