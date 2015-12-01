@@ -20,9 +20,10 @@ do_prune()
      fi
   done <${PRUNEFILE}
 }
+
 do_i3dvorak ()
 {
-	distfile=/usr/local/share/pcbsd/distfiles/i3dvorak.txz
+	distfile="/usr/local/share/pcbsd/distfiles/i3dvorak.txz"
 	do_ports_overlay
 	cd /
   	tar xvm --no-same-owner -f ${distFile} 2>/dev/null
