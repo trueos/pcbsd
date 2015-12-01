@@ -1087,6 +1087,10 @@ build_pkg_list()
 
 dl_pkgs()
 {
+  # Make sure PKG itself is upgraded
+  echo_log "Checking for updates to ports-mgmt/pkg.."
+  ${PKG_CMD} upgrade -y ports-mgmt/pkg
+
   # Update the DB first
   echo_log "Updating the package repo database..."
   ${PKG_CMD} ${PKG_FLAG} update -f >/dev/null 2>/dev/null
@@ -1295,8 +1299,9 @@ do_lite_pkgupdate_chroot()
 
   echo_log "Starting pkg upgrade..."
   rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
-  echo_log "Running: pkg upgrade -y"
-  chroot ${STAGEMNT} pkg upgrade -y 2>&1 | tee -a ${LOGOUT}
+
+  echo_log "Running: pkg upgrade -U -y"
+  chroot ${STAGEMNT} pkg upgrade -U -y 2>&1 | tee -a ${LOGOUT}
   return $?
 }
 
