@@ -409,7 +409,7 @@ add_rep_iscsi_task() {
   GELIKEY="$4"
 
   case $TIME in
-     [0-9][0-9]|sync|hour|30min|10min|manual) ;;
+     0|[1-9]|1[0-9]|2[0-3]|sync|hour|30min|10min|manual) ;;
      *) exit_err "Invalid time: $TIME"
   esac
 
@@ -510,7 +510,7 @@ add_rep_task() {
   TIME=$6
 
   case $TIME in
-     [0-9][0-9]|sync|hour|30min|10min|manual) ;;
+     0|[1-9]|1[0-9]|2[0-3]|sync|hour|30min|10min|manual) ;;
      *) exit_err "Invalid time: $TIME"
   esac
  
