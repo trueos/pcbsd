@@ -64,11 +64,17 @@ localize_x_desktops() {
   ##########################################################################
 
   # See if GDM is enabled and customize its lang
-  cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
-  if [ "$?" = "0" ] ; then
-    echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
+  if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
+    if [ -e "${FSMNT}/usr/local/etc/gdm/locale.conf" ] ; then
+      printf"LANG=\"${LOCALE}.UTF-8\"
+LC_CTYPE=\"${LOCALE}.UTF-8\"
+LC_MESSAGES=\"${LOCALE}.UTF-8\"" > ${FSMNT}/usr/local/etc/gdm/locale.conf
+  else
+    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
+    if [ "$?" = "0" ] ; then
+      echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
+    fi
   fi
-
 };
 
 # Function which localizes a PC-BSD install
@@ -77,7 +83,7 @@ localize_pcbsd()
   # Check if we have a localized splash screen and copy it
   if [ -e "${FSMNT}/usr/local/share/pcbsd/splash-screens/loading-screen-${SETLANG}.pcx" ]
   then
-    cp ${FSMNT}/usr/local/share/pcbsd/splash-screens/loading-screen-${SETLANG}.pcx ${FSMNT}/boot/loading-screen.pcx    
+    cp ${FSMNT}/usr/local/share/pcbsd/splash-screens/loading-screen-${SETLANG}.pcx ${FSMNT}/boot/loading-screen.pcx
   fi
 
 };
@@ -142,7 +148,7 @@ localize_x_keyboard()
       echo "setxkbmap ${SETXKBMAP}" >>${FSMNT}/usr/local/kde4/share/config/kdm/Xsetup
     fi
   fi
- 
+
   # Create the kxkbrc configuration using these options
   if [ -d "${FSMNT}/usr/share/skel/.kde4/share/config" ] ; then
     echo "[Layout]
@@ -208,7 +214,7 @@ localize_prune_langs()
   if [ -z "$KEEPLANG" ] ; then
     KEEPLANG="en"
   fi
-  export KEEPLANG 
+  export KEEPLANG
 
   echo_log "Pruning other l10n files, keeping ${KEEPLANG}"
 
@@ -232,7 +238,7 @@ localize_prune_langs()
 
 # Function which sets COUNTRY SETLANG and LOCALE based upon $1
 localize_get_codes()
-{ 
+{
   TARGETLANG="${1}"
   # Setup the presets for the specific lang
   case $TARGETLANG in
