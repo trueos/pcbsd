@@ -229,3 +229,4 @@ etc/fonts/local.conf
 man/man1/pc-systemflag.1.gz
 man/man8/pc-sysinstall.8.gz
 man/man8/pc-sysconfig.8.gz
+man/man8/personacrypt.8.gz
