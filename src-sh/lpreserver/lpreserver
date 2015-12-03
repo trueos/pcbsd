@@ -707,14 +707,20 @@ revertsnap) require_root
 		import) require_root ; import_iscsi_zpool "$2" "$3" ;;
 		init) require_root ; init_rep_task "$2" "$3" ;;
 		list) list_rep_task ;;
-		remove) require_root
-		        cat ${REPCONF} | grep -q "^${2}:" 
-			if [ $? -eq 0 ] ; then
-			   rem_rep_task "$2" "$3"
-		  	   echo "Removed replication task for $2"
-			else
-			   exit_err "No such replication task for dataset $2"
-			fi
+                remove) require_root
+                        if [ -z $2 ] || [ -z $3 ]; then
+                           exit_err "Please specify <dataset> and <target host>"
+                        fi
+                        cat ${REPCONF} | awk -F ':' '{ print $1 }' | grep -q "^${2}\$"
+                        if [ $? -ne 0 ] ; then
+                           exit_err "No such replication task for dataset $2"
+                        fi
+                        cat ${REPCONF} | awk -F ':' '{ print $3 }' | grep -q "^${3}\$"
+                        if [ $? -ne 0 ] ; then
+                           exit_err "No such replication task for target host $3"
+                        fi
+                        rem_rep_task "$2" "$3"
+                        echo "Removed replication task for dataset $2, target host $3"
                         ;;
 		 run) require_root ; 
 	  	      ${PROGDIR}/backend/runrep.sh "$2" "$3"
