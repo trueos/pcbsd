@@ -17,3 +17,6 @@ cd ${DIR}
 mkdir ${LB}/bin >/dev/null 2>/dev/null
 cp personacrypt ${LB}/bin/
 chmod 755 ${LB}/bin/personacrypt
+#Install the manpage
+gzip -c personacrypt.8 > personacrypt.8.gz
+mv -f personacrypt.8.gz ${LB}/man/man8/personacrypt.8.gz

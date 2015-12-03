@@ -1,0 +1,85 @@
+.Dd December 01, 2015
+.Dt personacrypt 8
+.Os
+.Sh NAME
+.Nm personacrypt
+.Nd "Allows encrypted usb home directories"
+.Sh SYNOPSIS
+.Nm
+  export   <username>		
+.Br 
+  import   <keyfile>
+.Br
+  init     <user> <passfile> <disk>
+.Br
+  list     [-r]			
+.Br
+  mount    <user> <passfile>
+.Br
+  umount   <user>		
+.Br
+  remove   <user> <passfile>
+.Br		
+  tempinit <username> <size>
+.Br:
+  temprem
+.Sh DESCRIPTION
+The personacrypt utility lets you have encrypted home directories on usb drives that you can move from system to system.  This keeps your data secure and lets you keep all your settings and everything else in the home directory with you on different systems.
+.Pp
+Options:
+.Bl -tag -width indent
+.It \fBexport <username>\fR                   
+Export on-disk key
+.It \fBimport <keyfile>\fR
+Import on-disk key
+.It \fBinit <user> <passfile> <disk>\fR
+Initial setup of username / device
+.It \fBlist [-r]\fR
+List personacrypt or raw devices
+.It \fBmount    <user> <passfile>\fR
+Mount the personacrypt device for username
+.It \fBumount   <user>\fR
+Unmount the personacrypt device for username
+.It \fBremove   <user> <passfile>\fR  
+To remove a users on-disk key, and merge the home directory back onto the system disk
+.It \fBtempinit <username> <size>\fR
+Create a temporary home directory for the username
+.It \fBtemprem\fR
+Remove the systems temporary home directory
+.Sh EXAMPLES
+.Pp
+personacrypt export myusername > mycrypt.key
+.Pp
+Will export the users on-disk key / username settings and save to the
+mycrypt.key file
+.Pp
+personacrypt import mycrypt.key
+.Pp
+Will import the on-disk key / user details from mycrypt.key. The username
+needs to already exist on the system, and have the same home, uid, and gid. All three need to match.
+.Pp
+personacrypt init myusername /tmp/mypassword da0
+.Pp
+Do the initial setup of myusername's personacrypt device on da0.
+The /tmp/mypassword file has the text-passphrase and will be removed after success.
+.Pp
+personacrypt mount myusername /tmp/mypassword
+.Pp
+Mount the personacrypt media for the myusername user.
+The /tmp/mypassword file has the text-passphrase and will be removed after
+success or failure.
+.Pp
+personacrypt umount myusername
+.Pp
+Unmounts the home directory for myusername. 
+.Pp
+personacrypt tempinit myusername 10G
+.Pp
+Create a GELI-backed one-time home directory for myusername. This can be
+rendered in-accessible by the command 'temprem' or a reboot.
+.Pp
+personacrypt temprem
+.Pp
+Destroys the systems GELI-backed one-time home directory dataset
+
+
