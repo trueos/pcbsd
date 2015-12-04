@@ -10,8 +10,11 @@
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QDebug>
+#include <QSettings>
 
 #define DELIM QString("::::")
+#define SAVESETTINGSFILE QDir::tempPath()+"/.pc-sysconfig-tmp"
+// Note: The settings file is wiped after system reboots (in the temporary dir)
 
 #include "DevDB.h"
 
@@ -97,9 +100,7 @@ private:
 	  QFile file(filepath);
 	  if(file.open(QIODevice::Text | QIODevice::ReadOnly)){
 	    QTextStream in(&file);
-	    while(!in.atEnd()){
-	      out << in.readLine();
-	    }
+	    out = in.readAll().split("\n");
 	    file.close();
 	  }
 	  return out;
@@ -181,6 +182,19 @@ private:
 	QString getScreenBrightness(); //returns: 0-100 (%), or [ERROR] for any error
 	QString setScreenBrightness(QString percent); //returns: [SUCCESS] or [ERROR]
 	  //Input Note: "+" or "-" may be prepended on the percentage to cause a difference from the current setting (+5 will increase by 5)
+	
+public slots:
+	//Simple functions to save/load internal values between runs
+	void LoadInternalValues(){
+	  QSettings settings(SAVESETTINGSFILE,QSettings::IniFormat,0);
+	    IntMountPoints = settings.value("IntMountPoints",QStringList()).toStringList();
+	}
+	
+	void SaveInternalValues(){
+	  QSettings settings(SAVESETTINGSFILE,QSettings::IniFormat,0);
+	    settings.setValue("IntMountPoints",IntMountPoints);
+	}
+
 };
 
 #endif
