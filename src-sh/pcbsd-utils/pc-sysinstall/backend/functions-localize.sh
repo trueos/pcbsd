@@ -69,6 +69,7 @@ localize_x_desktops() {
       printf"LANG=\"${LOCALE}.UTF-8\"
 LC_CTYPE=\"${LOCALE}.UTF-8\"
 LC_MESSAGES=\"${LOCALE}.UTF-8\"" > ${FSMNT}/usr/local/etc/gdm/locale.conf
+    fi
   else
     cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
     if [ "$?" = "0" ] ; then
