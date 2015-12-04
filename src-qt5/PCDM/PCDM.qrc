@@ -26,6 +26,7 @@
     <file>images/openbox.png</file>
     <file>images/nodesktop.png</file>
     <file>images/usbdevice.png</file>
+    <file>images/refresh.png</file>
   </qresource>
   <qresource prefix="samples">
     <file>themes/default/default.theme</file>

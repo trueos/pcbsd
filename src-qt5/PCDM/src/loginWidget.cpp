@@ -29,7 +29,7 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   QVBoxLayout* vlayout = new QVBoxLayout();
   QFormLayout* flayout = new QFormLayout();
   //Create the items
-  userIcon = new QToolButton(this);;
+  userIcon = new QToolButton(this);
   	QAction* tmp = new QAction(this);
 	userIcon->setDefaultAction( tmp );
 	userIcon->setFocusPolicy(Qt::NoFocus);
@@ -56,6 +56,8 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
 	QAction* tmp3 = new QAction(this);
 	pushUserIcon->setDefaultAction( tmp3 );
 	pushUserIcon->setFocusPolicy(Qt::NoFocus);
+  pushRefresh = new QToolButton;
+    pushRefresh->setFocusPolicy(Qt::NoFocus);
   listDE = new QComboBox(this);
   deIcon = new QLabel(this);
   devIcon = new QLabel(this);
@@ -88,6 +90,8 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
       hlayout4->addWidget(checkAnon);
       hlayout4->addStretch();
       vlayout->addLayout(hlayout4);
+    vlayout->addSpacing(10);
+    vlayout->addWidget(pushRefresh);
     
   //Setup the Signals/Slots
   connect(pushLogin,SIGNAL(clicked()),this,SLOT(slotTryLogin()));
@@ -98,6 +102,7 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   connect(listUserBig,SIGNAL(currentRowChanged(int)),this,SLOT(slotUserHighlighted(int)) );
   connect(listDE,SIGNAL(currentIndexChanged(int)),this,SLOT(slotDesktopChanged(int)) );
   connect(checkAnon, SIGNAL(stateChanged(int)), this, SLOT(slotAnonChanged()) );
+  connect(pushRefresh, SIGNAL(clicked()), this, SIGNAL(refreshUsers()) );
   allowPasswordView(allowPWVisible); //setup signal/slots for pushViewPassword
   //Set this layout for the loginWidget
   this->setLayout(vlayout);
@@ -423,6 +428,9 @@ void LoginWidget::changeButtonIcon(QString button, QString iconFile, QSize iconS
   }else if(button.toLower() == "device"){
     devIcon->setPixmap( QPixmap(iconFile).scaled(iconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation) );
     devIcon->resize(iconSize);
+  }else if(button.toLower() == "refresh"){
+    pushRefresh->setIcon(QIcon(iconFile));
+    pushRefresh->setIconSize(iconSize);
   }else{ 
     qDebug() << "LoginWidget: Cannot change the icon for button" << button << " - valid buttons are \"display\", \"login\", and \"pwview\""; 
   }
@@ -455,6 +463,8 @@ void LoginWidget::retranslateUi(){
   pushLogin->setText(tr("Login"));
     pushLogin->setToolTip(tr("Login to the system with the current user and password"));
   pushViewPassword->setText(tr("Password"));
+  pushRefresh->setText(tr("Refresh"));
+    pushRefresh->setToolTip(tr("Refresh available users"));
   if(allowPWVisible){
     pushViewPassword->setToolTip(tr("Hold to view the currently entered password"));
   }else{
