@@ -25,7 +25,6 @@ bin/pc-runxgui
 bin/pc-checkxdisplay
 bin/pc-installdialog
 bin/pc-sysconfig
-bin/pc-sysconfig-daemon
 bin/pc-systemflag
 bin/personacrypt
 bin/restamp-grub
@@ -220,7 +219,6 @@ etc/rc.d/pc-kinit
 etc/rc.d/pc-nsswitch
 etc/rc.d/pc-pam
 etc/rc.d/pc-samba
-etc/rc.d/pc-sysconfig
 etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
