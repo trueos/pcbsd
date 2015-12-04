@@ -166,15 +166,6 @@ post_extract_setup()
        echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
     fi
 
-    # Enable the pc-sysconfig daemon
-    grep -q 'pcsysconfig_enable' /etc/rc.conf.pcbsd 2>/dev/null
-    if [ $? -ne 0 ]; then
-       grep -q 'pcsysconfig_enable' /etc/rc.conf
-       if [ $? -ne 0 ]; then
-         echo "pcsysconfig_enable=\"YES\"" >> /etc/rc.conf
-       fi
-    fi
-
     # Check if we need to copy pcbsd or trueos overlay
     if [ -e "/boot/loader.conf.pcbsd" ] ; then
        copy_pcbsd_overlay
