@@ -30,12 +30,16 @@ int main( int argc, char ** argv ){
     QString lang = QString::fromLocal8Bit(getenv("LC_ALL"));
     if(lang.isEmpty()){ lang = QString::fromLocal8Bit(getenv("LANG")); }
     QString user = QString::fromLocal8Bit(getlogin());
+    setuid(0); //need to run as user for this
     //Create/run the request
+    //qDebug() << "Open QApplication";
     QCoreApplication app(argc,argv); //needed to silence a runtime warning with QSettings
     Backend w; 
+    //qDebug() << "Read old values";
     w.LoadInternalValues();
     QStringList out;
     for(int i=1; i<argc; i++){ //skip the first arg (current binary name)
+      //qDebug() << "Run Request:" << argv[i];
       out << w.runRequest(QString::fromLocal8Bit(argv[i]).split(" "), user, lang);
     }
     w.SaveInternalValues();
