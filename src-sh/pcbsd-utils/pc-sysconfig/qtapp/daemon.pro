@@ -2,7 +2,7 @@ TEMPLATE	= app
 LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
-QT = core network
+QT = core
 
 HEADERS	+= Backend.h \
 			DevDB.h
