@@ -64,18 +64,18 @@ localize_x_desktops() {
   ##########################################################################
 
   # See if GDM is enabled and customize its lang
-  if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
-    if [ -e "${FSMNT}/usr/local/etc/gdm/locale.conf" ] ; then
-      printf"LANG=\"${LOCALE}.UTF-8\"
+  # if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
+  if [ -d "${FSMNT}/usr/local/etc/gdm" ] ; then
+      printf "LANG=\"${LOCALE}.UTF-8\"
 LC_CTYPE=\"${LOCALE}.UTF-8\"
 LC_MESSAGES=\"${LOCALE}.UTF-8\"" > ${FSMNT}/usr/local/etc/gdm/locale.conf
-    fi
-  else
-    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
-    if [ "$?" = "0" ] ; then
-      echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
-    fi
   fi
+  # else
+  #   cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
+  #   if [ "$?" = "0" ] ; then
+  #     echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
+  #   fi
+  # fi
 };
 
 # Function which localizes a PC-BSD install
