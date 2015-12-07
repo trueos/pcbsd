@@ -82,7 +82,7 @@ void Toolbox::on_actionDiagnostic_report_triggered()
 	//qDebug() << " - cmd:" << cmd;
 	if(QFile::exists(filename)){ QFile::remove(filename); } //remove any old file first
 	p.start(cmd);
-	while(p.waitForFinished(200)){
+	while(p.waitForFinished(4000)){
 	  QApplication::processEvents();
 	}
 	if(QFile::exists(filename)){
