@@ -134,6 +134,7 @@ void LoginWidget::updateWidget(){
     devIcon->setVisible(false);
     listDE->setVisible(false);
     deIcon->setVisible(false);
+    pushRefresh->setVisible(true);
   }else if(userSelected && showUsers){
     nousers->setVisible(false);
     userIcon->setVisible(false);
@@ -148,6 +149,7 @@ void LoginWidget::updateWidget(){
     checkAnon->setVisible(allowAnon && listUsers->currentData().toString()!="persona");
     pushLogin->setVisible(true);
     pushViewPassword->setVisible(true);
+    pushRefresh->setVisible(false);
     if( listDE->count() < 1 ){ listDE->setVisible(false); deIcon->setVisible(false); }
     else{ listDE->setVisible(true); deIcon->setVisible(true); }
   }else if(!showUsers){
@@ -164,6 +166,7 @@ void LoginWidget::updateWidget(){
     devIcon->setVisible( true );
     pushLogin->setVisible(true);
     pushViewPassword->setVisible(true);
+    pushRefresh->setVisible(false);
     if( listDE->count() < 1 ){ listDE->setVisible(false); deIcon->setVisible(false); }
     else{ listDE->setVisible(true); deIcon->setVisible(true); }
   }else{
@@ -182,6 +185,7 @@ void LoginWidget::updateWidget(){
     devIcon->setVisible(false);
     listDE->setVisible(false);
     deIcon->setVisible(false);
+    pushRefresh->setVisible(true);
   }
   if(pwVisible){
     linePassword->setEchoMode(QLineEdit::Normal);

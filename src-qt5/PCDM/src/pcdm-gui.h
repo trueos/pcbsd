@@ -53,6 +53,7 @@ private slots:
     void slotRestartComputer();
     void slotShutdownComputer();
     void slotClosePCDM();
+    void slotUpdateGUI();
     void slotChangeLocale();
     void slotChangeKeyboardLayout();
     void slotPushVirtKeyboard();    // Start xvkbd

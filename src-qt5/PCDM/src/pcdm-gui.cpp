@@ -362,7 +362,7 @@ void PCDMgui::slotLoginSuccess(){
   if(simpleDESwitcher){ de = loginW->currentDE(); }
   else{ de = deSwitcher->currentItem(); }
   saveLastLogin( loginW->currentUsername(), de );*/
-  slotClosePCDM(); //now start to close down the PCDM GUI
+  slotUpdateGUI(); //now start to close down the PCDM GUI
 }
 
 void PCDMgui::slotLoginFailure(){
@@ -443,11 +443,20 @@ void PCDMgui::slotRestartComputer(){
 }
 
 void PCDMgui::slotClosePCDM(){
+  //Same as UpdateGUI, but stops the daemon as well for debugging purposes
+  system("killall -9 xvkbd"); //be sure to close the virtual keyboard
+  for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
+  QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
+  QCoreApplication::exit(0);
+  close();
+}
+
+void PCDMgui::slotUpdateGUI(){
   system("killall -9 xvkbd"); //be sure to close the virtual keyboard
   for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
   //QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
   QCoreApplication::exit(0);
-  close();
+  close();	
 }
 
 void PCDMgui::slotChangeLocale(){
@@ -608,6 +617,8 @@ void PCDMgui::retranslateUi(){
   systemButton->defaultAction()->setText(tr("System"));
   //Menu entries for system button
     systemMenu->clear();	
+    systemMenu->addAction( tr("Refresh PCDM"), this, SLOT(slotUpdateGUI()) );
+    systemMenu->addSeparator();
     systemMenu->addAction( tr("Restart"),this, SLOT(slotRestartComputer()) );
     systemMenu->addAction( tr("Shut Down"), this, SLOT(slotShutdownComputer()) );
     if(DEBUG_MODE){systemMenu->addAction( tr("Close PCDM"), this, SLOT(slotClosePCDM()) ); }
