@@ -7,10 +7,9 @@ Contents:
    :glob:
    :maxdepth: 3
 
-   libsh
-   lpreserver
-   pcbsd-utils
-   syscache
+   connection
+   users
+   classes/index
 
 Indices and tables
 ==================
