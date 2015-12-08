@@ -3,10 +3,7 @@ network
 
 The network class is used to manage and retrieve information from Ethernet and wireless network devices.
 
-Ethernet Devices
-================
-
-Every Ethernet device request contains the following parameters:
+Every network class request contains the following parameters:
 
 +---------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------+
 | **Parameter**                   | **Value**     | **Description**                                                                                                      |
@@ -27,9 +24,15 @@ Every Ethernet device request contains the following parameters:
 
 The rest of this section provides examples of the available *args* for each type of request, along with their responses.
 
+Network Devices
+===============
 
-Getting NIC Information
------------------------
+The requests in this section work for both Ethernet and wireless devices. When specifying the *nic*, use the FreeBSD Ethernet device name, or
+*wlan#* for wireless devices (where
+*#* is the wireless device number).
+
+Get Interface Information
+-------------------------
 
 **Request**
 
@@ -73,8 +76,8 @@ Getting NIC Information
  }
 
 
-Setting Configuration
----------------------
+Set Interface Configuration
+---------------------------
 
 **Request**
 
@@ -123,8 +126,8 @@ Setting Configuration
  }
 
 
-Getting System Network Configuration
-------------------------------------
+Get System Network Configuration
+--------------------------------
 
 **Request**
 
@@ -168,8 +171,8 @@ Getting System Network Configuration
  }
 
 
-Setting System Network Configuration
-------------------------------------
+Set System Network Configuration
+--------------------------------
 
 **Request**
 
@@ -227,5 +230,181 @@ Setting System Network Configuration
    }
  }
 
-Wireless Devices
-================
+Wireless Settings
+=================
+
+This section describes the additional requests available for wireless devices.
+
+
+List Available APs
+------------------
+
+**Request**
+
+.. code-block:: json
+
+ {
+ "id": "someUniqueID",
+ "name": "sysadm",
+ "namespace": "rpc",
+ "args": {
+      "getWifiAPs": {
+      }
+   }
+ }
+
+**Response**
+
+.. code-block:: json
+
+ {
+   "id": "someUniqueID",
+   "name": "response",
+   "namespace": "rpc",
+   "args": {
+      "getWifiAPs": {
+          "myap": {
+          ssid: "myap",
+          bssid: "",
+          security: "(wep|wpa|wpae)",
+          key: ""         
+         },
+          "workap": {
+          ssid: "workap",
+          bssid: "",
+          security: "(wep|wpa|wpae)",
+          key: ""         
+         },
+       }
+   }
+ }
+
+
+List APs Within Range
+---------------------
+
+**Request**
+
+.. code-block:: json
+
+ {
+ "id": "someUniqueID",
+ "name": "sysadm",
+ "namespace": "rpc",
+ "args": {
+      "scanWifiAPs": {
+      }
+   }
+ }
+
+**Response**
+
+.. code-block:: json
+
+ {
+   "id": "someUniqueID",
+   "name": "response",
+   "namespace": "rpc",
+   "args": {
+      "scanWifiAPs": {
+          "myap": {
+          ssid: "myap",
+          bssid: "",
+          security: "(wep|wpa|wpae)",
+          rate: "",
+          signoise: "",
+          caps: "",
+          channel: "",
+          inte: "",
+          caps: "",
+             },
+          "workap": {
+          ssid: "workap",
+          bssid: "",
+          security: "(wep|wpa|wpae)",
+          rate: "",
+          signoise: "",
+          caps: "",
+          channel: "",
+          inte: "",
+          caps: "",
+         },
+       }
+   }
+ }
+
+Connect to Specified AP
+-----------------------
+
+**Request**
+
+.. code-block:: json
+
+ {
+ "id": "someUniqueID",
+ "name": "sysadm",
+ "namespace": "rpc",
+ "args": {
+      "addWifiAP": {
+        ssid: "myap",
+        bssid: "",
+        security: "(wep|wpa|wpae)",
+        key: "mywifikey",
+        wephex: false
+        }
+   }
+ }
+
+**Response**
+
+.. code-block:: json
+
+ {
+   "id": "someUniqueID",
+   "name": "response",
+   "namespace": "rpc",
+   "args": {
+      "addWifiAP": {
+            ssid: "myap",
+        bssid: "",
+        security: "(wep|wpa|wpae)",
+        key: "mywifikey",
+        wephex: false     
+       }
+   }
+ }
+
+Remove Specified AP
+-------------------
+
+**Request**
+
+.. code-block:: json
+
+ {
+ "id": "someUniqueID",
+ "name": "sysadm",
+ "namespace": "rpc",
+ "args": {
+      "delWifiAP": {
+        ssid: "myap",
+        bssid: ""
+        }
+   }
+ }
+
+**Response**
+
+.. code-block:: json
+
+ {
+   "id": "someUniqueID",
+   "name": "response",
+   "namespace": "rpc",
+   "args": {
+      "delWifiAP": {
+            ssid: "myap",
+        bssid: ""
+       }
+   }
+ }
