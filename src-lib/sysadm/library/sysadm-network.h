@@ -50,7 +50,7 @@ public:
 	QString netmaskAsString();
 	QString desc();
 	QString macAsString();
-	QString mediaTypeAsString();
+	//QString mediaTypeAsString();
 	QString mediaStatusAsString();
 	QString gatewayAsString();
 	bool isWireless();
