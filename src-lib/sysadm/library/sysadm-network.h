@@ -7,11 +7,9 @@
 #ifndef __PCBSD_LIB_UTILS_NETWORK_H
 #define __PCBSD_LIB_UTILS_NETWORK_H
 
-#include <QString>
-#include <QList>
-#include <QStringList>
+#include "sysadm-global.h"
 
-namespace pcUtil{
+namespace sysadm{
 
 //General purpose enumeration of network encryption types
 enum NetCrypt {UNKNOWN, NONE, WEP, WPA1, WPA2, WPAE};

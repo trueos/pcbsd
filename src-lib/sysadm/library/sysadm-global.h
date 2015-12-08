@@ -31,5 +31,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdlib.h>
+#include <netdb.h> //from "man getnetent" (network entries)
 
 #endif

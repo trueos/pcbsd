@@ -4,12 +4,12 @@
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
-#include "pcbsd-general.h"
+#include "sysadm-general.h"
 //PLEASE: Keep the functions in the same order as listed in pcbsd-general.h
 
-#include "global.h"
+#include "sysadm-global.h"
 
-using namespace pcUtil;
+using namespace sysadm;
 //=================
 // RunCommand() variations
 //=================

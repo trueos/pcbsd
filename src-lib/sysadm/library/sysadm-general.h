@@ -7,9 +7,9 @@
 #ifndef __PCBSD_LIB_UTILS_GENERAL_H
 #define __PCBSD_LIB_UTILS_GENERAL_H
 
-#include "global.h"
+#include "sysadm-global.h"
 
-namespace pcUtil{
+namespace sysadm{
 
 class General{
 public:

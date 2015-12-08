@@ -7,12 +7,12 @@
 // Note: This was almost entirely written by Tim McCormick in 2009 for
 //   the first PC-BSD library, and copied here by Ken Moore in 2015
 //===========================================
-#include "pcbsd-network.h"
-#include "pcbsd-general.h"
+#include "sysadm-network.h"
+#include "sysadm-general.h"
 
-#include "global.h"
+#include "sysadm-global.h"
 
-using namespace pcUtil;
+using namespace sysadm;
 
 //====================
 //   STATIC LISTING FUNCTION 

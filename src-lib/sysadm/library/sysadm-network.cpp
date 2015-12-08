@@ -4,13 +4,11 @@
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
-#include "pcbsd-network.h"
+#include "sysadm-network.h"
 //PLEASE: Keep the functions in the same order as listed in pcbsd-network.h
+#include "sysadm-general.h"
 
-#include <netdb.h> //from "man getnetent" (network entries)
-#include "pcbsd-general.h"
-
-using namespace pcUtil;
+using namespace sysadm;
 //=====================
 //   NETWORK FUNCTIONS
 //=====================
