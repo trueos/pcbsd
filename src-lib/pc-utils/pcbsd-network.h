@@ -74,12 +74,12 @@ public:
 //General data structure for wifi access points (local or available)
 struct NetWifi{
 	NetCrypt encryption;
-	
 };
 
 	
 //The general-purpose class that any user/app can utilitize
 class Network{
+public:
 	static QList<NetworkEntry> listNetworkEntries();
 	static QStringList readRcConf(); //use this when reading /etc/rc.conf for network stuff - prevents opening the file repeatedly
 	static NetDevSettings deviceRCSettings(QString dev); //settings in rc.conf (bootup)
@@ -88,6 +88,7 @@ class Network{
 
 //The class that requires overarching root permissions (usually for changes to system)
 class NetworkRoot{
+public:
 	static bool saveNetworkEntry(NetworkEntry); //**Not implemented yet**
 	static bool saveRCSettings(NetDevSettings);	//rc.conf settings (bootup)
 	static bool setIfconfigSettings(NetDevSettings); 	//ifconfig settings (temporary session)

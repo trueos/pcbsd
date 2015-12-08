@@ -10,20 +10,7 @@
 #include "pcbsd-network.h"
 #include "pcbsd-general.h"
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/ioctl.h>
-#include <sys/sysctl.h>
-#include <unistd.h>
-
-#include <net/if.h>
-#include <net/if_dl.h>
-#include <net/if_media.h>
-
-#include <ifaddrs.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <stdlib.h>
+#include "global.h"
 
 using namespace pcUtil;
 
@@ -79,17 +66,18 @@ QString NetDevice::ipAsString(){
 
 //Fetch the IPv6 and return it as a QString
 QString NetDevice::ipv6AsString(){
+  return "unknown";
    //Note: New on 6/24/15 - still needs testing
-   struct ifreq ifr;
+   /*struct ifreq ifr;
    memset(&ifr, 0, sizeof(struct ifreq));
 
    strncpy(ifr.ifr_name, name.toLocal8Bit(), IFNAMSIZ);
    int s = socket(PF_INET6, SOCK_DGRAM, 0);
    
    ioctl(s, SIOCGIFADDR, &ifr);
-   struct in_addr in = ((sockaddr_in6 *) &ifr.ifr_addr)->sin6_addr;
+   struct in6_addr in = ((sockaddr_in6 *) &ifr.ifr_addr)->sin6_addr;
 
-   return QString(inet_ntoa(in));
+   return QString(inet_ntoa(in));*/
 }
 
 //Fetch the netmask and return it as a QString
@@ -171,7 +159,7 @@ QString NetDevice::mediaStatusAsString(){
 }
 
 QString NetDevice::gatewayAsString(){
-  QString info = General::RunCommand("nice netstat -n -r").filter(name).filter("default").join("\n");
+  QString info = General::RunCommand("nice netstat -n -r").split("\n").filter(name).filter("default").join("\n");
   if(info.isEmpty()){ return ""; }
   //Pull the gateway out of the first line (<default> <gateway>)
   info = info.replace("\t"," ").section("\n",0,0).simplified(); //ensure proper parsing
@@ -194,7 +182,7 @@ bool NetDevice::isWireless(){
 //Get the parent device (if this is a wireless wlan)
 QString NetDevice::getWifiParent(){
    if(!name.contains("wlan")){ return ""; }
-   return Utils::sysctl("net.wlan." + this->devNum() + ".%parent");
+   return General::sysctl("net.wlan." + QString::number(this->devNum()) + ".%parent");
 }
 
 //See if the device is setup to use DHCP
@@ -317,7 +305,7 @@ long NetDevice::errorsTx(){
 //=========================
 //   SETTING FUNCTIONS (requires root)
 //=========================
-void setUp(bool up){
+void NetDevice::setUp(bool up){
   //This only sets it up/down for the current session - does not change usage on next boot
-  General::runCommand("ifconfig "+name+" "+ (up ? "up": "down") );
+  General::RunCommand("ifconfig "+name+" "+ (up ? "up": "down") );
 }

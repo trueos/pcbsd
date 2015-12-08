@@ -7,13 +7,12 @@
 #ifndef __PCBSD_LIB_UTILS_GENERAL_H
 #define __PCBSD_LIB_UTILS_GENERAL_H
 
-#include <QString>
-#include <QList>
-#include <QStringList>
+#include "global.h"
 
 namespace pcUtil{
 
 class General{
+public:
 	//Non-event-blocking versions of QProcess::execute() or system()
 	//Note: environment changes should be listed as such: [<variable>=<value>]
 	// - Both success/log of output
@@ -28,9 +27,9 @@ class General{
 	static bool writeTextFile(QString filename, QStringList contents, bool overwrite = true);
 	
 	//Retrieve a text-based sysctl
-	QString sysctl(QString var);
+	static QString sysctl(QString var);
 	//Retrieve a number-based sysctl
-	long long sysctlAsInt(QString var)
+	static long long sysctlAsInt(QString var);
 };
 	
 } //end of pcbsd namespace

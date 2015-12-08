@@ -39,7 +39,7 @@ QStringList Network::readRcConf(){
   static QDateTime lastread;
   if(!lastread.isValid() || contents.isEmpty() || (QFileInfo("/etc/rc.conf").lastModified()> lastread) ){
     lastread = QDateTime::currentDateTime();
-    contents = General::ReadTextFile("/etc/rc.conf");
+    contents = General::readTextFile("/etc/rc.conf");
   }
   return contents;
 }
@@ -55,9 +55,9 @@ NetDevSettings Network::deviceRCSettings(QString dev){
     QString var = info[i].section("=",0,0).simplified();
     QString val = info[i].section("=",1,100).simplified();
       if(val.startsWith("\"")){ val = val.remove(1); }
-      if(val.endsWith("\"")){ val = val.chop(1); }
+      if(val.endsWith("\"")){ val.chop(1); }
       val.prepend(" "); //just to make additional parsing easier later - each "variable" should have whitespace on both sides
-    if(var=="ifconfig_"dev){
+    if(var==("ifconfig_"+dev)){
       QStringList vals = val.split(" ",QString::SkipEmptyParts);
       //HOSTAP set.wifihost = true;
 	    
@@ -96,8 +96,9 @@ NetDevSettings Network::deviceIfconfigSettings(QString dev){
   if(info.contains(" ether ")){ set.etherMac = info.section(" ether ",1,1).section(" ",0,0); }
   if(info.contains(" ssid ")){ set.wifiSSID = info.section(" ssid ",1,1).section(" ",0,0); }
   if(info.contains(" bssid ")){ set.wifiBSSID = info.section(" bssid ",1,1).section(" ",0,0); }
-  if(info.contains(" country ")){ set.wificountry = info.section(" country ",1,1).section(" ",0,0); }
+  if(info.contains(" country ")){ set.wifiCountry = info.section(" country ",1,1).section(" ",0,0); }
   if(info.contains(" channel ")){ set.staticIPv4 = info.section(" channel ",1,1).section(" ",0,0); }
+  return set;
 }
 
 //=====================
@@ -117,10 +118,10 @@ bool NetworkRoot::saveNetworkEntry(NetworkEntry data){
 
 //--------------------------------------
 bool NetworkRoot::saveRCSettings(NetDevSettings){
-	
+  return false;
 }
 
 //--------------------------------------
 bool NetworkRoot::setIfconfigSettings(NetDevSettings){
-	
+  return false;
 }

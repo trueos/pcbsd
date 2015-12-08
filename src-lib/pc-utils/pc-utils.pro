@@ -10,12 +10,14 @@ TEMPLATE	= lib
 LANGUAGE	= C++
 VERSION		= 1.0.0
 
-HEADERS	+= pcbsd-general.h \
+HEADERS	+= global.h \
+		pcbsd-general.h \
 		pcbsd-network.h
 		
 
 SOURCES	+= pcbsd-general.cpp \
-		pcbsd-network.cpp
+		pcbsd-network.cpp \
+		NetDevice.cpp
 
 include.path=/usr/local/include/
 include.files=pcbsd-*.h

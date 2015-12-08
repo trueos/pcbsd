@@ -7,11 +7,7 @@
 #include "pcbsd-general.h"
 //PLEASE: Keep the functions in the same order as listed in pcbsd-general.h
 
-#include <QProcess>
-#include <QCoreApplication>
-#include <QFile>
-#include <QTextStream>
-#include <QDir>
+#include "global.h"
 
 using namespace pcUtil;
 //=================
