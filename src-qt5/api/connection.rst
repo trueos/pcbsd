@@ -1,13 +1,18 @@
-==========
+.. _Connection:
+
 Connection
 ==========
 
 Some intro text here...
 
+.. _Getting Started:
+
 Getting Started
 ---------------
 
 Add some links to docs on websockets and json....
+
+.. _Authentication:
 
 Authentication
 --------------

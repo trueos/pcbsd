@@ -1,10 +1,7 @@
-Welcome to the PC-BSD API Reference
-===================================
-
-Contents:
+PC-BSD® API Reference
+=====================
 
 .. toctree::
-   :glob:
    :numbered:
    :maxdepth: 4
 

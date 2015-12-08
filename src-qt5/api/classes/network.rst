@@ -1,3 +1,5 @@
+.. _network:
+
 network
 *******
 
@@ -24,12 +26,16 @@ Every network class request contains the following parameters:
 
 The rest of this section provides examples of the available *args* for each type of request, along with their responses.
 
+.. _Network Devices:
+
 Network Devices
 ===============
 
 The requests in this section work for both Ethernet and wireless devices. When specifying the *nic*, use the FreeBSD Ethernet device name, or
 *wlan#* for wireless devices (where
 *#* is the wireless device number).
+
+.. _Get Interface Information:
 
 Get Interface Information
 -------------------------
@@ -75,6 +81,7 @@ Get Interface Information
    }
  }
 
+.. _Set Interface Configuration:
 
 Set Interface Configuration
 ---------------------------
@@ -125,6 +132,7 @@ Set Interface Configuration
    }
  }
 
+.. _Get System Network Configuration:
 
 Get System Network Configuration
 --------------------------------
@@ -170,6 +178,7 @@ Get System Network Configuration
    }
  }
 
+.. _Set System Network Configuration:
 
 Set System Network Configuration
 --------------------------------
@@ -230,11 +239,14 @@ Set System Network Configuration
    }
  }
 
+.. _Wireless Settings:
+
 Wireless Settings
 =================
 
 This section describes the additional requests available for wireless devices.
 
+.. _List Available APs:
 
 List Available APs
 ------------------
@@ -279,6 +291,7 @@ List Available APs
    }
  }
 
+.. _List APs Within Range:
 
 List APs Within Range
 ---------------------
@@ -333,6 +346,8 @@ List APs Within Range
    }
  }
 
+.. _Connect to Specified AP:
+
 Connect to Specified AP
 -----------------------
 
@@ -373,6 +388,8 @@ Connect to Specified AP
        }
    }
  }
+
+.. _Remove Specified AP:
 
 Remove Specified AP
 -------------------
