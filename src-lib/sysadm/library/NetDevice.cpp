@@ -66,9 +66,9 @@ QString NetDevice::ipAsString(){
 
 //Fetch the IPv6 and return it as a QString
 QString NetDevice::ipv6AsString(){
-  return "unknown";
    //Note: New on 6/24/15 - still needs testing
-   /*struct ifreq ifr;
+   char straddr[INET6_ADDRSTRLEN];
+   struct ifreq ifr;
    memset(&ifr, 0, sizeof(struct ifreq));
 
    strncpy(ifr.ifr_name, name.toLocal8Bit(), IFNAMSIZ);
@@ -77,7 +77,8 @@ QString NetDevice::ipv6AsString(){
    ioctl(s, SIOCGIFADDR, &ifr);
    struct in6_addr in = ((sockaddr_in6 *) &ifr.ifr_addr)->sin6_addr;
 
-   return QString(inet_ntoa(in));*/
+   inet_ntop(AF_INET6, &in, straddr, sizeof(straddr));
+   return QString(straddr);
 }
 
 //Fetch the netmask and return it as a QString
