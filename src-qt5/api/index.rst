@@ -5,7 +5,8 @@ Contents:
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :numbered:
+   :maxdepth: 4
 
    connection
    users
