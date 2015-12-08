@@ -1,11 +1,9 @@
-Welcome to the PC-BSD API Reference
-===================================
-
-Contents:
+PC-BSD® API Reference
+=====================
 
 .. toctree::
-   :glob:
-   :maxdepth: 3
+   :numbered:
+   :maxdepth: 4
 
    connection
    users
