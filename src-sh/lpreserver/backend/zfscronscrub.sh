@@ -23,7 +23,7 @@ if [ "$ACTION" = "start" ] ; then
   TIME="${3}"
 
   # See if the user is running numbered anacron
-  echo $TIME | grep -q '^[1-9]\+$'
+  echo $TIME | grep -q '^[1-9][0-9]*$'
   if [ $? -eq 0 ] ; then
      nth_day="`echo $TIME`"
      TIME="anacron"
