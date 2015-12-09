@@ -178,7 +178,6 @@ if [ ! -e "/usr/local/etc/stunnel/stunnel.conf" ] ; then
   cat >/usr/local/etc/stunnel/stunnel.conf << EOF
 setuid = stunnel
 setgid = nogroup
-options = NO_SSLv2
 client = no
 
 [iscsi]
