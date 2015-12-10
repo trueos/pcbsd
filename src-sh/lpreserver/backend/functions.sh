@@ -671,7 +671,6 @@ connect_iscsi() {
      # Create the config
      echo "client = yes
 foreground = yes
-options = NO_SSLv2
 [iscsi]
 accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
