@@ -55,8 +55,11 @@ void LPWizard::slotFinished(){
       else if(ui->combo_scrub_day_week->currentIndex() == 4){ scrubDay = 5; }
       else if(ui->combo_scrub_day_week->currentIndex() == 5){ scrubDay = 6; }
       else{ scrubDay = 7; }
-    }else{
+    }else if(scrubschint==2){
       scrubSchedule = "monthly";
+      scrubDay = ui->spin_scrub_day_month->value();
+    }else{
+      scrubSchedule = "days";
       scrubDay = ui->spin_scrub_day_month->value();
     }
     scrubTime = ui->time_scrub->time().hour();
@@ -78,9 +81,17 @@ void LPWizard::UpdateScrubUI(){
   //Adjust whether the day of week box is enabled
   ui->combo_scrub_day_week->setEnabled( (index == 1) && active);
   //Adjust whether the day of month box is enabled
-  ui->spin_scrub_day_month->setEnabled( (index == 2) && active);
-  // Always make time box enabled
-  ui->time_scrub->setEnabled(active);
+  ui->spin_scrub_day_month->setEnabled( (index >= 2) && active);
+  // Always make time box enabled if not a daily interval
+  ui->time_scrub->setEnabled( (index<3) && active);
+  //hide all the "time" UI elements if an interval of days is selected (just looks strange otherwise)
+  ui->combo_scrub_day_week->setVisible(index<3);
+  ui->time_scrub->setVisible(index<3);
+  ui->label_5->setVisible(index<3); //label
+  ui->label_7->setVisible(index<3); //label
+  ui->label_8->setVisible(index<3); //label
+  //Make sure the maximum value for the combo_scrub_day_week widget is right
+   ui->spin_scrub_day_month->setMaximum( (index<3) ? 28 : 999);
 }
 
 int LPWizard::nextId() const{

@@ -124,12 +124,10 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
     else { ui->combo_scrub_day_week->setCurrentIndex(6); }
   }else if(scrubSchedule=="monthly"){
     ui->combo_scrub_schedule->setCurrentIndex(2);
-    ui->spin_scrub_day_month->setMaximum(28);
     ui->spin_scrub_day_month->setValue(scrubDay);
   }else{
     //daily interval (in the "scrubDay" field)
     ui->combo_scrub_schedule->setCurrentIndex(3);
-    ui->spin_scrub_day_month->setMaximum(999);
     ui->spin_scrub_day_month->setValue(scrubDay);
   }
   ui->time_scrub->setTime( QTime(scrubTime, 0) );
@@ -318,6 +316,8 @@ void LPConfig::UpdateScrubUI(){
   ui->label_2->setVisible(index<3); //label
   ui->label_4->setVisible(index<3); //label
   ui->label_6->setVisible(index<3); //label
+  //Make sure the maximum value for the combo_scrub_day_week widget is right
+  ui->spin_scrub_day_month->setMaximum( (index<3) ? 28 : 999);
 }
 
 void LPConfig::on_combo_remote_schedule_currentIndexChanged(int index){
