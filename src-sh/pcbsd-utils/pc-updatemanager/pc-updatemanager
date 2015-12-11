@@ -1301,8 +1301,23 @@ do_lite_pkgupdate_chroot()
   rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
 
   echo_log "Running: pkg upgrade -U -y"
-  chroot ${STAGEMNT} pkg ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -y 2>&1 | tee -a ${LOGOUT}
-  return $?
+  chroot ${STAGEMNT} pkg ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -y 2>&1 | tee -a ${LOGOUT}.tmp
+  _err=$?
+  cat ${LOGOUT}.tmp >> ${LOGOUT}
+  if [ $_err -ne 0 ] ; then
+    rm ${LOGOUT}.tmp
+    return 1
+  fi
+
+  # We've seen cases of pkg returning 0, but really it failed... Lets try to catch this
+  cat ${LOGOUT}.tmp | grep -q "Cannot solve problem using SAT"
+  if [ $? -eq 0 ] ; then
+    rm ${LOGOUT}.tmp
+    return 1
+  fi
+
+  rm ${LOGOUT}.tmp
+  return 0
 }
 
 prep_pkgs_chroot()
