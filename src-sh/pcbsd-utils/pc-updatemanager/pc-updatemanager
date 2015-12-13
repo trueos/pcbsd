@@ -1301,9 +1301,8 @@ do_lite_pkgupdate_chroot()
   rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
 
   echo_log "Running: pkg upgrade -U -y"
-  chroot ${STAGEMNT} pkg ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -y 2>&1 | tee -a ${LOGOUT}.tmp
+  chroot ${STAGEMNT} pkg ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -y 2>&1 | tee -a ${LOGOUT} | tee -a ${LOGOUT}.tmp
   _err=$?
-  cat ${LOGOUT}.tmp >> ${LOGOUT}
   if [ $_err -ne 0 ] ; then
     rm ${LOGOUT}.tmp
     return 1
