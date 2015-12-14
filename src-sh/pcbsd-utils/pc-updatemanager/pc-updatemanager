@@ -119,6 +119,9 @@ case $PACKAGE_SET in
           PACKAGE_SET="PRODUCTION" ;; 
 esac
 
+# Set the location for saving program state
+STATEDIR="/var/db/pc-updatemanager"
+
 # Run-command, halt if command exits with non-0
 rc_halt_cleanup()
 {
@@ -783,12 +786,26 @@ set_update_vars()
   # Set some locations
   STAGEBE="updaterstage"
   STAGEMNT="/.updateStage"
-  OLDPKGLIST="/tmp/.pkgUpdateList.$$"
-  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
-  PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
+  OLDPKGLIST="${STATEDIR}/.pkgUpdateList"
+  NEWPKGLIST="${STATEDIR}/.newPkgUpdateList"
+  PKGUPGRADELOG="${STATEDIR}/.pkgUpdateLog"
   PKGDLCACHE="/usr/local/pkg-cache"
   touch ${PKGUPGRADELOG}
-
+  if [ -e "${STATEDIR}/.sysbaseorigin" ] ; then
+    SYSBASEORIGIN=$(cat ${STATEDIR}/.sysbaseorigin)
+  fi
+  if [ -e "${STATEDIR}/.sysbasefilename" ] ; then
+    SYSBASEFILENAME=$(cat ${STATEDIR}/.sysbasefilename)
+  fi
+  if [ -e "${STATEDIR}/.newfreebsdver" ] ; then
+    NEWFREEBSDVERSION=$(cat ${STATEDIR}/.newfreebsdver)
+  fi
+  if [ -e "${STATEDIR}/.fullupdate" ] ; then
+    FULLUPDATE=$(cat ${STATEDIR}/.fullupdate)
+  fi
+  if [ -e "${STATEDIR}/.doPkgUpdates" ] ; then
+    doPkgUpdates=$(cat ${STATEDIR}/.doPkgUpdates)
+  fi
 }
 
 # Check that beadm exists before doing an update
@@ -826,6 +843,9 @@ update_freebsd()
   if [ $? -eq 0 ] ; then doPkgUpdates="NO"; fi
   rm /tmp/.pkgData.$$
 
+  # SaveState
+  echo "$doPkgUpdates" > ${STATEDIR}/.doPkgUpdates
+
   set_update_vars
 
   if [ "$doPkgUpdates" = "YES" ] ; then
@@ -836,6 +856,12 @@ update_freebsd()
   else
     run_update_pre "SECURITY"
   fi
+
+  prep_update_shutdown "update_freebsd"
+}
+
+update_freebsd_stage2() {
+  mk_pkg_conf
 
   mk_stage_be
   mount_stage_be
@@ -859,10 +885,6 @@ update_freebsd()
   else
     run_update_post "SECURITY"
   fi
-
-  touch_reboot
-  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
-  exit 0
 }
 
 update_pkgs_only()
@@ -873,6 +895,9 @@ update_pkgs_only()
   if [ "$1" = "-f" ] ; then
     FULLUPDATE="YES"
   fi
+
+  # SaveState
+  echo "$FULLUPDATE" > ${STATEDIR}/.fullupdate
 
   # Make sure there are really packages to update
   if [ "$FULLUPDATE" != "YES" ] ; then
@@ -896,6 +921,15 @@ update_pkgs_only()
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
+
+  prep_update_shutdown "update_pkgs_only"
+}
+
+update_pkgs_only_stage2() {
+
+  mk_pkg_conf
+  doPkgUpdates="YES"
+
   mk_stage_be
   mount_stage_be
   if [ "$FULLUPDATE" = "YES" ] ; then
@@ -919,10 +953,6 @@ update_pkgs_only()
   fi
 
   run_update_post "PKG"
-
-  touch_reboot
-  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
-  exit 0
 }
 
 update_world_and_pkgs()
@@ -931,6 +961,9 @@ update_world_and_pkgs()
 
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"
+  # Save State
+  echo "$NEWFREEBSDVERSION" > ${STATEDIR}/.newfreebsdver
+
   doPkgUpdates="YES"
 
   touch_updateinprogress
@@ -945,6 +978,15 @@ update_world_and_pkgs()
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
+
+  prep_update_shutdown "update_world_and_pkgs"
+}
+
+update_world_and_pkgs_stage2() {
+
+  mk_pkg_conf
+  doPkgUpdates="YES"
+
   mk_stage_be
   mount_stage_be
   prep_pkgs_chroot
@@ -957,11 +999,6 @@ update_world_and_pkgs()
   fi
 
   run_update_post "SYSTEM"
-
-  touch_reboot
-  echo_log "Update stage one is finished! Please reboot to start stage 2."
-
-  exit 0
 }
 
 mk_pkg_conf()
@@ -1069,6 +1106,10 @@ build_pkg_list()
   fi
   SYSBASEORIGIN="$SYSBASE"
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
+
+  # SaveState
+  echo "$SYSBASEORIGIN" > ${STATEDIR}/.sysbaseorigin
+  echo "$SYSBASEFILENAME" > ${STATEDIR}/.sysbasefilename
 
   # Build top-level list of pkgs installed
   ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'ports-mgmt/pkg ' | grep -v 'misc/pcbsd-base ' | grep -v 'misc/trueos-base ' > $OLDPKGLIST
@@ -1565,6 +1606,9 @@ touch_reboot()
 require_root()
 {
   if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
+  if [ ! -d "$STATEDIR" ] ; then
+    mkdir -p $STATEDIR 2>/dev/null
+  fi
 }
 
 rotate_log()
@@ -1594,8 +1638,7 @@ run_update_pre()
   done
 }
 
-run_update_post()
-{
+run_update_post() {
   UPDATEDOTDPOST="${UPDATEDOTD}/post"
   if [ ! -d "${UPDATEDOTDPOST}" ] ; then return 0; fi
 
@@ -1609,6 +1652,80 @@ run_update_post()
        echo "WARNING: Failed running post-update script: $post"
     fi
   done
+}
+
+# Start the 2nd stage update
+shutdown_update() {
+
+  # Set the env vars
+  TERM="cons25" ; export TERM
+  PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin" ; export PATH
+
+  # Get the type of update we are doing
+  UPTYPE=$(cat ${STATEDIR}/shutdown-update-trigger)
+
+  # Remove the update trigger, so we don't run on a 2nd shutdown
+  # after a crash / hard power off
+  rm ${STATEDIR}/shutdown-update-trigger
+
+  # Let the GUI know we have started a shutdown
+  touch ${STATEDIR}/.doingShutdownUpdate
+
+  # Kill all desktop logins
+  killall -9 pcdm-session
+  killall -9 PCDM-session
+
+  # Load State
+  set_update_vars
+
+  # Clear the screen
+  clear
+
+  # Determine the tty to display details on
+  if [ -e "/dev/ttyv1" ] ; then
+    TTY="/dev/ttyv1"
+    FKEY="(Ctrl-Alt-F2 for details)"
+  elif [ -e "/dev/ttyv2" ] ; then
+    TTY="/dev/ttyv2"
+    FKEY="(Ctrl-Alt-F3 for details)"
+  else
+    TTY="/dev/null"
+    FKEY=""
+  fi
+
+  # Display whats going on:
+  echo "*****************************************************"
+  echo "             Starting update process..."
+  echo "      !! Please do NOT turn off the computer !!"
+  echo "             ${FKEY}"
+  echo "*****************************************************"
+
+  case $UPTYPE in
+  update_freebsd) update_freebsd_stage2 >${TTY} 2>${TTY}
+                  ;;
+update_pkgs_only) update_pkgs_only_stage2 >${TTY} 2>${TTY}
+		  ;;
+update_world_and_pkgs) update_world_and_pkgs_stage2 >${TTY} 2>${TTY}
+                  ;;
+    *) clear
+       echo "Unknown update type: $UPTYPE"
+       sleep 10
+       exit 1
+       ;;
+  esac
+
+  echo ""
+  echo "*****************************************************"
+  echo "                 Update Finished"
+  echo "*****************************************************"
+  exit 0
+}
+
+prep_update_shutdown() {
+  echo "$1" > ${STATEDIR}/shutdown-update-trigger
+  touch_reboot
+  echo_log "Your update is ready to install. Please shutdown to finish the update process."
+  exit 0
 }
 
 if [ "`id -u`" = "0" ] ; then
@@ -1690,6 +1807,9 @@ while [ $# -gt 0 ] ; do
                   get_update_file
                   do_check
                   checkup_pkgs ; break ;;
+doshutdownupdate) require_root
+		  shutdown_update
+	          ;;
 	*) show_usage ;;
    esac
    shift
