@@ -1672,6 +1672,7 @@ shutdown_update() {
   touch ${STATEDIR}/.doingShutdownUpdate
 
   # Kill all desktop logins
+  touch /tmp/.PCDMstop
   killall -9 pcdm-session
   killall -9 PCDM-session
 
