@@ -715,6 +715,9 @@ init_gpt_full_disk()
     fi
   fi
 
+  # Set the pmbr hack for Lenovo or other systems with BIOS bug
+  rc_halt "gpart set -a lenovofix ${_intDISK}"
+
 }
 
 # Function which runs gpart and creates a single large MBR partition scheme
