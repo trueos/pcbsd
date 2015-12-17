@@ -6,6 +6,14 @@
 # and creates the wlan[0-9] entries for wireless devices
 enable_dhcp_all()
 {
+  # Add local ethernet devices
+  for NIC in `ifconfig -l`
+  do
+    if [ "${NIC}" = "lo0" ] ; then continue ; fi
+    echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
+    echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+  done
+
   # Check for any wifi devices to setup
   for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
   do
@@ -25,15 +33,11 @@ enable_dhcp_all()
 
       # Create the wlanX device
       ifconfig $WLAN create wlandev $wnic
+      echo "ifconfig_${WLAN}=\"WPA SYNCDHCP\"" >>/etc/rc.conf
+      echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
     fi
   done
 
-  for NIC in `ifconfig -l`
-  do
-    if [ "${NIC}" = "lo0" ] ; then continue ; fi
-    echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
-    echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
-  done
 }
 
 detect_x() 
