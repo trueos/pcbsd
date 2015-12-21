@@ -85,10 +85,10 @@ private slots:
 	void menuCompressHomeDir(QAction*);
 	void menuExtractHomeDir();
 	//Disk Menu
-	void menuAddDisk();
-	void menuRemoveDisk(QAction*);
-	void menuOfflineDisk(QAction*);
-	void menuOnlineDisk(QAction*);
+	//void menuAddDisk();
+	//void menuRemoveDisk(QAction*);
+	//void menuOfflineDisk(QAction*);
+	//void menuOnlineDisk(QAction*);
 	void menuStartScrub();
 	void menuStopScrub();
 	//Snapshots Menu
