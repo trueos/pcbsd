@@ -96,7 +96,7 @@ enable_dhcp_all()
     if [ $? -ne 0 ] ; then
       echo "wlans_${wnic}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
     fi
-    echo "ifconfig_${WLAN}=\"DHCP\"" >>${FSMNT}/etc/rc.conf
+    echo "ifconfig_${WLAN}=\"WPA SYNCDHCP\"" >>${FSMNT}/etc/rc.conf
     CNIC="${WLAN}"
     WLANCOUNT=$((WLANCOUNT+1))
   done

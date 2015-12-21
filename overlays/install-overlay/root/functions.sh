@@ -2,38 +2,42 @@
 # Functions we source for starting the install / live mode
 ###########################################################
 
-# Function which checks is a nic is wifi or not
-check_is_wifi()
-{
-  ifconfig ${1} | grep -q "802.11"
-  return $?
-}
-
 # Function which simply enables plain dhcp on all detected nics
 # and creates the wlan[0-9] entries for wireless devices
 enable_dhcp_all()
 {
-  WLANCOUNT="0"
+  # Add local ethernet devices
   for NIC in `ifconfig -l`
   do
     if [ "${NIC}" = "lo0" ] ; then continue ; fi
-    check_is_wifi ${NIC}
-    if [ $? -eq 0 ]
-    then
+    echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
+    echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+  done
+
+  # Check for any wifi devices to setup
+  for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
+  do
+    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+    if [ $? -ne 0 ] ; then
       # We have a wifi device, setup a wlan* entry for it
-      WLAN="wlan${WLANCOUNT}"
-      cat /etc/rc.conf | grep -q "wlans_${NIC}="
-      if [ $? -ne 0 ] ; then
-        echo "wlans_${NIC}=\"${WLAN}\"" >>/etc/rc.conf
+      grep -q "^wlans_" /etc/rc.conf
+      if [ $? -eq 0 ] ; then
+        WLANCOUNT=`cat /etc/rc.conf | grep "^wlans_" | wc -l | awk '{print $1}'`
+      else
+        WLANCOUNT="0"
       fi
-      echo "ifconfig_${WLAN}=\"SYNCDHCP\"" >>/etc/rc.conf
+      WLAN="wlan${WLANCOUNT}"
+
+      # Save the wlan interface
+      echo "wlans_${wnic}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
+
+      # Create the wlanX device
+      ifconfig $WLAN create wlandev $wnic
+      echo "ifconfig_${WLAN}=\"WPA SYNCDHCP\"" >>/etc/rc.conf
       echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
-      WLANCOUNT=$((WLANCOUNT+1))
-    else
-      echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
-      echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
     fi
   done
+
 }
 
 detect_x() 

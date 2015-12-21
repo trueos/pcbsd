@@ -7,12 +7,13 @@
 #ifndef PCDM_BACKEND_H
 #define PCDM_BACKEND_H
 
-#include <QStringList>
-#include <QString>
 #include <QDebug>
 #include <QDir>
-#include <QProcess>
 #include <QFile>
+#include <QFileSystemWatcher>
+#include <QProcess>
+#include <QString>
+#include <QStringList>
 #include <QTextStream>
 
 #include "pcdm-config.h"
@@ -79,7 +80,6 @@ private:
     static void writeSystemLastLogin(QString, QString);
     static QString readUserLastDesktop(QString);
     static void writeUserLastDesktop(QString, QString);
-    
 };
 
 

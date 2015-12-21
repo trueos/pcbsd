@@ -58,7 +58,6 @@ private slots:
     void slotChangeKeyboardLayout();
     void slotPushVirtKeyboard();    // Start xvkbd
     void slotLocaleChanged(QString);
-
     void LoadAvailableUsers();
 
 private:
