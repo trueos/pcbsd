@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QMessageBox>
 
+#include <unistd.h>
+
 #define PREFIX "/usr/local/"
 static const QString KSANPSHOT_FILE(PREFIX"bin/ksnapshot");
 static const QString GNOME_PANEL_SCREENSHOT_FILE(PREFIX"bin/gnome-panel-screenshot");
