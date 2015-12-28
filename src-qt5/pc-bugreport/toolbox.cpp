@@ -76,14 +76,15 @@ void Toolbox::on_actionDiagnostic_report_triggered()
 	//Generate the diagnostic file on the user desktop
 	QString filename = QDir::homePath()+"/Desktop/diagnostic-"+QDate::currentDate().toString("yyyyMMdd")+".txt";
 	QString username = getenv("LOGNAME");
-	QString cmd = "/usr/local/share/pcbsd/scripts/GenDiagSheet.sh "+filename+" "+username;
+	QString cmd = "/usr/local/share/pcbsd/scripts/GenDiagSheet.sh \""+filename+"\" \""+username+"\"";
 	QProcess p;
 	p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
 	//qDebug() << " - cmd:" << cmd;
 	if(QFile::exists(filename)){ QFile::remove(filename); } //remove any old file first
 	p.start(cmd);
-	while(p.waitForFinished(4000)){
+	while(p.state()!=QProcess::NotRunning ){
 	  QApplication::processEvents();
+	  usleep(300000); //300 ms sleep between updates
 	}
 	if(QFile::exists(filename)){
 	  qDebug() << " - success";
