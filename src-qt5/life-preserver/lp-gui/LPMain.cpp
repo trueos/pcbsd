@@ -241,7 +241,7 @@ void LPMain::updateTabs(){
 	  ui->label_runningstat->setVisible(false);
 	  ui->label_finishedstat->setVisible(false);
   if(poolSelected){
-    showWaitBox(tr("Loading zpool information"));
+    showWaitBox(tr("Loading Information"));
     qDebug() << "[DEBUG] loadPoolData:" << ui->combo_pools->currentText();
     POOLDATA = LPGUtils::loadPoolData(ui->combo_pools->currentText());
     qDebug() << "[DEBUG] loaded data";
