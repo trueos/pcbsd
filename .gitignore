@@ -110,6 +110,7 @@ src-qt5/pc-fwmanager/pc-fwmanager
 src-qt5/pc-hwdetect/pc-hwdetect
 src-qt5/pc-mixer/pc-mixer
 src-qt5/pc-mounttray/pc-mounttray
+src-qt5/pc-netmanager/src/Makefile
 src-qt5/pc-netmanager/src/NetworkManager/Makefile
 src-qt5/pc-netmanager/src/NetworkManager/pc-netmanager
 src-qt5/pc-netmanager/src/NetworkTray/Makefile
