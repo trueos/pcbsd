@@ -17,6 +17,8 @@ XOPTS=""
 grep -q "^ENABLE_TCP_LISTEN=TRUE" ${PCDMCONF}
 if [ $? -ne 0 ]; then
   XOPTS="-nolisten tcp" 
+else
+  XOPTS="-listen tcp"
 fi
 
 #See if VNC support is enabled for logging in to this system

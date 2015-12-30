@@ -379,7 +379,7 @@
      <x>0</x>
      <y>0</y>
      <width>459</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -422,42 +422,6 @@
     <property name="title">
      <string>&amp;Disks</string>
     </property>
-    <widget class="QMenu" name="menuRemove_Disk">
-     <property name="title">
-      <string>Detach Disk</string>
-     </property>
-     <property name="icon">
-      <iconset resource="lPreserve.qrc">
-       <normaloff>:/images/list-remove.png</normaloff>:/images/list-remove.png</iconset>
-     </property>
-     <addaction name="actionDisks"/>
-    </widget>
-    <widget class="QMenu" name="menuSet_Disk_Offline">
-     <property name="title">
-      <string>Set Disk Offline</string>
-     </property>
-     <property name="icon">
-      <iconset resource="lPreserve.qrc">
-       <normaloff>:/images/network-wired-red.png</normaloff>:/images/network-wired-red.png</iconset>
-     </property>
-     <addaction name="actionDisks_2"/>
-    </widget>
-    <widget class="QMenu" name="menuSet_Disk_Online">
-     <property name="title">
-      <string>Set Disk Online</string>
-     </property>
-     <property name="icon">
-      <iconset resource="lPreserve.qrc">
-       <normaloff>:/images/network-wired.png</normaloff>:/images/network-wired.png</iconset>
-     </property>
-     <addaction name="actionDisk"/>
-    </widget>
-    <addaction name="actionAdd_Disk"/>
-    <addaction name="menuRemove_Disk"/>
-    <addaction name="separator"/>
-    <addaction name="menuSet_Disk_Online"/>
-    <addaction name="menuSet_Disk_Offline"/>
-    <addaction name="separator"/>
     <addaction name="action_startScrub"/>
     <addaction name="action_stopScrub"/>
    </widget>
