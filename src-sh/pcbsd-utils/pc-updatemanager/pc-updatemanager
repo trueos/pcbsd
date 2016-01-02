@@ -806,6 +806,11 @@ set_update_vars()
   if [ -e "${STATEDIR}/.doPkgUpdates" ] ; then
     doPkgUpdates=$(cat ${STATEDIR}/.doPkgUpdates)
   fi
+  if [ -e "${STATEDIR}/.realpkgdlcache" ] ; then
+    REALPKGDLCACHE=$(cat ${STATEDIR}/.realpkgdlcache)
+  else
+    REALPKGDLCACHE=${PKGDLCACHE}
+  fi
 }
 
 # Check that beadm exists before doing an update
@@ -1177,7 +1182,8 @@ dl_pkgs()
      fi
   fi
 
-
+  # Save State of REALPKGDLCACHE
+  echo "${REALPKGDLCACHE}" > ${STATEDIR}/.realpkgdlcache
 
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
@@ -1246,15 +1252,6 @@ dl_pkgs()
        fi
     fi
 
-    # PKGNG lies, we need to verify if the package was really downloaded
-    #if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-       #echo_log "*****" ${PKGUPGRADELOG}
-       #cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-       #echo_log "*****" >> ${PKGUPGRADELOG}
-       #rm /tmp/.pkgOut.$$
-       #echo_log "Failed fetching: $pkgOrigin"
-       #exit_err "Failed fetching: $pkgOrigin"
-    #fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
 
@@ -1379,7 +1376,7 @@ tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/
 
 # Set the cache directory
 PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
-echo \"PKG_CACHEDIR: $PKGDLCACHE\" > /tmp/.pkgUpdate.conf
+echo \"PKG_CACHEDIR: $REALPKGDLCACHE\" > /tmp/.pkgUpdate.conf
 
 /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
 if [ \$? -ne 0 ] ; then
