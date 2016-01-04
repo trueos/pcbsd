@@ -30,15 +30,10 @@ import os
 # ones.
 extensions = [
     'sphinx.ext.ifconfig',
-    'sphinxcontrib.httpdomain'
+    'sphinxcontrib.httpdomain',
+    'sphinx.ext.numfig'
 ]
 
-<<<<<<< HEAD
-#Keep these comments as we will be using these directives once there is a new Python version to provide automagic figure numbering
-#numfig:
-#numfig = True
-#numfig_secnum_depth = 'x.x.1, x.x.2, x.x.3'
-=======
 # -- Options for automatic Figure numbering
 numfig = True
 numfig_secnum_depth = (2)
@@ -47,7 +42,6 @@ if tags.has('es'):
   figure_caption_prefix = 'Figura'
 else:
   figure_caption_prefix = 'Figure'
->>>>>>> 08c40f5... Bump copyright year.
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
