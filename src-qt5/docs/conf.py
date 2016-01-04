@@ -33,10 +33,21 @@ extensions = [
     'sphinxcontrib.httpdomain'
 ]
 
+<<<<<<< HEAD
 #Keep these comments as we will be using these directives once there is a new Python version to provide automagic figure numbering
 #numfig:
 #numfig = True
 #numfig_secnum_depth = 'x.x.1, x.x.2, x.x.3'
+=======
+# -- Options for automatic Figure numbering
+numfig = True
+numfig_secnum_depth = (2)
+
+if tags.has('es'):
+  figure_caption_prefix = 'Figura'
+else:
+  figure_caption_prefix = 'Figure'
+>>>>>>> 08c40f5... Bump copyright year.
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -52,7 +63,7 @@ master_doc = 'pcbsd'
 
 # General information about the project.
 project = u'PC-BSD User Guide'
-copyright = u'2011-2015, iXsystems'
+copyright = u'2011-2016, iXsystems'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -304,7 +315,7 @@ locale_dirs = ['_build/locale-po/']
 epub_title = u'PC-BSD User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
-epub_copyright = u'2011-2015, iXsystems'
+epub_copyright = u'2011-2016, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'pcbsd_userguide'
