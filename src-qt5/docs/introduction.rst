@@ -5,7 +5,7 @@ Written by users of the PC-BSD® operating system.
 
 Version |version|
 
-Copyright © 2005 - 2015 The PC-BSD® Project.
+Copyright © 2005 - 2016 The PC-BSD® Project.
 
 Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of many individuals. If you are interested in assisting with the Handbook, refer to the documentation `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other PC-BSD® users.
 
