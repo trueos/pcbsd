@@ -50,7 +50,7 @@ Type in help <command> for information and usage about that command
    listcron - Listing of scheduled snapshots and scrubs
    listsnap - List snapshots of a zpool/dataset
      mksnap - Create a ZFS snapshot of a zpool/dataset
-  replicate - Sub-command of replication tasks
+  replicate - Manage replication tasks
  revertsnap - Revert zpool/dataset to a snapshot
      rmsnap - Remove a snapshot
         set - Set lpreserver options
@@ -64,9 +64,9 @@ help_zpool()
  title
  echo "Help zpool
 
-Life-Preserver zpool sub-system
+Life-Preserver zpool subsystem
 
-The 'zpool' sub-command allows you to attach / detach drives to a zpool, 
+The 'zpool' subcommand allows you to attach / detach drives to a zpool, 
 as well as get status and more. 
 
 When a drive is first attached to a zpool, it will be re-formatted with
@@ -122,7 +122,7 @@ List Options:
 
 Usage:
 
-  lpreserver zpool <subcmd> <flags>
+  lpreserver zpool <subcommand> <options>
 
 Example:
 
@@ -135,7 +135,7 @@ help_replicate()
  title
  echo "Help replicate
 
-Life-Preserver replication sub-system
+Manege Life-Preserver replication tasks
 
 Replication uses ZFS to send your snapshots to a remote system which also has
 a ZFS pool, such as FreeNAS or another PC-BSD system. The <hostdataset> must
@@ -152,10 +152,10 @@ permissions on the remote dataset:
 
 Usage:
 
-  lpreserver replicate <subcmd> <flags>
+  lpreserver replicate <subcommand> <Options>
 
 
-Available Flags:
+Available subcommands:
 
          add - Add a new replication target
       expand - Expand the remote iSCSI zpool
