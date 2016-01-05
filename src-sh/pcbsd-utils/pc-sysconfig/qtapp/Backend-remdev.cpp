@@ -39,7 +39,7 @@ void Backend::updateIntMountPoints(){
     if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty()) )){ 
        invalid = true; 
        if( info.filter(mntdir).length()==1  ){ //This is the only entry for this mounttpoint (don't have multiple things mounted on the same dir)
-	  qDebug() << "Unmounting directory:" << mntdir;
+	  //qDebug() << "Unmounting directory:" << mntdir;
          //Device unplugged while it was mounted, unmount it
 	  unmountRemDev(mntdir, false, true); //this is an internal change (no user interaction)
 	  //Need to be careful about the internal list, since the unmount routine can modify it
@@ -50,7 +50,7 @@ void Backend::updateIntMountPoints(){
     }
     else if(mntdir.isEmpty()){ invalid = true; } //required for unmounting
     else if( info.filter(mntdir).isEmpty() ){ //not currently listed by "mount"
-      qDebug() << "Mount Dir not listed as active - checking for removal:" << mntdir;
+      //qDebug() << "Mount Dir not listed as active - checking for removal:" << mntdir;
       QDir dir(mntdir);
       if(!dir.exists()){ invalid = true; }
       else if( dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).length() < 1 && info.filter(mntdir).isEmpty() ){
@@ -63,7 +63,7 @@ void Backend::updateIntMountPoints(){
     }
     if(invalid){
       //Remove this entry from the list
-      qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
+      //qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
       IntMountPoints.removeAt(i);
       i--;
     }    
@@ -88,7 +88,7 @@ void Backend::updateIntMountPoints(){
 	  if(CPART.contains(node)){ continue; }
 	}
       IntMountPoints << node+DELIM+fs+DELIM+mpoint+DELIM+""+DELIM+"noremove"+DELIM+"external";
-      qDebug() << "New Internal Mount Info:" << IntMountPoints.last();
+      //qDebug() << "New Internal Mount Info:" << IntMountPoints.last();
     }
   }
 }
@@ -216,10 +216,30 @@ QStringList Backend::listAllRemDev(){
 
 QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   //Overarching device info retrieval
-  //Output: [FILESYSTEM, LABEL, TYPE]
+  //Output: [FILESYSTEM, LABEL, TYPE [, mountpoint] ]
   QStringList out;
   QString fs, label, type;
   if(node.startsWith("/dev/")){ node.remove("/dev/"); }
+  
+  // - Quick finish if the device is already mounted 
+  //  (same info - no need to re-probe the device and cause activity on it)
+  updateIntMountPoints();
+  QStringList info = IntMountPoints.filter(node);
+  for(int i=0; i<info.length(); i++){
+    if(info[i].startsWith(node+DELIM)){
+      //Already mounted - return the info from the internal database
+      fs = info[i].section(DELIM,1,1).toUpper();
+      label = info[i].section(DELIM,2,2).section("/",-1); //mountpoint directory name
+      QString mtpoint = info[i].section(DELIM, 2,2);
+      if(fs.toUpper()=="ZFS"){ type = DEVDB::deviceTypeByNode( getCurrentZFSDevices(node).first() ); }
+      else{ type = DEVDB::deviceTypeByNode(node); }
+      if(mtpoint.isEmpty()){
+        return (QStringList() << fs << label << type);
+      }else{
+	return (QStringList() << fs << label << type << mtpoint);
+      }
+    }
+  }
   
   if(!QFile::exists("/dev/"+node)){
     // - Check if this is an available ZFS pool first (instead of a device node)
@@ -239,20 +259,7 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       }
     }
   }
-  // - Quick finish if the device is already mounted 
-  //  (same info - no need to re-probe the device and cause activity on it)
-  updateIntMountPoints();
-  QStringList info = IntMountPoints.filter(node);
-  for(int i=0; i<info.length(); i++){
-    if(info[i].startsWith(node+DELIM)){
-      //Already mounted - return the info from the internal database
-      fs = info[i].section(DELIM,1,1).toUpper();
-      label = info[i].section(DELIM,2,2).section("/",-1); //mountpoint directory name
-      if(fs.toUpper()=="ZFS"){ type = DEVDB::deviceTypeByNode( getCurrentZFSDevices(node).first() ); }
-      else{ type = DEVDB::deviceTypeByNode(node); }
-      return (QStringList() << fs << label << type);
-    }
-  }
+
   
   //Non-ZFS device given - try to figure it out
   //  - Now determine the type by the name of the node (simple/fast)
