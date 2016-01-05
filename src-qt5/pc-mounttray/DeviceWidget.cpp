@@ -199,8 +199,8 @@ void DeviceWidget::changeAutoMount(bool checked){
 void DeviceWidget::mountButtonClicked(){
   //mount/unmount the device (based on current status)
   if(isMounted){
-    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"unmount "+node()+"\"").join("");
-    if(res.simplified()!="[SUCCESS]"){
+    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"unmount "+node()+"\"").filter("[SUCCESS]").join("");
+    if(res.isEmpty()){
       //Can add additional types of error parsing later (TO-DO)
       //See if the user wants to try and force the unmount
       if(QMessageBox::Yes == QMessageBox::question(0, tr("Device Busy"), tr("The device appears to be busy. Do you want to forcibly unmount the device?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No)){
@@ -227,8 +227,8 @@ void DeviceWidget::mountButtonClicked(){
       if(!ok){ return; } //cancelled
     }
     //Now try to mount the device
-    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"mount "+node()+" "+fs+"\"").join("");
-    if(res.startsWith("[SUCCESS]")){
+    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"mount "+node()+" "+fs+"\"").filter("[SUCCESS]").join("");
+    if(!res.isEmpty()){
       //Save the mountpoint for use later (return format: "[SUCCESS] <mountpoint>"
       ui->tool_run->setWhatsThis( res.section("]",1,20).simplified() );
       QuickUpdate(true);
