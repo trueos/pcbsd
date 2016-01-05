@@ -86,12 +86,14 @@ void DeviceWidget::doUpdate(){
   if(firstrun || !quickupdates){
     QStringList info = pcbsd::Utils::runShellCommand("pc-sysconfig \"devinfo "+node()+"\"").join("").split(", ");
     if(info.length() < 3){ emit RefreshDeviceList(); return; } //invalid device - will probably get removed here in a moment
-    //Info Output: <filesystem>, <label>, <type>
+    //Info Output: <filesystem>, <label>, <type> [, <mountpoint>]
     //qDebug() << " - info:" << info;
     //Save this into the internal variables
     ui->label_icon->setWhatsThis(info[2]); //type
     ui->label_dev->setText(info[1]); //label
     ui->tool_mount->setWhatsThis(info[0]); //filesystem
+    if(info.length()>=4){ui->tool_run->setWhatsThis(info[3]); } //mountpoint
+    
     if(info[0].toLower()=="zfs"){ ui->label_icon->setToolTip(node()+" ("+info[0]+")"); }
     else{ ui->label_icon->setToolTip("/dev/"+node()+" ("+info[0]+")"); }
     //Now go through and set all the various icons and such
