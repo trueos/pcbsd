@@ -6,7 +6,7 @@
 .Nd "Life Preserver"
 .Sh SYNOPSIS
 .Nm
-.Op  "<cmd> <subcmd> <option> <setting>"
+.Op  "<cmd> <subcommand> <option> <setting>"
 .Sh DESCRIPTION
 The built-in Life Preserver utility was designed to take full advantage of ZFS snapshot functionality. This utility allows you to schedule snapshots of a local ZFS pool and to optionally replicate those snapshots to another system using SSH
 .Bl -tag indent -width
@@ -51,10 +51,10 @@ List of scheduled snapshots and scrubs not using scrub or snap results in both b
 List snapshots that are part of <dataset> zpool or data set.
 .It \fBmksnap <dataset> <snapshotname> <comment>\fR
 Create a snapshot of a zpool or data set.
-.It \fBreplicate <subcmd> <flags>\fR
-Sub command of replication tasks
+.It \fBreplicate <subcommand> <options>\fR
+Manage replication tasks
 .br
-Available sub commands are
+Available subcommands are
 .br
     add - Add a new replication target
 .br
@@ -95,7 +95,7 @@ Available sub commands are
 Revert zpool or data set to a snapshot
 .It \fBrmsnap <dataset> <snapshot>\fR
 Remove a snapshot
-.It \fBset <subcmd> <setting>\fR
+.It \fBset <subcommand> <setting>\fR
 Set lpreserver options
 .br
      duwarn <percentage>- Set to a disk 
@@ -122,7 +122,7 @@ List data sets along with last snapshot and replication data
 .It \fBzpool\fR
 Manage a zpool by attaching and detaching disks
 .br
-Available sub commands
+Available subcommands
 .br
 	list <zpool>- List zpool disks
 .br

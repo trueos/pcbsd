@@ -806,6 +806,11 @@ set_update_vars()
   if [ -e "${STATEDIR}/.doPkgUpdates" ] ; then
     doPkgUpdates=$(cat ${STATEDIR}/.doPkgUpdates)
   fi
+  if [ -e "${STATEDIR}/.realpkgdlcache" ] ; then
+    REALPKGDLCACHE=$(cat ${STATEDIR}/.realpkgdlcache)
+  else
+    REALPKGDLCACHE=${PKGDLCACHE}
+  fi
 }
 
 # Check that beadm exists before doing an update
@@ -857,6 +862,8 @@ update_freebsd()
     run_update_pre "SECURITY"
   fi
 
+  run_freebsd_update_fetch
+
   prep_update_shutdown "update_freebsd"
 }
 
@@ -866,7 +873,7 @@ update_freebsd_stage2() {
   mk_stage_be
   mount_stage_be
 
-  run_freebsd_update_script
+  run_freebsd_update_install
 
   if [ "$doPkgUpdates" = "YES" ] ; then
     prep_pkgs_chroot
@@ -978,6 +985,7 @@ update_world_and_pkgs()
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
+  prep_rc_script_fetch
 
   prep_update_shutdown "update_world_and_pkgs"
 }
@@ -990,7 +998,7 @@ update_world_and_pkgs_stage2() {
   mk_stage_be
   mount_stage_be
   prep_pkgs_chroot
-  prep_rc_script
+  prep_rc_script_install
   umount_stage_be
   mk_stage_be_default
 
@@ -1177,7 +1185,8 @@ dl_pkgs()
      fi
   fi
 
-
+  # Save State of REALPKGDLCACHE
+  echo "${REALPKGDLCACHE}" > ${STATEDIR}/.realpkgdlcache
 
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
@@ -1246,15 +1255,6 @@ dl_pkgs()
        fi
     fi
 
-    # PKGNG lies, we need to verify if the package was really downloaded
-    #if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-       #echo_log "*****" ${PKGUPGRADELOG}
-       #cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-       #echo_log "*****" >> ${PKGUPGRADELOG}
-       #rm /tmp/.pkgOut.$$
-       #echo_log "Failed fetching: $pkgOrigin"
-       #exit_err "Failed fetching: $pkgOrigin"
-    #fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
 
@@ -1276,7 +1276,7 @@ check_low_space()
 
   # We try to over-estimate space required for decompression, since we don't want ZFS to get
   # too full, it gets cranky at over 75%
-  pkgCacheSpace=`expr $pkgCacheSpace \* 7`
+  pkgCacheSpace=`expr $pkgCacheSpace \* 3`
 
   if [ $poolFree -lt $pkgCacheSpace ] ; then
      do_prune_be "force"
@@ -1379,7 +1379,9 @@ tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/
 
 # Set the cache directory
 PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
-echo \"PKG_CACHEDIR: $PKGDLCACHE\" > /tmp/.pkgUpdate.conf
+echo \"PKG_CACHEDIR: $REALPKGDLCACHE\" > /tmp/.pkgUpdate.conf
+
+sleep 2
 
 /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
 if [ \$? -ne 0 ] ; then
@@ -1454,25 +1456,6 @@ mv /install-pkg-list /usr/local/log/pc-updatemanager/
 mv /removed-pkg-list /usr/local/log/pc-updatemanager/
 mv /failed-pkg-list /usr/local/log/pc-updatemanager/
 
-# Check for old PEFS on base system and switch to PKG version if possible
-grep -q \"pam_pefs.so\" /etc/pam.d/system
-if [ \$? -eq 0 ] ; then
-  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/system
-  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
-    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/system
-  fi
-  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/other
-  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
-    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/other
-  fi
-fi
-
-# If PEFS has been removed, get rid of PAM module
-if [ ! -e \"/usr/local/lib/pam_pefs.so\" ] ; then
-  sed -i '' '/pam_pefs.so/d' /etc/pam.d/other
-  sed -i '' '/pam_pefs.so/d' /etc/pam.d/system
-fi
-
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh
 
@@ -1488,11 +1471,15 @@ install_pkgs_chroot()
 
 prep_freebsd_update_hack()
 {
+   if [ ! -d "${STAGEMNT}/var/db/pc-updatefbsd" ] ; then
+     mkdir -p ${STAGEMNT}/var/db/pc-updatefbsd
+   fi
+
    FREEBSDUP="/.freebsd-up.sh"
    echo "#!/bin/sh
 cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /.fbsdup
 chmod 755 /.fbsdup
-/.fbsdup --non-interactive \$1 \$2 \$3 \$4 \$5
+/.fbsdup --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
 res=\$?
 rm /.fbsdup
 exit \$res
@@ -1500,13 +1487,41 @@ exit \$res
    chmod 755 ${STAGEMNT}${FREEBSDUP}
 }
 
-run_freebsd_update_script()
+prep_freebsd_update_hack_local()
+{
+   if [ ! -d "/var/db/pc-updatefbsd" ] ; then
+     mkdir -p /var/db/pc-updatefbsd
+   fi
+
+   FREEBSDUPLOCAL="/tmp/.freebsd-up.sh"
+   echo "#!/bin/sh
+cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /tmp/.fbsdup
+chmod 755 /tmp/.fbsdup
+/tmp/.fbsdup --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
+res=\$?
+rm /tmp/.fbsdup
+exit \$res
+" >${FREEBSDUPLOCAL}
+   chmod 755 ${FREEBSDUPLOCAL}
+}
+
+run_freebsd_update_fetch()
+{
+  prep_freebsd_update_hack_local
+
+  echo_log "Fetching freebsd-update files..."
+  rc_halt "${FREEBSDUPLOCAL} fetch" 2>&1 | tee -a ${LOGOUT}
+  if [ $? -ne 0 ] ; then
+    exit_err "failed fetching freebsd update files"
+  fi
+  rm ${FREEBSDUPLOCAL}
+}
+
+run_freebsd_update_install()
 {
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update, get files downloaded installed
-  echo_log "Fetching freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} fetch" 2>&1 | tee -a ${LOGOUT}
   echo_log "Installing freebsd-update files..."
   rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
@@ -1517,12 +1532,23 @@ run_freebsd_update_script()
   rm ${STAGEMNT}/${FREEBSDUP}
 }
 
-prep_rc_script()
+prep_rc_script_fetch()
+{
+  prep_freebsd_update_hack_local
+
+  echo_log "Fetching freebsd-update files..."
+  rc_halt "${FREEBSDUPLOCAL} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
+  if [ $? -ne 0 ] ; then
+    exit_err "failed fetching freebsd update files"
+  fi
+  rm ${FREEBSDUPLOCAL}
+}
+
+prep_rc_script_install()
 {
   prep_freebsd_update_hack
 
-  # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
+  # Start the upgrade with freebsd-update
   rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   rm ${STAGEMNT}/${FREEBSDUP}
