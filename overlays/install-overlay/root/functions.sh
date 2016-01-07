@@ -163,39 +163,51 @@ start_xorg()
   # Now run the X auto-detection
   detect_x
 
+  ATTEMPT=0
+
   # Run X Now
-  startx
-  if [ ! -e "/tmp/.xstarted" ]
-  then
-    # Failed to start X
-    # Lets try again with a secondary video card
-    rm /etc/X11/xorg.conf 2>/dev/null
-    cfg_card_busid "2"
-
+  while :
+  do
+    # Try bringing up X now
     startx
-    if [ ! -e "/tmp/.xstarted" ]
-    then
-      echo "ERROR: Failed to start X in SAFE mode... Trying VESA mode..."
-      rm /etc/X11/xorg.conf
-      cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
-      startx
-     if [ ! -e "/tmp/.xstarted" ]
-      then
-        # Try the Intel driver, since nvidia/vesa will fail on optimus cards
-        cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
-        startx
-        if [ ! -e "/tmp/.xstarted" ]
-        then
-          echo "ERROR: Failed to start X..."
-          echo "Dropping to failsafe console... Edit /etc/X11/xorg.conf, and run #startx to bring up the GUI."
-          echo "[Press Enter to Continue]"
-          read tmp
-          /bin/sh
-        fi
-      fi
-    fi
-  fi
+    # If we have a success, we can end here
+    if [ -e "/tmp/.xstarted" ]; then return 0; fi
 
+    case $ATTEMPT in
+       0) # Lets try again with a secondary video card
+	  echo "Looking for secondary / optimus video card..."
+          rm /etc/X11/xorg.conf 2>/dev/null
+          cfg_card_busid "2"
+          ;;
+       1) echo "Trying VESA driver..."
+          rm /etc/X11/xorg.conf
+          cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+          ;;
+       2) # Try the Intel driver, since nvidia/vesa will fail on optimus cards
+	  echo "Trying Intel-only driver..."
+          cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+          ;;
+       3) if [ `sysctl -n machdep.bootmethod` = "UEFI" ] ; then
+            # Last but not least, if we are on UEFI we can always try SCFB
+	    echo "Trying SCFB - UEFI driver..."
+            cp /root/cardDetect/XF86Config.scfb /etc/X11/xorg.conf
+	  else
+            break
+	  fi
+          ;;
+
+       *) break ;;
+    esac
+
+    ATTEMPT=$(expr $ATTEMPT + 1)
+  done
+
+  # Couldn't find a valid Xorg config.. Boo :(
+  echo "ERROR: Failed to start X..."
+  echo "Dropping to failsafe console... Edit /etc/X11/xorg.conf, and run #startx to bring up the GUI."
+  echo "[Press Enter to Continue]"
+  read tmp
+  /bin/sh
 }
 
 rtn()

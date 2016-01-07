@@ -389,6 +389,7 @@ share/pcbsd/xorg-gui/bin/setupconf.sh
 share/pcbsd/xorg-gui/cardDetect/XF86Config.compat
 share/pcbsd/xorg-gui/cardDetect/XF86Config.default
 share/pcbsd/xorg-gui/cardDetect/XF86Config.intel
+share/pcbsd/xorg-gui/cardDetect/XF86Config.scfb
 share/pcbsd/xorg-gui/cardDetect/XF86Config.vmware
 share/pcbsd/xorg-gui/cardDetect/x_config.sh
 share/pcbsd/xorg-gui/cardDetect/xorg.conf.virtualbox
