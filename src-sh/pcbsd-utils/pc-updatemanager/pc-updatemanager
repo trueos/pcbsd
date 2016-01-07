@@ -1710,6 +1710,8 @@ shutdown_update() {
   # Clear the screen
   clear
 
+  sleep 2
+
   # Ask the user if they want to bail on this update
   echo "*****************************************************"
   echo "       A system update is ready to install."
@@ -1722,7 +1724,7 @@ shutdown_update() {
   CPID=$!
 
   # Look for the response
-  read -t 10
+  read -t 10 tmp
   if [ $? -eq 0 ] ; then
     # User asked to bail, we will do so
     kill $CPID
