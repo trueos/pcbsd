@@ -1680,12 +1680,58 @@ run_update_post() {
   done
 }
 
+countdown()
+{
+        local SECONDS=$1
+        local START=$(date +%s)
+        local END=$(expr $START + $SECONDS)
+        local CUR=$START
+
+        while [ $CUR -lt $END ]
+        do
+                CUR=$(date +%s)
+                LEFT=$(expr $END - $CUR)
+
+                printf "\r%02d" \
+                        $(expr $LEFT % 60)
+
+                sleep 1
+        done
+        echo "        "
+}
+
 # Start the 2nd stage update
 shutdown_update() {
 
   # Set the env vars
   TERM="cons25" ; export TERM
   PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin" ; export PATH
+
+  # Clear the screen
+  clear
+
+  # Ask the user if they want to bail on this update
+  echo "*****************************************************"
+  echo "       A system update is ready to install."
+  echo "        Press ENTER to cancel this update"
+  echo "    The update can be installed at a later time"
+  echo "*****************************************************"
+
+  # Display the countdown
+  (countdown "10") &
+  CPID=$!
+
+  # Look for the response
+  read -t 10
+  if [ $? -eq 0 ] ; then
+    # User asked to bail, we will do so
+    kill $CPID
+    exit 0
+  fi
+  kill $CPID
+
+  # Clear the screen
+  clear
 
   # Get the type of update we are doing
   UPTYPE=$(cat ${STATEDIR}/shutdown-update-trigger)
@@ -1704,9 +1750,6 @@ shutdown_update() {
 
   # Load State
   set_update_vars
-
-  # Clear the screen
-  clear
 
   # Determine the tty to display details on
   if [ -e "/dev/ttyv1" ] ; then
