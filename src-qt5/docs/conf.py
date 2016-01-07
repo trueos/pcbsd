@@ -38,11 +38,6 @@ extensions = [
 numfig = True
 numfig_secnum_depth = (2)
 
-if tags.has('es'):
-  figure_caption_prefix = 'Figura'
-else:
-  figure_caption_prefix = 'Figure'
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
