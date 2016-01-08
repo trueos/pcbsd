@@ -55,79 +55,7 @@ Type in help <command> for information and usage about that command
      rmsnap - Remove a snapshot
         set - Set lpreserver options
      status - List datasets, along with last snapshot / replication date 
-      zpool - Manage a zpool by attaching / detaching disks
 __EOF__
-};
-
-help_zpool()
-{
- title
- echo "Help zpool
-
-Life-Preserver zpool subsystem
-
-The 'zpool' subcommand allows you to attach / detach drives to a zpool, 
-as well as get status and more. 
-
-When a drive is first attached to a zpool, it will be re-formatted with
-a new gpart layout and made bootable with GRUB. For this reason the disk
-must be the same size, or larger, than the first array disk SWAP + ZFS
-partition size. 
-
-Available Flags:
-	list - List zpool disks
-      attach - Attach a new zpool disk
-      detach - Remove a zpool disk
-     offline - Mark a disk as offline
-      online - Mark a disk as being online again
-
-Attach Options:
-
-	attach <zpool> <new disk>
-
-	Example 1: 
-
-	attach tank1 /dev/da0
-
-	Attach the disk /dev/da0 to tank1 pool. The disk will be 
-        auto-partioned with a SWAP / ZFS partition and made bootable.
-
-Detach Options:
-
-	detach <zpool> <disk>
-	
-	Detach a disk from the zpool
-
-        Use 'zpool list' for a list of available disks 
-
-Offline Options:
-
- 	offline <zpool> <disk>	
-	
-	Mark a disk in the zpool array as 'offline', should be when you
-	want to unplug a device, and anticipate plugging it back in later.
-
-Online Options:
-
- 	online <zpool> <disk>	
-	
-	Mark an offline disk in the array as online again. The disk will begin
-	to resilver again automatically. 
-
-List Options:
-
-	list <zpool>
-	
-	Lists the connected disks of a zpool
-
-Usage:
-
-  lpreserver zpool <subcommand> <options>
-
-Example:
-
-  lpreserver zpool list tank1
-"
 };
 
 help_replicate()
@@ -600,7 +528,6 @@ case "$1" in
            listcron) help_listcron ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
-           zpool) help_zpool ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            cronscrub) help_cronscrub ;;
@@ -728,17 +655,6 @@ revertsnap) require_root
 		      ;;
 		saveiscsi) require_root ; save_iscsi_zpool_data "$2" "$3" "$4" ;;
 		*) help_replicate ;;
-	    esac
-	 ;;
-    zpool) require_root
-	    shift
-	    case ${1} in
-		attach) add_zpool_disk "$2" "$3" ;;
-		detach) rem_zpool_disk "$2" "$3" ;;
-		online) online_zpool_disk "$2" "$3" ;;
-	       offline) offline_zpool_disk "$2" "$3" ;;
-		list) list_zpool_disks "$2" ;;
-		*) help_zpool ;;
 	    esac
 	 ;;
    *) help_main ;;
