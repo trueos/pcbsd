@@ -38,6 +38,7 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   connect(snapExMenu, SIGNAL(triggered(QAction*)), this, SLOT(addSnapExclude(QAction*)) );
   connect(repExMenu, SIGNAL(triggered(QAction*)), this, SLOT(addRepExclude(QAction*)) );
   connect(ui->tool_snap_remexclude, SIGNAL(clicked()), this, SLOT(rmSnapExcludes()) );
+  connect(ui->tool_rep_remexclude, SIGNAL(clicked()), this, SLOT(rmRepExcludes()) );
 }
 
 LPConfig::~LPConfig(){
