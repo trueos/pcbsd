@@ -42,19 +42,6 @@ enable_dhcp_all()
 
 detect_x() 
 {
-  # Check if the user requested VESA mode
-  xvesa="NO"
-  v=`/bin/kenv xvesa 2>/dev/null`
-  if [ $? -eq 0 ]; then
-        xvesa=$v
-  fi
-
-  # If we are starting in VESA only mode
-  if [ "$xvesa" = "YES" ]; then
-    cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
-    return
-  fi
-
   # First check if we are running as a VirtualBox guest
   pciconf -lv | grep -q "VirtualBox"
   if [ $? -eq 0 ] ; then cp /root/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf ; return; fi
