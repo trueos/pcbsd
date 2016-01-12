@@ -140,7 +140,7 @@ rmZFSSnap() {
 
 revertZFSSnap() {
   # Make sure this is a valid snapshot
-  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot $1 | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
 
   # Rollback the snapshot
   zfs rollback -R -f ${1}@$2
