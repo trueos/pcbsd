@@ -33,8 +33,8 @@ LOGDIR="/var/log/lpreserver"
 REPLOGSEND="${LOGDIR}/lastrep-send-log"
 REPLOGRECV="${LOGDIR}/lastrep-recv-log"
 MSGQUEUE="${DBDIR}/.lpreserver.msg.$$"
-export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
-
+SSHPROPS="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE SSHPROPS
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then 
    mkdir -p ${LOGDIR}
@@ -543,6 +543,24 @@ add_rep_task() {
     cLine="$cTime       *       *       *"
     echo -e "$cLine\troot    ${cronscript} ${LDATA} ${HOST}" >> /etc/crontab
   fi
+
+  # Check if we need to setup a SSH key
+  if [ -z "$SSHPASS" ] ; then return; fi
+
+  if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
+    mkdir /root/.ssh >/dev/null 2>/dev/null
+    ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
+  fi
+
+  if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
+    exit_err "Failed creating /root/.ssh/id_rsa.pub"
+  fi
+
+  sshpass -e ssh -p $PORT $USER@$HOST $SSHPROPS 'mkdir .ssh' >/dev/null 2>/dev/null
+  cat /root/.ssh/id_rsa.pub | sshpass -e ssh -p $PORT $USER@$HOST $SSHPROPS 'chmod 700 .ssh ; tee -a .ssh/authorized_keys ; chmod 644 .ssh/authorized_keys' >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed setting up SSH key authentication"
+  fi
 }
 
 rem_rep_task() {
@@ -1026,7 +1044,7 @@ start_rep_task() {
 
   # If we are doing SSH backup, set a prefix to remote commands
   if [ -z "$ISCSI" ] ; then
-    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST}"
+    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS}"
   else
     CMDPREFIX=""
   fi
@@ -1321,7 +1339,7 @@ save_rep_props() {
   rProp=".lp-props-`echo ${REPRDATA}/${hName} | sed 's|/|#|g'`"
 
   zfs get -t filesystem -s local -r all $DATASET | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
-	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > \"$rProp\""
+	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS} "cat > \"$rProp\""
   if [ $? -eq 0 ] ; then
     echo_log "Successful save of dataset properties for: ${DATASET}"
     queue_msg "`date`: Successful save of dataset properties for: ${DATASET}\n"
@@ -1456,11 +1474,11 @@ init_rep_task() {
      cleanup_iscsi
   else
     # First check if we even have a dataset on the remote
-    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
+    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
     if [ $? -eq 0 ] ; then
        # Lets cleanup the remote side
        echo "Removing remote dataset: ${REPRDATA}/${hName}"
-       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -R ${REPRDATA}/${hName}
+       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS} zfs destroy -R ${REPRDATA}/${hName}
        if [ $? -ne 0 ] ; then
           echo "Warning: Could not delete remote dataset ${REPRDATA}/${hName}"
        fi
