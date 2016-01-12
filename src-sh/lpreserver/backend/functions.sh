@@ -132,7 +132,7 @@ listZFSSnap() {
 }
 
 rmZFSSnap() {
-  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || return 1
+  `zfs list -d 1 -t snapshot $1 | grep -q "^$1@$2 "` || return 1
 
   if [ "$RECURMODE" = "ON" ] ; then
      flags="-r"
@@ -149,6 +149,7 @@ revertZFSSnap() {
 
   # Rollback the snapshot
   zfs rollback -R -f ${1}@$2
+  return $?
 }
 
 enable_cron_snap()

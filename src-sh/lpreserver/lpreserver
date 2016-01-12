@@ -665,12 +665,14 @@ revertsnap) require_root
          DATASET="$2"
          SNAP="$3"
          ${PROGDIR}/backend/zfsrevertsnap.sh "${DATASET}" "$SNAP"
+	 exit $?
          ;;
 
     rmsnap) require_root
          DATASET="$2"
          SNAP="$3"
          ${PROGDIR}/backend/zfsrmsnap.sh "${DATASET}" "${SNAP}"
+	 exit $?
          ;;
     status) listStatus
          ;;
