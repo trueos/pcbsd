@@ -22,5 +22,9 @@ if [ -z "${SNAP}" ]; then
   exit_err "No snapshot specified!"
 fi
 
-rmZFSSnap "${DATASET}" "$SNAP"
-exit $?
+rmZFSSnap "${DATASET}" "${SNAP}"
+if [ $? -ne 0 ] ; then
+  echo "ERROR: Failed removing snapshot: ${DATASET}@${SNAP}"
+  exit 1
+fi
+exit 0
