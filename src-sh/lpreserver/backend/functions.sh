@@ -33,7 +33,7 @@ LOGDIR="/var/log/lpreserver"
 REPLOGSEND="${LOGDIR}/lastrep-send-log"
 REPLOGRECV="${LOGDIR}/lastrep-recv-log"
 MSGQUEUE="${DBDIR}/.lpreserver.msg.$$"
-SSHPROPS="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+SSHPROPS="-o StrictHostKeyChecking=no"
 export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE SSHPROPS
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then 
