@@ -1014,8 +1014,8 @@ mk_pkg_conf()
    PKG_FLAG=""
    PKG_CFLAG=""
 
-   if [ ! -d "$PKGDLCACHE" ] ; then
-     mkdir -p $PKGDLCACHE
+   if [ ! -d "$REALPKGDLCACHE" ] ; then
+     mkdir -p $REALPKGDLCACHE
    fi
 
    # Get rid of FreeBSD.conf repo
@@ -1025,7 +1025,7 @@ mk_pkg_conf()
 
    # Set the cache directory
    PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
-   echo "PKG_CACHEDIR: $PKGDLCACHE" > /tmp/.pkgUpdate.conf
+   echo "PKG_CACHEDIR: $REALPKGDLCACHE" > /tmp/.pkgUpdate.conf
 
    # If doing a major update also, add the new repos config
    if [ -n "$NEWFREEBSDVERSION" ] ; then
@@ -1337,6 +1337,10 @@ do_lite_pkgupdate_chroot()
   # Need to export this before cleaning pkgs, some scripts may try to be interactive
   PACKAGE_BUILDING="YES"
   export PACKAGE_BUILDING
+
+  # Set the cache directory
+  PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
+  echo "PKG_CACHEDIR: $REALPKGDLCACHE" > ${STAGEMNT}/tmp/.pkgUpdate.conf
 
   echo_log "Starting pkg upgrade..."
   rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
