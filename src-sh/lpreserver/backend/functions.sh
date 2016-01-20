@@ -901,8 +901,13 @@ build_dset_list()
     zfs list -H -r -o name ${1} >/tmp/.dSet.$$
     while read line
     do
-      cat /tmp/.dSet.$$ | grep -v "^$line" > /tmp/.dSet-new.$$
-      mv /tmp/.dSet-new.$$ /tmp/.dSet.$$
+      # Check for empty line so grep -v doesn't empty dset file
+      if [ -z $line ]; then
+        continue
+      else
+        cat /tmp/.dSet.$$ | grep -v "^$line" > /tmp/.dSet-new.$$
+        mv /tmp/.dSet-new.$$ /tmp/.dSet.$$
+      fi
     done < ${EXCLFILE}
 
     # Now build variable
