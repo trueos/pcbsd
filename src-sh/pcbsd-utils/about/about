@@ -53,7 +53,8 @@ echo "General info:"
 echo "       Host:..............`hostname`"
 echo "       User:..............`whoami`"
 echo "       Uptime:............`uptime | awk '{sub(/^.* up +/,"");sub(/, *[0-9]+ users.*/,"");print}'`"
-echo "       FreeBSD ver:.......`uname -r`"
+echo "       FreeBSD kernel ver:`uname -r`"
+echo "       FreeBSD world ver:.`freebsd-version`"
 if [ "$SYSTYPE" = "PCBSD" ]; then
   echo "       PC-BSD ver:........`cat /usr/local/share/pcbsd/version`"
 else
