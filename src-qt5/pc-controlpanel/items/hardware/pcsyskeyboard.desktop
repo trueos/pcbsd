@@ -11,3 +11,5 @@ TerminalOptions=
 Type=Application
 Categories=System;Settings;
 Name=PC-BSD keyboard settings
+Name[en_US]=PC-BSD keyboard settings
+Name[sv]=PC-BSD Tangentbords Inställningar

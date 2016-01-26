@@ -33,8 +33,8 @@ LOGDIR="/var/log/lpreserver"
 REPLOGSEND="${LOGDIR}/lastrep-send-log"
 REPLOGRECV="${LOGDIR}/lastrep-recv-log"
 MSGQUEUE="${DBDIR}/.lpreserver.msg.$$"
-export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
-
+SSHPROPS="-o StrictHostKeyChecking=no"
+export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE SSHPROPS
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then 
    mkdir -p ${LOGDIR}
@@ -132,23 +132,19 @@ listZFSSnap() {
 }
 
 rmZFSSnap() {
-  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || return 1
+  `zfs list -d 1 -t snapshot $1 | grep -q "^$1@$2 "` || return 1
 
-  if [ "$RECURMODE" = "ON" ] ; then
-     flags="-r"
-  else
-     flags="-r"
-  fi
-  zfs destroy -r ${1}@${2} >${CMDLOG} 2>${CMDLOG}
+  zfs destroy -R ${1}@${2} >${CMDLOG} 2>${CMDLOG}
   return $?
 }
 
 revertZFSSnap() {
   # Make sure this is a valid snapshot
-  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot $1 | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
 
   # Rollback the snapshot
   zfs rollback -R -f ${1}@$2
+  return $?
 }
 
 enable_cron_snap()
@@ -179,8 +175,12 @@ enable_cron_scrub()
    cronscript="${PROGDIR}/backend/runscrub.sh"
 
    # Make sure we remove any old entries for this dataset
-   cat /etc/crontab | grep -v " $cronscript $1" > /etc/crontab.new
+   cat /etc/crontab | grep -v "$cronscript $1" > /etc/crontab.new
    mv /etc/crontab.new /etc/crontab
+   
+   cat /usr/local/etc/anacrontab | grep -v "$cronscript $1" > /usr/local/etc/anacrontab.new
+   mv /usr/local/etc/anacrontab.new /usr/local/etc/anacrontab
+   
    if [ "$2" = "OFF" ] ; then
       return 
    fi
@@ -189,10 +189,15 @@ enable_cron_scrub()
        daily) cLine="0       $3      *       *       *" ;;
        weekly) cLine="0       $4      *       *       $3" ;;
        monthly) cLine="0       $4      $3       *       *" ;;
+       anacron) cLine="$3\t60\tautoscrub";;
            *) exit_err "Invalid time specified" ;;
    esac 
 
-   echo -e "$cLine\troot    ${cronscript} $1" >> /etc/crontab
+   if [ "$2" = "anacron" ]; then
+      echo -e "$cLine\t${cronscript} $1" >> /usr/local/etc/anacrontab
+   else
+     echo -e "$cLine\troot    ${cronscript} $1" >> /etc/crontab
+   fi
 }
 
 list_cron_snap()
@@ -235,6 +240,14 @@ do
    echo "$i - $time"
    echo ""
 done
+
+for i in `grep "${PROGDIR}/backend/runscrub.sh" /usr/local/etc/anacrontab | awk '{print $5}'`
+do
+   time=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /usr/local/etc/anacrontab | awk '{print $1}'`
+   echo "$i - every $time days"
+   echo ""
+done
+
 }
 
 enable_watcher()
@@ -397,7 +410,7 @@ add_rep_iscsi_task() {
   GELIKEY="$4"
 
   case $TIME in
-     [0-9][0-9]|sync|hour|30min|10min|manual) ;;
+     0|[1-9]|1[0-9]|2[0-3]|sync|hour|30min|10min|manual) ;;
      *) exit_err "Invalid time: $TIME"
   esac
 
@@ -498,7 +511,7 @@ add_rep_task() {
   TIME=$6
 
   case $TIME in
-     [0-9][0-9]|sync|hour|30min|10min|manual) ;;
+     0|[1-9]|1[0-9]|2[0-3]|sync|hour|30min|10min|manual) ;;
      *) exit_err "Invalid time: $TIME"
   esac
  
@@ -529,6 +542,24 @@ add_rep_task() {
     cronscript="${PROGDIR}/backend/runrep.sh"
     cLine="$cTime       *       *       *"
     echo -e "$cLine\troot    ${cronscript} ${LDATA} ${HOST}" >> /etc/crontab
+  fi
+
+  # Check if we need to setup a SSH key
+  if [ -z "$SSHPASS" ] ; then return; fi
+
+  if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
+    mkdir /root/.ssh >/dev/null 2>/dev/null
+    ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
+  fi
+
+  if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
+    exit_err "Failed creating /root/.ssh/id_rsa.pub"
+  fi
+
+  sshpass -e ssh -p $PORT $USER@$HOST $SSHPROPS 'mkdir .ssh' >/dev/null 2>/dev/null
+  cat /root/.ssh/id_rsa.pub | sshpass -e ssh -p $PORT $USER@$HOST $SSHPROPS 'chmod 700 .ssh ; tee -a .ssh/authorized_keys ; chmod 644 .ssh/authorized_keys' >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed setting up SSH key authentication"
   fi
 }
 
@@ -659,7 +690,6 @@ connect_iscsi() {
      # Create the config
      echo "client = yes
 foreground = yes
-options = NO_SSLv2
 [iscsi]
 accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
@@ -871,8 +901,13 @@ build_dset_list()
     zfs list -H -r -o name ${1} >/tmp/.dSet.$$
     while read line
     do
-      cat /tmp/.dSet.$$ | grep -v "^$line" > /tmp/.dSet-new.$$
-      mv /tmp/.dSet-new.$$ /tmp/.dSet.$$
+      # Check for empty line so grep -v doesn't empty dset file
+      if [ -z $line ]; then
+        continue
+      else
+        cat /tmp/.dSet.$$ | grep -v "^$line" > /tmp/.dSet-new.$$
+        mv /tmp/.dSet-new.$$ /tmp/.dSet.$$
+      fi
     done < ${EXCLFILE}
 
     # Now build variable
@@ -974,7 +1009,7 @@ prune_old_remote_snaps() {
     if [ $? -eq 0 ]; then continue; fi
     
     queue_msg "`date`: Removing old snapshot ${2}@${rsnap}"
-    ${CMDPREFIX} zfs destroy ${2}@${rsnap}
+    ${CMDPREFIX} zfs destroy -R ${2}@${rsnap}
     if [ $? -ne 0 ] ; then
       echo_log "FAILED Removing old snapshot ${2}@${rsnap}"
       queue_msg "`date`: FAILED Removing old snapshot ${2}@${rsnap}"
@@ -1014,9 +1049,19 @@ start_rep_task() {
 
   # If we are doing SSH backup, set a prefix to remote commands
   if [ -z "$ISCSI" ] ; then
-    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST}"
+    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS}"
   else
     CMDPREFIX=""
+  fi
+
+  # Check if the remote dataset exists, bail if not
+  ${CMDPREFIX} zfs list -d 1 ${REMOTEDSET} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    echo_log "Cannot locate remote dataset ${REMOTEDSET}: LOGFILE: $FLOG"
+    queue_msg "Cannot locate remote dataset ${REMOTEDSET}: LOGFILE: $FLOG"
+    queue_msg "`cat ${FLOG}`"
+    rm ${pidFile}
+    return 1
   fi
 
   # Check for the last snapshot marked as replicated already
@@ -1299,7 +1344,7 @@ save_rep_props() {
   rProp=".lp-props-`echo ${REPRDATA}/${hName} | sed 's|/|#|g'`"
 
   zfs get -t filesystem -s local -r all $DATASET | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
-	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > \"$rProp\""
+	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS} "cat > \"$rProp\""
   if [ $? -eq 0 ] ; then
     echo_log "Successful save of dataset properties for: ${DATASET}"
     queue_msg "`date`: Successful save of dataset properties for: ${DATASET}\n"
@@ -1345,210 +1390,6 @@ listStatus() {
       echo "$i -> $REPHOST - $lastSNAP - $lastSEND"
     done
   done
-}
-
-add_zpool_disk() {
-   pool="$1"
-   disk="$2"
-   disk="`echo $disk | sed 's|/dev/||g'`"
-
-   if [ -z "$pool" ] ; then
-      exit_err "No pool specified"
-      exit 0
-   fi
-
-   if [ -z "$disk" ] ; then
-      exit_err "No disk specified"
-      exit 0
-   fi
-
-   if [ ! -e "/dev/$disk" ] ; then
-      exit_err "No such device: $disk"
-      exit 0
-   fi
-
-   zpool list -H -v | awk '{print $1}' | grep -q "^$disk"
-   if [ $? -eq 0 ] ; then
-      exit_err "Error: This disk is already apart of a zpool!"
-   fi
-
-   # Check if pool exists
-   zpool status $pool >/dev/null 2>/dev/null
-   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
-
-   # Cleanup the target disk
-   echo "Deleting all partitions on: $disk"
-   rc_nohalt "gpart destroy -F $disk" >/dev/null 2>/dev/null
-   rc_nohalt "dd if=/dev/zero of=/dev/${disk} bs=1m count=1" >/dev/null 2>/dev/null
-   rc_nohalt "dd if=/dev/zero of=/dev/${disk} bs=1m oseek=`diskinfo /dev/${disk} | awk '{print int($3 / (1024*1024)) - 4;}'`" >/dev/null 2>/dev/null
-
-   # Grab the first disk in the pool
-   mDisk=`zpool list -H -v | grep -v "^$pool" | awk '{print $1}' | grep -v "^mirror" | grep -v "^raidz" | head -n 1`
-
-   # Is this MBR or GPT?
-   echo $mDisk | grep -q 's[0-4][a-z]$'
-   if [ $? -eq 0 ] ; then
-      # MBR
-      type="MBR"
-      # Strip off the "a-z" and potential extensions (like .eli)
-      rDiskDev=`echo $mDisk | awk -F\. '{print $1}' | rev | cut -c 2- | rev`
-   else
-      # GPT
-      type="GPT"
-      # Strip off the "p[1-9]" and potential extensions (like .eli)
-      rDiskDev=`echo $mDisk | awk -F\. '{print $1}' | rev | cut -c 3- | rev`
-   fi
-
-   # Make sure this disk has a layout we can read
-   gpart show $rDiskDev >/dev/null 2>/dev/null
-   if [ $? -ne 0 ] ; then 
-      exit_err "failed to get disk device layout $rDiskDev"
-   fi
-
-   # Get the size of "freebsd-swap"
-   sSize=`gpart show ${rDiskDev} | grep freebsd-swap | cut -d "(" -f 2 | cut -d ")" -f 1`
-   # adjust to integer sizes for gpart
-   case "$sSize" in
-       *T) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
-           sSize="`echo "$sSizeNum * 1024" | bc | awk -F\. '{print $1}'`G"
-           ;;
-       *G) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
-           sSize="`echo "$sSizeNum * 1024" | bc | awk -F\. '{print $1}'`M"
-           ;;
-       *) ;;
-   esac
-   # Get the size of "freebsd-zfs"
-   zSize=`gpart show ${rDiskDev} | grep freebsd-zfs | cut -d "(" -f 2 | cut -d ")" -f 1`
-   # adjust to integer sizes for gpart
-   case "$zSize" in
-       *T) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
-           zSize="`echo "$zSizeNum * 1024" | bc | awk -F\. '{print $1}'`G"
-           ;;
-       *G) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
-           zSize="`echo "$zSizeNum * 1024" | bc | awk -F\. '{print $1}'`M"
-           ;;
-       *) ;;
-   esac
-
-   echo "Creating new partitions on $disk"
-   if [ "$type" = "MBR" ] ; then
-      # Create the new MBR layout
-      rc_halt_s "gpart create -s MBR -f active $disk"
-      rc_halt_s "gpart add -a 4k -t freebsd $disk"	
-      rc_halt_s "gpart set -a active -i 1 $disk"
-      rc_halt_s "gpart create -s BSD ${disk}s1"
-      rc_halt_s "gpart add -t freebsd-zfs -s $zSize ${disk}s1"
-      if [ -n "$sSize" ] ; then
-        rc_halt_s "gpart add -t freebsd-swap -s $sSize ${disk}s1"
-      fi
-      aDev="${disk}s1a"
-   else
-      # Creating a GPT disk
-      GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
-      rc_halt_s "gpart create -s GPT $disk"
-      rc_halt_s "gpart add -b 34 -s 1M -t bios-boot $disk"
-      rc_halt_s "gpart add -t freebsd-zfs -s $zSize ${disk}"
-      if [ -n "$sSize" ] ; then
-        rc_halt_s "gpart add -t freebsd-swap -s $sSize ${disk}"
-      fi
-      aDev="${disk}p2"
-   fi
-
-   # Now we can insert the target disk
-   echo "Attaching to zpool: $aDev"
-   rc_halt_s "zpool attach $pool $mDisk $aDev"
-
-   # Lastly we need to stamp GRUB
-   echo "Stamping GRUB on: $disk"
-   rc_halt_s "grub-install $GRUBFLAGS --force /dev/${disk}"
-
-   echo "Added $disk ($aDev) to zpool $pool. Resilver will begin automatically."
-   exit 0
-}
-
-list_zpool_disks() {
-   pool="$1"
-
-   if [ -z "$pool" ] ; then
-      exit_err "No pool specified"
-      exit 0
-   fi
-
-   # Check if pool exists
-   zpool status $pool >/dev/null 2>/dev/null
-   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
-
-   zpool list -H -v $pool
-}
-
-rem_zpool_disk() {
-   pool="$1"
-   disk="$2"
-
-   if [ -z "$pool" ] ; then
-      exit_err "No pool specified"
-      exit 0
-   fi
-
-   if [ -z "$disk" ] ; then
-      exit_err "No disk specified"
-      exit 0
-   fi
-
-   # Check if pool exists
-   zpool status $pool >/dev/null 2>/dev/null
-   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
-
-   zpool detach $pool $disk
-   if [ $? -ne 0 ] ; then
-      exit_err "Failed detaching $disk"
-   fi 
-   echo "$disk was detached successfully!"
-   exit 0
-}
-
-offline_zpool_disk() {
-   pool="$1"
-   disk="$2"
-
-   if [ -z "$pool" ] ; then
-      exit_err "No pool specified"
-      exit 0
-   fi
-
-   if [ -z "$disk" ] ; then
-      exit_err "No disk specified"
-      exit 0
-   fi
-
-   # Check if pool exists
-   zpool status $pool >/dev/null 2>/dev/null
-   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
-
-   zpool offline $pool $disk
-   exit $?
-}
-
-online_zpool_disk() {
-   pool="$1"
-   disk="$2"
-
-   if [ -z "$pool" ] ; then
-      exit_err "No pool specified"
-      exit 0
-   fi
-
-   if [ -z "$disk" ] ; then
-      exit_err "No disk specified"
-      exit 0
-   fi
-
-   # Check if pool exists
-   zpool status $pool >/dev/null 2>/dev/null
-   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
-
-   zpool online $pool $disk
-   exit $?
 }
 
 expand_iscsi_zpool() {
@@ -1638,11 +1479,11 @@ init_rep_task() {
      cleanup_iscsi
   else
     # First check if we even have a dataset on the remote
-    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
+    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
     if [ $? -eq 0 ] ; then
        # Lets cleanup the remote side
        echo "Removing remote dataset: ${REPRDATA}/${hName}"
-       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -R ${REPRDATA}/${hName}
+       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS} zfs destroy -R ${REPRDATA}/${hName}
        if [ $? -ne 0 ] ; then
           echo "Warning: Could not delete remote dataset ${REPRDATA}/${hName}"
        fi

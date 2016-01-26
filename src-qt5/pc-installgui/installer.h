@@ -13,7 +13,6 @@
 #include "ui_installer.h"
 #include "dialogHelp.h"
 #include "dialogKeyboard.h"
-#include "dialogDesktopSelection.h"
 #include "dialogCheckHardware.h"
 #include "wizardFreeBSD.h"
 #include "wizardDisk.h"
@@ -71,9 +70,6 @@ private slots:
     void slotStartDiskManager();
 
     // Desktop selector slots
-    void slotDesktopCustomizeClicked();
-    void slotSaveMetaChanges(QStringList);
-    void slotChangedMetaPkgSelection();
     void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, QStringList, QStringList);
 
     // Restore-related slots
@@ -121,7 +117,6 @@ private:
     QList<QStringList> listDeskPkgs; // QStringList for our available desktop pkgs
     QList<QStringList> listServerPkgs; // QStringList for our available server pkgs
     QStringList selectedPkgs; // QStringList for selected packages
-    desktopSelection *desks;
     QGraphicsScene *defaultScene;
     QGraphicsScene *customScene;
     bool customPkgsSet;
@@ -157,8 +152,6 @@ private:
     // Help Stuff
     dialogHelp *pcHelp;
 
-    // Infobox 
-    dialogInfoBox *dIB;
     QMenu *popup;
 
     // FreeBSD setup wizard

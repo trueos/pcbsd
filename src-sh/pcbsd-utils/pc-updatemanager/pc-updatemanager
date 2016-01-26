@@ -89,6 +89,10 @@ AUTO_UPDATE="securitypkg"
 _upChk="`sed -n 's/AUTO_UPDATE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
 if [ -n "${_upChk}" ] ; then AUTO_UPDATE="$_upChk" ; fi
 
+CDN_TYPE="HTTP"
+_cdnChk="`sed -n 's/CDN_TYPE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+if [ -n "${_cdnChk}" ] ; then CDN_TYPE="$_cdnChk" ; fi
+
 # Check the PACKAGE_SET variable
 case $PACKAGE_SET in
   ENTERPRISE|PRODUCTION|EDGE) ;;
@@ -115,6 +119,9 @@ case $PACKAGE_SET in
           PACKAGE_SET="PRODUCTION" ;; 
 esac
 
+# Set the location for saving program state
+STATEDIR="/var/db/pc-updatemanager"
+
 # Run-command, halt if command exits with non-0
 rc_halt_cleanup()
 {
@@ -123,6 +130,7 @@ rc_halt_cleanup()
   if [ -z "${CMD}" ] ; then
     exit_err "Error: missing argument in rc_halt_cleanup()"
   fi
+  echo "Running: $CMD" >> ${LOGOUT}
 
   ${CMD}
   STATUS=$?
@@ -209,19 +217,41 @@ pcbsd-major: {
               }
 EOF
   else
-     # Using PC-BSD CDN
-     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+     # Not using a CUSTOM repo
+     if [ "$CDN_TYPE" = "IPFS" -a -e "/usr/local/etc/rc.d/ipfs-go" ] ; then
+        # Get current IPFS CDN Hash for this release
+	fetch -o /tmp/.ipfs-cdn.$$ "http://download.pcbsd.org/ipfs/$MAJORVER/$ARCH/hash-current" 2>/dev/null >/dev/null
+	_err=$?
+	PKGHASH=`cat /tmp/.ipfs-cdn.$$ 2>/dev/null`
+        rm /tmp/.ipfs-cdn.$$ >/dev/null 2>/dev/null
+	if [ $_err -ne 0 -o -z "$PKGHASH" ] ; then
+	   echo "Falling back to HTTP mirror"
+	   sed_pkg_repo_file_http
+	   return 0
+	fi
+
+	# Save the new IPFS CDN pkg config
+        cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
+pcbsd-major: {
+               url: "http://127.0.0.1:8080/ipfs/${PKGHASH}",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+     else
+	sed_pkg_repo_file_http
+     fi
+  fi
+}
+
+sed_pkg_repo_file_http() {
+  cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|pcbsd: |pcbsd-major: |g" \
 	| sed "s|%VERSION%|$MAJORVER|g" \
 	| sed "s|%ARCH%|$ARCH|g" \
 	| sed "s|VERSION|$MAJORVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
-  fi
-
-  if [ -e "/usr/local/etc/pkg/repos/01pcbsd.conf" ] ; then
-     rm /usr/local/etc/pkg/repos/local-pcbsd.conf >/dev/null 2>/dev/null #eventually remove
-     rm /usr/local/etc/pkg/repos/01pcbsd.conf
-  fi
 }
 
 get_update_file() {
@@ -306,27 +336,37 @@ list_branches() {
   # Setup our variable, we have no branches so far
   BRANCHFOUND="0" 
 
+  CURMAJOR="$(uname -r | cut -d '-' -f 1 |  cut -d '.' -f 1)"
+  CURMINOR="$(uname -r | cut -d '-' -f 1 |  cut -d '.' -f 2)"
+
   while read line
   do
      echo $line | grep -q "^BRANCHES:"
-     if [ $? -eq 0 ] ; then
-	echo "Available branches:"
-	echo "* = Current Branch"
-        echo "----------------------------------"
-	echo $line | cut -d ':' -f 2 | sed 's|,|\
+     if [ $? -ne 0 ] ; then continue ; fi
+
+     echo "Available branches:"
+     echo "* = Current Branch"
+     echo "----------------------------------"
+     echo $line | cut -d ':' -f 2 | sed 's|,|\
 |g' | while read branch
-	do
-		if [ "`uname -r | cut -d '-' -f 1-2`" = "$branch" ] ; then
-			echo "$branch *"
-		else
-			echo "$branch"
-		fi
-	done
-	echo ""
-	echo "To change branches run: ${0} chbranch <branch>"
-        BRANCHFOUND="1"
-        continue
-     fi
+     do
+       MAJOR="$(echo $branch | cut -d '-' -f 1 |  cut -d '.' -f 1)"
+       MINOR="$(echo $branch | cut -d '-' -f 1 |  cut -d '.' -f 2)"
+
+       # Filter out old versions
+       if [ $CURMAJOR -gt $MAJOR ] ; then continue ; fi
+       if [ $CURMAJOR -eq $MAJOR -a $CURMINOR -gt $MINOR ] ; then continue ; fi
+
+       if [ "`uname -r | cut -d '-' -f 1-2`" = "$branch" ] ; then
+         echo "$branch *"
+       else
+	 echo "$branch"
+       fi
+     done
+     echo ""
+     echo "To change branches run: ${0} chbranch <branch>"
+     BRANCHFOUND="1"
+     break
   done < ${PATCHTMPFILE}
 
   # If no patches
@@ -756,12 +796,31 @@ set_update_vars()
   # Set some locations
   STAGEBE="updaterstage"
   STAGEMNT="/.updateStage"
-  OLDPKGLIST="/tmp/.pkgUpdateList.$$"
-  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
-  PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
+  OLDPKGLIST="${STATEDIR}/.pkgUpdateList"
+  NEWPKGLIST="${STATEDIR}/.newPkgUpdateList"
+  PKGUPGRADELOG="${STATEDIR}/.pkgUpdateLog"
   PKGDLCACHE="/usr/local/pkg-cache"
   touch ${PKGUPGRADELOG}
-
+  if [ -e "${STATEDIR}/.sysbaseorigin" ] ; then
+    SYSBASEORIGIN=$(cat ${STATEDIR}/.sysbaseorigin)
+  fi
+  if [ -e "${STATEDIR}/.sysbasefilename" ] ; then
+    SYSBASEFILENAME=$(cat ${STATEDIR}/.sysbasefilename)
+  fi
+  if [ -e "${STATEDIR}/.newfreebsdver" ] ; then
+    NEWFREEBSDVERSION=$(cat ${STATEDIR}/.newfreebsdver)
+  fi
+  if [ -e "${STATEDIR}/.fullupdate" ] ; then
+    FULLUPDATE=$(cat ${STATEDIR}/.fullupdate)
+  fi
+  if [ -e "${STATEDIR}/.doPkgUpdates" ] ; then
+    doPkgUpdates=$(cat ${STATEDIR}/.doPkgUpdates)
+  fi
+  if [ -e "${STATEDIR}/.realpkgdlcache" ] ; then
+    REALPKGDLCACHE=$(cat ${STATEDIR}/.realpkgdlcache)
+  else
+    REALPKGDLCACHE=${PKGDLCACHE}
+  fi
 }
 
 # Check that beadm exists before doing an update
@@ -771,16 +830,17 @@ check_valid_uptarget()
   if [ $? -ne 0 ] ; then
      exit_err "No beadm installed! Is this a jail or non PC-BSD / TrueOS box?"
   fi
-
-  if [ ! -e '/boot/grub/grub.cfg' ] ; then
-     exit_err "No GRUB setup! Is this a jail or non PC-BSD / TrueOS box?"
-  fi
 }
 
 update_freebsd()
 {
   check_valid_uptarget
   touch_updateinprogress
+
+  pc-fbsdupdatecheck | grep -q "will be updated"
+  if [ $? -ne 0 ] ; then
+    exit_err "No FreeBSD updates available!"
+  fi
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
@@ -798,9 +858,10 @@ update_freebsd()
   if [ $? -eq 0 ] ; then doPkgUpdates="NO"; fi
   rm /tmp/.pkgData.$$
 
-  set_update_vars
+  # SaveState
+  echo "$doPkgUpdates" > ${STATEDIR}/.doPkgUpdates
 
-  kill_syscache
+  set_update_vars
 
   if [ "$doPkgUpdates" = "YES" ] ; then
     mk_pkg_conf
@@ -811,10 +872,18 @@ update_freebsd()
     run_update_pre "SECURITY"
   fi
 
+  run_freebsd_update_fetch
+
+  prep_update_shutdown "update_freebsd"
+}
+
+update_freebsd_stage2() {
+  mk_pkg_conf
+
   mk_stage_be
   mount_stage_be
 
-  run_freebsd_update_script
+  run_freebsd_update_install
 
   if [ "$doPkgUpdates" = "YES" ] ; then
     prep_pkgs_chroot
@@ -828,24 +897,27 @@ update_freebsd()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
-  start_syscache
   if [ "$doPkgUpdates" = "YES" ] ; then
     run_update_post "PKG"
   else
     run_update_post "SECURITY"
   fi
-
-  touch_reboot
-  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
-  exit 0
 }
 
 update_pkgs_only()
 {
   check_valid_uptarget
 
+  FULLUPDATE="NO"
+  if [ "$1" = "-f" ] ; then
+    FULLUPDATE="YES"
+  fi
+
+  # SaveState
+  echo "$FULLUPDATE" > ${STATEDIR}/.fullupdate
+
   # Make sure there are really packages to update
-  if [ "$1" != "-f" ] ; then
+  if [ "$FULLUPDATE" != "YES" ] ; then
     checkup_pkgs >/dev/null 2>/dev/null
     if [ $? -eq 0 ] ; then
        echo "Your packages are already up to date!"
@@ -862,15 +934,34 @@ update_pkgs_only()
 
   set_update_vars
 
-  kill_syscache
   run_update_pre "PKG"
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
+
+  prep_update_shutdown "update_pkgs_only"
+}
+
+update_pkgs_only_stage2() {
+
+  mk_pkg_conf
+  doPkgUpdates="YES"
+
   mk_stage_be
   mount_stage_be
-  prep_pkgs_chroot
-  install_pkgs_chroot
+  if [ "$FULLUPDATE" = "YES" ] ; then
+    # We are doing a forced / full update, lets nuke and re-install all
+    prep_pkgs_chroot
+    install_pkgs_chroot
+  else
+    # Lets attempt a traditional PKG upgrade, fallback to full if that fails
+    do_lite_pkgupdate_chroot
+    if [ $? -ne 0 ] ; then
+      echo_log "Failed incremental pkg upgrade! Doing full package upgrade now."
+      prep_pkgs_chroot
+      install_pkgs_chroot
+    fi
+  fi
   umount_stage_be
   mk_stage_be_default
 
@@ -878,12 +969,7 @@ update_pkgs_only()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
-  start_syscache
   run_update_post "PKG"
-
-  touch_reboot
-  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
-  exit 0
 }
 
 update_world_and_pkgs()
@@ -892,6 +978,9 @@ update_world_and_pkgs()
 
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"
+  # Save State
+  echo "$NEWFREEBSDVERSION" > ${STATEDIR}/.newfreebsdver
+
   doPkgUpdates="YES"
 
   touch_updateinprogress
@@ -902,15 +991,24 @@ update_world_and_pkgs()
 
   set_update_vars
 
-  kill_syscache
   run_update_pre "SYSTEM"
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
+  prep_rc_script_fetch
+
+  prep_update_shutdown "update_world_and_pkgs"
+}
+
+update_world_and_pkgs_stage2() {
+
+  mk_pkg_conf
+  doPkgUpdates="YES"
+
   mk_stage_be
   mount_stage_be
   prep_pkgs_chroot
-  prep_rc_script
+  prep_rc_script_install
   umount_stage_be
   mk_stage_be_default
 
@@ -918,29 +1016,7 @@ update_world_and_pkgs()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
-  start_syscache
   run_update_post "SYSTEM"
-
-  touch_reboot
-  echo_log "Update stage one is finished! Please reboot to start stage 2."
-
-  exit 0
-}
-
-start_syscache()
-{
-  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
-     echo_log "Starting syscache..."
-     /usr/local/etc/rc.d/syscache start >/dev/null 2>/dev/null
-  fi
-}
-
-kill_syscache()
-{
-  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
-     echo_log "Stopping syscache..."
-     /usr/local/etc/rc.d/syscache stop >/dev/null 2>/dev/null
-  fi
 }
 
 mk_pkg_conf()
@@ -948,8 +1024,8 @@ mk_pkg_conf()
    PKG_FLAG=""
    PKG_CFLAG=""
 
-   if [ ! -d "$PKGDLCACHE" ] ; then
-     mkdir -p $PKGDLCACHE
+   if [ ! -d "$REALPKGDLCACHE" ] ; then
+     mkdir -p $REALPKGDLCACHE
    fi
 
    # Get rid of FreeBSD.conf repo
@@ -959,7 +1035,7 @@ mk_pkg_conf()
 
    # Set the cache directory
    PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
-   echo "PKG_CACHEDIR: $PKGDLCACHE" > /tmp/.pkgUpdate.conf
+   echo "PKG_CACHEDIR: $REALPKGDLCACHE" > /tmp/.pkgUpdate.conf
 
    # If doing a major update also, add the new repos config
    if [ -n "$NEWFREEBSDVERSION" ] ; then
@@ -1036,7 +1112,6 @@ build_pkg_list()
     if [ -e "/usr/local/bin/pc-systemflag" ] ; then
       pc-systemflag PKGUPDATE ERROR
     fi
-    start_syscache
     exit_err "You have LOCKED packages in your repo! These must be unlocked, or you can run pkg upgrade manually."
   fi
 
@@ -1050,8 +1125,18 @@ build_pkg_list()
   SYSBASEORIGIN="$SYSBASE"
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
 
+  # SaveState
+  echo "$SYSBASEORIGIN" > ${STATEDIR}/.sysbaseorigin
+  echo "$SYSBASEFILENAME" > ${STATEDIR}/.sysbasefilename
+
   # Build top-level list of pkgs installed
   ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'ports-mgmt/pkg ' | grep -v 'misc/pcbsd-base ' | grep -v 'misc/trueos-base ' > $OLDPKGLIST
+
+  # If GRUB is used for boot, require it to be installed
+  if [ -e "/boot/grub/grub.cfg" ]; then
+     echo "sysutils/grub2-pcbsd grub2-pcbsd" >> $OLDPKGLIST
+     echo "sysutils/grub2-efi grub2-efi" >> $OLDPKGLIST
+  fi
 
   echo "Original top-level packages:" > $PKGUPGRADELOG
   echo "-----------------------------------------------" >> $PKGUPGRADELOG
@@ -1061,6 +1146,10 @@ build_pkg_list()
 
 dl_pkgs()
 {
+  # Make sure PKG itself is upgraded
+  echo_log "Checking for updates to ports-mgmt/pkg.."
+  ${PKG_CMD} upgrade -y ports-mgmt/pkg
+
   # Update the DB first
   echo_log "Updating the package repo database..."
   ${PKG_CMD} ${PKG_FLAG} update -f >/dev/null 2>/dev/null
@@ -1074,6 +1163,7 @@ dl_pkgs()
   sleep 2
 
   if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
+  touch ${NEWPKGLIST}
 
   # Save the PKGNG filename
   PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
@@ -1081,14 +1171,11 @@ dl_pkgs()
   # First off, fetch the pkgng pkg
   echo_log "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME"
   echo "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
-  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg 2>&1 | tee /tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg 2>&1 | tee -a ${PKGUPGRADELOG}
   if [ $? -ne 0 ] ; then
-     cat /tmp/.pkgOut.$$ >> $LOGOUT
-     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
-     start_syscache
      echo_log "Failed fetching: ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
@@ -1103,26 +1190,23 @@ dl_pkgs()
         if [ -e "/usr/local/bin/pc-systemflag" ] ; then
           pc-systemflag PKGUPDATE ERROR
         fi
-        start_syscache
 	echo_log "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg" >> ${PKGUPGRADELOG}
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
 
-
+  # Save State of REALPKGDLCACHE
+  echo "${REALPKGDLCACHE}" > ${STATEDIR}/.realpkgdlcache
 
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
   echo_log "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
   echo "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
-  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} 2>&1 | tee /tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} 2>&1 | tee  -a ${PKGUPGRADELOG}
   if [ $? -ne 0 ] ; then
-     cat /tmp/.pkgOut.$$ >> $LOGOUT
-     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
-     start_syscache
      echo_log "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
      echo "Failed fetching: $SYSBASE - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
@@ -1133,7 +1217,6 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
-     start_syscache
      echo_log "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
      echo "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE" >> ${PKGUPGRADELOG}
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
@@ -1164,38 +1247,24 @@ dl_pkgs()
     # Fetch the pkg now
     echo_log "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
-    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee -a ${PKGUPGRADELOG}
     # PKGNG lies, we need to verify if the package was really downloaded as well
     if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
       #Try one more time
       sleep 2
       echo_log " - Failure: Trying again"
       echo " - Failure: Trying again" >> ${PKGUPGRADELOG}
-      ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
+      ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee -a ${PKGUPGRADELOG}
        #Check again for success
        if [ $? -ne 0 ] || [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
          echo_log " - Failed again: Try again later"
 	 echo " - Failed again: Try again later" >> ${PKGUPGRADELOG}
          echo_log "*****" ${PKGUPGRADELOG}
-         cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-         echo_log "*****" >> ${PKGUPGRADELOG}
-         rm /tmp/.pkgOut.$$
-         start_syscache
          echo_log "Failed fetching: $pkgOrigin" >> ${PKGUPGRADELOG}
          exit_err "Failed fetching: $pkgOrigin"
        fi
     fi
 
-    # PKGNG lies, we need to verify if the package was really downloaded
-    #if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-       #echo_log "*****" ${PKGUPGRADELOG}
-       #cat /tmp/.pkgOut.$$ >> ${LOGOUT}
-       #echo_log "*****" >> ${PKGUPGRADELOG}
-       #rm /tmp/.pkgOut.$$
-       #start_syscache
-       #echo_log "Failed fetching: $pkgOrigin"
-       #exit_err "Failed fetching: $pkgOrigin"
-    #fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
 
@@ -1217,7 +1286,7 @@ check_low_space()
 
   # We try to over-estimate space required for decompression, since we don't want ZFS to get
   # too full, it gets cranky at over 75%
-  pkgCacheSpace=`expr $pkgCacheSpace \* 7`
+  pkgCacheSpace=`expr $pkgCacheSpace \* 3`
 
   if [ $poolFree -lt $pkgCacheSpace ] ; then
      do_prune_be "force"
@@ -1266,6 +1335,43 @@ mount_stage_be()
     rc_halt_cleanup "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
   fi
   rc_halt_cleanup "mount -t devfs devfs ${STAGEMNT}/dev"
+
+  # Cleanup the old freebsd-update dir
+  rm -rf ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
+  mkdir -p ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
+  chmod 600 ${STAGEMNT}/var/db/freebsd-update
+}
+
+do_lite_pkgupdate_chroot()
+{
+  # Need to export this before cleaning pkgs, some scripts may try to be interactive
+  PACKAGE_BUILDING="YES"
+  export PACKAGE_BUILDING
+
+  # Set the cache directory
+  PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
+  echo "PKG_CACHEDIR: $REALPKGDLCACHE" > ${STAGEMNT}/tmp/.pkgUpdate.conf
+
+  echo_log "Starting pkg upgrade..."
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
+
+  echo_log "Running: pkg upgrade -U -y"
+  chroot ${STAGEMNT} pkg ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -y 2>&1 | tee -a ${LOGOUT} | tee -a ${LOGOUT}.tmp
+  _err=$?
+  if [ $_err -ne 0 ] ; then
+    rm ${LOGOUT}.tmp
+    return 1
+  fi
+
+  # We've seen cases of pkg returning 0, but really it failed... Lets try to catch this
+  cat ${LOGOUT}.tmp | grep -q "Cannot solve problem using SAT"
+  if [ $? -eq 0 ] ; then
+    rm ${LOGOUT}.tmp
+    return 1
+  fi
+
+  rm ${LOGOUT}.tmp
+  return 0
 }
 
 prep_pkgs_chroot()
@@ -1287,10 +1393,20 @@ tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/
 
 # Set the cache directory
 PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
-echo \"PKG_CACHEDIR: $PKGDLCACHE\" > /tmp/.pkgUpdate.conf
+echo \"PKG_CACHEDIR: $REALPKGDLCACHE\" > /tmp/.pkgUpdate.conf
+
+sleep 2
 
 /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
-if [ \$? -ne 0 ] ; then exit 1; fi
+if [ \$? -ne 0 ] ; then
+  # If we fail to install pkgng, try updating first
+  /usr/local/sbin/pkg-static \${PKG_CFLAG} update
+  /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
+  if [ \$? -ne 0 ] ; then
+    echo "FAILED INSTALLING ports-mgmt/pkg"
+    exit 1
+  fi
+fi
 cd ${REALPKGDLCACHE}
 
 # Need to export this before installing pkgs, some scripts may try to be interactive
@@ -1306,13 +1422,11 @@ mkdir -p /compat/linux/sys
 mkdir -p /compat/linux/usr
 ln -s /usr/home /compat/linux/usr/home
 
-# KPM 3/26/2015 - Some left-over fonts cause pkg install failures? :-/
-rm -rf /usr/local/share/fonts
-
 echo \"Installing $SYSBASEORIGIN...\"
 pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
 if [ \$? -ne 0 ] ; then
   cat /pkg-add.log
+  echo "FAILED INSTALLING $SYSBASEORIGIN"
   exit 1
 fi
 
@@ -1356,25 +1470,6 @@ mv /install-pkg-list /usr/local/log/pc-updatemanager/
 mv /removed-pkg-list /usr/local/log/pc-updatemanager/
 mv /failed-pkg-list /usr/local/log/pc-updatemanager/
 
-# Check for old PEFS on base system and switch to PKG version if possible
-grep -q \"pam_pefs.so\" /etc/pam.d/system
-if [ \$? -eq 0 ] ; then
-  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/system
-  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
-    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/system
-  fi
-  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/other
-  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
-    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/other
-  fi
-fi
-
-# If PEFS has been removed, get rid of PAM module
-if [ ! -e \"/usr/local/lib/pam_pefs.so\" ] ; then
-  sed -i '' '/pam_pefs.so/d' /etc/pam.d/other
-  sed -i '' '/pam_pefs.so/d' /etc/pam.d/system
-fi
-
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh
 
@@ -1390,11 +1485,15 @@ install_pkgs_chroot()
 
 prep_freebsd_update_hack()
 {
+   if [ ! -d "${STAGEMNT}/var/db/pc-updatefbsd" ] ; then
+     mkdir -p ${STAGEMNT}/var/db/pc-updatefbsd
+   fi
+
    FREEBSDUP="/.freebsd-up.sh"
    echo "#!/bin/sh
 cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /.fbsdup
 chmod 755 /.fbsdup
-/.fbsdup --non-interactive \$1 \$2 \$3 \$4 \$5
+/.fbsdup --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
 res=\$?
 rm /.fbsdup
 exit \$res
@@ -1402,15 +1501,43 @@ exit \$res
    chmod 755 ${STAGEMNT}${FREEBSDUP}
 }
 
-run_freebsd_update_script()
+prep_freebsd_update_hack_local()
+{
+   if [ ! -d "/var/db/pc-updatefbsd" ] ; then
+     mkdir -p /var/db/pc-updatefbsd
+   fi
+
+   FREEBSDUPLOCAL="/tmp/.freebsd-up.sh"
+   echo "#!/bin/sh
+cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /tmp/.fbsdup
+chmod 755 /tmp/.fbsdup
+/tmp/.fbsdup --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
+res=\$?
+rm /tmp/.fbsdup
+exit \$res
+" >${FREEBSDUPLOCAL}
+   chmod 755 ${FREEBSDUPLOCAL}
+}
+
+run_freebsd_update_fetch()
+{
+  prep_freebsd_update_hack_local
+
+  echo_log "Fetching freebsd-update files..."
+  rc_halt "${FREEBSDUPLOCAL} fetch" 2>&1 | tee -a ${LOGOUT}
+  if [ $? -ne 0 ] ; then
+    exit_err "failed fetching freebsd update files"
+  fi
+  rm ${FREEBSDUPLOCAL}
+}
+
+run_freebsd_update_install()
 {
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update, get files downloaded installed
-  echo_log "Fetching freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} fetch" >>${LOGOUT} 2>>${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   # Run again to remove any shared objs
   chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
@@ -1419,13 +1546,24 @@ run_freebsd_update_script()
   rm ${STAGEMNT}/${FREEBSDUP}
 }
 
-prep_rc_script()
+prep_rc_script_fetch()
+{
+  prep_freebsd_update_hack_local
+
+  echo_log "Fetching freebsd-update files..."
+  rc_halt "${FREEBSDUPLOCAL} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
+  if [ $? -ne 0 ] ; then
+    exit_err "failed fetching freebsd update files"
+  fi
+  rm ${FREEBSDUPLOCAL}
+}
+
+prep_rc_script_install()
 {
   prep_freebsd_update_hack
 
-  # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade"
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
+  # Start the upgrade with freebsd-update
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
 
   rm ${STAGEMNT}/${FREEBSDUP}
 
@@ -1470,7 +1608,11 @@ mk_stage_be_default()
   # Rename the nickname
   rc_nohalt "beadm rename -n ${TMPNICK} ${newBEName}"
   rc_halt "beadm activate $newBEName"
-  rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+
+  # Only update grub if its installed
+  if [ -e "/boot/grub/grub.cfg" ] ; then
+    rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
 }
 
 do_auto_be()
@@ -1504,6 +1646,9 @@ touch_reboot()
 require_root()
 {
   if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
+  if [ ! -d "$STATEDIR" ] ; then
+    mkdir -p $STATEDIR 2>/dev/null
+  fi
 }
 
 rotate_log()
@@ -1533,8 +1678,7 @@ run_update_pre()
   done
 }
 
-run_update_post()
-{
+run_update_post() {
   UPDATEDOTDPOST="${UPDATEDOTD}/post"
   if [ ! -d "${UPDATEDOTDPOST}" ] ; then return 0; fi
 
@@ -1548,6 +1692,126 @@ run_update_post()
        echo "WARNING: Failed running post-update script: $post"
     fi
   done
+}
+
+countdown()
+{
+        local SECONDS=$1
+        local START=$(date +%s)
+        local END=$(expr $START + $SECONDS)
+        local CUR=$START
+
+        while [ $CUR -lt $END ]
+        do
+                CUR=$(date +%s)
+                LEFT=$(expr $END - $CUR)
+
+                printf "\r%02d" \
+                        $(expr $LEFT % 60)
+
+                sleep 1
+        done
+        echo "        "
+}
+
+# Start the 2nd stage update
+shutdown_update() {
+
+  # Set the env vars
+  TERM="cons25" ; export TERM
+  PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin" ; export PATH
+
+  # Clear the screen
+  clear
+
+  sleep 2
+
+  # Ask the user if they want to bail on this update
+  echo "*****************************************************"
+  echo "       A system update is ready to install."
+  echo "        Press ENTER to cancel this update"
+  echo "    The update can be installed at a later time"
+  echo "*****************************************************"
+
+  # Display the countdown
+  (countdown "10") &
+  CPID=$!
+
+  # Look for the response
+  read -t 10 tmp
+  if [ $? -eq 0 ] ; then
+    # User asked to bail, we will do so
+    kill $CPID
+    exit 0
+  fi
+  kill $CPID
+
+  # Clear the screen
+  clear
+
+  # Get the type of update we are doing
+  UPTYPE=$(cat ${STATEDIR}/shutdown-update-trigger)
+
+  # Remove the update trigger, so we don't run on a 2nd shutdown
+  # after a crash / hard power off
+  rm ${STATEDIR}/shutdown-update-trigger
+
+  # Let the GUI know we have started a shutdown
+  touch ${STATEDIR}/.doingShutdownUpdate
+
+  # Kill all desktop logins
+  touch /tmp/.PCDMstop
+  killall -9 pcdm-session
+  killall -9 PCDM-session
+
+  # Load State
+  set_update_vars
+
+  # Determine the tty to display details on
+  if [ -e "/dev/ttyv1" ] ; then
+    TTY="/dev/ttyv1"
+    FKEY="(Ctrl-Alt-F2 for details)"
+  elif [ -e "/dev/ttyv2" ] ; then
+    TTY="/dev/ttyv2"
+    FKEY="(Ctrl-Alt-F3 for details)"
+  else
+    TTY="/dev/null"
+    FKEY=""
+  fi
+
+  # Display whats going on:
+  echo "*****************************************************"
+  echo "             Starting update process..."
+  echo "      !! Please do NOT turn off the computer !!"
+  echo "             ${FKEY}"
+  echo "*****************************************************"
+
+  case $UPTYPE in
+  update_freebsd) update_freebsd_stage2 >${TTY} 2>${TTY}
+                  ;;
+update_pkgs_only) update_pkgs_only_stage2 >${TTY} 2>${TTY}
+		  ;;
+update_world_and_pkgs) update_world_and_pkgs_stage2 >${TTY} 2>${TTY}
+                  ;;
+    *) clear
+       echo "Unknown update type: $UPTYPE"
+       sleep 10
+       exit 1
+       ;;
+  esac
+
+  echo ""
+  echo "*****************************************************"
+  echo "                 Update Finished"
+  echo "*****************************************************"
+  exit 0
+}
+
+prep_update_shutdown() {
+  echo "$1" > ${STATEDIR}/shutdown-update-trigger
+  touch_reboot
+  echo_log "Your update is ready to install. Please shutdown to finish the update process."
+  exit 0
 }
 
 if [ "`id -u`" = "0" ] ; then
@@ -1629,6 +1893,9 @@ while [ $# -gt 0 ] ; do
                   get_update_file
                   do_check
                   checkup_pkgs ; break ;;
+doshutdownupdate) require_root
+		  shutdown_update
+	          ;;
 	*) show_usage ;;
    esac
    shift

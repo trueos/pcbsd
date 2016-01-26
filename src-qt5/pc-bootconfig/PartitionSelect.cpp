@@ -43,7 +43,7 @@ void PartitionSelect::GetDiskInfo(){
   for(int i=info.indexOf("Consumers:"); i<info.length(); i++){
     if(i<0){ continue; } //just in case
     if(info[i]=="Consumers:"){ insection = true; }
-    else if(info[i]=="Providers:" && insection){ break; } //done with consumers
+    else if(info[i]=="Providers:" && insection){ insection = false; } //done with consumers
     else if(info[i].contains(". Name:") && insection){
       if(!num.isEmpty()){
         //Save the current entry into the database
@@ -73,7 +73,7 @@ void PartitionSelect::GetDiskInfo(){
     //qDebug() << "Part Line:" << info[i];
     //qDebug() << " - " << insection << name << size << num << type << disk;
     if(info[i]=="Providers:"){ insection = true; }
-    else if(info[i]=="Consumers:" && insection){ break; } //done with consumers
+    else if(info[i]=="Consumers:" && insection){insection = false; } //done with consumers
     else if(info[i].contains(". Name:") && insection){
       if(!num.isEmpty() && !disk.isEmpty()){
 	//qDebug() << "Found Part Info:" << disk << name << type << size << num;

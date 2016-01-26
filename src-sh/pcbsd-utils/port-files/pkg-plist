@@ -25,10 +25,10 @@ bin/pc-runxgui
 bin/pc-checkxdisplay
 bin/pc-installdialog
 bin/pc-sysconfig
-bin/pc-sysconfig-daemon
 bin/pc-systemflag
 bin/personacrypt
 bin/restamp-grub
+bin/warden-to-iocage
 sbin/pc-sysinstall
 share/pc-sysinstall/examples/pcinstall.cfg.upgrade
 share/pc-sysinstall/examples/pc-autoinstall.conf
@@ -97,8 +97,12 @@ share/pc-sysinstall/doc/help-disk-list
 share/pc-sysinstall/doc/help-index
 share/pc-sysinstall/doc/help-disk-size
 share/pc-sysinstall/doc/help-start-autoinstall
+share/pcbsd/conf/brand-pcbsd.4th
+share/pcbsd/conf/brand-trueos.4th
 share/pcbsd/conf/freebsd-update.conf
 share/pcbsd/conf/pcbsd-mirrors
+share/pcbsd/conf/pcbsd-menu-commands.4th
+share/pcbsd/conf/pcbsd-menu.rc
 share/pcbsd/conf/pbi-mirror
 share/pcbsd/conf/pkg-mirror
 share/pcbsd/conf/iso-mirror
@@ -108,6 +112,7 @@ share/pcbsd/conf/desktop-excludes
 share/pcbsd/conf/server-excludes
 share/pcbsd/conf/loader.conf.pcbsd
 share/pcbsd/conf/loader.conf.trueos
+share/pcbsd/conf/logo-pcbsd.4th
 share/pcbsd/conf/ntpd.conf
 share/pcbsd/conf/rc.conf.pcbsd
 share/pcbsd/conf/smb4.conf
@@ -214,7 +219,6 @@ etc/rc.d/pc-kinit
 etc/rc.d/pc-nsswitch
 etc/rc.d/pc-pam
 etc/rc.d/pc-samba
-etc/rc.d/pc-sysconfig
 etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
@@ -222,3 +226,5 @@ etc/sudoers.d/pcbsd
 etc/fonts/local.conf
 man/man1/pc-systemflag.1.gz
 man/man8/pc-sysinstall.8.gz
+man/man8/pc-sysconfig.8.gz
+man/man8/personacrypt.8.gz

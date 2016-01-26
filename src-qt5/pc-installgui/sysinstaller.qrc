@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/modules">
+    <file>images/pcbsd.png</file>
     <file>images/appcafe.png</file>
     <file>images/lifepreserver.png</file>
     <file>images/configure.png</file>

@@ -50,17 +50,30 @@
   // Get the page this was requested from
   $page = $_GET['p'];
 
+  // Load our websocket library
+  require('../vendor/autoload.php');
   require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";
   $status="UP2DATE";
 
+  // Auth this WS connection
+  $APIKEY = $_SESSION['apikey'];
+  $sccmd = array("token" => "$APIKEY");
+  $response = send_sc_query($sccmd, "auth_token");
+  if ( $response["code"] == "401" or $response["message"] == "Unauthorized" ) {
+    exit(0);
+  }
+
   // Command to prod dispatcher for current status
   // Eventually we will pep this up with extra parsing about
   // the status
-  $narray = run_cmd("status");
-  if ( $narray[0] == "Idle" or empty($narray) ) {
-    $rarray = run_cmd("results");
+  $dccmd = array("status");
+  $narray = send_dc_cmd($dccmd);
+  if ( $narray["status"] == "Idle" or empty($narray["status"]) ) {
+    $dccmd = array("results");
+    $response = send_dc_cmd($dccmd);
+    $rarray = explode("\n", $response["results"]);
     $lastElement=count($rarray);
     $lastElement--;
     if ( ! empty($rarray[$lastElement]) ) {
@@ -103,9 +116,9 @@
        continue;
 
     unset($jarray);
-    exec("$sc ". escapeshellarg("pkg ". $jname . " hasupdates"), $jarray);
-    $hasupdates=$jarray[0];
- 
+    $sccmd = array("pkg $jname hasupdates");
+    $response = send_sc_query($sccmd);
+    $hasupdates = $response["pkg $jname hasupdates"];
     if ( $hasupdates == "true" ) {
        $pkgUpdates=true;
        break;
@@ -116,7 +129,7 @@
   if ( $pkgUpdates and $status != "WORKING" )
     $status = "UPDATES";
 
-  $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\">";
+  $output = "<img align=absmiddle height=32 width=32 src=\"../images/dialog-ok.png\"> Status";
   if ( $status == "WORKING" )
     $output = "<img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"Working...\"> Working";
   elseif ( $status == "UPDATES" )
@@ -126,9 +139,14 @@
   elseif ( $status == "FAILED" ) 
      $output = "<img align=absmiddle height=32 width=32 src=\"../images/application-exit.png\"> Failure";
   
-  if ( $page == "plugins" or $page == "plugininfo" or $page == "sysplugins" )
+  if ( stripos($page, "plugin") !== false )
     echo "<a href=\"?p=dispatcher-plugins\">$output</a>";
+  elseif ( stripos($page, "jail") !== false )
+    echo "<a href=\"?p=dispatcher-jails\">$output</a>";
   else
     echo "<a href=\"?p=dispatcher\">$output</a>";
+
+  // Close websocket connection to syscache
+  $scclient->send("", "close");
 
 ?>

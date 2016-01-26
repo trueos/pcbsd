@@ -27,9 +27,8 @@ public:
 	  setWindowModality(Qt::ApplicationModal);
         }
 
-    void setVariables( int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt );
-
-
+    void setVariables( int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString Password, int keyMgmt, int EAPPhase2 );
+    void init();
 
 public slots:
 
@@ -44,7 +43,7 @@ private slots:
 private:
 
 signals:
-  void saved(int, QString, QString, QString, QString, QString, int);
+  void saved(int, QString, QString, QString, QString, QString, QString, int, int);
 
 } ;
 #endif // DIALOGWPAENTERPRISE_H

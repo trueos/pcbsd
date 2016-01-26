@@ -65,9 +65,10 @@ class LoginWidget : public QGroupBox
 	QComboBox* listDE;
   	QListWidget* listUserBig;
   	QLineEdit *linePassword, *lineDevPassword, *lineUsername;
-	QToolButton* pushLogin;
-	QToolButton* pushViewPassword;
+	QToolButton *pushLogin;
+	QToolButton *pushViewPassword;
 	QToolButton *pushUserIcon, *userIcon;
+	QToolButton *pushRefresh;
 	QLabel *deIcon, *devIcon, *nousers;
 	QCheckBox *checkAnon;
 	bool updating;
@@ -97,6 +98,7 @@ class LoginWidget : public QGroupBox
 	void UserSelected(QString user);
 	void UserChanged(QString user);
 	void escapePressed();
+	void refreshUsers();
 
 };
 #endif

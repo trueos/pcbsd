@@ -30,6 +30,16 @@ if [ $? -ne 0 ] ; then exit 1 ; fi
 make install INSTALL_ROOT=${QTDESTDIR}
 if [ $? -ne 0 ] ; then exit 1 ; fi
 
+cd ../webclient
+if [ $? -ne 0 ] ; then exit 1 ; fi
+/usr/local/lib/qt5/bin/qmake webclient.pro
+if [ $? -ne 0 ] ; then exit 1 ; fi
+make
+if [ $? -ne 0 ] ; then exit 1 ; fi
+make install INSTALL_ROOT=${QTDESTDIR}
+if [ $? -ne 0 ] ; then exit 1 ; fi
+
+
 if [ ! -d "${LB}/etc/rc.d" ] ; then
    mkdir -p ${LB}/etc/rc.d
 fi

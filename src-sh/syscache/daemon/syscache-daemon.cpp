@@ -33,6 +33,10 @@ bool SysCacheDaemon::startServer(){
   
 }
 
+void SysCacheDaemon::startSyncNow(){
+  DATA->startSync();
+}
+
 void SysCacheDaemon::stopServer(){
   if(server->isListening()){ server->close(); }
   QLocalServer::removeServer("/var/run/syscache.pipe"); //clean up

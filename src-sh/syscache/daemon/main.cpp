@@ -23,6 +23,9 @@ int main( int argc, char ** argv )
     qDebug() << "Starting the System Cache Daemon....";
     SysCacheDaemon *w = new SysCacheDaemon(&a); 
     if( w->startServer() ){
+      for(int i=1; i<argc; i++){
+        if(QString(argv[i])=="-sync-now"){ w->startSyncNow(); }
+      }
       return a.exec();
     }else{
       return 1;

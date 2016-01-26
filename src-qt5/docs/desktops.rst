@@ -35,12 +35,12 @@ Awesome
 The `awesome window manager <http://awesome.naquadah.org/>`_ is highly configurable and primarily targeted at power users who prefer to use the command line
 within their graphical environment.
 
-Figure 6.1a shows a screenshot of Awesome running on PC-BSD® |version|. The user has right-clicked the desktop in order to launch the awesome application
-manager.
+:numref:`Figure %s: Awesome Window Manager on PC-BSD® <awesome1>` shows a screenshot of Awesome running on PC-BSD® |version|. The user has right-clicked the desktop in order to launch the
+awesome application manager.
 
-**Figure 6.1a: Awesome Window Manager on PC-BSD®** 
+.. _awesome1:
 
-.. image:: images/awesome.png
+.. figure:: images/awesome.png
 
 If you click :menuselection:`awesome --> manual`, the man page for awesome will open in a terminal. If you click :menuselection:`awesome --> edit config`, the
 awesome configuration file will open in the :command:`nano` text editor. The numbers in the upper left corner represent virtual desktops. For example, you can
@@ -57,12 +57,12 @@ Cinnamon
 
 .. note:: Cinnamon requires 3D acceleration. If your video driver does not support this, you should not install Cinnamon.
 
-The `Cinnamon desktop environment <http://cinnamon.linuxmint.com/>`_ is developed by the Linux Mint project. Figure 6.2a shows a screenshot of Cinnamon on a
-PC-BSD® |version| system with the applications "Menu" open.
+The `Cinnamon desktop environment <http://cinnamon.linuxmint.com/>`_ is developed by the Linux Mint project. :numref:`Figure %s: Cinnamon Desktop on a PC-BSD® System <cinnamon1>` shows a
+screenshot of Cinnamon on a PC-BSD® |version| system with the applications "Menu" open.
 
-**Figure 6.2a: Cinnamon Desktop on a PC-BSD® System**
+.. _cinnamon1:
 
-.. image:: images/cinnamon.png
+.. figure:: images/cinnamon.png
 
 Hover over a category in the menu to see its available applications. Alternately, use the search bar to find a specific application.
 
@@ -82,11 +82,12 @@ Fluxbox
 The `Fluxbox window manager <http://fluxbox.org/>`_ is light-weight and fast. Regardless of the window managers that you have selected to install, Fluxbox is
 always available as an option in the login menu.
 
-Figure 6.3a shows a screenshot of Fluxbox running on PC-BSD®. In this example, the user has launched the "Application" menu by right-clicking on the desktop.
+:numref:`Figure %s: Fluxbox on PC-BSD® <fluxbox1>` shows a screenshot of Fluxbox running on PC-BSD®. In this example, the user has launched the "Application" menu by right-clicking on the
+desktop.
 
-**Figure 6.3a: Fluxbox on PC-BSD®** 
+.. _fluxbox1:
 
-.. image:: images/fluxbox1.png
+.. figure:: images/fluxbox1.png
 
 Fluxbox provides many configuration files which can be edited in order to customize the desktop. The `Features <http://www.fluxbox.org/features/>`_ page of
 the Fluxbox website lists the available configuration files and links to instructions for getting the most out of Fluxbox.
@@ -113,19 +114,19 @@ pages. It also supports side title bars, including vertical text.
 When you install FVWM on PC-BSD®, it also installs `FVWM-Crystal <http://gna.org/projects/fvwm-crystal/>`_. Both window managers will be added to the login
 menu.
 
-Figure 6.4a shows the default PC-BSD® desktop if you select FVWM from the login menu. The application menu was opened by clicking the mouse anywhere on the
-desktop.
+:numref:`Figure %s: FVWM Running on PC-BSD® <fvwm1>` shows the default PC-BSD® desktop if you select FVWM from the login menu. The application menu was opened by clicking the mouse anywhere
+on the desktop.
 
-**Figure 6.4a: FVWM Running on PC-BSD®** 
+.. _fvwm1: 
 
-.. image:: images/fvwm1.png
+.. figure:: images/fvwm1.png
 
-Figure 6.4b shows the default PC-BSD® desktop if you select FVWM-Crystal from the login menu. To open an xterm in FVWM-Crystal, right-click any area of the
-desktop.
+:numref:`Figure %s: FVWM-Crystal Running on PC-BSD® <fvwm2>` shows the default PC-BSD® desktop if you select FVWM-Crystal from the login menu. To open an xterm in FVWM-Crystal, right-click
+any area of the desktop.
 
-**Figure 6.4b: FVWM-Crystal Running on PC-BSD®**
+.. _fvwm2:
 
-.. image:: images/fvwm2.png
+.. figure:: images/fvwm2.png
 
 The `FVWM Documentation <http://fvwm.org/doc/unstable/index.html>`_ provides information about configuring FVWM.
 
@@ -140,37 +141,32 @@ the login menu as "GNOME".
 
 .. note:: GNOME3 requires 3D acceleration. If your video driver does not support this, you should use GNOME2 instead.
 
-`GNOME3 <https://www.gnome.org/>`_ is a popular desktop environment that provides many built-in utilities. Figure 6.5a shows a screenshot of GNOME3 on a
-PC-BSD® |version| system. To access the icons shown in this screen, click "Activities" then the 9-dot icon at the bottom of the left-hand panel. Alternately, if
+`GNOME3 <https://www.gnome.org/>`_ is a popular desktop environment that provides many built-in utilities. :numref:`Figure %s: GNOME3 Desktop on a PC-BSD® System <gnome1>` shows a screenshot
+of GNOME3 on a PC-BSD® |version| system. To access the icons shown in this screen, click "Activities" then the 9-dot icon at the bottom of the left-hand panel. Alternately, if
 you know the name of an application to open, click "Activities" and type the application's name into the search bar.
 
-**Figure 6.5a: GNOME3 Desktop on a PC-BSD® System**
+.. _gnome1:
 
-.. image:: images/gnome1.png
+.. figure:: images/gnome1.png
 
-Figure 6.5b shows a screenshot of GNOME2 on a PC-BSD® |version| system with the "Applications" menu open.
+:numref:`Figure %s: GNOME2 Desktop on a PC-BSD® System <gnome2>` shows a screenshot of GNOME2 on a PC-BSD® |version| system with the "Applications" menu open.
 
-**Figure 6.5b: GNOME2 Desktop on a PC-BSD® System**
+.. _gnome2:
 
-.. image:: images/gnome2.png
+.. figure:: images/gnome2.png
 
 If you are new to GNOME, take some time to discover which applications best suit your needs. Some of the applications which are provided by GNOME include: 
 
 * `Image Viewer <https://wiki.gnome.org/Apps/EyeOfGnome>`_: Eye of GNOME image viewer.
   
-
 * `Web <https://wiki.gnome.org/Apps/Web>`_: web browser.
   
-
 * `Brasero <https://wiki.gnome.org/Apps/Brasero>`_: CD/DVD burning software.
   
-
 * `Videos <https://wiki.gnome.org/Apps/Videos>`_: movie player.
   
-
 * `Evolution <https://wiki.gnome.org/Apps/Evolution>`_: email client with address book and calendar.
   
-
 * `Files: <https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&redirect=Nautilus>`_ Nautilus file manager.
 
 .. note:: some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
@@ -189,11 +185,15 @@ i3
 The `i3 tiling window manager <http://i3wm.org/>`_ is extremely lightweight and designed for users who prefer to work from the command line. Keyboard shortcuts are
 provided to open xterms in order to start applications from the command line.
 
-Figure 6.6a shows a screenshot of i3 running on PC-BSD® |version|. 
+:numref:`Figure %s: i3 Window Manager on PC-BSD® <i3a>` shows a screenshot of i3 running on PC-BSD® |version|. 
 
-**Figure 6.6a: i3 Window Manager on PC-BSD®** 
+.. _i3a:
 
-.. image:: images/i3.png
+.. figure:: images/i3.png
+
+If you used :ref:`AppCafe®` to install i3, it automatically installed a default, system-wide configuration that is usually generated by :command:`i3-config-wizard`.  If you would like to
+use :kbd:`Win` as a modifier key and the Dvorak layout, run :command:`pc-extractoverlay i3dvorak`.  If you instead installed using :command:`pkg` and do not want the Dvorak layout, run
+:command:`pc-extractoverlay ports`.
 
 To open an xterm, use :kbd:`Alt` :kbd:`Enter`. Windows do not provide minimize, maximize, or close buttons, so type :command:`exit` when you are finished
 using an xterm. To leave the window manager and return to the login screen, type :command:`killall i3` from within an xterm.
@@ -206,13 +206,13 @@ The `i3 Users Guide <http://i3wm.org/docs/userguide.html>`_ contains the default
 IceWM
 =====
 
-The `IceWM window manager <http://www.icewm.org/>`_ is light-weight. Figure 6.7a shows a screenshot of IceWM running on PC-BSD®. In this example, the
+The `IceWM window manager <http://www.icewm.org/>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
 user has launched the "Application" menu by clicking on the "BSD" button in the lower left corner. This menu can also be launched by right-clicking
 anywhere on the desktop.
 
-**Figure 6.7a: IceWM on PC-BSD®**
+.. _icewm1:
 
-.. image:: images/icewm.png
+.. figure:: images/icewm.png
 
 If you are new to IceWM, refer to the `IceWM FAQ and Howto <http://www.sosst.sk/doc/icewm/FAQ/>`_ for more information about configuration, customization, and
 keyboard shortcuts.
@@ -223,12 +223,12 @@ keyboard shortcuts.
 KDE4
 ====
 
-The `KDE <https://www.kde.org/>`_ desktop environment provides many features and applications. However, it is hardware intensive and may run slowly on a computer
-with an older processor or a small amount of RAM. Figure 6.8a shows a screenshot of KDE4 running on PC-BSD® |version| with the "Applications" menu open.
+The `KDE <https://www.kde.org/>`_ desktop environment provides many features and applications. However, it is hardware intensive and may run slowly on a computer with an older processor or
+a small amount of RAM. :numref:`Figure %s: Applications Menu of KDE4 <kde1>` shows a screenshot of KDE4 running on PC-BSD® |version| with the "Applications" menu open.
 
-**Figure 6.8a: Applications Menu of KDE4**
+.. _kde1:
 
-.. image:: images/kde.png
+.. figure:: images/kde.png
 
 Each category in the "Applications" menu contains many applications and the "Settings" and "System" categories contain many utilities for configuring your
 system. If you are new to KDE4, take some time to discover which applications best suit your needs. Some of the applications which are provided by KDE4
@@ -278,11 +278,11 @@ Lumina's features include:
 
 * Simple access to operating system-specific functionality such as screen brightness, audio volume, and battery status.
 
-Figure 6.9a shows a screenshot of Lumina on a PC-BSD® |version| system with the "User" button clicked.
+:numref:`Figure %s: Lumina Desktop <lumina1>` shows a screenshot of Lumina on a PC-BSD® |version| system with the "User" button clicked.
 
-**Figure 6.9a: Lumina Desktop**
+.. _lumina1:
 
-.. image:: images/lumina1.png
+.. figure:: images/lumina1.png
 
 Lumina provides the following built-in utilities:
 
@@ -315,11 +315,11 @@ The `Lightweight X11 Desktop Environment <http://lxde.org/>`_ is an excellent ch
 environment without all of the overhead required by KDE or GNOME. Since it is XDG-compliant, the PC-BSD® :ref:`Control Panel`, :ref:`AppCafe®`, and
 :ref:`Life Preserver` are available on the desktop and integrated into LXDE's menus.
 
-Figure 6.10a shows a screenshot of the default LXDE installation with the LXPanel open.
+:numref:`Figure %s: LXDE Desktop on a PC-BSD® System <lxde1>` shows a screenshot of the default LXDE installation with the LXPanel open.
 
-**Figure 6.10a: LXDE Desktop on a PC-BSD® System** 
+.. _lxde1:
 
-.. image:: images/lxde.png
+.. figure:: images/lxde.png
 
 In addition to the PC-BSD® utilities, LXDE provides the following utilities: 
 
@@ -358,12 +358,12 @@ MATE
 ====
 
 The `MATE desktop <http://mate-desktop.org/>`_ is a fork of the popular, but now unmaintained, GNOME2 desktop environment. MATE is under active development to
-add support for new technologies while preserving the traditional GNOME desktop experience and its many built-in utilities. Figure 6.11a shows a screenshot of
-MATE on a PC-BSD® |version| system with the "Applications" menu open.
+add support for new technologies while preserving the traditional GNOME desktop experience and its many built-in utilities. 
+:numref:`Figure %s: MATE Desktop on a PC-BSD® System <mate1>` shows a screenshot of MATE on a PC-BSD® |version| system with the "Applications" menu open.
 
-**Figure 6.11a: MATE Desktop on a PC-BSD® System**
+.. _mate1:
 
-.. image:: images/mate.png
+.. figure:: images/mate.png
 
 Each category in the "Applications" menu contains many applications and the :menuselection:`System --> Preferences` category contains many utilities for
 configuring your system. If you are new to MATE, take some time to discover which applications best suit your needs. Some of the applications which are
@@ -388,21 +388,21 @@ Openbox
 This `minimalist window manager <http://openbox.org/wiki/Main_Page>`_ is highly configurable. It is the window manager used by LXDE but can also be run separately
 from LXDE.
 
-Figure 6.12a provides a screenshot of Openbox running on a PC-BSD® system. The application menu was launched by right-clicking on an area of the desktop.
+:numref:`Figure %s: Openbox on a PC-BSD® System <openbox1>` provides a screenshot of Openbox running on a PC-BSD® system. The application menu was launched by right-clicking on an area of
+the desktop.
 
-**Figure 6.12a: Openbox on a PC-BSD® System**
+.. _openbox1:
 
-.. image:: images/openbox1.png
+.. figure:: images/openbox1.png
 
 The application menu contains an entry for the Openbox Configuration Manager which can be used to customize settings such as themes, appearance, mouse, and
-margins. A screenshot of this configuration utility is shown in Figure 6.12b. 
+margins. A screenshot of this configuration utility is shown in :numref:`Figure %s: Openbox Configuration Manager <openbox2>`. 
 
-**Figure 6.12b: Openbox Configuration Manager**
+.. _openbox2:
 
-.. image:: images/openbox2.png
+.. figure:: images/openbox2.png
 
 A list of websites containing additional themes is available from the `Openbox wiki <http://openbox.org/wiki/Openbox:Themes>`_.
-
 
 .. index:: Ratpoison
 .. _Ratpoison:
@@ -412,11 +412,11 @@ Ratpoison
 
 The `simple Ratpoison window manager <http://www.nongnu.org/ratpoison/>`_ has no fat library dependencies, fancy graphics, nor window decorations.
 
-Figure 6.13a provides a screenshot of Ratpoison running on a PC-BSD® system:
+:numref:`Figure %s: Ratpoison on a PC-BSD® System <ratpoison1>` provides a screenshot of Ratpoison running on a PC-BSD® system:
 
-**Figure 6.13a: Ratpoison on a PC-BSD® System** 
+.. _ratpoison1:
 
-.. image:: images/ratpoison.png
+.. figure:: images/ratpoison.png
 
 Ratpoison uses keyboard shortcuts. To view the shortcuts, press :kbd:`Ctrl-t` then :kbd:`?`. To leave this help screen, press :kbd:`Enter`.
 
@@ -466,24 +466,24 @@ Window Maker
 The `Window Maker window manager <https://en.wikipedia.org/wiki/Nextstep>`_ is light-weight and designed to reproduce the look and feel of the
 `NEXTSTEP <https://en.wikipedia.org/wiki/Nextstep>`_ user interface.
 
-Figure 6.16a shows a screenshot of Window Maker running on PC-BSD®. In this example, the user launched the "Application" menu by right-clicking an area of
-the desktop.
+:numref:`Figure %s: Window Maker on PC-BSD® <windowmaker1>` shows a screenshot of Window Maker running on PC-BSD®. In this example, the user launched the "Application" menu by right-clicking
+an area of the desktop.
 
-**Figure 6.16a: Window Maker on PC-BSD®**
+.. _windowmaker1:
 
-.. image:: images/windowmaker1.png
+.. figure:: images/windowmaker1.png
 
 In addition to the PC-BSD® utilities, Window Maker provides the following applications: 
 
 * **WPrefs**: located in :menuselection:`Appearance --> Preferences Utility`. Allows you to configure window focus, window placement, menu alignment, icons,
   keyboard actions, mouse, fonts, and various other window manager settings.
 
-* `wmakerconf <http://wmakerconf.sourceforge.net/>`_: found in :menuselection:`Utils --> wmakerconf`. Allows you to fine-tune your menu entries as well as
-  your desktop's appearance, themes, background, mouse, and special effects. Figure 6.16b shows wmakerconf with the "Menu" button selected.
+* `wmakerconf <http://wmakerconf.sourceforge.net/>`_: found in :menuselection:`Utils --> wmakerconf`. Allows you to fine-tune your menu entries as well as your desktop's appearance, themes,
+  background, mouse, and special effects. :numref:`Figure %s: Editing the Application Menu Using wmakerconf <windowmaker2>` shows wmakerconf with the "Menu" button selected.
 
-**Figure 6.16b: Editing the Application Menu Using wmakerconf** 
+.. _windowmaker2:
 
-.. image:: images/windowmaker2.png
+.. figure:: images/windowmaker2.png
 
 .. index:: Window Maker
 .. _Working with the Dock:
@@ -498,11 +498,12 @@ Whenever you start an application, an icon will appear in the lower left corner 
 mouse. If you right-click the icon, you have the option to hide/unhide the icon, set icon (change its picture), or kill the application. If you drag the icon
 onto the dock, it will remain on the desktop.
 
-Once an icon is docked, a settings menu is added to the icon's right-click menu. Figure 6.16c demonstrates how to configure an icon for :ref:`AppCafe®`.
+Once an icon is docked, a settings menu is added to the icon's right-click menu. :numref:`Figure %s: Configuring an Icon <windowmaker3>` demonstrates how to configure an icon for
+:ref:`AppCafe®`.
 
-**Figure 6.16c: Configuring an Icon**
+.. _windowmaker3:
 
-.. image:: images/windowmaker3.png
+.. figure:: images/windowmaker3.png
 
 You will find the icons for :ref:`AppCafe®` and :ref:`Control Panel` in :file:`/usr/local/share/pcbsd/pc-controlpanel/icons`. Choose the 64x64 versions as
 this is the size that Window Maker users. The application name for :ref:`AppCafe®` is :command:`appcafe` and for :ref:`Control Panel` it is
@@ -531,37 +532,38 @@ XFCE4
 `XFCE <http://www.xfce.org/>`_ is a lightweight desktop environment that aims to be low on system resources and fast, while still being visually appealing and
 user friendly. More information about XFCE, including usage tips, can be found at the `XFCE FAQ <http://wiki.xfce.org/faq>`_.
 
-The first time you start XFCE4, you will see the message shown in Figure 6.17a.
+The first time you start XFCE4, you will see the message shown in :numref:`Figure %s: Panel Welcome Message <xfce1>`.
 
-**Figure 6.17a: Panel Welcome Message** 
+.. _xfce1:
 
-.. image:: images/xfce1.png
+.. figure:: images/xfce1.png
 
 In XFCE, a `panel <http://docs.xfce.org/xfce/xfce4-panel/start>`_ is a bar which can hold many items such as application launchers, window lists, a clock, a
 notification area, and application menus. Your initial panel setup options are: 
 
-* **Migrate old config:** select this option if you wish to have a single panel with an application launcher and other icons as shown in Figure 6.17b. The
-  application launcher menu may be accessed by the fireball icon in the lower left, or by right-clicking the desktop.
+* **Migrate old config:** select this option if you wish to have a single panel with an application launcher and other icons as shown in 
+  :numref:`Figure %s: XFCE with Complete Panel Migrated From Old Config <xfce2>`. The application launcher menu may be accessed by the fireball icon in the lower left, or by right-clicking
+  the desktop.
 
-* **Use default config:** this option will install a small, minimal panel centered on the bottom. The application launcher menu may be accessed by the
-  fireball icon in the top bar, or by a right-click on the desktop.
+* **Use default config:** this option will install a small, minimal panel centered on the bottom, as seen in :numref:`Figure %s: XFCE with Minimal Panel Using Default Config <xfce3>`. The
+  application launcher menu may be accessed by the fireball icon in the top bar, or by a right-click on the desktop.
 
 * **One empty panel:** this option will install a panel with no icons. The application menu is available by right-clicking the desktop.
 
 If you wish to change your configuration choice at a later time, reset the panel using :menuselection:`Applications --> Settings --> Settings Editor`, shown
-in Figure 6.17d. Right-click the entry for "xfce4-panel" and click "Reset Channel". 
+in :numref:`Figure %s: Using Settings Editor to Reset Panel <xfce4a>`. Right-click the entry for "xfce4-panel" and click "Reset Channel". 
 
-**Figure 6.17b: XFCE with Complete Panel Migrated From Old Config** 
+.. _xfce2:
 
-.. image:: images/xfce2.png
+.. figure:: images/xfce2.png
 
-**Figure 6.17c: XFCE with Minimal Panel Using Default Config** 
+.. _xfce3:
 
-.. image:: images/xfce3.png
+.. figure:: images/xfce3.png
 
-**Figure 6.17d: Using Settings Editor to Reset Panel** 
+.. _xfce4a:
 
-.. image:: images/xfce4.png
+.. figure:: images/xfce4.png
 
 In addition to the PC-BSD® utilities, XFCE provides the following utilities: 
 
@@ -594,10 +596,10 @@ XFCE supports many plugins which provide additional applications that are separa
 descriptions for each at the XFCE `goodies website <http://goodies.xfce.org/projects/start>`_.
 
 After installing a plugin, go to :menuselection:`Settings --> Panel --> Items` and click the "+" button in the right column to see the "Add New Items" screen
-shown in Figure 6.17e. 
+shown in :numref:`Figure %s: Adding a Plugin to the Panel <xfce5>`. 
 
-**Figure 6.17e: Adding a Plugin to the Panel** 
+.. _xfce5:
 
-.. image:: images/xfce5.png
+.. figure:: images/xfce5.png
 
 Select your new plugin from the list, and click the "+Add" button. It will immediately be added as an icon in the panel.

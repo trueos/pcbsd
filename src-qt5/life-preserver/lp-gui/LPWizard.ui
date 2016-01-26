@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>309</height>
+    <width>528</width>
+    <height>358</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -556,6 +556,11 @@
               <item>
                <property name="text">
                 <string>Monthly</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Interval of Days</string>
                </property>
               </item>
              </widget>

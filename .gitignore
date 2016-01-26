@@ -65,7 +65,6 @@ src-sh/pbi-manager/fontconfig/
 src-sh/pbi-manager/pbime/pbirun32
 src-sh/pc-systemflag/install
 src-sh/pc-extractoverlay/install
-src-webui/appweb/install
 src-sh/syscache/client/Makefile
 src-sh/syscache/client/syscache
 src-sh/syscache/daemon/Makefile
@@ -111,6 +110,7 @@ src-qt5/pc-fwmanager/pc-fwmanager
 src-qt5/pc-hwdetect/pc-hwdetect
 src-qt5/pc-mixer/pc-mixer
 src-qt5/pc-mounttray/pc-mounttray
+src-qt5/pc-netmanager/src/Makefile
 src-qt5/pc-netmanager/src/NetworkManager/Makefile
 src-qt5/pc-netmanager/src/NetworkManager/pc-netmanager
 src-qt5/pc-netmanager/src/NetworkTray/Makefile
@@ -133,4 +133,4 @@ src-sh/pcbsd-utils/pc-sysconfig/client/Makefile
 src-sh/pcbsd-utils/pc-sysconfig/client/pc-sysconfig
 src-sh/pcbsd-utils/pc-sysconfig/daemon/Makefile
 src-sh/pcbsd-utils/pc-sysconfig/daemon/pc-sysconfig-daemon
-
+pc-netmanager/src/Makefile

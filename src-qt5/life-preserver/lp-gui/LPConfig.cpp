@@ -38,6 +38,7 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   connect(snapExMenu, SIGNAL(triggered(QAction*)), this, SLOT(addSnapExclude(QAction*)) );
   connect(repExMenu, SIGNAL(triggered(QAction*)), this, SLOT(addRepExclude(QAction*)) );
   connect(ui->tool_snap_remexclude, SIGNAL(clicked()), this, SLOT(rmSnapExcludes()) );
+  connect(ui->tool_rep_remexclude, SIGNAL(clicked()), this, SLOT(rmRepExcludes()) );
 }
 
 LPConfig::~LPConfig(){
@@ -122,8 +123,12 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
     else if(scrubDay == 5) {  ui->combo_scrub_day_week->setCurrentIndex(4); }
     else if(scrubDay == 6) {  ui->combo_scrub_day_week->setCurrentIndex(5); }
     else { ui->combo_scrub_day_week->setCurrentIndex(6); }
-  }else{
+  }else if(scrubSchedule=="monthly"){
     ui->combo_scrub_schedule->setCurrentIndex(2);
+    ui->spin_scrub_day_month->setValue(scrubDay);
+  }else{
+    //daily interval (in the "scrubDay" field)
+    ui->combo_scrub_schedule->setCurrentIndex(3);
     ui->spin_scrub_day_month->setValue(scrubDay);
   }
   ui->time_scrub->setTime( QTime(scrubTime, 0) );
@@ -197,8 +202,11 @@ void LPConfig::checkForChanges(){
       else if(ui->combo_scrub_day_week->currentIndex() == 4){ nScrubDay = 5; }
       else if(ui->combo_scrub_day_week->currentIndex() == 5){ nScrubDay = 6; }
       else{ nScrubDay = 7; }
-    }else{
+    }else if(scrubschint ==2){
       nScrubSchedule = "monthly";
+      nScrubDay = ui->spin_scrub_day_month->value();
+    }else{ 
+      nScrubSchedule = "days";
       nScrubDay = ui->spin_scrub_day_month->value();
     }
 
@@ -300,9 +308,17 @@ void LPConfig::UpdateScrubUI(){
   //Adjust whether the day of week box is enabled
   ui->combo_scrub_day_week->setEnabled( (index == 1) && active);
   //Adjust whether the day of month box is enabled
-  ui->spin_scrub_day_month->setEnabled( (index == 2) && active);
-  // Always make time box enabled
-  ui->time_scrub->setEnabled(active);
+  ui->spin_scrub_day_month->setEnabled( (index >= 2) && active);
+  // Always make time box enabled if not a daily interval
+  ui->time_scrub->setEnabled( (index<3) && active);
+  //hide all the "time" UI elements if an interval of days is selected (just looks strange otherwise)
+  ui->combo_scrub_day_week->setVisible(index<3);
+  ui->time_scrub->setVisible(index<3);
+  ui->label_2->setVisible(index<3); //label
+  ui->label_4->setVisible(index<3); //label
+  ui->label_6->setVisible(index<3); //label
+  //Make sure the maximum value for the combo_scrub_day_week widget is right
+  ui->spin_scrub_day_month->setMaximum( (index<3) ? 28 : 999);
 }
 
 void LPConfig::on_combo_remote_schedule_currentIndexChanged(int index){

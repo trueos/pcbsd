@@ -192,19 +192,57 @@ void wificonfigwidgetbase::updateWPASupp()
 	    } else if (WPAEType[curItem] == 2) {
               streamout << " proto=RSN\n key_mgmt=" << keyType << "\n eap=TTLS\n";
 	      streamout << " identity=\"" + WPAEIdent[curItem] + "\"\n";
+	      if ( ! WPAEAnonIdent[curItem].isEmpty() )
+  	          streamout << " anonymous_identity=\"" + WPAEAnonIdent[curItem] + "\"\n";
 	      streamout << " password=\"" + WPAEPassword[curItem] + "\"\n";
 	      if ( ! WPAECACert[curItem].isEmpty() )
 	        streamout << " ca_cert=\"" + WPAECACert[curItem] + "\"\n";
-	      streamout << " phase2=\"auth=MD5\"\n";
+          switch(WPAEPhase2[curItem]) {
+            case 1:
+              streamout << " phase2=\"auth=MSCHAPV2\"\n";
+              break;
+            case 2:
+              streamout << " phase2=\"auth=GTC\"\n";
+              break;
+            case 3:
+              streamout << " phase2=\"auth=OTP\"\n";
+              break;
+            case 4:
+              streamout << " phase2=\"auth=PAP\"\n";
+              break;
+            case 5:
+              streamout << " phase2=\"auth=CHAP\"\n";
+              break;
+            case 6:
+              streamout << " phase2=\"auth=MSCHAP\"\n";
+              break;
+            default: // comboPhase2 Itemindex 0
+              streamout << " phase2=\"auth=MD5\"\n";
+          }
 	  
 	    } else if (WPAEType[curItem] == 3) {
               streamout << " proto=RSN\n key_mgmt=" << keyType << "\n eap=PEAP\n";
 	      streamout << " identity=\"" + WPAEIdent[curItem] + "\"\n";
+	      if ( ! WPAEAnonIdent[curItem].isEmpty() )
+  	          streamout << " anonymous_identity=\"" + WPAEAnonIdent[curItem] + "\"\n";
 	      streamout << " password=\"" + WPAEPassword[curItem] + "\"\n";
 	      if ( ! WPAECACert[curItem].isEmpty() )
 	        streamout << " ca_cert=\"" + WPAECACert[curItem] + "\"\n";
 	      streamout << " phase1=\"peaplabel=0\"\n";
-	      streamout << " phase2=\"auth=MSCHAPV2\"\n";
+          switch(WPAEPhase2[curItem]) {
+            case 0:
+              streamout << " phase2=\"auth=MD5\"\n";
+              break;
+            case 2:
+              streamout << " phase2=\"auth=GTC\"\n";
+              break;
+            case 3:
+              streamout << " phase2=\"auth=OTP\"\n";
+              break;
+            default: // comboPhase2 Itemindex 1
+              streamout << " phase2=\"auth=MSCHAPV2\"\n";
+          }
+
             }
          }
 
@@ -430,6 +468,10 @@ void wificonfigwidgetbase::slotMoveUp()
             WPAEIdent[i-1] = WPAEIdent[i];
             WPAEIdent[i] = tmpString;
 
+            tmpString = WPAEAnonIdent[i-1];
+            WPAEAnonIdent[i-1] = WPAEAnonIdent[i];
+            WPAEAnonIdent[i] = tmpString;
+
             tmpString = WPAECACert[i-1];
             WPAECACert[i-1] = WPAECACert[i];
             WPAECACert[i] = tmpString;
@@ -453,6 +495,10 @@ void wificonfigwidgetbase::slotMoveUp()
             tmpInt = WPAEKeyMgmt[i-1];
             WPAEKeyMgmt[i-1] = WPAEKeyMgmt[i];
             WPAEKeyMgmt[i] = tmpInt;
+
+            tmpInt = WPAEPhase2[i-1];
+            WPAEPhase2[i-1] = WPAEPhase2[i];
+            WPAEPhase2[i] = tmpInt;
 
             curRow=i-1;
             MovedItem=true;
@@ -521,6 +567,10 @@ void wificonfigwidgetbase::slotMoveDown()
             WPAEIdent[i+1] = WPAEIdent[i];
             WPAEIdent[i] = tmpString;
 
+            tmpString = WPAEAnonIdent[i+1];
+            WPAEAnonIdent[i+1] = WPAEAnonIdent[i];
+            WPAEAnonIdent[i] = tmpString;
+
             tmpString = WPAECACert[i+1];
             WPAECACert[i+1] = WPAECACert[i];
             WPAECACert[i] = tmpString;
@@ -544,6 +594,10 @@ void wificonfigwidgetbase::slotMoveDown()
             tmpInt = WPAEKeyMgmt[i+1];
             WPAEKeyMgmt[i+1] = WPAEKeyMgmt[i];
             WPAEKeyMgmt[i] = tmpInt;
+
+            tmpInt = WPAEPhase2[i+1];
+            WPAEPhase2[i+1] = WPAEPhase2[i];
+            WPAEPhase2[i] = tmpInt;
 
             curRow=i+1;
 	    MovedItem=true;
@@ -601,7 +655,7 @@ void wificonfigwidgetbase::slotEditProfile()
              wifiselect->initEdit(SSIDList[curItem], BSSID[curItem], WPAPersonalKey[curItem]);
           }
           if ( SSIDEncType[curItem] == WPAE_ENCRYPTION) {
-             wifiselect->initEdit(SSIDList[curItem], BSSID[curItem], WPAEType[curItem], WPAEIdent[curItem], WPAECACert[curItem], WPAEClientCert[curItem], WPAEPrivKeyFile[curItem], WPAEPassword[curItem], WPAEKeyMgmt[curItem]);
+             wifiselect->initEdit(SSIDList[curItem], BSSID[curItem], WPAEType[curItem], WPAEIdent[curItem], WPAEAnonIdent[curItem], WPAECACert[curItem], WPAEClientCert[curItem], WPAEPrivKeyFile[curItem], WPAEPassword[curItem], WPAEKeyMgmt[curItem], WPAEPhase2[curItem]);
           }
 
 
@@ -611,8 +665,8 @@ void wificonfigwidgetbase::slotEditProfile()
           // Connect our save signals
           connect( wifiselect, SIGNAL( signalSavedOpen(QString, bool) ), this, SLOT( slotAddNewProfileOpen(QString, bool) ) );
           connect( wifiselect, SIGNAL( signalSavedWEP( QString, bool, QString, int, bool ) ), this, SLOT( slotAddNewProfileWEP( QString, bool, QString, int, bool) ) );
-   connect( wifiselect, SIGNAL( signalSavedWPA(QString, bool, QString) ), this, SLOT( slotAddNewProfileWPA(QString, bool, QString) ) );
-   	  connect( wifiselect, SIGNAL( signalSavedWPAE(QString, bool, int, QString, QString, QString, QString, QString, int) ), this, SLOT ( slotAddNewProfileWPAE(QString, bool, int, QString, QString, QString, QString, QString, int) ) );
+          connect( wifiselect, SIGNAL( signalSavedWPA(QString, bool, QString) ), this, SLOT( slotAddNewProfileWPA(QString, bool, QString) ) );
+          connect( wifiselect, SIGNAL( signalSavedWPAE(QString, bool, int, QString, QString, QString, QString, QString, QString, int, int) ), this, SLOT ( slotAddNewProfileWPAE(QString, bool, int, QString, QString, QString, QString, QString, QString, int, int) ) );
 
           wifiselect->exec();
       }
@@ -741,12 +795,14 @@ void wificonfigwidgetbase::slotRemoveProfileSSID(QString RemoveSSID)
        WEPHex[remItem] = WEPHex[remItem+1];
        WPAPersonalKey[remItem] = WPAPersonalKey[remItem+1];
        WPAEIdent[remItem] = WPAEIdent[remItem+1];
+       WPAEAnonIdent[remItem] = WPAEAnonIdent[remItem+1];
        WPAECACert[remItem] = WPAECACert[remItem+1];
        WPAEClientCert[remItem] = WPAEClientCert[remItem+1];
        WPAEPrivKeyFile[remItem] = WPAEPrivKeyFile[remItem+1];
        WPAEPassword[remItem] = WPAEPassword[remItem+1];
        WPAEType[remItem] = WPAEType[remItem+1];
        WPAEKeyMgmt[remItem] = WPAEKeyMgmt[remItem+1];
+       WPAEPhase2[remItem] = WPAEPhase2[remItem+1];
      }
 
      if ( SSIDList[remItem+1].isEmpty() )
@@ -851,7 +907,7 @@ void wificonfigwidgetbase::slotAddNewProfileWPA( QString SSID, bool isBSSID, QSt
 }
 
 
-void wificonfigwidgetbase::slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt )
+void wificonfigwidgetbase::slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 )
 {
 
    for (int dupItem = 0; dupItem < 145; dupItem++)
@@ -875,11 +931,13 @@ void wificonfigwidgetbase::slotAddNewProfileWPAE( QString SSID, bool isBSSID, in
    BSSID[curItem] = isBSSID;
    WPAEType[curItem] = type;
    WPAEIdent[curItem] = EAPIdent;
+   WPAEAnonIdent[curItem] = AnonIdent;
    WPAECACert[curItem] = CACert;
    WPAEClientCert[curItem] = ClientCert;
    WPAEPrivKeyFile[curItem] = PrivKeyFile;
    WPAEPassword[curItem] = PrivKeyPass;
    WPAEKeyMgmt[curItem] = keyMgmt;
+   WPAEPhase2[curItem] = EAPPhase2;
 
    // Refresh the SSID listbox and enable the apply button
    slotRefreshSSIDList();
@@ -926,7 +984,7 @@ void wificonfigwidgetbase::slotMACClicked()
 QString wificonfigwidgetbase::getLineFromCommandOutput( QString command )
 {
 	FILE *file = popen(command.toLatin1(),"r"); 
-	
+
 	char buffer[100];
 	
 	QString line = ""; 
@@ -1248,6 +1306,16 @@ void wificonfigwidgetbase::slotFinishLoading()
 		WPAEIdent[curItem] = tmp2;
 	   }
 		    
+           // Check for a anonymous_identity= line
+           if ( line.indexOf("anonymous_identity=") != -1 )
+       {
+        tmp2 = line.remove(0, line.indexOf("\"") + 1 );
+        tmp2.truncate( tmp2.indexOf("\"") );
+
+        // Save the keycode
+        WPAEAnonIdent[curItem] = tmp2;
+       }
+
 	   // Check for a ca_cert= line
            if ( line.indexOf("ca_cert=") != -1 )
 	   {		       
@@ -1294,6 +1362,22 @@ void wificonfigwidgetbase::slotFinishLoading()
           if ( line.indexOf("key_mgmt=IEEE8021X") != -1 )
 		WPAEKeyMgmt[curItem] = KEY8021X;
 	
+          // Figure out the phase2
+          if ( line.indexOf("phase2=\"auth=MD5\"") != -1 )
+		WPAEPhase2[curItem] = KEYPHASE2MD5;
+          if ( line.indexOf("phase2=\"auth=MSCHAPV2\"") != -1 )
+		WPAEPhase2[curItem] = KEYPHASE2MSCHAPV2;
+          if ( line.indexOf("phase2=\"auth=GTC\"") != -1 )
+ 		WPAEPhase2[curItem] = KEYPHASE2GTC;
+          if ( line.indexOf("phase2=\"auth=OTP\"") != -1 )
+ 		WPAEPhase2[curItem] = KEYPHASE2OTP;
+          if ( line.indexOf("phase2=\"auth=PAP\"") != -1 )
+ 		WPAEPhase2[curItem] = KEYPHASE2PAP;
+          if ( line.indexOf("phase2=\"auth=CHAP\"") != -1 )
+ 		WPAEPhase2[curItem] = KEYPHASE2CHAP;
+          if ( line.indexOf("phase2=\"auth=MSCHAP\"") != -1 )
+ 		WPAEPhase2[curItem] = KEYPHASE2MSCHAP;
+
          // Check for a private_key_passwd= line
          if ( line.indexOf("password=") != -1 )
          {		       

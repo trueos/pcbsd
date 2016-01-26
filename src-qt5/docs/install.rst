@@ -12,13 +12,13 @@ To begin the PC-BSD® installation, insert the prepared boot media and boot the 
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
-The initial boot screen, shown in Figure 3a, offers a choice of using either the graphical or the text based installer. Unless you select otherwise, the
-graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
+The initial boot screen, shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`, offers a choice of using either the graphical or the text based installer. Unless you select
+otherwise, the graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
 If the graphical installer hangs when loading the graphics driver, try selecting the VESA mode option of the graphical installer.
 
-**Figure 3a: PC-BSD® Installer Boot Menu**
+.. _install1a:
 
-.. image:: images/install1a.png
+.. figure:: images/install1a.png
 
 The rest of this chapter describes the screens of the graphical installer.
 
@@ -28,11 +28,12 @@ The rest of this chapter describes the screens of the graphical installer.
 Language Selection Screen
 =========================
 
-The first graphical installer screen, seen in Figure 3.1a, indicates that the installer successfully loaded and is ready to present you with its options.
+The first graphical installer screen, seen in :numref:`Figure %s: Welcome and Language Selection Screen <install2a>`, indicates that the installer successfully loaded and is ready to present
+you with its options.
 
-**Figure 3.1a: Welcome and Language Selection Screen** 
+.. _install2a:
 
-.. image:: images/install2a.png
+.. figure:: images/install2a.png
 
 Starting on the left-hand side, the icons in the bottom navigation area allow you to: 
 
@@ -78,21 +79,21 @@ When you are finished reviewing this screen, click the "Next" button to go to th
 System Selection Screen
 =======================
 
-The "System Selection" screen, shown in Figure 3.2a, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also can be used
-for :ref:`Restoring the Operating System`. This chapter concentrates on a desktop installation. Refer to :ref:`Install a Server` for instructions on how to
+The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3a>`, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also
+can be used for :ref:`Restoring the Operating System`. This chapter concentrates on a desktop installation. Refer to :ref:`Install a Server` for instructions on how to
 install a command-line only server.
 
-**Figure 3.2a: System Selection Screen** 
+.. _install3a: 
 
-.. image:: images/install3a.png
+.. figure:: images/install3a.png
 
 By default, PC-BSD® will be selected and the default window manager will depend upon the amount of RAM on the system. Systems containing more than 2GB of RAM
 will default to the KDE desktop and all other systems will default to the LXDE desktop. To change the default window manager or to browse for additional
-desktops and components to install, click the "Customize" button to open the screen shown in Figure 3.2b. 
+desktops and components to install, click the "Customize" button to open the screen shown in :numref:`Figure %s: Browsing Additional System Components <install4>`. 
 
-**Figure 3.2b: Browsing Additional System Components** 
+.. _install4: 
 
-.. image:: images/install4.png
+.. figure:: images/install4.png
 
 Check the ► next to a component in order to expand it so that you can check or uncheck its sub-components. All components that are checked will be
 installed. If you highlight then right-click a component and select "View Packages", a pop-up menu will list the name of the packages that are installed with
@@ -156,21 +157,21 @@ selected for installation. You can now click the "Next" button to proceed to the
 Disk Selection Screen
 =====================
 
-The "Disk Selection" screen, seen in Figure 3.3a, summarizes the default disk configuration.
+The "Disk Selection" screen, seen in :numref:`Figure %s: Disk Selection Screen <install5a>`, summarizes the default disk configuration.
 
-**Figure 3.3a: Disk Selection Screen**
+.. _install5a:
 
-.. image:: images/install5a.png
+.. figure:: images/install5a.png
 
 .. warning:: by default, PC-BSD® will assume that you wish to install on the entire first disk. If you are installing PC-BSD® as the only operating system
    on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
    layout your disk. If you plan on booting PC-BSD® with another operating system, you should also review the section on :ref:`Dual Booting`.
 
-If you wish to select which disk or partition to install PC-BSD® into, click the "Customize" button to start the Disk Setup Wizard, shown in Figure 3.3b. 
+If you wish to select which disk or partition to install PC-BSD® into, click the "Customize" button to start the Disk Setup Wizard, shown in :numref:`Figure %s: Disk Setup Wizard <install6>`. 
 
-**Figure 3.3b: Disk Setup Wizard** 
+.. _install6: 
 
-.. image:: images/install6.png
+.. figure:: images/install6.png
 
 The wizard provides three modes of operation. The rest of this section describes these modes in detail.
 
@@ -195,11 +196,11 @@ click "Save Config to USB".
 Basic Mode 
 -----------
 
-If you select "Basic" mode, the wizard will display the screen shown in Figure 3.3c. 
+If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7>`. 
 
-**Figure 3.3c: Select a Disk or Partition**
+.. _install7:
 
-.. image:: images/install7.png
+.. figure:: images/install7.png
 
 By default, the first hard disk will be selected. If you wish to install on a different disk, use the "Selected Disk" drop-down menu to select the disk to
 install into.
@@ -220,11 +221,11 @@ installation.
 Advanced Mode 
 --------------
 
-If you select advanced mode, the wizard will display the screen shown in Figure 3.3d. 
+If you select advanced mode, the wizard will display the screen shown in :numref:`Figure %s: Advanced Mode Options <install8a>`. 
 
-**Figure 3.3d: Advanced Mode Options** 
+.. _install8a:
 
-.. image:: images/install8a.png
+.. figure:: images/install8a.png
 
 This screen provides the following options: 
 
@@ -333,11 +334,11 @@ that a significant percentage of it will fit on the SSD. Note that a dedicated L
 ZFS Layout 
 ^^^^^^^^^^^
 
-In "Advanced Mode", the disk setup wizard allows you to configure your ZFS layout. The initial ZFS configuration screen is seen in Figure 3.3e. 
+In "Advanced Mode", the disk setup wizard allows you to configure your ZFS layout. The initial ZFS configuration screen is seen in :numref:`Figure %s: ZFS Configuration <install9a>`. 
 
-**Figure 3.3e: ZFS Configuration** 
+.. _install9a:
 
-.. image:: images/install9a.png
+.. figure:: images/install9a.png
 
 If your system contains multiple drives and you would like to use them to create a ZFS mirror or RAIDZ*, check the box "Add additional disks to zpool" which
 will enable this screen. Any available disks will be listed in the box below the "ZFS Virtual Device Mode" drop-down menu. Select the desired level of redundancy,
@@ -364,19 +365,19 @@ The installer will not let you save a configuration if your system does not meet
 configuration, a message will indicate how many more disks you need to select.
 
 To use multiple disks, select the type of configuration from the "ZFS Virtual Device Mode" drop-down menu, then check the box for each disk that you would
-like to add to that configuration. When finished, click the "Next" button to see the screen shown in Figure 3.3f. 
+like to add to that configuration. When finished, click the "Next" button to see the screen shown in :numref:`Figure %s: Add L2ARC or ZIL <install10a>`. 
 
-**Figure 3.3f: Add L2ARC or ZIL**
+.. _install10a:
 
-.. image:: images/install10a.png
+.. figure:: images/install10a.png
 
 This screen can be used to specify an SSD to use as an L2ARC or a secondary log device. Any available devices will be listed in the boxes in this screen.
 Note that a separate SSD is needed for each type of device. Refer to the descriptions for ZIL and L2ARC in the :ref:`ZFS Overview` to determine if your system
-would benefit from any of these devices before adding them in this screen. When finished, click "Next" to see the screen shown in Figure 3.3g.
+would benefit from any of these devices before adding them in this screen. When finished, click "Next" to see the screen shown in :numref:`Figure %s: Configure Encryption <install11a>`.
 
-**Figure 3.3g: Configure Encryption**
+.. _install11a:
 
-.. image:: images/install11a.png
+.. figure:: images/install11a.png
 
 This screen can be used to configure full-disk encryption which is meant to protect the data on the disks should the system itself be lost or stolen. This
 type of encryption prevents the data on the disks from being available during bootup, unless the correct passphrase is typed at the bootup screen. Once the
@@ -389,11 +390,11 @@ not forget, but hard for other users, especially those who know you, to guess.
 
 .. warning:: if you ever forget this passphrase, you will be unable to decrypt the disks and will lose access to their data!
 
-When finished, click "Next" to move on the screen shown in Figure 3.3h.
+When finished, click "Next" to move on the screen shown in :numref:`Figure %s: Default ZFS Layout <install12a>`.
 
-**Figure 3.3h: Default ZFS Layout** 
+.. _install12a: 
 
-.. image:: images/install12a.png
+.. figure:: images/install12a.png
 
 Regardless of how many disks you selected for your ZFS configuration, the default layout will be the same. ZFS does not require separate partitions for
 :file:`/usr`, :file:`/tmp`, or :file:`/var`. Instead, you create one ZFS partition (pool) and specify a mount for each dataset. A :file:`/boot` partition is
@@ -444,12 +445,12 @@ Selection" screen.
 Installation Progress Screen
 ============================
 
-Once you select "Yes" to start the installation, a progress screen, seen in Figure 3.4a, provides a progress bar and messages so that you can watch the
-installation's progress.
+Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: nstallation Progress Screen <install13a>`, provides a progress bar and messages so that you
+can watch the installation's progress.
 
-**Figure 3.4a: Installation Progress Screen**
+.. _install13a:
 
-.. image:: images/install13a.png
+.. figure:: images/install13a.png
 
 How long the installation takes depends upon the speed of your hardware, the installation type you selected, and the number of components to be installed.
 A typical installation takes between 15 and 30 minutes.
@@ -460,10 +461,10 @@ A typical installation takes between 15 and 30 minutes.
 Installation Finished Screen
 ============================
 
-The screen shown in Figure 3.5a appears once the installation is complete.
+The screen shown in :numref:`Figure %s: PC-BSD® Installation is Now Complete <install14a>` appears once the installation is complete.
 
-**Figure 3.5a: PC-BSD® Installation is Now Complete** 
+.. _install14a:
 
-.. image:: images/install14a.png
+.. figure:: images/install14a.png
 
 Click the "Finish" button to reboot into your PC-BSD® installation. Wait until the installer exits before removing the installation media.

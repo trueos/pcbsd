@@ -1,4 +1,6 @@
 #include "DB.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 
 /* === Representation of Database ====
   HASH -> Info: [JailList, RepoList] 
@@ -98,6 +100,7 @@ QString DB::fetchInfo(QStringList request, bool noncli){
   //qDebug() << "Request:" << request << request.length();
   //Determine the internal hash key for the particular request
   if(request.length()==1){
+    if(request[0]=="help"){ return fetchHelpInfo().join(LISTDELIMITER); }
     if(request[0]=="startsync"){ 
       if( kickoffSync() ){
 	writeToLog("User Sync Request...");
@@ -121,9 +124,11 @@ QString DB::fetchInfo(QStringList request, bool noncli){
     hashkey="PBI/CAGES/"; //just to cause the request to wait for sync to finish if needed
     
   }else if(request.length()==2){
+    if(request[0]=="help"){ return fetchHelpInfo(request[1]).join(LISTDELIMITER); }
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
-      else if(request[1]=="cages"){ hashkey = "JailCages"; }
+      else if(request[1]=="stoppedcages"){ hashkey = "JailCages"; }
+      else if(request[1]=="runningcages"){ hashkey = "JailCagesRunning"; }
       else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
     
@@ -187,6 +192,7 @@ QString DB::fetchInfo(QStringList request, bool noncli){
         hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="cage"){
 	hashkey = "PBI/CAGES/"+request[2]+"/"+request[3]; //pkg origin and variable
+	//qDebug() << "Cage Request:" << hashkey;
       }else if(request[1]=="cat"){
 	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="search"){
@@ -257,7 +263,10 @@ QString DB::fetchInfo(QStringList request, bool noncli){
   else{
     validateHash(hashkey);
     //Check if a sync is running and wait a moment until it is done
-    while(isRunning(hashkey)){ pausems(500); } //re-check every 500 ms
+    while(isRunning(hashkey)){
+	if(noncli){ return "[BUSY]"; }
+	pausems(500);  //re-check every 500 ms
+    }
     //Now check for info availability
     if(!searchterm.isEmpty()){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
@@ -277,6 +286,179 @@ QString DB::fetchInfo(QStringList request, bool noncli){
   }
   return val;
 }
+
+QStringList DB::fetchHelpInfo(QString subsystem){
+  //Note: This help info is highly formatted for the non-CLI usage (JSON array output)
+  // Every entry in the list will show up as an element in the output JSON array
+  QStringList info;
+  if(subsystem=="jail"){
+    info << "\"jail list\": List all running jails by name";
+    info << "\"jail stoppedlist\": List all stopped jails by name";
+    info << "\"jail runningcages\": List all installed/running pbicages by origin and iocage ID (<origin> <ID>)";
+    info << "\"jail stoppedcages\": List all installed/stopped pbicages by origin and iocage ID (<origin> <ID>)";
+    info << "\"jail <jailname> <info>\": Get information about a particular jail";
+    info << "Possible Info requests: ";
+    info << "id: 	[RUNNING ONLY] Get the current jail ID # (JID)";
+    info << "ip: 	[RUNNING ONLY] Get the current jail IP address";
+    info << "path:	[RUNNING ONLY] Get the jail directory path on host system";
+    info << "all:	Return the raw iocage information list for the jail (all properties)";
+    info << "WID:	Get the iocage jail ID #";
+    info << "tag:	Get the iocage jail tag";
+    info << "installed: Get the origin of the installed pbicage";
+    info << "ipv4: Get the jail ipv4 address setting";
+    info << "alias-ipv4:	Get the jail ipv4 alias setting";
+    info << "bridge-ipv4:	Get the jail ipv4 bridge setting";
+    info << "alias-bridge-ipv4:	Get the jail ipv4 bridge setting for the alias";
+    info << "defaultrouter-ipv4:	The ipv4 address setting for the default gateway";
+    info << "ipv6:	Get the jail ipv6 address setting";
+    info << "alias-ipv6:	Get the jail ipv6 alias setting";
+    info << "bridge-ipv6:	Get the jail ipv6 bridge setting";
+    info << "alias-bridge-ipv6:	Get the jail ipv6 bridge setting for the alias";
+    info << "defaultrouter-ipv6:	The ipv6 address setting for the default gateway";
+    info << "autostart:	[true/false] Jail is set to start automatically on boot";
+    info << "vnet:	[Disabled/Enabled]";
+    info << "type:	Get the type of jail [portjail, traditional, linux]";
+    info << "hasupdates: [true/false] Return whether the jail has updates available";
+
+  }else if(subsystem=="pbi"){
+    info << "\"pbi list <infolist>\":";
+    info << "Possible Info Lists: ";
+    info << "\"allapps\":	List all applications by pkg origin";
+    info << "\"serverapps\":	List all server applications by pkg origin";
+    info << "\"textapps\":	List all text applications by pkg origin";
+    info << "\"graphicalapps\":	List all graphical applications by pkg origin";
+    info << "\"allcats\":	List all categories";
+    info << "\"servercats\":	List all categories that contain a server application";
+    info << "\"textcats\":	List all categories that contain a text application";
+    info << "\"graphicalcats\":	List all categories that contain a graphical application";
+    info << "\"cages\":		List all known cages by origin";
+    info << "\"pbi app <pkg origin> <info>\":";
+    info << "Possible Application Information: ";
+    info << "\"author\": 	Package author";
+    info << "\"category\":	Primary category where this package belongs";
+    info << "\"confdir\":	Local path to configuration directory";
+    info << "\"dependencies\":	List of *additional* dependencies by pkg origin";
+    info << "\"origin\": 	Package/port origin";
+    info << "\"plugins\":	List of optional plugins by pkg origin";
+    info << "\"rating\":	Current rating (0.00 to 5.00)";
+    info << "\"relatedapps\":	List of similar applications by pkg origin";
+    info << "\"screenshots\":	List of screenshot URLs";
+    info << "\"type\":	Primary category where this package belongs";
+    info << "\"tags\":	List of search tags for application";
+    info << "\"comment\":	(pkg override) Short package summary";
+    info << "\"description\":	(pkg override) Full package description";
+    info << "\"license\":	(pkg override) List of licences for the application";
+    info << "\"maintainer\":	(pkg override) Maintainer email address";
+    info << "\"name\": 	(pkg override) Package name";
+    info << "\"options\":	(pkg override) List of compile-time options used";
+    info << "\"website\":	(pkg override) Application website URL";
+    info << "\"pbi cage <origin> <info>\":";
+    info << "Possible Cage Information: ";
+    info << "\"icon\":	Icon file path";
+    info << "\"name\":	Name of the cage";
+    info << "\"description\":	Application description";
+    info << "\"arch\":	Architecture of the cage";
+    info << "\"fbsdver\":	FreeBSD version used";
+    info << "\"git\":	GIT path for the cage";
+    info << "\"gitbranch\":	GIT granch used";
+    info << "\"screenshots\":	List of screenshot URLs";
+    info << "\"tags\":	List of search tags";
+    info << "\"website\":	Website URL";
+    info << "\"pbi cat <pkg category> <info>\":";
+    info << "Possible Category Information:";
+    info << "\"comment\": 	Short description of the category contents";
+    info << "\"icon\":	Icon file path for the category";
+    info << "\"name\":	Display name to use for the category (Ex: Desktop Utilities)";
+    info << "\"origin\":	pkg name of the category (Ex: deskutils)";
+    info << "\"pbi search <search term> [filter] [minimum results]\":";
+    info << "Possible Filters: ";
+    info << "\"all\" (default): No filtering";
+    info << "\"graphical\": Only search for graphical applications";
+    info << "\"server\": Only search for server applications";
+    info << "\"text\": Only search for text applications";
+    info << "\"notgraphical\": Do not search graphical applications";
+    info << "\"notserver\": Do not search server applications";
+    info << "\"nottext\": Do not search text applications";
+  
+  }else if(subsystem=="pkg"){
+    info << "Note: <jail> = \"#system\" or name of running jail";
+    info << "\"pkg <jail> remotelist\": List all available packages by origin";
+    info << "\"pkg <jail> installedlist\": List all installed packages by origin";
+    info << "\"pkg <jail> hasupdates\": (true/false) Package updates are available";
+    info << "\"pkg <jail> updatemessage\": Full log message from the check for updates";
+    info << "\"pkg search <search term> [<jail>] [minimum results]\": Perform a search and attempt to return the pkg origins for the first [minimum] results.";
+    info << "\"pkg <jail> <local or remote> <pkg origin> <info>\"";
+    info << "Possible <info> requests: ";
+    info << "origin: 	Package/port origin";
+    info << "name: 	Package name";
+    info << "version:	Package version";
+    info << "maintainer:	Maintainer email address";
+    info << "comment:	Short package summary";
+    info << "description:	Full package description";
+    info << "website:	Application website URL";
+    info << "size:	Human-readable package size (installed or to download)";
+    info << "arch:	System architecture the package was built for";
+    info << "timestamp:	[local only] Date/Time the package was installed (epoch time?)";
+    info << "message:	Special message included with the package";
+    info << "isOrphan:	[local only] Is the package orphaned? (true/false)";
+    info << "isLocked:	[local only] Is the package version locked? (true/false)";
+    info << "dependencies:	List of dependencies by pkg origin";
+    info << "rdependencies:	List of reverse dependencies by pkg origin";
+    info << "categories:	List of categories where this package belongs";
+    info << "files:	[local only] List of files installed by this package";
+    info << "options:	List of compile-time options used to build the package";
+    info << "license:	List of licences the application is available under";
+    info << "users:	[local-only] List of users that were created for this package";
+    info << "groups:	[local-only] List of groups that were created for this package";
+
+  }else if(subsystem=="search"){
+    info << "\"<pkg | pbi> search <search term> [<pkg jail>/<pbi filter>] [result minimum]\"";
+    info << "This allows the user to retrieve a list of pkg origins corresponding to the given search term.";
+    info << "Default Values for optional inputs:";
+    info << "<pkg jail> -> \"#system\"";
+    info << "<pbi filter> -> \"all\"";
+    info << "<result minimum> -> 10";
+    info << "Notes: ";
+    info << "1) Each search is performed case-insensitive, with the next highest search priority group added to the end of the list as long as the number of matches is less than the requested minimum.";
+    info << "2) Each search priority/group is arranged alphabetically by name independently of the other groups.";
+    info << "3) Each package origin will always appear in the highest priority group possible with no duplicates later in the output.";
+    info << "Search matching groups/priority is: ";
+        info << "1) Exact Name match";
+        info << "2) Partial Name match (name begins with search term)";
+        info << "3) Partial Name match (search term anywhere in name)";
+        info << "4) Comment match (search term in comment for pkg)";
+        info << "5) Description match (search term in description for pkg)";
+    info << "Initial Filtering: ";
+      info << "For packages, it always searches the entire list of available/remote packages for that particular jail";
+      info << "For PBI's the possible filters are: ";
+      info << "\"all\"";
+      info << "\"graphical\"";
+      info << "\"server\"";
+      info << "\"text\"";
+      info << "\"notgraphical\" (I.E. Show both server and text apps)";
+      info << "\"notserver\" (I.E. Show both graphical and text apps)";
+      info << "\"nottext\" (I.E. Show both graphical and server apps)";
+	  
+  }else{
+    info << "syscache: Interface to retrieve system information from the syscache daemon based on lists of database requests.";
+    info << "\"startsync\": Manually start a system information sync (usually unnecessary)";
+    info << "\"needsreboot\": [true/false] See whether the system needs to reboot to finish updates";
+    info << "\"isupdating\": [true/false] See whether the system is currently performing updates";
+    info << "\"hasupdates\": [true/false] See whether any system updates are available";
+    info << "\"updatelog\": Raw text output from the check for system updates";
+    info << "\"hasmajorupdates\": [true/false] See whether major FreeBSD system updates are available";
+    info << "\"majorupdatelog\": Details about the major update(s)";
+    info << "\"hassecurityupdates\": [true/false] See whether FreeBSD security updates are available";
+    info << "\"securityupdatelog\": Details about any security update(s)";
+    info << "\"haspcbsdupdates\": [true/false] See whether any special PC-BSD hotfixes are available";
+    info << "\"pcbsdupdatelog\": Details about any PC-BSD hotfixes";
+    info << "\"help [jail | pkg | pbi | search]\": Information about DB requests for that subsystem";
+    info << "\"<jail> app-summary <pkg origin 1>  < pkg origin 2> [etc..]\": Returns (one per pkg/line): [<pkg origin>, <name>, <version>, <icon>, <rating>, <type>, <comment>, <confdir>, <installed>, <canremove>]";
+    info << "\"cage-summary <origin 1> <origin 2> [etc..]\": Returns (one per origin/line): [<origin>, <name>, <icon>, <arch>, <fbsdver>]";
+  }
+  return info;
+}
+
 
 // ========
 //   PRIVATE
@@ -625,6 +807,13 @@ Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QObject(parent){
     longProc->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
     longProc->setProcessChannelMode(QProcess::MergedChannels);   
     connect(longProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(LongProcFinished(int, QProcess::ExitStatus)) );
+  applianceMode = false;
+  //Check if the system/appcafe is running in appliance mode (for FreeNAS, etc)
+  QStringList chk = readFile("/usr/local/etc/appcafe.conf").filter("mode").filter("=").filter("appliance");
+  for(int i=0; i<chk.length(); i++){
+    //Just verify that this line is not commented out (filtering above ensures this list is extremely small or empty)
+    if(chk[i].section(";",0,0).section("=",1,1).simplified()=="appliance"){ applianceMode = true; break;}
+  }
 }
 
 Syncer::~Syncer(){
@@ -738,6 +927,7 @@ void Syncer::clearPbi(){
 
 bool Syncer::needsLocalSync(QString jail){
   //Checks the pkg database file for modification since the last sync
+  if(applianceMode){ return false; } //never sync pkg info for appliances
   if(!HASH->contains("Jails/"+jail+"/lastSyncTimeStamp")){ return true; }
   else{
     //Previously synced - look at the DB modification time
@@ -763,6 +953,7 @@ bool Syncer::needsLocalSync(QString jail){
 }
 
 bool Syncer::needsRemoteSync(QString jail){
+  if(applianceMode){ return false; } //never sync pkg info for appliances
   //Checks the pkg repo files for changes since the last sync
   if( (jail!=LOCALSYSTEM) && HASH->value("Jails/"+jail+"/haspkg") != "true" ){ return false; } //pkg not installed
   else if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
@@ -794,6 +985,7 @@ bool Syncer::needsPbiSync(){
 }
 
 bool Syncer::needsSysSync(){
+  if(applianceMode){ return false; } //never sync freebsd-update info for appliances
   //Check how long since the last check the
   if(longProc->state() != QProcess::NotRunning){ return false; } //currently running
   if(!HASH->contains("System/lastSyncTimeStamp")){ return true; }
@@ -876,14 +1068,14 @@ void Syncer::syncJailInfo(){
   //Now also fetch the list of inactive jails on the system
   QStringList info = directSysCmd("iocage list"); //"warden list -v");
   QStringList inactive;
-  QStringList installedcages;
+  QStringList installedcages, runningcages;
   //qDebug() << "Warden Jail Info:" << info;
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
     QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
     if(ID.isEmpty()){ continue; }
     QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
-    if(!TAG.startsWith("pbicage-")){ continue; } //skip this jail
+    if(!TAG.startsWith("pbicage-") && !TAG.startsWith("pbijail-")){ continue; } //skip this jail
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
     //Create the info strings possible
@@ -913,7 +1105,7 @@ void Syncer::syncJailInfo(){
       else if(tmp[j].startsWith("type:")){ TYPE = val; }
       else if(tmp[j].startsWith("release:")) {RELEASE = val; }
     }
-      QString inst = TAG.section("pbicage-",1,10); //installed cage for this jail
+      QString inst = TAG.section("-",1,100); //installed cage for this jail
       //Need to replace the first "-" in the tag with a "/" (category/name format, but name might have other "-" in it)
       int catdash = inst.indexOf("-");
       if(catdash>0){ inst = inst.replace(catdash,1,"/"); }
@@ -942,8 +1134,13 @@ void Syncer::syncJailInfo(){
     }
     
       QString prefix = "Jails/"+HOST+"/";
-      if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
-      else{ found << HOST; }
+      if(!TAG.startsWith("pbicage-")){
+        if(!isRunning){ inactive << HOST+" "+TAG; } //only save inactive jails - active are already taken care of
+       else{ found << HOST+" "+TAG; }
+      }else{
+	if(isRunning){ runningcages << inst+" "+ID; }
+	else{ installedcages << inst+" "+ID; }
+      }
       HASH->insert(prefix+"WID", ID); //iocage ID
       HASH->insert(prefix+"tag",TAG); //iocage tag
       HASH->insert(prefix+"installed", inst); //Installed pbicage origin
@@ -972,12 +1169,11 @@ void Syncer::syncJailInfo(){
       //Only need the return code - 0=NoUpdates
       bool hasup = (QProcess::execute("iocage update -n "+ID)!=0);
       HASH->insert(prefix+"hasupdates", (hasup ? "true": "false") );
-
-      installedcages << inst+" "+ID;
   }
   HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   HASH->insert("JailList", found.join(LISTDELIMITER));
   HASH->insert("JailCages", installedcages.join(LISTDELIMITER));
+  HASH->insert("JailCagesRunning", runningcages.join(LISTDELIMITER));
   //Remove any old jails from the hash (ones that no longer exist)
   for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
@@ -1455,17 +1651,25 @@ void Syncer::syncPbi(){
     QStringList cages = readFile(cprefix+"CAGE-INDEX");
     QStringList allcages;
     for(int i=0; i<cages.length(); i++){
-      if( !QFile::exists(cprefix+cages[i]+"/MANIFEST")){ continue; }
+      if( !QFile::exists(cprefix+cages[i]+"/MANIFEST.json")){ continue; }
       allcages << cages[i];
-      QStringList cinfo = readFile(cprefix+cages[i]+"/MANIFEST");
-      for(int h=0; h<cinfo.length(); h++){
-        QString var = cinfo[h].section(": ",0,0).toLower();
-	QString val = cinfo[h].section(": ",1,100).simplified();
-	if(!var.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/"+var, val); }
+      //QString cinfo = readFile(cprefix+cages[i]+"/MANIFEST.json").join("\n");
+      //qDebug() << "Manifest File:" << cinfo;
+      QJsonDocument doc = readJsonFile(cprefix+cages[i]+"/MANIFEST.json");  /*QJsonDocument::fromBinaryData(cinfo.toLocal8Bit(),QJsonDocument::BypassValidation);*/
+      //qDebug() << " - JSON Document:" << doc.isObject() << doc.isArray() << doc.isEmpty();
+      QStringList dockeys;
+      if(doc.isObject()){ dockeys = doc.object().keys(); }
+      for(int h=0; h<dockeys.length(); h++){
+	QString val = doc.object().value(dockeys[h]).toString();
+	//qDebug() << " - Variable/Value:" << dockeys[h] << val;
+	HASH->insert("PBI/CAGES/"+cages[i]+"/"+dockeys[h], val);
 	//Note: this will automatically load any variables in the manifest into syscache (lowercase)
 	//Known variables (7/23/15): arch, fbsdver, git, gitbranch, name, screenshots, tags, website
 	// ==== NO LINE BREAKS IN VALUES ====
       }
+      //If there is a non-empty manifest - go ahead and save the raw contents
+      //qDebug() << " - Cage HASH:" << "PBI/CAGES/"+cages[i]+"/manifest";
+      if(!doc.isEmpty()){ HASH->insert("PBI/CAGES/"+cages[i]+"/manifest", doc.toJson(QJsonDocument::Compact) ); }
       //Now add the description/icon
       HASH->insert("PBI/CAGES/"+cages[i]+"/description", readFile(cprefix+cages[i]+"/description").join("<br>") );
       HASH->insert("PBI/CAGES/"+cages[i]+"/icon", cprefix+cages[i]+"/icon.png");

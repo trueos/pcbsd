@@ -142,8 +142,8 @@ void DialogFSProp::InitAllProperties()
 //    compression
 
             tmp.Name="compression";
-            tmp.Description=tr("Enables or disables compression for a dataset. The values are on, off, lz4, lzjb, zle, gzip,\n"
-                               "lz4 and gzip-N. Currently, setting this property to lz4, lzjb, gzip, or gzip-N has the same\n"
+            tmp.Description=tr("Enables or disables compression for a dataset. The values are on, off, lz4, lzjb, zle, \n"
+                               "gzip and gzip-N. Currently, setting this property to lz4, lzjb, gzip, or gzip-N has the same\n"
                                "effect as setting this property to on. Enabling compression on a file system with\n"
                                "existing data only compresses new data. Existing data remains uncompressed.");
 
@@ -164,7 +164,6 @@ void DialogFSProp::InitAllProperties()
             tmp.ValidOptions.append("gzip-7");
             tmp.ValidOptions.append("gzip-8");
             tmp.ValidOptions.append("gzip-9");
-            tmp.ValidOptions.append("lz4");
 
             AllProperties.append(tmp);
 

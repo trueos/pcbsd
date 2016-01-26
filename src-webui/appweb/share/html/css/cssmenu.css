@@ -117,7 +117,7 @@
   text-transform: none;
   text-decoration: none;
   color: #2E3131;
-  background: url('images/bg.png');
+  background: url('/images/bg.png');
 }
 #cssmenu.small-screen #menu-button.menu-opened {
   color: #444444;

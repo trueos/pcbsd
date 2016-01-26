@@ -20,6 +20,7 @@ public:
 	~SysCacheDaemon();
 
 	bool startServer();
+	void startSyncNow();
 
 private:
 	QLocalServer *server;

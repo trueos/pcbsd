@@ -41,7 +41,7 @@ namespace keyboard
         SLayout(){;}
         SLayout(QString layout, QString variant):layout_id(layout),variant_id(variant){;}
 
-        bool operator==(const SLayout& l)
+        bool operator==(const SLayout& l) const
         {
             return (layout_id == l.layout_id) && (variant_id == l.variant_id);
         }
@@ -80,7 +80,7 @@ namespace keyboard
             group_name = fullName.split(":")[0];
             option = fullName.split(":")[1];
         }
-        bool operator==(const SOption& opt)
+        bool operator==(const SOption& opt) const
         {
             return ((group_name == opt.group_name)&&(option == opt.option));
         }

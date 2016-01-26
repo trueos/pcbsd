@@ -21,6 +21,22 @@ do_prune()
   done <${PRUNEFILE}
 }
 
+do_i3dvorak()
+{
+	distfile="/usr/local/share/pcbsd/distfiles/i3dvorak.txz"
+	do_ports_overlay
+	cd /
+  	tar xvm --no-same-owner -f ${distFile} 2>/dev/null
+  	if [ $? -eq 0 ] ; then
+    		echo -e "DONE"
+    		post_extract_setup
+    		exit 0
+  	else
+    		echo -e "FAILED"
+    		post_extract_setup
+    		exit 1
+  	fi
+}
 do_ports_overlay()
 {
 
@@ -99,6 +115,19 @@ do_server_overlay()
   post_extract_setup
 }
 
+copy_pcbsd_overlay()
+{
+  cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+  cp /usr/local/share/pcbsd/conf/brand-pcbsd.4th /boot/brand-pcbsd.4th
+  cp /usr/local/share/pcbsd/conf/pcbsd-menu.rc /boot/menu.rc
+  cp /usr/local/share/pcbsd/conf/pcbsd-menu-commands.4th /boot/menu-commands.4th
+}
+
+copy_trueos_overlay()
+{
+  cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+  cp /usr/local/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
+}
 
 # Files we need to touch or change after an upgrade
 post_extract_setup()
@@ -115,8 +144,11 @@ post_extract_setup()
     fi
   fi
 
+  # Copy over the 4th loader logo file
+  cp /usr/local/share/pcbsd/conf/logo-pcbsd.4th /boot/logo-pcbsd.4th
+
   # Stuff not for jails
-  if [ -e "/boot/grub/grub.cfg" ] ; then
+  if [ -e "/boot/kernel/kernel" ] ; then
 
     # Remove the legacy setting of default linux compat, let user control that
     uname -r | grep -q "10.1"
@@ -134,26 +166,17 @@ post_extract_setup()
        echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
     fi
 
-    # Enable the pc-sysconfig daemon
-    grep -q 'pcsysconfig_enable' /etc/rc.conf.pcbsd 2>/dev/null
-    if [ $? -ne 0 ]; then
-       grep -q 'pcsysconfig_enable' /etc/rc.conf
-       if [ $? -ne 0 ]; then
-         echo "pcsysconfig_enable=\"YES\"" >> /etc/rc.conf
-       fi
-    fi
-
-    # Copy over the default loader.conf file
+    # Check if we need to copy pcbsd or trueos overlay
     if [ -e "/boot/loader.conf.pcbsd" ] ; then
-       cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+       copy_pcbsd_overlay
     elif [ -e "/boot/loader.conf.trueos" ] ; then
-       cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+       copy_trueos_overlay
     else
        # No default loader.conf? Lets figure out which to copy
        if [ -e "/etc/defaults/pcbsd" ] ; then
-         cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+         copy_pcbsd_overlay
        else
-         cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+         copy_trueos_overlay
        fi
     fi
 
@@ -217,6 +240,7 @@ usage: `basename $0` [options]
                 
 Options:
   ports          -- Extract port overlay files
+  i3dvorak	 -- Extract i3 dvorak system config
   desktop        -- Extract desktop overlay files (Excluding user-configurable)
   server         -- Extract server overlay files (Excluding user-configurable)
   --sysinit      -- Overwrite user-configurable files (Used for first time init)
@@ -235,6 +259,7 @@ while [ $# -gt 0 ]; do
      desktop) target="desktop" ;;
       server) target="server" ;;
        ports) target="ports" ;;
+       i3dvorak) target="i3dvorak" ;;
    --sysinit) sysinit="YES" ;;
            *) echo "Invalid option $1 specified!"
 	      show_opts
@@ -249,6 +274,7 @@ case $target in
     desktop) do_desktop_overlay ;;
      server) do_server_overlay ;;
       ports) do_ports_overlay ;;
+      portsi3dv) do_i3dvorak ;;
           *) show_opts ;;
 esac
 

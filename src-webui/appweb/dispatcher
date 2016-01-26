@@ -1,6 +1,6 @@
 #!/bin/sh
 # License: BSD
-# Author: Kris Moore
+# Author: Kris Moore and Brandon Schneider
 # 
 # Dispatch script, run as root, allows www process to run 
 # specific commands with priv
@@ -40,7 +40,7 @@ init_daemon()
   chmod 600 ${QLOGDIR}
 
   # Cleanup some working / temp files
-  for rmFile in ${QDISID} ${QLIST} ${QWRK}
+  for rmFile in ${QLIST} ${QWRK}
   do
      if [ -e "$rmFile" ] ; then
        rm $rmFile
@@ -55,14 +55,35 @@ init_daemon()
       chmod 600 $i
     fi
   done
-
-  # Create the random string we will pass to authenticated clients
-  # This changes after a login, and used to invalidate a previous login
-  touch ${QDISID}
-  chmod 600 ${QDISID}
-  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1 > ${QDISID}
-
 }
+
+check_iocage_bases()
+{
+  # Do some uname checking
+  SYSUNAME=$(uname -r | cut -d '-' -f 1-2)
+  NEWUNAME=${SYSUNAME}
+  echo $SYSUNAME | grep -q "CURRENT"
+  if [ $? -eq 0 ] ; then
+    # Ugly hack, iocage hates -CURRENT right now
+    NEWUNAME="10.2-RELEASE"
+  fi
+  echo $SYSUNAME | grep -q "STABLE"
+  if [ $? -eq 0 ] ; then
+    NEWUNAME="`echo $SYSUNAME | cut -d '-' -f 1`-RELEASE"
+  fi
+  btags="release=$NEWUNAME"
+
+  # Next make sure this RELEASE is downloaded, if not fetch it
+  iocage list -r | grep -q "$NEWUNAME"
+  if [ $? -ne 0 ] ; then
+    echo "iocage fetch $tags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist" >>$QLOGFILE
+    iocage fetch $btags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist >>$QLOGFILE 2>>$QLOGFILE
+  fi
+
+  tags="base=$NEWUNAME"
+}
+
+
 
 run_queue_cmd()
 {
@@ -73,7 +94,7 @@ run_queue_cmd()
   target=`echo $1 | cut -d " " -f 4`
 
   # Get the uniq identifier for this cmd
-  local ident="`uuidgen`"
+  local ident="${2}"
   QLOGFILE="${QLOGDIR}/${ident}.log"
   touch ${QLOGFILE}
   chmod 644 ${QLOGFILE}
@@ -91,7 +112,7 @@ run_queue_cmd()
             ;;
  pkgupdate) target="$origin" ;;
     iocage) case $origin in
-	       destroy|pull) ;;
+	       destroy|fetch|create) ;;
 		   *) echo "Unauthorized iocage command specified: $1" >> ${QLOGFILE}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
@@ -125,18 +146,61 @@ run_queue_cmd()
        cmd="iocage pkgupdate $target"
      fi
   elif [ "$app" == "iocage" ];then
-     if [ "$origin" = "pull" ] ; then
+     # App Container / gitjail
+     if [ "$origin" = "fetch" ] ; then
         neworigin="`echo $flag | sed 's|/|-|g'`"
+
+	# Check the iocage bases we have
+	check_iocage_bases
 
 	# First make sure this jail doesn't exist
 	iocage get ip4_addr pbicage-$neworigin 2>/dev/null >/dev/null
         if [ $? -eq 0 ] ; then
 	  echo "ERROR: The plugin jail pbicage-$neworigin is already installed!" >> ${QLOGFILE}
           echo "FAILED $ident $@" >> $QRESULTS
-        fi	
+        fi
 
-        cmd="iocage pull $target tag=pbicage-$neworigin boot=yes ip4_addr=DEFAULT|AUTOIP4"
+	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+          # System has VIMAGE enabled
+          cmd="iocage fetch $target $tags tag=pbicage-$neworigin boot=on vnet=on dhcp=on bpf=on mount_linprocfs=1 hack88=1"
+	else
+	  # No VIMAGE, use fallback method
+	  cmd="iocage fetch $target $tags tag=pbicage-$neworigin boot=on ip4_addr=DEFAULT|AUTOIP4 mount_linprocfs=1 hack88=1"
+	fi
      fi 
+     # Regular jail creation
+     if [ "$origin" = "create" ] ; then
+        newtag="$flag"
+        sshkey=`echo $1 | awk -F:::: '{print $2}'`
+        customipv4=`echo $1 | awk -F:::: '{print $4}'`
+
+	# Check the iocage bases we have
+	check_iocage_bases
+
+	# First make sure this jail doesn't exist
+	iocage get ip4_addr pbijail-$newtag 2>/dev/null >/dev/null
+        if [ $? -eq 0 ] ; then
+	  echo "ERROR: The plugin jail pbijail-$newtag is already installed!" >> ${QLOGFILE}
+          echo "FAILED $ident $@" >> $QRESULTS
+        fi
+
+	IPFLAGS="DEFAULT|AUTOIP4"
+	if [ -n "$customipv4" -a "$customipv4" != "" ] ; then
+	  IPFLAGS="DEFAULT|$customipv4"
+	fi
+
+	if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+          # System has VIMAGE enabled
+	  if [ -n "$customipv4" -a "$customipv4" != "" ] ; then
+            cmd="iocage create tag=pbijail-$newtag ip4_addr=$IPFLAGS mount_linprocfs=1 hack88=1 $tags"
+	  else
+            cmd="iocage create tag=pbijail-$newtag boot=on vnet=on dhcp=on bpf=on mount_linprocfs=1 hack88=1 $tags"
+	  fi
+	else
+	  # No VIMAGE, use fallback method
+	  cmd="iocage create tag=pbijail-$newtag boot=on ip4_addr=$IPFLAGS mount_linprocfs=1 hack88=1 $tags"
+	fi
+     fi
      if [ "$origin" = "destroy" ] ; then
         # Stop the jail first
         iocage stop $target >>${QLOGFILE} 2>>${QLOGFILE}
@@ -162,14 +226,30 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
+  # If we nuked packages, lets run autoremove also
+  if [ "$flag" = "delete" ] ; then
+    if [ "$app" = "pbi" -o "$app" = "pkg" ] ; then
+      echo "Running: pkg autoremove" >>$QLOGFILE 2>>$QLOGFILE
+      pkg autoremove -y >>$QLOGFILE 2>>$QLOGFILE
+    fi
+  fi
+
   # If we created a new jail, lets bootstrap iocage with pkgng
   if [ "$app" = "iocage" -a "$origin" = "create" -a $err -eq 0 ] ; then
-     local jdir="/`cat ${QLOGFILE} | grep 'jail_zfs_dataset=' |cut -d '=' -f 2 | sed 's|/data$||g'`"
+     # Start the jail
+     echo "#Starting the jail..." >>${QLOGFILE}
+     iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
+     local jdir="`iocage get mountpoint pbijail-$newtag`/root"
      bootstrap_pkgng_iocage "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
+     if [ -n "$sshkey" -a "$sshkey" != "" ] ; then
+       enable_sshd_jail "$jdir" >>${QLOGFILE} 2>>${QLOGFILE}
+       iocage stop pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
+       iocage start pbijail-$newtag >>${QLOGFILE} 2>>${QLOGFILE}
+    fi
   fi
 
   # If we create a new plugin, lets start it now
-  if [ "$app" = "iocage" -a "$origin" = "pull" -a $err -eq 0 ] ; then
+  if [ "$app" = "iocage" -a "$origin" = "fetch" -a $err -eq 0 ] ; then
      iocage start pbicage-$neworigin >>${QLOGFILE} 2>>${QLOGFILE}
      if [ $? -eq 0 ] ; then
        unblock_jail_ip4 "pbicage-$neworigin"
@@ -181,6 +261,25 @@ run_queue_cmd()
 
   # Save the log file for later diagnostics
   return $err
+}
+
+enable_sshd_jail()
+{
+  local jaildir="${1}"
+
+  # Enable SSHD
+  echo "sshd_enable=\"YES\"" >> ${jaildir}/etc/rc.conf
+
+  # Create the 'freebsd' user
+  chroot ${jaildir} pw useradd freebsd -b /usr/home -s /bin/csh -d /usr/home/freebsd -m -G wheel
+
+  mkdir -p ${jaildir}/usr/home/freebsd/.ssh
+  mkdir -p ${jaildir}/usr/local/etc/sudoers.d 2>/dev/null
+  echo "%wheel ALL=(ALL) NOPASSWD: ALL" > ${jaildir}/usr/local/etc/sudoers.d/appcafe
+  echo "$sshkey" > ${jaildir}/usr/home/freebsd/.ssh/authorized_keys
+  chroot ${jaildir} chown -R freebsd:freebsd /usr/home/freebsd
+  chroot ${jaildir} chmod 700 /usr/home/freebsd/.ssh
+  chroot ${jaildir} chmod 644 /usr/home/freebsd/.ssh/authorized_keys
 }
 
 block_jail_ip4()
@@ -218,7 +317,7 @@ unblock_jail_ip4()
 bootstrap_pkgng_iocage()
 {
   local jaildir="${1}"
-  local outfile="${1}/.pkgBS.sh"
+  local outfile="${1}/tmp/.pkgBS.sh"
   echo "Bootstrapping pkgng for jail ${jaildir}"
 
   if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
@@ -279,11 +378,12 @@ exit 0
 __EOF__
 
   # Run the file to bootstrap pkg
-  chroot $jaildir sh /.pkgBS.sh
+  chroot $jaildir sh /tmp/.pkgBS.sh
   rm ${outfile}
 
   # Now boot-strap the real pkgng pkg
   pkg -c ${jaildir} install -qy ports-mgmt/pkg
+  pkg -c ${jaildir} install -qy security/sudo
 }
 
 run_daemon()
@@ -305,7 +405,7 @@ run_daemon()
   do
     # Check if we have anything to do?
     if [ ! -e "$QLIST" ] ; then
-       sleep 10
+       sleep 3
        continue
     fi
 
@@ -313,8 +413,9 @@ run_daemon()
     mv $QLIST ${QLIST}.tmp
     while read line
     do
-       echo "$line" > $QWRK
-       run_queue_cmd "$line"
+       TASKIDENT=`uuidgen`
+       echo "$line ###${TASKIDENT}###" > $QWRK
+       run_queue_cmd "$line" "$TASKIDENT"
        echo "" > $QWRK
     done < ${QLIST}.tmp
     rm ${QLIST}.tmp
@@ -370,6 +471,87 @@ run_iocage_cmd()
           *) echo "Non-dispatch-approved iocage command: $2" ;;
   esac
   syscache "startsync" >/dev/null 2>/dev/null
+}
+
+get_iocage_ip4()
+{
+  jid="$3"
+  if [ -n "$(sysctl -qn kern.features.vimage)" ] ; then
+    # Using VIMAGE
+    uuid=$(iocage get all $jid | grep uuid | cut -d ":" -f 2)
+    jid=$(jls | grep $uuid | awk '{print $1}')
+    jexec $jid ifconfig | grep 'inet ' | grep broadcast | awk '{print $2}'
+  else
+    # Regular method
+    iocage get ip4_addr $jid
+  fi
+}
+
+
+run_iocage_getfstab()
+{
+  jid="$3"
+  fstab=$(iocage get mountpoint $jid)/root/fstab
+  if [ -e "$fstab" ] ; then
+     cat $fstab
+     exit 0
+  fi
+  exit 1
+}
+
+run_iocage_addfstab()
+{
+  jid="$3"
+  mnt=$(echo $4 | sed "s|^/||g")
+  jaildir=$(iocage get mountpoint $jid)/root
+  fstab=$(echo $jaildir | sed 's|/root||g')/fstab
+  touch $fstab
+
+  if [ -z "$mnt" ] ; then
+    echo "Cannot nullfs mount /"
+    exit 1
+  fi
+
+  if [ ! -d "/$mnt" ] ; then
+    echo "No such directory: /$mnt"
+    exit 1
+  fi
+
+  # Sanity check the request
+  case $mnt in
+    bin|boot|compat|dev|etc|iocage|lib|libexec|net|proc|rescue|sbin|sys|tmp|usr)
+         echo "Cowardly refusing to nullfs mount /$mnt"
+         exit 1
+         ;;
+      *) ;;
+  esac
+
+  if [ ! -d "$jaildir/$mnt" ] ; then
+    mkdir -p $jaildir/$mnt
+  fi
+
+  # Add the fstab entry
+  echo "nullfs	/$mnt	$jaildir/$mnt	rw	0	0" >> $fstab
+
+  # Mount the directory
+  mount_nullfs /$mnt $jaildir/$mnt
+
+  exit 0
+}
+
+run_iocage_delfstab()
+{
+  jid="$3"
+  mnt=$(echo $4 | sed "s|^/||g")
+  jaildir=$(iocage get mountpoint $jid)/root
+  fstab=$(echo $jaildir | sed 's|/root||g')/fstab
+  touch $fstab
+
+  # Delete the fstab entry
+  cat $fstab | grep -v "$jaildir/$mnt	rw" > ${fstab}.new
+  mv ${fstab}.new ${fstab}
+  umount -f "${jaildir}/$mnt"
+  exit 0
 }
 
 run_service_cmd()
@@ -454,6 +636,8 @@ setcfg()
     jdir=`jls | grep " ${jid} " | awk '{print $4}'`
     rm ${jdir}/tmp/.appcafe-setcfg.sh.$$ >/dev/null 2>/dev/null
     cp $cscript ${jdir}/tmp/.appcafe-setcfg.sh.$$
+    chmod 755 ${jdir}/tmp/.appcafe-setcfg.sh.$$
+    sync
     jexec $jid sh /tmp/.appcafe-setcfg.sh.$$ "$key" "$value"
     err=$?
     rm ${jdir}/tmp/.appcafe-setcfg.sh.$$
@@ -478,6 +662,9 @@ donecfg()
     jdir=`jls | grep " ${jid} " | awk '{print $4}'`
     rm ${jdir}/tmp/.appcafe-donecfg.sh.$$ >/dev/null 2>/dev/null
     cp $cscript ${jdir}/tmp/.appcafe-donecfg.sh.$$
+    chmod 755 ${jdir}/tmp/.appcafe-donecfg.sh.$$
+    sync
+    sleep 1
     jexec $jid sh /tmp/.appcafe-donecfg.sh.$$
     err=$?
     rm ${jdir}/tmp/.appcafe-donecfg.sh.$$
@@ -497,7 +684,7 @@ print_usage()
 {
   echo "Dispatcher usage:
 --------------------------------
-   iocage {start|stop} {jail}
+   iocage {cmd} [args]
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
@@ -509,19 +696,6 @@ print_usage()
    results 
    log {hash}
 " 
-}
-
-# Login is requesting the dispatcher ID for security
-# Check the username / password and if OK pass the ID back
-getdisid() {
-  # Verify the username / password match what is passed
-  php /usr/local/share/appcafe/dispatcher-auth >/dev/null 2>/dev/null
-  if [ $? -ne 0 ] ; then exit 1; fi
-
-  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 > ${QDISID}
-  chmod 600 ${QDISID}
-  cat $QDISID >&1
-  exit 0
 }
 
 bad_disid() {
@@ -550,7 +724,11 @@ case $1 in
     iocage) verify_disid
 	    case $2 in
               # These commands will be queued
-              destroy|pull) echo "$@" >>${QLIST} ;;
+              create|destroy|fetch) echo "$@" >>${QLIST} ;;
+	      getip4) get_iocage_ip4 "$@" ;;
+	      addfstab) run_iocage_addfstab "$@" ;;
+	      delfstab) run_iocage_delfstab "$@" ;;
+	      getfstab) run_iocage_getfstab "$@" ;;
 	      # These commands can be run immediately
 	      start|stop|auto|set|get|activate) run_iocage_cmd $@ ;;
 	      *) echo "Invalid iocage command! $2" ; exit 1 ;;
@@ -572,16 +750,19 @@ case $1 in
 	    pbicdir="$2" ; jail="$3" ; key="$4"
             getcfg ;;
     setcfg) verify_disid
-	    pbicdir="$2" ; jail="$3" ; key="$4" ; value="$5"
+	    pbicdir="$2" ; jail="$3" ; key="$4"
+	    value="$5"
+	    if [ -n "$6" ] ; then value="$value $6" ; fi
+	    if [ -n "$7" ] ; then value="$value $7" ; fi
+	    if [ -n "$8" ] ; then value="$value $8" ; fi
             setcfg ;;
    donecfg) verify_disid
 	    pbicdir="$2" ; jail="$3"
             donecfg ;;
-  getdisid) getdisid ;;
   verify_disid) verify_disid
                 exit $?
                 ;;
-         *) print_usage ; exit 1 ;;
+         *) print_usage ; exit 150 ;;
 esac
 
 exit 0

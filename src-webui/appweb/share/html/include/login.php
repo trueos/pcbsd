@@ -1,5 +1,6 @@
 <br>
 <?php
+  $page = $_GET['p'];
   defined('DS') OR die('No direct access allowed.');
 
   // Set some globals for mobile detection
@@ -7,23 +8,7 @@
   $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
   $scriptVersion = $detect->getScriptVersion();
 
-  if ( ! file_exists("/usr/local/etc/appcafe.pwd") )
-     die( "No username / password setup!");
-
   $appsettings = parse_ini_file("/usr/local/etc/appcafe.conf");
-
-  if ( empty($appsettings['auth']) or $appsettings['auth'] == "local" )
-  {
-    $userdb = parse_ini_file("/usr/local/etc/appcafe.pwd");
-    $username = $userdb['username'];
-    $password = $userdb['password'];
-    $auth="local";
-    if ( empty($username) or empty($password) )
-      die( "No username / password setup!");
-  } else {
-    $username = "root";
-    $auth="pam"; 
-  }
 
   if (isset($_GET['logout'])) {
     $_SESSION['username'] = '';
@@ -32,69 +17,44 @@
 
   if ( isset($_POST['username'])) {
     $goodlogin = false;
-    if ( $auth == "local" && $_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
+    if ( ! $loadedglobals ) {
+      require('vendor/autoload.php');
+      require("include/globals.php");
+      require("include/functions.php");
+    }
+
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+    // Lets try auth with WebSocket server
+    $sccmd = array("username" => "$user", "password" => "$pass");
+    $response = send_sc_query($sccmd, "auth");
+    if ( $response["code"] == "401" or $response["message"] == "Unauthorized" ) {
+      print_r($response);
+      $goodlogin = false;
+    } else {
       $goodlogin = true;
-     } else if ( $auth == "pam" ) {
-
-       $descriptorspec = array(
-         0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
-         1 => array("pipe", "w")   // stdout is a pipe that the child will write to
-       );
-
-       $cwd = '/tmp';
-       $env = array();
-
-       $process = proc_open("/usr/local/bin/sudo -k -S /usr/local/share/appcafe/dispatcher-localauth-pam", $descriptorspec, $pipes, $cwd, $env);
-
-       if (is_resource($process)) {
-         fwrite($pipes[0], $_POST['password'] . "\n");
-         fclose($pipes[0]);
-
-         $idcontents = stream_get_contents($pipes[1]);
-         fclose($pipes[1]);
-
-         $return_value = proc_close($process);
-	 if ( $return_value == 0 ) {
-           $idcontents = str_replace(array("\n","\r"," "),"",$idcontents);
-           $goodlogin = true;
-           $_SESSION['dispatchid'] = $idcontents;
-         }
-       }
-
-     }
-
-     if ( $goodlogin ) {
+      $apikey = $response[0];
+    }
+  
+    if ( $goodlogin ) {
        $_SESSION['timeout'] = time();
        $_SESSION['username'] = $_POST['username'];
-
-       if ( $auth == "local" ) {
-         // We logged in, so lets set the dispatcher ID and such
-         $rawpassword = $_POST['password'];
-         putenv("PHP_DISUSER=$username");
-         putenv("PHP_DISPASS=$rawpassword");
-         unset($output);
-         $return_var=1;
-         exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher getdisid", $output, $return_var);
-         $_SESSION['dispatchid'] = $output[0];
-         if ( $return_var != 0 )
-         {
-           print_r($output);
-           die("Failed getting dispatcher ID!");
-         }
-       }
+       $_SESSION['apikey'] = $apikey;
 
        // Now we can relocate back to main page
-       header('Location:  ' . $_SERVER['PHP_SELF']);
-     } else {
+       header('Location:  ' . $_SERVER['PHP_SELF'] . "?p=" . $page);
+    } else {
        //invalid login
        $perror="error logging in!";
-     }
+    }
   }
+  
 
 
 ?>
 <html>
 <head>
+<title>AppCafe Login</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="/css/_reset.css" />
 <link rel="stylesheet" href="/css/main.css" />
@@ -115,7 +75,7 @@
   }
 ?>
 <p><?php echo "$perror"; ?></p>
-<form method="post" action="<?php echo "$SELF"; ?>">
+<form method="post" action="<?php echo "$SELF" . "?p=" . $page; ?>">
 <table class="login" width="<?php if ($deviceType == "computer") { echo "400"; } else { echo "100%"; } ?>">
 <tr>
   <th></th>
@@ -126,11 +86,12 @@
 <center>AppCafe Login
 </td></tr>
 <tr>
-<td><p align="right"><label for="username">Username</label></p></td><td><input type="text" id="username" name="username" value="" /></p></td>
+<td colspan=2><p align="center"><label for="username">Username</label><br>
+<input type="text" id="username" name="username" value="" /></p></td>
  </tr>
 <tr>
-<td><p align="right"><label for="password">Password</label></p></td>
-<td><input type="password" id="password" name="password" value="" /></td>
+<td colspan=2><p align="center"><label for="password">Password</label><br>
+<input type="password" id="password" name="password" value="" /></p></td>
 </tr>
 
 <tr><td colspan=2 align=center><center><input type="submit" name="submit" value="Login" class="btn-style"/></td></tr>

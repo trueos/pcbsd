@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gsmartcontrol-root
+GenericName=gsmartcontrol-root
+Exec=gsmartcontrol-root
+Path=
+Icon=
+Categories=System
+StartupNotify=true

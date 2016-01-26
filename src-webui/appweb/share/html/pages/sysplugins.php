@@ -23,8 +23,14 @@ defined('DS') OR die('No direct access allowed.');
    $atEnd = true;
 
    $pbilist = syscache_ins_plugin_list();
+   if ( is_array($pbilist) )
+     $parray = $pbilist;
+   else
+     $parray = explode(", ", $pbilist);
 
-   foreach ($pbilist as $pbiline) {
+   foreach ($parray as $pbiline) {
+     if ( $pbiline == " " )
+       continue;
      $pbiarray = explode(" ",$pbiline); 
      parse_plugin_details($pbiarray[0], $col, true, false);
      if ( $col == $totalCols )

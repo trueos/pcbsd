@@ -62,10 +62,10 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   connect(ui->actionClose_Window, SIGNAL(triggered()), this, SLOT(menuCloseWindow()) );
   connect(ui->menuCompress_Home_Dir, SIGNAL(triggered(QAction*)), this, SLOT(menuCompressHomeDir(QAction*)) );
   connect(ui->actionExtract_Home_Dir, SIGNAL(triggered()), this, SLOT(menuExtractHomeDir()) );
-  connect(ui->actionAdd_Disk, SIGNAL(triggered()), this, SLOT(menuAddDisk()) );
-  connect(ui->menuRemove_Disk, SIGNAL(triggered(QAction*)), this, SLOT(menuRemoveDisk(QAction*)) );
-  connect(ui->menuSet_Disk_Offline, SIGNAL(triggered(QAction*)), this, SLOT(menuOfflineDisk(QAction*)) );
-  connect(ui->menuSet_Disk_Online, SIGNAL(triggered(QAction*)), this, SLOT(menuOnlineDisk(QAction*)) );
+  //connect(ui->actionAdd_Disk, SIGNAL(triggered()), this, SLOT(menuAddDisk()) );
+  //connect(ui->menuRemove_Disk, SIGNAL(triggered(QAction*)), this, SLOT(menuRemoveDisk(QAction*)) );
+  //connect(ui->menuSet_Disk_Offline, SIGNAL(triggered(QAction*)), this, SLOT(menuOfflineDisk(QAction*)) );
+  //connect(ui->menuSet_Disk_Online, SIGNAL(triggered(QAction*)), this, SLOT(menuOnlineDisk(QAction*)) );
   connect(ui->action_startScrub, SIGNAL(triggered()), this, SLOT(menuStartScrub()) );
   connect(ui->action_stopScrub, SIGNAL(triggered()), this, SLOT(menuStopScrub()) );
   connect(ui->action_newSnapshot, SIGNAL(triggered()), this, SLOT(menuNewSnapshot()) );
@@ -226,6 +226,7 @@ void LPMain::updateTabs(){
   //qDebug() << "Update Tabs" << poolSelected;
   qDebug() << "[DEBUG] start updateTabs():" << poolSelected;
   viewChanged();
+  ui->tabWidget->setCurrentWidget(ui->tab_status);
   ui->tabWidget->setEnabled(poolSelected);
   ui->menuView->setEnabled(poolSelected);	
   ui->menuDisks->setEnabled(poolSelected); 
@@ -240,7 +241,7 @@ void LPMain::updateTabs(){
 	  ui->label_runningstat->setVisible(false);
 	  ui->label_finishedstat->setVisible(false);
   if(poolSelected){
-    showWaitBox(tr("Loading zpool information"));
+    showWaitBox(tr("Loading Information"));
     qDebug() << "[DEBUG] loadPoolData:" << ui->combo_pools->currentText();
     POOLDATA = LPGUtils::loadPoolData(ui->combo_pools->currentText());
     qDebug() << "[DEBUG] loaded data";
@@ -285,7 +286,7 @@ void LPMain::updateTabs(){
     ui->menuInit_Replications->setEnabled( !ui->menuInit_Replications->isEmpty() );
     ui->menuReset_Replication_Password->setEnabled( !ui->menuReset_Replication_Password->isEmpty() );
     //Now update the disk menu items
-    ui->menuRemove_Disk->clear();
+    /*ui->menuRemove_Disk->clear();
     ui->menuSet_Disk_Offline->clear();
     ui->menuSet_Disk_Online->clear();
     for(int i=0; i<POOLDATA.harddisks.length(); i++){
@@ -298,7 +299,7 @@ void LPMain::updateTabs(){
     }
     ui->menuRemove_Disk->setEnabled(!ui->menuRemove_Disk->isEmpty());
     ui->menuSet_Disk_Offline->setEnabled(!ui->menuSet_Disk_Offline->isEmpty());
-    ui->menuSet_Disk_Online->setEnabled(!ui->menuSet_Disk_Online->isEmpty());
+    ui->menuSet_Disk_Online->setEnabled(!ui->menuSet_Disk_Online->isEmpty());*/
     
     //Now list the data restore options
     QString cds = ui->combo_datasets->currentText();
@@ -720,7 +721,7 @@ void LPMain::menuExtractHomeDir(){
 }
 
 // ==== Disks Menu ====
-void LPMain::menuAddDisk(){
+/*void LPMain::menuAddDisk(){
   QString pool = ui->combo_pools->currentText();
   //Get the available disks and remove the current disks
   QStringList adisks = LPGUtils::listAvailableHardDisks();
@@ -802,7 +803,7 @@ void LPMain::menuOnlineDisk(QAction *act){
   }else{
     QMessageBox::warning(this,tr("Disk Online Failure"),QString(tr("Failure: %1 could not be set online at this time.")).arg(disk) );
   }
-}
+}*/
 
 void LPMain::menuStartScrub(){
   QString pool = ui->combo_pools->currentText();

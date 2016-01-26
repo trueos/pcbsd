@@ -153,7 +153,10 @@ void wizardDisk::accept()
   }
 
   // Get the boot-loader
-  bootLoader="GRUB";
+  if ( checkGRUB->isChecked() )
+    bootLoader="GRUB";
+  else
+    bootLoader="BSD";
 
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
@@ -186,7 +189,7 @@ int wizardDisk::nextId() const
 	 checkForce4K->setVisible(false);
 	 groupZFSPool->setVisible(false);
          // Check if we are running in EFI mode
-         if ( system("kenv grub.platform | grep -q 'efi'") == 0 ) {
+         if ( system("sysctl -n machdep.bootmethod | grep -q 'UEFI'") == 0 ) {
             radioUEFI->setChecked(true);
 	    radioMBR->setEnabled(false);
          } else {
@@ -579,10 +582,14 @@ void wizardDisk::generateDiskLayout()
   totalSize = getDiskSliceSize();
 
   // Setup some swap space
-  if ( totalSize > 30000 ) {
-    // 2GB if over 30GB of disk space, 512MB otherwise
-    swapsize = 2000;
+  if ( totalSize > 50000 ) {
+    // 4GB if over 50GB of disk space
+    swapsize = 4096;
+  } else if ( totalSize > 30000 ) {
+    // 2GB if over 30GB of disk space
+    swapsize = 2048;
   } else {
+    // Minimum 512MB
     swapsize = 512;
   }
   totalSize = totalSize - swapsize;
@@ -873,6 +880,11 @@ void wizardDisk::slotTreeMountsRightClick()
   popupCM->addAction( "off", this, SLOT(slotZCMOFF()));
   popupCM->addAction( "noauto", this, SLOT(slotZCMNOAUTO()));
 
+  // Case sensitivity
+  popupCI = popup->addMenu("casesensitivity");
+  popupCI->addAction( "sensitive", this, SLOT(slotZCION()));
+  popupCI->addAction( "insensitive", this, SLOT(slotZCIOFF()));
+
   // Create Checksum sub-menu
   popupCH = popup->addMenu("checksum");
   popupCH->addAction( "on", this, SLOT(slotZChkON()));
@@ -906,6 +918,16 @@ void wizardDisk::slotTreeMountsRightClick()
 
   popup->exec( QCursor::pos() );
 
+}
+
+void wizardDisk::slotZCION()
+{
+  toggleZFSOpt(QString("casesensitivity=sensitive"));
+}
+
+void wizardDisk::slotZCIOFF()
+{
+  toggleZFSOpt(QString("casesensitivity=insensitive"));
 }
 
 void wizardDisk::slotZCMNOAUTO()

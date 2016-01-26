@@ -1,23 +1,31 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+/////////////////////////////////////////////////////
+// Parse post / get actions
 if ( ! empty($_GET['toggle']) )
 {
   $tjail = $_GET['toggle'];
   $sjail = $_GET['status'];
-  if ( $sjail == "Running" )
-    $output = run_cmd("iocage stop $tjail");
-  else
-    $output = run_cmd("iocage start $tjail");
+  if ( $sjail == "Running" ) {
+    $dccmd = array("iocage stop $tjail");
+    send_dc_cmd($dccmd);
+  } else {
+    $dccmd = array("iocage start $tjail");
+    send_dc_cmd($dccmd);
+  }
   hideurl("/?p=plugininfo");
 }
 
 if ( ! empty($_GET['autostart']) )
 {
   $tjail = $_GET['autostart'];
-  run_cmd("iocage set boot=on $tjail");
+  $dccmd = array("iocage set boot=on $tjail");
+  send_dc_cmd($dccmd);
   hideurl();
 }
+
+/////////////////////////////////////////////////////
 
 function parse_service_config()
 {
@@ -26,7 +34,6 @@ function parse_service_config()
   global $pbiindexdir;
   global $pbiip4;
   global $ioid;
-  global $sc;
 
   $lines = file($pbicdir . "/service-configure");
   foreach($lines as $line_num => $line)
@@ -47,10 +54,19 @@ function parse_service_config()
       $snickname = $snickname . " " . $selem;
 
     if ( $stype == "URL" ) {
-      $newurl = str_replace("{IP}", $pbiip4, $surl);
-      if ( strpos($newurl, "http") === false )
-         $newurl = "http://" . $newurl;
-      echo "<a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a><br>\n";
+      if ( strpos($surl, "{IP}") === false ) {
+	// Regular external URL
+	$newurl = $surl;
+        if ( strpos($newurl, "http") === false )
+          $newurl = "http://" . $newurl;
+        echo "<a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a><br>\n";
+      } else {
+        // This is pointing to an IP address of the jail, lets load it in thickbox
+        $newurl = str_replace("{IP}", $pbiip4, $surl);
+        if ( strpos($newurl, "http") === false )
+           $newurl = "http://" . $newurl;
+	echo "<a href=\"$newurl?KeepThis=true&TB_iframe=true\" class=\"thickbox\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a>";
+      }
     }
 
   }
@@ -63,13 +79,14 @@ function done_cfg()
   global $jail;
   global $jailUrl;
   global $pbicdir;
-  global $sc;
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
+  $sccmd = array("jail " . $jail . " id");
+  $response = send_sc_query($sccmd);
+  $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to run done script
-  $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
+  $dccmd = array("donecfg " . $pbicdir . " " . $jid);
+  send_dc_cmd($dccmd);
 }
 
 // Set the current value for a config file setting
@@ -79,16 +96,18 @@ function set_cfg_value($cfg, $value)
   global $jailUrl;
   global $updatedConfig;
   global $pbicdir;
-  global $sc;
   $updatedConfig=true;
 
   $key = $cfg['key'];
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
+  $sccmd = array("jail $jail id");
+  $response = send_sc_query($sccmd);
+  $jid = $response["jail $jail id"];
 
   // Talk to dispatcher to set config value
-  $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  $dccmd = array("setcfg $pbicdir $jid $key $value" );
+  send_dc_cmd($dccmd);
+
 }
 
 // Get the current value for a config file setting
@@ -97,20 +116,77 @@ function get_cfg_value($cfg)
   global $jail;
   global $jailUrl;
   global $pbicdir;
-  global $sc;
 
   $key = $cfg['key'];
   $default = $cfg['default'];
 
-  exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-  $jid=$jarray[0];
-  
+  // Query the system for the running jail list
+  $sccmd = array("jail $jail id");
+  $response = send_sc_query($sccmd);
+  $jid = $response["jail $jail id"];
+
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
-  if ( ! empty($output[0]) )
-     return $output[0];
+  $dccmd = array("getcfg $pbicdir $jid $key");
+  $output = send_dc_cmd($dccmd);
+
+  if ( ! empty($output["getcfg $pbicdir $jid $key"]) )
+     return $output["getcfg $pbicdir $jid $key"];
 
   return $default; 
+}
+
+function display_jail_fstab_editor()
+{
+  global $pbicdir;
+  global $pbiorigin;
+  global $jail;
+  global $jailUrl;
+  global $jailPath;
+
+  // Get the jail path
+  // Query the system for the running jail list
+  $sccmd = array("jail $jail path");
+  $response = send_sc_query($sccmd);
+  $jailPath = $response["jail $jail path"];
+
+  // Check for add action
+  if ( ! empty($_POST['mount']) ) {
+    $cmd = "iocage addfstab $jail " . $_POST['mount'];
+    $dccmd = array("$cmd");
+    $response = send_dc_cmd($dccmd);
+    $adderror = $response["$cmd"];
+  }
+  // Check for delete action
+  if ( ! empty($_GET['delMnt']) ) {
+    $cmd = "iocage delfstab $jail " . $_POST['delMnt'];
+    $dccmd = array("$cmd");
+    $response = send_dc_cmd($dccmd);
+    $delerror = $response["$cmd"];
+  }
+
+  // Get current fstab
+  $cmd = "iocage getfstab $jail ";
+  $dccmd = array("$cmd");
+  $response = send_dc_cmd($dccmd);
+  $fstab = explode("\n", $response["$cmd"]);
+
+  echo "<br>";
+  echo "$adderror[0]$delerror[0]";
+  echo "<table width=\"95%\"><tr><th></th><th></th></tr>";
+  echo "<form method=\"post\" action=\"?p=plugininfo&app=".rawurlencode($pbiorigin)."#tabs-fstab\">\n";
+  echo "<tr><td><input name=\"mount\" type=\"text\"></td><td><input type=\"submit\" value=\"Add\" class=\"btn-style\"></td></tr>";
+  echo "</form>";
+
+  // Now display the existing fstab lines if any
+  foreach ($fstab as $mntline)
+  {
+    $mntarray = preg_split('/[\s]+/', $mntline);
+    if ( $mntarray[0] == "nullfs" and "$jailPath$mntarray[1]" == "$mntarray[2]" )
+      echo "<tr><td>$mntarray[1]</td><td><a href=\"?p=plugininfo&app=".rawurlencode($pbiorigin)."&delMnt=".rawurlencode($mntarray[1])."#tabs-fstab\"><img src=\"images/application-exit.png\" height=32 width=32></a></td></tr>";
+  }
+
+  echo "</table></form>";
+
 }
 
 // Display the configuration widget
@@ -121,15 +197,15 @@ function display_config_details()
   global $jail;
   global $jailUrl;
   global $jailPath;
-  global $sc;
 
   global $updatedConfig;
   $updatedConfig = false;
 
   // Get the jail path
-  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
-  $jailPath=$jArray[0];
-  
+  $sccmd = array("jail $jail path");
+  $response = send_sc_query($sccmd);
+  $jailPath = $response["jail $jail path"];
+
   // Init the array to load in config data
   unset($appConfig);
   $appConfig = array();
@@ -140,11 +216,11 @@ function display_config_details()
 
 
   // Start the form
-  echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl#tabs-configure\">\n";
+  echo "<form method=\"post\" action=\"?p=plugininfo&app=".rawurlencode($pbiorigin)."#tabs-configure\">\n";
   echo " <table class=\"jaillist\" style=\"width:100%\">";
   echo "  <tr>\n";
   echo "   <th></th>\n";
-  echo "   <th width=99%></th>\n";
+  echo "   <th></th>\n";
   echo "  </tr>";
 
   // Set some globals we use for widget items
@@ -219,7 +295,6 @@ function display_service_details()
 function display_jail_control($ioid)
 {
   // Get some information about this jail
-  global $sc;
   global $pbirunning;
   global $pbiorigin;
 
@@ -227,9 +302,9 @@ function display_jail_control($ioid)
   if ( $pbirunning )
     $status = "Running";
 
-  exec("$sc ". escapeshellarg("jail $ioid autostart")
-       , $jailinfo);
-  $jauto = $jailinfo[0];
+  $sccmd = array("jail $ioid autostart");
+  $response = send_sc_query($sccmd);
+  $jauto = $response["jail $ioid autostart"];
 
   if ( $jauto == "true" )
      $autostatus="Enabled";
@@ -248,14 +323,17 @@ function display_install_chooser()
   global $pbiname;
   global $ioid;
   global $pbiInstalled;
-  global $sc;
 
-   if ( $pbiInstalled ) {
-     $output="";
-     print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delJailConfirm('".$pbiname."','".rawurlencode($pbiorigin)."','".$ioid."')\" height=48 width=48></button>\n");
-   } else {
-     exec("$sc ".escapeshellarg("pbi cage " . $pbiorigin . " git"), $ghrepo);
-     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addJailConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".rawurlencode($ghrepo[0])."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+  $appdivid = "button-" . str_replace("/", "-", $pbiorigin);
+
+  if ( $pbiInstalled ) {
+    $output="";
+    print("<div id='".$appdivid."'><button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delAppConfirm('".$pbiname."','".$pbiorigin."','".$ioid."','".$appdivid."')\" height=48 width=48></button></div>\n");
+  } else {
+    $sccmd = array("pbi cage $pbiorigin git");
+    $response = send_sc_query($sccmd);
+    $ghrepo = $response["pbi cage $pbiorigin git"];
+    print("<div id='".$appdivid."'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addAppConfirm('" . $pbiname ."','".$pbiorigin."','".$ghrepo."','".$appdivid."')\"><img src=\"/images/install.png\" height=22 width=22></button></div>\n");
   }
 
 }
@@ -268,30 +346,33 @@ function display_install_chooser()
 
   // Load the PBI details page
   $cmd="pbi cage $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name") 
-     . " " . escapeshellarg("$cmd icon") 
-     . " " . escapeshellarg("$cmd description")
-     . " " . escapeshellarg("$cmd screenshots")
-     . " " . escapeshellarg("$cmd tags")
-     . " " . escapeshellarg("$cmd website")
-     , $pbiarray);
+  $sccmd = array("$cmd name",
+	"$cmd icon",
+	"$cmd description",
+	"$cmd screenshots",
+	"$cmd tags",
+	"$cmd website");
+  $pbiarray = send_sc_query($sccmd);
+  $pbiname = $pbiarray["$cmd name"];
+  $pbiicon = $pbiarray["$cmd icon"];
+  $pbidesc = $pbiarray["$cmd description"];
+  $pbiss = $pbiarray["$cmd screenshots"];
+  $pbitags = $pbiarray["$cmd tags"];
+  $pbiweb = $pbiarray["$cmd website"];
 
-  $pbiname = $pbiarray[0];
-  $pbiicon = $pbiarray[1];
-  $pbidesc = $pbiarray[2];
-  $pbiss = $pbiarray[3];
-  $pbitags = $pbiarray[4];
-  $pbiweb = $pbiarray[5];
-
-  if ( $pbiss == $SCERROR )
+  if ( $pbiss == " " )
     $pbiss = "";
 
-  if ( empty($pbiname) )
+  if ( empty($pbiname) or $pbiname == " " )
     die("No such app: $pbi");
 
   // Check if this app is installed
   $pkgoutput = syscache_ins_plugin_list();
-  $pkglist = explode(", ", $pkgoutput[0]);
+  if ( is_array($pkgoutput) )
+    $pkglist = $pkgoutput;
+  else
+    $pkglist = explode(", ", $pkgoutput);
+
   if ( array_search_partial($pbiorigin . " ", $pkglist) !== false)
      $pbiInstalled = true;
   else
@@ -305,28 +386,32 @@ function display_install_chooser()
   if ( $pbiInstalled ) {
     $ioid = get_iocage_id_from_origin($pbiorigin);
     $jail = $ioid;
-    $pbirunning = is_jail_running($ioid);
+    $pbirunning = is_pbicage_running($ioid);
   }
 
 
   if ( $pbirunning ) {
 
     $cmd="jail $ioid";
-    exec("$sc ". escapeshellarg("$cmd path") 
-         . " " . escapeshellarg("$cmd ipv4")
-       , $ioarray);
-
-    // Get the location of pbicage config files
-    $pbicdir = $ioarray[0] . "/pbicage";
+    $sccmd = array("$cmd path");
+    $response = send_sc_query($sccmd);
+    // This is a bit weird, but the pbicage meta-data isn't visible in the jail mount
+    // Set it to the "real" location of the data
+    $pbicdir = $response["$cmd path"] . "/../_/pbicage";
 
     // Get ipv4 address
-    $pbiip4 = $ioarray[1];
-    $pbiip4= substr(strstr($pbiip4, "|"), 1);
-    $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    $dccmd = array("iocage getip4 $ioid");
+    $output = send_dc_cmd($dccmd);
+
+    $pbiip4 = $output["iocage getip4 $ioid"];
+    if (strstr($pbiip4, "|") !== false ) {
+      $pbiip4= substr(strstr($pbiip4, "|"), 1);
+      $pbiip4 = substr($pbiip4, 0, strpos($pbiip4, "/"));
+    }
 
  
     // Check if this app has service details
-    if ( file_exists($pbicdir . "/service-start") or file_exists($pbicdir . "/service-configure") )
+    if ( file_exists($pbicdir . "/service-configure") )
        $hasService=true;
 
     // Check if this app has config files to edit
@@ -359,7 +444,7 @@ function display_install_chooser()
       <?php
  	 $appbusy=false;
          foreach($dStatus as $curStatus) {
-  	   if ( strpos($curStatus, "iocage pull $pbiorigin") !== false ) {
+  	   if ( strpos($curStatus, "iocage fetch $pbiorigin") !== false ) {
 	      $appbusy=true;
 	      break;
 	   }
@@ -369,8 +454,7 @@ function display_install_chooser()
 	   }
          }
 	 if ( $appbusy ) {
-	   print("<img align=\"right\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
-	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+	   print("<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=" . $page . "\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"> Working...</a></div>");
          } else {
 	   display_install_chooser();
 	 }
@@ -392,6 +476,7 @@ function display_install_chooser()
    <ul class='etabs'>
      <?php  if ( $pbiInstalled ) { ?>
      <li class='tab'><a href="#tabs-service">Service Control</a></li>
+     <li class='tab'><a href="#tabs-fstab">Directory Access</a></li>
      <?php } ?>
      <?php  if ( $hasConfig and $pbirunning ) { ?>
      <li class='tab'><a href="#tabs-configure">Configuration</a></li>
@@ -407,6 +492,10 @@ function display_install_chooser()
          display_jail_control($ioid);
          if ( $hasService and $pbirunning )
 	    display_service_details();
+         echo "</div>\n";
+         echo "<div id=\"tabs-fstab\">\n";
+         echo "<p>App Containers always run in secure mode, which means they do not have access to your system files. To share a directory with this plugin, please add it below. (Example: /data)</p>\n";
+	 display_jail_fstab_editor();
          echo "</div>\n";
        }
 
@@ -435,5 +524,5 @@ function display_install_chooser()
 </table>
 
 <script type="text/javascript">
-  $('#tab-container').easytabs();
+  $jq('#tab-container').easytabs();
 </script>

@@ -56,6 +56,8 @@ private slots:
     void slotZCmpZLE();
     void slotZChkON();
     void slotZChkOFF();
+    void slotZCION();
+    void slotZCIOFF();
     void slotZATON();
     void slotZATOFF();
     void slotZEXON();
@@ -87,6 +89,7 @@ private:
     QMenu *popupCmp;
     QMenu *popupDD;
     QMenu *popupCM;
+    QMenu *popupCI;
     QMenu *popupAT;
     QMenu *popupCH;
     QMenu *popupNE;

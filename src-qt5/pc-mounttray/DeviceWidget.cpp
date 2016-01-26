@@ -86,12 +86,14 @@ void DeviceWidget::doUpdate(){
   if(firstrun || !quickupdates){
     QStringList info = pcbsd::Utils::runShellCommand("pc-sysconfig \"devinfo "+node()+"\"").join("").split(", ");
     if(info.length() < 3){ emit RefreshDeviceList(); return; } //invalid device - will probably get removed here in a moment
-    //Info Output: <filesystem>, <label>, <type>
+    //Info Output: <filesystem>, <label>, <type> [, <mountpoint>]
     //qDebug() << " - info:" << info;
     //Save this into the internal variables
     ui->label_icon->setWhatsThis(info[2]); //type
     ui->label_dev->setText(info[1]); //label
     ui->tool_mount->setWhatsThis(info[0]); //filesystem
+    if(info.length()>=4){ui->tool_run->setWhatsThis(info[3]); } //mountpoint
+    
     if(info[0].toLower()=="zfs"){ ui->label_icon->setToolTip(node()+" ("+info[0]+")"); }
     else{ ui->label_icon->setToolTip("/dev/"+node()+" ("+info[0]+")"); }
     //Now go through and set all the various icons and such
@@ -197,8 +199,8 @@ void DeviceWidget::changeAutoMount(bool checked){
 void DeviceWidget::mountButtonClicked(){
   //mount/unmount the device (based on current status)
   if(isMounted){
-    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"unmount "+node()+"\"").join("");
-    if(res.simplified()!="[SUCCESS]"){
+    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"unmount "+node()+"\"").filter("[SUCCESS]").join("");
+    if(res.isEmpty()){
       //Can add additional types of error parsing later (TO-DO)
       //See if the user wants to try and force the unmount
       if(QMessageBox::Yes == QMessageBox::question(0, tr("Device Busy"), tr("The device appears to be busy. Do you want to forcibly unmount the device?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No)){
@@ -225,8 +227,8 @@ void DeviceWidget::mountButtonClicked(){
       if(!ok){ return; } //cancelled
     }
     //Now try to mount the device
-    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"mount "+node()+" "+fs+"\"").join("");
-    if(res.startsWith("[SUCCESS]")){
+    QString res = pcbsd::Utils::runShellCommand("pc-sysconfig \"mount "+node()+" "+fs+"\"").filter("[SUCCESS]").join("");
+    if(!res.isEmpty()){
       //Save the mountpoint for use later (return format: "[SUCCESS] <mountpoint>"
       ui->tool_run->setWhatsThis( res.section("]",1,20).simplified() );
       QuickUpdate(true);
@@ -246,9 +248,13 @@ void DeviceWidget::runButtonClicked(){
     //Open the mountpoint directory
     QProcess::startDetached("xdg-open \""+mountpoint()+"\"");
   }else if(type()=="CD-AUDIO"){
-    QProcess::startDetached("smplayer cdda://1");
+    if(QFile::exists("/usr/local/bin/vlc")){ QProcess::startDetached("vlc cdda://1");}
+    else if(QFile::exists("/usr/local/bin/smplayer")){ QProcess::startDetached("smplayer cdda://1"); }
+    else{ QProcess::startDetached("xdg-open cdda://1"); }
   }else if(type()=="CD-VIDEO"){
-    QProcess::startDetached("smplayer dvd://1");
+    if(QFile::exists("/usr/local/bin/vlc")){ QProcess::startDetached("vlc dvd://1");}
+    else if(QFile::exists("/usr/local/bin/smplayer")){ QProcess::startDetached("smplayer dvd://1"); }
+    else{ QProcess::startDetached("xdg-open dvd://1"); }
   }
   emit CloseMenu();
 }

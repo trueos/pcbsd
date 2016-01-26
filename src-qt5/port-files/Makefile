@@ -15,6 +15,8 @@ BUILD_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
 		${PYTHON_PKGNAMEPREFIX}sphinxcontrib-httpdomain>=0:${PORTSDIR}/textproc/py-sphinxcontrib-httpdomain \
 		${PYTHON_PKGNAMEPREFIX}sphinx_rtd_theme>=0:${PORTSDIR}/textproc/py-sphinx_rtd_theme \
 		${PYTHON_PKGNAMEPREFIX}alabaster>=0:${PORTSDIR}/textproc/py-alabaster \
+		${PYTHON_PKGNAMEPREFIX}sphinx_numfig>=r13:${PORTSDIR}/textproc/py-sphinx_numfig \
+		${PYTHON_PKGNAMEPREFIX}sphinx_wikipedia>=0:${PORTSDIR}/textproc/py-sphinx_wikipedia \
 		tex-formats>=0:${PORTSDIR}/print/tex-formats \
 		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
@@ -30,7 +32,9 @@ ONLY_FOR_ARCHS=	amd64
 USE_LDCONFIG=	yes
 USE_QT5=	core gui network svg linguist \
 		buildtools x11extras
-USES=		desktop-file-utils python qmake tar:xz
+USES=		desktop-file-utils python qmake shebangfix tar:xz
+SHEBANG_FILES=	pc-netmanager/src/NetworkManager/resources/umts_stick \
+		pc-sysmanager/scripts/fastest_cvsup
 
 WRKSRC_SUBDIR=	src-qt5
 

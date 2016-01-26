@@ -17,8 +17,8 @@ if [ -e "/etc/defaults/trueos" ] ; then
   # FSCK Enhancements
   fsck_y_enable="YES"
 
-  # Enable the Warden
-  warden_enable="YES"
+  # Enable iocage
+  iocage_enable="YES"
 
   # Load the following kernel modules
   kld_list="libiconv libmchain msdosfs_iconv sem fdescfs linsysfs fuse"
@@ -113,7 +113,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   pcdm_enable="YES"
 
   # Load the following kernel modules
-  kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw cuse4bsd sem geom_uzip fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse"
+  kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw if_iwm cuse sem geom_uzip fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse"
 
   # Clean out temporary files.
   clear_tmp_enable="YES"
@@ -163,4 +163,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
 
   # Support for iSCSI with Life-Preserver
   iscsid_enable="YES"
+
+  # Enable iocage
+  iocage_enable="YES"
 fi

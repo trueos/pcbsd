@@ -1,0 +1,70 @@
+# XFree86 configuration file for RoFreeSBIE
+
+Section "ServerLayout"
+	Identifier     "XFree86 Configured"
+	Screen      0  "Screen0" 0 0
+	InputDevice    "Mouse0" "CorePointer"
+	InputDevice    "Keyboard0" "CoreKeyboard"
+EndSection
+
+Section "Files"
+	ModulePath   "/usr/local/lib/modules"
+	ModulePath   "/usr/local/lib/xorg/modules"
+	FontPath     "/usr/local/share/fonts/cyrillic/"
+	FontPath     "/usr/local/share/fonts/TrueType/"
+	FontPath     "/usr/local/share/fonts/illinoy/"
+	FontPath     "/usr/local/share/fonts/webfonts/"
+	FontPath     "/usr/local/share/fonts/misc/"
+	FontPath     "/usr/local/share/fonts/TTF/"
+	FontPath     "/usr/local/share/fonts/Speedo/"
+	FontPath     "/usr/local/share/fonts/Type1/"
+	FontPath     "/usr/local/share/fonts/CID/"
+	FontPath     "/usr/local/share/fonts/75dpi/"
+        FontPath     "/usr/local/share/fonts/100dpi/"
+	FontPath     "/usr/local/share/fonts/dejavu/"
+	FontPath     "/usr/local/share/fonts/cyrillic/"
+	FontPath     "/usr/local/share/fonts/hebrew/"
+	FontPath     "/usr/local/share/fonts/vietnamese/"
+	FontPath     "/usr/local/share/fonts/indic/"
+	FontPath     "/usr/local/share/fonts/ae_fonts1/AAHS"
+	FontPath     "/usr/local/share/fonts/ae_fonts1/AGA"
+	FontPath     "/usr/local/share/fonts/ae_fonts1/FS"
+	FontPath     "/usr/local/share/fonts/ae_fonts1/Kasr"
+	FontPath     "/usr/local/share/fonts/ae_fonts1/MCS"
+	FontPath     "/usr/local/share/fonts/ae_fonts1/Shmookh"
+	FontPath     "/usr/local/share/fonts/local/"
+EndSection
+
+Section "Module"
+        Load  "extmod"
+        Load  "record"
+        Load  "dbe"
+        Load  "glx"
+        Load  "dri"
+        Load  "dri2"
+EndSection
+
+Section "InputDevice"
+        Identifier  "Keyboard0"
+        Driver      "kbd"
+EndSection
+
+Section "InputDevice"
+        Identifier  "Mouse0"
+        Driver      "mouse"
+        Option      "Protocol" "auto"
+        Option      "Device" "/dev/sysmouse"
+        Option      "ZAxisMapping" "4 5"
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Card0"
+	Monitor    "Monitor0"
+EndSection
+
+Section "Device"
+        Identifier      "Card0"
+        Driver          "scfb"
+EndSection
+

@@ -93,6 +93,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->refreshButton->setVisible(false); // Refresh button not work as expected now, so disable it
+
     mGroupsLoaded = 0;
 
     //Find DE icon file name for loading screen

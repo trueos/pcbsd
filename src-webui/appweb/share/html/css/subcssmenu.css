@@ -1,0 +1,158 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+#subcssmenu,
+#subcssmenu ul,
+#subcssmenu ul li,
+#subcssmenu ul li a,
+#subcssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#subcssmenu:after,
+#subcssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#subcssmenu #menu-button {
+  display: none;
+}
+/* top menu border and styles */
+#subcssmenu {
+  width: auto;
+  border: 0px outset #6B99E5;
+  border-radius: 2px;
+  font-family: 'Oswald', sans-serif;
+  line-height: 1;
+  background: #FFFFFF;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 0 #92928B, 2px 2px 0 #92928B, 3px 3px 3px rgba(0, 0, 0, 0.35);
+}
+/* top menu background color */
+#subcssmenu > ul {
+  background: #FFFFFF;
+}
+#subcssmenu > ul > li {
+  float: left;
+}
+#subcssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#subcssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#subcssmenu.align-right > ul > li {
+  float: right;
+}
+/* top menu font size, padding (between top menu options), and text effects */
+#subcssmenu > ul > li > a {
+  padding: 10px 25px;
+  font-size: 17px;
+  text-transform: none;
+  text-decoration: none;
+  color: #2A2A2A;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+#subcssmenu > ul > li > a:hover,
+#subcssmenu > ul > li:hover > a,
+#subcssmenu > ul > li.active > a {
+  color: #444444;
+}
+#subcssmenu #menu-indicator {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #2E3131;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+#subcssmenu.small-screen {
+  width: 100%;
+}
+#subcssmenu.small-screen > ul,
+#subcssmenu.small-screen.align-center > ul {
+  width: 100%;
+  text-align: left;
+}
+#subcssmenu.small-screen > ul > li,
+#subcssmenu.small-screen.align-center > ul > li {
+  float: none;
+  display: block;
+  border-top: 1px solid rgba(100, 100, 100, 0.1);
+}
+#subcssmenu.small-screen > ul > li > a {
+  padding: 18px 25px;
+}
+#subcssmenu.small-screen > ul > li:after,
+#subcssmenu.small-screen > ul > li:before {
+  display: none;
+}
+#subcssmenu.small-screen #menu-button {
+  display: block;
+  padding: 18px 25px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: none;
+  text-decoration: none;
+  color: #2E3131;
+  background: url('/images/bg.png');
+}
+#subcssmenu.small-screen #menu-button.menu-opened {
+  color: #444444;
+}
+#subcssmenu.small-screen #menu-button:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 19.5px;
+  display: block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border-top: 2px solid #fd8a17;
+  border-bottom: 2px solid #fd8a17;
+  width: 18px;
+  height: 3px;
+}
+#subcssmenu.small-screen #menu-button.menu-opened:after {
+  border-top: 2px solid #444444;
+  border-bottom: 2px solid #444444;
+}
+#subcssmenu.small-screen #menu-button:before {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 29.5px;
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fd8a17;
+}
+#subcssmenu.small-screen #menu-button.menu-opened:before {
+  background: #444444;
+}
+#subcssmenu.small-screen #menu-indicator {
+  display: none;
+}

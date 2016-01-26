@@ -17,6 +17,8 @@ XOPTS=""
 grep -q "^ENABLE_TCP_LISTEN=TRUE" ${PCDMCONF}
 if [ $? -ne 0 ]; then
   XOPTS="-nolisten tcp" 
+else
+  XOPTS="-listen tcp"
 fi
 
 #See if VNC support is enabled for logging in to this system
@@ -42,6 +44,11 @@ fi
 
 # Allow Auto-Login the first time PCDM starts
 touch /tmp/.PCDMAutoLogin
+
+# Remove a stale shutdown update trigger
+if [ -e "/var/db/pc-updatemanager/.doingShutdownUpdate" ] ; then
+  rm /var/db/pc-updatemanager/.doingShutdownUpdate
+fi
 
 # Clear out a failed marker
 if [ -e "/tmp/.pcdm-x-failed" ] ; then
@@ -87,6 +94,12 @@ while [ ! -e /var/run/nologin -a ! -e ${STOPFILE} ]; do
 
   #Now remove the authorization file
   rm ${PCDMAUTHFILE}
+
+  # We are shutting down
+  if [ -e "/var/db/pc-updatemanager/.doingShutdownUpdate" ] ; then
+     rm /var/db/pc-updatemanager/.doingShutdownUpdate
+     touch ${STOPFILE}
+  fi
 done
 
 #Remove the stopfile if it exists

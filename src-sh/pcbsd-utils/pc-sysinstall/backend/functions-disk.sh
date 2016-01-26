@@ -687,27 +687,36 @@ init_gpt_full_disk()
 
   echo_log "Running gpart on ${_intDISK}"
   rc_halt "gpart create -s GPT -f active ${_intDISK}"
-  
+
   if [ "${_intBOOT}" = "GRUB" ] ; then
     touch ${TMPDIR}/.grub-full-gpt
-    # Check the boot mode we are using {pc|efi}
-    BOOTMODE=`kenv grub.platform`
-    if [ "$BOOTMODE" = "efi" ]; then
-      # Need to enable EFI booting, lets create the stupid FAT partition
-      rc_halt "gpart add -s 100M -t efi ${_intDISK}"
-      # Doing a GRUB stamp? Lets save it for post-install
-      echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+    echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+  fi
+
+  BOOTMODE=`sysctl -n machdep.bootmethod`
+  # Check the boot mode we are using {pc|efi}
+  if [ "$BOOTMODE" = "UEFI" ]; then
+    # Need to enable EFI booting, lets add the partition
+    rc_halt "gpart add -s 100M -t efi ${_intDISK}"
+    rc_halt "newfs_msdos -F 16 ${_intDISK}p1"
+    if [ -z "${EFI_POST_SETUP}" ] ; then
+      EFI_POST_SETUP="${_intDISK}"
     else
-      # Doing bios-boot partition
-      rc_halt "gpart add -s 1M -t bios-boot ${_intDISK}"
-      # Doing a GRUB stamp? Lets save it for post-install
-      echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+      EFI_POST_SETUP="${EFI_POST_SETUP} ${_intDISK}"
     fi
   else
-    rc_halt "gpart add -s 128 -t freebsd-boot ${_intDISK}"
-    echo_log "Stamping boot sector on ${_intDISK}"
-    rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
+    if [ "${_intBOOT}" = "GRUB" ] ; then
+      # Doing bios-boot partition
+      rc_halt "gpart add -s 1M -t bios-boot ${_intDISK}"
+    else
+      rc_halt "gpart add -s 128 -t freebsd-boot ${_intDISK}"
+      echo_log "Stamping boot sector on ${_intDISK}"
+      rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
+    fi
   fi
+
+  # Set the pmbr hack for Lenovo or other systems with BIOS bug
+  rc_halt "gpart set -a lenovofix ${_intDISK}"
 
 }
 
@@ -804,11 +813,6 @@ run_gpart_gpt_part()
 
   # We only install boot-loader if using GRUB for dual-boot GPT
   if [ "${_intBOOT}" = "GRUB" ] ; then
-    # Check if the first partition is a bios-boot partition and convert if not
-    gpart show $DISK | grep ' 1 ' | grep -q bios-boot
-    if [ $? -ne 0 ] ; then
-      rc_halt "gpart modify -t bios-boot -i 1 ${DISK}"
-    fi
     # Doing a GRUB stamp? Lets save it for post-install
     grep -q "$DISK" ${TMPDIR}/.grub-install 2>/dev/null
     if [ $? -ne 0 ] ; then

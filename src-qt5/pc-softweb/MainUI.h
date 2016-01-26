@@ -35,7 +35,7 @@ public:
 	~MainUI();
 
 private:
-	bool DEBUG, AUTHCOMPLETE;
+	bool DEBUG;
 	QString baseURL;
 	QWebView *webview;
 	QProgressBar *progressBar;
@@ -47,6 +47,7 @@ private:
 	QToolButton *tool_search;
 	QString lastsearch;
 	QShortcut *ctrlF, *esc;
+        QShortcut *ctrlQ, *Close;
 	
 	bool sameUrls(QUrl U1, QUrl U2);
 	bool actionUrl(QUrl U1);

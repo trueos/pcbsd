@@ -40,7 +40,7 @@ cp /etc/rc-orig /etc/rc
 # We run this twice automatically, since freebsd update may often need a second run to do
 # object cleanup
 echo "Doing second phase freebsd-update..."
-( /usr/sbin/freebsd-update install | tee $OLOG ) && ( /usr/sbin/freebsd-update install | tee -a $OLOG )
+( /usr/sbin/freebsd-update -d /var/db/pc-updatefbsd install | tee $OLOG ) && ( /usr/sbin/freebsd-update -d /var/db/pc-updatefbsd install | tee -a $OLOG )
 
 # Now lets run sysctl, in case new version of linux compat was enabled
 /sbin/sysctl -f /etc/sysctl.conf

@@ -85,7 +85,7 @@ share/PCDM/themes/default/previousDE.png
 share/PCDM/themes/default/splashscreen.png
 share/PCDM/themes/default/system.png
 share/PCDM/themes/default/virtualkeyboard.png
-share/PCDM/themes/enterprise/background.png
+share/PCDM/themes/enterprise/background.jpg
 share/PCDM/themes/enterprise/banner.png
 share/PCDM/themes/enterprise/default-desktop.png
 share/PCDM/themes/enterprise/default-user.png
@@ -153,6 +153,7 @@ share/pcbsd/icons/input-keyboard.png
 share/pcbsd/icons/ldap.png
 share/pcbsd/icons/mythtv.png
 share/pcbsd/icons/pc-bootconfig.png
+share/pcbsd/icons/pc-dmconf.png
 share/pcbsd/icons/pcbsd-handbook.png
 share/pcbsd/icons/preferences-desktop-theme.png
 share/pcbsd/icons/preferences-desktop.png
@@ -170,6 +171,7 @@ share/pcbsd/pc-controlpanel/icons/cups-icon.png
 share/pcbsd/pc-controlpanel/icons/devices.png
 share/pcbsd/pc-controlpanel/icons/easypbi.png
 share/pcbsd/pc-controlpanel/icons/hwinfo.png
+share/pcbsd/pc-controlpanel/icons/kde-cron.png
 share/pcbsd/pc-controlpanel/icons/lifepreserver.png
 share/pcbsd/pc-controlpanel/icons/lifepreserver64x64.png
 share/pcbsd/pc-controlpanel/icons/nvidia-settings.png
@@ -195,7 +197,8 @@ share/pcbsd/pc-controlpanel/items/de/kde-desktop.desktop
 share/pcbsd/pc-controlpanel/items/de/kde-desktoptheme.desktop
 share/pcbsd/pc-controlpanel/items/de/kde-display.desktop
 share/pcbsd/pc-controlpanel/items/de/kde-kcm_akonadi.desktop
-share/pcbsd/pc-controlpanel/items/de/kde-kcm_nepomuk.desktop
+share/pcbsd/pc-controlpanel/items/de/kde-kcm_baloofile.desktop
+share/pcbsd/pc-controlpanel/items/de/kde-kcm_cron.desktop
 share/pcbsd/pc-controlpanel/items/de/kde-kcmkded.desktop
 share/pcbsd/pc-controlpanel/items/de/kde-kwincompositing.desktop
 share/pcbsd/pc-controlpanel/items/de/kde-kwindecoration.desktop
@@ -268,6 +271,7 @@ share/pcbsd/pc-controlpanel/items/system/gnome-system-log.desktop
 share/pcbsd/pc-controlpanel/items/system/ibus-setup.desktop
 share/pcbsd/pc-controlpanel/items/system/kde-clock.desktop
 share/pcbsd/pc-controlpanel/items/system/kde-kcm_polkitactions.desktop
+share/pcbsd/pc-controlpanel/items/system/kde-sys_kcm_cron.desktop
 share/pcbsd/pc-controlpanel/items/system/ksystemlog.desktop
 share/pcbsd/pc-controlpanel/items/system/lxde-lxtask.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-adsldap.desktop
@@ -385,6 +389,7 @@ share/pcbsd/xorg-gui/bin/setupconf.sh
 share/pcbsd/xorg-gui/cardDetect/XF86Config.compat
 share/pcbsd/xorg-gui/cardDetect/XF86Config.default
 share/pcbsd/xorg-gui/cardDetect/XF86Config.intel
+share/pcbsd/xorg-gui/cardDetect/XF86Config.scfb
 share/pcbsd/xorg-gui/cardDetect/XF86Config.vmware
 share/pcbsd/xorg-gui/cardDetect/x_config.sh
 share/pcbsd/xorg-gui/cardDetect/xorg.conf.virtualbox

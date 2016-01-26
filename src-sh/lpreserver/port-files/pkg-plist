@@ -13,3 +13,4 @@ share/lpreserver/backend/backup-zfs.sh
 share/lpreserver/backend/zfsmksnap.sh
 share/lpreserver/backend/runscrub.sh
 share/lpreserver/backend/runsnap.sh
+man/man8/lpreserver.8.gz

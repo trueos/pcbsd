@@ -1,12 +1,14 @@
 <?php
 defined('DS') OR die('No direct access allowed.');
 
+$jail = "#system";
+$jailUrl="__system__";
+
 function do_service_action()
 {
   global $pbiorigin;
-  global $sc;
-  global $jail;
-  global $jailUrl;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $sname=$_GET['service'];
   $sscript=$_GET['servicerc'];
@@ -14,14 +16,8 @@ function do_service_action()
   if ( empty($sname) or empty($sscript) or empty($action) )
     return;
 
-  if ( $jail == "#system" )
-     $output = run_cmd("service $action $sname $sscript $jailUrl");
-  else {
-     // Get jail ID
-     exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-     $jid=$jarray[0];
-     $output = run_cmd("service $action $sname $sscript $jid");
-  }
+  $dccmd = array("service $action $sname $sscript $jailUrl");
+  send_dc_cmd($dccmd);
 
   if ( $action == "start" )
      echo "Started $sname on $jail<br>";  
@@ -46,9 +42,8 @@ function parse_service_start()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
-  global $jail;
-  global $jailUrl;
-  global $sc;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $lines = file($pbicdir . "/service-start");
   foreach($lines as $line_num => $line)
@@ -67,8 +62,9 @@ function parse_service_start()
        $rcconf="/etc/rc.conf";
     else {
        // Get jail path
-       exec("$sc ". escapeshellarg("jail ". $jail . " path"), $jarray);
-       $rcconf=$jarray[0] . "/etc/rc.conf";
+       $sccmd = array("jail " . $jail . " path");
+       $response = send_sc_query($sccmd);
+       $rcconf = $response["jail ". $jail . " path"] . "/etc/rc.conf";
     }
 
     // Now look if the service is already enabled
@@ -96,8 +92,8 @@ function parse_service_config()
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
-  global $jail;
-  global $sc;
+  $jail = "#system";
+  $jailUrl="__system__";
 
   $lines = file($pbicdir . "/service-configure");
   foreach($lines as $line_num => $line)
@@ -115,10 +111,9 @@ function parse_service_config()
       $ip = "localhost";
     else {
       // Get jail address
-      exec("$sc " 
-           . escapeshellarg("jail ". $jail . " ipv4")
-           , $jarray);
-      $ip = $jarray[0];
+      $sccmd = array("jail " . $jail . " ipv4");
+      $response = send_sc_query($sccmd);
+      $ip = $response["jail " . $jail . " ipv4"];
       $ip = substr(strstr($ip, "|"), 1);
       $ip = substr($ip, 0, strpos($ip, "/"));
     }
@@ -143,58 +138,63 @@ function parse_service_config()
 // Run the done_cfg script
 function done_cfg()
 {
-  global $jail;
-  global $jailUrl;
   global $pbicdir;
-  global $sc;
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $jid = "__system__";
+
   if ( $jail != "#system" ) {
-    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-    $jid=$jarray[0];
+    // Get the jail ID
+    $sccmd = array("jail " . $jail . " id");
+    $response = send_sc_query($sccmd);
+    $jid = $response["jail " . $jail . " id"];
   }
 
   // Talk to dispatcher to run done script
-  $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
+  $dccmd = array("donecfg " . $pbicdir . " " . $jid);
+  send_dc_cmd($dccmd);
 }
 
 // Set the current value for a config file setting
 function set_cfg_value($cfg, $value)
 {
-  global $jail;
-  global $jailUrl;
   global $updatedConfig;
   global $pbicdir;
-  global $sc;
   $updatedConfig=true;
 
   $key = $cfg['key'];
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $jid = "__system__";
   if ( $jail != "#system" ) {
-    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
-    $jid=$jarray[0];
+    // Get the jail ID
+    $sccmd = array("jail " . $jail . " id");
+    $response = send_sc_query($sccmd);
+    $jid = $response["jail " . $jail . " id"];
   }
 
   // Talk to dispatcher to set config value
-  $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
+  $dccmd = array("setcfg " . $pbicdir . " " . $jid . " " . $key .  " " . $value);
+  send_dc_cmd($dccmd);
 }
 
 // Get the current value for a config file setting
 function get_cfg_value($cfg)
 {
-  global $jail;
-  global $jailUrl;
   global $pbicdir;
-  global $sc;
 
+  $jail = "#system";
+  $jailUrl="__system__";
   $key = $cfg['key'];
   $default = $cfg['default'];
 
   $jid = "__system__";
   
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
+  $dccmd = array("getcfg $pbicdir $jid $key");
+  $output = send_dc_cmd($dccmd);
   if ( ! empty($output[0]) )
      return $output[0];
 
@@ -206,18 +206,19 @@ function display_config_details()
 {
   global $pbicdir;
   global $pbiorigin;
-  global $jail;
-  global $jailUrl;
   global $jailPath;
-  global $sc;
+
+  $jail = "#system";
+  $jailUrl="__system__";
 
   global $updatedConfig;
   $updatedConfig = false;
 
   // Get the jail path
-  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
-  $jailPath=$jArray[0];
-  
+  $sccmd = array("jail " . $jail . " path" );
+  $response = send_sc_query($sccmd);
+  $jailPath = $response["jail " . $jail . " path"];
+
   // Init the array to load in config data
   unset($appConfig);
 
@@ -311,29 +312,34 @@ function display_install_chooser()
 {
   global $pbiorigin;
   global $pbiname;
-  global $jailUrl;
-  global $jail;
   global $pbiInstalled;
   global $pkgCmd;
   global $SCERROR;
+  global $isPBI;
 
-   if ( $pbiInstalled ) {
-     $output="";
-     exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
-     // Dont display removal option unless app is not required by others
-     if ( "$output[0]" == "$SCERROR" )
-       print("    <button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\" height=48 width=48></button>\n");
-     else
-	print("<center><img align=\"center\" height=48 width=48 src=\"/images/warning.png\" alt=\"This application has dependencies which prevent it from being removed.\"><p>Required</p></center>");
-   } else {
-     global $pbiindexdir;
-     if ( file_exists("$pbiindexdir/$pbiorigin/LICENSE") ) {
-       // Read the license data
-       $pbilic = file_get_contents("$pbiindexdir/$pbiorigin/LICENSE");
-       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirmLic('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$pbilic."')\"><img src=\"/images/install.png\" height=48 width=48></button>\n");
-     } else {
-       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=48 width=48></button>\n");
-     }
+  $jail = "#system";
+  $jailUrl="__system__";
+  $appdivid = "button-" . str_replace("/", "-", $pbiorigin);
+
+  if ( $pbiInstalled ) {
+    $sccmd = array("$jail app-summary $pbiorigin");
+    $response = send_sc_query($sccmd);
+    $pbiarray = $response["$jail app-summary $pbiorigin"];
+    if ( $isPBI )
+      $pbicanremove = $pbiarray[9];
+    else
+      $pbicanremove = $pbiarray[5];
+
+    if ( $pbiorigin == "ports-mgmt/pkg" )
+      $pbicanremove = false;
+
+    // Dont display removal option unless app is not required by others
+    if ( "$pbicanremove" == "true" )
+      print("<div id='". $appdivid ."'><button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','".$pkgCmd."','".$appdivid."')\" height=48 width=48></button></div>\n");
+    else
+      print("<center><img align=\"center\" height=48 width=48 src=\"/images/warning.png\" alt=\"This application has dependencies which prevent it from being removed.\"><p>Required</p></center>");
+  } else {
+    print("<div id='".$appdivid."'><button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','".$pkgCmd."','".$appdivid."')\"><img src=\"/images/install.png\" height=48 width=48></button></div>\n");
   }
 
 }
@@ -376,29 +382,30 @@ function display_app_link($pbilist, $jail)
   $repo="remote";
   // Load the PBI details page
   $cmd="pbi app $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name") 
-     . " " . escapeshellarg("pkg $jail $repo $pbiorigin version") 
-     . " " . escapeshellarg("$cmd author")
-     . " " . escapeshellarg("$cmd website") 
-     . " " . escapeshellarg("$cmd comment")
-     . " " . escapeshellarg("$cmd confdir")
-     . " " . escapeshellarg("$cmd description")
-     . " " . escapeshellarg("pkg $jail $repo $pbiorigin name")
-     . " " . escapeshellarg("pkg $jail $repo $pbiorigin size")
-     , $pbiarray);
 
-  $pbiname = $pbiarray[0];
-  $pbiver = $pbiarray[1];
-  $pbiauth = $pbiarray[2];
-  $pbiweb = $pbiarray[3];
-  $pbicomment = $pbiarray[4];
-  $pbicdir = $pbiarray[5];
-  $pbidesc = $pbiarray[6];
-  $pkgsize = $pbiarray[8];
+  $sccmd = array("$cmd name",
+           "pkg $jail $repo $pbiorigin version",
+           "$cmd author",
+           "$cmd website",
+           "$cmd comment",
+           "$cmd confdir",
+           "$cmd description",
+           "pkg $jail $repo $pbiorigin name",
+           "pkg $jail $repo $pbiorigin size"
+           );
+  $response = send_sc_query($sccmd);
+  $pbiname = $response["$cmd name"];
+  $pbiver = $response["pkg $jail $repo $pbiorigin version"];
+  $pbiauth = $response["$cmd author"];
+  $pbiweb = $response["$cmd website"];
+  $pbicomment = $response["$cmd comment"];
+  $pbicdir = $response["$cmd confdir"];
+  $pbidesc = $response["$cmd description"];
+  $pkgsize = $response["pkg $jail $repo $pbiorigin size"];
 
   if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
      $isPBI = false;
-     $pbiname = $pbiarray[7];
+     $pbiname = $response["pkg $jail $repo $pbiorigin name"];
   } else {
      $isPBI = true;
   }
@@ -410,42 +417,52 @@ function display_app_link($pbilist, $jail)
     // Get second tier PBI data
     $cmd="pbi app $pbiorigin";
     unset($pbiarray);
-    exec("$sc ". escapeshellarg("$cmd license") 
-      . " " . escapeshellarg("$cmd type") 
-      . " " . escapeshellarg("$cmd tags") 
-      . " " . escapeshellarg("$cmd relatedapps") 
-      . " " . escapeshellarg("$cmd plugins") 
-      . " " . escapeshellarg("$cmd options") 
-      . " " . escapeshellarg("$cmd rating")
-      . " " . escapeshellarg("$cmd screenshots")
-      . " " . escapeshellarg("pkg $jail remote $pbiorigin dependencies")
-      , $pbiarray);
-    $pbilicense = $pbiarray[0];
-    $pbitype = $pbiarray[1];
-    $pbitags = $pbiarray[2];
-    $pbirelated = $pbiarray[3];
-    $pbiplugins = $pbiarray[4];
-    $pbioptions = $pbiarray[5];
-    $pbirating = $pbiarray[6];
-    $pbiss = $pbiarray[7];
-    $pbideps = $pbiarray[8];
-    if ( $pbideps == $SCERROR)
+
+    $sccmd = array("$cmd license",
+             "$cmd type",
+             "$cmd tags",
+             "$cmd relatedapps",
+             "$cmd plugins",
+             "$cmd options",
+             "$cmd rating",
+             "$cmd screenshots",
+             "pkg $jail remote $pbiorigin dependencies"
+             );
+    $response = send_sc_query($sccmd);
+    $pbilicense = $response["$cmd license"];
+    $pbitype = $response["$cmd type"];
+    $pbitags = $response["$cmd tags"];
+    $pbirelated = $response["$cmd relatedapps"];
+    $pbiplugins = $response["$cmd plugins"];
+    $pbioptions = $response["$cmd options"];
+    $pbirating = $response["$cmd rating"];
+    $pbiss = $response["$cmd screenshots"];
+    $pbideps = $response["pkg $jail remote $pbiorigin dependencies"];
+    if ( $pbideps == " ")
        unset($pbideps);
+    if ( $pbiss == " " )
+      unset($pbiss);
+    if ( $pbirelated == " " )
+      unset($pbirelated);
+    if ( $pbiplugins == " " )
+      unset($pbiplugins);
+    if ( $pbioptions == " " )
+      unset($pbioptions);
     $pkgCmd="pbi";
   } else {
     $pkgCmd="pkg";
 
     // Not a PBI, fallback to loading data from PKGNG
-    exec("$sc ". escapeshellarg("pkg $jail $repo $pbiorigin maintainer") 
-       . " " . escapeshellarg("pkg $jail $repo $pbiorigin website")
-       . " " . escapeshellarg("pkg $jail $repo $pbiorigin comment")
-       . " " . escapeshellarg("pkg $jail $repo $pbiorigin description")
-       , $pkgarray);
-    $pbiauth = $pkgarray[0];
-    $pbiweb = $pkgarray[1];
-    $pbicomment = $pkgarray[2];
-    $pbidesc = $pkgarray[3];
-
+    $sccmd = array("pkg " . $jail . " " . $repo . " " . $pbiorigin . " maintainer",
+             "pkg " . $jail . " " . $repo . " " . $pbiorigin . " website",
+             "pkg " . $jail . " " . $repo . " " . $pbiorigin . " comment",
+             "pkg " . $jail . " " . $repo . " " . $pbiorigin . " description"
+             );
+    $response = send_sc_query($sccmd);
+    $pbiauth = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " maintainer" ];
+    $pbiweb = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " website" ];
+    $pbicomment = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " comment" ];
+    $pbidesc = $response["pkg " . $jail . " " . $repo . " " . $pbiorigin . " description" ];
   }
 
   // Get the current work queue status of the dispatcher
@@ -469,7 +486,7 @@ function display_app_link($pbilist, $jail)
 
    // Check if this app is installed
    $pkgoutput = syscache_ins_pkg_list("$jail");
-   $pkglist = explode(", ", $pkgoutput[0]);
+   $pkglist = $pkgoutput;
    if ( array_search($pbiorigin, $pkglist) !== false)
       $pbiInstalled = true;
    else
@@ -548,8 +565,7 @@ function display_app_link($pbilist, $jail)
 	   }
          }
 	 if ( $appbusy ) {
-	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
-	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
+	   print("<div id='item-working'><a title=\"AppCafe is working. Click for details\" href=\"?p=dispatcher&ref=" . $page . "\"><img align=absmiddle height=32 width=32 src=\"../images/working.gif\" title=\"AppCafe is working. Click for details\"> Working...</a></div>");
          } else {
 	   display_install_chooser();
 	 }
@@ -635,8 +651,7 @@ function display_app_link($pbilist, $jail)
 	 // Do we have deps to show?
          if ( ! empty($pbideps) ) {
             echo "<div id=\"tabs-deps\">\n";
-            $dlist = explode(" ", $pbideps);
-            foreach($dlist as $dep)
+            foreach($pbideps as $dep)
               echo "  <b>$dep</b><br>\n";
 	    echo "</div>\n";
          }
@@ -651,5 +666,5 @@ function display_app_link($pbilist, $jail)
 </table>
 
 <script type="text/javascript">
-  $('#tab-container').easytabs();
+  $jq('#tab-container').easytabs();
 </script>

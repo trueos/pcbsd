@@ -84,7 +84,7 @@ fi
 export UNAME_r="`freebsd-version`"
 
 # Get the GIT tag
-ghtag=`git log -n 1 . | grep '^commit ' | awk '{print $2}' | cut -c 1-6`
+ghtag=`git log -n 1 . | grep '^commit ' | awk '{print $2}'`
 
 
 # Read the list of ports and build them now
@@ -155,41 +155,3 @@ do
   massage_subdir "${portsdir}/$tcat"
 
 done < mkports-list
-
-cd "$ODIR"
-
-# Get the current timestamp
-TIMESTAMP="`date +%s`"
-
-# Add the files from build-files/ports-overlay
-for i in `find build-files/ports-overlay/ | grep Makefile`
-do
-
-  portMake=`echo $i | sed 's|build-files/ports-overlay/||g'`
-  port=`echo $portMake | sed 's|/Makefile||g'`
-  tcat=`echo $port | cut -d '/' -f 1`
-
-  echo "Adding port: $port"
-
-  # Copy the port now
-  if [ -e "${portsdir}/${port}" ] ; then
-     rm -rf ${portsdir}/${port}
-  fi
-  cp -r build-files/ports-overlay/${port} ${portsdir}/${port}
-
-  # Set the version number in these ports
-  mREV=`get_last_rev_git "./build-files/ports-overlay/$port"`
-  sed -i '' "s|CHGVERSION|$mREV|g" ${portsdir}/${portMake}
-  sed -i '' "s|%TIMESTAMP%|$TIMESTAMP|g" ${portsdir}/${portMake}
-
-  if [ "$port" = "misc/pcbsd-i18n-qt5" ] ; then
-     cd "${distdir}"
-     fetch -o pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz https://github.com/pcbsd/pcbsd-i18n/raw/master/dist/pcbsd-i18n.txz
-     sha256 pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz > ${portsdir}/${port}/distinfo
-     echo "SIZE (pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz) = `stat -f \"%z\" pcbsd-i18n-qt5-${TIMESTAMP}.tar.xz`" >> ${portsdir}/$port/distinfo
-  fi
-
-  # Now make sure subdir Makefile is correct
-  massage_subdir "${portsdir}/$tcat"
-  cd "$ODIR"
-done

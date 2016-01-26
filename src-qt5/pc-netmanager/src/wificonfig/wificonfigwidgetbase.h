@@ -24,6 +24,15 @@
 #define KEYWPAEAP 0
 #define KEY8021X 1
 
+// Setup WPAE Phase2 defines
+#define KEYPHASE2MD5 0
+#define KEYPHASE2MSCHAPV2 1
+#define KEYPHASE2GTC 2
+#define KEYPHASE2OTP 3
+#define KEYPHASE2PAP 4
+#define KEYPHASE2CHAP 5
+#define KEYPHASE2MSCHAP 6
+
 class wificonfigwidgetbase : public QWidget, private Ui::wificonfigwidgetbase
 {
         Q_OBJECT
@@ -56,7 +65,7 @@ private slots:
     void slotAddNewProfileOpen( QString SSID, bool isBSSID );
     void slotAddNewProfileWEP( QString SSID, bool isBSSID, QString newKey, int newIndex, bool hexkey );
     void slotAddNewProfileWPA( QString SSID, bool isBSSID, QString newKey );
-    void slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt );
+    void slotAddNewProfileWPAE( QString SSID, bool isBSSID, int type, QString EAPIdent, QString AnonIdent, QString CACert, QString ClientCert, QString PrivKeyFile, QString PrivKeyPass, int keyMgmt, int EAPPhase2 );
     void slotCheckDisabled();
     void slotOK();
     void slotMACClicked();
@@ -105,11 +114,13 @@ private:
     bool WEPHex[150];
     QString WPAPersonalKey[150];
     QString WPAEIdent[150];
+    QString WPAEAnonIdent[150];
     QString WPAECACert[150];
     QString WPAEClientCert[150];
     QString WPAEPrivKeyFile[150];
     QString WPAEPassword[150];
     int WPAEKeyMgmt[150];
+    int WPAEPhase2[150];
     int WPAEType[150];
     bool usingLagg;
     bool WPAONLY;

@@ -45,6 +45,10 @@ tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/port-overl
 if [ $? -ne 0 ] ; then
   exit 1
 fi
+tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/i3dvorak.txz -C i3dvorak .
+if [ $? -ne 0 ] ; then
+	exit 1
+fi
 
 # Now create desktop-overlay.txz file
 tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/desktop-overlay.txz -C desktop-overlay .
