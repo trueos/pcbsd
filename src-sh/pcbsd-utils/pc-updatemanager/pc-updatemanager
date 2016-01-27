@@ -336,27 +336,37 @@ list_branches() {
   # Setup our variable, we have no branches so far
   BRANCHFOUND="0" 
 
+  CURMAJOR="$(uname -r | cut -d '-' -f 1 |  cut -d '.' -f 1)"
+  CURMINOR="$(uname -r | cut -d '-' -f 1 |  cut -d '.' -f 2)"
+
   while read line
   do
      echo $line | grep -q "^BRANCHES:"
-     if [ $? -eq 0 ] ; then
-	echo "Available branches:"
-	echo "* = Current Branch"
-        echo "----------------------------------"
-	echo $line | cut -d ':' -f 2 | sed 's|,|\
+     if [ $? -ne 0 ] ; then continue ; fi
+
+     echo "Available branches:"
+     echo "* = Current Branch"
+     echo "----------------------------------"
+     echo $line | cut -d ':' -f 2 | sed 's|,|\
 |g' | while read branch
-	do
-		if [ "`uname -r | cut -d '-' -f 1-2`" = "$branch" ] ; then
-			echo "$branch *"
-		else
-			echo "$branch"
-		fi
-	done
-	echo ""
-	echo "To change branches run: ${0} chbranch <branch>"
-        BRANCHFOUND="1"
-        continue
-     fi
+     do
+       MAJOR="$(echo $branch | cut -d '-' -f 1 |  cut -d '.' -f 1)"
+       MINOR="$(echo $branch | cut -d '-' -f 1 |  cut -d '.' -f 2)"
+
+       # Filter out old versions
+       if [ $CURMAJOR -gt $MAJOR ] ; then continue ; fi
+       if [ $CURMAJOR -eq $MAJOR -a $CURMINOR -gt $MINOR ] ; then continue ; fi
+
+       if [ "`uname -r | cut -d '-' -f 1-2`" = "$branch" ] ; then
+         echo "$branch *"
+       else
+	 echo "$branch"
+       fi
+     done
+     echo ""
+     echo "To change branches run: ${0} chbranch <branch>"
+     BRANCHFOUND="1"
+     break
   done < ${PATCHTMPFILE}
 
   # If no patches
