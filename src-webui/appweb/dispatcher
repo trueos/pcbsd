@@ -80,7 +80,7 @@ check_iocage_bases()
     iocage fetch $btags ftphost=iso.cdn.pcbsd.org ftpdir=/$NEWUNAME/`uname -m`/dist >>$QLOGFILE 2>>$QLOGFILE
   fi
 
-  tags="base=$NEWUNAME"
+  tags="release=$NEWUNAME"
 }
 
 
