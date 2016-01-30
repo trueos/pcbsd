@@ -11,10 +11,10 @@ PROGDIR="/usr/local/share/lpreserver"
 . /usr/local/share/pcbsd/scripts/functions.sh
 . ${PROGDIR}/backend/functions.sh
 
-DATASET="${1}"
-ACTION="${2}"
+ACTION="${1}"
+DATASET="${2}"
 
-if [ -z "${DATASET}" ]; then
+if [ "$ACTION" != "list" -a -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
 fi
 
@@ -24,6 +24,7 @@ if [ "$ACTION" = "start" ] ; then
 
   if [ "$TIME" = "auto" ] ; then
      enable_cron_snap "$DATASET" "auto" "auto" "auto"
+     echo "Snapshot schedule started for dataset: $DATASET"
      echo "Snapshot frequency set: Automatic"
      exit 0
   fi
@@ -46,6 +47,7 @@ if [ "$ACTION" = "start" ] ; then
   fi
 
   enable_cron_snap "$DATASET" "$TIME" "$COUNT" "$hour"
+  echo "Snapshot schedule started for dataset: $DATASET"
   echo "Snapshot frequency set: $TIME @ $hour"
   echo "Snapshot # to keep set: $COUNT"
   exit 0
@@ -53,6 +55,11 @@ fi
 
 if [ "$ACTION" = "stop" ] ; then
   enable_cron_snap "$DATASET" "OFF"
+  echo "Snapshot schedule stopped for dataset: $DATASET"
   exit 0
 fi
 
+if [ "$ACTION" = "list" ] ; then
+  list_cron_snap "${DATASET}"
+  exit 0
+fi

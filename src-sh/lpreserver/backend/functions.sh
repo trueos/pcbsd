@@ -202,10 +202,16 @@ enable_cron_scrub()
 
 list_cron_snap()
 {
+
+DATASET="$1"
+
 echo "Datasets scheduled for snapshots:"
 echo "---------------------------------"
 for i in `grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $8}'`
 do
+   if [ -n "$DATASET" -a "$DATASET" != ${i} ] ; then
+     continue
+   fi
    min=`grep "${PROGDIR}/backend/runsnap.sh ${i}" /etc/crontab | awk '{print $1}'`
    hour=`grep "${PROGDIR}/backend/runsnap.sh ${i}" /etc/crontab | awk '{print $2}'`
    count=`grep "${PROGDIR}/backend/runsnap.sh ${i}" /etc/crontab | awk '{print $9}'`
@@ -223,10 +229,16 @@ done
 
 list_cron_scrub()
 {
+
+POOL="$1"
+
 echo "Pools scheduled for scrub:"
 echo "---------------------------------"
 for i in `grep "${PROGDIR}/backend/runscrub.sh" /etc/crontab | awk '{print $8}'`
 do
+   if [ -n "$POOL" -a "$POOL" != ${i} ] ; then
+     continue
+   fi
    hour=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $2}'`
    day_week=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $5}'`
    day_month=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $3}'`
@@ -243,6 +255,10 @@ done
 
 for i in `grep "${PROGDIR}/backend/runscrub.sh" /usr/local/etc/anacrontab | awk '{print $5}'`
 do
+   if [ -n "$POOL" -a "$POOL" != ${i} ] ; then
+     continue
+   fi
+
    time=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /usr/local/etc/anacrontab | awk '{print $1}'`
    echo "$i - every $time days"
    echo ""

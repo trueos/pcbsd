@@ -44,16 +44,12 @@ Type in help <command> for information and usage about that command
 
        help - This help file or the help for the specified command
 
-   cronsnap - Schedule snapshot creation via cron
-  cronscrub - Schedule scrub via cron
-        get - Get list of lpreserver options
-   listcron - Listing of scheduled snapshots and scrubs
-   listsnap - List snapshots of a zpool/dataset
-     mksnap - Create a ZFS snapshot of a zpool/dataset
+   cronsnap - Manage scheduled snapshots
+  cronscrub - Manage scheduled scrubs
+   snapshot - Manage snapshot tasks
   replicate - Manage replication tasks
- revertsnap - Revert zpool/dataset to a snapshot
-     rmsnap - Remove a snapshot
         set - Set lpreserver options
+        get - Get list of lpreserver options
      status - List datasets, along with last snapshot / replication date 
 __EOF__
 };
@@ -63,7 +59,7 @@ help_replicate()
  title
  echo "Help replicate
 
-Manege Life-Preserver replication tasks
+Manage Life-Preserver replication tasks
 
 Replication uses ZFS to send your snapshots to a remote system which also has
 a ZFS pool, such as FreeNAS or another PC-BSD system. The <hostdataset> must
@@ -80,7 +76,7 @@ permissions on the remote dataset:
 
 Usage:
 
-  lpreserver replicate <subcommand> <Options>
+  lpreserver replicate <subcommand> <options>
 
 
 Available subcommands:
@@ -96,7 +92,7 @@ Available subcommands:
    saveiscsi - Save the iSCSI config data / GELI key
 
 
-add Options:
+add options:
 
 	add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
 	
@@ -126,7 +122,7 @@ add Options:
 	Will schedule replication of tank1 to tankbackup/backups at 10PM,
 	notated in 24hour time
 
-expand Options:
+expand options:
 
 	expand <localdataset/zpool> <target host>
 
@@ -136,14 +132,14 @@ expand Options:
 
 	NOTE: This can only be used to grow a zpool, shrinking is not permitted.
 
-export Options:
+export options:
 
 	export <localdataset/zpool> <target host>
 
 	Exports the backup iSCSI zpool associated with the local dataset or
 	zpool replication specified for <target host>
 
-import Options:
+import options:
 
 	import <localdataset/zpool> <target host>
 
@@ -151,7 +147,7 @@ import Options:
 	zpool replication specified for <target host>
 
 
-init Options:
+init options:
 
 	init <localdataset/zpool> <target host>
 
@@ -159,14 +155,14 @@ init Options:
 	when your replication gets stuck. Doing this option will remove
 	all the data on the remote side, and require a full re-sync again.
 
-remove Options:
+remove options:
 
 	remove <dataset> <target host>
 	
 	Remove a replication task indicated by <dataset>
         Use 'replicate list' for a list of IDs. 
 
-run Options:
+run options:
 
 	run <dataset> <target host>
 
@@ -247,31 +243,6 @@ Example:
 "
 };
 
-help_listcron()
-{
- title
- echo "Help listcron
-
-List scheduled cron snapshots and scrubs
-
-Usage:
-
-  lpreserver listcron <scrub|snap>
-
-Exmaple:
-
-  lpreserver listcron snap
-
-  or
-
-  lpreserver listcron scrub
-  
-  (NOTE: Empty argument list shows both scheduled snapshots
-  and scrubs.)
-
-"
-};
-
 help_status()
 {
  title
@@ -287,23 +258,6 @@ Usage:
 };
 
 
-help_listsnap()
-{
- title
- echo "Help listsnap
-
-List ZFS snapshots of a dataset
-
-Usage:
-
-  lpreserver listsnap <dataset>
-
-Example:
-
-  lpreserver listsnap tank0/usr/home/kris
-"
-};
-
 help_cronsnap()
 {
  title
@@ -313,36 +267,48 @@ Schedule a ZFS snapshot
 
 Usage:
 
-  For a listing of all scheduled snapshots
+  lpreserver cronsnap <subcommand> <options>
 
-  # lpreserver listcron
+Available subcommands:
 
-  or
+       start - Schedule snapshots for a dataset
+        stop - Stop scheduled snapshots for a dataset.
+        list - List scheduled snapshots
 
-  To start / stop snapshot scheduling
 
-  # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
-  
-  action = start / stop
-  frequency = auto / daily@XX / hourly / 30min / 10min / 5min
-		           ^^ Hour to execute
-  numToKeep = Number of snapshots to keep total
+start options:
 
-  NOTE: When frequency is set to "auto" the following will take place:
-    * Snapshots will be created every 5 minutes and kept for an hour.
-    * A hourly snapshot will be kept for a day.
-    * A daily snapshot will be kept for a month.
-    * A Monthly snapshot will be kept for a year.
-    * The life-preserver daemon will also keep track of the zpool disk space,
-      if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
+	start <dataset> <frequency> <numToKeep>
 
-Example:
+	frequency = auto / daily@XX / hourly / 30min / 10min / 5min
+		                 ^^ Hour to execute
+	numToKeep = Number of snapshots to keep total
 
-  lpreserver cronsnap tank1/usr/home/kris start daily@22 10
+	NOTE: When frequency is set to "auto" the following will take place:
+	* Snapshots will be created every 5 minutes and kept for an hour.
+	* A hourly snapshot will be kept for a day.
+	* A daily snapshot will be kept for a month.
+	* A Monthly snapshot will be kept for a year.
+	* The life-preserver daemon will also keep track of the zpool disk space,
+	  if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
 
-  or
+	Examples:
 
-  lpreserver cronsnap tank1/usr/home/kris stop
+	lpreserver cronsnap start tank1/usr/home/kris daily@22 10
+
+	Schedule snapshots of dataset tank1/usr/home/kris daily at 22:00.
+	10 snapshots will be kept.
+
+stop options:
+
+	stop <dataset>
+
+list options:
+
+	list <dataset>
+
+	List all snapshot schedules for a dataset.
+	If no dataset is given it will list schedules for all datasets.
 "
 };
 
@@ -355,134 +321,137 @@ Schedule a ZFS scrub
 
 Usage:
 
-  For a listing of all scheduled scrubs
+  lpreserver cronscrub <subcommand> <options>
 
-  # lpreserver listcron scrub
+Available subcommands:
 
-  or
+       start - Schedule scrub for a pool
+        stop - Stop scheduled scrub for a pool
+        list - List scheduled scrubs
 
-  To start / stop scrub scheduling
 
-  # lpreserver cronscrub <dataset> <action> <frequency>
-  
-  action = start / stop
-  frequency = VV / daily@XX / weekly@YY@XX / monthly@ZZ@XX
-      VV = Execute at every VV days, XX = Hour to execute, 
-      YY = Day of week to execute, ZZ = Day of month to execute
+start options:
 
-  NOTE: 
-    Frequency has two modes, regular cron and anacron.
-    If you specify a number or 'daily', 'weekly' and 'monthly' without 
-    the '@' sign you setup anacron. When you specify with the '@' sign you setup cron. 
-    If you want to be sure that your scrub is always run use anacron.
-    
-    If 'daily' is given you set the period to every day.
-    If 'weekly' is given you set the period to every 7 days.
-    If 'monthly' is given you set the period to every 30 days.
+	start <pool> <frequency>
 
-    If 'daily@' is given without hour the default is 22.
-    If 'weekly@' is given without day or hour the default is day 1 and hour 22.
-    (1 = Mon, 7 = Sun)
-    If 'monthly@' is given without day or hour the default is day 1 and hour 22.
+	frequency = VV / daily@XX / weekly@YY@XX / monthly@ZZ@XX
+	VV = Execute at every VV days, XX = Hour to execute,
+	YY = Day of week to execute, ZZ = Day of month to execute
 
-Example:
+	NOTE:
+	Frequency has two modes, regular cron and anacron.
+	If you specify a number or 'daily', 'weekly' and 'monthly' without
+	the '@' sign you setup anacron. When you specify with the '@' sign you setup cron.
+	If you want to be sure that your scrub is always run use anacron.
 
-  lpreserver cronscrub tank1 start weekly
-  (run scrub weekly)
+	If 'daily' is given you set the period to every day.
+	If 'weekly' is given you set the period to every 7 days.
+	If 'monthly' is given you set the period to every 30 days.
 
-  or
+	If 'daily@' is given without hour the default is 22.
+	If 'weekly@' is given without day or hour the default is day 1 and hour 22.
+	(1 = Mon, 7 = Sun)
+	If 'monthly@' is given without day or hour the default is day 1 and hour 22.
 
-  lpreserver cronscrub tank1 start 45
-  (run scrub every 45 days)
+	Examples:
 
-  or
+	lpreserver cronscrub start tank1 weekly
+	(run scrub every 7 days)
 
-  lpreserver cronscrub tank1 start daily@22
-  (run scrub everyday at 10 AM)
+	lpreserver cronscrub start tank1 45
+	(run scrub every 45 days)
 
-  or
+	lpreserver cronscrub start tank1 daily@22
+	(run scrub everyday at 10 AM)
 
-  lpreserver cronscrub tank1 start weekly@5@5
-  (run scrub every Friday at 5 PM)
+	lpreserver cronscrub start tank1 weekly@5@5
+	(run scrub every Friday at 5 PM)
 
-  or
+	lpreserver cronscrub start tank1 monthly@21@13
+	(run scrub on the 21:st every month at 1 AM)
 
-  lpreserver cronscrub tank1 start monthly@21@13
-  (run scrub on the 21:st every month at 1 AM)
 
-  or
+stop options:
 
-  lpreserver cronscrub tank1 stop
+	stop <pool>
+
+list options:
+
+	list <pool>
+
+	List all scrub schedules for a pool.
+	If no pool is given it will list schedules for all pools.
 "
 };
 
-help_revertsnap()
+help_snapshot()
 {
  title
- echo "Help revertsnap
+ echo "Help snapshot
 
-Revert ZFS to a snapshot of a dataset
+Manage snapshots
 
 Usage:
 
-  lpreserver revertsnap <dataset> <SNAP>
+  lpreserver snapshot <subcommand> <options>
 
-Example:
+Available subcommands:
 
-  lpreserver revertsnap tank1/usr/home/kris 20130729-140510
+      create - Create a snapshot of a dataset
+      remove - Remove a snapshot of a dataset
+      revert - Revert to a snapshot of a dataset
+        list - List snapshots of a dataset
+
+
+create options:
+
+	create <dataset> <snapshotname> <comment>
+
+	Example:
+
+	lpreserver snapshot create tank1/usr/home/kris mysnapshot
+
+	lpreserver snapshot create tank1/usr/home/kris mysnapshot \"Added user bob\"
+
+	NOTE:
+	By default snapshots are recursive and will create snapshots
+	of all children datasets automatically. To change this use:
+
+	# lpreserver set recursive off
+
+remove options:
+
+	remove <dataset> <snapshotname>
+
+	Example:
+
+	lpreserver snapshot remove tank1/usr/home/kris auto-2012-01-25-18-00-00
+
+	NOTE:
+	By default snapshots are recursive and will remove snapshots
+	of all children datasets automatically. To change this use:
+
+	# lpreserver set recursive off
+
+revert options:
+
+	revert <dataset> <snapshotname>
+
+	Example:
+
+	lpreserver snapshot revert tank1/usr/home/kris auto-2012-01-25-18-00-00
+
+list options:
+
+	list <dataset>
+
+	Example:
+
+	lpreserver snapshot list tank0/usr/home/kris
+
 "
 };
 
-help_rmsnap()
-{
- title
- echo "Help rmsnap
-
-Remove ZFS snapshot of a dataset
-
-Usage:
-
-  lpreserver rmsnap <dataset> <SNAP>
-
-Example:
-
-  lpreserver rmsnap tank1/usr/home/kris 20130729-140510
-
-NOTE:
-By default snapshots are recursive and will remove snapshots
-of all children datasets automatically. To change this use:
-
-# lpreserver set recursive off
-"
-};
-
-
-help_mksnap()
-{
- title
- echo "Help mksnap
-
-Create a new ZFS snapshot of a dataset
-
-Usage:
-
-  lpreserver mksnap <dataset> <snapshotname> <comment>
-
-Example:
-
-  lpreserver mksnap tank1/usr/home/kris mysnapshot
-
-  or
-
-  lpreserver mksnap tank1/usr/home/kris mysnapshot \"Added user bob\" 
-
-NOTE:
-By default snapshots are recursive and will create snapshots
-of all children datasets automatically. To change this use:
-
-# lpreserver set recursive off
-"
-};
 
 check_migrate()
 {
@@ -524,14 +493,10 @@ case "$1" in
    help) case "$2" in
            get) help_get ;;
            set) help_set ;;
-           mksnap) help_mksnap ;;
-           listcron) help_listcron ;;
-           listsnap) help_listsnap ;;
-           revertsnap) help_revertsnap ;;
+           snapshot) help_snapshot ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            cronscrub) help_cronscrub ;;
-           rmsnap) help_rmsnap ;;
            status) help_status ;;
            *) help_main ;;
          esac  ;;
@@ -573,53 +538,80 @@ case "$1" in
 	   esac
          ;;
 
-   mksnap) require_root
-         DATASET="$2"
-         SNAPNAME="$3"
-	 COMMENT="$4"
-         ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME" "$COMMENT"
-         ;;
 
- listcron) 
-	 if [ -z "$2" ]; then
-             ${PROGDIR}/backend/zfslistcron.sh
-	     exit 0
-         fi
-         case ${2} in
-             snap) ${PROGDIR}/backend/zfslistcron.sh snap;;
-             scrub) ${PROGDIR}/backend/zfslistcron.sh scrub;;
-	     *) help_listcron;;
-	 esac
-         ;;
-        
- listsnap) require_root
-         DATASET="$2"
-         ${PROGDIR}/backend/zfslistsnap.sh "${DATASET}"
-         ;;
+ snapshot) shift
+	    case ${1} in
+               create) require_root
+                       DATASET="$2"
+                       SNAPNAME="$3"
+                       COMMENT="$4"
+                       ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME" "$COMMENT"
+                     ;;
+                 list) require_root
+                       DATASET="$2"
+                       ${PROGDIR}/backend/zfslistsnap.sh "${DATASET}"
+                     ;;
+               revert) require_root
+                       DATASET="$2"
+                       SNAP="$3"
+                       ${PROGDIR}/backend/zfsrevertsnap.sh "${DATASET}" "$SNAP"
+                       exit $?
+                     ;;
+               remove) require_root
+                       DATASET="$2"
+                       SNAP="$3"
+                       ${PROGDIR}/backend/zfsrmsnap.sh "${DATASET}" "${SNAP}"
+                       exit $?
+                     ;;
+		*) help_snapshot ;;
+	    esac
+	 ;;
 
- cronsnap) require_root
-         DATASET="$2"
-         ${PROGDIR}/backend/zfscronsnap.sh "${DATASET}" "$3" "$4" "$5"
-         ;;
 
-cronscrub) require_root
-         DATASET="$2"
-         ${PROGDIR}/backend/zfscronscrub.sh "${DATASET}" "$3" "$4"
-         ;;
+ cronsnap) shift
+	    case ${1} in
+		start) require_root ;
+		       ACTION="${1}"
+                       DATASET="${2}"
+		       TIME="${3}"
+                       ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}" "${TIME}"
+		     ;;
+		 stop) require_root ;
+		       ACTION="${1}"
+                       DATASET="${2}"
+                       ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}"
+		     ;;
+                 list)
+                        ACTION="${1}"
+                        DATASET="${2}"
+                        ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}"
+                     ;;
+		*) help_cronsnap ;;
+	    esac
+	 ;;
 
-revertsnap) require_root
-         DATASET="$2"
-         SNAP="$3"
-         ${PROGDIR}/backend/zfsrevertsnap.sh "${DATASET}" "$SNAP"
-	 exit $?
-         ;;
+ cronscrub) shift
+	    case ${1} in
+		start) require_root ;
+		       ACTION="${1}"
+                       POOL="${2}"
+		       TIME="${3}"
+                       ${PROGDIR}/backend/zfscronscrub.sh "${ACTION}" "${POOL}" "${TIME}"
+                     ;;
+		stop) require_root ;
+		       ACTION="${1}"
+                       POOL="${2}"
+                       ${PROGDIR}/backend/zfscronscrub.sh "${ACTION}" "${POOL}"
+                     ;;
+		list)
+		       ACTION="${1}"
+                       POOL="${2}"
+                       ${PROGDIR}/backend/zfscronscrub.sh "${ACTION}" "${POOL}"
+                     ;;
+		*) help_cronscrub ;;
+	    esac
+	 ;;
 
-    rmsnap) require_root
-         DATASET="$2"
-         SNAP="$3"
-         ${PROGDIR}/backend/zfsrmsnap.sh "${DATASET}" "${SNAP}"
-	 exit $?
-         ;;
     status) listStatus
          ;;
  replicate) shift

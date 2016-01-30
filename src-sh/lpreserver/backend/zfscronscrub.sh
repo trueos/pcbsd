@@ -11,10 +11,10 @@ PROGDIR="/usr/local/share/lpreserver"
 . /usr/local/share/pcbsd/scripts/functions.sh
 . ${PROGDIR}/backend/functions.sh
 
-POOL="${1}"
-ACTION="${2}"
+ACTION="${1}"
+POOL="${2}"
 
-if [ -z "${POOL}" ]; then
+if [ "$ACTION" != "list" -a -z "${POOL}" ]; then
   exit_err "No pool specified!"
 fi
 
@@ -85,6 +85,7 @@ if [ "$ACTION" = "start" ] ; then
          echo "ERROR: Invalid hour specified!" ; exit 5
       fi
       enable_cron_scrub "$POOL" "$TIME" "$hour"
+      echo "Scrub schedule started for zpool: $POOL"
       echo "Scrub frequency set: $TIME @ hour $hour"
       ;;
     weekly)
@@ -95,6 +96,7 @@ if [ "$ACTION" = "start" ] ; then
          echo "ERROR: Invalid day specified!" ; exit 5
       fi
       enable_cron_scrub "$POOL" "$TIME" "$day" "$hour"
+      echo "Scrub schedule started for zpool: $POOL"
       echo "Scrub frequency set: $TIME @ day $day @ hour $hour"
       ;;
     monthly)
@@ -105,6 +107,7 @@ if [ "$ACTION" = "start" ] ; then
          echo "ERROR: Invalid day specified!" ; exit 5
       fi
       enable_cron_scrub "$POOL" "$TIME" "$day" "$hour"
+      echo "Scrub schedule started for zpool: $POOL"
       echo "Scrub frequency set: $TIME @ day $day @ hour $hour"
       ;;
     anacron)
@@ -112,6 +115,7 @@ if [ "$ACTION" = "start" ] ; then
          echo "ERROR: Invalid number of days specified!" ; exit 5
       fi
       enable_cron_scrub "$POOL" "$TIME" "$nth_day"
+      echo "Scrub schedule started for zpool: $POOL"
       echo "Scrub frequency set: Every $nth_day days"
       ;;
     *) echo "ERROR: Invalid frequency specified!" ; exit 5 ;;
@@ -121,7 +125,13 @@ if [ "$ACTION" = "start" ] ; then
 fi
 
 if [ "$ACTION" = "stop" ] ; then
-  enable_cron_scrub "$DATASET" "OFF"
+  enable_cron_scrub "$POOL" "OFF"
+  echo "Scrub schedule stopped for zpool: $POOL"
+  exit 0
+fi
+
+if [ "$ACTION" = "list" ] ; then
+  list_cron_scrub "${POOL}"
   exit 0
 fi
 
