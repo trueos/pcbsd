@@ -270,6 +270,20 @@ printerror() {
   exit_err $*
 }
 
+# Check if given dataset is valid and exists
+# Arg1 = The dataset to check
+isZFSvalid() {
+   local _chkZFS="${1}"
+
+   # Is this a valid dataset
+   if zfs list -H -o name "${_chkZFS}" >/dev/null 2>/dev/null; then
+     return 0
+   else
+     return 1
+   fi
+
+}
+
 
 # Check if the target directory is on ZFS
 # Arg1 = The dir to check
