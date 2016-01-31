@@ -81,15 +81,18 @@ Usage:
 
 Available subcommands:
 
-         add - Add a new replication target
-      expand - Expand the remote iSCSI zpool
-      export - Export / Offline an iSCSI zpool
-      import - Import / Online an iSCSI zpool
-        init - Initialize the remote side again
-	list - List replication targets
-      remove - Remove a replication target
-         run - Start a replication manually
-   saveiscsi - Save the iSCSI config data / GELI key
+          add - Add a new replication target
+       expand - Expand the remote iSCSI zpool
+       export - Export / Offline an iSCSI zpool
+       import - Import / Online an iSCSI zpool
+         init - Initialize the remote side again
+         list - List replication targets
+       remove - Remove a replication target
+          run - Start a replication manually
+    saveiscsi - Save the iSCSI config data / GELI key
+      exclude - Exclude datasets from replication
+      include - Include already excluded datasets for replication
+  listexclude - List excluded datasets from replication
 
 
 add options:
@@ -178,6 +181,39 @@ saveiscsi options:
 
 	This file can then be used with the "replicate add" command to import
 	the backup zpool on another system or from the PC-BSD install media.
+
+exclude options:
+
+	exclude <dataset> <exclude dataset> <exclude dataset> ...
+
+	Exclude one or more datasets from replication.
+
+	Examples:
+
+	lpreserver replicate exclude tank1 tank1/tmp tank1/var/tmp
+
+	Exclude dataset tank1/tmp and tank1/var/tmp from replication for
+	dataset tank1.
+
+include options:
+
+	include <dataset> <include dataset> <include dataset> ...
+
+	Include one or more datasets that was previously excluded from replication.
+	This removes the datasets from the exclude list.
+
+	Examples:
+
+	lpreserver replicate include tank1 tank1/tmp tank1/var/tmp
+
+	Include dataset tank1/tmp and tank1/var/tmp on dataset tank1
+	for replication.
+
+listexclude options:
+
+	listexclude <dataset>
+
+	List which datasets are excluded from replication.
 
 Examples:
 
@@ -271,9 +307,12 @@ Usage:
 
 Available subcommands:
 
-       start - Schedule snapshots for a dataset
-        stop - Stop scheduled snapshots for a dataset.
-        list - List scheduled snapshots
+        start - Schedule snapshots for a dataset
+         stop - Stop scheduled snapshots for a dataset.
+         list - List scheduled snapshots
+      exclude - Exclude datasets for scheduled snapshots
+      include - Include already excluded datasets for scheduled snapshots
+  listexclude - List excluded datasets for scheduled snapshots
 
 
 start options:
@@ -309,6 +348,39 @@ list options:
 
 	List all snapshot schedules for a dataset.
 	If no dataset is given it will list schedules for all datasets.
+
+exclude options:
+
+	exclude <dataset> <exclude dataset> <exclude dataset> ...
+
+	Exclude one or more datasets from scheduled snapshots.
+
+	Examples:
+
+	lpreserver cronsnap exclude tank1/usr/home/kris tank1/usr/home/kris/tmp tank1/usr/home/kris/test
+
+	Exclude dataset tank1/usr/home/kris/tmp and tank1/usr/home/kris/test from scheduled snapshots
+	on dataset tank1/usr/home/kris.
+
+include options:
+
+	include <dataset> <include dataset> <include dataset> ...
+
+	Include one or more datasets that was previously excluded from scheduled snapshots.
+	This removes the datasets from the exclude list.
+
+	Examples:
+
+	lpreserver cronsnap include tank1/usr/home/kris tank1/usr/home/kris/tmp tank1/usr/home/kris/test
+
+	Include dataset tank1/usr/home/kris/tmp and tank1/usr/home/kris/test on dataset tank1/usr/home/kris
+	for scheduled snapshots. 
+
+listexclude options:
+
+	listexclude <dataset>
+
+	List which datasets are excluded from schedule snapshots.
 "
 };
 
@@ -582,9 +654,20 @@ case "$1" in
                        ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}"
 		     ;;
                  list)
-                        ACTION="${1}"
-                        DATASET="${2}"
-                        ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}"
+                       ACTION="${1}"
+                       DATASET="${2}"
+                       ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}"
+                     ;;
+               exclude) require_root ;
+                       ${PROGDIR}/backend/zfscronsnap.sh "${@}"
+                     ;;
+               include) require_root ;
+                       ${PROGDIR}/backend/zfscronsnap.sh "${@}"
+                     ;;
+           listexclude)
+                       ACTION="${1}"
+                       DATASET="${2}"
+                       ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}"
                      ;;
 		*) help_cronsnap ;;
 	    esac
@@ -648,6 +731,21 @@ case "$1" in
 		      exit $?
 		      ;;
 		saveiscsi) require_root ; save_iscsi_zpool_data "$2" "$3" "$4" ;;
+             exclude) require_root ;
+		      DATASET="${2}"
+                      # Shift the arguments so we only have dataset excludes left in $@
+                      shift 2
+                      add_exclude "${DATASET}" "rep" "${@}"
+                     ;;
+             include) require_root ;
+		      DATASET="${2}"
+		      # Shift the arguments so we only have dataset exclude removals left in $@
+                      shift 2
+                      remove_exclude "${DATASET}" "rep" "${@}"
+                     ;;
+         listexclude)
+                     list_exclude "$2" "rep"
+                     ;;
 		*) help_replicate ;;
 	    esac
 	 ;;

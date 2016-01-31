@@ -889,6 +889,90 @@ save_remote_props() {
   rm /tmp/.dProps.$$ 2>/dev/null
 }
 
+# Exclude datasets
+# $1 = Base zpool / dset
+# $2 = {snap|rep} - Exclude list to use
+# $@ = All arguments
+add_exclude()
+{
+
+  if [ -z "${1}" ]; then
+    exit_err "No dataset specified!"
+  fi
+
+  if [ -z "${3}" ]; then
+    exit_err "No exclusion dataset specified!"
+  fi
+
+  EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
+
+  # Shift the arguments so we only have dataset excludes left in $@
+  shift 2
+
+  # Traverse all excludes and add them to exlude file
+  for exclude in "${@}"; do
+      echo "${exclude}" >> "${EXCLFILE}"
+  done
+
+  # Sort and remove identical datasets
+  cat "${EXCLFILE}" | sort | uniq > "${EXCLFILE}.tmp.$$"
+  mv "${EXCLFILE}.tmp.$$" "${EXCLFILE}"
+
+  return 0
+}
+
+# Remove excluded datasets
+# $1 = Base zpool / dset
+# $2 = {snap|rep} - Exclude list to use
+# $@ = All arguments
+remove_exclude()
+{
+
+  if [ -z "${1}" ]; then
+    exit_err "No dataset specified!"
+  fi
+
+  if [ -z "${3}" ]; then
+    exit_err "No exclusion dataset specified!"
+  fi
+
+  EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
+
+  # Check if we have exclude file, if not return
+  if [ ! -e "$EXCLFILE" ] ; then
+    return 0
+  fi
+
+  # Shift the arguments so we only have dataset excludes left in $@
+  shift 2
+
+  # Traverse all excludes and add them to exlude file
+  for exclude in "${@}"; do
+    cat "${EXCLFILE}" | grep -v "^${exclude}$" > "${EXCLFILE}.tmp.$$"
+    mv "${EXCLFILE}.tmp.$$" "${EXCLFILE}" 
+  done
+
+  return 0
+}
+
+# List excluded datasets
+# $1 = Base zpool / dset
+# $2 = {snap|rep} - Exclude list to use
+list_exclude()
+{
+  if [ -z "${1}" ]; then
+    exit_err "No dataset specified!"
+  fi
+
+  EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
+
+  if [ -e "$EXCLFILE" ] ; then
+    cat "${EXCLFILE}" | grep -v "^#"
+  fi
+
+  return 0
+}
+
 # Build list of datasets
 # $1 = Base zpool / dset
 # $2 = {snap|rep} - Exclude list to use

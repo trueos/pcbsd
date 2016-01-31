@@ -53,6 +53,23 @@ if [ "$ACTION" = "start" ] ; then
   exit 0
 fi
 
+if [ "$ACTION" = "exclude" ] ; then
+  # Shift the arguments so we only have dataset excludes left in $@
+  shift 2
+  add_exclude "${DATASET}" "snap" "${@}"
+fi
+
+if [ "$ACTION" = "include" ] ; then
+  # Shift the arguments so we only have dataset exclude removals left in $@
+  shift 2
+  remove_exclude "${DATASET}" "snap" "${@}"
+fi
+
+
+if [ "$ACTION" = "listexclude" ] ; then
+  list_exclude "${DATASET}" "snap"
+fi
+
 if [ "$ACTION" = "stop" ] ; then
   enable_cron_snap "$DATASET" "OFF"
   echo "Snapshot schedule stopped for dataset: $DATASET"
