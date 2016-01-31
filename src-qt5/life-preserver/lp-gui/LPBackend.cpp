@@ -36,7 +36,7 @@ QStringList LPBackend::listPoolDatasets(QString pool){
 }
 
 QStringList LPBackend::listDatasets(){
-  QString cmd = "lpreserver listcron snap";
+  QString cmd = "lpreserver cronsnap list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -51,7 +51,7 @@ QStringList LPBackend::listDatasets(){
 }
 
 QStringList LPBackend::listScrubs(){
-  QString cmd = "lpreserver listcron scrub";
+  QString cmd = "lpreserver cronscrub list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -94,7 +94,7 @@ QStringList LPBackend::listSnapshots(QString dsmountpoint){
 }
 
 QStringList LPBackend::listLPSnapshots(QString dataset, QStringList &comments){
-  QString cmd = "lpreserver listsnap "+dataset;
+  QString cmd = "lpreserver snapshot list "+dataset;
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -175,7 +175,7 @@ bool LPBackend::removeDataset(QString dataset){
 }
 
 bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
-  QString cmd = "lpreserver listcron snap";
+  QString cmd = "lpreserver cronsnap list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
@@ -225,21 +225,21 @@ bool LPBackend::setDatasetExcludes(QString pool, QString type, QStringList list)
 void LPBackend::newSnapshot(QString dataset, QString snapshotname, QString snapshotcomment){
   //This needs to run externally - since the snapshot is simply added to the queue, and the replication
   //   afterwards may take a long time.
-  QString cmd = "lpreserver mksnap " + dataset + " " + snapshotname.replace(" ", "") + " \"" + snapshotcomment +"\"";
+  QString cmd = "lpreserver snapshot create " + dataset + " " + snapshotname.replace(" ", "") + " \"" + snapshotcomment +"\"";
   QProcess::startDetached(cmd);
    
   return;
 }
 
 bool LPBackend::removeSnapshot(QString dataset, QString snapshot){
-  QString cmd = "lpreserver rmsnap "+dataset +" "+snapshot;
+  QString cmd = "lpreserver snapshot remove "+dataset +" "+snapshot;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
-  QString cmd = "lpreserver revertsnap "+dataset +" "+snapshot;
+  QString cmd = "lpreserver snapshot revert "+dataset +" "+snapshot;
   int ret  = LPBackend::runCmd(cmd);
    
   return (ret == 0);
@@ -264,7 +264,7 @@ bool LPBackend::setupScrub(QString dataset, int time, int day, QString schedule)
 }
 
 bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedule){
-  QString cmd = "lpreserver listcron scrub";
+  QString cmd = "lpreserver cronscrub list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
