@@ -87,7 +87,7 @@
 </td></tr>
 <tr>
 <td colspan=2><p align="center"><label for="username">Username</label><br>
-<input type="text" id="username" name="username" value="" /></p></td>
+<input type="text" id="username" name="username" value="root" readonly/></p></td>
  </tr>
 <tr>
 <td colspan=2><p align="center"><label for="password">Password</label><br>
