@@ -1072,9 +1072,10 @@ void Syncer::syncJailInfo(){
   //qDebug() << "Warden Jail Info:" << info;
   for(int i=1; i<info.length(); i++){ //first line is header (JID, UUID, BOOT, STATE, TAG)
     if(info[i].isEmpty()){ continue; }
-    QString ID = info[i].section(" ",1,1,QString::SectionSkipEmpty);
+    QString line = info[i].simplified();
+    QString ID = line.section(" ",1,1,QString::SectionSkipEmpty);
     if(ID.isEmpty()){ continue; }
-    QString TAG = info[i].section(" ",4,4,QString::SectionSkipEmpty);
+    QString TAG = line.section(" ",4,4,QString::SectionSkipEmpty);
     if(!TAG.startsWith("pbicage-") && !TAG.startsWith("pbijail-")){ continue; } //skip this jail
     QStringList tmp = directSysCmd("iocage get all "+ID);
     //qDebug() << "iocage all "+ID+":" << tmp;
@@ -1082,7 +1083,7 @@ void Syncer::syncJailInfo(){
     QString HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE, RELEASE;
     HOST = ID;
     jails.removeAll(HOST);
-    bool isRunning = (info[i].section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
+    bool isRunning = (line.section(" ",3,3,QString::SectionSkipEmpty).simplified() != "down");
     //qDebug() << "IoCage Jail:" << ID << isRunning;
     for(int j=0; j<tmp.length(); j++){
       //Now iterate over all the info for this single jail
@@ -1115,8 +1116,8 @@ void Syncer::syncJailInfo(){
     for(int i=0; i<=sysver.count(".") && !jnewer; i++){
       jnewer = (sysver.section(".",i,i).toInt() < shortver.section(".",i,i).toInt());
     }
-    if(jnewer){ continue; } //skip this jail - newer OS version than the system supports
-      
+    //if(jnewer){ continue; } //skip this jail - newer OS version than the system supports
+    //
       //Save this info into the hash
     QStringList junk = jinfo.filter(ID);
     if(!junk.isEmpty()){
