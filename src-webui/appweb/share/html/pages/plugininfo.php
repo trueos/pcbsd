@@ -397,7 +397,7 @@ function display_install_chooser()
     $response = send_sc_query($sccmd);
     // This is a bit weird, but the pbicage meta-data isn't visible in the jail mount
     // Set it to the "real" location of the data
-    $pbicdir = $response["$cmd path"] . "/../_/pbicage";
+    $pbicdir = $response["$cmd path"] . "/pbicage";
 
     // Get ipv4 address
     $dccmd = array("iocage getip4 $ioid");

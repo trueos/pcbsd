@@ -1118,8 +1118,10 @@ void Syncer::syncJailInfo(){
     }
     //if(jnewer){ continue; } //skip this jail - newer OS version than the system supports
     //
-      //Save this info into the hash
-    QStringList junk = jinfo.filter(ID);
+    
+    //Save this info into the hash
+    QString shortID = ID.section("-", 0, 3);
+    QStringList junk = jinfo.filter(shortID);
     if(!junk.isEmpty()){
       //This jail is running - add extra information
       bool haspkg = QFile::exists(junk[0].section(" ",3,3)+"/usr/local/sbin/pkg-static");
