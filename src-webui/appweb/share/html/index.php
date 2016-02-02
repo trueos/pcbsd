@@ -124,8 +124,8 @@
     } else {
       $dccmd = array("iocage get ip4_autostart default", "iocage get ip4_autoend default");
       $output = send_dc_cmd($dccmd);
-      $ip4start = $output["iocage get ip4_autostart default"][0];
-      $ip4end = $output["iocage get ip4_autoend default"][0];
+      $ip4start = trim($output["iocage get ip4_autostart default"]);
+      $ip4end = trim($output["iocage get ip4_autoend default"]);
       if ( ( empty($ip4start) or empty($ip4end) ) or ( $ip4start == "none" or $ip4end == "none" ) )
       {
         $firstrun=true;

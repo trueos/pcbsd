@@ -23,9 +23,9 @@ defined('DS') OR die('No direct access allowed.');
 
   $dccmd = array("iocage get ip4_autostart default", "iocage get ip4_autoend default", "iocage get ip4_autosubnet default");
   $output = send_dc_cmd($dccmd);
-  $ip4start = $output["iocage get ip4_autostart default"];
-  $ip4end = $output["iocage get ip4_autoend default"];
-  $ip4subnet = $output["iocage get ip4_autosubnet default"];
+  $ip4start = trim($output["iocage get ip4_autostart default"]);
+  $ip4end = trim($output["iocage get ip4_autoend default"]);
+  $ip4subnet = trim($output["iocage get ip4_autosubnet default"]);
 
   if ( (! empty($_POST['iocpool']) and $vimage != 1) and ( empty($_POST['ip4start']) or empty($_POST['ip4end']) or empty($_POST['ip4subnet']) ) )
   {
