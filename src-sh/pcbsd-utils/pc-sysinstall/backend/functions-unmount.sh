@@ -343,18 +343,9 @@ setup_efi_boot()
     rc_nohalt "mkdir ${FSMNT}/boot/efi"
     rc_halt "mount -t msdosfs ${EFIPART} ${FSMNT}/boot/efi"
 
-    # Setup the loader.rc file
-    rc_nohalt "mkdir -p ${FSMNT}/boot/efi/boot"
-    cat > ${FSMNT}/boot/efi/boot/loader.rc << EOF
-unload
-set currdev=zfs:${ZPOOLNAME}/ROOT/${BENAME}:
-load /boot/kernel/kernel
-load /boot/kernel/zfs.ko
-autoboot
-EOF
     # Copy the .efi file
     rc_nohalt "mkdir -p ${FSMNT}/boot/efi/efi/boot"
-    rc_halt "cp ${FSMNT}/boot/loader.efi ${FSMNT}/boot/efi/efi/boot/BOOTx64.efi"
+    rc_halt "cp ${FSMNT}/boot/boot1.efi ${FSMNT}/boot/efi/efi/boot/BOOTx64.efi"
 
     # Cleanup
     rc_halt "umount ${FSMNT}/boot/efi"
