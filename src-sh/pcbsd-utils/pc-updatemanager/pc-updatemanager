@@ -1734,17 +1734,17 @@ shutdown_update() {
   echo "*****************************************************"
 
   # Display the countdown
-  (countdown "10") &
-  CPID=$!
+  #(countdown "10") &
+  #CPID=$!
 
   # Look for the response
-  read -t 10 tmp
-  if [ $? -eq 0 ] ; then
+  #read -t 10 tmp
+  #if [ $? -eq 0 ] ; then
     # User asked to bail, we will do so
-    kill $CPID
-    exit 0
-  fi
-  kill $CPID
+  #  kill $CPID
+  #  exit 0
+  #fi
+  #kill $CPID
 
   # Clear the screen
   clear
