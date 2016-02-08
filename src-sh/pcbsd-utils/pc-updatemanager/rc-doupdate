@@ -72,8 +72,10 @@ mv /etc/rc-orig /etc/rc
 rm /etc/rc-update
 rm /etc/rc-doupdate
 
-# Update the grub config, since modules may have changed
-grub-mkconfig -o /boot/grub/grub.cfg
+if [ -e "/boot/grub/grub.cfg" ] ; then
+  # Update the grub config, since modules may have changed
+  grub-mkconfig -o /boot/grub/grub.cfg
+fi
 
 echo "Finished pkg installation.. Preparing to reboot...."
 sleep 10
