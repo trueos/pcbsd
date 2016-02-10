@@ -159,6 +159,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "Boot to console (Disable X) option has been added to the graphical boot menu.
 
+* EasyPBI has been removed as it is no longer needed to add meta-data to packages.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 
