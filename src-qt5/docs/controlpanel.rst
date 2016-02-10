@@ -10,11 +10,11 @@ regardless of which desktop you log into.
 .. note:: if a desktop does not contain an icon or menu item for Control Panel, type :command:`pc-controlpanel` from a shell prompt to launch the Control
    Panel.
 
-A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1>`.
+A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1a>`.
 
-.. _control1:
+.. _control1a:
 
-.. figure:: images/control1.png
+.. figure:: images/control1a.png
 
 The available utilities are divided into sections. If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has
 down arrow) its icons. In this example, the display for the "Desktop environment" section is hidden.
@@ -29,10 +29,10 @@ If an icon includes a yellow exclamation mark, you will need to input your passw
    By default, the first user account that you create is made a member of the *wheel* group. You can log in as that user and use :ref:`User Manager` to add
    other accounts to this group.
 
-Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina,
-assuming that they are installed, or just the utilities that came with PC-BSD®. :numref:`Figure %s: Desktop Selector Menu <control2>`  shows the desktop selector menu in use. In
-this example, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities. The menu icon indicates the control panel
-view while "(current)" will be beside the desktop that is presently active.
+Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from just the operating system (as seen in the example in
+:numref:`Figure %s: PC-BSD® Control Panel <control1a>`), all installed desktops, or one of these installed desktops: KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina.
+In the example shown in :numref:`Figure %s: Desktop Selector Menu <control2>`, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities.
+The menu icon indicates the control panel view while "(current)" will be beside the desktop that is presently active.
 
 .. _control2:
 
@@ -552,29 +552,29 @@ About
 =====
 
 The "About" icon of Control Panel can be used to quickly find information about the PC-BSD® system. To start the application, double-click its icon in
-Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figure %s: About Information <about1>`. 
+Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figure %s: About Information <about1a>`. 
 
-.. _about1:
+.. _about1a:
 
-.. figure:: images/about1.png
+.. figure:: images/about1a.png
 
 The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
 hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
 memory.
 
 If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
-seen in the example shown in :numref:`Figure %s: System Components Screen <about2>`. 
+seen in the example shown in :numref:`Figure %s: System Components Screen <about2a>`. 
 
-.. _about2:
+.. _about2a:
 
-.. figure:: images/about2.png
+.. figure:: images/about2a.png
 
 If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
-in :numref:`Figure %s: Desktop Environments Screen <about3>`.
+in :numref:`Figure %s: Desktop Environments Screen <about3a>`.
 
-.. _about3:
+.. _about3a:
 
-.. figure:: images/about3.png
+.. figure:: images/about3a.png
 
 .. index:: configuration
 .. _Active Directory & LDAP:
@@ -746,11 +746,11 @@ environment.
 
 .. figure:: images/be2.png
 
-To customize the appearance of the boot menu, click the "Grub Configuration" tab in Boot Manager to see the screen seen in :numref:`Figure %s: Managing GRUB Configuration <be3>`. 
+To customize the appearance of the boot menu, click the "Grub Configuration" tab in Boot Manager to see the screen seen in :numref:`Figure %s: Managing GRUB Configuration <be3a>`. 
 
-.. _be3:
+.. _be3a:
 
-.. figure:: images/be3.png
+.. figure:: images/be3a.png
 
 The fields in this screen are used to configure the:
 
