@@ -57,11 +57,11 @@ To access this menu, you have to be quick. As soon as the boot process starts an
 
 Once you access the graphical menu, it will pause for a few seconds then continue to boot PC-BSD®. If you wish to select a different operating system or
 specify how PC-BSD® boots, press a key to pause this screen. If multiple operating systems are available and you want to boot into PC-BSD®, make sure it is
-highlighted and press enter. This will load the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2>`. 
+highlighted and press enter. This will load the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2a>`. 
 
-.. _boot2:
+.. _boot2a:
 
-.. figure:: images/boot2.png
+.. figure:: images/boot2a.png
 
 The following boot options are available: 
 
@@ -75,6 +75,8 @@ The following boot options are available:
 * **Run the Display Wizard:** if you are unable to access the GUI due to a display setting, enable this option to boot into the display settings wizard.
 
 * **Run X in vesa mode:** try this option if the screen goes black or the system freezes when booting into PC-BSD®. 
+
+* **Boot to console (Disable X):** boots the system to a command prompt. This is useful if you want to manually configure and test the X configuration file.
 
 Use the arrow keys to select an option then press enter to boot using that option.
 
@@ -352,7 +354,7 @@ order of the devices listed; in this case, make sure that the preferred device i
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
 If that change did not help, try rebooting and selecting the "Graphical Install (Failsafe VESA mode)" option from the boot menu shown in
-:numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`. 
+:numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`. 
 
 A not uncommon cause for problems is the LBA (Logical Block Addressing) setting in the BIOS. If your PC is not booting up before or after installation, check
 your BIOS and turn LBA off (do not leave it on automatic).

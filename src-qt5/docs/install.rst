@@ -12,13 +12,13 @@ To begin the PC-BSD® installation, insert the prepared boot media and boot the 
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
-The initial boot screen, shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`, offers a choice of using either the graphical or the text based installer. Unless you select
+The initial boot screen, shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`, offers a choice of using either the graphical or the text based installer. Unless you select
 otherwise, the graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
 If the graphical installer hangs when loading the graphics driver, try selecting the VESA mode option of the graphical installer.
 
-.. _install1a:
+.. _install1b:
 
-.. figure:: images/install1a.png
+.. figure:: images/install1b.png
 
 The rest of this chapter describes the screens of the graphical installer.
 
@@ -132,7 +132,7 @@ The following components are available for installation.
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
 * **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "Internet", "Media", and
-  "Office and Productivity".
+  "Office and Productivity". Right-click a role and select "View Packages" to view which software is installed with that role.
 
 * **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
 
@@ -196,11 +196,11 @@ click "Save Config to USB".
 Basic Mode 
 -----------
 
-If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7>`. 
+If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7a>`. 
 
-.. _install7:
+.. _install7a:
 
-.. figure:: images/install7.png
+.. figure:: images/install7a.png
 
 By default, the first hard disk will be selected. If you wish to install on a different disk, use the "Selected Disk" drop-down menu to select the disk to
 install into.

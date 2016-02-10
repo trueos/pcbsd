@@ -157,6 +157,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * Based on FreeBSD 10.3 which adds these `features <https://www.freebsd.org/releases/10.3R/relnotes.html>`_.
 
+* The "Boot to console (Disable X) option has been added to the graphical boot menu.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 
