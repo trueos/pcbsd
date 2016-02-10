@@ -155,63 +155,7 @@ What's New in |version|
 
 The following features or enhancements were introduced for PC-BSD® |version|:
 
-* Based on FreeBSD 10.2 which adds these `features <https://www.freebsd.org/releases/10.2R/relnotes.html>`_.
-
-* CD-sized network installers are available for both the graphical and text installers. The installation looks the same for both, with the difference being the size of the
-  downloaded media and the fact that the installation files are retrieved over the network rather than from the installation media.
-
-* Lumina has been updated to `0.8.6 <http://blog.pcbsd.org/2015/08/lumina-desktop-0-8-6-released/>`_.
-
-* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Plugins". The
-  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utility.
-
-* The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
-
-* The graphical installer now uses the `Droid <http://www.droidfonts.com/>`_ font.
-
-* The installer now supports installing to free space. This means that you no longer need to temporarily format a partition after shrinking a drive when installing PC-BSD® in a
-  dual-boot scenario.
-  
-* The graphical installer now provides a shortcut to :ref:`Disk Manager`.
-
-* Wine has been removed from the installer but can be installed afterwards using :ref:`AppCafe®`.
-
-* The "Domain Name" field has been added to the :ref:`Time Zone Selection Screen`.
-
-* The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service or to disable IPv6.
-
-* The "Tile Plugins" and "Cascade Plugins" entries have been added to the right-click menu of Lumina.
-
-* You can now create and manage more than two panels using the Lumina configuration utility.
-
-* The "Save Pkg List" option has been added to the "Configure" button of :ref:`AppCafe®`.
-
-* The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
-  enterprise users that wish to only receive software updates which fix known security vulnerabilities.
-  
-* If you install or uninstall any software in AppCafe®, a "Status" tab will appear so that you can review the installation log.
-
-* The :menuselection:`System --> Branches` menu has been added to :ref:`Update Manager`. This can be used to change which software branch is used to track updates.
-
-* The **showeol** option has been added to :command:`pc-updatemanager`.
-
-* The "Allow Valid Users with UID under 1000" checkbox and "Additional Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
-
-* The **probe-netdrives**,
-  **list-mountednetdrives**,
-  **mountnet**, and
-  **unmountnet** options have been added to :ref:`pc-sysconfig`.
-
-* The "Domain Name" field has been added to :menuselection:`Control Panel --> Network Configuration --> Network Configuration (Advanced)`.
-
-* The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
-  wizard offering to open the advanced configuration options so that replication can be configured.
-
-* Life Preserver's "Local Snapshots" tab now allows you to create a list of datasets to exclude when creating snapshots.
-
-* Life Preserver's "Replication" tab now allows you to create a list of datasets to exclude when replicating to the remote server.
-
-* The "Reset Replication Password" option has been added to the :menuselection:`Life Preserver --> Snapshots` menu.
+* Based on FreeBSD 10.3 which adds these `features <https://www.freebsd.org/releases/10.3R/relnotes.html>`_.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
