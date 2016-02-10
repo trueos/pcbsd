@@ -103,7 +103,6 @@ the information you provided either during a server installation or using the sc
 The "mode" option is not set by default, but can be configured by removing the comment symbol (";") from that option and setting its value to either
 "desktop", "server", or "appliance". Here are the descriptions of the available modes as listed in that file::
 
- tail -5 /usr/local/etc/appcafe.conf
  ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
  ; desktop = Full access to local system packages and jails
  ; server = Full access to local system packages and jails, no Xorg packages listed
@@ -135,11 +134,11 @@ PBIs within that category.
 To view all of the applications installed on the system, click the "Installed Apps" tab. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application.
 
-In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4b>`, the user has clicked "Firefox" on a system that has Firefox installed.
+In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4c>`, the user has clicked "Firefox" on a system that has Firefox installed.
 
-.. _remote4b:
+.. _remote4c:
 
-.. figure:: images/remote4b.png
+.. figure:: images/remote4c.png
 
 The information for an application includes the following: 
 
@@ -287,64 +286,62 @@ the command line. Advanced users can also refer to the command line version in t
 If you type :command:`iocage` at the command line, you will receive a summary of its usage::
 
  usage:
-  iocage activate ZPOOL
-  iocage fetch [release=RELEASE | ftphost=ftp.hostname.org | ftpdir=/dir/ |
-                ftpfiles="base.txz doc.txz lib32.txz src.txz"]
-  iocage init-host IP zpool
-  iocage create [-b|-c|-e] [release=RELEASE] [pkglist=file] [property=value]
-  iocage clone UUID|TAG [UUID|TAG@snapshot] [property=value]
-  iocage destroy [-f] UUID|TAG|ALL
-  iocage reset UUID|TAG|ALL
-  iocage list [-t|-r]
-  iocage start UUID|TAG
-  iocage stop UUID|TAG
-  iocage restart UUID|TAG
-  iocage rcboot
-  iocage rcshutdown
-  iocage console UUID|TAG
-  iocage exec [-u username | -U username] UUID|TAG|ALL command [arg ...]
-  iocage chroot UUID|TAG [command]
-  iocage df
-  iocage show property
-  iocage get property|all UUID|TAG
-  iocage set property=value UUID|TAG
-  iocage cap UUID|TAG
-  iocage limits [UUID|TAG]
-  iocage uncap UUID|TAG
-  iocage inuse [UUID|TAG]
-  iocage snapshot UUID|TAG [UUID|TAG@snapshotname]
-  iocage snaplist UUID|TAG
-  iocage snapremove UUID|TAG@snapshotname|ALL
-  iocage rollback UUID|TAG@snapshotname
-  iocage promote UUID|TAG
-  iocage runtime UUID|TAG
-  iocage update UUID|TAG
-  iocage upgrade UUID|TAG [release=RELEASE]
-  iocage record start|stop UUID|TAG
-  iocage package UUID|TAG
-  iocage export UUID|TAG
-  iocage import UUID [property=value]
-  iocage defaults
-  iocage version | --version
-  iocage help
+  iocage [-v] activate ZPOOL
+  iocage [-v] cap UUID|TAG
+  iocage [-v] clean [-f] [-a|-r|-j|-t]
+  iocage [-v] clone UUID|TAG [UUID|TAG@snapshot] [property=value]
+  iocage [-v] console [-f] UUID|TAG
+  iocage [-v] create [-e] [base=[RELEASE|NAME]] [pkglist=file] [property=value] [count=value]
+  iocage [-v] deactivate ZPOOL
+  iocage [-v] defaults
+  iocage [-v] destroy [-f] UUID|TAG
+  iocage [-v] df
+  iocage [-v] exec [-u username | -U username] UUID|TAG|ALL command [arg ...]
+  iocage [-v] export UUID|TAG
+  iocage [-v] fetch [-P|-p|--ports] [release=RELEASE | ftphost=ftp.hostname.org |
+                    ftpdir=/dir/ | ftpfiles="base.txz doc.txz lib32.txz src.txz"]
+                    [ ftplocaldir=/dir/ ]
+  iocage [-v] get [-r] property|all UUID|TAG
+  iocage [-v] help
+  iocage [-v] import UUID [property=value]
+  iocage [-v] init-host IP ZPOOL
+  iocage [-v] inuse UUID|TAG
+  iocage [-v] limits [UUID|TAG]
+  iocage [-v] list [-t|-r]
+  iocage [-v] promote UUID|TAG
+  iocage [-v] rcboot
+  iocage [-v] reboot UUID|TAG
+  iocage [-v] rcshutdown
+  iocage [-v] reset UUID|TAG|ALL
+  iocage [-v] restart UUID|TAG
+  iocage [-v] rollback UUID|TAG@snapshotname
+  iocage [-v] runtime UUID|TAG
+  iocage [-v] send [-c|-i|-I|-h|-u|-m] POOL
+  iocage [-v] set property=value [property=value] UUID|TAG
+  iocage [-v] snaplist UUID|TAG
+  iocage [-v] snapremove UUID|TAG@snapshotname|ALL
+  iocage [-v] snapshot|snap [-f|-r] UUID|TAG [UUID|TAG@snapshotname]
+  iocage [-v] start [-f] UUID|TAG
+  iocage [-v] stop UUID|TAG|ALL
+  iocage [-v] uncap UUID|TAG
+  iocage [-v] update UUID|TAG
+  iocage [-v] upgrade UUID|TAG [release=RELEASE]
+  iocage [-v] version | --version
 
   Hint:  you can use shortened UUIDs or TAGs interchangeably!
 
   e.g. for  adae47cb-01a8-11e4-aa78-3c970ea3222f
        use  adae47cb or just adae
 
-Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available::
+Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available and to install the selection, run this command. By default, the
+currently installed version will be selected as seen in this example::
 
- iocage fetch
-  INFO: Creating tank/iocage
-  INFO: Creating tank/iocage/jails
-  INFO: Creating tank/iocage/.defaults
-  INFO: Creating tank/iocage/download
-  INFO: Creating tank/iocage/releases
+ sudo iocage fetch
+ Password:
  Supported releases are: 
-   10.1-RELEASE
+   10.2-RELEASE
     9.3-RELEASE
- Please select a release [-]: 10.1-RELEASE
+ Please select a release [10.3-RELEASE]:
  base.txz                                      100% of   63 MB 1908 kBps 00m34s
  doc.txz                                       100% of 1395 kB 1301 kBps 00m01s
  lib32.txz                                     100% of   15 MB 1762 kBps 00m10s
@@ -353,11 +350,10 @@ Before creating a jail for the first time, specify the version of FreeBSD to ins
  Extracting: doc.txz
  Extracting: lib32.txz
  Extracting: src.txz
- * Updating base jail..
- src component not installed, skipped
+ * Updating base jail template.
  Looking up update.FreeBSD.org mirrors... none found.
  Fetching public key from update.FreeBSD.org... done.
- Fetching metadata signature for 10.1-RELEASE from update.FreeBSD.org... done.
+ Fetching metadata signature for 10.3-RELEASE from update.FreeBSD.org... done.
  Fetching metadata index... done.
  Fetching 2 metadata files... done.
  Inspecting system... done.
@@ -369,31 +365,36 @@ Before creating a jail for the first time, specify the version of FreeBSD to ins
  Installing updates... done.
  Creating basejail ZFS datasets... please wait.
 
-In this example, FreeBSD 10.1 and 9.3 are available as jail templates and the user has specified to install the 10.1-RELEASE template. Once the template has been installed, you can create
+In this example, the user has specified to install the 10.3-RELEASE template. Once the template has been installed, you can create
 a jail. In this example, the template to use, the jail's hostname, network interface, and IP address are specified::
 
- iocage create release=10.1-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
- <snip output>
+ sudo iocage create release=10.1-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
+ Password:
+  Successfully created: b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
  
-The output of this command will list the properties of the new jail. You can list those properties with this command::
+You can list the properties of the jail with this command::
 
  iocage get all jail1
  
 To start the jail and check its status::
 
- iocage start jail1
- * Starting fdba67ce-40eb-11e5-81f2-0800277f9a55 (jail1)
-  + Started (shared IP mode) OK
+ sudo iocage start jail1
+ Password:
+ * Starting b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
+  + Started 
+  + Configuring VNETifconfig: interface em0 does not exist
+         OK
   + Starting services        OK
 
  iocage list
- JID   UUID                                  BOOT  STATE  TAG
- 1     fdba67ce-40eb-11e5-81f2-0800277f9a55  off   up     jail1
+ JID   UUID                                  BOOT  STATE  TAG   TYPE
+ 1     b00945a3-d028-11e5-8dc9-68f72865c4fc  off   up     jail1 basejail
 
 To access the jail::
 
- iocage console jail1
- FreeBSD 10.2-RELEASE-p1 (GENERIC) #0: Mon Aug 10 15:54:50 UTC 2015
+ sudo iocage console jail1
+ Password:
+ FreeBSD 10.3-RELEASE (GENERIC) #0: Mon Apr 11 15:54:50 UTC 2016
 
  Welcome to FreeBSD!
 
@@ -414,7 +415,7 @@ To access the jail::
  FreeBSD directory layout:      man hier
 
  Edit /etc/motd to change this login announcement.
- root@fdba67ce-40eb-11e5-81f2-0800277f9a55:~ # 
+ root@b00945a3-d028-11e5-8dc9-68f72865c4fc:~ # 
 
 Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`. To leave the jail, type :command:`exit`.
 
@@ -426,7 +427,7 @@ Using the CLI pkg Utilities
 
 PC-BSD® uses :command:`pkg` to manage packages from the command line.
 
-The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
+The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 4.4.1 is not
 needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
 Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
 know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
