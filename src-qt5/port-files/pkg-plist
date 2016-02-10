@@ -1,4 +1,3 @@
-bin/EasyPBI
 bin/PCDM-session
 bin/about-gui
 bin/appcafe
@@ -68,7 +67,6 @@ include/pcbsd-xdgutils.h
 %%QT_LIBDIR%%/%%QT_LIBDIR%%pcbsd-utils.so.0.9
 %%QT_LIBDIR%%/%%QT_LIBDIR%%pcbsd-utils.so.0.9.9
 sbin/PCDMd
-share/EasyPBI/EasyPBIicon.png
 share/PCDM/pcdm-session
 share/PCDM/themes/default/background.jpg
 share/PCDM/themes/default/banner.png
@@ -100,7 +98,6 @@ share/PCDM/themes/enterprise/previousDE.png
 share/PCDM/themes/enterprise/splashscreen.png
 share/PCDM/themes/enterprise/system.png
 share/PCDM/themes/enterprise/virtualkeyboard.png
-share/applications/EasyPBI.desktop
 share/applications/about.desktop
 share/applications/fwmanager.desktop
 share/applications/handbook.desktop
@@ -168,7 +165,6 @@ share/pcbsd/pc-controlpanel/icons/application.png
 share/pcbsd/pc-controlpanel/icons/bluetooth.png
 share/pcbsd/pc-controlpanel/icons/cups-icon.png
 share/pcbsd/pc-controlpanel/icons/devices.png
-share/pcbsd/pc-controlpanel/icons/easypbi.png
 share/pcbsd/pc-controlpanel/icons/hwinfo.png
 share/pcbsd/pc-controlpanel/icons/lifepreserver.png
 share/pcbsd/pc-controlpanel/icons/lifepreserver64x64.png
@@ -258,7 +254,6 @@ share/pcbsd/pc-controlpanel/items/hardware/xsane.desktop
 share/pcbsd/pc-controlpanel/items/network/pcnetwork.desktop
 share/pcbsd/pc-controlpanel/items/network/fwmanager.desktop
 share/pcbsd/pc-controlpanel/items/software/appcafe.desktop
-share/pcbsd/pc-controlpanel/items/software/easypbi.desktop
 share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-q4wine.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-swine.desktop
