@@ -560,25 +560,25 @@ The "View" menu of Update Manager provides the following information:
 
 * **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
   against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown in
-  :numref:`Figure %s: Viewing Operating System Patches <update15>`, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA).
+  :numref:`Figure %s: Viewing Operating System Patches <update15a>`, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA).
   More information about each advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
 
 .. _update14:
 
 .. figure:: images/update14.png
 
-.. _update15:
+.. _update15a:
 
-.. figure:: images/update15.png
+.. figure:: images/update15a.png
 
 The "System" menu of Update Manager provides one option:
 
 * **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in
-  :numref:`Figure %s: Switching Branches <branch1>`, this system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
+  :numref:`Figure %s: Switching Branches <branch1a>`, this system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
 
-.. _branch1:
+.. _branch1a:
 
-.. figure:: images/branch1.png
+.. figure:: images/branch1a.png
 
 Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
 either the GUI or the command-line method.
@@ -589,7 +589,7 @@ either the GUI or the command-line method.
 Manual Updates (GUI Method)
 ---------------------------
 
-Beginning in version 10.1.1, the automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up menu, shown in
+The automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up menu, shown in
 :numref:`Figure %s: Managing the Reboot After Update <update9>`, indicates that a reboot is needed to complete the update process. The automatic updater will only update what it has been
 configured to update. If you would like to double-check or change what gets updated, start Update Manager, enter your password, and use the drop-down menu in
 the "Configure Automatic Updates" screen shown in :numref:`Figure %s: Configuring What to Update <update11a>`. 
@@ -628,7 +628,7 @@ TrueOS® users, or those who prefer to use a command-line utility, can use :comm
 :command:`pc-updatemanager`, it will show its available options::
 
  pc-updatemanager
- /usr/local/bin/pc-updatemanager - Usage
+ pc-updatemanager - Usage
  ----
  branches             - List available system branches
  chbranch <tag>       - Change to new system branch
