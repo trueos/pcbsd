@@ -161,6 +161,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * EasyPBI has been removed as it is no longer needed to add meta-data to packages.
 
+* The "Auto-play optical disks with SMPlayer" checkbox has been added to :menuselection:`Mount Tray --> More Options --> Change Settings`.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 

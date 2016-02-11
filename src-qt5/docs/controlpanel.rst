@@ -315,6 +315,8 @@ The fields in this screen are used to configure the:
 
 * **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
   increase this timer.
+  
+* **Show Timer Countdown:** if this box is unchecked, the timer countdown will not display, though you can still interupt the boot process during the delay time.
 
 * **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
   `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.
@@ -1020,7 +1022,7 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 .. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and, by default, the
 `SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
 the "Play" button shown in :numref:`Figure %s: Mount Tray Example <mount1>` to restart it.
 
@@ -1041,8 +1043,9 @@ The following options are available in the "More Options" menu:
   contents, close the file manager and click the "Eject" button for the memory device in Mount Tray and enter your password when prompted. As the ISO is
   unmounted, the memory disk is also detached from the system.
 
-* **Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3>`, this screen allows you to configure how often Mount Tray checks the disk space used by
-  mounted devices. Leave the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
+* **Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3a>`, this screen allows you to configure whether or not optical disks automatically open using
+  `SMPLayer <http://www.smplayer.eu/>`_, whether or not Mount Tray automatically rechecks the disk space used by mounted devices and how often to perform that check, and whether or not
+  Mount Tray checks disk space when a disk is mounted.
 
 * **Close Tray:** click this option to remove Mount Tray from the system tray.
 
@@ -1050,9 +1053,9 @@ The following options are available in the "More Options" menu:
 
 .. figure:: images/mount2.png
 
-.. _mount3:
+.. _mount3a:
 
-.. figure:: images/mount3.png
+.. figure:: images/mount3a.png
 
 .. index:: mount
 .. _pc-sysconfig:
@@ -1110,7 +1113,7 @@ For usage information, run the command without any options::
 For example, to see a listed of the supported filesystems, use::
 
  pc-sysconfig supportedfilesystems
- FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
+ FAT, NTFS, EXT, CD9660, UFS, REISERFS, XFS, UDF, ZFS
 
 .. index:: keyboard
 .. _PC-BSD Keyboard Settings:
@@ -2311,8 +2314,6 @@ script as the *root* user. Input the information that the script asks for as see
  lpreserver-host-iscsi
  Enter the target host name (example.com or IP)
  >10.0.0.1
- Enter the target name (target0)
- > target0
  Enter the CHAP username
  >mybackups
  Enter the CHAP password (12-16 chars)
