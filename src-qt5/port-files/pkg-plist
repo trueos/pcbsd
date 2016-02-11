@@ -13,7 +13,6 @@ bin/pc-cupscfg
 bin/pc-dmconf
 bin/pc-ethernetconfig
 bin/pc-firstboot
-bin/pc-hwdetect
 bin/pc-mixer
 bin/pc-mounttray
 bin/pc-netmanager
@@ -39,7 +38,6 @@ bin/qsudo
 bin/xlock
 bin/xorg-startupcheck
 etc/pcdm.conf.dist
-etc/rc.d/pc-hwdetect
 etc/rc.d/pcbsdinit
 etc/rc.d/pcdm
 etc/xdg/autostart/pcbsd-life-preserver.desktop
@@ -278,12 +276,6 @@ share/pcbsd/pc-controlpanel/items/tools/kde-kcmdf.desktop
 share/pcbsd/pc-controlpanel/items/tools/lifepreserver.desktop
 share/pcbsd/pc-controlpanel/items/tools/pcbugreport.desktop
 share/pcbsd/pc-controlpanel/items/tools/x11vnc.desktop
-share/pcbsd/pc-hwdetect/agp.xml
-share/pcbsd/pc-hwdetect/audio.xml
-share/pcbsd/pc-hwdetect/display.xml
-share/pcbsd/pc-hwdetect/multimedia.xml
-share/pcbsd/pc-hwdetect/network.xml
-share/pcbsd/pc-hwdetect/soundcards.xml
 share/pcbsd/pc-installgui/get-zfs-restore-list.sh
 share/pcbsd/pc-installgui/load-usb-key.sh
 share/pcbsd/pc-installgui/setup-ssh-keys.sh

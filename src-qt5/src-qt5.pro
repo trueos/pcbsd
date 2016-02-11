@@ -16,7 +16,6 @@ SUBDIRS+= libpcbsd \
 	 pc-fwmanager \
 	 pc-servicemanager \
 	 pc-softweb \
-	 pc-hwdetect \
 	 pc-installgui \
 	 pc-pdfviewer \
 	 pc-syskeyboard \
