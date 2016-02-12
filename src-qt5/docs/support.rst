@@ -168,22 +168,23 @@ These instructions are for a PC-BSD® system::
  rehash
  git clone git://github.com/pcbsd/pcbsd.git
  cd pcbsd/src-qt5/doc 
- make i18n
- make html
+ sudo make i18n
+ Password:
+ sudo make html
  ls _build
- doctrees                html-es                 html-uk                 pcbsd-handbook-i18n.txz
- html                    html-fr                 locale
- html-de                 html-pt_BR              locale-po
+ doctrees                html-es                 html-tr  		locale-po               
+ html                    html-fr                 html-uk		pcbsd-handbook-i18n.txz
+ html-de                 html-pt_BR              locale
 
  
 This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
-Brazilian Portuguese, and UK English. To update the HTML at a later time::
+Brazilian Portuguese, Turkish, and UK English. To update the HTML at a later time::
 
  cd ~/pcbsd
  git pull
  cd src-qt5/doc 
- make i18n
- make html
+ sudo make i18n
+ sudo make html
 
 .. index:: translations
 .. _Website Translation:
@@ -195,11 +196,7 @@ If you are interested in translating the PC-BSD® website, send an email to the
 `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_. Someone will introduce you to the webmaster who will get you started on
 website translation.
 
-Currently, the following translated websites are available: 
-
-* `French <http://www.pcbsd.org/fr/>`_
-
-* `Spanish <http://www.pcbsd.org/es/>`_
+Currently, the the website is being translated to several languages, including: Dutch, French, German, Polish, Spanish, Swedish, and Turkish.
 
 .. index:: development
 .. _Become a Developer:
