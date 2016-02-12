@@ -192,8 +192,8 @@ bool mainUI::loadGRUBdefaults(QString &themefile, QString &fontfile, int &countd
   QTextStream in(&file);
   //initialize outputs
   themefile.clear(); fontfile.clear();
-  int hcount = 0; //initilization
-  countdown = 0; //initialization
+  int hcount = 2; //initilization
+  countdown = 2; //initialization
   showcountdown = false;
   //defaultBE = 0;
   while( !in.atEnd() ){
