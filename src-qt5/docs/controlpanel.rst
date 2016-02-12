@@ -2804,16 +2804,16 @@ Select the software component that most closely matches where the bug occurs. Fo
 environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
 "PC-BSD base system". 
 
-In the example shown in :numref:`Figure %s: Reporting a Bug <report2>`, the user has selected "PC-BSD base system" then "Next". 
+In the example shown in :numref:`Figure %s: Reporting a Bug <report2a>`, the user has selected "PC-BSD base system" then "Next". 
 
-.. note:: regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing
-   list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
+.. note:: regardless of the selection, the resulting screen will be similar to :numref:`Figure %s: Reporting a Bug <report2a>`. The various screens only differ in which bug tracking system
+   or mailing list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
    correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the
    error.
 
-.. _report2:
+.. _report2a:
 
-.. figure:: images/report2.png
+.. figure:: images/report2a.png
 
 If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
 web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is
