@@ -157,8 +157,8 @@ show_usage() {
   pkgupdate [-f]	- Install packages updates (-f to force)
   fbsdupdate		- Install freebsd-update patches
   fbsdupdatepkgs	- Install freebsd-update patches and any package updates
-  syncconf		- Update PC-BSD pkgng configuration
-  confcheck		- Check PC-BSD pkgng configuration
+  syncconf		- Update PC-BSD pkg configuration
+  confcheck		- Check PC-BSD pkg configuration
   cron                  - Perform delayed check for system and pkgng updates.
 "	
 
