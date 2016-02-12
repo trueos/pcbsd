@@ -33,7 +33,7 @@ if ( ! empty($_GET['searchtext']) ) {
 </tr>
 <tr>
     <th>
-        &nbsp&nbspSearch all available PBIs and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
+        &nbsp&nbspSearch all available software: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
     </th>
 </tr>
 
