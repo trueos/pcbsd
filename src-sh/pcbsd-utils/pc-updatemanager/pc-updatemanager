@@ -152,7 +152,7 @@ show_usage() {
   fbsdupdatepkgs	- Install freebsd-update patches and any package updates
   syncconf		- Update PC-BSD pkg configuration
   confcheck		- Check PC-BSD pkg configuration
-  cron                  - Perform delayed check for system and pkgng updates.
+  cron                  - Perform delayed check for system and pkg updates.
 "	
 
 	exit 1
