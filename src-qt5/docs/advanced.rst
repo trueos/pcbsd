@@ -225,8 +225,9 @@ If you click the *utility* option in the main menu of the text based installer s
 This screen provides the following options: 
 
 * **shell:** this option is useful if you are troubleshooting a PC-BSD® system that no longer boots. It will open a shell with administrative access that
-  includes the base FreeBSD utilities. You can use this shell to try to determine what the problem is and, if necessary, to create a backup or copy essential
-  files to another system. When you are finished using the shell, type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`. 
+  includes the base FreeBSD utilities. Advanced users can use this shell to try to determine what the problem is, to create a backup or copy essential
+  files to another system, or edit configuration files with an editor such as `ee <https://www.freebsd.org/cgi/man.cgi?query=ee>`_ or :command:`vi`. When you are finished using the shell,
+  type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`. 
 
 * **zimport** this option will display the names of available ZFS pools. Type the name of an available pool and it will import it then display the available boot environments (BEs).
   Type the name of the desired BE and this option will mount it then offer to open a chroot shell so that you can view its contents and manipulate files as
