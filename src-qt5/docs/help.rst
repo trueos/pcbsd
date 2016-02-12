@@ -73,11 +73,13 @@ categories for organizing posts. The following forums are available:
 
 * `German <https://forums.pcbsd.org/forum-46.html>`_
 
+* `Italian <https://forums.pcbsd.org/forum-85.html>`_
+
 * `Japanese <https://forums.pcbsd.org/forum-50.html>`_
 
 * `Russian <https://forums.pcbsd.org/forum-49.html>`_
 
-* `Slovene <https://forums.pcbsd.org/forum-48.html>`_
+* `Slovenian <https://forums.pcbsd.org/forum-48.html>`_
 
 * `Spanish <https://forums.pcbsd.org/forum-44.html>`_
 
@@ -118,7 +120,7 @@ connected, use the following information in your IRC client:
 
 * **Channel name:** #pcbsd (note that the # is required) 
 
-:ref:`AppCafe®` has an IRC category where you can find PBIs for IRC clients. If you do not wish to install an IRC client, you can instead use the
+:ref:`AppCafe®` has an IRC category where you can find IRC client software. If you do not wish to install an IRC client, you can instead use the
 `web interface to #pcbsd <http://www.pcbsd.org/en/join-us-on-pcbsd.html>`_. 
 
 IRC is a great way to chat with other users and get answers to your questions. A few things to keep in mind if you ask a question on IRC: 
