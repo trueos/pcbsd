@@ -25,6 +25,7 @@ radeonhd
 radeonhd-3d-enable
 rendition
 openchrome
+scfb
 s3
 s3virge
 savage
