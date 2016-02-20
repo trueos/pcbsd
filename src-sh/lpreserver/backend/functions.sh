@@ -937,7 +937,7 @@ add_exclude()
       if [ $? -eq 0 ]; then
         echo "Warning: You are trying to exclude dataset children to parent ${exclude}. Ignoring children datasets:"
         grep "^${exclude}/" "${NEWEXCLS}"
-	echo ""
+        echo ""
         grep -v "^${exclude}/" "${NEWEXCLS}" >> "${NEWEXCLS}.tmp"
         mv "${NEWEXCLS}.tmp" "${NEWEXCLS}"
       fi
@@ -954,10 +954,10 @@ add_exclude()
       grep -q "^${exclude}$" "${ORGEXCLSREC}"
       if [ $? -eq 0 ]; then
         echo "Warning: No need to add $exclude, dataset or parent dataset already in existing exclude list."
-	echo ""
+        echo ""
         grep -v "^${exclude}$" "${NEWEXCLS}" >> "${NEWEXCLS}.tmp"
         mv "${NEWEXCLS}.tmp" "${NEWEXCLS}"
-	continue
+        continue
       fi
     done
 
@@ -976,7 +976,7 @@ add_exclude()
         echo "Warning: No need to add $exclude, dataset already in existing exclude list."
         grep -v "^${exclude}$" "${NEWEXCLS}" >> "${NEWEXCLS}.tmp"
         mv "${NEWEXCLS}.tmp" "${NEWEXCLS}"
-	continue
+        continue
       fi
     done
   fi
