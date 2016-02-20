@@ -4,7 +4,7 @@ misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
 misc/pcbsd-meta-nvidia
-misc/pcbsd-meta-nvidia-304
+misc/pcbsd-meta-nvidia-340
 misc/pcbsd-meta-virtualbox
 misc/pcbsd-meta-virtualboxguest
 misc/pcbsd-toolchain
