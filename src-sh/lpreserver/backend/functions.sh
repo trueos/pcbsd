@@ -906,17 +906,103 @@ add_exclude()
 
   EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
 
+  # Temporary exclude file for existing recursive excludes
+  ORGEXCLSREC="/tmp/.dExclRec.$$"
+
+  # Temporary exclude file for new excludes
+  NEWEXCLS="/tmp/.dNewExcl.$$"
+
+  # Temporary exclude file for new recursive excludes
+  NEWEXCLSREC="/tmp/.dNewExclRec.$$"
+
+  # Touch all temp files and exclude file
+  touch ${ORGEXCLSREC} ${NEWEXCLS} ${NEWEXCLSREC} ${EXCLFILE}
+
   # Shift the arguments so we only have dataset excludes left in $@
   shift 2
 
-  # Traverse all excludes and add them to exlude file
+  # Traverse all new excludes and add them to temporary exclude file
   for exclude in "${@}"; do
-      echo "${exclude}" >> "${EXCLFILE}"
+    echo "${exclude}" >> "${NEWEXCLS}"
   done
+  sort -u -o "${NEWEXCLS}" "${NEWEXCLS}"
 
-  # Sort and remove identical datasets
-  cat "${EXCLFILE}" | sort | uniq > "${EXCLFILE}.tmp.$$"
-  mv "${EXCLFILE}.tmp.$$" "${EXCLFILE}"
+  echo "Recursive mode: ${RECURMODE}"
+  echo ""
+
+  if [ "$RECURMODE" = "ON" ] ; then
+    # Traverse the new excludes and see if any children exist in recursive list
+    for exclude in $(cat "${NEWEXCLS}"); do
+      grep -q "^${exclude}/" "${NEWEXCLS}"
+      if [ $? -eq 0 ]; then
+        echo "Warning: You are trying to exclude dataset children to parent ${exclude}. Ignoring children datasets:"
+        grep "^${exclude}/" "${NEWEXCLS}"
+	echo ""
+        grep -v "^${exclude}/" "${NEWEXCLS}" >> "${NEWEXCLS}.tmp"
+        mv "${NEWEXCLS}.tmp" "${NEWEXCLS}"
+      fi
+    done
+
+    # Create a list of all existing excludes and their recursive datasets
+    for exclude in $(cat "${EXCLFILE}"); do
+      zfs list -H -r -o name "${exclude}" >> "${ORGEXCLSREC}"
+    done
+    sort -u -o "${ORGEXCLSREC}" "${ORGEXCLSREC}"
+
+    # Check if any of the new excludes already exists in exclude list
+    for exclude in $(cat "${NEWEXCLS}"); do
+      grep -q "^${exclude}$" "${ORGEXCLSREC}"
+      if [ $? -eq 0 ]; then
+        echo "Warning: No need to add $exclude, dataset or parent dataset already in existing exclude list."
+	echo ""
+        grep -v "^${exclude}$" "${NEWEXCLS}" >> "${NEWEXCLS}.tmp"
+        mv "${NEWEXCLS}.tmp" "${NEWEXCLS}"
+	continue
+      fi
+    done
+
+    # Create a list of all new recursive exclude datasets, without the parent datasets
+    for exclude in $(cat "${NEWEXCLS}"); do
+      zfs list -H -r -o name "${exclude}" | grep -v "^${exclude}$" >> "${NEWEXCLSREC}"
+    done
+
+  fi
+
+  if [ "$RECURMODE" = "OFF" ] ; then
+    # Check if any of the new excludes already exists in exclude list
+    for exclude in $(cat "${NEWEXCLS}"); do
+      grep -q "^${exclude}$" "${EXCLFILE}"
+      if [ $? -eq 0 ]; then
+        echo "Warning: No need to add $exclude, dataset already in existing exclude list."
+        grep -v "^${exclude}$" "${NEWEXCLS}" >> "${NEWEXCLS}.tmp"
+        mv "${NEWEXCLS}.tmp" "${NEWEXCLS}"
+	continue
+      fi
+    done
+  fi
+
+  excldsetsrec=$(sort -u "${NEWEXCLSREC}")
+  excldsets=$(sort -u "${NEWEXCLS}")
+
+  if [ -n "${excldsets}" ]; then 
+    echo "The following datasets will be excluded:"
+    echo "${excldsets}"
+    echo ""
+
+    echo "${excldsets}" >> "${EXCLFILE}"
+
+    sort -u -o "${EXCLFILE}" "${EXCLFILE}"
+
+    if [ "$RECURMODE" = "ON" ] ; then
+      echo "The following datasets will be recursively excluded:"
+      echo "${excldsetsrec}"
+    fi
+  fi
+
+  # Lets do some cleanup
+  rm ${ORGEXCLSREC}
+  rm ${NEWEXCLS}
+  rm ${NEWEXCLSREC}
 
   return 0
 }
@@ -938,8 +1024,16 @@ remove_exclude()
 
   EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
 
-  # Check if we have exclude file, if not return
-  if [ ! -e "$EXCLFILE" ] ; then
+  # Check if we have exclude file
+  if [ ! -e ${EXCLFILE} ]; then
+    echo "No excludes found for dataset ${1}"
+    return 0
+  fi
+
+  # Check if exclude file is empty
+  chkemptyfile=$(grep -v "^#" ${EXCLFILE})
+  if [ -z "$chkemptyfile" ]; then
+    echo "No excludes found for dataset ${1}"
     return 0
   fi
 
@@ -965,10 +1059,46 @@ list_exclude()
   fi
 
   EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
+  EXCLSREC="/tmp/.dExclRec.$$"
 
-  if [ -e "$EXCLFILE" ] ; then
-    cat "${EXCLFILE}" | grep -v "^#"
+  # Touch all temp files
+  touch ${EXCLSREC}
+
+  if [ ! -e ${EXCLFILE} ]; then
+    echo "No excludes found for dataset ${1}"
+    return 0
   fi
+
+  chkemptyfile=$(grep -v "^#" ${EXCLFILE})
+  if [ -z "$chkemptyfile" ]; then
+    echo "No excludes found for dataset ${1}"
+    return 0
+  fi
+
+  if [ "$RECURMODE" = "ON" ] ; then
+    echo "Recursive mode: ${RECURMODE}"
+    echo ""
+
+    # Create a list of all new recursive exclude datasets, without the parent datasets
+    for exclude in $(cat "${EXCLFILE}"); do
+      zfs list -H -r -o name "${exclude}" | grep -v "^${exclude}$" >> "${EXCLSREC}"
+    done
+    excldsetsrec=$(sort -u "${EXCLSREC}")
+  fi
+
+  excldsets=$(sort -u "${EXCLFILE}")
+
+  echo "The following datasets are excluded:"
+  echo "${excldsets}" | grep -v "^#"
+  echo ""
+
+  if [ "$RECURMODE" = "ON" ] ; then
+    echo "The following datasets are recursively excluded:"
+    echo "${excldsetsrec}" | grep -v "^#"
+  fi
+
+  # Let's do some cleanup
+  rm ${EXCLSREC}
 
   return 0
 }
