@@ -1024,6 +1024,8 @@ remove_exclude()
 
   EXCLFILE="${DBDIREXCLUDES}/`echo ${1} | sed 's|/|-|g'`-${2}"
 
+  TMPEXCLFILE="/tmp/.dExcl.$$"
+
   # Check if we have exclude file
   if [ ! -e ${EXCLFILE} ]; then
     echo "No excludes found for dataset ${1}"
@@ -1040,10 +1042,10 @@ remove_exclude()
   # Shift the arguments so we only have dataset excludes left in $@
   shift 2
 
-  # Traverse all excludes and add them to exlude file
+  # Traverse all excludes and remove them from exlude file
   for exclude in "${@}"; do
-    cat "${EXCLFILE}" | grep -v "^${exclude}$" > "${EXCLFILE}.tmp.$$"
-    mv "${EXCLFILE}.tmp.$$" "${EXCLFILE}" 
+    cat "${EXCLFILE}" | grep -v "^${exclude}$" > "${TMPEXCLFILE}"
+    mv "${TMPEXCLFILE}" "${EXCLFILE}" 
   done
 
   return 0
