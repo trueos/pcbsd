@@ -15,7 +15,7 @@ misc/pcbsd-meta-kde
 misc/pcbsd-meta-lxde
 misc/pcbsd-meta-mate
 misc/pcbsd-meta-nvidia
-misc/pcbsd-meta-nvidia-304
+misc/pcbsd-meta-nvidia-340
 misc/pcbsd-meta-openbox
 misc/pcbsd-meta-ratpoison
 misc/pcbsd-meta-rekonq
