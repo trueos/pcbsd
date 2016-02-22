@@ -704,8 +704,14 @@ case "$1" in
 	    case ${1} in
 		add) require_root ; 
 		     if [ "$2" = "iscsi" ] ; then 
+                        if ! isZFSvalid "$4"; then
+                          exit_err "${4} is not a valid dataset!"
+                        fi
 		       add_rep_iscsi_task "$3" "$4" "$5" "$6"
 		     else
+                        if ! isZFSvalid "$5"; then
+                          exit_err "${5} is not a valid dataset!"
+                        fi
 		       add_rep_task "$2" "$3" "$4" "$5" "$6" "$7"
 		     fi
 		     ;;
@@ -736,6 +742,9 @@ case "$1" in
 		saveiscsi) require_root ; save_iscsi_zpool_data "$2" "$3" "$4" ;;
              exclude) require_root ;
 		      DATASET="${2}"
+                      if ! isZFSvalid "$DATASET"; then
+                        exit_err "${DATASET} is not a valid dataset!"
+                      fi
                       # Shift the arguments so we only have dataset excludes left in $@
                       shift 2
                       add_exclude "${DATASET}" "rep" "${@}"
