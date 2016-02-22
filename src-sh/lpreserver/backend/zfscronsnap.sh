@@ -59,7 +59,7 @@ if [ "$ACTION" = "exclude" ] ; then
   add_exclude "${DATASET}" "snap" "${@}"
 fi
 
-if [ "$ACTION" = "include" ] ; then
+if [ "$ACTION" = "rmexclude" ] ; then
   # Shift the arguments so we only have dataset exclude removals left in $@
   shift 2
   remove_exclude "${DATASET}" "snap" "${@}"

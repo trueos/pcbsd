@@ -91,7 +91,7 @@ Available subcommands:
           run - Start a replication manually
     saveiscsi - Save the iSCSI config data / GELI key
       exclude - Exclude datasets from replication
-      include - Include already excluded datasets for replication
+    rmexclude - Remove datasets from exclude list for replication
   listexclude - List excluded datasets from replication
 
 
@@ -195,19 +195,22 @@ exclude options:
 	Exclude dataset tank1/tmp and tank1/var/tmp from replication for
 	dataset tank1.
 
-include options:
+rmexclude options:
 
-	include <dataset> <include dataset> <include dataset> ...
+	rmexclude <dataset> <excluded dataset> <excluded dataset> ...
 
-	Include one or more datasets that was previously excluded from replication.
+	Remove exclude for one or more datasets that was previously excluded from replication.
 	This removes the datasets from the exclude list.
 
 	Examples:
 
-	lpreserver replicate include tank1 tank1/tmp tank1/var/tmp
+	lpreserver replicate rmexclude tank1 tank1/tmp tank1/var/tmp
 
-	Include dataset tank1/tmp and tank1/var/tmp on dataset tank1
+	Remove excluded dataset tank1/tmp and tank1/var/tmp on dataset tank1
 	for replication.
+
+	Dataset tank1/tmp and tank1/var/tmp on dataset tank1 are no longer excluded 
+	from replication.
 
 listexclude options:
 
@@ -311,7 +314,7 @@ Available subcommands:
          stop - Stop scheduled snapshots for a dataset.
          list - List scheduled snapshots
       exclude - Exclude datasets for scheduled snapshots
-      include - Include already excluded datasets for scheduled snapshots
+    rmexclude - Remove datasets from exclude list for scheduled snapshots
   listexclude - List excluded datasets for scheduled snapshots
 
 
@@ -362,19 +365,19 @@ exclude options:
 	Exclude dataset tank1/usr/home/kris/tmp and tank1/usr/home/kris/test from scheduled snapshots
 	on dataset tank1/usr/home/kris.
 
-include options:
+rmexclude options:
 
-	include <dataset> <include dataset> <include dataset> ...
+	rmexclude <dataset> <excluded dataset> <excluded dataset> ...
 
-	Include one or more datasets that was previously excluded from scheduled snapshots.
+	Remove exclude for one or more datasets that was previously excluded from scheduled snapshots.
 	This removes the datasets from the exclude list.
 
 	Examples:
 
-	lpreserver cronsnap include tank1/usr/home/kris tank1/usr/home/kris/tmp tank1/usr/home/kris/test
+	lpreserver cronsnap rmexclude tank1/usr/home/kris tank1/usr/home/kris/tmp tank1/usr/home/kris/test
 
-	Include dataset tank1/usr/home/kris/tmp and tank1/usr/home/kris/test on dataset tank1/usr/home/kris
-	for scheduled snapshots. 
+	Dataset tank1/usr/home/kris/tmp and tank1/usr/home/kris/test on dataset tank1/usr/home/kris
+	are no longer excluded for scheduled snapshots.
 
 listexclude options:
 
@@ -661,7 +664,7 @@ case "$1" in
                exclude) require_root ;
                        ${PROGDIR}/backend/zfscronsnap.sh "${@}"
                      ;;
-               include) require_root ;
+             rmexclude) require_root ;
                        ${PROGDIR}/backend/zfscronsnap.sh "${@}"
                      ;;
            listexclude)
@@ -737,7 +740,7 @@ case "$1" in
                       shift 2
                       add_exclude "${DATASET}" "rep" "${@}"
                      ;;
-             include) require_root ;
+           rmexclude) require_root ;
 		      DATASET="${2}"
 		      # Shift the arguments so we only have dataset exclude removals left in $@
                       shift 2
