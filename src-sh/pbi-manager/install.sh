@@ -54,7 +54,4 @@ cp ${DIR}/icons/patch.png ${LB}/share/pbi-manager/icons
 cp ${DIR}/repo/repokey.ssl ${LB}/share/pbi-manager/repokey.ssl
 cp ${DIR}/repo/pkgng-repo ${LB}/share/pbi-manager/pkgng-repo
 
-# Tickle the info command to setup default dirs
-${LB}/sbin/pbi_add >/dev/null 2>/dev/null
-
 cp ${DIR}/etc/pbi.conf ${LB}/etc/pbi.conf
