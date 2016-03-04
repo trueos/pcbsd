@@ -1479,10 +1479,15 @@ mk_stage_be_default()
 {
   # Rename the BE
   rc_halt "beadm rename $STAGEBE $newBEName"
+
   # Rename the nickname
   rc_nohalt "beadm rename -n ${TMPNICK} ${newBEName}"
   rc_halt "beadm activate $newBEName"
-  rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+
+  # If using GRUB
+  if [ -e "/boot/grub/grub.cfg" ] ; then
+    rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
 }
 
 do_auto_be()
