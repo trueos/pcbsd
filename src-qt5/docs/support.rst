@@ -68,7 +68,7 @@ updates that affect translators.
 Interface Translation
 ---------------------
 
-PC-BSD® uses `Pootle <https://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
+PC-BSD® uses :wikipedia:`Pootle` for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
 Pootle makes it possible to find out if your native language has been fully localized for PC-BSD®. Pootle also makes it easy for users to check and submit
 translated text as it provides a web editor and commenting system. This means that translators can spend their time making and reviewing translations rather
 than learning how to use a translation tool.

@@ -356,13 +356,13 @@ Occasionally it is useful to allow connections between desktop sessions running 
 both users will be able to see the error on the problematic system and either user can take control of the mouse and keyboard in order to fix the problem.
 Typically this is a temporary situation as providing access to one's computer allows a remote user the ability to both view and modify its settings.
 
-The `remote desktop protocol (RDP) <https://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
+The :wikipedia:`Remote Desktop Protocol` (RDP) can be used to make a connection to another computer. 
 Depending upon the operating system, you may have to first install or enable RDP software on the remote computer:
 
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
   the full version of RDP is included, remote access may or may not be enabled by default. If you have trouble connecting using RDP, do a web search for
   "remote desktop" and the name of the version of Windows you are using to find out how to configure its remote desktop settings. If you still can not
-  connect, you can instead download, install, and configure `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
+  connect, you can instead download, install, and configure :wikipedia:`Virtual Network Computing` (VNC) server software on the system.
 
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
@@ -525,8 +525,8 @@ This section demonstrates how to configure and use both the PXE Boot Desktop Ser
 PXE Boot Desktop Server
 -----------------------
 
-A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <https://en.wikipedia.org/wiki/Diskless_node>`_ where
-each computer has a network interface card capable of `PXE <https://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
+A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a :wikipedia:`Diskless node` where
+each computer has a network interface card capable of :wikipedia:`Preboot Execution Environment` (PXE) booting. When a client boots from
 their network interface instead of their hard disk, they automatically connect to the PXE Boot Desktop Server and receive a login window. Once authenticated,
 they can use PC-BSD®, even if PC-BSD® is not installed on their own computer and even if their computer does not have a hard drive.
 
@@ -758,7 +758,7 @@ The security features built into PC-BSD® include:
   default, the first user you create during installation is added to the *wheel* group. You can use :ref:`User Manager` to add other users to this group. You
   can change the default :command:`sudo` configuration using the :command:`visudo` command as the superuser.
 
-* `AESNI <https://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
+* `:wikipedia:`AES instruction set` (AESNI) support is loaded by default for the Intel Core i5/i7 processors that support this
   encryption set. This support speeds up AES encryption and decryption.
 
 * **Automatic notification of security advisories:** :ref:`Update Manager` will automatically notify you if an update is available as the result of a

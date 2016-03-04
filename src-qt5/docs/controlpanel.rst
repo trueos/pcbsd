@@ -437,7 +437,7 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
    until this setting is changed again in Login Manager.
 
 The "Remote login" tab, shown in :numref:`Figure %s: Configuring Remote Login <login3>`, is used to enable a remote user to connect to a desktop session using
-`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
+:wikipedia:`Virtual Network Computing` (VNC). Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
 be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will also
 need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in :numref:`Figure %s: Creating a Connection Using KRDC <krdc1>`)
 or from another VNC client.
@@ -1564,7 +1564,7 @@ By default, the "Disable this network device" box is unchecked. If you check thi
 network. The interface will remain inactive until this checkbox is unchecked.
 
 The "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of an Ethernet Interface's Network Settings <network4>`, allows advanced users to change their
-`MAC address <https://en.wikipedia.org/wiki/MAC_address>`_ or to automatically obtain an `IPv6 address <https://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless
+:wikipedia:`MAC address` or to automatically obtain an :wikipedia:`IPv6 address`. Both boxes should remain checked unless
 you are an advanced user who has a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
 .. _network4:

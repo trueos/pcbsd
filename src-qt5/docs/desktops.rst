@@ -463,8 +463,7 @@ To leave the WindowLab session, select "Quit" from the menubar.
 Window Maker
 ============
 
-The `Window Maker window manager <https://en.wikipedia.org/wiki/Nextstep>`_ is light-weight and designed to reproduce the look and feel of the
-`NEXTSTEP <https://en.wikipedia.org/wiki/Nextstep>`_ user interface.
+The `Window Maker window manager <https://windowmaker.org/>`_ is light-weight and designed to reproduce the look and feel of the :wikipedia:`NEXTSTEP` user interface.
 
 :numref:`Figure %s: Window Maker on PC-BSD® <windowmaker1>` shows a screenshot of Window Maker running on PC-BSD®. In this example, the user launched the "Application" menu by right-clicking
 an area of the desktop.

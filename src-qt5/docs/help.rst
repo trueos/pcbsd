@@ -113,7 +113,7 @@ In addition to the forums available from the PC-BSD® Forums website, the follow
 PC-BSD® IRC Channel
 ====================
 
-Like many open source projects, PC-BSD® has an `IRC Channel <https://en.wikipedia.org/wiki/Internet_Relay_Chat>`_ so that users can chat and get help in real time. To get
+Like many open source projects, PC-BSD® has an :wikipedia:`Internet Relay Chat` (IRC) channel so that users can chat and get help in real time. To get
 connected, use the following information in your IRC client: 
 
 * **Server name:** irc.freenode.net 
