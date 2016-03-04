@@ -805,8 +805,8 @@ users should backup their important data to another system or external drive and
 Upgrading from 10.x to |version|
 --------------------------------
 
-Upgrading from any 10.x version to |version| is the same as applying any package update. This means that the update to |version| will either appear in Update
-Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
+Upgrading from any 10.x version to |version| is the same as applying any system update. This means that the update to |version| will either appear in Update
+Manager, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager check`.
 
 .. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
    installation), full disk encryption, or the
