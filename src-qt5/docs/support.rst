@@ -27,7 +27,8 @@ the subjects being discussed on the testing mailing list.
 
 Anyone can become a beta tester. Follow these tips so that you can accurately describe your findings so they can be fixed as soon as possible: 
 
-* Before you :ref:`Report a bug`, search the testing mailing list to see if anyone else has reported a similar problem.
+* Before you :ref:`Report a bug`, skim through the archives of the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_ to see if anyone else has reported a similar
+  problem.
 
 * When reporting a new issue, use a descriptive subject that includes the error and the version of PC-BSD®. Ideally, the subject is short (8 words or less)
   and contains key words about the error. An example would be "AppCafe on 10.2-RELEASE-p1 fails to create jail". 
