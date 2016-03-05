@@ -184,40 +184,40 @@ int wizardDisk::nextId() const
          return Page_Expert;
        if (radioBasic->isChecked()) {
          radioGPT->setChecked(true);
-	 groupScheme->setVisible(false);
-	 groupBIOS->setVisible(false);
-	 checkForce4K->setVisible(false);
-	 groupZFSPool->setVisible(false);
+         groupScheme->setVisible(false);
+         groupBIOS->setVisible(false);
+         checkForce4K->setVisible(false);
+         groupZFSPool->setVisible(false);
          // Check if we are running in EFI mode
          if ( system("sysctl -n machdep.bootmethod | grep -q 'UEFI'") == 0 ) {
             radioUEFI->setChecked(true);
-	    radioMBR->setEnabled(false);
+            radioMBR->setEnabled(false);
          } else {
             radioBIOS->setChecked(true);
-	    radioMBR->setEnabled(true);
-	 }
+            radioMBR->setEnabled(true);
+         }
        }
        if (radioAdvanced->isChecked()) {
-	 groupScheme->setVisible(true);
-	 groupBIOS->setVisible(true);
-	 checkForce4K->setVisible(true);
-	 groupZFSPool->setVisible(true);
+         groupScheme->setVisible(true);
+         groupBIOS->setVisible(true);
+         checkForce4K->setVisible(true);
+         groupZFSPool->setVisible(true);
        }
-	break;
+        break;
      case Page_BasicDisk:
        pushSwapSize->setVisible(true);
 
        if (radioBasic->isChecked())
          return Page_Confirmation;
        if (comboPartition->currentIndex() != 0 ) {
-	 groupZFSOpts->setEnabled(false);
+         groupZFSOpts->setEnabled(false);
          pushSwapSize->setVisible(true);
          return Page_Mounts;
        } else {
-	 if ( radioGPT->isChecked() )
-	   groupEncrypt->setEnabled(true);
+         if ( radioGPT->isChecked() )
+           groupEncrypt->setEnabled(true);
          else
-	   groupEncrypt->setEnabled(false);
+           groupEncrypt->setEnabled(false);
          groupZFSOpts->setEnabled(true);
          return Page_ZFS;
        }
@@ -239,7 +239,7 @@ int wizardDisk::nextId() const
        return -1;
        break;
      default:
-	return currentId() + 1;
+        return currentId() + 1;
   }
   return currentId() + 1;
 }
@@ -296,115 +296,114 @@ bool wizardDisk::validatePage()
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_BasicDisk:
-	
-	 if ( ! radioAdvanced->isChecked() ) {
-	   radioGPT->setChecked(true);
-	   groupScheme->setVisible(false);
-	   groupBIOS->setVisible(false);
-	   checkForce4K->setVisible(false);
-	   checkForce4K->setChecked(false);
-	 } else {
+         if ( ! radioAdvanced->isChecked() ) {
+           radioGPT->setChecked(true);
+           groupScheme->setVisible(false);
+           groupBIOS->setVisible(false);
+           checkForce4K->setVisible(false);
+           checkForce4K->setChecked(false);
+         } else {
            if ( comboPartition->currentIndex() == 0) {
-	     groupScheme->setVisible(true);
-	     groupBIOS->setVisible(true);
-	   } else {
-	     groupScheme->setVisible(false);
-	     groupBIOS->setVisible(false);
+             groupScheme->setVisible(true);
+             groupBIOS->setVisible(true);
+           } else {
+             groupScheme->setVisible(false);
+             groupBIOS->setVisible(false);
            }
-	   checkForce4K->setVisible(true);
-	 } 
+           checkForce4K->setVisible(true);
+         } 
 
-	 // Doing a Advanced install
-	 if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )
-	 {
-	    if ( lineZpoolName->text().isEmpty() ) {
+         // Doing a Advanced install
+         if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )
+         {
+            if ( lineZpoolName->text().isEmpty() ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;
-	    }
-	    if ( lineZpoolName->text() == "root" ) {
+            }
+            if ( lineZpoolName->text() == "root" ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;
-	    }
-	    if ( lineZpoolName->text().contains(" ") ) {
+            }
+            if ( lineZpoolName->text().contains(" ") ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;
-	    }
-	    QRegExp *re = new QRegExp("^[-'a-zA-Z][a-zA-Z0-9]*$"); 
-	    if (! re->exactMatch(lineZpoolName->text()) ) {
+            }
+            QRegExp *re = new QRegExp("^[-'a-zA-Z][a-zA-Z0-9]*$"); 
+            if (! re->exactMatch(lineZpoolName->text()) ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;
-	    }
+            }
 
-	 }
+         }
 
-	 // If the select partition is just too small, we can stop here
-	 if ( ! checkDiskSpace() ) {
+         // If the select partition is just too small, we can stop here
+         if ( ! checkDiskSpace() ) {
            button(QWizard::NextButton)->setEnabled(false);
-	   return false;
-	 }
-	
+           return false;
+         }
+        
          // if we get this far, all the fields are filled in
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_ZFS:
          // Check if we have valid ZFS disk options specified
-	 if ( ! groupZFSOpts->isChecked() ) {
+         if ( ! groupZFSOpts->isChecked() ) {
            button(QWizard::NextButton)->setEnabled(true);
-	   return true;
-	 }
+           return true;
+         }
          // Need at least one other disk for mirroring
-	 if ( comboZFSMode->currentText() == "mirror" ) {
+         if ( comboZFSMode->currentText() == "mirror" ) {
             labelZFSMsg->setText(tr("Please select at least 1 other drive for mirroring"));
-	    for ( int i = 0; i < listZFSDisks->count(); ++i )
+            for ( int i = 0; i < listZFSDisks->count(); ++i )
             {
-		if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
+                if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
                    button(QWizard::NextButton)->setEnabled(true);
-	           return true;
+                   return true;
                 }
             }
          }
-	 if ( comboZFSMode->currentText() == "raidz1" ) {
+         if ( comboZFSMode->currentText() == "raidz1" ) {
             labelZFSMsg->setText(tr("Please select 2 or 4 additional drives for raidz1"));
-	    int numChecked = 0;
-	    for ( int i = 0; i < listZFSDisks->count(); ++i )
-		if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
-		   numChecked++;
+            int numChecked = 0;
+            for ( int i = 0; i < listZFSDisks->count(); ++i )
+                if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
+                   numChecked++;
             if ( numChecked == 2 || numChecked == 4 ) {
               button(QWizard::NextButton)->setEnabled(true);
-	      return true;
+              return true;
             }
          }
-	 if ( comboZFSMode->currentText() == "raidz2" ) {
+         if ( comboZFSMode->currentText() == "raidz2" ) {
             labelZFSMsg->setText(tr("Please select 3, 5, or 9 additional drives for raidz2"));
-	    int numChecked = 0;
-	    for ( int i = 0; i < listZFSDisks->count(); ++i )
-		if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
-		   numChecked++;
+            int numChecked = 0;
+            for ( int i = 0; i < listZFSDisks->count(); ++i )
+                if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
+                   numChecked++;
             if ( numChecked == 3 || numChecked == 5 || numChecked == 9 ) {
               button(QWizard::NextButton)->setEnabled(true);
-	      return true;
+              return true;
             }
          }
-	 if ( comboZFSMode->currentText() == "raidz3" ) {
+         if ( comboZFSMode->currentText() == "raidz3" ) {
             labelZFSMsg->setText(tr("Please select 4, 6, or 10 additional drives for raidz3"));
-	    int numChecked = 0;
-	    for ( int i = 0; i < listZFSDisks->count(); ++i )
-		if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
-		   numChecked++;
+            int numChecked = 0;
+            for ( int i = 0; i < listZFSDisks->count(); ++i )
+                if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
+                   numChecked++;
             if ( numChecked == 4 || numChecked == 6 || numChecked == 10 ) {
               button(QWizard::NextButton)->setEnabled(true);
-	      return true;
+              return true;
             }
          }
-	 if ( comboZFSMode->currentText() == "stripe" ) {
+         if ( comboZFSMode->currentText() == "stripe" ) {
             labelZFSMsg->setText(tr("Please select the additional disks to stripe"));
-	    int numChecked = 0;
-	    for ( int i = 0; i < listZFSDisks->count(); ++i )
-		if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
-		   numChecked++;
+            int numChecked = 0;
+            for ( int i = 0; i < listZFSDisks->count(); ++i )
+                if ( listZFSDisks->item(i)->checkState() == Qt::Checked )
+                   numChecked++;
             if ( numChecked > 1 ) {
               button(QWizard::NextButton)->setEnabled(true);
-	      return true;
+              return true;
             }
          }
 
@@ -413,65 +412,65 @@ bool wizardDisk::validatePage()
          button(QWizard::NextButton)->setEnabled(false);
          return false;
      case Page_ZFS2:
-	 // Not using log / cache?
-	 if ( !groupZFSCache->isChecked() && ! groupZFSLog->isChecked() )
-	 {
+         // Not using log / cache?
+         if ( !groupZFSCache->isChecked() && ! groupZFSLog->isChecked() )
+         {
            button(QWizard::NextButton)->setEnabled(true);
-	   return true;
-	 }
-	 // Using both? See if we have any duplicates
-	 if ( groupZFSCache->isChecked() && groupZFSLog->isChecked() )
-	 {
-	    // Check for any matches
-	    for ( int i = 0; i < listZFSCache->count(); ++i ) {
-		if ( listZFSCache->item(i)->checkState() == Qt::Checked )
-	          for ( int z = 0; z < listZFSLog->count(); ++z ) {
-		    if ( listZFSLog->item(z)->checkState() == Qt::Checked )
-		       if ( listZFSLog->item(z)->text() == listZFSCache->item(i)->text() ) {
+           return true;
+         }
+         // Using both? See if we have any duplicates
+         if ( groupZFSCache->isChecked() && groupZFSLog->isChecked() )
+         {
+            // Check for any matches
+            for ( int i = 0; i < listZFSCache->count(); ++i ) {
+                if ( listZFSCache->item(i)->checkState() == Qt::Checked )
+                  for ( int z = 0; z < listZFSLog->count(); ++z ) {
+                    if ( listZFSLog->item(z)->checkState() == Qt::Checked )
+                       if ( listZFSLog->item(z)->text() == listZFSCache->item(i)->text() ) {
                           button(QWizard::NextButton)->setEnabled(false);
-	                  return false;
-		       }
-	          }
-	    }
-	 }
+                          return false;
+                       }
+                  }
+            }
+         }
 
-	 // Check that we have at least one item checked
-	 found = false;
-	 if ( groupZFSCache->isChecked() )
-	 {
-	    for ( int i = 0; i < listZFSCache->count(); ++i )
-		if ( listZFSCache->item(i)->checkState() == Qt::Checked )
-		   found = true;
+         // Check that we have at least one item checked
+         found = false;
+         if ( groupZFSCache->isChecked() )
+         {
+            for ( int i = 0; i < listZFSCache->count(); ++i )
+                if ( listZFSCache->item(i)->checkState() == Qt::Checked )
+                   found = true;
             if ( found == false) {
               button(QWizard::NextButton)->setEnabled(false);
-	      return false;
-	    }
-	 }
-	 if ( groupZFSLog->isChecked() )
-	 {
-	    for ( int i = 0; i < listZFSLog->count(); ++i )
-		if ( listZFSLog->item(i)->checkState() == Qt::Checked )
-		   found = true;
+              return false;
+            }
+         }
+         if ( groupZFSLog->isChecked() )
+         {
+            for ( int i = 0; i < listZFSLog->count(); ++i )
+                if ( listZFSLog->item(i)->checkState() == Qt::Checked )
+                   found = true;
             if ( found == false) {
               button(QWizard::NextButton)->setEnabled(false);
-	      return false;
-	    }
-	 }
-
-         button(QWizard::NextButton)->setEnabled(true);
-	 return true;
-     case Page_Enc:
-	 if ( ! groupEncrypt->isChecked() ) {
-           button(QWizard::NextButton)->setEnabled(true);
-	   return true;
-	 }
-	 if ( lineEncPass->text().isEmpty() || lineEncPass->text() != lineEncPass2->text() ) {
-           button(QWizard::NextButton)->setEnabled(false);
-	   return false;
+              return false;
+            }
          }
 
          button(QWizard::NextButton)->setEnabled(true);
-	 return true;
+         return true;
+     case Page_Enc:
+         if ( ! groupEncrypt->isChecked() ) {
+           button(QWizard::NextButton)->setEnabled(true);
+           return true;
+         }
+         if ( lineEncPass->text().isEmpty() || lineEncPass->text() != lineEncPass2->text() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return false;
+         }
+
+         button(QWizard::NextButton)->setEnabled(true);
+         return true;
      case Page_Confirmation:
          button(QWizard::FinishButton)->setEnabled(true);
          return true;
@@ -697,7 +696,7 @@ int wizardDisk::getDiskSliceSize()
         if( ok )
           return (sysDisks.at(i).at(2).toInt(&ok) - safeBuf);
         else
-  	  return -1;
+          return -1;
       }
     }
   } else {
@@ -1244,13 +1243,13 @@ void wizardDisk::generateConfirmationText()
         if ( copyList.at(i).at(0) == workingDisk \
           && copyList.at(i).at(1) == workingSlice \
           && mounts.at(z) == "/boot" )
-		startPart="/boot";
+        startPart="/boot";
       }
     }
 
     // If no dedicated /boot partition, then lets list "/" first
     if(startPart.isEmpty())
-	startPart="/";
+        startPart="/";
 
     // Start by looking for the root partition
     for (int i=0; i < copyList.count(); ++i) {
@@ -1271,23 +1270,23 @@ void wizardDisk::generateConfirmationText()
           summaryList << tr("FileSystem:") + " " + copyList.at(i).at(3);
           summaryList << tr("Size:") + " " + copyList.at(i).at(4) + "MB ";
 
-	  if ( copyList.at(i).at(3) == "ZFS" || copyList.at(i).at(3) == "ZFS.eli" ) {
-	    QStringList zDS = copyList.at(i).at(2).split(",/");
-	    QString zTMP;
-	    for (int ds = 0; ds < zDS.size(); ++ds) {
-	      if ( zDS.at(ds) != "/" )
+    if ( copyList.at(i).at(3) == "ZFS" || copyList.at(i).at(3) == "ZFS.eli" ) {
+      QStringList zDS = copyList.at(i).at(2).split(",/");
+      QString zTMP;
+      for (int ds = 0; ds < zDS.size(); ++ds) {
+        if ( zDS.at(ds) != "/" )
                 zDS.replace(ds, "/" + zDS.at(ds));
-	      if ( zDS.at(ds).indexOf("(") != -1 ) {
-		zTMP = zDS.at(ds);
-		zTMP.replace("(", " (");
+        if ( zDS.at(ds).indexOf("(") != -1 ) {
+    zTMP = zDS.at(ds);
+    zTMP.replace("(", " (");
                 zDS.replace(ds, zTMP );
-	      }
-	    }
+        }
+      }
             summaryList << tr("ZFS Datasets:<br>") + " " + zDS.join("<br>");
-	  } else {
+    } else {
             summaryList << tr("Mount:") + " " + copyList.at(i).at(2);
-	  }
-	  if ( ! XtraTmp.isEmpty() ) {
+    }
+    if ( ! XtraTmp.isEmpty() ) {
             summaryList << tr("Options:") + " " + copyList.at(i).at(5);
           }
 
@@ -1329,11 +1328,11 @@ void wizardDisk::generateConfirmationText()
         if ( ! copyList.at(i).at(5).isEmpty() )
           XtraTmp=" (" + copyList.at(i).at(5) + ")" ;
 
-	// If we are working on the last partition, set the size to 0 to use remaining disk
-	if ( i == (count - 1) ) 
-		sliceSize = "0";
-	else
-		sliceSize=copyList.at(i).at(4);
+        // If we are working on the last partition, set the size to 0 to use remaining disk
+        if ( i == (count - 1) ) 
+                sliceSize = "0";
+        else
+                sliceSize=copyList.at(i).at(4);
 
         // Write the user summary
         summaryList << "";
@@ -1341,7 +1340,7 @@ void wizardDisk::generateConfirmationText()
         summaryList << tr("FileSystem:") + " " + copyList.at(i).at(3);
         summaryList << tr("Size:") + " " + copyList.at(i).at(4) + "MB ";
         summaryList << tr("Mount:") + " " + copyList.at(i).at(2);
-	if ( ! XtraTmp.isEmpty() ) {
+        if ( ! XtraTmp.isEmpty() ) {
           summaryList << tr("Options:") + " " + copyList.at(i).at(5);
         }
 
