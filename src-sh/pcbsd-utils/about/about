@@ -50,28 +50,29 @@ fi
 
 
 echo "General info:"
-echo "       Host:..............`hostname`"
-echo "       User:..............`whoami`"
-echo "       Uptime:............`uptime | awk '{sub(/^.* up +/,"");sub(/, *[0-9]+ users.*/,"");print}'`"
-echo "       FreeBSD kernel ver:`uname -r`"
-echo "       FreeBSD world ver:.`freebsd-version`"
+echo "       Host:...............`hostname`"
+echo "       User:...............`whoami`"
+echo "       Uptime:.............`uptime | awk '{sub(/^.* up +/,"");sub(/, *[0-9]+ users.*/,"");print}'`"
+echo "       FreeBSD kernel ver:.`uname -r`"
+echo "       FreeBSD world ver:..`freebsd-version`"
 if [ "$SYSTYPE" = "PCBSD" ]; then
-  echo "       PC-BSD ver:........`cat /usr/local/share/pcbsd/version`"
+  echo "       PC-BSD ver:.........`cat /usr/local/share/pcbsd/version`"
 else
-  echo "       TrueOS ver:........`cat /usr/local/share/pcbsd/version`"
+  echo "       TrueOS ver:.........`cat /usr/local/share/pcbsd/version`"
 fi
-echo "       Arch:..............`uname -m`"
-echo "       Kernel ident:......`uname -i`"
-echo "       CPU:...............`sysctl -n hw.model`"
-echo "       CPU cores:.........`sysctl -n kern.smp.cpus`"
+echo "       Arch:...............`uname -m`"
+echo "       Kernel ident:.......`uname -i`"
+echo "       CPU:................`sysctl -n hw.model`"
+echo "       CPU cores:..........`sysctl -n kern.smp.cpus`"
 echo "       Memory (free/avail):${FREE_MEMORY} / ${AVAIL_MEMORY} Mb"
-echo "       Package set:.......:`cat /usr/local/etc/pcbsd.conf 2>/dev/null | grep 'PACKAGE_SET: ' | sed 's|PACKAGE_SET: ||g'`"
+echo "       Package set:........`cat /usr/local/etc/pcbsd.conf 2>/dev/null | grep 'PACKAGE_SET: ' | sed 's|PACKAGE_SET: ||g'`"
 if [ "$SYSTYPE" = "PCBSD" ]; then 
 echo "       Desktop environment:`de-info | grep "DE name" | sed "s/DE name: //"`"
+echo "       X11 Driver:.........`awk '{if (sub(/^.*Loading.*modules\/drivers\//,"")) { print; } }'  < /var/log/Xorg.0.log`"
 fi
 echo ""
-echo "Network ipv4 ip: "
-ifconfig | grep "inet " |  awk '{ print $2 }'
+echo "Network IPV4 address: "
+ifconfig | grep "inet " |  awk '{ print "       "$2 }'
 ##echo " ==> Network ipv6 ip: "
 ##ifconfig | grep "inet6" |  awk '{ print $2 }'
 
