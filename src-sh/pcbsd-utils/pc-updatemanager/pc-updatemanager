@@ -864,7 +864,7 @@ update_freebsd()
   set_update_vars
 
   if [ "$doPkgUpdates" = "YES" ] ; then
-    mk_pkg_conf
+    mk_pkg_conf "stage1"
     build_pkg_list
     dl_pkgs
     run_update_pre "PKG"
@@ -878,7 +878,7 @@ update_freebsd()
 }
 
 update_freebsd_stage2() {
-  mk_pkg_conf
+  mk_pkg_conf "stage2"
 
   mk_stage_be
   mount_stage_be
@@ -935,7 +935,7 @@ update_pkgs_only()
   set_update_vars
 
   run_update_pre "PKG"
-  mk_pkg_conf
+  mk_pkg_conf "stage1"
   build_pkg_list
   dl_pkgs
 
@@ -944,7 +944,7 @@ update_pkgs_only()
 
 update_pkgs_only_stage2() {
 
-  mk_pkg_conf
+  mk_pkg_conf "stage2"
   doPkgUpdates="YES"
 
   mk_stage_be
@@ -992,7 +992,7 @@ update_world_and_pkgs()
   set_update_vars
 
   run_update_pre "SYSTEM"
-  mk_pkg_conf
+  mk_pkg_conf "stage1"
   build_pkg_list
   dl_pkgs
   prep_rc_script_fetch
@@ -1002,7 +1002,7 @@ update_world_and_pkgs()
 
 update_world_and_pkgs_stage2() {
 
-  mk_pkg_conf
+  mk_pkg_conf "stage2"
   doPkgUpdates="YES"
 
   mk_stage_be
@@ -1021,26 +1021,42 @@ update_world_and_pkgs_stage2() {
 
 mk_pkg_conf()
 {
-   PKG_FLAG=""
-   PKG_CFLAG=""
+  PKG_FLAG=""
+  PKG_CFLAG=""
 
-   if [ ! -d "$REALPKGDLCACHE" ] ; then
-     mkdir -p $REALPKGDLCACHE
-   fi
+  if [ ! -d "$REALPKGDLCACHE" ] ; then
+    mkdir -p $REALPKGDLCACHE
+  fi
 
-   # Get rid of FreeBSD.conf repo
-   if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
-      rm /etc/pkg/FreeBSD.conf
-   fi
+  # Get rid of FreeBSD.conf repo
+  if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
+     rm /etc/pkg/FreeBSD.conf
+  fi
 
-   # Set the cache directory
-   PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
-   echo "PKG_CACHEDIR: $REALPKGDLCACHE" > /tmp/.pkgUpdate.conf
+  # Set the cache directory
+  PKG_CFLAG="-C /var/db/pc-updatemanager/.pkgUpdate.conf"
+  if [ ! -d "/var/db/pc-updatemanager" ] ; then
+    mkdir -p "/var/db/pc-updatemanager"
+  fi
+  echo "PKG_CACHEDIR: $REALPKGDLCACHE" > /var/db/pc-updatemanager/.pkgUpdate.conf
+  echo "PKG_DBDIR: /var/db/pc-updatemanager/pkgdb" >> /var/db/pc-updatemanager/.pkgUpdate.conf
 
-   # If doing a major update also, add the new repos config
-   if [ -n "$NEWFREEBSDVERSION" ] ; then
-      setup_pkgng_newrepo_conf
-   fi
+  # If we are starting an upgrade, we need to "prime" the new PKG_DBDIR
+  # This is done so if the user decides to use 'pkg' after an update is staged, we don't
+  # invalidate all our package repo data
+  if [ "$1" = "stage1" ] ; then
+    rm -rf /var/db/pc-updatemanager/pkgdb
+    cp -r /var/db/pkg /var/db/pc-updatemanager/pkgdb
+    if [ $? -ne 0 ] ; then
+      echo_log "Failed copying PKG DB..."
+      exit 1
+    fi
+  fi
+
+  # If doing a major update also, add the new repos config
+  if [ -n "$NEWFREEBSDVERSION" ] ; then
+     setup_pkgng_newrepo_conf
+  fi
 }
 
 setup_pkgng_newrepo_conf() {
@@ -1349,8 +1365,9 @@ do_lite_pkgupdate_chroot()
   export PACKAGE_BUILDING
 
   # Set the cache directory
-  PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
-  echo "PKG_CACHEDIR: $REALPKGDLCACHE" > ${STAGEMNT}/tmp/.pkgUpdate.conf
+  PKG_CFLAG="-C /var/db/pc-updatemanager/.pkgUpdate.conf"
+  echo "PKG_CACHEDIR: $REALPKGDLCACHE" > ${STAGEMNT}/var/db/pc-updatemanager/.pkgUpdate.conf
+  echo "PKG_DBDIR: /var/db/pc-updatemanager/pkgdb" >> ${STAGEMNT}/var/db/pc-updatemanager/.pkgUpdate.conf
 
   echo_log "Starting pkg upgrade..."
   rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
@@ -1369,6 +1386,12 @@ do_lite_pkgupdate_chroot()
     rm ${LOGOUT}.tmp
     return 1
   fi
+
+  # Looks like the upgrade was good! Lets move back the PKG repo
+  echo "Moving updated pkg repo..."
+  rm -rf ${STAGEMNT}/var/db/pkg.preUpgrade 2>/dev/null
+  mv ${STAGEMNT}/var/db/pkg ${STAGEMNT}/var/db/pkg.preUpgrade
+  mv ${STAGEMNT}/var/db/pc-updatemanager/pkgdb ${STAGEMNT}/var/db/pkg
 
   rm ${LOGOUT}.tmp
   return 0
@@ -1392,16 +1415,20 @@ prep_pkgs_chroot()
 tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
 
 # Set the cache directory
-PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
-echo \"PKG_CACHEDIR: $REALPKGDLCACHE\" > /tmp/.pkgUpdate.conf
+PKG_CFLAG=\"-C /var/db/pc-updatemanager/.pkgUpdate.conf\"
+echo \"PKG_CACHEDIR: $REALPKGDLCACHE\" > /var/db/pc-updatemanager/.pkgUpdate.conf
+echo \"PKG_DBDIR: /var/db/pc-updatemanager/pkgdb\" >> /var/db/pc-updatemanager/.pkgUpdate.conf
 
 sleep 2
 
+echo \"Installing pkg from local cache...\"
+echo \"/usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg\"
 /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
 if [ \$? -ne 0 ] ; then
   # If we fail to install pkgng, try updating first
-  /usr/local/sbin/pkg-static \${PKG_CFLAG} update
-  /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
+  echo \"Installing pkg from file...\"
+  echo \"/usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} add -f ${REALPKGDLCACHE}/${PKGFILENAME}\"
+  /usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} add -f ${REALPKGDLCACHE}/${PKGFILENAME}
   if [ \$? -ne 0 ] ; then
     echo "FAILED INSTALLING ports-mgmt/pkg"
     exit 1
@@ -1469,6 +1496,12 @@ touch /failed-pkg-list
 mv /install-pkg-list /usr/local/log/pc-updatemanager/
 mv /removed-pkg-list /usr/local/log/pc-updatemanager/
 mv /failed-pkg-list /usr/local/log/pc-updatemanager/
+
+# Looks like the upgrade was good! Lets move back the PKG repo
+echo \"Moving updated pkg repo...\"
+rm -rf /var/db/pkg.preUpgrade 2>/dev/null
+mv /var/db/pkg /var/db/pkg.preUpgrade
+mv /var/db/pc-updatemanager/pkgdb /var/db/pkg
 
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh
