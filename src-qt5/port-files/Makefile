@@ -15,6 +15,7 @@ BUILD_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
 		${PYTHON_PKGNAMEPREFIX}sphinxcontrib-httpdomain>=0:${PORTSDIR}/textproc/py-sphinxcontrib-httpdomain \
 		${PYTHON_PKGNAMEPREFIX}sphinx_rtd_theme>=0:${PORTSDIR}/textproc/py-sphinx_rtd_theme \
 		${PYTHON_PKGNAMEPREFIX}sphinx_numfig>=r13:${PORTSDIR}/textproc/py-sphinx_numfig \
+		${PYTHON_PKGNAMEPREFIX}sphinx_wikipedia>=r13:${PORTSDIR}/textproc/py-sphinx_wikipedia \
 		${PYTHON_PKGNAMEPREFIX}alabaster>=0:${PORTSDIR}/textproc/py-alabaster \
 		tex-formats>=0:${PORTSDIR}/print/tex-formats \
 		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
