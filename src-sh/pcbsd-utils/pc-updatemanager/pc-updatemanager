@@ -866,7 +866,7 @@ update_freebsd()
   if [ "$doPkgUpdates" = "YES" ] ; then
     mk_pkg_conf "stage1"
     build_pkg_list
-    dl_pkgs
+    dl_pkgs "pkg"
     run_update_pre "PKG"
   else
     run_update_pre "SECURITY"
@@ -937,7 +937,7 @@ update_pkgs_only()
   run_update_pre "PKG"
   mk_pkg_conf "stage1"
   build_pkg_list
-  dl_pkgs
+  dl_pkgs "pkg"
 
   prep_update_shutdown "update_pkgs_only"
 }
@@ -994,7 +994,7 @@ update_world_and_pkgs()
   run_update_pre "SYSTEM"
   mk_pkg_conf "stage1"
   build_pkg_list
-  dl_pkgs
+  dl_pkgs "world"
   prep_rc_script_fetch
 
   prep_update_shutdown "update_world_and_pkgs"
@@ -1283,6 +1283,10 @@ dl_pkgs()
 
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
+
+  if [ "$1" = "pkg" ] ; then
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -F -y 2>&1 | tee -a ${PKGUPGRADELOG}
+  fi
 
   echo_log "-----------------------------------------------"
   echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
