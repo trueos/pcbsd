@@ -122,7 +122,6 @@ void dialogCheckHardware::getNetwork()
            || dev.indexOf("pflog") == 0
            || dev.indexOf("usbus") == 0
            || dev.indexOf("vboxnet") == 0
-           || dev.indexOf("wlan") == 0
            || dev.indexOf("tun") == 0)
 	  continue;
 
