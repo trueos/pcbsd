@@ -1544,13 +1544,13 @@ prep_freebsd_update_hack_local()
      mkdir -p /var/db/pc-updatefbsd
    fi
 
-   FREEBSDUPLOCAL="/tmp/.freebsd-up.sh"
+   FREEBSDUPLOCAL="/.freebsd-up-local.sh"
    echo "#!/bin/sh
-cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /tmp/.fbsdup
-chmod 755 /tmp/.fbsdup
-/tmp/.fbsdup --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
+cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /.fbsdup-local
+chmod 755 /.fbsdup-local
+/.fbsdup-local --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
 res=\$?
-rm /tmp/.fbsdup
+rm /.fbsdup-local
 exit \$res
 " >${FREEBSDUPLOCAL}
    chmod 755 ${FREEBSDUPLOCAL}
