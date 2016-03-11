@@ -355,11 +355,12 @@ new_gpart_partitions()
     else
       rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_dAdd}"
     fi
-    # This is nasty, but at the moment it works to get rid of previous installs metadata
-    echo_log "Clearing partition data..."
-    rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
-    rc_halt "sync"
-    sleep 5
+    sleep 2
+    # Use a trick from FreeBSD, create / destroy / create to remove any
+    # backup meta-data which still may exist on the disk/slice
+    gpart destroy ${_wSlice} 2>/dev/null
+    rc_halt "gpart create -s BSD ${_wSlice}"
+    rc_halt "gpart destroy ${_wSlice}"
     rc_halt "gpart create -s BSD ${_wSlice}"
     rc_halt "sync"
     _pType="mbr"
@@ -373,11 +374,11 @@ new_gpart_partitions()
     PARTLETTER="a"
     CURPART="1"
     if [ "${_pType}" = "mbr" ] ; then
-      # This is nasty, but at the moment it works to get rid of previous installs metadata
-      echo_log "Clearing partition data..."
-      rc_nohalt "dd if=/dev/zero of=${_wSlice} bs=1m"
-      rc_halt "sync"
-      sleep 5
+      # Use a trick from FreeBSD, create / destroy / create to remove any
+      # backup meta-data which still may exist on the disk/slice
+      gpart destroy ${_wSlice} 2>/dev/null
+      rc_halt "gpart create -s BSD ${_wSlice}"
+      rc_halt "gpart destroy ${_wSlice}"
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
