@@ -1321,13 +1321,6 @@ ln -s /usr/home /compat/linux/usr/home
 # KPM 3/26/2015 - Some left-over fonts cause pkg install failures? :-/
 rm -rf /usr/local/share/fonts
 
-echo \"Installing $SYSBASEORIGIN...\"
-pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
-if [ \$? -ne 0 ] ; then
-  cat /pkg-add.log
-  exit 1
-fi
-
 while read pkgLine
 do
   pkgOrigin=\"\`echo \$pkgLine | cut -d ' ' -f 1\`\"
@@ -1348,6 +1341,13 @@ do
   fi
 done < /install-pkg-list
 rm /pkg-add.log
+
+echo \"Installing $SYSBASEORIGIN...\"
+pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
+if [ \$? -ne 0 ] ; then
+  cat /pkg-add.log
+  exit 1
+fi
 
 echo \"Extracting ports overlay...\"
 /usr/local/bin/pc-extractoverlay ports
