@@ -18,7 +18,7 @@ if [ "$ACTION" != "list" -a -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
 fi
 
-if ! isZFSvalid "$DATASET"; then
+if [ "$ACTION" != "list" ] && ! isZFSvalid "$DATASET"; then
   exit_err "${DATASET} is not a valid dataset!"
 fi
 
