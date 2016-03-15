@@ -1659,6 +1659,10 @@ QStringList Installer::getDeskPkgCfg()
        pkgList << "pcbsd-appweb";
    }
 
+   // Need GRUB for 10.X
+   pkgList << "sysutils/grub2-pcbsd";
+   pkgList << "sysutils/grub2-efi";
+
    // Loop though list of pkgs, see what to install
    for ( int d=0; d < curList.count(); ++d) {
      for ( int i=0; i < selectedPkgs.count(); ++i)

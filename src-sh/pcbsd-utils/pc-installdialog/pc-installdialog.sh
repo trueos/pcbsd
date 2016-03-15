@@ -942,6 +942,9 @@ gen_pc-sysinstall_cfg()
    echo "commitDiskLabel" >> ${CFGFILE}
    echo "" >> ${CFGFILE}
 
+   # Add GRUB for 10.X
+   EXTRAPKGS="$EXTRAPKGS sysutils/grub2-pcbsd sysutils/grub2-efi"
+
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
      echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde ${EXTRAPKGS}" >> ${CFGFILE}
