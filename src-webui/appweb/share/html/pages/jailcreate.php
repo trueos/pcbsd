@@ -16,7 +16,7 @@ if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
      $jailMsg="Missing host name!";
   }  
 
-  if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $jailname)) {
+  if (preg_match('/[\'^£$%&*()}{@#~?><> ,|=_+¬-]/', $jailname)) {
      $badData=true;
      $jailMsg="Invalid jail name, no special chars allowed!";
   }
