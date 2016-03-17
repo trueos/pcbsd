@@ -34,15 +34,15 @@ If you prefer to manage software from the command line, refer to the section on 
 Configuring AppCafe®
 ---------------------
 
-AppCafe® includes the ability to remotely manage software and jails from another system or mobile device. During the installation
+AppCafe® includes the ability to remotely manage software from another system or mobile device. During the installation
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
 a web browser. On a desktop installation, AppCafe® can be run as a local application and optionally configured for remote access. To launch the
 AppCafe® application on a PC-BSD® desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type  :command:`appcafe` from a command prompt. When
-prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>` shows the initial AppCafe® screen when it is started from a desktop.
+prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>` shows the initial AppCafe® screen when it is started from a desktop.
 
-.. _remote1c:
+.. _remote1d:
 
-.. figure:: images/remote1c.png
+.. figure:: images/remote1d.png
 
 .. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
    If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
@@ -52,7 +52,7 @@ The top bar contains navigational arrows and a refresh icon. Click the icon at t
 
 * **Configure:** used to configure the package repository and remote access to AppCafe®. 
 
-* **Save Pkg List:** click this option to generate a list of the installed PBIs. A pop-up message will indicate the path to the file containing the list.
+* **Save Pkg List:** click this option to generate a list of the installed software packages. A pop-up message will indicate the path to the file containing the list.
 
 * **Search for Text:** opens a search bar where you can input the name of an application. This is useful for quickly navigating to an application listed on the current screen.
 
@@ -89,25 +89,21 @@ on the system. Click "Apply" to complete the configuration. You will be prompted
 When using AppCafe® to access a system from a public network, it is highly recommended to configure the local firewall to only allow connections over
 the specified port number and from allowed IP address(es).
 
-AppCafe® uses SSL by default and will automatically create a certificate for this purpose. Once remote access is configured, use :file:`https://` and
+AppCafe® uses SSL by default and will automatically create a certificate to use for remote access. Once remote access is configured, use :file:`https://` and
 specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The AppCafe® interface will load in
-the web browser. It will be similar to the one shown in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>`, except the top navigational buttons and configure
+the web browser. It will be similar to the one shown in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>`, except the top navigational buttons and configure
 button will not be displayed and a "Logout" option will be added to the dark grey bar. Note that AppCafe® will automatically log you out after 60
 minutes of inactivity.
 
 The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote", "port", and "ssl" options are set using
 the information you provided either during a server installation or using the screen shown in :numref:`Figure %s: Configuring Remote Access <remote3>`.
 The "mode" option is not set by default, but can be configured by removing the comment symbol (";") from that option and setting its value to either
-"desktop", "server", or "appliance". Here are the descriptions of the available modes as listed in that file::
+"desktop" or "server". Here are the descriptions of the available modes as listed in that file::
 
  ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
- ; desktop = Full access to local system packages and jails
- ; server = Full access to local system packages and jails, no Xorg packages listed
- ; appliance = Restricted mode to only allow operations on jails
+ ; desktop = Full access to local system packages
+ ; server = Full access to local system packages, no Xorg packages listed
  ; mode = desktop
-
-Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
-page offering to create a jail if no jails yet exist on the system.
 
 The rest of this section describes how to manage software using AppCafe®.
 
@@ -117,7 +113,7 @@ The rest of this section describes how to manage software using AppCafe®.
 Software Management
 -------------------
 
-The "Home" tab, seen in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>`, is used to browse for available PBIs. Applications which are already installed and which are not
+The "Home" tab, seen in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>`, is used to browse for available software. Applications which are already installed and which are not
 required by other applications have a red "X". If you click a red "X", a pop-up message will ask if you would like to uninstall that application. Applications which are not installed have a
 grey download icon. Click the icon to install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow
 "Required" triangle will be displayed and a "Related" tab will indicate the name of the application(s) which require it.
@@ -125,17 +121,17 @@ grey download icon. Click the icon to install that application. Applications whi
 The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
 
 The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
-the PBIs for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
-PBIs within that category.
+the available applications for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
+software within that category.
 
 To view all of the applications installed on the system, click the "Installed Apps" tab. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application.
 
-In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4c>`, the user has clicked "Firefox" on a system that has Firefox installed.
+In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4d>`, the user has clicked "Firefox" on a system that has Firefox installed.
 
-.. _remote4c:
+.. _remote4d:
 
-.. figure:: images/remote4c.png
+.. figure:: images/remote4d.png
 
 The information for an application includes the following: 
 
@@ -170,27 +166,27 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Plugins:** provides an installable list of associated plugins. For an example, search for "firefox" and open its "Plugins" tab.
 
-- **Options:** shows the values of the make options that the PBI or package was built with.
+- **Options:** shows the values of the make options that the package was built with.
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-The "App Search" tab is shown in :numref:`Figure %s: Searching for Applications <remote5b>`. 
+The "App Search" tab is shown in :numref:`Figure %s: Searching for Applications <remote5c>`. 
 
-.. _remote5b:
+.. _remote5c:
 
-.. figure:: images/remote5b.png
+.. figure:: images/remote5c.png
 
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
 
-By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBIs and packages" box.
+By default, only recommended packages are searched. To search for all available software, check the "Search all available software" box.
 
-If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <appcafe6>`, the firefox application was installed.
-Click the hyperlink under the "Result" column to review the installation log.
+If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <remote6a>`, the "Firefox wPulseAudio" application was
+installed. Click the hyperlink under the "Result" column to review the installation log.
 
-.. _appcafe6:
+.. _remote6a:
 
-.. figure:: images/appcafe6.png
+.. figure:: images/remote6a.png
 
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
