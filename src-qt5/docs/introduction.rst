@@ -159,8 +159,6 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The initial boot menu has changed on the :file:`PC-BSD10.3-*` boot media.
   
-* The "Boot to console (Disable X) option has been added to the graphical boot menu.
-
 * EasyPBI has been removed as it is no longer needed to add meta-data to packages.
 
 * The "Auto-play optical disks with SMPlayer" checkbox has been added to :menuselection:`Mount Tray --> More Options --> Change Settings`.
