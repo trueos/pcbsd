@@ -16,9 +16,9 @@ port = 8885
 ssl = true
 
 ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
-;   desktop = Full access to local system packages and jails
-;    server = Full access to local system packages and jails, no Xorg packages listed
-; appliance = Restricted mode to only allow operations on jails
+;   desktop = Full access to local system packages
+;    server = Full access to local system packages, no Xorg packages listed
+; appliance = Restricted mode to only allow operations
 ; mode = desktop
 
 ; Auth mode for remote logins
