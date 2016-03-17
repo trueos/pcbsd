@@ -187,11 +187,7 @@ setup_pkgng_conf() {
 
   ARCH=`uname -m`
   FBSDVER=`uname -r | cut -d '-' -f 1-2`
-  MAJORVER="`uname -r | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
-
-  # Make sure we are on a -RELEASE, otherwise use the proper uname
-  echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
-  if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
+  MAJORVER="$FBSDVER"
 
   # If using the EDGE package set, set the right path
   case $PACKAGE_SET in
@@ -1077,11 +1073,7 @@ setup_pkgng_newrepo_conf() {
 
   ARCH=`uname -m`
   FBSDVER="$NEWFREEBSDVERSION"
-  MAJORVER="`echo $FBSDVER | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
-
-  # Make sure we are on a -RELEASE or -STABLE, otherwise use the proper uname
-  echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
-  if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
+  MAJORVER="$FBSDVER"
 
   # If using the EDGE package set, set the right path
   case $PACKAGE_SET in
@@ -1578,7 +1570,7 @@ run_freebsd_update_install()
 
   # Run again to remove any shared objs
   chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
-  NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
+  NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version | cut -d '-' -f 1-2`"
 
   rm ${STAGEMNT}/${FREEBSDUP}
 }
