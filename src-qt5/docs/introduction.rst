@@ -161,6 +161,11 @@ The following features or enhancements were introduced for PC-BSD® |version|:
   
 * EasyPBI has been removed as it is no longer needed to add meta-data to packages.
 
+* The "Plugins" tab has been removed from :ref:`AppCafe®` as this functionality is being rewritten for the upcoming 11-RELEASE. In the interim, refer to
+  :ref:`Managing Jails from the CLI` if you wish to manage jails on your PC-BSD® system.
+
+* The "Search all available PBIs and packages" checkbox has been renamed to "Search all available software" in :menuselection:`AppCafe® --> App Search`.
+
 * The "Auto-play optical disks with SMPlayer" checkbox has been added to :menuselection:`Mount Tray --> More Options --> Change Settings`.
 
 .. index:: Linux

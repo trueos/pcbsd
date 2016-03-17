@@ -19,17 +19,14 @@ The rest of this chapter demonstrates how to use the built-in graphical and comm
 AppCafe®
 =========
 
-AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
-pre-built applications that have been tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
-is displayed in AppCafe®, such as screenshots and lists of similar applications. It also provides graphical jail management, which allows you to
-run applications which are isolated from the rest of the operating system.
+AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are pre-built applications that have been
+tested for FreeBSD. It provides extra meta-data for these packages such as screenshots and lists of similar applications. 
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
 able to manage software. 
 
-If you prefer to manage software from the command line, refer to the section on :ref:`Using the CLI pkg Utilities` . Refer to :ref:`Managing Jails from the CLI` for instructions
-on how to manage jails from the command line.
+If you prefer to manage software from the command line, refer to the section on :ref:`Using the CLI pkg Utilities`.
 
 .. index:: software
 .. _Configuring AppCafe®:
@@ -195,88 +192,35 @@ Click the hyperlink under the "Result" column to review the installation log.
 
 .. figure:: images/appcafe6.png
 
-.. index:: AppCafe®
-.. _Jail Management:
+.. index:: pkg
+.. _Using the CLI pkg Utilities:
 
-Plugins
--------
+Using the CLI pkg Utilities
+===========================
 
-Plugins can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
+PC-BSD® uses :command:`pkg` to manage packages from the command line.
+
+The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 4.4.1 is not
+needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
+Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
+know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
+:command:`pkg install`, type :command:`pkg help install`.
+
+.. index:: AppCafe®, jails, iocage
+.. _Managing Jails from the CLI:
+
+Managing Jails from the CLI
+===========================
+
+In PC-BSD®, `iocage <https://github.com/iocage/iocage>`_ can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
 light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
 with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
 installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
 running on the PC-BSD® system.
 
-Plugins use `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
-designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration file. 
-
-To create, delete, and manage plugins within AppCafe®, click the "Plugins" tab. This will change the entries in the top blue menu bar to the following:
-
-* **Home:** used to return to the Plugins home page.
-
-* **Installed Plugins:** lists the available plugins. The "download" and red "x" icons indicate which plugins are already installed.
-
-* **Configuration:** used to configure the range of IP addresses available for use by plugins.
-
-* **System Apps:** used to return to the main AppCafe® page so that you can manage packages and PBIs.
-
-* **Status:** this tab appears if you have installed or uninstalled any software and contains the logs for each action.
-
-The first time you use plugins, the "Configuration" tab shown in :numref:`Figure %s: Initial Plugins Configuration <remote6c>` will prompt you to configure the range of IP addresses on your
-network that you will reserve for plugins.
-
-.. _remote6c:
-
-.. figure:: images/remote6c.png
-
-In this example, AppCafe® has detected that the PC-BSD® system is on the *192.168.1.x* network and the user has input a range of available addresses from
-*192.168.1.5* to
-*192.168.1.10* and the subnet mask to use. When inputting your own address range and mask, make sure that no other hosts on your network are, or will be, using those reserved addresses. If
-you have control over the DHCP server in your network, make a reservation for those addresses so that the DHCP server does not assign them to other hosts on your network.
-
-In this example, AppCafe® has also detected that the name of the ZFS pool is *tank*. If you have multiple ZFS pools and would like to specify which one is used for plugins, use the
-"Plugin zpool" drop-down menu to select the desired pool.
-
-When finished, click "Save". This will open the "Installed Plugins" tab, showing the listing of available plugins. In the example shown in
-:numref:`Figure %s: List of Available Plugins <remote7a>`, the `Plex Media Server <https://plex.tv/>`_ plugin is available for installation.
-
-.. _remote7a:
-
-.. figure:: images/remote7a.png
-
-.. note:: at this time, only the Plex Media Server is available as a plugin. More plugins will be added in future updates to PC-BSD®. If you would like to install other, isolated
-   applications, refer to the section on :ref:`Managing Jails from the CLI`.
-
-Click the plugin's install icon to begin the installation. Installation will take a few minutes as a new jail will be created, the jail will be assigned the next available reserved IP
-address, and the application will be installed into the jail. Once installed, a screen similar to :numref:`Figure %s: Plugin is Installed <plugin1>` will indicate that the plugin is
-installed.
-
-.. _plugin1:
-
-.. figure:: images/plugin1.png
-
-The title bar will indicate the name of the application that was installed and the IP address assigned to the jail where the application was installed. To configure the application,
-click the hyperlink for the "Plex Web Interface" configuration icon. This will open the configuration screen shown in :numref:`Figure %s: Plugin Configuration <plugin2>`.
-
-.. _plugin2:
-
-.. figure:: images/plugin2.png
-
-.. note:: depending upon the window manager's default web browser, the configuration link may or may not display properly. For example, the default web browser for the KDE window manager is
-   Konqueror, which does not render the configuration page. To change the default web browser within KDE, click
-   :menuselection:`Kickoff --> System Settings --> Default Applications -->Web Browser --> in the following browser` and use the browse button to select another web browser, such as Firefox.
-
-Click the "Agree" button to accept the application's license. You can now configure your channels and playlists. If you are new to Plex, refer to the
-`Plex Getting Started Guide <https://support.plex.tv/hc/en-us/categories/200007268-Getting-Started>`_.
-
-.. index:: AppCafe®
-.. _Managing Jails from the CLI:
-
-Managing Jails from the CLI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Beginning with PC-BSD® 10.2, :command:`iocage` has been added for jail management and this utility will replace the :command:`warden` utility in a future version of PC-BSD®. Note that
-:command:`warden` is still available in this version of PC-BSD® to provide time for users to transition to using  :command:`iocage`. Documentation for using the command line version of
+:command:`iocage` was specifically designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration
+file. Beginning with PC-BSD® 10.2, :command:`iocage` has been added for jail management and this utility will replace the :command:`warden` utility in a future version of PC-BSD®. Note that
+:command:`warden` is still available in PC-BSD® to provide time for users to transition to using  :command:`iocage`. Documentation for using the command line version of
 :command:`warden` can be found in
 `this section of the 10.1.2 User Guide <http://download.pcbsd.org/iso/10.1-RELEASE/amd64/docs/html/controlpanel.html#using-the-command-line-version-of-warden>`_.
 
@@ -418,20 +362,6 @@ To access the jail::
  root@b00945a3-d028-11e5-8dc9-68f72865c4fc:~ # 
 
 Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`. To leave the jail, type :command:`exit`.
-
-.. index:: pkg
-.. _Using the CLI pkg Utilities:
-
-Using the CLI pkg Utilities
-===========================
-
-PC-BSD® uses :command:`pkg` to manage packages from the command line.
-
-The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 4.4.1 is not
-needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
-Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
-know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
-:command:`pkg install`, type :command:`pkg help install`.
 
 .. index:: updates
 .. _Update Manager:
