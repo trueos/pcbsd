@@ -17,7 +17,7 @@ A screenshot of Control Panel started from the KDE desktop can be seen in :numre
 .. figure:: images/control1a.png
 
 The available utilities are divided into sections. If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has
-down arrow) its icons. In this example, the display for the "Desktop environment" section is hidden.
+down arrow) its icons.
 
 The search box in the upper right can be used to find the proper control panel item if you know what you would like to configure but are uncertain which
 utility to use. The icon next to the search box can be used to change the size of the icons, change the view from a grid to a list, and organize the icons
@@ -111,23 +111,28 @@ Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figur
 
 .. figure:: images/about1a.png
 
-The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
-hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
-memory.
+The displayed information includes the version of PC-BSD®, whether the system is using the PRODUCTION, EDGE, or ENTERPRISE package set, the hostname of the system, the underlying version of
+FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed memory.
 
-If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
-seen in the example shown in :numref:`Figure %s: System Components Screen <about2a>`. 
+If you click the "Software and system components" button, the screen shown in :numref:`Figure %s: System Components Screen <about2a>` will be displayed. 
 
 .. _about2a:
 
 .. figure:: images/about2a.png
 
-If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
-in :numref:`Figure %s: Desktop Environments Screen <about3a>`.
+Click the arrow next to an entry to display or hide its its details. The following information is available:
 
-.. _about3a:
+* **PCBSD components:** the version number for the PC-BSD® CLI and GUI utilities.
 
-.. figure:: images/about3a.png
+* **Video stack:** the Xorg version number, the type and version of the loaded video driver, and the version of the loaded VirtualBox driver.
+
+* **Toolkits:** the version numbers for the installed graphical toolkits.
+
+* **Desktops:** the version numbers of each installed desktop environment.
+
+* **Office:** if an office suite is installed, its version number.
+
+* **Scripting languages:** the version numbers of any installed scripting languages, such as Perl or Python.
 
 .. index:: configuration
 .. _Active Directory & LDAP:
