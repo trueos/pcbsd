@@ -13,12 +13,46 @@ This section describes the boot process, the post-installation configuration scr
 Booting Into PC-BSD®
 =====================
 
-After installation, PC-BSD® will reboot and you will be prompted to configure your system and to login to a desktop.
+After installation, PC-BSD® will reboot and display the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1a>`.
 
-Once the first boot is complete, the installer will attempt to set the optimal display settings. A pop-up menu will ask if you would like to accept these
-settings. Simply click "Yes" to continue. PC-BSD® will then proceed to the :ref:`Language Screen`. 
+.. _boot1a:
 
-Read through the rest of this section if you have encrypted your disk(s), your system hangs at boot time, or if you have problems setting the display
+.. figure:: images/boot1a.png
+
+This boot menu is used to display the entry for PC-BSD®, any boot environments (which are automatically created when the system updates and can also be manually created using
+:ref:`Boot Manager`), and any other operating systems installed on the system.
+
+By default, this menu will display for a few seconds before continuing to boot into PC-BSD®. To pause this screen so that you can review its items, press any key (other than :kbd:`Enter`).
+To boot into a different operating system or boot environment, use your up and down arrows to select the desired entry then press :kbd:`Enter`.
+
+If you press :kbd:`Enter` when the "PC-BSD" entry is highlighted, the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2>` will be displayed. 
+
+.. _boot2:
+
+.. figure:: images/boot2.png
+
+The following boot options are available: 
+
+* **Normal Bootup:** continues to boot PC-BSD®. 
+
+* **Single User Mode:** advanced users can select this option to fix critical system failures.
+
+* **Verbose Mode:** select this option if you would like to see more detailed messages during the boot process. This can be useful if you are troubleshooting
+  a piece of hardware.
+
+* **Run the Display Wizard:** if you are unable to access the GUI due to a display setting, enable this option to boot into the display settings wizard.
+
+* **Run X in vesa mode:** try this option if the screen goes black or the system freezes when booting into PC-BSD®. 
+
+Use the arrow keys to select an option then press enter to boot using that option.
+
+This menu is provided by GRUB. If you are familiar with editing GRUB, you can press :kbd:`e` to access the GRUB editor or :kbd:`c` to access the GRUB command
+line.
+
+The first time the boot completes, the post-installer configuration script will attempt to set the optimal display settings. A pop-up menu will ask if you would like to accept these
+settings. If you click "Yes", PC-BSD® will then proceed to the :ref:`Language Screen` so that you can perform the initial configuration of the system. 
+
+Read through the rest of this section if you have encrypted your disk(s) or if you have problems setting the display
 settings. If you are dual booting and your other operating system was not automatically added to the graphical boot menu by the installer, refer to
 :ref:`Dual Booting`.
 
@@ -35,53 +69,8 @@ starts to boot, it will display a message similar to the one shown in :numref:`F
 
 .. figure:: images/encrypt1.png
 
-The boot process will wait for you to successfully input the password that you created in the installation screen shown in Figure 3.3g. If the correct
-password is typed in, the system will continue to boot.
-
-.. index:: boot
-.. _Interrupting the Boot to Access the Boot Menu:
-
-Interrupting the Boot to Access the Boot Menu
----------------------------------------------
-
-By default, the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1>`  is not displayed at first boot.
-
-.. _boot1:
-
-.. figure:: images/boot1.png
-
-The boot menu is used to display the installation of PC-BSD®, any boot environments, and other operating systems installed on a dual-boot system.
-
-To access this menu, you have to be quick. As soon as the boot process starts and you see a "GRUB loading" message in the upper left corner, press the left
-:kbd:`Shift` button. After the system boots, you can increase the timer value in :ref:`Boot Manager` if you find that the boot delay is too quick.
-
-Once you access the graphical menu, it will pause for a few seconds then continue to boot PC-BSD®. If you wish to select a different operating system or
-specify how PC-BSD® boots, press a key to pause this screen. If multiple operating systems are available and you want to boot into PC-BSD®, make sure it is
-highlighted and press enter. This will load the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2a>`. 
-
-.. _boot2a:
-
-.. figure:: images/boot2a.png
-
-The following boot options are available: 
-
-* **Normal Bootup:** continues to boot PC-BSD®. 
-
-* **Single User Mode:** advanced users can select this option to fix critical system failures.
-
-* **Verbose Mode:** select this option if you would like to see more detailed messages during the boot process. This can be useful if you are troubleshooting
-  a piece of hardware.
-
-* **Run the Display Wizard:** if you are unable to access the GUI due to a display setting, enable this option to boot into the display settings wizard.
-
-* **Run X in vesa mode:** try this option if the screen goes black or the system freezes when booting into PC-BSD®. 
-
-* **Boot to console (Disable X):** boots the system to a command prompt. This is useful if you want to manually configure and test the X configuration file.
-
-Use the arrow keys to select an option then press enter to boot using that option.
-
-This menu is provided by GRUB. If you are familiar with editing GRUB, you can press :kbd:`e` to access the GRUB editor or :kbd:`c` to access the GRUB command
-line.
+The boot process will wait for you to successfully input the password that you created in the installation screen shown in :numref:`Figure %s: Configure Encryption <install11a>`. If the
+correct password is typed in, the system will continue to boot.
 
 .. index:: video
 .. _If Your Display is Not Automatically Detected:

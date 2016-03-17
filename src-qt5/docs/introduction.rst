@@ -157,14 +157,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * Based on FreeBSD 10.3 which adds these `features <https://www.freebsd.org/releases/10.3R/relnotes.html>`_.
 
-* The initial boot and installation menus have changed on the :file:`PC-BSD10.3-*` boot media.
-
-* The option to use the SCFB display driver has been added to the installation menu. This driver is suitable for newer UEFI laptops as it automatically detects native resolution and is a
-  good solution for newer Intel drivers, such as Broadwell, that have not been ported yet to FreeBSD. Before selecting this driver, check the BIOS and make sure the CSM module is disabled.
-  This driver does not support a dual-head configuration, such as an external port for presentations, or suspend and resume.
-
-* The "Boot to console (Disable X) option has been added to the graphical boot menu.
-
+* The initial boot menu has changed on the :file:`PC-BSD10.3-*` boot media.
+  
 * EasyPBI has been removed as it is no longer needed to add meta-data to packages.
 
 * The "Auto-play optical disks with SMPlayer" checkbox has been added to :menuselection:`Mount Tray --> More Options --> Change Settings`.

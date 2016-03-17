@@ -12,29 +12,6 @@ To begin the PC-BSD® installation, insert the prepared boot media and boot the 
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
-The "PC-BSD Installation Menu", shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`, offers the following options:
-
-* **xorg:** starts a graphical installer that will auto-detect the driver required by the video hardware.
-
-* **vesa:** starts the graphical installer with the VESA driver loaded. Select this option if the "xorg" option hangs when loading the graphics driver.
-
-* **scfb:** starts the graphical installer with the SCFB driver loaded. Select this option if a UEFI system hangs when loading the graphics driver as it provides a
-  nicer display than the "vesa" driver. Before selecting this option, double-check that CSM has been disabled in the BIOS.
-  
-* **install:** starts the text-based installer as described in :ref:`Using the Text Installer`.
-
-* **utility:** starts the system utilities as described in :ref:`Using the System Utilities Menu`.
-
-* **reboot:** exits the installer and reboots the system.
-
-Unless you select
-otherwise, the graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
-If , try selecting the VESA mode option of the graphical installer.
-
-.. _install1b:
-
-.. figure:: images/install1b.png
-
 The rest of this chapter describes the screens of the graphical installer.
 
 .. index:: installation
@@ -211,11 +188,11 @@ click "Save Config to USB".
 Basic Mode 
 -----------
 
-If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7a>`. 
+If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7>`. 
 
-.. _install7a:
+.. _install7:
 
-.. figure:: images/install7a.png
+.. figure:: images/install7.png
 
 By default, the first hard disk will be selected. If you wish to install on a different disk, use the "Selected Disk" drop-down menu to select the disk to
 install into.
