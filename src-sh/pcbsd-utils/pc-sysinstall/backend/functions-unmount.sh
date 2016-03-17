@@ -258,8 +258,8 @@ setup_grub()
   # Check if we need to install in EFI mode
   EFIMODE="FALSE"
   FORMATEFI="FALSE"
-  BOOTMODE=`kenv grub.platform`
-  if [ "$BOOTMODE" = "efi" ]; then
+  BOOTMODE=`sysctl -n machdep.bootmethod`
+  if [ "$BOOTMODE" = "UEFI" ]; then
     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
     EFIMODE="TRUE"
     if [ -e "${TMPDIR}/.grub-full-gpt" -o -e "${TMPDIR}/.grub-full-mbr" ] ; then

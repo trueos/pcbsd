@@ -691,8 +691,8 @@ init_gpt_full_disk()
   if [ "${_intBOOT}" = "GRUB" ] ; then
     touch ${TMPDIR}/.grub-full-gpt
     # Check the boot mode we are using {pc|efi}
-    BOOTMODE=`kenv grub.platform`
-    if [ "$BOOTMODE" = "efi" ]; then
+    BOOTMODE=`sysctl -n machdep.bootmethod`
+    if [ "$BOOTMODE" = "UEFI" ]; then
       # Need to enable EFI booting, lets create the stupid FAT partition
       rc_halt "gpart add -s 100M -t efi ${_intDISK}"
       # Doing a GRUB stamp? Lets save it for post-install
