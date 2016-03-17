@@ -168,22 +168,23 @@ These instructions are for a PC-BSD® system::
  sudo pkg install pcbsd-toolchain
  rehash
  git clone git://github.com/pcbsd/pcbsd.git
- cd pcbsd/src-qt5/doc 
+ cd pcbsd/src-qt5/docs
  sudo make i18n
  Password:
  sudo make html
  ls _build
- doctrees                html-es                 html-tr  		locale-po               
- html                    html-fr                 html-uk		pcbsd-handbook-i18n.txz
- html-de                 html-pt_BR              locale
+ doctrees                html-es                 html-tr  		pcbsd-handbook-i18n.txz               
+ html                    html-fr                 html-uk
+ html-da		 html-id		 locale
+ html-de                 html-pt_BR        	 locale-po     
 
  
-This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
-Brazilian Portuguese, Turkish, and UK English. To update the HTML at a later time::
+This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), Danish, German, Spanish, French,
+Indonesian, Brazilian Portuguese, Turkish, and UK English. To update the HTML at a later time::
 
  cd ~/pcbsd
  git pull
- cd src-qt5/doc 
+ cd src-qt5/docs 
  sudo make i18n
  sudo make html
 
