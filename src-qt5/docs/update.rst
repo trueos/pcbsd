@@ -240,17 +240,18 @@ If you type :command:`iocage` at the command line, you will receive a summary of
   iocage [-v] export UUID|TAG
   iocage [-v] fetch [-P|-p|--ports] [release=RELEASE | ftphost=ftp.hostname.org |
                     ftpdir=/dir/ | ftpfiles="base.txz doc.txz lib32.txz src.txz"]
-                    [ ftplocaldir=/dir/ ]
+                    [ ftplocaldir=/dir/ ] [ compression=ALGO ]
   iocage [-v] get [-r] property|all UUID|TAG
   iocage [-v] help
   iocage [-v] import UUID [property=value]
   iocage [-v] init-host IP ZPOOL
   iocage [-v] inuse UUID|TAG
+  iocage [-v] pkg TAG pkg_cmd
   iocage [-v] limits [UUID|TAG]
-  iocage [-v] list [-t|-r]
+  iocage [-v] list [-t|-r|-s jd|uuid|boot|state|tag|type|ip4]
   iocage [-v] promote UUID|TAG
   iocage [-v] rcboot
-  iocage [-v] reboot UUID|TAG
+  iocage [-v] reboot|restart [-s] UUID|TAG
   iocage [-v] rcshutdown
   iocage [-v] reset UUID|TAG|ALL
   iocage [-v] restart UUID|TAG
@@ -259,28 +260,35 @@ If you type :command:`iocage` at the command line, you will receive a summary of
   iocage [-v] send [-c|-i|-I|-h|-u|-m] POOL
   iocage [-v] set property=value [property=value] UUID|TAG
   iocage [-v] snaplist UUID|TAG
+  iocage [-v] snapmount UUID|TAG@snapshotname DESTINATION
   iocage [-v] snapremove UUID|TAG@snapshotname|ALL
   iocage [-v] snapshot|snap [-f|-r] UUID|TAG [UUID|TAG@snapshotname]
+  iocage [-v] snapumount UUID|TAG@snapshotname
   iocage [-v] start [-f] UUID|TAG
   iocage [-v] stop UUID|TAG|ALL
   iocage [-v] uncap UUID|TAG
-  iocage [-v] update UUID|TAG
+  iocage [-v] update [-p|-P] UUID|TAG|RELEASE
   iocage [-v] upgrade UUID|TAG [release=RELEASE]
   iocage [-v] version | --version
 
-  Hint:  you can use shortened UUIDs or TAGs interchangeably!
-
-  e.g. for  adae47cb-01a8-11e4-aa78-3c970ea3222f
-       use  adae47cb or just adae
-
-Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available and to install the selection, run this command. By default, the
-currently installed version will be selected as seen in this example::
+Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available and to install the selection, run :command:`iocage fetch`. By
+default, the currently installed version will be selected as seen in this example::
 
  sudo iocage fetch
  Password:
+ Setting up zpool [tank] for iocage usage...
+ If you wish to change zpool, use 'iocage activate'
+   INFO: creating tank/iocage
+   INFO: creating tank/icoage/.defaults
+   INFO: creating tank/iocage/download
+   INFO: creating tank/iocage/jails
+   INFO: creating tank/iocage/releases
+   INFO: creating tank/iocage/templates
  Supported releases are: 
+   11.0-CURRENT
+   10.3-RELEASE
    10.2-RELEASE
-    9.3-RELEASE
+   9.3-RELEASE
  Please select a release [10.3-RELEASE]:
  base.txz                                      100% of   63 MB 1908 kBps 00m34s
  doc.txz                                       100% of 1395 kB 1301 kBps 00m01s
@@ -303,12 +311,11 @@ currently installed version will be selected as seen in this example::
  Fetching 988 files... done.
  <snip output>
  Installing updates... done.
- Creating basejail ZFS datasets... please wait.
 
 In this example, the user has specified to install the 10.3-RELEASE template. Once the template has been installed, you can create
 a jail. In this example, the template to use, the jail's hostname, network interface, and IP address are specified::
 
- sudo iocage create release=10.1-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
+ sudo iocage create release=10.3-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
  Password:
   Successfully created: b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
  
@@ -327,8 +334,8 @@ To start the jail and check its status::
   + Starting services        OK
 
  iocage list
- JID   UUID                                  BOOT  STATE  TAG   TYPE
- 1     b00945a3-d028-11e5-8dc9-68f72865c4fc  off   up     jail1 basejail
+ JID   UUID                                  BOOT  STATE  TAG   TYPE	   IP4
+ 1     b00945a3-d028-11e5-8dc9-68f72865c4fc  off   up     jail1 basejail    -
 
 To access the jail::
 
