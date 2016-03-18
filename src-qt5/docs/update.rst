@@ -442,8 +442,8 @@ This menu contains the following options:
 How PC-BSD® Updating Works
 ---------------------------
 
-The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. Beginning with
-version 10.1.1, the following steps occur automatically during an update: 
+The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. The following steps occur automatically during
+an update: 
 
 * The update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
   background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
@@ -497,7 +497,7 @@ The "View" menu of Update Manager provides the following information:
 
 * **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
   against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown in
-  :numref:`Figure %s: Viewing Operating System Patches <update15a>`, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA).
+  :numref:`Figure %s: Viewing Operating System Patches <update15a>`, the system is running "10.2-RELEASE-p15, or patch level 15. Most patch levels have an associated Security Advisory (SA).
   More information about each advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
 
 .. _update14:
@@ -511,7 +511,7 @@ The "View" menu of Update Manager provides the following information:
 The "System" menu of Update Manager provides one option:
 
 * **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in
-  :numref:`Figure %s: Switching Branches <branch1a>`, this system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
+  :numref:`Figure %s: Switching Branches <branch1a>`, this system is currently running the 10.2 branch and the upcoming 11.0 branch is available for selection.
 
 .. _branch1a:
 
