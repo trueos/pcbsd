@@ -414,7 +414,7 @@ PC-BSD® requires that its version of GRUB be installed as the primary boot-load
 **Using another boot-loader will break this critical functionality, and is strongly discouraged.**
 
 The GRUB boot-loader is capable of dual-booting most other systems, including Windows and Linux. In order to dual-boot PC-BSD® with other operating systems,
-you can add entries to the :file:`/usr/local/etc/grub.d/40_custom` file, which will be preserved across upgrades. For more information on the syntax used,
+you can add entries to the :file:`/usr/local/etc/grub.d/40_custom.dist` file, which will be preserved across upgrades. For more information on the syntax used,
 refer to the `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_. 
 
 PC-BSD® will attempt to identify other installed operating systems to add to the GRUB menu automatically. If you have an operating system which is not
