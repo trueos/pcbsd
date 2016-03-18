@@ -39,9 +39,9 @@ check_security()
      sleep $waittime
      # We have a minor update! Lets start it now
      if [ "$1" = "pkgs" ] ; then
-       nice pc-updatemanager fbsdupdate >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
-     else
        nice pc-updatemanager fbsdupdatepkgs >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
+     else
+       nice pc-updatemanager fbsdupdate >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
      fi
      exit 0
   fi
