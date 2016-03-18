@@ -1401,19 +1401,23 @@ prep_pkgs_chroot()
   PACKAGE_BUILDING="YES"
   export PACKAGE_BUILDING
 
-  # First, clean the BE old pkgs
-  echo_log "Preparing the new boot-environment... (This may take a while)"
-  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
-  rc_halt_cleanup "chroot ${STAGEMNT} pkg delete -ay" 2>&1 | tee -a ${LOGOUT}
-
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
-tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
 
 # Set the cache directory
 PKG_CFLAG=\"-C /var/db/pc-updatemanager/.pkgUpdate.conf\"
 echo \"PKG_CACHEDIR: $REALPKGDLCACHE\" > /var/db/pc-updatemanager/.pkgUpdate.conf
 echo \"PKG_DBDIR: /var/db/pc-updatemanager/pkgdb\" >> /var/db/pc-updatemanager/.pkgUpdate.conf
+
+# Cleanup the old pkgs
+echo \"Removing old packages... Please wait...\"
+pkg \${PKG_CFLAG} ${PKG_FLAG} unlock -ay
+pkg \${PKG_CFLAG} ${PKG_FLAG} delete -ay
+if [ \$? -ne 0 ] ; then
+  echo \"WARNING: Failed removing old packages...\"
+fi
+
+tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
 
 sleep 2
 
