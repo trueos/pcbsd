@@ -88,11 +88,11 @@ install a command-line only server.
 
 By default, PC-BSD® will be selected and the default window manager will depend upon the amount of RAM on the system. Systems containing more than 2GB of RAM
 will default to the KDE desktop and all other systems will default to the LXDE desktop. To change the default window manager or to browse for additional
-desktops and components to install, click the "Customize" button to open the screen shown in :numref:`Figure %s: Browsing Additional System Components <install4>`. 
+desktops and components to install, click the "Customize" button to open the screen shown in :numref:`Figure %s: Browsing Additional System Components <install4a>`. 
 
-.. _install4: 
+.. _install4a: 
 
-.. figure:: images/install4.png
+.. figure:: images/install4a.png
 
 Check the ► next to a component in order to expand it so that you can check or uncheck its sub-components. All components that are checked will be
 installed. If you highlight then right-click a component and select "View Packages", a pop-up menu will list the name of the packages that are installed with
@@ -111,8 +111,6 @@ The following components are available for installation.
 
 * **Drivers:** if you have an NVIDIA video card, the correct driver should already be checked for you.
 
-* **Editors:** check the box to install `LibreOffice <http://www.libreoffice.org/>`_. 
-
 * **Emulators:** check the box to install `VirtualBox <https://www.virtualbox.org/>`_. 
 
 * **i18n:** if you expand the ► you can select to install localization for for the KDE desktop and for the operating system.
@@ -130,8 +128,8 @@ The following components are available for installation.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
-* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "Internet", "Media", and
-  "Office and Productivity". Right-click a role and select "View Packages" to view which software is installed with that role.
+* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "Internet", and "Media".
+  Right-click a role and select "View Packages" to view which software is installed with that role.
 
 * **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
 

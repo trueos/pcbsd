@@ -158,6 +158,9 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 * Based on FreeBSD 10.3 which adds these `features <https://www.freebsd.org/releases/10.3R/relnotes.html>`_.
 
 * The initial boot menu has changed on the :file:`PC-BSD10.3-*` boot media.
+
+* The LibreOffice and Office role packages have been removed from installation media in order to reduce their download size. These can be installed post-installation using
+  :ref:`AppCafe®`.
   
 * EasyPBI has been removed as it is no longer needed to add meta-data to packages.
 
