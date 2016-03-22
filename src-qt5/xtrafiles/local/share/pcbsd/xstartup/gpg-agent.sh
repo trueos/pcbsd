@@ -13,7 +13,7 @@ if [ $UID -gt 1000 ]; then
     gpg_options=
     [ -d "${HOME}/.ssh" ] && gpg_options=--enable-ssh-support
     if [ -x "${GPG_AGENT}" ] && [ -z $(pgrep -u "${UID}" gpg-agent) ]; then
-      $GPG_AGENT --daemon ${gpg_options} --log-file "${HOME}/.gnupg/gpg-agent.log" > "${HOME}/.gpg-agent-info"
+      $GPG_AGENT -s --daemon ${gpg_options} --log-file "${HOME}/.gnupg/gpg-agent.log" > "${HOME}/.gpg-agent-info"
       . "${HOME}/.gpg-agent-info"
     elif [ ! -z $(pgrep -u $UID gpg-agent) ] && [ -f "${HOME}/.gpg-agent-info" ]; then
       . "${HOME}/.gpg-agent-info"

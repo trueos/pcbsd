@@ -170,7 +170,7 @@ void DeviceWidget::doUpdate(){
       }
     }else if(canmount){
       //This is some kind of optical disk that can also be mounted (Blueray/DVD, or data disk for instance)
-      if(type()!="CD-DATA"){ runButtonClicked(); } //not a pure data disk - go ahead and prompt to run it
+      if(type()!="CD-DATA" && autoplay){ runButtonClicked(); } //not a pure data disk - go ahead and prompt to run it
     }else if(autoplay){
       //Always try to "play" a non-mountable device when it is first connected (AUDIO/VIDEO CD usually)
       runButtonClicked();
