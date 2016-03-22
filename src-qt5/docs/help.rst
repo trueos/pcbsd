@@ -200,7 +200,7 @@ to network with each other. Anyone is welcome to join.
 
 * `PC-BSD® on Twitter <https://twitter.com/PCBSD/>`_
 
-* `PC-BSD® Facebook Grop <https://www.facebook.com/groups/4210443834/>`_
+* `PC-BSD® Facebook Group <https://www.facebook.com/groups/4210443834/>`_
 
 * `PC-BSD® Google+ page <https://plus.google.com/u/0/b/118078374333558564924/>`_
 
