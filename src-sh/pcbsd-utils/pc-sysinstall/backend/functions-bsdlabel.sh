@@ -570,7 +570,11 @@ new_gpart_partitions()
       else
         sleep 2
 	# MBR type
-        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	if [ "$PARTLETTER" = "a" ] ; then
+          aCmd="gpart add -b 16 ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	else
+          aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	fi
       fi
 
       # Run the gpart add command now
@@ -599,7 +603,7 @@ new_gpart_partitions()
       fi
 
       # Check if this is a root / boot partition, and stamp the right loader
-      for TESTMNT in `echo ${MNT} | sed 's|,| |g'`
+      for TESTMNT in `echo ${MNT} | sed 's|,| |g' | cut -d '(' -f 1`
       do
         if [ "${TESTMNT}" = "/" -a -z "${BOOTTYPE}" ] ; then
            BOOTTYPE="${PARTYPE}" 
@@ -674,10 +678,10 @@ new_gpart_partitions()
     then
 
       # If this is the boot disk, stamp the right gptboot
-      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" ] ; then
+      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" -a -z "$EFI_POST_SETUP" ] ; then
         case ${BOOTTYPE} in
-          freebsd-ufs) rc_halt "gpart bootcode -p /boot/gptboot -i 1 ${_pDisk}" ;;
-          freebsd-zfs) rc_halt "gpart bootcode -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
+          freebsd-ufs) rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ${_pDisk}" ;;
+          freebsd-zfs) rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
         esac 
       fi
 

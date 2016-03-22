@@ -49,7 +49,7 @@ zfs_cleanup_unmount()
           # Creating a dedicated "/boot" partition
           cat ${FSMNT}/boot/loader.conf 2>/dev/null | grep -q "vfs.root.mountfrom=" 2>/dev/null
           if [ $? -ne 0 ] ; then
-            echo "vfs.root.mountfrom=\"zfs:${ZPOOLNAME}/ROOT/default\"" >> ${FSMNT}/boot/loader.conf
+            echo "vfs.root.mountfrom=\"zfs:${ZPOOLNAME}/ROOT/${BENAME}\"" >> ${FSMNT}/boot/loader.conf
           fi
           export FOUNDZFSROOT="${ZPOOLNAME}"
         fi
@@ -112,7 +112,7 @@ zfs_cleanup_unmount()
         mount | grep -q "${FSMNT}${ZMNT}"
 	if [ $? -eq 0 ] ; then
           echo_log "ZFS Unmount: ${ZPOOLNAME}${ZMNT}"
-          sleep 5
+          sleep 2
           rc_halt "zfs unmount ${ZPOOLNAME}${ZMNT}"
           rc_halt "zfs set mountpoint=${ZMNT} ${ZPOOLNAME}${ZMNT}"
         fi
@@ -205,7 +205,7 @@ setup_fstab()
       if [ "${PARTFS}" = "ZFS" ] ; then
         ROOTFSTYPE="zfs"
         ZPOOLNAME=$(get_zpool_name "${PARTDEV}")
-        ROOTFS="${ZPOOLNAME}/ROOT/default"
+        ROOTFS="${ZPOOLNAME}/ROOT/${BENAME}"
       else
         ROOTFS="${DEVICE}"
         ROOTFSTYPE="ufs"
@@ -244,6 +244,9 @@ setup_fstab()
   then
     echo "procfs			/proc			procfs		rw		0	0" >> ${FSTAB}
     echo "linprocfs		/compat/linux/proc	linprocfs	rw		0	0" >> ${FSTAB}
+    if [ ! -d "${FSMNT}/compat/linux/proc" ] ; then
+      mkdir -p ${FSMNT}/compat/linux/proc
+    fi
   fi
 
   # If we have a dedicated /boot, run the post-install setup of it now
