@@ -1027,8 +1027,9 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 .. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and, by default, the
-`SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and, by default, the default player
+application will open so that you can play the contents of the disk. The default player that is used depends upon which applications have been installed, where
+`VLC <http://www.videolan.org/vlc/>`_ takes precedence, followed by `SMPlayer <http://smplayer.sourceforge.net/>`_. If you close the player, you can click
 the "Play" button shown in :numref:`Figure %s: Mount Tray Example <mount1>` to restart it.
 
 The following options are available in the "More Options" menu: 
@@ -1049,7 +1050,7 @@ The following options are available in the "More Options" menu:
   unmounted, the memory disk is also detached from the system.
 
 * **Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3a>`, this screen allows you to configure whether or not optical disks automatically open using
-  `SMPLayer <http://www.smplayer.eu/>`_, whether or not Mount Tray automatically rechecks the disk space used by mounted devices and how often to perform that check, and whether or not
+  the default player, whether or not Mount Tray automatically rechecks the disk space used by mounted devices and how often to perform that check, and whether or not
   Mount Tray checks disk space when a disk is mounted.
 
 * **Close Tray:** click this option to remove Mount Tray from the system tray.
