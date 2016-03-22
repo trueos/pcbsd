@@ -169,7 +169,7 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "Search all available PBIs and packages" checkbox has been renamed to "Search all available software" in :menuselection:`AppCafe® --> App Search`.
 
-* The "Auto-play optical disks with SMPlayer" checkbox has been added to :menuselection:`Mount Tray --> More Options --> Change Settings`.
+* The "Auto-play optical disks" checkbox has been added to :menuselection:`Mount Tray --> More Options --> Change Settings`.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
