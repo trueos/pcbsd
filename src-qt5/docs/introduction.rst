@@ -155,12 +155,12 @@ What's New in |version|
 
 The following features or enhancements were introduced for PC-BSD® |version|:
 
-* Based on FreeBSD 10.2 which adds these `features <https://www.freebsd.org/releases/10.2R/relnotes.html>`_.
+* Based on FreeBSD 11.0 which adds these `features <https://www.freebsd.org/releases/11.0R/relnotes.html>`_.
 
 * CD-sized network installers are available for both the graphical and text installers. The installation looks the same for both, with the difference being the size of the
   downloaded media and the fact that the installation files are retrieved over the network rather than from the installation media.
 
-* Lumina has been updated to `0.8.6 <http://blog.pcbsd.org/2015/08/lumina-desktop-0-8-6-released/>`_.
+* Lumina has been updated to `0.8.8 <http://lumina-desktop.org/lumina-desktop-0-8-8-released/>`_.
 
 * `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Plugins". The
   Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utility.
