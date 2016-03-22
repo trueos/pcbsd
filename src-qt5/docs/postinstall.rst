@@ -322,8 +322,8 @@ The PC-BSD® installer creates a log which keeps a record of all the steps that 
 PC-BSD® installer will ask if you would like to generate an error report. If you click "Yes", a pop-up message will ask if you would like to save the error
 log to a USB stick. Type **y** and insert a FAT formatted USB thumb drive to copy the log.
 
-While in the installer, you can read this log to see what went wrong. Right-click an area on the desktop outside of the installation window and select "xterm"
-from the menu. You can read the log with this command::
+While in the installer, you can read this log to see what went wrong. Click the black "Emergency Shell and Utilities" icon, then select "shell" from the "PC-BSD Utility Menu".
+You can now read the log by typing this command::
 
  more /tmp/.SysInstall.log
 
@@ -342,8 +342,14 @@ its highest value. Also check to see if the BIOS is set to prefer built-in graph
 order of the devices listed; in this case, make sure that the preferred device is listed first. If you can not see your BIOS settings you may need to move a
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
-If that change did not help, try rebooting and selecting the "Graphical Install (Failsafe VESA mode)" option from the boot menu shown in
-:numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`. 
+If that change did not help, reboot and select the "6. Configure Boot Options..." from the boot menu shown in
+:numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`. This will open the screen shown in :numref:`Figure %s: PC-BSD® Boot Options <menu1>`.
+
+.. _menu1:
+
+.. figure:: images/menu1.png
+
+Press :kbd:`7` to toggle "Off" to "On, then press :kbd:`Enter`. This will boot the installer using the VESA graphics driver which is supported on all systems.
 
 A not uncommon cause for problems is the LBA (Logical Block Addressing) setting in the BIOS. If your PC is not booting up before or after installation, check
 your BIOS and turn LBA off (do not leave it on automatic).

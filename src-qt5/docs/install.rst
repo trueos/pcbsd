@@ -12,6 +12,13 @@ To begin the PC-BSD® installation, insert the prepared boot media and boot the 
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
+The system should boot into the menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`. Typically, you can just press enter or wait for this menu to go by and the system will boot
+into the graphical installer. If you have problems booting into the graphical installer, refer to :ref:`Installation Troubleshooting`. 
+
+.. _install1b:
+
+.. figure:: images/install1b.png
+
 The rest of this chapter describes the screens of the graphical installer.
 
 .. index:: installation
