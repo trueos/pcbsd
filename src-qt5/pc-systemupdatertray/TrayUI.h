@@ -47,8 +47,9 @@ private:
 	//UI Elements
 	QSettings *settings;
 	QMenu *mainMenu;
-	QCheckBox *runAtStartup, *showNotifications, *checkJails, *torMode;
-	QWidgetAction *rasA, *snA, *cjA, *tmA; //actions for the checkboxes
+	QAction *runAtStartup, *showNotifications, *checkJails, *torMode;
+	//QCheckBox *runAtStartup, *showNotifications, *checkJails, *torMode;
+	//QWidgetAction *rasA, *snA, *cjA, *tmA; //actions for the checkboxes
 
 private slots:
 	//Internal slots
