@@ -43,31 +43,51 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   mainMenu->addSeparator();
 
   // - Now the special checkboxes
-  runAtStartup = new QCheckBox(tr("Run At Startup"));
+  runAtStartup = new QAction(tr("Run At Startup"),this);
+    runAtStartup->setCheckable(true);
+    runAtStartup->setChecked(settings->value("/PC-BSD/SystemUpdater/runAtStartup",true).toBool() );
+    connect(runAtStartup, SIGNAL(toggled(bool)), this, SLOT(slotRunAtStartupClicked()) );
+    mainMenu->addAction(runAtStartup);
+  /*runAtStartup = new QCheckBox(tr("Run At Startup"));
     runAtStartup->setChecked(settings->value("/PC-BSD/SystemUpdater/runAtStartup",true).toBool() );
     connect(runAtStartup, SIGNAL(clicked()), this, SLOT(slotRunAtStartupClicked()) );
   rasA = new QWidgetAction(this);
     rasA->setDefaultWidget(runAtStartup);
-  mainMenu->addAction(rasA);
-  showNotifications = new QCheckBox(tr("Display Notifications"));
+  mainMenu->addAction(rasA);*/
+  showNotifications = new QAction(tr("Display Notifications"),this);
+    showNotifications->setCheckable(true);
+    showNotifications->setChecked(settings->value("/PC-BSD/SystemUpdater/displayPopup",true).toBool() );
+    connect(showNotifications, SIGNAL(toggled(bool)), this, SLOT(slotShowMessagesClicked()) );
+    mainMenu->addAction(showNotifications);
+  /*showNotifications = new QCheckBox(tr("Display Notifications"));
     showNotifications->setChecked(settings->value("/PC-BSD/SystemUpdater/displayPopup",true).toBool() );
     connect(showNotifications, SIGNAL(clicked()), this, SLOT(slotShowMessagesClicked()) );
   snA = new QWidgetAction(this);
     snA->setDefaultWidget(showNotifications);
-  mainMenu->addAction(snA);
-  checkJails = new QCheckBox(tr("Check Jails"));
+  mainMenu->addAction(snA);*/
+  checkJails = new QAction(tr("Check Jails"),this);
+    checkJails->setCheckable(true);
+    checkJails->setChecked(settings->value("/PC-BSD/SystemUpdater/watchJails",true).toBool() );
+    connect(checkJails, SIGNAL(toggled(bool)), this, SLOT(slotCheckJailsClicked()) );
+    mainMenu->addAction(checkJails);
+  /*checkJails = new QCheckBox(tr("Check Jails"));
     checkJails->setChecked(settings->value("/PC-BSD/SystemUpdater/watchJails",false).toBool() );
     connect(checkJails, SIGNAL(clicked()), this, SLOT(slotCheckJailsClicked()) );
  cjA = new QWidgetAction(this);
     cjA->setDefaultWidget(checkJails);
-  mainMenu->addAction(cjA);
+  mainMenu->addAction(cjA);*/
   mainMenu->addSeparator();
-  torMode = new QCheckBox(tr("Routing through Tor"));
+  torMode = new QAction(tr("Routing through Tor"),this);
+    torMode->setCheckable(true);
+    torMode->setChecked(CSTAT.InTorMode());
+    connect(torMode, SIGNAL(toggled(bool)), this, SLOT(slotToggleTorMode()) );
+    mainMenu->addAction(torMode);
+  /*torMode = new QCheckBox(tr("Routing through Tor"));
     torMode->setChecked( CSTAT.InTorMode() );
     connect(torMode, SIGNAL(clicked()), this, SLOT(slotToggleTorMode()) );
   tmA = new QWidgetAction(this);
     tmA->setDefaultWidget(torMode);
-  mainMenu->addAction(tmA);
+  mainMenu->addAction(tmA);*/
   mainMenu->addAction(QIcon(":/images/tor.png"), tr("Check Tor connection"), this, SLOT(slotCheckTorStatus()) );
   mainMenu->addSeparator();
   // - Now the quit option
@@ -82,8 +102,8 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
 
 TrayUI::~TrayUI(){
   delete mainMenu;
-  delete runAtStartup;
-  delete showNotifications;
+  //delete runAtStartup;
+  //delete showNotifications;
 }
 
 // ===============
