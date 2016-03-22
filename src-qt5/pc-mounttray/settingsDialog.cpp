@@ -7,7 +7,7 @@ SettingsDialog::SettingsDialog() : QDialog(){
   //Now Create the UI
   QVBoxLayout *vlayout = new QVBoxLayout();
     //AutoPlay setting
-    checkAutoPlay = new QCheckBox(tr("Auto-play optical disks with SMPlayer"));
+    checkAutoPlay = new QCheckBox(tr("Auto-play optical disks"));
     vlayout->addWidget(checkAutoPlay);
 	
     //Disk space watcher settings
