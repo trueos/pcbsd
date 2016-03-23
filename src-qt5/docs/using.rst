@@ -93,7 +93,7 @@ Multimedia
 ==========
 
 PC-BSD® has been pre-configured to support most multimedia formats and makes it easy to install most open source media applications using :ref:`AppCafe®`.
-PC-BSD® supports both `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
+PC-BSD® supports both `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
 either sound server should work.
 
 If you install your web browser using AppCafe®, you should be able to play most media formats, including YouTube videos, Internet radio, and many trailer and
@@ -111,7 +111,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 * `aTunes <http://www.atunes.org/?page_id=5>`_: full-featured audio player and manager that can play mp3, ogg, wma, wav, flac, mp4 and radio streaming,
   allowing users to easily edit tags, organize music and rip audio CDs.
 
-* `Audacity <http://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
+* `Audacity <https://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
 
 * `DeaDBeeF <http://deadbeef.sourceforge.net/screenshots.html>`_: music player that supports most audio formats.
 
@@ -132,7 +132,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 Kodi
 ----
 
-`Kodi, formerly known as XBMC, <http://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
+`Kodi, formerly known as XBMC, <https://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
 formats, CDs and DVDs from a disk or image file, and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a
 personalized library with album covers, descriptions, and fan art. 
 
@@ -298,7 +298,7 @@ Windows Emulation
 favorite Windows game or productivity application has not been ported to Linux or BSD.
 
 Wine is not guaranteed to work with every Windows application. If you are unsure if the application that you require is supported, search for it in the
-"Browse Apps" section of the `Wine application database <https://appdb.winehq.org/>`_. The  `Wine wiki <http://wiki.winehq.org/>`_ contains many resources to
+"Browse Apps" section of the `Wine application database <https://appdb.winehq.org/>`_. The  `Wine wiki <https://wiki.winehq.org/Main_Page>`_ contains many resources to
 get you started and to refer to if you encounter problems with your Windows application.
 
 Wine can be installed during installation or from :ref:`AppCafe®`. Once installed, it can be started by clicking the entry for "Wine Configuration" from the
@@ -341,8 +341,7 @@ Once the installation is complete, browse to the application's location. :numref
 Running Steam
 -------------
 
-Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. The necessary configuration and a list of tested games can be found
-on the `PC-BSD® Wine Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/emulators/i386-wine-devel#Tips_and_Tricks>`_. Video instructions can be found
+Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. Video instructions can be found
 at `Steam on PC-BSD - How to Get Wine Running 3D Games <https://www.youtube.com/watch?v=B04EuZ9hpAI>`_ and at
 `Steam on PCBSD 2 - Using Wine as a Streaming Client <http://blog.pcbsd.org/2014/12/steam-on-pcbsd-2-using-wine-as-a-streaming-client/>`_.
 

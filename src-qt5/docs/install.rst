@@ -107,7 +107,7 @@ The following components are available for installation.
 
 .. note:: even if you uncheck all desktops, :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
 
-* **Devel:** check the box to install `QGit <http://sourceforge.net/projects/qgit/>`_.
+* **Devel:** check the box to install `QGit <https://sourceforge.net/projects/qgit/>`_.
 
 * **Drivers:** if you have an NVIDIA video card, the correct driver should already be checked for you.
 
@@ -122,7 +122,7 @@ The following components are available for installation.
 
 * **Mail:** check this box to install the `Thunderbird <https://www.mozilla.org/en-US/thunderbird/>`_ email client.
 
-* **MediaCenter:** if you expand the ► you can select to install `KODI <http://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_.
+* **MediaCenter:** if you expand the ► you can select to install `KODI <https://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_.
 
 * **Net:** check this box to install the `KRDC <https://www.kde.org/applications/internet/krdc/>`_ remote desktop client.
 
@@ -260,8 +260,9 @@ ZFS is an enterprise grade file-system, which provides many features including: 
 take snapshots, boot environments, continuous integrity checking and automatic repair, RAIDZ which was designed to overcome the limitations of hardware RAID,
 and native NFSv4 ACLs.
 
-If you are new to ZFS, the Wikipedia entry on :wikipedia:`ZFS` provides an excellent starting point to learn about its features. Additionally, `FreeBSD Mastery: ZFS <http://zfsbook.com>`_ 
-by Michael W Lucas and Allan Jude is a very helpful resource and is more specific to ZFS as it is implemented in FreeBSD.
+If you are new to ZFS, the Wikipedia entry on :wikipedia:`ZFS` provides an excellent starting point to learn about its features. Additionally,
+`FreeBSD Mastery: ZFS <https://www.michaelwlucas.com/nonfiction/freebsd-mastery-zfs>`_  by Michael W Lucas and Allan Jude is a helpful resource and is more specific to ZFS as it is
+implemented in FreeBSD.
 
 These resources are also useful to bookmark and refer to as needed: 
 
