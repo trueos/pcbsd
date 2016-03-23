@@ -17,7 +17,7 @@ reporting problems you encounter while using PC-BSD®.
 
 If you have a spare system or virtual machine, you can also download and try out the latest release candidate snapshots. These versions are still in testing
 and have not been officially released yet. Having as many people as possible using PC-BSD® on many different hardware configurations assists the Project in
-finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <http://blog.pcbsd.org/>`_ is a good way to keep
+finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <https://blog.pcbsd.org/>`_ is a good way to keep
 up-to-date on the availability of testing snapshots and any major bugs that affect users.
 
 If becoming a tester interests you, subscribe to the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_. As new testing versions become
@@ -439,7 +439,7 @@ Purchase PC-BSD® Swag
 While PC-BSD® is free, some users may wish to purchase media or other items to show their support for the PC-BSD® Project. PC-BSD® items are available from
 the following websites: 
 
-* `FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
+* `FreeBSD Mall <https://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
   PC-BSD® DVDs and subscriptions, stickers, and apparel. 
 
 * Amazon: sells The Definitive Guide to PC-BSD® (hard copy and Kindle formats) as well as the Kindle versions of the PC-BSD® Handbook. Items available for

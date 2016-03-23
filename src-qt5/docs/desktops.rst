@@ -32,7 +32,7 @@ desktop is not described in this chapter, it will not automatically be added to 
 Awesome
 =======
 
-The `awesome window manager <http://awesome.naquadah.org/>`_ is highly configurable and primarily targeted at power users who prefer to use the command line
+The `awesome window manager <https://awesomewm.org/>`_ is highly configurable and primarily targeted at power users who prefer to use the command line
 within their graphical environment.
 
 :numref:`Figure %s: Awesome Window Manager on PC-BSD® <awesome1>` shows a screenshot of Awesome running on PC-BSD® |version|. The user has right-clicked the desktop in order to launch the
@@ -426,7 +426,7 @@ The `Ratpoison wiki <https://wiki.archlinux.org/index.php/Ratpoison>`_ contains 
 spectrwm
 ========
 
-The `spectrwm minimalist window manager <https://opensource.conformal.com/wiki/spectrwm>`_, formerly known as scrotwm, is written by OpenBSD hackers. It
+The `spectrwm minimalist window manager <https://github.com/conformal/spectrwm/wiki>`_, formerly known as scrotwm, is written by OpenBSD hackers. It
 provides keyboard shortcuts, a configuration file, and assumes that the user prefers to use the command line. If you have not used spectrwm before, spend some
 time reading through its `man page <https://opensource.conformal.com/cgi-bin/man-cgi?spectrwm>`_ first.
 

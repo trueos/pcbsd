@@ -1220,7 +1220,7 @@ This tab contains the following options:
 The "File" menu can be used to quit this mixer screen or to close both this screen and remove the icon from the system tray.
 
 The "Configuration" menu provides options for accessing the "PulseAudio Mixer" and "PulseAudio Settings" utilities as well as for restarting PulseAudio.
-PC-BSD® provides full `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
+PC-BSD® provides full `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
 network sound devices and mixer levels.
 
 For command line only systems, type :command:`mixer` from the command line to see the current sound settings::

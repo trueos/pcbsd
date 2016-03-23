@@ -198,13 +198,13 @@ Social Media
 The PC-BSD® project maintains several social media sites to help users keep up-to-date with what is happening and to provide venues for developers and users
 to network with each other. Anyone is welcome to join.
 
-* `Official PC-BSD® Blog <http://blog.pcbsd.org/>`_
+* `Official PC-BSD® Blog <https://blog.pcbsd.org/>`_
 
 * `PC-BSD® on Twitter <https://twitter.com/PCBSD/>`_
 
-* `PC-BSD® Facebook Group <http://www.facebook.com/group.php?gid=4210443834>`_
+* `PC-BSD® Facebook Group <https://www.facebook.com/groups/4210443834/>`_
 
-* `PC-BSD® Google+ page <https://plus.google.com/u/0/b/118078374333558564924/>`_
+* `PC-BSD® Google+ page <https://plus.google.com/u/0/+pcbsd/posts>`_
 
 * `PC-BSD® LinkedIn Group <http://www.linkedin.com/groups?gid=1942544>`_
 
@@ -226,7 +226,7 @@ Many BSD related search portals exist. If you can not find the answer that you a
 
 * `BSD Guides <http://www.bsdguides.org/guides/>`_
 
-* `Slashdot BSD <http://bsd.slashdot.org/>`_
+* `Slashdot BSD <https://bsd.slashdot.org/>`_
 
 * `DistroWatch <http://distrowatch.com/>`_
 
@@ -250,7 +250,7 @@ The following BSD sites and resources may also contain useful information:
 
 * `BSD Now <http://www.bsdnow.tv/>`_
 
-* `BSD Magazine <http://bsdmag.org/>`_ (free, monthly download) 
+* `BSD Magazine <https://bsdmag.org/>`_ (free, monthly download) 
 
 * `FreeBSD Journal <http://www.freebsdjournal.com/>`_ (bi-monthly magazine) 
 
