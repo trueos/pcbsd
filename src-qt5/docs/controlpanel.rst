@@ -321,7 +321,7 @@ The fields in this screen are used to configure the:
 * **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
   increase this timer.
   
-* **Show Timer Countdown:** if this box is unchecked, the timer countdown will not display, though you can still interupt the boot process during the delay time.
+* **Show Timer Countdown:** if this box is unchecked, the timer countdown will not display, though you can still interrupt the boot process during the delay time.
 
 * **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
   `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.

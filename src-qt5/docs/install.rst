@@ -443,7 +443,7 @@ Selection" screen.
 Installation Progress Screen
 ============================
 
-Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: nstallation Progress Screen <install13a>`, provides a progress bar and messages so that you
+Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: Installation Progress Screen <install13a>`, provides a progress bar and messages so that you
 can watch the installation's progress.
 
 .. _install13a:
