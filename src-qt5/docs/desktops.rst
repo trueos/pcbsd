@@ -4,8 +4,8 @@
 Desktops
 ********
 
-Once you have installed PC-BSD®, you will want to become familiar with your desktop environment. This chapter provides an overview of the desktops which can be selected
-during the installation of PC-BSD® or installed afterwards using :ref:`AppCafe®`. Desktops, when installed, will appear in the list of available desktops when a user logs in.
+Once you have installed PC-BSD®, you will want to become familiar with your desktop environment. This chapter provides an overview of the desktops which can be selected during 
+the installation of PC-BSD® or installed afterwards using :ref:`AppCafe®`. Desktops, when installed, will appear in the list of available desktops when a user logs in.
 
 .. note:: Fluxbox is always installed and available in the login menu of a PC-BSD® system.
 
@@ -69,9 +69,6 @@ Hover over a category in the menu to see its available applications. Alternately
 Click the wrench icon in the upper left corner to access the "Cinnamon Settings" menu, where you can configure backgrounds, desktop effects, themes, applets,
 desklets, extensions, menu items, the screensaver, and so on. Additional themes, applets, desklets, and extensions can be downloaded from the
 `Cinnamon website <http://cinnamon.linuxmint.com/>`_.
-
-Additional tips can be found at the `PC-BSD® Cinnamon Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/x11/cinnamon>`_.
-
 
 .. index:: Fluxbox
 .. _Fluxbox:
@@ -169,12 +166,10 @@ If you are new to GNOME, take some time to discover which applications best suit
   
 * `Files: <https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&redirect=Nautilus>`_ Nautilus file manager.
 
-.. note:: some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
+.. note:: Some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
    able to launch those games.
 
 You can find additional themes and wallpapers at `gnome-look.org <http://gnome-look.org/>`_.
-
-Additional tips can be found at the `PC-BSD® GNOME Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/x11/gnome3>`_.
 
 .. index:: i3
 .. _i3:
@@ -206,7 +201,7 @@ The `i3 Users Guide <http://i3wm.org/docs/userguide.html>`_ contains the default
 IceWM
 =====
 
-The `IceWM window manager <http://www.icewm.org/>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
+The `IceWM window manager <https://en.wikipedia.org/wiki/IceWM>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
 user has launched the "Application" menu by clicking on the "BSD" button in the lower left corner. This menu can also be launched by right-clicking
 anywhere on the desktop.
 
@@ -261,8 +256,8 @@ type :command:`konqueror` to run the Konqueror web browser or :command:`dolphin`
 Lumina
 ======
 
-The Lumina Desktop Environment (Lumina for short) is a lightweight, XDG-compliant, BSD-licensed desktop environment that focuses specifically on streamlining
-the ability to get work done while minimizing system overhead. It is specifically designed for PC-BSD® and FreeBSD, but has also been ported to many other
+The `Lumina Desktop Environment <http://lumina-desktop.org/>`_ (Lumina for short) is a lightweight, XDG-compliant, BSD-licensed desktop environment that focuses specifically on streamlining
+the ability to complete work while minimizing system overhead. It is specifically designed for PC-BSD® and FreeBSD, but has also been ported to many other
 BSD and Linux operating systems. It is based on the Qt graphical toolkit and the Fluxbox window manager, and uses a small number of X utilities for various
 tasks, such as :command:`numlockx` and :command:`xscreensaver`.
 

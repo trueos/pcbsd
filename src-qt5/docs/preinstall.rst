@@ -38,7 +38,7 @@ At a **bare minimum** you need to meet these requirements in order to install PC
 
 * Network card 
 
-The following are the minimum **recommended** requirements. The more RAM and available disk space, the better your computing experience: 
+The following are the minimum **recommended** requirements. More RAM and available disk space will improve your computing experience: 
 
 * 64-bit processor 
 
@@ -57,7 +57,7 @@ than 50GB for a desktop installation. The installation itself does not require t
 sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots and boot environments.
 
 You can never have too much RAM, so install as much as you can afford. To play modern video games, you should use a fast CPU. If you want to create a
-collection of tunes and movies on your computer, you will want a large disk which can be internal or external.
+collection of music and movies on your computer, you will want a large disk which can be internal or external.
 
 .. index:: hardware
 .. _Supported Hardware:
@@ -86,7 +86,7 @@ or may not be able to successfully load a graphics driver on your hardware. If y
 option to disable one of the graphics adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel
 driver and disable NVIDIA. This will change in the future when the NVIDIA driver supports Optimus.
 
-A list of graphics cards which are known to work can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
+A list of usable graphics cards can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
 `FreeBSD driver <http://www.freebsd.org/releases/10.3R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
@@ -103,7 +103,7 @@ If you wish to check your hardware before installing PC-BSD®, a good place to s
 `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.3R/hardware.html>`_. Another good resource is to start the installer and click the
 :ref:`Hardware Compatibility` icon.
 
-While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. It should be remembered that
+While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. Remember that
 PC-BSD® is really FreeBSD, meaning that any hardware that works on FreeBSD will work on PC-BSD®. If you are experiencing problems with a device, start with
 a web search for the term "FreeBSD" plus the type and model of the hardware. This will let you know if there is a known issue with the device. If there are
 many search results, concentrate on the most recent ones as often hardware that used to be problematic has since been fixed or the missing driver will be
@@ -140,7 +140,7 @@ deal with:
 If you wish to test your laptop's hardware, use the "Hardware Compatibility" icon in the :ref:`Language Selection Screen` before continuing with the
 installation.
 
-If you would like to install PC-BSD® onto an Asus Eee, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
+If you would like to install PC-BSD® onto an Asus Eee PC, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
 
 The `FreeBSD Tuning Power Consumption page <https://wiki.FreeBSD.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
 
@@ -171,7 +171,7 @@ For example, if you are currently running a Windows operating system, it will be
 the current operating system in order to make room to install PC-BSD®. Shrinking is an operation that retains the current operating system, while reducing the size of its partition.
 This section demonstrates how to create free space within Windows 7.
 
-.. warning:: **before** shrinking a partition, make sure that you first back up your valuable data to an external media such as a removable USB drive!
+.. warning:: **Before** shrinking a partition, make sure that you first back up your valuable data to an external media such as a removable USB drive!
 
 To shrink the drive, open Computer Management and click :menuselection:`Storage --> Disk Management`. In the example shown in
 :numref:`Figure %s: Viewing Disk Layout in Disk Management <partition1>`, the Windows system has three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data
@@ -182,7 +182,7 @@ partition.
 .. figure:: images/partition1.jpg
 
 Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install PC-BSD® into. To
-shrink the data partition, right-click the partition, in this example it is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
+shrink the data partition, right-click the partition, which in this example is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
 volume for available shrink space. The results will be displayed as seen in the example in :numref:`Figure %s: Available Shrink Space <shrink1>`. 
 
 .. _shrink1:
@@ -196,7 +196,7 @@ button. When finished, the newly created free space will be displayed, as seen i
 
 .. figure:: images/shrink2.jpg
 
-.. warning:: it is important that you **do not** choose to install PC-BSD® into any of the three Windows partitions when you get
+.. warning:: It is important that you **do not** choose to install PC-BSD® into any of the three Windows partitions when you get
    to the :ref:`Disk Selection Screen` of the installer. It is a good idea to write down the sizes of all of the partitions so that you will recognize the free space when the
    PC-BSD® installer displays your current partitions.
 
@@ -242,7 +242,7 @@ device.
 If you prefer to install a command-line only server, you can either download the same ISO or download the ISO with :file:`TRUEOS` in the name. The
 :file:`TRUEOS` download is smaller and can be burned to a CD or written to a removable USB device.
 
-Pre-installed virtual images are also available, making it easy to use or try out PC-BSD® in a virtual environment. Four types of images are
+Pre-installed virtual images are also available, making it easy to use or try PC-BSD® in a virtual environment. Four types of images are
 available: 
 
 * Files ending in :file:`.ova` can be used in VirtualBox, as described in :ref:`Using the Downloadable .ova File`.
@@ -281,7 +281,7 @@ portion of the file may get damaged or lost, making the installation file unusab
 If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
 verify a checksum, you will need to use a checksum verification utility.
 
-.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
+.. note:: You only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
    `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists both the :file:`.md5` and the :file:`.sha256` checksum files. This section demonstrates how to verify an
    MD5 checksum.
 
@@ -421,7 +421,7 @@ To write to a USB device, you will need the following:
 
 Once the image is written, boot from the removable device and proceed with the PC-BSD® installation.
 
-.. note:: if there is a card reader on the system or the USB drive is connected using a USB dongle, device enumeration may be affected. For example, with the USB card reader dongle
+.. note:: If there is a card reader on the system or the USB drive is connected using a USB dongle, device enumeration may be affected. For example, with the USB card reader dongle
    as the destination, the device name could be :file:`/dev/da1` instead of :file:`/dev/da0`.
 
 To write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
@@ -441,7 +441,7 @@ When using the :command:`dd` command:
 
 * **bs=** refers to the block size 
 
-.. note:: on Linux, if you type :command:`mount` with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick. For
+.. note:: On Linux, if you type :command:`mount` with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick. For
    example, :file:`/dev/sdc` and :file:`/dev/sdc1`, where :file:`/dev/sdc1` corresponds to the primary partition of the USB stick. Before using the
    :command:`dd` command, ensure that the usb stick is first unmounted. Then, remember to use :file:`/dev/sdc` (the device node
    without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
@@ -501,7 +501,7 @@ During the installation of PC-BSD®, you can choose to install the `VirtualBox <
 shared folders between the host and guest, better video support, and a shared clipboard. To install these after installation, use :ref:`AppCafe®` and search
 for "virtualbox".
 
-.. note:: the first time you run VirtualBox on a PC-BSD® system, a background script will automatically give your user account the permissions required to run
+.. note:: The first time you run VirtualBox on a PC-BSD® system, a background script will automatically give your user account the permissions required to run
    this application. Depending upon your desktop, this might break any existing shortcuts to VirtualBox. To fix the shortcut, logout and back in.
 
 If your computer is running another operating system, download the binary for your operating system from the

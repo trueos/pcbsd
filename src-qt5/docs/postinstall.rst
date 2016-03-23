@@ -186,7 +186,7 @@ The "PersonaCrypt" tab, shown in :numref:`Figure %s: Initializing PersonaCrypt f
 Check the box "Initialize PersonaCrypt Device", insert a removable media that is large enough to hold the files you plan to store in your home directory, and click
 the "Select" button.
 
-.. warning:: make sure you do not have any files that you wish to keep on the removable media. Initializing the media for PersonaCrypt will format the device with
+.. warning:: Make sure you do not have any files that you wish to keep on the removable media. Initializing the media for PersonaCrypt will format the device with
    ZFS and encrypt it with GELI, meaning that any existing data will be destroyed.
    
 Input and repeat the "Device Password" to associate with the device. A pop-up menu will indicate that the current contents of the device will be wiped.
@@ -279,7 +279,7 @@ the following:
 * **desktop:** if you installed any desktops, use the drop-down menu to select the desktop to log into. If you did not install any desktops, :ref:`Fluxbox`
   will be the only available desktop. You can install or uninstall desktops using :ref:`AppCafe®`.
 
-.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in
+.. note:: If you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in
    :numref:`Figure %s: PC-BSD® PersonaCrypt Login Screen <login5>`, this will add an extra field to the login screen so that you can input the password associated with the PersonaCrypt
    device.
 

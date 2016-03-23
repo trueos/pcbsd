@@ -56,7 +56,7 @@ Starting on the left-hand side, the icons in the bottom navigation area allow yo
 
 Hover over an icon to view its description in the tip bar at the bottom of the screen.
 
-.. note:: the default keyboard layout can be changed now, during the post-installation :ref:`Language Screen`, or when :ref:`Logging In`.
+.. note:: The default keyboard layout can be changed now, during the post-installation :ref:`Language Screen`, or when :ref:`Logging In`.
 
 A button is also provided to "Load config from USB". If you have saved the configuration from a previous installation, it can be loaded at this time from a
 FAT-formatted USB stick.
@@ -66,7 +66,7 @@ translated to several different languages and you can see the status of your nat
 If your language does not show 100% translation at this website, it means that not all of the menus have been translated yet and that the untranslated menus will
 be displayed in English. Refer to :ref:`Become a Translator` if you would like to assist in translating the graphical menus to your native language.
 
-.. note:: small screens may not display the entire installer window, which means that the buttons at the bottom of the window are hidden and inaccessible.
+.. note:: Small screens may not display the entire installer window, which means that the buttons at the bottom of the window are hidden and inaccessible.
    There are two solutions for this situation: press :kbd:`Alt` while dragging the window with the mouse, or press :kbd:`Alt+N` to select the next button of
    the window. 
 
@@ -105,7 +105,7 @@ The following components are available for installation.
   :ref:`Lumina`, :ref:`LXDE`, :ref:`MATE`, :ref:`Openbox`, :ref:`Ratpoison`, :ref:`spectrwm`, :ref:`WindowLab`, :ref:`Window Maker`, and
   :ref:`XFCE4`. Each desktop that is selected will be installed and will appear in the login menu of the installed PC-BSD® system.
 
-.. note:: even if you uncheck all desktops, :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
+.. note:: Even if you uncheck all desktops, :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
 
 * **Devel:** check the box to install `QGit <http://sourceforge.net/projects/qgit/>`_.
 
@@ -145,7 +145,7 @@ The following components are available for installation.
 Once you have made your selection(s), click the "Save" button to save your selections. The "PC-BSD Package Selection" box will list the components that you
 selected for installation. You can now click the "Next" button to proceed to the next screen.
 
-.. note:: if you are installing a desktop, the installer will display a pop-up message if it cannot find a physical or virtual disk that does not meet the
+.. note:: If you are installing a desktop, the installer will display a pop-up message if it cannot find a physical or virtual disk that does not meet the
    recommended minimum size of 50GB. It will let you continue an installation on a smaller disk, but you may run into disk space issues on smaller disks.
 
 .. index:: installation
@@ -160,7 +160,7 @@ The "Disk Selection" screen, seen in :numref:`Figure %s: Disk Selection Screen <
 
 .. figure:: images/install5a.png
 
-.. warning:: by default, PC-BSD® will assume that you wish to install on the entire first disk. If you are installing PC-BSD® as the only operating system
+.. warning:: By default, PC-BSD® will assume that you wish to install on the entire first disk. If you are installing PC-BSD® as the only operating system
    on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
    layout your disk. If you plan on booting PC-BSD® with another operating system, you should also review the section on :ref:`Dual Booting`.
 
@@ -179,7 +179,7 @@ The wizard provides three modes of operation. The rest of this section describes
 
 * **FreeBSD Expert:** select this mode if you prefer to drop down to a shell to manually enter the commands to setup your disk.
 
-.. warning:: regardless of the mode that you select, once the disk wizard completes and you click "Next" at the disk "Summary" screen, a pop-up window will
+.. warning:: Regardless of the mode that you select, once the disk wizard completes and you click "Next" at the disk "Summary" screen, a pop-up window will
    ask if you would like to start the installation. Be sure to review the disk summary before clicking "Yes" and starting the installation. The disk "Summary"
    screen is your **very last chance** to make sure that you are ready. Once you click "Yes", the selected hard drive or partition will be formatted and any
    data it contains will be lost.
@@ -342,7 +342,7 @@ If your system contains multiple drives and you would like to use them to create
 will enable this screen. Any available disks will be listed in the box below the "ZFS Virtual Device Mode" drop-down menu. Select the desired level of redundancy,
 then the desired number of disks.
 
-.. note:: the PC-BSD® installer requires you to use entire disks (not partitions) when adding additional disks to the pool.
+.. note:: The PC-BSD® installer requires you to use entire disks (not partitions) when adding additional disks to the pool.
 
 While ZFS will let you use disks of different sizes, this is discouraged as it will decrease storage capacity and ZFS performance.
 
@@ -386,7 +386,7 @@ does not support MBR partitioning at this time. If needed, use the "Back" button
 new hardware)". Once the "Encrypt disk with GELI" box is checked, input a good passphrase twice into the "Password" fields. This password should be long and something that you will
 not forget, but hard for other users, especially those who know you, to guess.
 
-.. warning:: if you ever forget this passphrase, you will be unable to decrypt the disks and will lose access to their data!
+.. warning:: If you ever forget this passphrase, you will be unable to decrypt the disks and will lose access to their data!
 
 When finished, click "Next" to move on the screen shown in :numref:`Figure %s: Default ZFS Layout <install12a>`.
 
@@ -398,7 +398,7 @@ Regardless of how many disks you selected for your ZFS configuration, the defaul
 :file:`/usr`, :file:`/tmp`, or :file:`/var`. Instead, you create one ZFS partition (pool) and specify a mount for each dataset. A :file:`/boot` partition is
 not mandatory with ZFS as the PC-BSD® installer puts a 64k partition at the beginning of the drive.
 
-.. warning:: **do not remove any of the default mount points** as they are used by PC-BSD®.
+.. warning:: **Do not remove any of the default mount points** as they are used by PC-BSD®.
 
 You can use the "Add" button to add additional mount points. You will only be prompted for the name of the mount point as size is not limited at creation
 time. Instead, the data on any mount point can continue to grow as long as space remains within the ZFS pool.
