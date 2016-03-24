@@ -384,8 +384,8 @@ Dual Booting
 ============
 
 A PC-BSD® installation assumes that you have an existing primary partition to install into. If your computer has only one disk and PC-BSD® will be the only
-operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, care has to be
-taken that PC-BSD® is installed into the correct partition; otherwise, you may inadvertently overwrite an existing operating system.
+operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, be careful that 
+PC-BSD® is installed into the correct partition or you may inadvertently overwrite an existing operating system.
 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 

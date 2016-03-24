@@ -4,8 +4,8 @@
 Desktops
 ********
 
-Once you have installed PC-BSD®, you will want to become familiar with your desktop environment. This chapter provides an overview of the desktops which can be selected
-during the installation of PC-BSD® or installed afterwards using :ref:`AppCafe®`. Desktops, when installed, will appear in the list of available desktops when a user logs in.
+Once you have installed PC-BSD®, you will want to become familiar with your desktop environment. This chapter provides an overview of the desktops which can be selected during 
+the installation of PC-BSD® or installed afterwards using :ref:`AppCafe®`. Desktops, when installed, will appear in the list of available desktops when a user logs in.
 
 .. note:: Fluxbox is always installed and available in the login menu of a PC-BSD® system.
 
@@ -201,7 +201,7 @@ The `i3 Users Guide <http://i3wm.org/docs/userguide.html>`_ contains the default
 IceWM
 =====
 
-The `IceWM window manager <http://www.icewm.org/>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
+The `IceWM window manager <http://www.icewm.org>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
 user has launched the "Application" menu by clicking on the "BSD" button in the lower left corner. This menu can also be launched by right-clicking
 anywhere on the desktop.
 
@@ -256,8 +256,8 @@ type :command:`konqueror` to run the Konqueror web browser or :command:`dolphin`
 Lumina
 ======
 
-The Lumina Desktop Environment (Lumina for short) is a lightweight, XDG-compliant, BSD-licensed desktop environment that focuses specifically on streamlining
-the ability to get work done while minimizing system overhead. It is specifically designed for PC-BSD® and FreeBSD, but has also been ported to many other
+The `Lumina Desktop Environment <http://lumina-desktop.org/>`_ (Lumina for short) is a lightweight, XDG-compliant, BSD-licensed desktop environment that focuses specifically on streamlining
+the ability to complete work while minimizing system overhead. It is specifically designed for PC-BSD® and FreeBSD, but has also been ported to many other
 BSD and Linux operating systems. It is based on the Qt graphical toolkit and the Fluxbox window manager, and uses a small number of X utilities for various
 tasks, such as :command:`numlockx` and :command:`xscreensaver`.
 
