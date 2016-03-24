@@ -314,9 +314,6 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   QString stime = "sync"; //synchronize on snapshot creation (default)
   if(time >= 0 && time < 24){
      stime = QString::number(time);
-     // Needs 0 in front of single digits
-     if ( stime.length() == 1)
-        stime = "0" + stime;
   } //daily at a particular hour (24 hour notation)
   else if(time == -60){ stime = "hour"; }
   else if(time == -30){ stime = "30min"; }
@@ -325,6 +322,7 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   
   
   QString cmd = "lpreserver replicate add "+remotehost+" "+user+" "+ QString::number(port)+" "+dataset+" "+remotedataset+" "+stime;
+  //qDebug() << " Replicate add command: " << cmd;
   int ret = LPBackend::runCmd(cmd);
   
   return (ret == 0);
