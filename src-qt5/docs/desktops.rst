@@ -166,7 +166,7 @@ If you are new to GNOME, take some time to discover which applications best suit
   
 * `Files: <https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&redirect=Nautilus>`_ Nautilus file manager.
 
-.. note:: Some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
+.. note:: some games, such as Lights Off, Quadrapassel, and Swell Foop, require 3D acceleration. If your video driver does not support this, you will not be
    able to launch those games.
 
 You can find additional themes and wallpapers at `gnome-look.org <http://gnome-look.org/>`_.
@@ -201,7 +201,7 @@ The `i3 Users Guide <http://i3wm.org/docs/userguide.html>`_ contains the default
 IceWM
 =====
 
-The `IceWM window manager <https://en.wikipedia.org/wiki/IceWM>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
+The `IceWM window manager <http://www.icewm.org>`_ is light-weight. :numref:`Figure %s: IceWM on PC-BSD® <icewm1>` shows a screenshot of IceWM running on PC-BSD®. In this example, the
 user has launched the "Application" menu by clicking on the "BSD" button in the lower left corner. This menu can also be launched by right-clicking
 anywhere on the desktop.
 

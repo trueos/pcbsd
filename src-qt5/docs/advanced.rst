@@ -103,7 +103,7 @@ that other users will not guess and which you will not forget. Passphrases are c
 you, such as a line from a song or piece of literature, but hard to guess in that people who know you should not be able to guess your favorite line from a
 song or piece of literature.
 
-.. warning:: Be careful if you have changed your keyboard variant and layout. At this time, the GELI encryption framework only supports QWERTY passphrases, so
+.. warning:: be careful if you have changed your keyboard variant and layout. At this time, the GELI encryption framework only supports QWERTY passphrases, so
    do not use any characters not found on a QWERTY keyboard in your passphrase. **DO NOT** set a passphrase with accents or special characters which are not
    found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
    will render that partition as inaccessible.
@@ -183,7 +183,7 @@ This screen contains the following options:
   named :file:`/usr/shares`. The dataset you create will be added to the bottom of the list. If you select the dataset and press enter, you can set its ZFS
   properties. Once you are finished customizing the ZFS layout, select *done*.
 
-.. note:: While you can delete a dataset, the default datasets are needed for boot environments. For this reason,
+.. note:: while you can delete a dataset, the default datasets are needed for boot environments. For this reason,
    **it is not recommended to delete any default datasets.** ZFS options are described in `zfs(8) <http://www.freebsd.org/cgi/man.cgi?query=zfs>`_ and you should not
    change any options unless you are familiar with the ramifications of doing so.
 
@@ -260,7 +260,7 @@ For a server installation, using the PC-BSD® installer rather than the FreeBSD 
 
 * a wizard (described in this section) is provided during installation to configure the server for first use
 
-.. note:: This section describes how to install a command-line only server using the PC-BSD® graphical installer. Alternately, you can also install a server
+.. note:: this section describes how to install a command-line only server using the PC-BSD® graphical installer. Alternately, you can also install a server
    :ref:`Using the TrueOS® CD` or :ref:`Using the Text Installer`.
 
 To perform a server installation, start the PC-BSD® installer as usual. When you get to the :ref:`System Selection Screen` of the installer, select "Server
@@ -400,7 +400,7 @@ When installing PC-BSD® onto a computer that is to contain multiple operating s
 :ref:`Disk Selection Screen` of the installation. On a system containing multiple partitions, each partition will be listed. Highlight the partition that you
 wish to install into and **make sure that you do not select a partition that already contains an operating system or data that you wish to keep.**
 
-.. warning:: **Make sure that you click the "Customize" button while in the "Disk Selection" screen.** If you just click "Next" without customizing the disk
+.. warning:: **make sure that you click the "Customize" button while in the "Disk Selection" screen.** If you just click "Next" without customizing the disk
    layout, the installer will overwrite the contents of the primary disk.
 
 .. index:: GRUB

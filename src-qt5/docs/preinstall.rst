@@ -170,7 +170,7 @@ For example, if you are currently running a Windows operating system, it will be
 the current operating system in order to make room to install PC-BSD®. Shrinking is an operation that retains the current operating system, while reducing the size of its partition.
 This section demonstrates how to create free space within Windows 7.
 
-.. warning:: **Before** shrinking a partition, make sure that you first back up your valuable data to an external media such as a removable USB drive!
+.. warning:: **before** shrinking a partition, make sure that you first back up your valuable data to an external media such as a removable USB drive!
 
 To shrink the drive, open Computer Management and click :menuselection:`Storage --> Disk Management`. In the example shown in
 :numref:`Figure %s: Viewing Disk Layout in Disk Management <partition1>`, the Windows system has three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data
@@ -195,7 +195,7 @@ button. When finished, the newly created free space will be displayed, as seen i
 
 .. figure:: images/shrink2.jpg
 
-.. warning:: It is important that you **do not** choose to install PC-BSD® into any of the three Windows partitions when you get
+.. warning:: it is important that you **do not** choose to install PC-BSD® into any of the three Windows partitions when you get
    to the :ref:`Disk Selection Screen` of the installer. It is a good idea to write down the sizes of all of the partitions so that you will recognize the free space when the
    PC-BSD® installer displays your current partitions.
 
@@ -280,7 +280,7 @@ portion of the file may get damaged or lost, making the installation file unusab
 If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
 verify a checksum, you will need to use a checksum verification utility.
 
-.. note:: You only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
+.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
 
    `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists both the :file:`.md5` and the :file:`.sha256` checksum files. This section demonstrates how to verify an
    MD5 checksum.
@@ -421,7 +421,7 @@ To write to a USB device, you will need the following:
 
 Once the image is written, boot from the removable device and proceed with the PC-BSD® installation.
 
-.. note:: If there is a card reader on the system or the USB drive is connected using a USB dongle, device enumeration may be affected. For example, with the USB card reader dongle
+.. note:: if there is a card reader on the system or the USB drive is connected using a USB dongle, device enumeration may be affected. For example, with the USB card reader dongle
    as the destination, the device name could be :file:`/dev/da1` instead of :file:`/dev/da0`.
 
 To write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
@@ -441,7 +441,7 @@ When using the :command:`dd` command:
 
 * **bs=** refers to the block size 
 
-.. note:: On Linux, if you type :command:`mount` with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick. For
+.. note:: on Linux, if you type :command:`mount` with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick. For
    example, :file:`/dev/sdc` and :file:`/dev/sdc1`, where :file:`/dev/sdc1` corresponds to the primary partition of the USB stick. Before using the
    :command:`dd` command, ensure that the usb stick is first unmounted. Then, remember to use :file:`/dev/sdc` (the device node
    without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
@@ -501,7 +501,7 @@ During the installation of PC-BSD®, you can choose to install the `VirtualBox <
 shared folders between the host and guest, better video support, and a shared clipboard. To install these after installation, use :ref:`AppCafe®` and search
 for "virtualbox".
 
-.. note:: The first time you run VirtualBox on a PC-BSD® system, a background script will automatically give your user account the permissions required to run
+.. note:: the first time you run VirtualBox on a PC-BSD® system, a background script will automatically give your user account the permissions required to run
    this application. Depending upon your desktop, this might break any existing shortcuts to VirtualBox. To fix the shortcut, logout and back in.
 
 If your computer is running another operating system, download the binary for your operating system from the
