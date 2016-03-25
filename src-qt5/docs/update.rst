@@ -19,7 +19,7 @@ The rest of this chapter demonstrates how to use the built-in graphical and comm
 AppCafe®
 =========
 
-AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are pre-built applications that have been
+AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are pre-built applications 
 tested for FreeBSD. It provides extra meta-data for these packages such as screenshots and lists of similar applications. 
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
@@ -120,7 +120,7 @@ grey download icon. Click the icon to install that application. Applications whi
 
 The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
 
-The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
+The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. Alternately, to view all of
 the available applications for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
 software within that category.
 
@@ -738,7 +738,7 @@ users should backup their important data to another system or external drive and
 Upgrading from 10.x to |version|
 --------------------------------
 
-Upgrading from any 10.x version to |version| is the same as applying any system update. This means that the update to |version| will either appear in Update
+Upgrading from any 10.x version to |version| is the same as applying any system update. This means the update to |version| will either appear in Update
 Manager, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager check`.
 
 .. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
@@ -756,7 +756,7 @@ The official PC-BSD® package repository is hosted as a `ScaleEngine <http://www
 :command:`rsync` a copy of the package repository, which means you can have a locally hosted, complete package repository available for your own clients.
 
 To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
-private web server, as long as it is accessible to your target audience. Ensure that this directory is browsable by a web browser from a client
+private web server, as long as it is accessible to your target audience. Ensure this directory is browsable by a web browser from a client
 system **before** moving on to the next step.
 
 Once you have the HTTP directory ready for serving, use the following commands to sync with the official package repository::

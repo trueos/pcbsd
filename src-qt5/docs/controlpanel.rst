@@ -926,7 +926,7 @@ confirm the resolution if it finds an optimal one. To configure a different reso
 This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
 provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
 
-You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be that the
+You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be the
 selected driver does not support that resolution or depth.
 
 Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of Display Settings <display4>`.
@@ -1134,7 +1134,7 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 
 .. figure:: images/keyboard1.png
 
-.. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
+.. note:: any changes made using this utility can be saved as either just this login session or permanently. To make the changes permanent, click the "Save to
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
    will not be saved.
 

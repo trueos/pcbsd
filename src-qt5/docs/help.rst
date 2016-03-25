@@ -22,10 +22,10 @@ PC-BSD® Forums
 ===============
 
 `The PC-BSD® Forums <https://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
-active members and you will find that most questions are replied to quickly. If you are having problems with something on your PC-BSD® system, try using the
+active members and you will find that most questions are quickly answered. If you are having problems with something on your PC-BSD® system, try using the
 forum's search utility. You will often find that someone else has posted a similar question and that other users have responded with a fix or a how-to.
 
-The Forums have been categorized, allowing users to skim through the categories that interest them while learning some things along the way. You do not have
+The Forums have been categorized, allowing users to skim through the categories that interest them while learning some new information along the way. You do not have
 to create a login account in order to search or read through the forums. However, if you wish to ask or answer a question on a forum or subscribe to a forum
 in order to be automatically notified when a new post is added, you will need to be logged in. To subscribe to a forum, open the page for the forum and
 click the "Subscribe to this Forum" link in the far right end of the bar that contains the forum's name. If you would like to view new posts, click your
@@ -40,7 +40,7 @@ The current categories and the forum descriptions are described below:
 
 * `Desktop Questions and Support <https://forums.pcbsd.org/forum-13.html>`_: use this forum if your question does not fit into any of the other forum categories.
 
-* `Server Questions and Support <https://forums.pcbsd.org/forum-15.html>`_: this forum is for discussion of server-related topics.
+* `Server Questions and Support <https://forums.pcbsd.org/forum-15.html>`_: this forum is for discussion of server related topics.
 
 * `Hardware Support and Questions <https://forums.pcbsd.org/forum-83.html>`_: if you are having problems with any hardware devices, post the details of your problem to this forum.
 
