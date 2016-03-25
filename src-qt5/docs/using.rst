@@ -152,7 +152,7 @@ PlexHome Theater
 `Plex Home Theater <https://plex.tv/>`_ is a centralized media playback system. The central Plex Media Server streams media to many Plex player Apps which are used to view
 your media library and watch shows. 
 
-During the installation of PC-BSD®, the installer provided an option to install PlexHome Theater. If you wish to install it afterwards, use AppCafe®. Click the box "Search all
+During the installation of PC-BSD®, the installer will have provided an option to install PlexHome Theater. If you wish to install it afterwards, use AppCafe®. Click the box "Search all
 available PBI and packages" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
 of your desktop. You can also start this application by typing :command:`plexhometheater` from a command prompt. 
 
