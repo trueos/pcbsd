@@ -93,6 +93,7 @@ Available subcommands:
       exclude - Exclude datasets from replication
     rmexclude - Remove datasets from exclude list for replication
   listexclude - List excluded datasets from replication
+  pruneremote - Remove remote datasets on target host which no longer exist on local host
 
 
 add options:
@@ -218,6 +219,17 @@ listexclude options:
 
 	List which datasets are excluded from replication.
 
+pruneremote options:
+
+	pruneremote <dataset> <target host>
+
+	Remove remote datasets on target host which no longer exist on local host.
+
+	Examples:
+
+	lpreserver replicate pruneremote tank1 freenas.8343
+
+
 Examples:
 
   # lpreserver replicate run tank1 freenas.example.org
@@ -256,6 +268,14 @@ Config options
 		   ON - Will create / destroy snapshots recursively, for all children of
 			a target zpool/dataset. (Default)
 		  OFF - Will only create / destroy snapshots on the specified dataset.  
+
+pruneremote - (ON/OFF)
+		   ON - During replication this will prune remote datasets on destination
+		        which are no longer available on the source.
+		  OFF - During replication this will NOT prune remote datasets on destination
+		        which are no longer available on the source. (Default)
+
+			For manual pruning see the 'lpreserver replicate pruneremote' command.
 
 Example:
 
@@ -580,6 +600,7 @@ case "$1" in
 	 # Display our options	
 	 title
 	 echo "      Recursive mode: $RECURMODE"
+	 echo "   Prune remote mode: $PRUNEREMOTEMODE"
 	 echo "E-mail notifications: $EMAILMODE"
 	 echo "    E-mail addresses: $EMAILADDY"
 	 echo "  Disk space warn at: ${DUWARN}%"
@@ -609,9 +630,17 @@ case "$1" in
 		     *) exit_err "Unknown option" ;;
 		   esac
 		   ;;
+      pruneremote) case $3 in
+		  OFF|Off|off)  echo "Automatic pruning of remote datasets disabled"
+			        rm ${DBDIR}/pruneremote-on 2>/dev/null ;;
+		     ON|On|on)  echo "Automatic pruning of remote datasets enabled"
+			        touch ${DBDIR}/pruneremote-on ;;
+		     *) exit_err "Unknown option" ;;
+		   esac
+		   ;;
                 *) exit_err "Invalid option!" ;;
-	   esac
-         ;;
+       esac
+       ;;
 
 
  snapshot) shift
@@ -758,6 +787,20 @@ case "$1" in
          listexclude)
                      list_exclude "$2" "rep"
                      ;;
+         pruneremote) require_root
+                     if [ -z $2 ] || [ -z $3 ]; then
+                       exit_err "Please specify <dataset> and <target host>"
+                     fi
+                     cat ${REPCONF} | awk -F ':' '{ print $1 }' | grep -q "^${2}\$"
+                     if [ $? -ne 0 ] ; then
+                       exit_err "No such replication task for dataset $2"
+                     fi
+                     cat ${REPCONF} | awk -F ':' '{ print $3 }' | grep -q "^${3}\$"
+                     if [ $? -ne 0 ] ; then
+                        exit_err "No such replication task for target host $3"
+                     fi
+                     prune_remote_rep_task "$2" "$3"
+		     ;;
 		*) help_replicate ;;
 	    esac
 	 ;;

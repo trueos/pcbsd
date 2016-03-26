@@ -64,6 +64,12 @@ setOpts() {
     export RECURMODE="ON"
   fi
 
+  if [ -e "${DBDIR}/pruneremote-on" ] ; then
+    export PRUNEREMOTEMODE="ON"
+  else
+    export PRUNEREMOTEMODE="OFF"
+  fi
+
   if [ -e "${DBDIR}/emaillevel" ] ; then
     export EMAILMODE="`cat ${DBDIR}/emaillevel`"
   fi
@@ -1321,8 +1327,10 @@ start_rep_task() {
   ${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
   sync
 
-  # Remote any remote datasets that dont exist on host for replication
-  prune_remote_datasets "${_rDsetList}"
+  # Remove any remote datasets that dont exist on host for replication if the option is ON
+  if [ "$PRUNEREMOTEMODE" = "ON" ]; then
+    prune_remote_datasets "${_rDsetList}"
+  fi
 
   # Now go through all datasets and do the replication
   for dset in ${DSETS}
@@ -1530,6 +1538,87 @@ start_rep_task() {
 
   rm ${pidFile}
   return $zStatus
+}
+
+prune_remote_rep_task() {
+
+  if [ ! -e "$REPCONF" ] ; then
+     return 0
+  fi
+
+  repLine=`cat ${REPCONF} | grep "^${1}:.*:${2}:"`
+
+  if [ -z "$repLine" ] ; then
+     return 0
+  fi
+
+  LDATA="$1"
+  hName=`hostname`
+
+  # Check if a replication task is in progress
+  export pidFile="${DBDIR}/.reptask-`echo ${LDATA} | sed 's|/|-|g'`"
+  if [ -e "${pidFile}" ] ; then
+     pgrep -F ${pidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then
+        echo_log "Skipped pruning of remote datasets, replication is running."
+        return 1
+     else
+        rm ${pidFile}
+     fi
+  fi
+
+  # Save this PID
+  echo "$$" > ${pidFile}
+
+  # Export the replication variables we will be using
+  export REPHOST=`echo $repLine | cut -d ':' -f 3`
+  export REPUSER=`echo $repLine | cut -d ':' -f 4`
+  export REPPORT=`echo $repLine | cut -d ':' -f 5`
+  export REPRDATA=`echo $repLine | cut -d ':' -f 6`
+
+  # Set the remote dataset we are targeting
+  local REMOTEDSET="${REPRDATA}"
+
+  # If we are doing a ISCSI / encrypted target pruning, load info now
+  if [ "$REPRDATA" = "ISCSI" ] ; then
+     ISCSI="true"
+     load_iscsi_rep_data
+     REMOTEDSET="${REPPOOL}"
+     connect_iscsi
+     if [ $? -ne 0 ] ; then
+       FLOG=${LOGDIR}/lpreserver_failed.log
+       echo "\nError Log:\n" >> ${FLOG}
+       cleanup_iscsi >> ${FLOG}
+       cat ${CMDLOG} >> ${FLOG}
+       echo_log "FAILED pruning of remote datasets on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+       queue_msg "FAILED pruning of remote datasets on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+       queue_msg "`cat ${FLOG}`"
+       rm ${pidFile}
+       return 1
+     fi
+  fi
+
+  # If we are doing SSH pruning, set a prefix to remote commands
+  if [ -z "$ISCSI" ] ; then
+    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} ${SSHPROPS}"
+  else
+    CMDPREFIX=""
+  fi
+
+  # Get list of datasets
+  build_dset_list "$LDATA" "rep"
+
+  # Get list of remote datasets
+  _rDsetList="/tmp/.remoteDSets.$$"
+  ${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
+  sync
+
+  # Remove any remote datasets that dont exist on host
+  prune_remote_datasets "${_rDsetList}"
+
+  cleanup_iscsi
+  rm ${pidFile}
+
 }
 
 do_zfs_send_now() {
