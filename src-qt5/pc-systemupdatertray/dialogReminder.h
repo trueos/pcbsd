@@ -37,6 +37,9 @@ private slots:
 	    case 3:
 		minutes = 240; //4 hours
 	        break;
+	    case :
+	        minutes = 480; //8 hours
+	        break;
 	    case 4:
 		minutes = 720; //12 hours
 	        break;
