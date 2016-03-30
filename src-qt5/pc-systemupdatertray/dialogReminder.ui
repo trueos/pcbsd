@@ -141,6 +141,11 @@ border-radius: 5px;
      </item>
      <item>
       <property name="text">
+       <string>8 Hour</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>12 Hours</string>
       </property>
      </item>
