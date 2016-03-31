@@ -12,7 +12,6 @@ LICENSE=	BSD3CLAUSE
 
 RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 		eject:${PORTSDIR}/sysutils/eject \
-		ipfs-go:${PORTSDIR}/sysutils/ipfs-go \
 		unzip:${PORTSDIR}/archivers/unzip
 
 WRKSRC_SUBDIR=	src-sh/pcbsd-utils
