@@ -70,7 +70,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     // Update the status bar
 
     // Check if we are running in EFI mode
-    if ( system("kenv grub.platform | grep -q 'efi'") == 0 )
+    if ( system("sysctl -n machdep.bootmethod | grep -q 'UEFI'") == 0 )
       efiMode=true;
     else
       efiMode=false;
@@ -1369,10 +1369,6 @@ void Installer::startInstall()
      PCSYSINSTALL = "/root/pc-sysinstall/pc-sysinstall";
   else  
      PCSYSINSTALL = "/usr/local/sbin/pc-sysinstall";
-
-  // If the user wants to set UEFI/BIOS mode manually
-  if ( ! forceBIOS.isEmpty() )
-    system("kenv grub.platform='" + forceBIOS.toLatin1() + "'");
 
   QString program = PCSYSINSTALL;
   QStringList arguments;
