@@ -92,7 +92,7 @@ unmount_all_filesystems()
 
     if [ "${PARTFS}" = "SWAP" ]
     then
-      rc_nohalt "swapoff ${PARTDEV}${EXT}"
+      rc_nohalt "swapoff ${PARTDEV}${EXT}" >/dev/null 2>/dev/null
     fi
 
     # Check if we've found "/", and unmount that last
@@ -194,7 +194,7 @@ unmount_all_filesystems_failure()
 
     if [ "${PARTFS}" = "SWAP" ]
     then
-      rc_nohalt "swapoff ${PARTDEV}${EXT}"
+      rc_nohalt "swapoff ${PARTDEV}${EXT}" >/dev/null 2>/dev/null
     fi
 
     # Check if we've found "/", and unmount that last

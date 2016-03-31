@@ -246,16 +246,8 @@ delete_all_gpart()
     swapoff ${i} >/dev/null 2>/dev/null
   done
 
-  # Delete the gparts now
-  for i in `gpart show ${DISK} 2>/dev/null | tr -s ' ' | cut -d ' ' -f 4`
-  do
-   if [ "/dev/${i}" != "${DISK}" -a "${i}" != "-" ] ; then
-     rc_nohalt "gpart delete -i ${i} ${DISK}"
-   fi
-  done
-
   # Destroy the disk geom
-  rc_nohalt "gpart destroy ${DISK}"
+  rc_nohalt "gpart destroy -F ${DISK}"
 
   # Make sure we clear any hidden gpt tables
   clear_backup_gpt_table "${DISK}"
