@@ -182,9 +182,10 @@ void MixerTray::changeVol(int percent, bool modify){
     mute->setIcon( QIcon::fromTheme("audio-volume-muted", QIcon(":icons/audio-volume-muted.png")) );
   }
   
-  slider->disconnect(); //Make sure this slider change does not trigger the signal/slot
-  slider->setValue(percent);
-  connect(slider, SIGNAL(valueChanged(int)), this, SLOT(sliderChanged(int)) ); //reconnect it
+  {
+    const QSignalBlocker blocker(slider);
+    slider->setValue(percent);
+  }
   
   this->setToolTip(QString::number(percent)+"%");
 }
