@@ -37,7 +37,7 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
 	actionMenu->addAction(mixerA);
   //Now initialize the GUI
   GUI = new MixerGUI(settings);
-  
+
   //Connect the signals/slots
   connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(trayActivated()) );
   connect(mixer, SIGNAL(clicked()), this, SLOT(openMixerGUI()) );
@@ -53,6 +53,11 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
   //Make sure no single-instance events for 30 seconds
   QTimer::singleShot(30000, this, SLOT(doneStarting()) );
   QTimer::singleShot(10, this, SLOT(loadVol()) ); //Update the UI
+  
+  //This timer will be fired in doneStarting()
+  timer = new QTimer();
+  timer->setInterval(500);
+  connect(timer, SIGNAL(timeout()), this, SLOT(loadVol()) );
 }
 
 MixerTray::~MixerTray(){
@@ -121,8 +126,22 @@ void MixerTray::loadVol(){
   //Just use the largest value for the moment
   if(L > R){ R = L; }
   else if(L < R){ L = R; }
-  //Now just run the changeVol function to update everything (better than duplication)
-  changeVol(R, false);
+
+  // Updating the GUI when nothing has changed can get expensive
+  // Only change if the volume is not the same as last time
+  static int lastR = -1;
+  if (lastR != R){
+
+    //Now just run the changeVol function to update everything (better than duplication)
+    changeVol(R, false);
+
+    if(GUI->isVisible()){
+      //also update the main mixer GUI if it is visible
+      GUI->updateGUI();
+    }
+
+    lastR = R;
+  }
 }
 
 void MixerTray::slotOutputSelected()
@@ -182,9 +201,10 @@ void MixerTray::changeVol(int percent, bool modify){
     mute->setIcon( QIcon::fromTheme("audio-volume-muted", QIcon(":icons/audio-volume-muted.png")) );
   }
   
-  slider->disconnect(); //Make sure this slider change does not trigger the signal/slot
-  slider->setValue(percent);
-  connect(slider, SIGNAL(valueChanged(int)), this, SLOT(sliderChanged(int)) ); //reconnect it
+  {
+    const QSignalBlocker blocker(slider);
+    slider->setValue(percent);
+  }
   
   this->setToolTip(QString::number(percent)+"%");
 }

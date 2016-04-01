@@ -645,7 +645,7 @@ start_pcbsd_patch() {
   echo "DOWNLOADING: ${saIdent}" >${TRIGGERFILE}
 
   # Get the file
-  get_file_from_mirrors "/${saUrl}" "${DOWNLOADDIR}/${FILENAME}" "update"
+  get_file "${saUrl}" "${DOWNLOADDIR}/${FILENAME}"
   if [ $? -ne 0 ] ; then
      rm ${PATCHTMPFILE}
      echo "FAILED: ${saIdent}" >${TRIGGERFILE}
