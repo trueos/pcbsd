@@ -23,5 +23,7 @@ ENV=$HOME/.shrc; export ENV
 # Enable colors and such for git diffs
 MORE="-erX" ; export MORE
 
-# Set VIM as default
-alias vi="vim"
+if [ -e "/usr/local/bin/vim" ] ; then
+  # Set VIM as default
+  alias vi="vim"
+fi

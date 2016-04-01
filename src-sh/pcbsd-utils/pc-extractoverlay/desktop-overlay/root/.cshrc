@@ -51,4 +51,6 @@ endif
 setenv MORE "-erX"
 
 # Use VIM by default
-alias vi "vim"
+if ( -e /usr/local/bin/vim ) then
+  alias vi "vim"
+endif
