@@ -173,6 +173,16 @@ echo_log()
 
 setup_pkgng_conf() {
 
+  # Create the repos directory
+  if [ ! -d "/usr/local/etc/pkg/repos" ] ; then
+    mkdir -p /usr/local/etc/pkg/repos
+  fi
+
+  # Disable the FreeBSD repo
+  if [ ! -e "/usr/local/etc/pkg/repos/FreeBSD.conf" ] ; then
+    echo "FreeBSD: { enabled: no }" > /usr/local/etc/pkg/repos/FreeBSD.conf
+  fi
+
   # See if we need to adjust pcbsd.conf repo file
   if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
      echo "WARNING: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
