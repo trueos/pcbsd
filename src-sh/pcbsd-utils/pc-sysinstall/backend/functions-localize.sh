@@ -173,7 +173,7 @@ localize_key_layout()
     cz) KEYLAYOUT_CONSOLE="cz.iso2" ;;
     de) KEYLAYOUT_CONSOLE="german.iso" ;;
     dk) KEYLAYOUT_CONSOLE="danish.iso" ;;
-    ee) KEYLAYOUT_CONSOLE="estonian.iso" ;;
+    et) KEYLAYOUT_CONSOLE="estonian.iso" ;;
     es) KEYLAYOUT_CONSOLE="spanish.iso" ;;
     fi) KEYLAYOUT_CONSOLE="finnish.iso" ;;
     is) KEYLAYOUT_CONSOLE="icelandic.iso" ;;
