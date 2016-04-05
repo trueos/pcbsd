@@ -157,13 +157,17 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * Based on FreeBSD 11.0 which adds these `features <https://www.freebsd.org/releases/11.0R/relnotes.html>`_.
 
-* The GRUB bootloader has been replaced by the FreeBSD bootloader, which provides both GELI and Boot Environment support.
+* By default, the GRUB bootloader has been replaced by the FreeBSD bootloader, as it now provides both GELI and boot environment support. The "Use GRUB bootloader" checkbox has been added
+  to the "Customize" Disk Selection screens for users of dual-boot systems who prefer to use the GRUB boot loader.
 
-* Lumina has been updated to `0.8.8 <http://lumina-desktop.org/lumina-desktop-0-8-8-released/>`_.
+* Lumina is now the default window manager. Additional window managers can be installed using :ref:`AppCafe®`.
 
-* The sysadm client and server utilities have been added, creating powerful new user friendly options for system management.
+* The SysAdm™ client and server utilities have been added, creating powerful new user-friendly options for system management.
 
-* freebsd-update has been retired in favor of using "pkg" for system updates.
+* :command:`freebsd-update` has been retired in favor of using :command:`pkg` for system updates.
+
+* The "Customize" button has been removed from the :ref:`System Selection Screen` in order to reduce the size of the installation media. You can install additional software
+  post-installation, using :ref:`AppCafe®`.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
