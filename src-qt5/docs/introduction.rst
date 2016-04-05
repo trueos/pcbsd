@@ -166,6 +166,10 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * :command:`freebsd-update` has been retired in favor of using :command:`pkg` for system updates.
 
+* The option to use the SCFB display driver has been added to the installation menu. This driver is suitable for newer UEFI laptops as it automatically detects native resolution and is a
+  good solution for newer Intel drivers, such as Broadwell, that have not been ported yet to FreeBSD. Before selecting this driver, check the BIOS and make sure the CSM module is disabled.
+  This driver does not support a dual-head configuration, such as an external port for presentations, or suspend and resume.
+
 * The "Customize" button has been removed from the :ref:`System Selection Screen` in order to reduce the size of the installation media. You can install additional software
   post-installation, using :ref:`AppCafe®`.
 
