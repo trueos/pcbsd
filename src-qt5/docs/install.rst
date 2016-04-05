@@ -12,15 +12,37 @@ To begin the PC-BSD® installation, insert the prepared boot media and boot the 
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
-The initial boot screen, shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`, offers a choice of using either the graphical or the text based installer. Unless you select
-otherwise, the graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
-If the graphical installer hangs when loading the graphics driver, try selecting the VESA mode option of the graphical installer.
+As the system boots it will display the menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`. Typically, you can just press :kbd:`Enter` or wait for this menu to go by and the
+system will continue to boot. 
 
-.. _install1a:
+.. _install1b:
 
-.. figure:: images/install1a.png
+.. figure:: images/install1b.png
 
-The rest of this chapter describes the screens of the graphical installer.
+Next, the "PC-BSD Installation Menu", shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1c>`, will be displayed. If you press any key (other than :kbd:`Enter`) this
+screen will pause so that you can review its options. If you do not pause this screen, it will automatically boot into the **xorg** option after a few seconds. This menu offers the
+following options:
+
+* **xorg:** starts a graphical installer that will auto-detect the driver required by the video hardware.
+
+* **vesa:** starts the graphical installer with the VESA driver loaded. Select this option if the "xorg" option hangs when loading the graphics driver.
+
+* **scfb:** starts the graphical installer with the SCFB driver loaded. Select this option if a UEFI system hangs when loading the graphics driver as it provides a
+  nicer display than the "vesa" driver. Before selecting this option, double-check that CSM has been disabled in the BIOS.
+  
+* **install:** starts the text-based installer as described in :ref:`Using the Text Installer`.
+
+* **utility:** starts the system utilities as described in :ref:`Using the System Utilities Menu`.
+
+* **reboot:** exits the installer and reboots the system.
+
+.. _install1c:
+
+.. figure:: images/install1c.png
+
+To select an option from this menu, use the arrow keys to highlight the option, then press :kbd:`Enter` to continue to boot into that option.
+
+The rest of this chapter describes the screens of the graphical installer. If you have problems booting into the graphical installer, refer to :ref:`Installation Troubleshooting`. 
 
 .. index:: installation
 .. _Language Selection Screen:
