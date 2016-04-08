@@ -123,7 +123,7 @@ void LPISCSIWizard::enableReplication(){
       this->next(); //this bypasses the status of the "next" button (so we can leave it disabled in the UI)
     }else{
       //Show a message box about the failure with any details possible
-      QString msg = tr("The Life Preserver experienced an error when trying to setup this remote backup. Please verify that your settings are accurate and try again.");
+      QString msg = tr("Life Preserver experienced an error when trying to setup this remote backup. Please verify that your settings are accurate and try again.");
       QMessageBox dlg(QMessageBox::Warning, tr("Error With Settings"), msg, QMessageBox::Ok, this);
         dlg.setDetailedText(log);
       dlg.exec();
