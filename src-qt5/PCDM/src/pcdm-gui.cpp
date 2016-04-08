@@ -37,7 +37,7 @@ PCDMgui::PCDMgui() : QMainWindow()
 	connect(pcTimer, SIGNAL(timeout()), this, SLOT(LoadAvailableUsers()) );
     if(!pcAvail.isEmpty()){ pcTimer->start(); } //LoadAvailableUsers was already run once
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(slotScreensChanged()) );
-    connect(QApplication::desktop(), SIGNAL(primaryScreenChanged()), this, SLOT(slotScreensChanged()) );
+   // connect(QApplication::desktop(), SIGNAL(primaryScreenChanged()), this, SLOT(slotScreensChanged()) );
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(slotScreensChanged()) );
 
 }
@@ -322,12 +322,17 @@ void PCDMgui::fillScreens(){
     // - Keep track of the total width/height of all screens combined (need to set the QMainWindow to this size)
     int wid, high;
     wid = high = 0;
+    QList<QRect> geoms;
     for(int i=0; i<DE->screenCount(); i++){
       //if(i != DE->screenNumber(this)){
         //Just show a generic QWidget with the proper background image on every screen
+	QRect rec = DE->screenGeometry(i);
+	if(geoms.contains(rec)){ continue; } //duplicate geom - skip it
+	geoms << rec;
 	QWidget *screen = new QWidget(this->centralWidget());
 	screen->setObjectName("BGSCREEN");
-	QRect rec = DE->screenGeometry(i);
+	//QRect rec = DE->screenGeometry(i);
+	//if(geoms.contains(rec)){ continue; } //duplicate geometry - skip it
 	qDebug() << "Detected Screen:" << i << rec;
 	screen->setGeometry( rec );
 	if(rec.height() > high){ high = rec.height(); }
