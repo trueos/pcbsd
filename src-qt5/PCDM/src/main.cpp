@@ -174,7 +174,9 @@ int runSingleSession(int argc, char *argv[]){
   //qDebug() << "AutoLogin Finished:" << QString::number(clock.elapsed())+" ms";
   if(!goodAL){
     // ------START THE PCDM GUI-------
-
+   retCode = -1;
+   while(retCode==-1){
+    retCode = 0;
     qDebug() << "Starting up PCDM interface";
     PCDMgui w;
 
@@ -195,6 +197,7 @@ int runSingleSession(int argc, char *argv[]){
 
     //Now start the event loop until the window closes
     retCode = a.exec();
+   }//end special retCode==-1 check (restart GUI)
   }  // end of PCDM GUI running
   //Wait for the desktop session to finish before exiting
     desktop.waitForSessionClosed(); 
