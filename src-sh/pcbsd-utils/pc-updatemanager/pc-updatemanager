@@ -1189,6 +1189,7 @@ dl_pkgs()
   # First off, fetch the pkgng pkg
   echo_log "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME"
   echo "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} update | tee -a ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg 2>&1 | tee -a ${PKGUPGRADELOG}
   if [ $? -ne 0 ] ; then
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
@@ -1567,8 +1568,9 @@ run_freebsd_update_fetch()
   prep_freebsd_update_hack_local
 
   echo_log "Fetching freebsd-update files..."
-  rc_halt "${FREEBSDUPLOCAL} fetch" 2>&1 | tee -a ${LOGOUT}
+  ${FREEBSDUPLOCAL} fetch
   if [ $? -ne 0 ] ; then
+    rm ${FREEBSDUPLOCAL}
     exit_err "failed fetching freebsd update files"
   fi
   rm ${FREEBSDUPLOCAL}
@@ -1580,7 +1582,7 @@ run_freebsd_update_install()
 
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Installing freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
 
   # Run again to remove any shared objs
   chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
@@ -1594,7 +1596,7 @@ prep_rc_script_fetch()
   prep_freebsd_update_hack_local
 
   echo_log "Fetching freebsd-update files..."
-  rc_halt "${FREEBSDUPLOCAL} -r $NEWFREEBSDVERSION upgrade" 2>&1 | tee -a ${LOGOUT}
+  rc_halt "${FREEBSDUPLOCAL} -r $NEWFREEBSDVERSION upgrade"
   if [ $? -ne 0 ] ; then
     exit_err "failed fetching freebsd update files"
   fi
@@ -1606,7 +1608,7 @@ prep_rc_script_install()
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" 2>&1 | tee -a ${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
 
   rm ${STAGEMNT}/${FREEBSDUP}
 

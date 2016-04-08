@@ -12,15 +12,37 @@ To begin the PC-BSD® installation, insert the prepared boot media and boot the 
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
-The initial boot screen, shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`, offers a choice of using either the graphical or the text based installer. Unless you select
-otherwise, the graphical installer will load. To instead use the text based installer, either from the console or over a serial connection, use the arrow keys to select an option.
-If the graphical installer hangs when loading the graphics driver, try selecting the VESA mode option of the graphical installer.
+As the system boots it will display the menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`. Typically, you can just press :kbd:`Enter` or wait for this menu to go by and the
+system will continue to boot. 
 
-.. _install1a:
+.. _install1b:
 
-.. figure:: images/install1a.png
+.. figure:: images/install1b.png
 
-The rest of this chapter describes the screens of the graphical installer.
+Next, the "PC-BSD Installation Menu", shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1c>`, will be displayed. If you press any key (other than :kbd:`Enter`) this
+screen will pause so that you can review its options. If you do not pause this screen, it will automatically boot into the **xorg** option after a few seconds. This menu offers the
+following options:
+
+* **xorg:** starts a graphical installer that will auto-detect the driver required by the video hardware.
+
+* **vesa:** starts the graphical installer with the VESA driver loaded. Select this option if the "xorg" option hangs when loading the graphics driver.
+
+* **scfb:** starts the graphical installer with the SCFB driver loaded. Select this option if a UEFI system hangs when loading the graphics driver as it provides a
+  nicer display than the "vesa" driver. Before selecting this option, double-check that CSM has been disabled in the BIOS.
+  
+* **install:** starts the text-based installer as described in :ref:`Using the Text Installer`.
+
+* **utility:** starts the system utilities as described in :ref:`Using the System Utilities Menu`.
+
+* **reboot:** exits the installer and reboots the system.
+
+.. _install1c:
+
+.. figure:: images/install1c.png
+
+To select an option from this menu, use the arrow keys to highlight the option, then press :kbd:`Enter` to continue to boot into that option.
+
+The rest of this chapter describes the screens of the graphical installer. If you have problems booting into the graphical installer, refer to :ref:`Installation Troubleshooting`. 
 
 .. index:: installation
 .. _Language Selection Screen:
@@ -79,76 +101,20 @@ When you are finished reviewing this screen, click the "Next" button to go to th
 System Selection Screen
 =======================
 
-The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3a>`, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also
+The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3b>`, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also
 can be used for :ref:`Restoring the Operating System`. This chapter concentrates on a desktop installation. Refer to :ref:`Install a Server` for instructions on how to
 install a command-line only server.
 
-.. _install3a: 
+.. _install3b: 
 
-.. figure:: images/install3a.png
+.. figure:: images/install3b.png
 
-By default, PC-BSD® will be selected and the default window manager will depend upon the amount of RAM on the system. Systems containing more than 2GB of RAM
-will default to the KDE desktop and all other systems will default to the LXDE desktop. To change the default window manager or to browse for additional
-desktops and components to install, click the "Customize" button to open the screen shown in :numref:`Figure %s: Browsing Additional System Components <install4>`. 
+By default, "PC-BSD (Graphical desktop)" will be selected and the :ref:`Lumina` desktop manager will be installed. You can install additional software post-installation, using
+:ref:`AppCafe®`.
 
-.. _install4: 
+To install the desktop, click the "Next" button to proceed to the next screen.
 
-.. figure:: images/install4.png
-
-Check the ► next to a component in order to expand it so that you can check or uncheck its sub-components. All components that are checked will be
-installed. If you highlight then right-click a component and select "View Packages", a pop-up menu will list the name of the packages that are installed with
-that component.
-
-The following components are available for installation.
-
-* **Desktops:** the following desktops are available:
-  :ref:`Awesome`, :ref:`Cinnamon`, :ref:`FVWM`, :ref:`GNOME`, :ref:`i3`, :ref:`IceWM`, :ref:`KDE4`,
-  :ref:`Lumina`, :ref:`LXDE`, :ref:`MATE`, :ref:`Openbox`, :ref:`Ratpoison`, :ref:`spectrwm`, :ref:`WindowLab`, :ref:`Window Maker`, and
-  :ref:`XFCE4`. Each desktop that is selected will be installed and will appear in the login menu of the installed PC-BSD® system.
-
-.. note:: even if you uncheck all desktops, :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
-
-* **Devel:** check the box to install `QGit <http://sourceforge.net/projects/qgit/>`_.
-
-* **Drivers:** if you have an NVIDIA video card, the correct driver should already be checked for you.
-
-* **Editors:** check the box to install `LibreOffice <http://www.libreoffice.org/>`_. 
-
-* **Emulators:** check the box to install `VirtualBox <https://www.virtualbox.org/>`_. 
-
-* **i18n:** if you expand the ► you can select to install localization for for the KDE desktop and for the operating system.
-
-* **IRC:** check the box to install `HexChat <http://hexchat.github.io/>`_. 
-
-* **Java:** if you expand the ► you can select to install `IcedTea <http://icedtea.classpath.org/wiki/IcedTea-Web>`_ and
-  `OpenJDK <http://openjdk.java.net/>`_ versions 7 and 8. 
-
-* **Mail:** check this box to install the `Thunderbird <https://www.mozilla.org/en-US/thunderbird/>`_ email client.
-
-* **MediaCenter:** if you expand the ► you can select to install `KODI <http://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_.
-
-* **Net:** check this box to install the `KRDC <https://www.kde.org/applications/internet/krdc/>`_ remote desktop client.
-
-* **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
-
-* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "Internet", "Media", and
-  "Office and Productivity".
-
-* **Security:** check this box to install the `OpenVPN <https://openvpn.net/index.php/open-source.html>`_ VPN client.
-
-* **SysUtils:** check this box to install the `PySalt <http://saltstack.com/community/>`_ distributed remote execution and configuration management
-  system.
-
-* **Virtualization:** if you expand the ► you can install `VirtualBox Guest Additions <https://www.virtualbox.org/>`_
-  and `VMwareGuest <http://open-vm-tools.sourceforge.net/about.php>`_. 
-
-* **Web:** if you expand the ► you can select to install the `Chromium <http://www.chromium.org/>`_ and `Firefox <https://www.mozilla.org/en-US/firefox/new/>`_
-  web browsers. By default, Firefox is selected.
-
-Once you have made your selection(s), click the "Save" button to save your selections. The "PC-BSD Package Selection" box will list the components that you
-selected for installation. You can now click the "Next" button to proceed to the next screen.
-
-.. note:: if you are installing a desktop, the installer will display a pop-up message if it cannot find a physical or virtual disk that does not meet the
+.. note:: when installing a desktop, the installer will display a pop-up message if it cannot find a physical or virtual disk that does not meet the
    recommended minimum size of 50GB. It will let you continue an installation on a smaller disk, but you may run into disk space issues on smaller disks.
 
 .. index:: installation
@@ -167,11 +133,12 @@ The "Disk Selection" screen, seen in :numref:`Figure %s: Disk Selection Screen <
    on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
    layout your disk. If you plan on booting PC-BSD® with another operating system, you should also review the section on :ref:`Dual Booting`.
 
-If you wish to select which disk or partition to install PC-BSD® into, click the "Customize" button to start the Disk Setup Wizard, shown in :numref:`Figure %s: Disk Setup Wizard <install6>`. 
+If you wish to select which disk or partition to install PC-BSD® into, click the "Customize" button to start the Disk Setup Wizard, shown in
+:numref:`Figure %s: Disk Setup Wizard <install6a>`. 
 
-.. _install6: 
+.. _install6a: 
 
-.. figure:: images/install6.png
+.. figure:: images/install6a.png
 
 The wizard provides three modes of operation. The rest of this section describes these modes in detail.
 
@@ -196,17 +163,20 @@ click "Save Config to USB".
 Basic Mode 
 -----------
 
-If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7>`. 
+If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7a>`. 
 
-.. _install7:
+.. _install7a:
 
-.. figure:: images/install7.png
+.. figure:: images/install7a.png
 
 By default, the first hard disk will be selected. If you wish to install on a different disk, use the "Selected Disk" drop-down menu to select the disk to
 install into.
 
 By default, the entire selected disk will be formatted. If the disk has been divided into partitions or you have an area of free space, use
 the "Selected Partition" drop-down menu to select the desired partition.
+
+By default, the system will use the FreeBSD boot loader as it supports boot environments. If you will be dual-booting the system and prefer to use the GRUB bootloader, check the box
+to "Use GRUB bootloader".
 
 .. note:: PC-BSD® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install PC-BSD® into a secondary or an extended partition.
           If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
@@ -221,11 +191,11 @@ installation.
 Advanced Mode 
 --------------
 
-If you select advanced mode, the wizard will display the screen shown in :numref:`Figure %s: Advanced Mode Options <install8a>`. 
+If you select advanced mode, the wizard will display the screen shown in :numref:`Figure %s: Advanced Mode Options <install8b>`. 
 
-.. _install8a:
+.. _install8b:
 
-.. figure:: images/install8a.png
+.. figure:: images/install8b.png
 
 This screen provides the following options: 
 
@@ -237,21 +207,24 @@ This screen provides the following options:
           If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
 
 * **Partition Scheme:**  the default of "GPT (Best for new hardware)" is a partition table layout that supports larger partition sizes than the traditional "MBR (Legacy)" layout.
-  **If your installation disk/partition is larger than 2 TB, this option must be selected**. Some older motherboards do
-  not support this option. If the installation fails, try again with "MBR (Legacy)" selected. When in doubt, try the default selection first. Note that this section will
+  **If your installation disk/partition is larger than 2 TB, the GPT option must be selected**. Since some older motherboards do
+  not support GPT, if the installation fails, try again with "MBR (Legacy)" selected. When in doubt, try the default selection first. Note that this section will
   not appear if you specify a partition rather than "Use entire disk" in the "Selected Partition" drop-down menu.
 
 * **Target Installation:** when installing to non-UEFI systems, keep the default selection of "BIOS (Legacy motherboards)". If the hardware supports UEFI, change the
   selection to "UEFI (Modern motherboards)". Note that this section will not appear if you specify a partition rather than "Use entire disk" in the "Selected Partition"
   drop-down menu.
+  
+* **ZFS pool name:** if you wish to use a pool name other than the default of *tank*, check this box and input the name of the pool. Note that *root* is a reserved term and can not be used
+  as a pool name.
 
 * **Force ZFS 4k block size:** this option should only be checked if you know for sure that the disk supports 4k, even though it lies and reports its size as
   512b. Use with caution as it may cause the installation to fail.
 
-* **ZFS pool name:** if you wish to use a pool name other than the default of *tank*, check this box and input the name of the pool.
+* **Use GRUB bootloader:** by default, the system will use the FreeBSD boot loader as it supports boot environments. Check this box if you will be dual-booting the system and prefer to use
+  the GRUB bootloader.
 
-After making your selections click "Next" to access the ZFS configuration screens. The rest of this section provides a ZFS overview and demonstrates how to
-customize the ZFS layout. Note that *root* is a reserved term and can not be used as a pool name.
+After making your selections click "Next" to access the ZFS configuration screens. The rest of this section provides a ZFS overview and demonstrates how to customize the ZFS layout. 
 
 .. index:: ZFS
 .. _ZFS Overview:
@@ -445,7 +418,7 @@ Selection" screen.
 Installation Progress Screen
 ============================
 
-Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: nstallation Progress Screen <install13a>`, provides a progress bar and messages so that you
+Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: Installation Progress Screen <install13a>`, provides a progress bar and messages so that you
 can watch the installation's progress.
 
 .. _install13a:

@@ -36,6 +36,9 @@ PCDMgui::PCDMgui() : QMainWindow()
 	pcTimer->setInterval(15000); //every 15 seconds
 	connect(pcTimer, SIGNAL(timeout()), this, SLOT(LoadAvailableUsers()) );
     if(!pcAvail.isEmpty()){ pcTimer->start(); } //LoadAvailableUsers was already run once
+    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(slotScreensChanged()) );
+   // connect(QApplication::desktop(), SIGNAL(primaryScreenChanged()), this, SLOT(slotScreensChanged()) );
+    connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(slotScreensChanged()) );
 
 }
 
@@ -67,15 +70,24 @@ void PCDMgui::createGUIfromTheme(){
   QString style;
   QString tmpIcon; //used for checking image files before loading them
   QWidget *mainscreen = 0;
+  qDebug() << "Screens:" << QApplication::desktop()->screenCount() << screens.length();
   if(QApplication::desktop()->primaryScreen() < screens.length()){
     //Primary screen set - use this
+    qDebug() << " - Primary Screen:" << QApplication::desktop()->primaryScreen();
     mainscreen = screens[QApplication::desktop()->primaryScreen()];
   }else{
     //No primary set? just use the left-most one
     for(int i=0; i<screens.length(); i++){
-      if(screens[i]->x()==0){ mainscreen = screens[i]; }
+      if(screens[i]->x()==0){ 
+	qDebug() << " - Use Main screen:" << i;
+	mainscreen = screens[i]; 
+      }
+    }
+    if(mainscreen==0){
+      mainscreen = screens.first(); //fallback - just use the first screen
     }
   }
+  
   //Define the default icon size
   int perc = qRound(mainscreen->height()*0.035); //use 3.5% of the screen height
   defIconSize = QSize(perc,perc);
@@ -314,11 +326,17 @@ void PCDMgui::fillScreens(){
     // - Keep track of the total width/height of all screens combined (need to set the QMainWindow to this size)
     int wid, high;
     wid = high = 0;
+    QList<QRect> geoms;
     for(int i=0; i<DE->screenCount(); i++){
         //Just show a generic QWidget with the proper background image on every screen
+	QRect rec = DE->screenGeometry(i);
+	if(geoms.contains(rec)){ continue; } //duplicate geom - skip it
+	geoms << rec;
 	QWidget *screen = new QWidget(this->centralWidget());
 	screen->setObjectName("BGSCREEN");
-	QRect rec = DE->screenGeometry(i);
+	//QRect rec = DE->screenGeometry(i);
+	//if(geoms.contains(rec)){ continue; } //duplicate geometry - skip it
+	qDebug() << "Detected Screen:" << i << rec;
 	screen->setGeometry( rec );
 	if(rec.height() > high){ high = rec.height(); }
 	wid += rec.width();
@@ -328,6 +346,11 @@ void PCDMgui::fillScreens(){
     this->setGeometry(0,0,wid,high);
     this->activateWindow();
     QCursor::setPos( DE->screenGeometry(0).center() );	  
+}
+
+void PCDMgui::slotScreensChanged(){
+  //Restart the GUI 
+  QApplication::exit(-1); //special code to restart the GUI-only
 }
 
 void PCDMgui::slotStartLogin(QString displayname, QString password){
@@ -421,7 +444,7 @@ void PCDMgui::slotShutdownComputer(){
 
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Shutting down computer");
-    system("shutdown -po now");
+    system("shutdown -p now");
     QCoreApplication::exit(1); //flag that this is not a normal GUI close
   }
 }
@@ -437,7 +460,7 @@ void PCDMgui::slotRestartComputer(){
 
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Restarting computer");
-    system("shutdown -ro now");
+    system("shutdown -r now");
     QCoreApplication::exit(1); //flag that this is not a normal GUI close
   }
 }

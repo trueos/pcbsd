@@ -17,7 +17,7 @@ Contents:
    install
    postinstall
    advanced
-   desktops
+   lumina
    update
    controlpanel
    using

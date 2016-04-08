@@ -351,8 +351,8 @@ its highest value. Also check to see if the BIOS is set to prefer built-in graph
 order of the devices listed; in this case, make sure that the preferred device is listed first. If you can not see your BIOS settings you may need to move a
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
-If that change did not help, try rebooting and selecting the "Graphical Install (Failsafe VESA mode)" option from the boot menu shown in
-:numref:`Figure %s: PC-BSD® Installer Boot Menu <install1a>`. 
+If that change did not help, try rebooting and selecting "6. Configure Boot Options" from the boot menu shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`. Then,
+select "7. Failsafe VESA Mode" to toggle this option to "On" Press :kbd:`Enter` to boot the system in VESA mode which should support all graphic cards. 
 
 A not uncommon cause for problems is the LBA (Logical Block Addressing) setting in the BIOS. If your PC is not booting up before or after installation, check
 your BIOS and turn LBA off (do not leave it on automatic).

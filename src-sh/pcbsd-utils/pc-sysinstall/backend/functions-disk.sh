@@ -703,7 +703,7 @@ init_gpt_full_disk()
     else
       rc_halt "gpart add -s 128 -t freebsd-boot ${_intDISK}"
       echo_log "Stamping boot sector on ${_intDISK}"
-      rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_intDISK}"
+      rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
     fi
   fi
 
