@@ -36,6 +36,9 @@ PCDMgui::PCDMgui() : QMainWindow()
 	pcTimer->setInterval(15000); //every 15 seconds
 	connect(pcTimer, SIGNAL(timeout()), this, SLOT(LoadAvailableUsers()) );
     if(!pcAvail.isEmpty()){ pcTimer->start(); } //LoadAvailableUsers was already run once
+    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(slotScreensChanged()) );
+    connect(QApplication::desktop(), SIGNAL(primaryScreenChanged()), this, SLOT(slotScreensChanged()) );
+    connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(slotScreensChanged()) );
 
 }
 
@@ -66,14 +69,27 @@ void PCDMgui::loadTheme(){
 void PCDMgui::createGUIfromTheme(){
   QString style;
   QString tmpIcon; //used for checking image files before loading them
-  QWidget *leftscreen = 0;
-  for(int i=0; i<screens.length(); i++){
-    if(screens[i]->x()==0){
-      leftscreen = screens[i];
+  QWidget *mainscreen = 0;
+  qDebug() << "Screens:" << QApplication::desktop()->screenCount() << screens.length();
+  if(QApplication::desktop()->primaryScreen() < screens.length()){
+    //Primary screen set - use this
+    qDebug() << " - Primary Screen:" << QApplication::desktop()->primaryScreen();
+    mainscreen = screens[QApplication::desktop()->primaryScreen()];
+  }else{
+    //No primary set? just use the left-most one
+    for(int i=0; i<screens.length(); i++){
+      if(screens[i]->x()==0){ 
+	qDebug() << " - Use Main screen:" << i;
+	mainscreen = screens[i]; 
+      }
+    }
+    if(mainscreen==0){
+      mainscreen = screens.first(); //fallback - just use the first screen
     }
   }
+  
   //Define the default icon size
-  int perc = qRound(leftscreen->height()*0.035); //use 3.5% of the screen height
+  int perc = qRound(mainscreen->height()*0.035); //use 3.5% of the screen height
   defIconSize = QSize(perc,perc);
   //Set the background image
   if(DEBUG_MODE){ qDebug() << "Setting Background Image"; }
@@ -107,12 +123,12 @@ void PCDMgui::createGUIfromTheme(){
       this->addToolBar( Qt::LeftToolBarArea, toolbar ); 	    
     }else if( tarea=="top"){
       this->addToolBar( Qt::TopToolBarArea, toolbar );  	   
-      toolbar->setFixedWidth(leftscreen->width());
+      toolbar->setFixedWidth(mainscreen->width());
     }else if(tarea=="right"){
       this->addToolBar( Qt::RightToolBarArea, toolbar );   	    
     }else{ //bottom is default
       this->addToolBar( Qt::BottomToolBarArea, toolbar ); 	
-      toolbar->setFixedWidth(leftscreen->width());
+      toolbar->setFixedWidth(mainscreen->width());
     }
     //Set toolbar flags
     toolbar->setVisible(true);
@@ -280,7 +296,7 @@ void PCDMgui::createGUIfromTheme(){
     }
 
   //Connect the grid to the leftmost screen widget
-  leftscreen->setLayout(grid);
+  mainscreen->setLayout(grid);
     
   //Now translate the UI and set all the text
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
@@ -312,6 +328,7 @@ void PCDMgui::fillScreens(){
 	QWidget *screen = new QWidget(this->centralWidget());
 	screen->setObjectName("BGSCREEN");
 	QRect rec = DE->screenGeometry(i);
+	qDebug() << "Detected Screen:" << i << rec;
 	screen->setGeometry( rec );
 	if(rec.height() > high){ high = rec.height(); }
 	wid += rec.width();
@@ -326,6 +343,11 @@ void PCDMgui::fillScreens(){
     this->setGeometry(0,0,wid,high);
     this->activateWindow();
     QCursor::setPos( DE->screenGeometry(0).center() );	  
+}
+
+void PCDMgui::slotScreensChanged(){
+  //Restart the GUI 
+  QApplication::exit(-1); //special code to restart the GUI-only
 }
 
 void PCDMgui::slotStartLogin(QString displayname, QString password){

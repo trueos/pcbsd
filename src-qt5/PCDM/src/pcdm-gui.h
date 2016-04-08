@@ -45,6 +45,7 @@ public:
     void progInit();
 
 private slots:
+    void slotScreensChanged();
     void slotStartLogin(QString,QString);
     void slotLoginSuccess();
     void slotLoginFailure();
