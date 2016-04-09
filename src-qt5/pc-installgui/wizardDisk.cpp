@@ -23,8 +23,6 @@ void wizardDisk::programInit()
   populateDiskInfo();
 
   //connect(pushClose, SIGNAL(clicked()), this, SLOT(slotClose()));
-  connect(radioUEFI, SIGNAL(clicked()), this, SLOT(slotUEFIClicked()));
-  connect(radioBIOS, SIGNAL(clicked()), this, SLOT(slotUEFIClicked()));
   connect(pushSwapSize, SIGNAL(clicked()), this, SLOT(slotSwapSize()));
   connect(pushRemoveMount, SIGNAL(clicked()), this, SLOT(slotRemoveFS()));
   connect(pushAddMount, SIGNAL(clicked()), this, SLOT(slotAddFS()));
@@ -59,13 +57,14 @@ void wizardDisk::programInit()
 
   // Check if we are running in EFI mode
   if ( system("kenv grub.platform | grep -q 'efi'") == 0 ) {
-     radioUEFI->setChecked(true);
-     efiMode=true;
+    efiMode=true;
+    radioMBR->setEnabled(false);
+    radioGPT->setChecked(true);
   } else {
-     radioBIOS->setChecked(true);
-     efiMode=false;
+    efiMode=false;
+    radioMBR->setEnabled(true);
+    radioGPT->setChecked(true);
   }
-  slotUEFIClicked();
 }
 
 void wizardDisk::populateDiskInfo()
@@ -137,12 +136,6 @@ void wizardDisk::accept()
   QString partType="none";
   bool force4K = false;
   QString zpoolName;
-  QString biosMode;
-
-  if ( radioUEFI->isChecked() )
-    biosMode="efi";
-  else
-    biosMode="pc";
 
   if (comboPartition->currentIndex() == 0 ) {
     if ( radioGPT->isChecked() ) {
@@ -170,9 +163,9 @@ void wizardDisk::accept()
      zpoolName = lineZpoolName->text();
 
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, QString("NONE"), partType, zpoolName, force4K, QString(""));
+    emit saved(sysFinalDiskLayout, QString("NONE"), partType, zpoolName, force4K);
   else
-    emit saved(sysFinalDiskLayout, bootLoader, partType, zpoolName, force4K, biosMode);
+    emit saved(sysFinalDiskLayout, bootLoader, partType, zpoolName, force4K);
   close();
 }
 
@@ -185,21 +178,11 @@ int wizardDisk::nextId() const
        if (radioBasic->isChecked()) {
          radioGPT->setChecked(true);
          groupScheme->setVisible(false);
-         groupBIOS->setVisible(false);
          checkForce4K->setVisible(false);
          groupZFSPool->setVisible(false);
-         // Check if we are running in EFI mode
-         if ( system("sysctl -n machdep.bootmethod | grep -q 'UEFI'") == 0 ) {
-            radioUEFI->setChecked(true);
-            radioMBR->setEnabled(false);
-         } else {
-            radioBIOS->setChecked(true);
-            radioMBR->setEnabled(true);
-         }
        }
        if (radioAdvanced->isChecked()) {
          groupScheme->setVisible(true);
-         groupBIOS->setVisible(true);
          checkForce4K->setVisible(true);
          groupZFSPool->setVisible(true);
        }
@@ -299,16 +282,13 @@ bool wizardDisk::validatePage()
          if ( ! radioAdvanced->isChecked() ) {
            radioGPT->setChecked(true);
            groupScheme->setVisible(false);
-           groupBIOS->setVisible(false);
            checkForce4K->setVisible(false);
            checkForce4K->setChecked(false);
          } else {
            if ( comboPartition->currentIndex() == 0) {
              groupScheme->setVisible(true);
-             groupBIOS->setVisible(true);
            } else {
              groupScheme->setVisible(false);
-             groupBIOS->setVisible(false);
            }
            checkForce4K->setVisible(true);
          } 
@@ -683,7 +663,7 @@ int wizardDisk::getDiskSliceSize()
   int safeBuf = 15;
 
   // If on EFI we subtract 100MiB to save for a FAT16/EFI partition
-  if ( radioUEFI->isChecked() )
+  if ( efiMode )
     safeBuf = 115;
 
   // Check the full disk
@@ -1366,11 +1346,4 @@ void wizardDisk::slotTerminal()
 void wizardDisk::setRestoreMode()
 {
   restoreMode=true;
-}
-
-void wizardDisk::slotUEFIClicked()
-{
-  radioMBR->setEnabled(! radioUEFI->isChecked());
-  if ( radioUEFI->isChecked() )
-    radioGPT->setChecked(true);
 }
