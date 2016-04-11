@@ -20,7 +20,7 @@ AppCafe®
 =========
 
 AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
-pre-built applications that have been tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
+pre-built applications tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
 is displayed in AppCafe®, such as screenshots and lists of similar applications. It also provides graphical jail management, which allows you to
 run applications which are isolated from the rest of the operating system.
 
@@ -128,7 +128,7 @@ grey download icon. Click the icon to install that application. Applications whi
 
 The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
 
-The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
+The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. Alternately, to view all of
 the PBIs for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
 PBIs within that category.
 
@@ -202,7 +202,7 @@ Click the hyperlink under the "Result" column to review the installation log.
 Plugins
 -------
 
-Beginning with PC-BSD® 10.2, plugins can be used to install a pre-configured, isolated application into its own jail. A `jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ provides a very
+Beginning with PC-BSD® 10.2, plugins can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
 light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
 with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
 installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
@@ -529,6 +529,10 @@ version 10.1.1, the following steps occur automatically during an update:
   time of the next warning, click the "Next Reminder" drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login
   session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
   until you reboot.
+  
+* The default ZFS layout used by PC-BSD® ensures that when new boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+  :file:`/var/` directories remain untouched. This way, if you decide to rollback to a previous boot environment, you will not lose data in your home directories, any
+  installed applications, or downloaded src or ports. However, you will return the system to its previous state, before the update was applied.
 
 * As the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update Manager utility, shown in
   :numref:`Figure %s: Viewing the Update Log <update10a>`. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
@@ -800,7 +804,7 @@ users should backup their important data to another system or external drive and
 Upgrading from 10.x to |version|
 --------------------------------
 
-Upgrading from any 10.x version to |version| is the same as applying any package update. This means that the update to |version| will either appear in Update
+Upgrading from any 10.x version to |version| is the same as applying any package update. This means the update to |version| will either appear in Update
 Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
 
 .. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
@@ -818,7 +822,7 @@ The official PC-BSD® package repository is hosted as a `ScaleEngine <http://www
 :command:`rsync` a copy of the package repository, which means you can have a locally hosted, complete package repository available for your own clients.
 
 To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
-private web server, as long as it is accessible to your target audience. Ensure that this directory is browsable by a web browser from a client
+private web server, as long as it is accessible to your target audience. Ensure this directory is browsable by a web browser from a client
 system **before** moving on to the next step.
 
 Once you have the HTTP directory ready for serving, use the following commands to sync with the official package repository::

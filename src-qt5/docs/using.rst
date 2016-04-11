@@ -94,7 +94,7 @@ Multimedia
 ==========
 
 PC-BSD® has been pre-configured to support most multimedia formats and makes it easy to install most open source media applications using :ref:`AppCafe®`.
-PC-BSD® supports both `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
+PC-BSD® supports both `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
 either sound server should work.
 
 If you install your web browser using AppCafe®, you should be able to play most media formats, including YouTube videos, Internet radio, and many trailer and
@@ -111,7 +111,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 * `aTunes <http://www.atunes.org/?page_id=5>`_: full-featured audio player and manager that can play mp3, ogg, wma, wav, flac, mp4 and radio streaming,
   allowing users to easily edit tags, organize music and rip audio CDs.
 
-* `Audacity <http://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
+* `Audacity <https://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
 
 * `DeaDBeeF <http://deadbeef.sourceforge.net/screenshots.html>`_: music player that supports most audio formats.
 
@@ -132,11 +132,11 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 Kodi
 ----
 
-`Kodi, formerly known as XBMC, <http://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
+`Kodi, formerly known as XBMC, <https://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
 formats. It can play CDs and DVDs from a disk or image file and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a
 personalized library with album covers, descriptions, and fan art. 
 
-During the installation of PC-BSD®, the installer provided an option to install Kodi. If you wish to install Kodi afterwards, use AppCafe®. Click the box "Search all
+To install Kodi, use AppCafe®. Click the box "Search all
 available PBI and packages" and search for "pcbsd-meta-kodi". Once installed, an entry for "Media Center" should be added to the "Multimedia" section of the application menu
 of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
 
@@ -152,7 +152,7 @@ PlexHome Theater
 `Plex Home Theater <https://plex.tv/>`_ is a centralized media playback system. The central Plex Media Server streams media to many Plex player Apps which are used to view
 your media library and watch shows. 
 
-During the installation of PC-BSD®, the installer provided an option to install PlexHome Theater. If you wish to install it afterwards, use AppCafe®. Click the box "Search all
+To install PlexHome Theater, use AppCafe®. Click the box "Search all
 available PBI and packages" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
 of your desktop. You can also start this application by typing :command:`plexhometheater` from a command prompt. 
 
@@ -294,7 +294,7 @@ separate PBI is available, and a short description of how to access the availabl
 Windows Emulation
 =================
 
-`Wine <https://www.winehq.org/>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
+`Wine <https://wiki.winehq.org/Main_Page>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
 favorite Windows game or productivity application has not been ported to Linux or BSD.
 
 Wine is not guaranteed to work with every Windows application. If you are unsure if the application that you require is supported, search for it in the
@@ -341,8 +341,7 @@ Once the installation is complete, browse to the application's location. :numref
 Running Steam
 -------------
 
-Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. The necessary configuration and a list of tested games can be found
-on the `PC-BSD® Wine Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/emulators/i386-wine-devel#Tips_and_Tricks>`_. Video instructions can be found
+Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. Video instructions can be found
 at `Steam on PC-BSD - How to Get Wine Running 3D Games <https://www.youtube.com/watch?v=B04EuZ9hpAI>`_ and at
 `Steam on PCBSD 2 - Using Wine as a Streaming Client <http://blog.pcbsd.org/2014/12/steam-on-pcbsd-2-using-wine-as-a-streaming-client/>`_.
 
@@ -356,13 +355,13 @@ Occasionally it is useful to allow connections between desktop sessions running 
 both users will be able to see the error on the problematic system and either user can take control of the mouse and keyboard in order to fix the problem.
 Typically this is a temporary situation as providing access to one's computer allows a remote user the ability to both view and modify its settings.
 
-The `remote desktop protocol (RDP) <https://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
+The :wikipedia:`Remote Desktop Protocol` (RDP) can be used to make a connection to another computer. 
 Depending upon the operating system, you may have to first install or enable RDP software on the remote computer:
 
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
   the full version of RDP is included, remote access may or may not be enabled by default. If you have trouble connecting using RDP, do a web search for
   "remote desktop" and the name of the version of Windows you are using to find out how to configure its remote desktop settings. If you still can not
-  connect, you can instead download, install, and configure `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
+  connect, you can instead download, install, and configure :wikipedia:`Virtual Network Computing` (VNC) server software on the system.
 
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
@@ -525,8 +524,8 @@ This section demonstrates how to configure and use both the PXE Boot Desktop Ser
 PXE Boot Desktop Server
 -----------------------
 
-A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <https://en.wikipedia.org/wiki/Diskless_node>`_ where
-each computer has a network interface card capable of `PXE <https://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
+A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a :wikipedia:`Diskless node` where
+each computer has a network interface card capable of :wikipedia:`Preboot Execution Environment` (PXE) booting. When a client boots from
 their network interface instead of their hard disk, they automatically connect to the PXE Boot Desktop Server and receive a login window. Once authenticated,
 they can use PC-BSD®, even if PC-BSD® is not installed on their own computer and even if their computer does not have a hard drive.
 
@@ -758,7 +757,7 @@ The security features built into PC-BSD® include:
   default, the first user you create during installation is added to the *wheel* group. You can use :ref:`User Manager` to add other users to this group. You
   can change the default :command:`sudo` configuration using the :command:`visudo` command as the superuser.
 
-* `AESNI <https://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
+* :wikipedia:`AES instruction set` (AESNI) support is loaded by default for the Intel Core i5/i7 processors that support this
   encryption set. This support speeds up AES encryption and decryption.
 
 * **Automatic notification of security advisories:** :ref:`Update Manager` will automatically notify you if an update is available as the result of a

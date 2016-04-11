@@ -10,14 +10,14 @@ regardless of which desktop you log into.
 .. note:: if a desktop does not contain an icon or menu item for Control Panel, type :command:`pc-controlpanel` from a shell prompt to launch the Control
    Panel.
 
-A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1>`.
+A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1a>`.
 
-.. _control1:
+.. _control1a:
 
-.. figure:: images/control1.png
+.. figure:: images/control1a.png
 
 The available utilities are divided into sections. If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has
-down arrow) its icons. In this example, the display for the "Desktop environment" section is hidden.
+down arrow) its icons.
 
 The search box in the upper right can be used to find the proper control panel item if you know what you would like to configure but are uncertain which
 utility to use. The icon next to the search box can be used to change the size of the icons, change the view from a grid to a list, and organize the icons
@@ -29,10 +29,10 @@ If an icon includes a yellow exclamation mark, you will need to input your passw
    By default, the first user account that you create is made a member of the *wheel* group. You can log in as that user and use :ref:`User Manager` to add
    other accounts to this group.
 
-Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina,
-assuming that they are installed, or just the utilities that came with PC-BSD®. :numref:`Figure %s: Desktop Selector Menu <control2>`  shows the desktop selector menu in use. In
-this example, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities. The menu icon indicates the control panel
-view while "(current)" will be beside the desktop that is presently active.
+Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from just the operating system (as seen in the example in
+:numref:`Figure %s: PC-BSD® Control Panel <control1a>`), all installed desktops, or one of these installed desktops: KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina.
+In the example shown in :numref:`Figure %s: Desktop Selector Menu <control2>`, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities.
+The menu icon indicates the control panel view while "(current)" will be beside the desktop that is presently active.
 
 .. _control2:
 
@@ -111,23 +111,26 @@ Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figur
 
 .. figure:: images/about1.png
 
-The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
-hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
-memory.
+he displayed information includes the version of PC-BSD®, whether the system is using the PRODUCTION, EDGE, or ENTERPRISE package set, the hostname of the system, the underlying version of
+FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed memory.
 
-If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
-seen in the example shown in :numref:`Figure %s: System Components Screen <about2>`. 
+If you click the "Software and system components" button, the screen shown in :numref:`Figure %s: System Components Screen <about2a>` will be displayed. 
+ 
+ .. _about2a:
+ 
+ .. figure:: images/about2a.png
 
-.. _about2:
+Click the arrow next to an entry to display or hide its its details. The following information is available:
 
-.. figure:: images/about2.png
+* **Video stack:** the Xorg version number, the type and version of the loaded video driver, and the version of the loaded VirtualBox driver.
 
-If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
-in :numref:`Figure %s: Desktop Environments Screen <about3>`.
+* **Toolkits:** the version numbers for the installed graphical toolkits.
 
-.. _about3:
+* **Desktops:** the version numbers of each installed desktop environment.
 
-.. figure:: images/about3.png
+* **Office:** if an office suite is installed, its version number.
+
+* **Scripting languages:** the version numbers of any installed scripting languages, such as Perl or Python.
 
 .. index:: configuration
 .. _Active Directory & LDAP:
@@ -238,7 +241,7 @@ option of booting into a backup boot environment. For example:
 * You can move a boot environment to another machine, physical or virtual, in order to check hardware support.
 
 .. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
-   boot environments are created, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+   boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
@@ -315,6 +318,8 @@ The fields in this screen are used to configure the:
 
 * **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
   increase this timer.
+  
+* **Show Timer Countdown:** if this box is unchecked, the timer countdown will not display, though you can still interrupt the boot process during the delay time.
 
 * **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
   `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.
@@ -435,7 +440,7 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
    until this setting is changed again in Login Manager.
 
 The "Remote login" tab, shown in :numref:`Figure %s: Configuring Remote Login <login3>`, is used to enable a remote user to connect to a desktop session using
-`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
+:wikipedia:`Virtual Network Computing` (VNC). Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
 be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will also
 need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in :numref:`Figure %s: Creating a Connection Using KRDC <krdc1>`)
 or from another VNC client.
@@ -919,7 +924,7 @@ confirm the resolution if it finds an optimal one. To configure a different reso
 This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
 provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
 
-You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be that the
+You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be the
 selected driver does not support that resolution or depth.
 
 Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of Display Settings <display4>`.
@@ -1020,8 +1025,9 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 .. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the
-`SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and, by default, the default player
+application will open so that you can play the contents of the disk. The default player that is used depends upon which applications have been installed, where
+`VLC <http://www.videolan.org/vlc/>`_ takes precedence, followed by `SMPlayer <http://smplayer.sourceforge.net/>`_. If you close the player, you can click
 the "Play" button shown in :numref:`Figure %s: Mount Tray Example <mount1>` to restart it.
 
 The following options are available in the "More Options" menu: 
@@ -1041,8 +1047,9 @@ The following options are available in the "More Options" menu:
   contents, close the file manager and click the "Eject" button for the memory device in Mount Tray and enter your password when prompted. As the ISO is
   unmounted, the memory disk is also detached from the system.
 
-* **Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3>`, this screen allows you to configure how often Mount Tray checks the disk space used by
-  mounted devices. Leave the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
+**Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3a>`, this screen allows you to configure whether or not optical disks automatically open using
+  the default player, whether or not Mount Tray automatically rechecks the disk space used by mounted devices and how often to perform that check, and whether or not
+  Mount Tray checks disk space when a disk is mounted.
 
 * **Close Tray:** click this option to remove Mount Tray from the system tray.
 
@@ -1050,9 +1057,9 @@ The following options are available in the "More Options" menu:
 
 .. figure:: images/mount2.png
 
-.. _mount3:
+.. _mount3a:
 
-.. figure:: images/mount3.png
+.. figure:: images/mount3a.png
 
 .. index:: mount
 .. _pc-sysconfig:
@@ -1110,7 +1117,7 @@ For usage information, run the command without any options::
 For example, to see a listed of the supported filesystems, use::
 
  pc-sysconfig supportedfilesystems
- FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
+ FAT, NTFS, EXT, CD9660, UFS, REISERFS, XFS, UDF, ZFS
 
 .. index:: keyboard
 .. _PC-BSD Keyboard Settings:
@@ -1125,7 +1132,7 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 
 .. figure:: images/keyboard1.png
 
-.. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
+.. note:: any changes made using this utility can be saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
    will not be saved.
 
@@ -1211,7 +1218,7 @@ This tab contains the following options:
 The "File" menu can be used to quit this mixer screen or to close both this screen and remove the icon from the system tray.
 
 The "Configuration" menu provides options for accessing the "PulseAudio Mixer" and "PulseAudio Settings" utilities as well as for restarting PulseAudio.
-PC-BSD® provides full `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
+PC-BSD® provides full `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
 network sound devices and mixer levels.
 
 For command line only systems, type :command:`mixer` from the command line to see the current sound settings::
@@ -1561,7 +1568,7 @@ By default, the "Disable this network device" box is unchecked. If you check thi
 network. The interface will remain inactive until this checkbox is unchecked.
 
 The "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of an Ethernet Interface's Network Settings <network4>`, allows advanced users to change their
-`MAC address <https://en.wikipedia.org/wiki/MAC_address>`_ or to automatically obtain an `IPv6 address <https://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless
+:wikipedia:`MAC address` or to automatically obtain an :wikipedia:`IPv6 address`. Both boxes should remain checked unless
 you are an advanced user who has a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
 .. _network4:
@@ -2311,8 +2318,6 @@ script as the *root* user. Input the information that the script asks for as see
  lpreserver-host-iscsi
  Enter the target host name (example.com or IP)
  >10.0.0.1
- Enter the target name (target0)
- > target0
  Enter the CHAP username
  >mybackups
  Enter the CHAP password (12-16 chars)
@@ -2803,16 +2808,15 @@ Select the software component that most closely matches where the bug occurs. Fo
 environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
 "PC-BSD base system". 
 
-In the example shown in :numref:`Figure %s: Reporting a Bug <report2>`, the user has selected "PC-BSD base system" then "Next". 
+In the example shown in :numref:`Figure %s: Reporting a Bug <report2a>`, the user has selected "PC-BSD base system" then "Next". 
 
-.. note:: regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing
-   list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
-   correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the
-   error.
+.. note:: regardless of the selection, the resulting screen will be similar to :numref:`Figure %s: Reporting a Bug <report2a>`. The various screens only differ in which bug tracking system
+   or mailing list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
+   correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the error.
 
-.. _report2:
+.. _report2a:
 
-.. figure:: images/report2.png
+.. figure:: images/report2a.png
 
 If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
 web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is

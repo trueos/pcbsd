@@ -120,7 +120,7 @@ Laptops
 Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
 deal with: 
 
-* **Sleep/suspend:** unfortunately, `ACPI <https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface>`_ is not an exact science, meaning that
+* **Sleep/suspend:** unfortunately, :wikipedia:`Advanced Configuration and Power Interface` (ACPI) is not an exact science, meaning that
   you may have to experiment with various :command:`sysctl` variables in order to achieve successful sleep and suspend states on your particular laptop model.
   If your laptop is a ThinkPad, `ThinkWiki <http://www.thinkwiki.org/wiki/ThinkWiki>`_ is an excellent source. For other types of laptops, try reading the "SYSCTL VARIABLES"
   section of :command:`man 4 acpi` and check to see if there is an ACPI man page specific to your vendor by typing :command:`apropos acpi.` The
@@ -131,7 +131,7 @@ deal with:
 * **Internal wireless:** some chipsets do not have a FreeBSD driver yet.
 
 * **Synaptics:** depending upon the hardware, you may or may not be able to disable the system's touchpad. This
-  `forum post <https://forums.freebsd.org/threads/how-to-disable-mousepad-tapping.17370/#post-100670>`_ describes how to enable Synaptics and some
+  `forum post <https://forums.freebsd.org/threads/17370/#post-100670>`_ describes how to enable Synaptics and some
   of the :command:`sysctl` options that this feature provides.
 
 * **Optimus graphics:** the current workaround is to disable Optimus in the BIOS, set the onboard Intel video to be dominant, or to change the graphics mode
@@ -216,7 +216,7 @@ where |version| is the most recent version, and either the word :file:`RELEASE` 
   features and drivers. If you wish to have or test the latest features and drivers as they become available and can tolerate possible breakage caused by new
   features being available before the next RELEASE, use the STABLE version.
 
-The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_. Previous RELEASE versions and
+The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org/download/>`_. Previous RELEASE versions and
 STABLE versions can be downloaded from the `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_. 
 
 Several types of files are available for download. Before downloading a file, review the following descriptions to see which one best suits your needs: 
@@ -264,11 +264,11 @@ If you downloaded an installation file, instead of a virtual image, refer to :re
 bootable media.
 
 If you have a slow download connection or wish to support the PC-BSD® project financially, you can purchase PC-BSD® DVDs from the
-`FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/su=yes/fi=prod_bsd/sf=sku/sf=title/sf=category/se=pcbsd>`_.
+`FreeBSD Mall <https://www.freebsdmall.com/cgi-bin/fm/scan/su=yes/fi=prod_bsd/sf=sku/sf=title/sf=category/se=pcbsd>`_.
 
 Members of the PC-BSD® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths. Visiting a PC-BSD® booth is an
-excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <http://blog.pcbsd.org/>`_ to see if any events are
-happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org/en/support/>`_ to arrange for DVDs.
+excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <https://blog.pcbsd.org/>`_ to see if any events are
+happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org/support/>`_ to arrange for DVDs.
 
 .. index:: checksum
 .. _Data Integrity Check:
@@ -281,7 +281,7 @@ portion of the file may get damaged or lost, making the installation file unusab
 If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
 verify a checksum, you will need to use a checksum verification utility.
 
-.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
+.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/download/>`_  only lists the SHA256 while the
    `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists both the :file:`.md5` and the :file:`.sha256` checksum files. This section demonstrates how to verify an
    MD5 checksum.
 
@@ -447,7 +447,7 @@ When using the :command:`dd` command:
    without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
    Linux has very limited support for UFS, the BSD filesystem that gets created on the USB stick.
 
-To burn the image file on a Windows system, you can use `win32-image-writer <http://sourceforge.net/projects/win32diskimager/>`_. When downloading win32-image-writer,
+To burn the image file on a Windows system, you can use `win32-image-writer <https://sourceforge.net/projects/win32diskimager/>`_. When downloading win32-image-writer,
 download the latest version that ends in :file:`-binary.zip` and use a utility such as Windows Explorer or 7zip to unzip the executable.
 
 If you launch :command:`win32-image-writer.exe`, it will start the Win32 Disk Imager utility, shown in :numref:`Figure %s: Using Win32 Disk Imager to Write the Image <writer1>`. Use the
