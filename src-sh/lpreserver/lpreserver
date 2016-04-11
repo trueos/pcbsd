@@ -678,7 +678,8 @@ case "$1" in
 		       ACTION="${1}"
                        DATASET="${2}"
 		       TIME="${3}"
-                       ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}" "${TIME}"
+		       COUNT="${4}"
+                       ${PROGDIR}/backend/zfscronsnap.sh "${ACTION}" "${DATASET}" "${TIME}" "${COUNT}"
 		     ;;
 		 stop) require_root ;
 		       ACTION="${1}"
