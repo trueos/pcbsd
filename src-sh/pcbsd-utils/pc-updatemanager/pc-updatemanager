@@ -1824,6 +1824,10 @@ shutdown_update() {
     FKEY=""
   fi
 
+  # Unmount remote filesystems to prevent the update process from
+  # hanging if the remote server goes down.
+  umount -A -t nfs,smbfs,cifs
+
   # Display whats going on:
   echo "*****************************************************"
   echo "             Starting update process..."
