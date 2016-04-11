@@ -638,9 +638,9 @@ TrueOS® users, or those who prefer to use a command-line utility, can use :comm
  pkgupdate [-f]       - Install packages updates 
  fbsdupdate           - Install freebsd-update patches
  fbsdupdatepkgs       - Install freebsd-update patches and any package updates
- syncconf             - Update PC-BSD pkgng configuration 
- confcheck            - Check PC-BSD pkgng configuration
- cron                 - Perform delayed check for system and pkgng updates.
+ syncconf             - Update PC-BSD pkg configuration 
+ confcheck            - Check PC-BSD pkg configuration
+ cron                 - Perform delayed check for system and pkg updates.
 
 To determine if any system updates are available, type the following command::
 
