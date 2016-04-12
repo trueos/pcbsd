@@ -28,15 +28,17 @@ void Backend::updateIntMountPoints(){
   //First run "mount" to make sure and get the complete list of mounted devices
   QStringList info = runShellCommand("mount");
   QStringList zinfo = runShellCommand("zpool list -H -o name,altroot");
+  QStringList mtpinfo = runShellCommand("simple-mtpfs -l").filter("(MTP)");
+  //qDebug() << "MTPFS Info:" << mtpinfo;
   //qDebug() << "zpool list:" << zinfo;
   //Verify that the current entries are still valid
   for(int i=0; i<IntMountPoints.length(); i++){
     QString node = IntMountPoints[i].section(DELIM,0,0);
     QString fs = IntMountPoints[i].section(DELIM,1,1).toLower();
-    if(!node.isEmpty() && !node.startsWith("/dev/") && fs!="zfs"){ node.prepend("/dev/"); }
+    if(!node.isEmpty() && !node.startsWith("/dev/") && fs!="zfs" && fs!="mtpfs"){ node.prepend("/dev/"); }
     QString mntdir = IntMountPoints[i].section(DELIM,2,2);
     bool invalid = false;
-    if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty()) )){ 
+    if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty())  || (fs=="mtpfs" && mtpinfo.filter(node).isEmpty()) )){ 
        invalid = true; 
        if( info.filter(mntdir).length()==1  ){ //This is the only entry for this mounttpoint (don't have multiple things mounted on the same dir)
 	  //qDebug() << "Unmounting directory:" << mntdir;
@@ -63,7 +65,7 @@ void Backend::updateIntMountPoints(){
     }
     if(invalid){
       //Remove this entry from the list
-      //qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
+      qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
       IntMountPoints.removeAt(i);
       i--;
     }    
@@ -91,6 +93,16 @@ void Backend::updateIntMountPoints(){
       //qDebug() << "New Internal Mount Info:" << IntMountPoints.last();
     }
   }
+  //Special Check for MTPFS devices (no associated device node - so auto-mount them so they are in the DB uniquely)
+  for(int i=0; i<mtpinfo.length(); i++){
+    //qDebug() << "Check MTPFS info:" << mtpinfo[i] << IntMountPoints.filter("MTPFS");
+    if( IntMountPoints.filter( mtpinfo[i].section(" (",0,0) ).isEmpty() ){
+      //New device
+      //qDebug() << "Mount MTPFS Device:" << mtpinfo[i];
+      //qDebug() << mountRemDev(mtpinfo[i].section(":",0,0), mtpinfo[i].section(":",1,-1).section(" (",0,0).simplified(), "MTPFS");
+    }
+  }
+  
 }
 
 void Backend::cleanMediaDir(){
@@ -299,7 +311,16 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       //}
 
     }
-  }
+  }/*else if( fs.isEmpty() ){
+    if(QFile::exists("/usr/local/bin/simple-mtpfs")){
+      QStringList info = runShellCommand("simple-mtpfs -l").filter("(MTP)");
+      for(int i=0; i<info.length(); i++){
+        if( IntMountPoints.filter(info[i].section(" (",0,0)).isEmpty() ){
+	  //New 
+	}
+      }
+    }
+  }*/
   // - Determine the label using other tools if necessary
   //qDebug() << "End of disktype:" << node << dtype << fs << label << type;
   if(!skiplabel && label.isEmpty()){
@@ -618,13 +639,14 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   }
   
   //Final check for valid inputs/detections
-  if(!node.startsWith("/dev/") && fs.toLower()!="zfs"){ node.prepend("/dev/"); }
+  if(!node.startsWith("/dev/") && fs.toLower()!="zfs" && fs.toLower()!="mtpfs"){ node.prepend("/dev/"); }
   if(fs.isEmpty() || fs.toLower()=="none"){ return ("[ERROR-0] No filesystem detected -- "+node); }
   if(!mntdir.startsWith("/")){ mntdir.prepend("/media/"); }
+  //qDebug() << "Mount Device:" << node << fs << mntdir;
   // - mntdir will always be auto-created as necessary
   QDir dir(mntdir);
   //Verify Inputs
-  if(!QFile::exists(node) && fs.toLower()!="zfs"){ return ("[ERROR-1] Invalid device node -- "+node); }
+  if(!QFile::exists(node) && fs.toLower()!="zfs" && fs.toLower()!="mtpfs"){ return ("[ERROR-1] Invalid device node -- "+node); }
   else if(!DEVDB::isFSSupported(fs)){ return ("[ERROR-2] Filesystem not supported -- "+fs); }
   else if(dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).length() > 0){ return ("[ERROR-3] Mount point already in use -- "+mntdir); }
   
@@ -638,6 +660,7 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
 
   //Now get the mounting commands for the device
   QStringList cmds = DEVDB::MountCmdsForFS(fs, CLOCALE!="en_US");
+    //if(fs.toLower()=="mtpfs"){ qDebug() << "Mount Commands:" << cmds; }
   bool usedlocale = cmds.join(" ").contains("%3");
   //Mount the device
   bool ok = true;
@@ -654,7 +677,9 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
       if(cmds[i].contains("%5")){
         cmds[i].replace("%5", runShellCommand("id -g operator").join("").simplified() );
       }
+      
       ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
+      //if(fs.toLower()=="mtpfs"){ qDebug() << "Mount Command:" << cmds[i] << ok; }
       if(!ok){ errline = " -- on command: "+cmds[i]; }
     }
     //Check for success and use any fallback methods
@@ -684,6 +709,7 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   
   //Now save this entry internally [node, filesystem, mntdir, user, (canremove/noremove), internal]
   node.remove("/dev/"); //only save the node
+  //if(fs=="mtpfs"){ node = node+": "+mntdir.section("/",-1); }
   IntMountPoints << node+DELIM+fs+DELIM+mntdir+DELIM+CUSER+DELIM+(dircreated ? "canremove": "noremove")+DELIM+"internal";
   return ("[SUCCESS] "+mntdir);
 }

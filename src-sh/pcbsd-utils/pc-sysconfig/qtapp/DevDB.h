@@ -32,7 +32,7 @@ public:
 	static QStringList knownFilesystems(){
 	  QStringList list;
 	  list << "FAT" << "NTFS" << "EXFAT" << "EXT" << "EXT4" << "CD9660" \
-		<< "UFS" << "REISERFS" << "XFS" << "UDF" << "ZFS";
+		<< "UFS" << "REISERFS" << "XFS" << "UDF" << "ZFS" << "MTPFS";
 	  return list;
 	}
 	
@@ -69,6 +69,7 @@ public:
 	  else if(fs=="xfs"){ cmds << "mount -t xfs %1 %2"; }
 	  else if(fs=="udf"){ cmds << "mount -t udf %1 %2"; }
 	  else if(fs=="zfs"){ cmds << "zpool import -R %2a %1 %2b"; }
+	  else if(fs=="mtpfs"){ cmds << "simple-mtpfs %1 %2 -o allow_other"; }
 	  return cmds;
 	}
 	
@@ -102,6 +103,7 @@ public:
 	  else if(fs=="xfs"){ cmd = "/sbin/mount"; } //needs to be enhanced later
 	  else if(fs=="udf"){ cmd = "/sbin/mount_udf"; }
 	  else if(fs=="zfs"){ cmd = "/sbin/zpool"; }
+	  else if(fs=="mtpfs"){ cmd = "/usr/local/bin/simple-mtpfs"; }
 	  if(cmd.isEmpty()){ return false; }
 	  else{ return QFile::exists(cmd); }
 	}
