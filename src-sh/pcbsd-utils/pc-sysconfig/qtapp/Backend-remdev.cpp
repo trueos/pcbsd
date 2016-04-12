@@ -24,7 +24,7 @@ NOTES about memory disks (ISO type or md* node names)
 //REMOVABLE DEVICES (remdev)
 void Backend::updateIntMountPoints(){
   //Format: 
-	
+  qDebug() << "Updating internal mountpoints";
   //First run "mount" to make sure and get the complete list of mounted devices
   QStringList info = runShellCommand("mount");
   QStringList zinfo = runShellCommand("zpool list -H -o name,altroot");
@@ -37,8 +37,15 @@ void Backend::updateIntMountPoints(){
     QString fs = IntMountPoints[i].section(DELIM,1,1).toLower();
     if(!node.isEmpty() && !node.startsWith("/dev/") && fs!="zfs" && fs!="mtpfs"){ node.prepend("/dev/"); }
     QString mntdir = IntMountPoints[i].section(DELIM,2,2);
+    qDebug() << "Check MountPoint:" << node << fs << mntdir;
     bool invalid = false;
-    if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty())  || (fs=="mtpfs" && mtpinfo.filter(node).isEmpty()) )){ 
+    if(fs=="mtpfs"){
+      QStringList filter = mtpinfo.filter(node+": "+mntdir.section("/",-1));
+      qDebug() << " - Check MTPFS filter:" << filter;
+      for(int i=0; i<filter.length(); i++){ mtpinfo.removeAt( mtpinfo.indexOf(filter[i]) ); }
+      if(filter.isEmpty()){ invalid = true; }
+    }
+    else if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty()) )){ 
        invalid = true; 
        if( info.filter(mntdir).length()==1  ){ //This is the only entry for this mounttpoint (don't have multiple things mounted on the same dir)
 	  //qDebug() << "Unmounting directory:" << mntdir;
@@ -69,7 +76,7 @@ void Backend::updateIntMountPoints(){
       IntMountPoints.removeAt(i);
       i--;
     }    
-  }
+  } //end loop over current DB entries
   
   //Parse the mount info and find anything that was mounted externally
   QStringList fsfilter = DEVDB::knownFilesystems();
@@ -95,12 +102,12 @@ void Backend::updateIntMountPoints(){
   }
   //Special Check for MTPFS devices (no associated device node - so auto-mount them so they are in the DB uniquely)
   for(int i=0; i<mtpinfo.length(); i++){
-    //qDebug() << "Check MTPFS info:" << mtpinfo[i] << IntMountPoints.filter("MTPFS");
-    if( IntMountPoints.filter( mtpinfo[i].section(" (",0,0) ).isEmpty() ){
+    qDebug() << "Check MTPFS info:" << mtpinfo[i] << IntMountPoints.filter("mtpfs");
+    //if( IntMountPoints.filter( mtpinfo[i].section(" (",0,0) ).isEmpty() ){
       //New device
       //qDebug() << "Mount MTPFS Device:" << mtpinfo[i];
-      //qDebug() << mountRemDev(mtpinfo[i].section(":",0,0), mtpinfo[i].section(":",1,-1).section(" (",0,0).simplified(), "MTPFS");
-    }
+      qDebug() << mountRemDev(mtpinfo[i].section(":",0,0), mtpinfo[i].section(":",1,-1).section(" (",0,0).simplified(), "MTPFS");
+    //}
   }
   
 }
@@ -709,7 +716,6 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   
   //Now save this entry internally [node, filesystem, mntdir, user, (canremove/noremove), internal]
   node.remove("/dev/"); //only save the node
-  //if(fs=="mtpfs"){ node = node+": "+mntdir.section("/",-1); }
   IntMountPoints << node+DELIM+fs+DELIM+mntdir+DELIM+CUSER+DELIM+(dircreated ? "canremove": "noremove")+DELIM+"internal";
   return ("[SUCCESS] "+mntdir);
 }
