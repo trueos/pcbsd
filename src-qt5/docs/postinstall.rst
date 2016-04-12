@@ -41,10 +41,10 @@ password is typed in, the system will continue to boot.
 .. index:: boot
 .. _Interrupting the Boot to Access the Boot Menu:
 
-Interrupting the Boot to Access the Boot Menu
----------------------------------------------
+Using the Boot Menu
+-------------------
 
-By default, the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1>`  is not displayed at first boot.
+An example of the graphical PC-BSD® bootloader menu is shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1>`.
 
 .. _boot1:
 
@@ -52,12 +52,11 @@ By default, the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: 
 
 The boot menu is used to display the installation of PC-BSD®, any boot environments, and other operating systems installed on a dual-boot system.
 
-To access this menu, you have to be quick. As soon as the boot process starts and you see a "GRUB loading" message in the upper left corner, press the left
-:kbd:`Shift` button. After the system boots, you can increase the timer value in :ref:`Boot Manager` if you find that the boot delay is too quick.
+To pause this menu, press any key except for :kbd:`Enter`. If you have performed any updates and wish to access a previous boot environment, use the down arrow to select "Boot
+Environment Menu" and press :kbd:`Enter` to see the list of available boot environments.
 
-Once you access the graphical menu, it will pause for a few seconds then continue to boot PC-BSD®. If you wish to select a different operating system or
-specify how PC-BSD® boots, press a key to pause this screen. If multiple operating systems are available and you want to boot into PC-BSD®, make sure it is
-highlighted and press enter. This will load the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2>`. 
+If you pause the graphical menu or change its default selection, the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2>` will load once
+you press :kbd:`Enter`. 
 
 .. _boot2:
 
@@ -75,6 +74,8 @@ The following boot options are available:
 * **Run the Display Wizard:** if you are unable to access the GUI due to a display setting, enable this option to boot into the display settings wizard.
 
 * **Run X in vesa mode:** try this option if the screen goes black or the system freezes when booting into PC-BSD®. 
+
+* **Boot to console (Disable X):** boots the system to a command prompt. This is useful if you want to manually configure and test the X configuration file.
 
 Use the arrow keys to select an option then press enter to boot using that option.
 

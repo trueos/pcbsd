@@ -151,7 +151,7 @@ setup_zfs_mirror_parts()
       init_gpt_full_disk "$_zvars" "$_tBL" >/dev/null 2>/dev/null
 
       # If we are not using GRUB we need to add pmbr / gptzfsboot
-      if [ "$_tBL" != "GRUB" ] ; then
+      if [ "$_tBL" != "GRUB" -a "$BOOTMODE" != "UEFI" ] ; then
         rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}" >/dev/null 2>/dev/null
       fi
       # If GELI is enabled

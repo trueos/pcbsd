@@ -236,7 +236,9 @@ ZFS is an enterprise grade file-system, which provides many features including: 
 take snapshots, boot environments, continuous integrity checking and automatic repair, RAIDZ which was designed to overcome the limitations of hardware RAID,
 and native NFSv4 ACLs.
 
-If you are new to ZFS, the `Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/ZFS>`_ provides an excellent starting point to learn about its features. Additionally, `FreeBSD Mastery: ZFS <http://zfsbook.com>`_ by Michael W Lucas and Allan Jude is a very helpful resource and is more specific to ZFS as it is implemented in FreeBSD.
+If you are new to ZFS, the Wikipedia entry on :wikipedia:`ZFS` provides an excellent starting point to learn about its features. Additionally,
+`FreeBSD Mastery: ZFS <https://www.michaelwlucas.com/nonfiction/freebsd-mastery-zfs>`_  by Michael W Lucas and Allan Jude is a very helpful resource and is more specific to ZFS as it is
+implemented in FreeBSD.
 
 These resources are also useful to bookmark and refer to as needed: 
 

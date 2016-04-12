@@ -172,6 +172,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 
 * The "Customize" button has been removed from the :ref:`System Selection Screen` in order to reduce the size of the installation media. You can install additional software
   post-installation, using :ref:`AppCafe®`.
+  
+* The "Boot to console (Disable X)" option has been added to the graphical boot menu.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:

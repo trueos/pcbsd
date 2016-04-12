@@ -252,7 +252,7 @@
       </item>
      </layout>
     </item>
-    <item row="4" column="1">
+    <item row="3" column="1">
      <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="0">
        <widget class="QGroupBox" name="groupZFSPool">
@@ -340,62 +340,7 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="1">
-     <widget class="QGroupBox" name="groupScheme">
-      <property name="title">
-       <string>Partition Scheme</string>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QRadioButton" name="radioGPT">
-         <property name="text">
-          <string>GPT (Best for new hardware)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="radioMBR">
-         <property name="text">
-          <string>MBR (Legacy)</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QGroupBox" name="groupBIOS">
-      <property name="title">
-       <string>Target Installation</string>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QRadioButton" name="radioUEFI">
-         <property name="text">
-          <string>UEFI (Modern motherboards)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="radioBIOS">
-         <property name="text">
-          <string>BIOS (Legacy motherboards)</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="0" rowspan="5">
+    <item row="0" column="0" rowspan="4">
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <widget class="QLabel" name="label_3">
@@ -456,7 +401,7 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="4" column="1">
      <spacer name="verticalSpacer_5">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -468,6 +413,32 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="2" column="1">
+     <widget class="QGroupBox" name="groupScheme">
+      <property name="title">
+       <string>Partition Scheme</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QRadioButton" name="radioGPT">
+         <property name="text">
+          <string>GPT (Best for new hardware)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioMBR">
+         <property name="text">
+          <string>MBR (Legacy)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>

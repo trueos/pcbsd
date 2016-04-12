@@ -26,7 +26,6 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     haveWarnedSpace=false;
     force4K = false;
     defaultInstall = true;
-    forceBIOS="";
 
     connect(abortButton, SIGNAL(clicked()), this, SLOT(slotAbort()));
     connect(backButton, SIGNAL(clicked()), this, SLOT(slotBack()));
@@ -502,25 +501,18 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->setWindowModality(Qt::ApplicationModal);
   if ( radioRestore->isChecked() )
     wDisk->setRestoreMode();
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, QString, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool, QString)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool)));
   wDisk->show();
   wDisk->raise();
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce, QString biosMode )
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce)
 {
 
   bootLoader=BL;
   zpoolName = zName; 
   force4K = zForce;
-  forceBIOS=biosMode;
   defaultInstall = false;
-
-  // Check if we are running in EFI mode
-  if ( forceBIOS == "efi" )
-    efiMode=true;
-  else
-    efiMode=false;
 
   // Save the new disk layout
   sysPartType=partType;

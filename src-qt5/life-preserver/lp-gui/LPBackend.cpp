@@ -159,16 +159,16 @@ bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   else{ freq = "auto"; }
   
   //Create the command
-  QString cmd = "lpreserver cronsnap "+dataset+" start "+freq;
+  QString cmd = "lpreserver cronsnap start "+dataset+" "+freq;
   if(freq != "auto"){ cmd.append(" "+QString::number(numToKeep) ); } //also add the number to keep
-  //qDebug() << "Lpreserver Command:" << cmd;
+  qDebug() << "Lpreserver Command:" << cmd;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::removeDataset(QString dataset){
-  QString cmd = "lpreserver cronsnap "+dataset+" stop";
+  QString cmd = "lpreserver cronsnap stop "+dataset;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
@@ -251,7 +251,7 @@ bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
 
 bool LPBackend::setupScrub(QString dataset, int time, int day, QString schedule){
   //Create the command
-  QString cmd = "lpreserver  cronscrub "+dataset+" start ";
+  QString cmd = "lpreserver cronscrub start "+dataset+" ";
   if(schedule == "daily"){ cmd.append(schedule+"@"+QString::number(time) ); }
   else if((schedule == "weekly") || (schedule == "monthly")){
     cmd.append(schedule+"@"+QString::number(day)+"@"+QString::number(time));
@@ -301,7 +301,7 @@ bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedul
 }
 
 bool LPBackend::removeScrub(QString dataset){
-  QString cmd = "lpreserver cronscrub "+dataset+" stop";
+  QString cmd = "lpreserver cronscrub stop "+dataset;
   int ret = LPBackend::runCmd(cmd);
 
   return (ret == 0);

@@ -330,15 +330,6 @@ setup_efi_boot()
     efip=`gpart show $gDisk | grep ' efi ' | awk '{print $3}'`
     EFIPART="${gDisk}p${efip}"
 
-    if [ -z "$DONEEFILABEL" ] ; then
-       # Label this sucker
-       rc_halt "glabel label efibsd ${EFIPART}"
-
-       # Save to systems fstab file
-       echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
-       DONEEFILABEL="YES"
-    fi
-
     # Mount the partition
     rc_nohalt "mkdir ${FSMNT}/boot/efi"
     rc_halt "mount -t msdosfs ${EFIPART} ${FSMNT}/boot/efi"

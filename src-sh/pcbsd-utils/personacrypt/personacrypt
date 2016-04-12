@@ -218,6 +218,11 @@ mount_crypt() {
  
  if [ -z "$1" -o -z "$2" ] ; then usage; fi
 
+ if [ ! -e "$2" -o -z "`cat $2`" ] ; then
+   echo "Missing passphrase!"
+   exit 1
+ fi
+
  # Get the disk name for the alias
  DISK="`glabel status | grep -w gpt/p_${UNAME} | awk '{print $3}'`"
  if [ -z "$DISK" ] ; then rm ${PASSFILE} ; exit_err "No PersonaCrypt device for user: $UNAME" ; fi

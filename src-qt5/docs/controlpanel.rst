@@ -10,14 +10,14 @@ regardless of which desktop you log into.
 .. note:: if a desktop does not contain an icon or menu item for Control Panel, type :command:`pc-controlpanel` from a shell prompt to launch the Control
    Panel.
 
-A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1>`.
+A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1a>`.
 
-.. _control1:
+.. _control1a:
 
-.. figure:: images/control1.png
+.. figure:: images/control1a.png
 
 The available utilities are divided into sections. If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has
-down arrow) its icons. In this example, the display for the "Desktop environment" section is hidden.
+down arrow) its icons.
 
 The search box in the upper right can be used to find the proper control panel item if you know what you would like to configure but are uncertain which
 utility to use. The icon next to the search box can be used to change the size of the icons, change the view from a grid to a list, and organize the icons
@@ -29,10 +29,10 @@ If an icon includes a yellow exclamation mark, you will need to input your passw
    By default, the first user account that you create is made a member of the *wheel* group. You can log in as that user and use :ref:`User Manager` to add
    other accounts to this group.
 
-Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina,
-assuming that they are installed, or just the utilities that came with PC-BSD®. :numref:`Figure %s: Desktop Selector Menu <control2>`  shows the desktop selector menu in use. In
-this example, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities. The menu icon indicates the control panel
-view while "(current)" will be beside the desktop that is presently active.
+Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from just the operating system (as seen in the example in
+:numref:`Figure %s: PC-BSD® Control Panel <control1a>`), all installed desktops, or one of these installed desktops: KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina.
+In the example shown in :numref:`Figure %s: Desktop Selector Menu <control2>`, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities.
+The menu icon indicates the control panel view while "(current)" will be beside the desktop that is presently active.
 
 .. _control2:
 
@@ -47,8 +47,6 @@ The following utilities are found in the Control Panel of a PC-BSD® system, reg
 **Software and updates** 
 
 * :ref:`AppCafe®`
-
-* :ref:`EasyPBI`
 
 * :ref:`Update Manager`
 
@@ -101,451 +99,6 @@ The following utilities are found in the Control Panel of a PC-BSD® system, reg
 This chapter describes these utilities in more detail.
 
 .. index:: configuration
-.. _EasyPBI:
-
-EasyPBI
-=======
-
-The PBI format provides an information wrapper around existing packages. This wrapper, known as a PBI module, contains the metadata which displays information
-about the PBI in :ref:`AppCafe®`, such as screenshots, similar applications, search terms, and plugins. The EasyPBI utility can be used to
-modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules
-are comprised of ASCII text files, they can be easily edited using the graphical EasyPBI utility or manually with a text editor.
-
-This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
-module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
-custom modules, add the custom repository to AppCafe® by clicking the "Repository Configuration" tab in the "Configure" button. 
-
-.. note:: if your goal is to make a change to a single PBI, rather than an entire custom package repository, use the instructions in :ref:`Make Minor Modifications to a PBI Module`. 
-
-.. index:: EasyPBI
-.. _Creating a PBI Module:
-
-Creating a PBI Module 
-----------------------
-
-EasyPBI can be launched from :ref:`Control Panel` or by typing :command:`EasyPBI`.
-
-
-.. note:: do not use EasyPBI while :ref:`AppCafe®` is running as both applications place a lock on the package database.
-
-When you first launch EasyPBI, everything will be greyed out, as seen in :numref:`Figure %s: Initial EasyPBI Graphical Interface <easypbi1>`. This is because you have not created any
-modules yet.
-
-.. _easypbi1:
-
-.. figure:: images/easypbi1.png
-
-Click the "New" button to create a PBI module and to open the screen shown in :numref:`Figure %s: Create a New Module Screen <easypbi2>`.
-
-.. _easypbi2:
-
-.. figure:: images/easypbi2.png
-
-The following options are available when creating a new module:
-
-* **FreeBSD Package:** click the "Find" button to browse the available categories and to select the package to convert into a PBI.
-
-* **Icon File:** by default, a generic PBI icon will be used. If the application has its own icon, use the "Select" button to browse to the location of the
-  icon. When selecting a custom icon, use a 64x64 :file:`.png` file with a transparent background.
-
-* **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package from the official repository in order to
-  automatically fill in the module's information. This information can be filled in manually, as described in the next screen.
-
-After making your selections, click "OK". The information for the module will appear as seen in the example in :numref:`Figure %s: PBI Configuration Screen <easypbi3>`. In this example, the
-:file:`net-p2p/linuxdcpp` port has been selected.
-
-.. _easypbi3:
-
-.. figure:: images/easypbi3.png
-
-The "Port/Package" and "Author" fields are mandatory and should be auto-filled for you, unless you checked the "Quick Module" box. If the port does not supply
-the "Author" name, check the application's website to see if you can find one. Otherwise, input the email address of the port maintainer. A generic icon will
-be supplied for the module. You can change the default icon by clicking it.
-
-The other items in the "PBI Configuration" tab are optional:
-
-* **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Search all available PBI and packages" is checked in the "App Search" tab. Otherwise,
-  click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection. 
-
-* **Search Tags:** a comma delimited, with no spaces, list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
-
-* **Plugins:** if the application, such as a web browser, has associated plugins, click the "+" button to browse to the location of the plugin packages. These
-  will be added to the "Plugins" tab for the PBI in AppCafe®. 
-
-* **Screenshots:** to include a screenshot of the application, click the "+" button and browse to the location of the screenshot in :file:`.jpg` or
-  :file:`.png` format. The added screenshot(s) will appear in the "Screenshots" tab for the PBI in AppCafe®. 
-
-* **Similar Apps:** if there are any other packages with similar functionality, click the "+" button to browse to the location of the plugin packages. These
-  will be added to the "Similar" tab for the PBI in AppCafe®. 
-
-* **View Package Overrides:** check this box to display additional settings . By default, the PBI will be built using the default options provided by the
-  package. Some defaults can be overridden in this section: the default PBI name, URL for the application's website, license text, summary, and description.
-  You can also add additional packages to install with the PBI or delete a package that is typically installed with the application. Note that you typically
-  should not need to make any of these changes.
-
-.. note:: changes within this screen will not be saved until you click the "Save Configuration" button. Be sure to save any changes before leaving this tab.
-
-.. index:: EasyPBI
-.. _Advanced Module Configuration:
-
-Advanced Module Configuration
------------------------------
-
-The "XDG Shortcuts" tab, shown in :numref:`Figure %s: XDG Shortcuts Configuration <easypbi4>`, is used to create desktop icons and menu entries so that the application can be easily started
-from within a desktop environment. This is important for graphical applications as it configures the primary method for interacting with the program.
-
-.. _easypbi4:
-
-.. figure:: images/easypbi4.png
-
-Any entries currently configured for the module will appear in the left side of the tab. Click an existing entry to display its details on the right. You can
-remove a highlighted entry by clicking the "-" (minus sign) button, or create a new entry by clicking on the white paper button under the entry list which
-will clear the fields in the right frame so that you can input new values. On the right side of this tab, you can edit the currently selected entry and click
-the "Save" button to overwrite the current entry with the new settings. Alternately, click "Add" to copy the existing details to a new entry.
-
-The "Entry Details" section of this tab are as follows when the "Desktop" button is selected: 
-
-* **Name:** this is the text that will appear for the desktop menu entry, and is usually the full name of the application.
-
-* **Executable:** input the name of the executable to run. EasyPBI will automatically generate the PBI-specific path to the binary.
-
-* **Icon:** when using a custom icon, click "Custom Icon Path" and input the full path to the icon file.
-
-* **Open in Terminal:** check this box if the application needs to be opened in an X terminal. This is useful for running some text-based programs that need
-  to be embedded into a console for user interaction.
-
-* **Make Invisible:** if checked, the entry will be hidden. This is not as useful for desktop entries but can be handy with menu entries.
-
-* **Requires Root:** if checked, the user will be prompted for their password when the application starts. This is important if the program requires special
-  users or groups to be created or an installation script needs access to the local system to make modifications.
-
-If you click "Menu", two more fields will be added to the "Entry Details" section: 
-
-* **Category:** indicates the menu category that the entry will be placed under when listed in the desktop environment. Click the green arrow to see the
-  available menu categories. The recommended category will have a small black arrow next to it.
-
-* **MIME Patterns:** used to associate a space-separated list of file types with the application. This is useful when paired with the "Make Invisible" option.
-  For example, consider an application which has two binaries representing two different aspects of the program and an additional binary that asks which of
-  the two you want to use. You could create menu entries for all three binaries, but make the two specific ones invisible and associate file types with them.
-  This means that when a user tries to open one of those file types, it will automatically run the particular binary that uses it, rather than prompting the
-  user for input about what to do with the file.
-
-If you make any changes in this tab, click the "Save" button to save them.
-
-The "Scripts" tab, shown in :numref:`Figure %s: Scripts Configuration <easypbi5>`, is used to create custom installation and removal scripts for the PBI.
-
-.. _easypbi5:
-
-.. figure:: images/easypbi5.png
-
-If you click on the drop-down menu, you will see a list of available script types, with an icon indicating whether or not a custom script exists in the
-module. Selecting a script type will activate a "Create" button if the script does not exist, or will display the full script in a box for editing.
-
-The possible script types are: 
-
-* **post-install.sh**: script run after installation of the PBI.
-
-* **pre-remove.sh**: script run before deletion of the PBI.
-
-If you add or remove any scripts in this tab, click the "Save" button to save them.
-
-The "Service Configuration" tab, shown in :numref:`Figure %s: Service Configuration <easypbi6>`, allows you to setup a remote graphical configuration interface for the application. This is
-generally used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
-configuration options or starting, stopping, and restarting the service. Any configurations will appear in the "Configuration" tab of AppCafe®.
-
-.. _easypbi6:
-
-.. figure:: images/easypbi6.png
-
-The "Visual Options" list is used to setup the options for controlling the service. To add an entry to this list, click "New Option" which will open the
-screen shown in :numref:`Figure %s: Adding a Visual Option <easypbi7>`. 
-
-.. _easypbi7:
-
-.. figure:: images/easypbi7.png
-
-Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
-`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-config.json>`_. A screenshot of
-the "Configuration" tab for Bitlbee can be seen in :numref:`Figure %s: Example Configuration Tab <bitlbee1>`.
-
-.. _bitlbee1:
-
-.. figure:: images/bitlbee1.png
-
-The following fields are available when adding a visual option. Example values can be found in the
-`README-service-configfile. <https://github.com/pcbsd/pcbsd/blob/master/src-webui/appweb/README-service-configfile>`_.
-
-* **Key:** the option to set.
-
-* **Default Value:** the default value for the option.
-
-* **Option Type:** supported types are *ComboBox*, *NumberBox*, or *TextBox*.
-
-* **Name:** the name that will appear.
-
-* **Description:** the description that will appear.
-
-* **Options List:** appears when the *ComboBox* "Option Type" is selected. Use the "+" and "-" buttons to add or remove options to appear in the list and the
-  up and down arrow buttons to order the items in the list.
-
-* **Number Limits:** appears when the *NumberBox* "Option Type" is selected. Set the "Maximum" and "Minimum" numbers for the selection, where the default of
-  *0* is unlimited.
-
-* **Text Options:** appears when the *TextBox* "Option Type" is selected. Set the "Max Length" of allowed user input, where the default of *0* is unlimited.
-  If the text should be hidden, for example when the user is inputting a password, check the box "Hide Text". 
-
-If you create a new visual option, click the "Configuration Scripts" button as these are required for the service management configuration to work properly.
-Three configuration scripts are required: 
-
-* **getconfig.sh:** script for retrieving the current value for a given "Key" from the service configuration.
-
-* **setconfig.sh:** script for changing a configuration value for the service.
-
-* **doneconfig.sh:** script that is run after changing configuration values. Usually used for starting or restarting the service.
-
-Since none of the configuration scripts are created by default, you will need to click the "Create Template" button for each script to open an editable
-version of the template. Each template includes a description of the script, how it is run, and lists its input variables. Edit the template as needed and
-click the "Save Script" button to save the script. Repeat for each of the three required scripts.
-
-Once you have finished configuring a PBI module, you can create additional modules by clicking the "New" button. To edit an existing module, click the "Load" button and
-select the module name.
-
-.. index:: EasyPBI
-.. _Bulk Module Creator:
-
-Bulk Module Creator
--------------------
-
-When creating a custom package repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
-To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in :numref:`Figure %s: Bulk Module Creator <easypbi8>`.
-
-.. _easypbi8:
-
-.. figure:: images/easypbi8.png
-
-Click the icon next to "Base Directory" and browse to the location to hold the modules. For example, if the custom repository is being created in
-:file:`~/myrepo`, browse to that directory.
-
-Next, click the icon next to "Category" and select the ports category to recreate in the "Base Directory". For example, if you select the "accessibility"
-category, it will create a directory called :file:`~/myrepo/accessibility/` containing subdirectories which represent the PBI modules for the existing
-packages in that directory.
-
-If the selected "Base Directory" and "Category" already exist and you want to overwrite any existing PBI modules, check the box for "Overwrite existing
-modules". Otherwise, the Bulk Creator will ignore any existing modules.
-
-If you only want to create certain types of applications, check or uncheck the boxes for the application types: "graphical", "text", "server", "other".
-"Other" is any package that does not install any graphical images, does not install any files into :file:`/usr/local/bin/` or :file:`/usr/local/sbin/`, and
-does not install any files into :file:`/usr/local/etc/rc.d/`. This generally occurs with packages that just install libraries or plugins, and meta-packages
-which do not install anything and just have a bunch of dependencies.
-
-After making your selections, click the "Start" button. A progress bar will indicate the status and summarize the number of
-modules built. An example is shown in :numref:`Figure %s: Summary of Modules <easypbi9>`. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
-
-.. _easypbi9:
-
-.. figure:: images/easypbi9.png
-
-When creating modules, Bulk Creator will skip the following:
-
-* any existing modules, unless "Overwrite existing modules" is checked
-
-* any package types which were unchecked
-
-* any packages not found in the repository
-
-.. note:: if all modules are skipped, check the Internet connection as Bulk Creator requires Internet access to get the package information it needs.
-
-Repeat for each category that you want to include in the custom repository.
-
-.. index:: EasyPBI
-.. _EasyPBI Settings:
-
-EasyPBI Settings
-----------------
-
-To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in :numref:`Figure %s: EasyPBI Settings <easypbi10>`. 
-
-.. _easypbi10: 
-
-.. figure:: images/easypbi10.png
-
-The options in this screen allow you to configure the following: 
-
-* **Switch User Utility:** the full path to the binary which is used to switch to administrative access. By default, it is :command:`pc-su`.
-
-* **Auto-Detect:** if this button is clicked, a pop-up message will indicate that it will return all of the EasyPBI settings back to their defaults. Click
-  "Yes" to do so or "No" to cancel the operation.
-
-* **Modules:** the full path to the directory to save modules which are created with the "New" button.
-
-* **Resources:** the full path to the directory to store any extra resources. These are described in :ref:`PBI Module Components`.
-
-* **Default Icon:** the full path to the default icon used by PBI modules.
-
-The "Configure" menu contains two other options:
-
-* **Package Module:** when this option is clicked, a pop-up message will indicate that a copy of the current module has been packaged within the module
-  directory.
-
-* **Refresh Module:** click to refresh the module's settings.
-
-The "Help" menu contains three options:
-
-* **About:** displays the EasyPBI version, license, and development history.
-
-* **FreeBSD Ports:** opens `freshports.org <http://www.freshports.org/>`_ in the default browser.
-
-* **PBI Modules:** opens the PBI Module Builder Guide in the default browser.
-
-.. index:: EasyPBI
-.. _PBI Module Components:
-
-PBI Module Components 
-----------------------
-
-While EasyPBI is the recommended way for creating PBI modules, it is possible to manually create the various ASCII text files used in the modules. This
-section describes the various files that comprise a PBI module. A PBI module is simply a collection of files which controls the contents of the PBI and its
-appearance in :ref:`AppCafe®`. 
-
-When creating a PBI module, create a directory on your computer to hold the module's files. For example, if you are creating a PBI module for firefox, create
-the following directory using this command::
-
- mkdir -p ~/my_pbis/www/firefox
-
-As you create the subdirectories and files needed by the PBI module, save them to the directory for that module.
-
-If the application requires the user to read a license agreement, save that license as a file named :file:`LICENSE` in the directory of the PBI module. This
-file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
-
-The :file:`pbi.conf` file is mandatory. It is a simple shell script that contains the information needed to build the PBI. Here is an example of the
-`pbi.conf file for firefox <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. When creating your file, modify the PBI-specific
-values to meet the needs of the PBI.
-::
-
- #!/bin/sh
- # PBING Module Config
-
- # -- Program Base Information --
- PBI_ORIGIN="www/firefox"
- PBI_PROGNAME="Firefox"
- PBI_PROGWEB=""
- PBI_PROGAUTHOR="Mozilla"
-
- # -- Additional repo information (optional) --
- PBI_LICENSE="MPL"
- PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
- PBI_PROGTYPE="Graphical"
- PBI_CATEGORY="Web"
-
- # -- Additional package to install along with ORIGIN
- PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
-
- # -- Optional related packages to show user
- PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
-
- # -- Space delimited list of URLs to screenshots
- PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
-
- # -- Other PBIs which are similar to this PBI
- PBI_RELATED="www/chromium www/opera www/seamonkey"
-
- export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
- export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
- export PBI_OTHERPKGS PBI_PLUGINS
- export PBI_SCREENSHOTS PBI_RELATED
-
-Table 8.1a describes the most commonly used variables.
-
-**Table 8.1a: Commonly Used pbi.conf Variables**
-
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| Variable         | Description                                                                                                         |
-+==================+=====================================================================================================================+
-| PBI_ORIGIN=      | mandatory; the "category/portname" of the FreeBSD package                                                           |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGNAME=    | mandatory; name of the application                                                                                  |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGWEB=     | mandatory unless does not exist; website for the application                                                        |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGAUTHOR=  | mandatory; often found at the website for the application                                                           |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_LICENSE=     | the type of open source license used by the application                                                             |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_TAGS=        | a comma separated list (no spaces) of search terms associated with the application                                  |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGTYPE=    | mandatory; use "Graphical" or "Text"                                                                                |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_OTHERPKGS=   | a space separated list in the format "category/portname" of other applications to bundle into the PBI               |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format "category/portname" of similar packages                                        |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in :file:`.png` or :file:`.jpg` format                                |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_RELATED=     | a space separated list in the format "category/portname" of similar PBIs                                            |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| export           | mandatory; followed by a list of all of the variables used in the file                                              |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-
-
-The :file:`resources/` directory can contain extra files you wish copied into the PBI application directory. This is often the best place for the
-:file:`LICENSE` file and other files not included with a port.
-
-The :file:`xdg-menu/` and :file:`xdg-desktop/` directories can be used to supply menu and desktop icons, respectively. The file that you place in these
-directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows the :file:`firefox.desktop` files for the firefox PBI.
-
-**Example 8.1a: Firefox XDG Entries**::
-
- more xdg-menu/firefox.desktop
- #!/usr/bin/env xdg-open
- [Desktop Entry] 
- Value=1.0 
- Type=Application 
- Exec=firefox %U 
- Path=
- Icon=share/pixmaps/FireFox-128.png 
- StartupNotify=true 
- Categories=Network;
- Name=Firefox 
-
- more xdg-desktop/firefox.desktop
- #!/usr/bin/env xdg-open 
- [Desktop Entry] 
- Value=1.0 
- Type=Application 
- Exec=firefox %U 
- Path=
- Icon=share/pixmaps/FireFox-128.png 
- StartupNotify=true 
- Categories=Network;
- Name=Firefox
-
-*Exec=* should reference the PBI's executable and any required switches.
-
-If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located in the module's directory.
-
-For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
-
-The :file:`xdg-mime/` directory is used to register file associations according to the
-`freedesktop MIME specs <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. This requires the creation of an XML file. The example shown in
-:numref:`Figure %s: Create a New Module Screen <easypbi2>` adds the
-`MIME information for gimp <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/graphics/gimp/xdg-mime/gimp-xdg.xml>`_, so that it can be available as an application choice
-in a web browser: 
-
-**Example 8.1b: Gimp MIME Info**::
-
- more xdg-mime/gimp-xdg.xml
- <?xml version="1.0"?>
- <mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
- <mime-type type="application/x-gimp">
- <comment>Gimp File</comment>
- <glob weight="100" pattern="*.xcf"/>
- <glob weight="100" pattern="*.XCF"/>
- </mime-type>
- </mime-info>
-
-.. index:: configuration
 .. _About:
 
 About
@@ -558,23 +111,26 @@ Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figur
 
 .. figure:: images/about1.png
 
-The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
-hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
-memory.
+he displayed information includes the version of PC-BSD®, whether the system is using the PRODUCTION, EDGE, or ENTERPRISE package set, the hostname of the system, the underlying version of
+FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed memory.
 
-If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
-seen in the example shown in :numref:`Figure %s: System Components Screen <about2>`. 
+If you click the "Software and system components" button, the screen shown in :numref:`Figure %s: System Components Screen <about2a>` will be displayed. 
+ 
+ .. _about2a:
+ 
+ .. figure:: images/about2a.png
 
-.. _about2:
+Click the arrow next to an entry to display or hide its its details. The following information is available:
 
-.. figure:: images/about2.png
+* **Video stack:** the Xorg version number, the type and version of the loaded video driver, and the version of the loaded VirtualBox driver.
 
-If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
-in :numref:`Figure %s: Desktop Environments Screen <about3>`.
+* **Toolkits:** the version numbers for the installed graphical toolkits.
 
-.. _about3:
+* **Desktops:** the version numbers of each installed desktop environment.
 
-.. figure:: images/about3.png
+* **Office:** if an office suite is installed, its version number.
+
+* **Scripting languages:** the version numbers of any installed scripting languages, such as Perl or Python.
 
 .. index:: configuration
 .. _Active Directory & LDAP:
@@ -685,7 +241,7 @@ option of booting into a backup boot environment. For example:
 * You can move a boot environment to another machine, physical or virtual, in order to check hardware support.
 
 .. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
-   boot environments are created, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+   boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
@@ -762,6 +318,8 @@ The fields in this screen are used to configure the:
 
 * **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
   increase this timer.
+  
+* **Show Timer Countdown:** if this box is unchecked, the timer countdown will not display, though you can still interrupt the boot process during the delay time.
 
 * **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
   `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.
@@ -882,7 +440,7 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
    until this setting is changed again in Login Manager.
 
 The "Remote login" tab, shown in :numref:`Figure %s: Configuring Remote Login <login3>`, is used to enable a remote user to connect to a desktop session using
-`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
+:wikipedia:`Virtual Network Computing` (VNC). Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
 be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will also
 need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in :numref:`Figure %s: Creating a Connection Using KRDC <krdc1>`)
 or from another VNC client.
@@ -1366,7 +924,7 @@ confirm the resolution if it finds an optimal one. To configure a different reso
 This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
 provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
 
-You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be that the
+You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be the
 selected driver does not support that resolution or depth.
 
 Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of Display Settings <display4>`.
@@ -1467,8 +1025,9 @@ manager, then press "Eject" again. This will ensure that the device is cleanly u
 
 .. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the
-`SMPlayer <http://smplayer.sourceforge.net/>`_ application will open so that you can play the contents of the disk. If you close the player, you can click
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and, by default, the default player
+application will open so that you can play the contents of the disk. The default player that is used depends upon which applications have been installed, where
+`VLC <http://www.videolan.org/vlc/>`_ takes precedence, followed by `SMPlayer <http://smplayer.sourceforge.net/>`_. If you close the player, you can click
 the "Play" button shown in :numref:`Figure %s: Mount Tray Example <mount1>` to restart it.
 
 The following options are available in the "More Options" menu: 
@@ -1488,8 +1047,9 @@ The following options are available in the "More Options" menu:
   contents, close the file manager and click the "Eject" button for the memory device in Mount Tray and enter your password when prompted. As the ISO is
   unmounted, the memory disk is also detached from the system.
 
-* **Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3>`, this screen allows you to configure how often Mount Tray checks the disk space used by
-  mounted devices. Leave the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
+**Change Settings:** as seen in :numref:`Figure %s: Configure Disk Space Check <mount3a>`, this screen allows you to configure whether or not optical disks automatically open using
+  the default player, whether or not Mount Tray automatically rechecks the disk space used by mounted devices and how often to perform that check, and whether or not
+  Mount Tray checks disk space when a disk is mounted.
 
 * **Close Tray:** click this option to remove Mount Tray from the system tray.
 
@@ -1497,9 +1057,9 @@ The following options are available in the "More Options" menu:
 
 .. figure:: images/mount2.png
 
-.. _mount3:
+.. _mount3a:
 
-.. figure:: images/mount3.png
+.. figure:: images/mount3a.png
 
 .. index:: mount
 .. _pc-sysconfig:
@@ -1557,7 +1117,7 @@ For usage information, run the command without any options::
 For example, to see a listed of the supported filesystems, use::
 
  pc-sysconfig supportedfilesystems
- FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
+ FAT, NTFS, EXT, CD9660, UFS, REISERFS, XFS, UDF, ZFS
 
 .. index:: keyboard
 .. _PC-BSD Keyboard Settings:
@@ -1572,7 +1132,7 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 
 .. figure:: images/keyboard1.png
 
-.. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
+.. note:: any changes made using this utility can be saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
    will not be saved.
 
@@ -1658,7 +1218,7 @@ This tab contains the following options:
 The "File" menu can be used to quit this mixer screen or to close both this screen and remove the icon from the system tray.
 
 The "Configuration" menu provides options for accessing the "PulseAudio Mixer" and "PulseAudio Settings" utilities as well as for restarting PulseAudio.
-PC-BSD® provides full `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
+PC-BSD® provides full `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
 network sound devices and mixer levels.
 
 For command line only systems, type :command:`mixer` from the command line to see the current sound settings::
@@ -2008,7 +1568,7 @@ By default, the "Disable this network device" box is unchecked. If you check thi
 network. The interface will remain inactive until this checkbox is unchecked.
 
 The "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of an Ethernet Interface's Network Settings <network4>`, allows advanced users to change their
-`MAC address <https://en.wikipedia.org/wiki/MAC_address>`_ or to automatically obtain an `IPv6 address <https://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless
+:wikipedia:`MAC address` or to automatically obtain an :wikipedia:`IPv6 address`. Both boxes should remain checked unless
 you are an advanced user who has a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
 .. _network4:
@@ -2758,8 +2318,6 @@ script as the *root* user. Input the information that the script asks for as see
  lpreserver-host-iscsi
  Enter the target host name (example.com or IP)
  >10.0.0.1
- Enter the target name (target0)
- > target0
  Enter the CHAP username
  >mybackups
  Enter the CHAP password (12-16 chars)
@@ -3250,16 +2808,15 @@ Select the software component that most closely matches where the bug occurs. Fo
 environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
 "PC-BSD base system". 
 
-In the example shown in :numref:`Figure %s: Reporting a Bug <report2>`, the user has selected "PC-BSD base system" then "Next". 
+In the example shown in :numref:`Figure %s: Reporting a Bug <report2a>`, the user has selected "PC-BSD base system" then "Next". 
 
-.. note:: regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing
-   list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
-   correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the
-   error.
+.. note:: regardless of the selection, the resulting screen will be similar to :numref:`Figure %s: Reporting a Bug <report2a>`. The various screens only differ in which bug tracking system
+   or mailing list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
+   correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the error.
 
-.. _report2:
+.. _report2a:
 
-.. figure:: images/report2.png
+.. figure:: images/report2a.png
 
 If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
 web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is

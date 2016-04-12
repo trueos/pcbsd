@@ -17,7 +17,7 @@ reporting problems you encounter while using PC-BSD®.
 
 If you have a spare system or virtual machine, you can also download and try out the latest release candidate snapshots. These versions are still in testing
 and have not been officially released yet. Having as many people as possible using PC-BSD® on many different hardware configurations assists the Project in
-finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <http://blog.pcbsd.org/>`_ is a good way to keep
+finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <https://blog.pcbsd.org/>`_ is a good way to keep
 up-to-date on the availability of testing snapshots and any major bugs that affect users.
 
 If becoming a tester interests you, subscribe to the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_. As new testing versions become
@@ -68,7 +68,7 @@ updates that affect translators.
 Interface Translation
 ---------------------
 
-PC-BSD® uses `Pootle <https://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
+PC-BSD® uses :wikipedia:`Pootle` for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
 Pootle makes it possible to find out if your native language has been fully localized for PC-BSD®. Pootle also makes it easy for users to check and submit
 translated text as it provides a web editor and commenting system. This means that translators can spend their time making and reviewing translations rather
 than learning how to use a translation tool.
@@ -392,7 +392,39 @@ For example, to add a screenshot for an application, upload the screenshot file 
 the quotes of the *PBI_SCREENSHOTS=""* line in the :file:`pbi.conf` file for that module. Or, to add a similar application, put the package category and
 package name in between the *PBI_PLUGINS=""* line in the :file:`pbi.conf` file for that module. As an example, refer to the
 `pbi.conf for the www/firefox PBI module <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. More information about the
-available :file:`pbi.conf` variables can be found in Table 8.1a. 
+available :file:`pbi.conf` variables can be found in Table 11.4a. 
+
+**Table 11.4a: Commonly Used pbi.conf Variables**
+
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| Variable         | Description                                                                                                         |
++==================+=====================================================================================================================+
+| PBI_ORIGIN=      | mandatory; the "category/portname" of the FreeBSD package                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_PROGNAME=    | mandatory; name of the application                                                                                  |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_PROGWEB=     | mandatory unless does not exist; website for the application                                                        |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_PROGAUTHOR=  | mandatory; often found at the website for the application                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_LICENSE=     | the type of open source license used by the application                                                             |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_TAGS=        | a comma separated list (no spaces) of search terms associated with the application                                  |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_PROGTYPE=    | mandatory; use "Graphical" or "Text"                                                                                |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_OTHERPKGS=   | a space separated list in the format "category/portname" of other applications to bundle into the PBI               |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_PLUGINS=     | a space separated list in the format "category/portname" of similar packages                                        |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in :file:`.png` or :file:`.jpg` format                                |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| PBI_RELATED=     | a space separated list in the format "category/portname" of similar PBIs                                            |
++------------------+---------------------------------------------------------------------------------------------------------------------+
+| export           | mandatory; followed by a list of all of the variables used in the file                                              |
++------------------+---------------------------------------------------------------------------------------------------------------------+
 
 To make the edit, click on the :file:`pbi.conf` file for the module, click the "Edit" button, make the change, then click the "Commit changes" button. This
 will issue a "git pull" request which will be reviewed by a developer who will either approve it or contact you if more information about the edit is needed.
@@ -408,7 +440,7 @@ Purchase PC-BSD® Swag
 While PC-BSD® is free, some users may wish to purchase media or other items to show their support for the PC-BSD® Project. PC-BSD® items are available from
 the following websites: 
 
-* `FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
+* `FreeBSD Mall <https://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
   PC-BSD® DVDs and subscriptions, stickers, and apparel. 
 
 * Amazon: sells The Definitive Guide to PC-BSD® (hard copy and Kindle formats) as well as the Kindle versions of the PC-BSD® Handbook. Items available for

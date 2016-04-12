@@ -701,7 +701,7 @@ init_gpt_full_disk()
       # Doing bios-boot partition
       rc_halt "gpart add -s 1M -t bios-boot ${_intDISK}"
     else
-      rc_halt "gpart add -s 128 -t freebsd-boot ${_intDISK}"
+      rc_halt "gpart add -s 512 -t freebsd-boot ${_intDISK}"
       echo_log "Stamping boot sector on ${_intDISK}"
       rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
     fi

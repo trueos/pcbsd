@@ -225,8 +225,9 @@ If you click the *utility* option in the main menu of the text based installer s
 This screen provides the following options: 
 
 * **shell:** this option is useful if you are troubleshooting a PC-BSD® system that no longer boots. It will open a shell with administrative access that
-  includes the base FreeBSD utilities. You can use this shell to try to determine what the problem is and, if necessary, to create a backup or copy essential
-  files to another system. When you are finished using the shell, type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`. 
+  includes the base FreeBSD utilities. Advanced users can use this shell to try to determine what the problem is, to create a backup or copy essential
+  files to another system, or edit configuration files with an editor such as `ee <https://www.freebsd.org/cgi/man.cgi?query=ee>`_ or :command:`vi`. When you are finished using the shell,
+  type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`.  
 
 * **zimport** this option will display the names of available ZFS pools. Type the name of an available pool and it will import it then display the available boot environments (BEs).
   Type the name of the desired BE and this option will mount it then offer to open a chroot shell so that you can view its contents and manipulate files as
@@ -383,8 +384,8 @@ Dual Booting
 ============
 
 A PC-BSD® installation assumes that you have an existing primary partition to install into. If your computer has only one disk and PC-BSD® will be the only
-operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, care has to be
-taken that PC-BSD® is installed into the correct partition; otherwise, you may inadvertently overwrite an existing operating system.
+operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, be
+careful that PC-BSD® is installed into the correct partition or you may inadvertently overwrite an existing operating system.
 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 
@@ -413,7 +414,7 @@ PC-BSD® requires that its version of GRUB be installed as the primary boot-load
 **Using another boot-loader will break this critical functionality, and is strongly discouraged.**
 
 The GRUB boot-loader is capable of dual-booting most other systems, including Windows and Linux. In order to dual-boot PC-BSD® with other operating systems,
-you can add entries to the :file:`/usr/local/etc/grub.d/40_custom` file, which will be preserved across upgrades. For more information on the syntax used,
+you can add entries to the :file:`/usr/local/etc/grub.d/40_custom.dist` file, which will be preserved across upgrades. For more information on the syntax used,
 refer to the `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_. 
 
 PC-BSD® will attempt to identify other installed operating systems to add to the GRUB menu automatically. If you have an operating system which is not
@@ -537,7 +538,7 @@ complete descriptions for each variable.
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | installComponents=         | e.g. "amarok,firefox,ports"                                                    | components must exist in */PCBSD/pc-sysinstall/components/*; typically, *installPackages=* is used instead                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installPackages=           | e.g. "Xorg cabextract                                                          | list of traditional or pkgng packages to install; requires *pkgExt=*                                                                                                                                    |
+| installPackages=           | e.g. "Xorg cabextract                                                          | list of traditional or pkg packages to install; requires *pkgExt=*                                                                                                                                      |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | pkgExt=                    | ".txz" or ".tbz"                                                               | specify the extension used by the type of package to be installed                                                                                                                                       |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
