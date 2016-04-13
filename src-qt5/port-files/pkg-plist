@@ -6,7 +6,6 @@ bin/life-preserver
 bin/life-preserver-tray
 bin/openwith
 bin/pc-adsldap
-bin/pc-bootconfig
 bin/pc-bugreport
 bin/pc-controlpanel
 bin/pc-cupscfg
@@ -20,12 +19,9 @@ bin/pc-nettray
 bin/pc-fwmanager
 bin/pc-pdfviewer
 bin/pc-servicemanager
-bin/pc-softweb
-bin/pc-softwaremanager
 bin/pc-sysinstaller
 bin/pc-syskeyboard
 bin/pc-sysmanager
-bin/pc-systemupdatertray
 bin/pc-updategui
 bin/pc-usermanager
 bin/pc-webkitviewer
