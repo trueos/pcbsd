@@ -11,8 +11,8 @@ This section discusses how to perform common tasks that were not discussed in th
 Java and Flash
 ==============
 
-The IcedTea-Web PBI provides an open source Java browser plugin which automatically works with the FireFox, Chromium, and Opera web browsers without any
-additional configuration. To install this PBI, search for "icedtea" within :ref:`AppCafe®`. 
+IcedTea-Web provides an open source Java browser plugin which automatically works with the FireFox, Chromium, and Opera web browsers without any
+additional configuration. To install this software, search for "icedtea" within :ref:`AppCafe®`. 
 
 PC-BSD® installs and configures the Adobe Flash player (version 11) plugin for you. This means that flash should "just work" when browsing the web. You will
 find several web browsers in the Web Browsers category of :ref:`AppCafe®`, including Firefox, Opera, and Chromium.
@@ -49,13 +49,12 @@ The options available in each tab and when to use them are described at the Adob
 Installing Custom Fonts 
 =======================
 
-PC-BSD® installs Microsoft TrueType fonts which include the Times New Roman, Courier New, Georgia, Trebuchet MS, Comic Sans MS Arial, Arial Black, Verdana,
-Andale Mono, and Impact fonts.
+PC-BSD® includes `Google Noto <http://www.google.com/get/noto/>`_ which provide multi-lingual Sans and Serif fonts.
 
 If you have a collection of fonts that you have downloaded or purchased, you can configure your PC-BSD® system to also use these fonts. Which utility you use
 depends upon which window manager you have logged into.
 
-.. note:: many fonts are available from :ref:`AppCafe®`. Check the "Search all available PBI and packages" box in the "App Search" tab to search for fonts. Any font installed using
+.. note:: many other fonts are available from :ref:`AppCafe®`. Check the "Search all available software" box in the "App Search" tab to search for fonts. Any font installed using
    AppCafe® should not require any additional configuration to "just work". 
 
 To install custom fonts within KDE, go to :menuselection:`System Settings --> Font Management`. In :numref:`Figure %s: Using KDE's Font Installer to Install Custom Fonts <font1>`, "All
@@ -101,7 +100,8 @@ If you install your web browser using AppCafe®, you should be able to play most
 movie sites.
 
 If people are blue in YouTube videos, this is due to a known issue in flash which Adobe hasn't fixed for open source players. To resolve this issue,
-right-click an area in the video, select "Settings", then uncheck the box "Enable hardware acceleration". Alternately, use the Minitube PBI to watch YouTube.
+right-click an area in the video, select "Settings", then uncheck the box "Enable hardware acceleration". Alternately, install `Minitube <http://flavio.tordini.org/minitube>`_ using
++:ref:`AppCafe®` and use it to watch YouTube.
 
 .. note:: if you happen to come across a file that you can not play in a web browser or media player, it is probably because it is in a proprietary format
    that requires a licensing fee or restricts distribution of the codec that is required to play that media format.
@@ -133,12 +133,11 @@ Kodi
 ----
 
 `Kodi, formerly known as XBMC, <https://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
-formats. It can play CDs and DVDs from a disk or image file and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a
-personalized library with album covers, descriptions, and fan art. 
+formats, CDs and DVDs from a disk or image file, and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a personalized library with album covers,
+descriptions, and fan art. 
 
-To install Kodi, use AppCafe®. Click the box "Search all
-available PBI and packages" and search for "pcbsd-meta-kodi". Once installed, an entry for "Media Center" should be added to the "Multimedia" section of the application menu
-of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
+To install Kodi, use AppCafe®. Click "App Search" and search for "pcbsd-meta-kodi". Once installed, an entry for "Media Center" should be added to the "Multimedia"
+section of the application menu of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
 
 If you have never used Kodi before, take some time to skim through the `Kodi Wiki Manual <http://kodi.wiki/>`_.
 The `Turn PC-BSD into a home theater forum post <https://forums.pcbsd.org/thread-19799.html>`_ contains a quick how-to for configuring Kodi.
@@ -153,7 +152,7 @@ PlexHome Theater
 your media library and watch shows. 
 
 To install PlexHome Theater, use AppCafe®. Click the box "Search all
-available PBI and packages" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
+available software" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
 of your desktop. You can also start this application by typing :command:`plexhometheater` from a command prompt. 
 
 Once installed, an entry for "Plex Home Theater" will also be added to the login manager so that you can login directly to the home theater instead of a desktop.
@@ -172,30 +171,29 @@ Depending upon which :ref:`Desktops` you have installed, different graphical fil
 logged into a specific window manager to use an installed file manager. For example, if KDE is installed, you can run its file manager from any window manager
 by typing :command:`dolphin`. KDE, GNOME, LXDE, and XFCE install their own file managers while most of the other desktops assume that you will install your
 favorite file manager. Table 9.4a summarizes the available file managers and indicates which desktop they are installed with. Some file managers can be
-installed independent of a desktop using :ref:`AppCafe®`  to install the PBI. Once a file manager is installed, type its name if you wish to run it from
-another desktop.
+installed independent of a desktop using :ref:`AppCafe®`. Once a file manager is installed, type its name if you wish to run it from another desktop.
 
 **Table 9.4a: Available File Managers**
 
-+---------------+--------------+--------------------------------------------------------------------+
-| File Manager  | Desktop/PBI  | Screenshots                                                        |
-+===============+==============+====================================================================+
-| dolphin       | KDE          | `<https://userbase.kde.org/Dolphin>`_                              |
-+---------------+--------------+--------------------------------------------------------------------+
-| emelfm2       | PBI          | `<http://emelfm2.net/wiki/ScreenShots>`_                           |
-+---------------+--------------+--------------------------------------------------------------------+
-| caja          | MATE         | `<http://mate-desktop.org/gallery/1.6/>`_                          |
-+---------------+--------------+--------------------------------------------------------------------+
-| mucommander   | PBI          | `<http://www.mucommander.com/screenshots.php>`_                    |
-+---------------+--------------+--------------------------------------------------------------------+
-| nautilus      | GNOME, PBI   | `<https://projects.gnome.org/nautilus/screenshots.html>`_          |
-+---------------+--------------+--------------------------------------------------------------------+
-| pcmanfm       | LXDE, PBI    | `<http://lxde.org/easy_fast_file_management_pcmanfm>`_             |
-+---------------+--------------+--------------------------------------------------------------------+
-| thunar        | XFCE, PBI    | `<http://docs.xfce.org/xfce/thunar/start>`_                        |
-+---------------+--------------+--------------------------------------------------------------------+
-| xfe           | PBI          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
-+---------------+--------------+--------------------------------------------------------------------+
++---------------+-----------    ---+--------------------------------------------------------------------+
+| File Manager  | Desktop/AppCafe  | Screenshots                                                        |
++===============+==================+====================================================================+
+| dolphin       | KDE              | `<https://userbase.kde.org/Dolphin>`_                              |
++---------------+------------------+--------------------------------------------------------------------+
+| emelfm2       | AppCafe          | `<http://emelfm2.net/wiki/ScreenShots>`_                           |
++---------------+------------------+--------------------------------------------------------------------+
+| caja          | MATE             | `<http://mate-desktop.org/gallery/1.6/>`_                          |
++---------------+------------------+--------------------------------------------------------------------+
+| mucommander   | AppCafe          | `<http://www.mucommander.com/screenshots.php>`_                    |
++---------------+------------------+--------------------------------------------------------------------+
+| nautilus      | GNOME, AppCafe   | `<https://projects.gnome.org/nautilus/screenshots.html>`_          |
++---------------+------------------+--------------------------------------------------------------------+
+| pcmanfm       | LXDE, AppCafe    | `<http://lxde.org/easy_fast_file_management_pcmanfm>`_             |
++---------------+------------------+--------------------------------------------------------------------+
+| thunar        | XFCE, AppCafe    | `<http://docs.xfce.org/xfce/thunar/start>`_                        |
++---------------+------------------+--------------------------------------------------------------------+
+| xfe           | AppCafe          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
++---------------+------------------+--------------------------------------------------------------------+
 
 When working with files on your PC-BSD® system, save your own files to your home directory. Since most of the files outside of your home directory are used
 by the operating system and applications, you should not delete or modify any files outside of your home directory, unless you know what you are doing.
@@ -266,27 +264,27 @@ Table 9.4b summarizes the directory structure found on a PC-BSD® system. :comma
 PC-BSD® provides built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
 your network. If a desktop is installed, you do not have to be logged into that desktop in order to use that utility.
 
-Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with and whether or not a
-separate PBI is available, and a short description of how to access the available shares using that utility.
+Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with, whether or not it can be installed
+separately using :ref:`AppCafe®`, and a short description of how to access the available shares using that utility.
 
 **Table 9.4c: Utilities that Support Windows Shares**
 
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| **Utility**  | **Desktop/PBI**  | **How to Access Existing Shares**                                                                                        |
-+==============+==================+==========================================================================================================================+
-| dolphin      | KDE              | in the left frame, click on :menuselection:`Network --> Samba Shares`, then the Workgroup name; if the network requires  |
-|              |                  | a username and password to browse for shares, set this in :menuselection:`Control Panel --> System Settings --> Sharing` |
-|              |                  | while in KDE or type :command:`systemsettings` and click "Sharing" while in another desktop                              |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| konqueror    | KDE              | in the location bar, type *smb:/*                                                                                        |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| mucommander  | PBI              | click on :menuselection:`Go --> Connect to server --> SMB`; input the NETBIOS name of server, name of share, name of     |
-|              |                  | domain (or workgroup), and the share's username and password                                                             |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| nautilus     | GNOME, PBI       | click on :menuselection:`Browse Network --> Windows Network`                                                             |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| thunar       | XFCE, PBI        | in the left frame, click on :menuselection:`Network --> Windows Network`                                                 |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| **Utility**  | **Desktop/AppCafe**  | **How to Access Existing Shares**                                                                                        |
++==============+======================+==========================================================================================================================+
+| dolphin      | KDE                  | in the left frame, click on :menuselection:`Network --> Samba Shares`, then the Workgroup name; if the network requires  |
+|              |                      | a username and password to browse for shares, set this in :menuselection:`Control Panel --> System Settings --> Sharing` |
+|              |                      | while in KDE or type :command:`systemsettings` and click "Sharing" while in another desktop                              |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| konqueror    | KDE                  | in the location bar, type *smb:/*                                                                                        |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| mucommander  | AppCafe              | click on :menuselection:`Go --> Connect to server --> SMB`; input the NETBIOS name of server, name of share, name of     |
+|              |                      | domain (or workgroup), and the share's username and password                                                             |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| nautilus     | GNOME, AppCafe       | click on :menuselection:`Browse Network --> Windows Network`                                                             |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| thunar       | XFCE, AppCafe        | in the left frame, click on :menuselection:`Network --> Windows Network`                                                 |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
 
 .. index:: windows
 .. _Windows Emulation:
