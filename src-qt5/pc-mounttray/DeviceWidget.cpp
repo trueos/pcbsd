@@ -94,7 +94,7 @@ void DeviceWidget::doUpdate(){
     ui->tool_mount->setWhatsThis(info[0]); //filesystem
     if(info.length()>=4){ui->tool_run->setWhatsThis(info[3]); } //mountpoint
     
-    if(info[0].toLower()=="zfs"){ ui->label_icon->setToolTip(node()+" ("+info[0]+")"); }
+    if(info[0].toLower()=="zfs" || info[0].toLower()=="mtpfs"){ ui->label_icon->setToolTip(node()+" ("+info[0]+")"); }
     else{ ui->label_icon->setToolTip("/dev/"+node()+" ("+info[0]+")"); }
     //Now go through and set all the various icons and such
     QString icon = ":icons/%1.png";
