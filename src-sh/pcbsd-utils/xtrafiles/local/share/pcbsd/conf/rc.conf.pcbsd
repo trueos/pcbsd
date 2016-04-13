@@ -45,6 +45,9 @@ if [ -e "/etc/defaults/trueos" ] ; then
 
   # Support for iSCSI with Life-Preserver
   iscsid_enable="YES"
+
+  # Start relaunchd
+  launchd_enable="YES"
 fi
 
 # Defaults for PC-BSD desktops
@@ -166,4 +169,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
 
   # Enable iocage
   iocage_enable="YES"
+
+  # Start relaunchd
+  launchd_enable="YES"
 fi
