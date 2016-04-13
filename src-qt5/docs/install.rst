@@ -163,11 +163,11 @@ click "Save Config to USB".
 Basic Mode 
 -----------
 
-If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7a>`. 
+If you select "Basic" mode, the wizard will display the screen shown in :numref:`Figure %s: Select a Disk or Partition <install7b>`. 
 
-.. _install7a:
+.. _install7b:
 
-.. figure:: images/install7a.png
+.. figure:: images/install7b.png
 
 By default, the first hard disk will be selected. If you wish to install on a different disk, use the "Selected Disk" drop-down menu to select the disk to
 install into.
