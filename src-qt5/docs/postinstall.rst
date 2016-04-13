@@ -13,44 +13,14 @@ This section describes the boot process, the post-installation configuration scr
 Booting Into PC-BSD®
 =====================
 
-After installation, PC-BSD® will reboot and you will be prompted to configure your system and to login to a desktop.
+After installation, PC-BSD® will reboot and display the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1a>`.
 
-Once the first boot is complete, the installer will attempt to set the optimal display settings. A pop-up menu will ask if you would like to accept these
-settings. Simply click "Yes" to continue. PC-BSD® will then proceed to the :ref:`Language Screen`. 
+.. _boot1a:
 
-Read through the rest of this section if you have encrypted your disk(s), your system hangs at boot time, or if you have problems setting the display
-settings. If you are dual booting and your other operating system was not automatically added to the graphical boot menu by the installer, refer to
-:ref:`Dual Booting`.
+.. figure:: images/boot1a.png
 
-.. index:: encryption
-.. _If you Encrypted Your Disks:
-
-If you Encrypted Your Disks
----------------------------
-
-If you selected the "Encrypt disk with GELI" checkbox during installation, you will need physical access to the PC-BSD® system when it boots. As the system
-starts to boot, it will display a message similar to the one shown in :numref:`Figure %s:  Input Password to Decrypt Master Key <encrypt1>`.
-
-.. _encrypt1:
-
-.. figure:: images/encrypt1.png
-
-The boot process will wait for you to successfully input the password that you created in the installation screen shown in Figure 3.3g. If the correct
-password is typed in, the system will continue to boot.
-
-.. index:: boot
-.. _Interrupting the Boot to Access the Boot Menu:
-
-Using the Boot Menu
--------------------
-
-An example of the graphical PC-BSD® bootloader menu is shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1>`.
-
-.. _boot1:
-
-.. figure:: images/boot1.png
-
-The boot menu is used to display the installation of PC-BSD®, any boot environments, and other operating systems installed on a dual-boot system.
+This boot menu is used to display the entry for PC-BSD®, any boot environments (which are automatically created when the system updates and can also be manually created using
+:ref:`Boot Manager`), and any other operating systems installed on the system.
 
 To pause this menu, press any key except for :kbd:`Enter`. If you have performed any updates and wish to access a previous boot environment, use the down arrow to select "Boot
 Environment Menu" and press :kbd:`Enter` to see the list of available boot environments.
@@ -81,6 +51,28 @@ Use the arrow keys to select an option then press enter to boot using that optio
 
 This menu is provided by GRUB. If you are familiar with editing GRUB, you can press :kbd:`e` to access the GRUB editor or :kbd:`c` to access the GRUB command
 line.
+
+The first time the boot completes, the post-installer configuration script will attempt to set the optimal display settings. A pop-up menu will ask if you would like to accept these
+settings. If you click "Yes", PC-BSD® will then proceed to the :ref:`Language Screen` so that you can perform the initial configuration of the system. 
+
+Read through the rest of this section if you have encrypted your disk(s) or if you have problems setting the display settings. If you are dual booting and your other operating system was not
+automatically added to the graphical boot menu by the installer, refer to :ref:`Dual Booting`.
+
+.. index:: encryption
+.. _If you Encrypted Your Disks:
+
+If you Encrypted Your Disks
+---------------------------
+
+If you selected the "Encrypt disk with GELI" checkbox during installation, you will need physical access to the PC-BSD® system when it boots. As the system
+starts to boot, it will display a message similar to the one shown in :numref:`Figure %s:  Input Password to Decrypt Master Key <encrypt1>`.
+
+.. _encrypt1:
+
+.. figure:: images/encrypt1.png
+
+The boot process will wait for you to successfully input the password that you created in the installation screen shown in :numref:`Figure %s: Configure Encryption <install11a>`. If the
+correct password is typed in, the system will continue to boot.
 
 .. index:: video
 .. _If Your Display is Not Automatically Detected:
