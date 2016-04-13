@@ -254,8 +254,6 @@ share/pcbsd/pc-controlpanel/items/hardware/xfce-mouse-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/xsane.desktop
 share/pcbsd/pc-controlpanel/items/network/pcnetwork.desktop
 share/pcbsd/pc-controlpanel/items/network/fwmanager.desktop
-share/pcbsd/pc-controlpanel/items/software/appcafe.desktop
-share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-q4wine.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-swine.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-winecfg.desktop
@@ -268,7 +266,6 @@ share/pcbsd/pc-controlpanel/items/system/kde-sys_kcm_cron.desktop
 share/pcbsd/pc-controlpanel/items/system/ksystemlog.desktop
 share/pcbsd/pc-controlpanel/items/system/lxde-lxtask.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-adsldap.desktop
-share/pcbsd/pc-controlpanel/items/system/pc-bootconfig.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-checkhw.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-dmconf.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-servicemanager.desktop
