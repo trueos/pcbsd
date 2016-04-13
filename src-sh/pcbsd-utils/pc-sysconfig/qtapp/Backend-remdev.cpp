@@ -28,7 +28,7 @@ void Backend::updateIntMountPoints(bool passive){
   //First run "mount" to make sure and get the complete list of mounted devices
   QStringList info = runShellCommand("mount");
   QStringList zinfo = runShellCommand("zpool list -H -o name,altroot");
-  QStringList mtpinfo = runShellCommand("simple-mtpfs -l").filter(": ");
+  QStringList mtpinfo = getMtpfsDevices(); //<number>::::<name>
   //qDebug() << "MTPFS Info:" << mtpinfo;
   //qDebug() << "zpool list:" << zinfo;
   //Verify that the current entries are still valid
@@ -40,7 +40,7 @@ void Backend::updateIntMountPoints(bool passive){
     //qDebug() << "Check MountPoint:" << node << fs << mntdir;
     bool invalid = false;
     if(fs=="mtpfs"){
-      QStringList filter = mtpinfo.filter(node+": "+mntdir.section("/",-1));
+      QStringList filter = mtpinfo.filter(node).filter(mntdir.section("/",-1));
       //qDebug() << " - Check MTPFS filter:" << filter;
       if(filter.isEmpty() || !QFile::exists(mntdir) || info.filter(mntdir).isEmpty() ){ invalid = true; }
       else{
@@ -105,10 +105,10 @@ void Backend::updateIntMountPoints(bool passive){
   }
   if(passive){ return; } //don't run any mounting routines below
   //Special Check for MTPFS devices (no associated device node - so auto-mount them so they are in the DB uniquely)
-  for(int i=0; i<mtpinfo.length(); i++){
+  /*for(int i=0; i<mtpinfo.length(); i++){
     //qDebug() << "Check MTPFS info:" << mtpinfo[i] << IntMountPoints.filter("mtpfs");
-    mountRemDev(mtpinfo[i].section(":",0,0), mtpinfo[i].section(":",1,-1).section(" (",0,0).simplified(), "mtpfs");
-  }
+    mountRemDev(mtpinfo[i].section("::::",0,0), mtpinfo[i].section("::::",1,-1), "mtpfs");
+  }*/
   //qDebug() << " - Current IntMountPoints:" << IntMountPoints;
 }
 
@@ -167,7 +167,7 @@ QStringList Backend::findActiveDevices(){
 QStringList Backend::listAllRemDev(){
   //Find/list all removable devices connected to the system
   QStringList out = listMountedNodes(); //start with everything currently still mounted
-	
+  
   QStringList badlist = DEVDB::invalidDeviceList();
   //qDebug() << "Initial Bad List:" << badlist;
   badlist << getSwapDevices();
@@ -184,7 +184,11 @@ QStringList Backend::listAllRemDev(){
   }
   //Now filter out any devices associated with currently mounted pools
   badlist << getCurrentZFSDevices();
-  
+  //Now look for any MTPFS devices
+  QStringList mtpinfo = getMtpfsDevices();
+  for(int i=0; i<mtpinfo.length(); i++){
+    out << mtpinfo[i].section("::::",0,0);
+  }
   out.removeDuplicates(); //since some pools can have multiple devices
   //qDebug() << "Detected Devices:" << subdevs << "\nBad List:" <<badlist;
   //Now scan all the 
@@ -276,6 +280,13 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
         fs = "ZFS"; label = zinfo[i].section("::::",0,0);
         type = DEVDB::deviceTypeByNode(node);
         return (QStringList() << fs << label << type); //already have everything necessary
+      }
+    }
+    //Not ZFS pool - check for MTPFS device number
+    QStringList mtpinfo = getMtpfsDevices();
+    for(int i=0; i<mtpinfo.length(); i++){
+      if(mtpinfo[i].section("::::",0,0)==node){
+        return (QStringList()<<"MTPFS" << mtpinfo[i].section("::::",1,-1) << "USB");
       }
     }
   }
@@ -567,6 +578,16 @@ QStringList Backend::getPersonaCryptDevices(){
     }
   }
   return devs;
+}
+
+QStringList Backend::getMtpfsDevices(){
+  //output item: <device number>::::<device name>
+  if(!QFile::exists("/usr/local/bin/simple-mtpfs")){ return QStringList(); }
+  QStringList info = runShellCommand("simple-mtpfs -l").filter(":");
+  for(int i=0; i<info.length(); i++){
+    info[i] = info[i].section(":",0,0)+"::::"+info[i].section(":",1,-1).section("(",0,0).simplified();
+  }
+  return info;
 }
 
 QStringList Backend::getAvailableZFSPools(){
