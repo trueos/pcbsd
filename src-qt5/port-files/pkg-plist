@@ -1,6 +1,5 @@
 bin/PCDM-session
 bin/about-gui
-bin/appcafe
 bin/flashpluginctl
 bin/life-preserver
 bin/life-preserver-tray
@@ -22,7 +21,6 @@ bin/pc-servicemanager
 bin/pc-sysinstaller
 bin/pc-syskeyboard
 bin/pc-sysmanager
-bin/pc-updategui
 bin/pc-usermanager
 bin/pc-webkitviewer
 bin/pc-welcome
@@ -96,14 +94,11 @@ share/applications/about.desktop
 share/applications/fwmanager.desktop
 share/applications/handbook.desktop
 share/applications/pc-dmconf.desktop
-share/applications/pc-updategui.desktop
 share/applications/pc-welcome.desktop
-share/applications/pcbsdpbu.desktop
 share/applications/pcbugreport.desktop
 share/applications/pccontrol.desktop
 share/applications/pc-pdfviewer.desktop
 share/applications/pcsyskeyboard.desktop
-share/applications/softmanager.desktop
 share/apps/ksplash/Themes/pcbsd10/1024x768/background.png
 share/apps/ksplash/Themes/pcbsd10/1280x1024/background.png
 share/apps/ksplash/Themes/pcbsd10/1280x800/background.png
@@ -137,13 +132,11 @@ share/pcbsd/fluxboxinit/menu
 share/pcbsd/fluxboxinit/overlay
 share/pcbsd/fluxboxinit/startup
 share/pcbsd/icons/about.png
-share/pcbsd/icons/appcafe.png
 share/pcbsd/icons/gvim.png
 share/pcbsd/icons/hwinfo.png
 share/pcbsd/icons/input-keyboard.png
 share/pcbsd/icons/ldap.png
 share/pcbsd/icons/mythtv.png
-share/pcbsd/icons/pc-bootconfig.png
 share/pcbsd/icons/pc-dmconf.png
 share/pcbsd/icons/pcbsd-handbook.png
 share/pcbsd/icons/preferences-desktop-theme.png
@@ -151,7 +144,6 @@ share/pcbsd/icons/preferences-desktop.png
 share/pcbsd/icons/soundconfig.png
 share/pcbsd/icons/system-software-update.png
 share/pcbsd/icons/system-users.png
-share/pcbsd/icons/sysupdate.png
 share/pcbsd/icons/utilities-system-monitor.png
 share/pcbsd/icons/zmanager.png
 share/pcbsd/pc-controlpanel/icons/appcafe.png
