@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-calligrasheets">
-  <glob weight="100" pattern="*.ods"/>
-  <glob weight="100" pattern="*.fods"/>
-  <glob weight="100" pattern="*.xls"/>
-  <glob weight="100" pattern="*.xlsx"/>
- </mime-type>
-</mime-info>

@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-lxmusic">
-  <glob weight="100" pattern="*.mp3"/>
-  <glob weight="100" pattern="*.ogg"/>
- </mime-type>
-</mime-info>

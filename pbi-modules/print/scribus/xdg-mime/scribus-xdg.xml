@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-scribus">
-    <comment>Scribus File</comment>
-    <glob weight="100" pattern="*.sla"/>
-    <glob weight="100" pattern="*.SLA"/>
- </mime-type>
-</mime-info>

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-fwbuilder">
-    <comment>Firewall Builder File</comment>
-    <glob weight="100" pattern="*.fwb"/>
-    <glob weight="100" pattern="*.fwb"/>
- </mime-type>
-</mime-info>

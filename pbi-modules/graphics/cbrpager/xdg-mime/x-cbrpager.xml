@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-cbrpager">
-  <glob weight="100" pattern="*.cbr"/>
-  <glob weight="100" pattern="*.CBR"/>
- </mime-type>
-</mime-info>

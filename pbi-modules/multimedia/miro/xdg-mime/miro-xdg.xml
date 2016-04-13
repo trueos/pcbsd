@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-miro">
-    <comment>Miro File</comment>
-    <glob weight="100" pattern="*.miro"/>
-    <glob weight="100" pattern="*.MIRO"/>
- </mime-type>
-</mime-info>
