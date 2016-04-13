@@ -22,13 +22,13 @@ NOTES about memory disks (ISO type or md* node names)
 */
 
 //REMOVABLE DEVICES (remdev)
-void Backend::updateIntMountPoints(){
+void Backend::updateIntMountPoints(bool passive){
   //Format: 
-  qDebug() << "Updating internal mountpoints";
+  //qDebug() << "Updating internal mountpoints";
   //First run "mount" to make sure and get the complete list of mounted devices
   QStringList info = runShellCommand("mount");
   QStringList zinfo = runShellCommand("zpool list -H -o name,altroot");
-  QStringList mtpinfo = runShellCommand("simple-mtpfs -l").filter("(MTP)");
+  QStringList mtpinfo = runShellCommand("simple-mtpfs -l").filter(": ");
   //qDebug() << "MTPFS Info:" << mtpinfo;
   //qDebug() << "zpool list:" << zinfo;
   //Verify that the current entries are still valid
@@ -37,13 +37,16 @@ void Backend::updateIntMountPoints(){
     QString fs = IntMountPoints[i].section(DELIM,1,1).toLower();
     if(!node.isEmpty() && !node.startsWith("/dev/") && fs!="zfs" && fs!="mtpfs"){ node.prepend("/dev/"); }
     QString mntdir = IntMountPoints[i].section(DELIM,2,2);
-    qDebug() << "Check MountPoint:" << node << fs << mntdir;
+    //qDebug() << "Check MountPoint:" << node << fs << mntdir;
     bool invalid = false;
     if(fs=="mtpfs"){
       QStringList filter = mtpinfo.filter(node+": "+mntdir.section("/",-1));
-      qDebug() << " - Check MTPFS filter:" << filter;
-      for(int i=0; i<filter.length(); i++){ mtpinfo.removeAt( mtpinfo.indexOf(filter[i]) ); }
-      if(filter.isEmpty()){ invalid = true; }
+      //qDebug() << " - Check MTPFS filter:" << filter;
+      if(filter.isEmpty() || !QFile::exists(mntdir) || info.filter(mntdir).isEmpty() ){ invalid = true; }
+      else{
+	//Already mounted - go ahead and remove it from the list
+        for(int i=0; i<filter.length(); i++){ mtpinfo.removeAt( mtpinfo.indexOf(filter[i]) ); }	      
+      }
     }
     else if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty()) )){ 
        invalid = true; 
@@ -72,7 +75,7 @@ void Backend::updateIntMountPoints(){
     }
     if(invalid){
       //Remove this entry from the list
-      qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
+      //qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
       IntMountPoints.removeAt(i);
       i--;
     }    
@@ -84,7 +87,7 @@ void Backend::updateIntMountPoints(){
     //filter out unknown filesystems
     QString fs = info[i].section("(",1,1).section(",",0,0);
     if(fs=="msdosfs"){ fs="fat"; } //special catch for an alternate display
-    if( !fsfilter.contains(fs.toUpper()) || fs=="zfs" ){ continue; }
+    if( !fsfilter.contains(fs.toUpper()) || fs=="zfs" || fs=="fusefs"){ continue; }
     else if( info[i].contains(" /boot/") || info[i].contains("personahome.eli") ){ continue; } //skip any boot devices or home dirs
     QString mpoint = info[i].section(" on ",1,50).section(" (",0,0);
     if(!mpoint.isEmpty() && IntMountPoints.filter(DELIM+mpoint+DELIM).isEmpty()){
@@ -100,16 +103,13 @@ void Backend::updateIntMountPoints(){
       //qDebug() << "New Internal Mount Info:" << IntMountPoints.last();
     }
   }
+  if(passive){ return; } //don't run any mounting routines below
   //Special Check for MTPFS devices (no associated device node - so auto-mount them so they are in the DB uniquely)
   for(int i=0; i<mtpinfo.length(); i++){
-    qDebug() << "Check MTPFS info:" << mtpinfo[i] << IntMountPoints.filter("mtpfs");
-    //if( IntMountPoints.filter( mtpinfo[i].section(" (",0,0) ).isEmpty() ){
-      //New device
-      //qDebug() << "Mount MTPFS Device:" << mtpinfo[i];
-      qDebug() << mountRemDev(mtpinfo[i].section(":",0,0), mtpinfo[i].section(":",1,-1).section(" (",0,0).simplified(), "MTPFS");
-    //}
+    //qDebug() << "Check MTPFS info:" << mtpinfo[i] << IntMountPoints.filter("mtpfs");
+    mountRemDev(mtpinfo[i].section(":",0,0), mtpinfo[i].section(":",1,-1).section(" (",0,0).simplified(), "mtpfs");
   }
-  
+  //qDebug() << " - Current IntMountPoints:" << IntMountPoints;
 }
 
 void Backend::cleanMediaDir(){
@@ -251,6 +251,7 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       label = info[i].section(DELIM,2,2).section("/",-1); //mountpoint directory name
       QString mtpoint = info[i].section(DELIM, 2,2);
       if(fs.toUpper()=="ZFS"){ type = DEVDB::deviceTypeByNode( getCurrentZFSDevices(node).first() ); }
+      else if(fs.toUpper()=="MTPFS"){ type = "USB"; }
       else{ type = DEVDB::deviceTypeByNode(node); }
       if(mtpoint.isEmpty()){
         return (QStringList() << fs << label << type);
@@ -478,7 +479,7 @@ bool Backend::VerifyDevice(QString fulldev, QString type){
 
 QStringList Backend::listMountedNodes(){
   QStringList out;
-  updateIntMountPoints(); //make sure the internal list is up to date
+  updateIntMountPoints(false); //make sure the internal list is up to date (active check - will mount some devices as needed)
   for(int i=0; i<IntMountPoints.length(); i++){
     QString node = IntMountPoints[i].section(DELIM,0,0);
     if(node.isEmpty()){ node = IntMountPoints[i].section(DELIM,2,2); } //mountpoint instead
@@ -674,6 +675,8 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   bool done = false;
   QString errline;
   QString basedir = mntdir.section("/",0,-2);
+  QProcess proc;
+    proc.setProcessChannelMode(QProcess::MergedChannels);
   while(!done){
     for(int i=0; i<cmds.length() && ok; i++){
       //qDebug() << "Mountpoint:" << mntdir << basedir << mntdir.section("/",-1);
@@ -684,10 +687,11 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
       if(cmds[i].contains("%5")){
         cmds[i].replace("%5", runShellCommand("id -g operator").join("").simplified() );
       }
-      
-      ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
+      proc.start(cmds[i]);
+      proc.waitForFinished(-1);
+      ok = ( 0==proc.exitCode() ); //look for a return code of 0 for success for the command
       //if(fs.toLower()=="mtpfs"){ qDebug() << "Mount Command:" << cmds[i] << ok; }
-      if(!ok){ errline = " -- on command: "+cmds[i]; }
+      if(!ok){ errline = " -- on command: "+cmds[i]+" ("+proc.readAllStandardOutput()+")"; }
     }
     //Check for success and use any fallback methods
     if(!ok && usedlocale){

@@ -24,14 +24,13 @@ public:
 	Backend(QObject *parent = 0) : QObject(parent){
 	  //Fill the general/unchanging info
 	  CPART = findActiveDevices(); //detect which partition/device is currently in use
-	  updateIntMountPoints(); //update the internal list of mount points
-	  cleanMediaDir();
 	}
 	~Backend(){
 		
 	}
 	
 	QString runRequest(QStringList req, QString user="", QString locale="en_US"){
+	  cleanMediaDir();
 	  CUSER = user;
 	  CLOCALE = locale;
 	  QStringList outputs;
@@ -121,7 +120,7 @@ private:
 	
 	//REMOVABLE DEVICES (remdev)
 	QStringList IntMountPoints; //Internal Mount points created by this utility (will be removed on cleanup)
-	void updateIntMountPoints(); //Update the internal list
+	void updateIntMountPoints(bool passive = true); //Update the internal list
 	void cleanMediaDir(); //To be run on startup - clean up any leftover mountpoint (in case of crash, etc)
 	
 	QStringList devChildren(QString dev);
@@ -188,10 +187,12 @@ public slots:
 	void LoadInternalValues(){
 	  QSettings settings(SAVESETTINGSFILE,QSettings::IniFormat,0);
 	    IntMountPoints = settings.value("IntMountPoints",QStringList()).toStringList();
+	    //qDebug() << "Loaded Internal Values:" << IntMountPoints;
 	}
 	
 	void SaveInternalValues(){
 	  QSettings settings(SAVESETTINGSFILE,QSettings::IniFormat,0);
+	    //qDebug() << "Save Internal Values:" << IntMountPoints;
 	    settings.setValue("IntMountPoints",IntMountPoints);
 	}
 
