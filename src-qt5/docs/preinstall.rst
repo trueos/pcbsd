@@ -66,7 +66,7 @@ Supported Hardware
 ==================
 
 PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
-manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html#proc>`_ list the amd64
+manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/11.0R/hardware.html#proc>`_ list the amd64
 processors known to work.
 
 Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
@@ -89,7 +89,7 @@ driver and disable NVIDIA. This will change in the future when the NVIDIA driver
 A list of usable graphics cards can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
-`FreeBSD driver <http://www.freebsd.org/releases/10.2R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
+`FreeBSD driver <http://www.freebsd.org/releases/11.0R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `Status of Atheros Wifi Hardware wiki page <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 A list of supported Intel devices and known limitations can be found on the `iwn(4) Intel 802.11n series NICs wiki page <https://wiki.freebsd.org/dev/iwn%284%29>`_.
 
@@ -100,7 +100,7 @@ Certain Broadcom devices, typically found in cheap laptops, are quite buggy and 
 mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
 If you wish to check your hardware before installing PC-BSD®, a good place to start is the
-`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html>`_. Another good resource is to start the installer and click the
+`FreeBSD Hardware Notes <http://www.freebsd.org/releases/11.0R/hardware.html>`_. Another good resource is to start the installer and click the
 :ref:`Hardware Compatibility` icon.
 
 While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. Remember that
@@ -298,7 +298,7 @@ will capitalize the letters.
 On Linux and BSD systems you can use the built-in :command:`md5` or :command:`md5sum` command line tool to check the MD5 checksum. In this example, the file
 is located in the :file:`Downloads` subdirectory directory. You should substitute the name and location of the file that you downloaded::
 
- md5 Downloads/PCBSD10.2-RELEASE-x64-DVD-USB.iso 
+ md5 Downloads/PCBSD11.0-RELEASE-x64-DVD-USB.iso 
 
 .. index:: burn
 .. _Burning the Installation Media:
@@ -390,7 +390,7 @@ If you just get your prompt back, the driver successfully loaded. If you get the
 driver was already loaded. If the device is USB or SCSI, no additional drivers need to be loaded if you are running the generic FreeBSD kernel. After
 inserting the DVD media into the device, you can start the burn using this command::
 
- growisofs -Z /dev/cd0=PCBSD10.2-RELEASE-x64-DVD-USB.iso
+ growisofs -Z /dev/cd0=PCBSD11.0-RELEASE-x64-DVD-USB.iso
 
 If your device is not the first CD device, change the number *0* accordingly. If your ISO has a different name, substitute the correct name in the command
 shown above.
@@ -427,7 +427,7 @@ Once the image is written, boot from the removable device and proceed with the P
 To write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
 system, the superuser can use this command to write the file to the first plugged in USB device::
 
- dd if=PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
+ dd if=PCBSD11.0-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
  3658+1 records in
  3658+1 records out 
  3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
@@ -477,7 +477,7 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  diskutil unmountDisk /dev/disk1
  Unmount of all volumes on disk1 was successful
 
- sudo dd if=/Users/dru/Downloads/ PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m # 4M for older OS X
+ sudo dd if=/Users/dru/Downloads/ PCBSD11.0-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m # 4M for older OS X
  Password:
  3658+1 records in
  3658+1 records out 
@@ -631,7 +631,7 @@ just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
 On a Linux or BSD system, use the :command:`xz` command by giving it the name of the file which you downloaded::
 
- xz -d PCBSD10.2-RELEASE-x64-consumer-desktop.vmdk.xz
+ xz -d PCBSD11.0-RELEASE-x64-consumer-desktop.vmdk.xz
 
 Since this is a large file, the command will take a few minutes to extract the image. You will receive the prompt back when it has finished.
 
