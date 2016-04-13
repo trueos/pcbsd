@@ -21,15 +21,13 @@ AppCafe®
 
 AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
 pre-built applications tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
-is displayed in AppCafe®, such as screenshots and lists of similar applications. It also provides graphical jail management, which allows you to
-run applications which are isolated from the rest of the operating system.
+is displayed in AppCafe®, such as screenshots and lists of similar applications.
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
 able to manage software. 
 
-If you prefer to manage software from the command line, refer to the section on :ref:`Using the CLI pkg Utilities` . Refer to :ref:`Managing Jails from the CLI` for instructions
-on how to manage jails from the command line.
+If you prefer to manage software from the command line, refer to the section on :ref:`Using the CLI pkg Utilities`.
 
 .. index:: software
 .. _Configuring AppCafe®:
@@ -37,15 +35,15 @@ on how to manage jails from the command line.
 Configuring AppCafe®
 ---------------------
 
-AppCafe® includes the ability to remotely manage software and jails from another system or mobile device. During the installation
+AppCafe® includes the ability to remotely manage software from another system or mobile device. During the installation
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
 a web browser. On a desktop installation, AppCafe® can be run as a local application and optionally configured for remote access. To launch the
 AppCafe® application on a PC-BSD® desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type  :command:`appcafe` from a command prompt. When
-prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>` shows the initial AppCafe® screen when it is started from a desktop.
+prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>` shows the initial AppCafe® screen when it is started from a desktop.
 
-.. _remote1c:
+.. _remote1d:
 
-.. figure:: images/remote1c.png
+.. figure:: images/remote1d.png
 
 .. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
    If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
@@ -55,7 +53,7 @@ The top bar contains navigational arrows and a refresh icon. Click the icon at t
 
 * **Configure:** used to configure the package repository and remote access to AppCafe®. 
 
-* **Save Pkg List:** click this option to generate a list of the installed PBIs. A pop-up message will indicate the path to the file containing the list.
+* **Save Pkg List:** click this option to generate a list of the installed software packages. A pop-up message will indicate the path to the file containing the list.
 
 * **Search for Text:** opens a search bar where you can input the name of an application. This is useful for quickly navigating to an application listed on the current screen.
 
@@ -92,26 +90,21 @@ on the system. Click "Apply" to complete the configuration. You will be prompted
 When using AppCafe® to access a system from a public network, it is highly recommended to configure the local firewall to only allow connections over
 the specified port number and from allowed IP address(es).
 
-AppCafe® uses SSL by default and will automatically create a certificate for this purpose. Once remote access is configured, use :file:`https://` and
+AppCafe® uses SSL by default and will automatically create a certificate to use for remote access. Once remote access is configured, use :file:`https://` and
 specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The AppCafe® interface will load in
-the web browser. It will be similar to the one shown in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>`, except the top navigational buttons and configure
+the web browser. It will be similar to the one shown in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>`, except the top navigational buttons and configure
 button will not be displayed and a "Logout" option will be added to the dark grey bar. Note that AppCafe® will automatically log you out after 60
 minutes of inactivity.
 
 The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote", "port", and "ssl" options are set using
 the information you provided either during a server installation or using the screen shown in :numref:`Figure %s: Configuring Remote Access <remote3>`.
 The "mode" option is not set by default, but can be configured by removing the comment symbol (";") from that option and setting its value to either
-"desktop", "server", or "appliance". Here are the descriptions of the available modes as listed in that file::
+"desktop" or "server". Here are the descriptions of the available modes as listed in that file::
 
- tail -5 /usr/local/etc/appcafe.conf
  ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
  ; desktop = Full access to local system packages and jails
  ; server = Full access to local system packages and jails, no Xorg packages listed
- ; appliance = Restricted mode to only allow operations on jails
  ; mode = desktop
-
-Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
-page offering to create a jail if no jails yet exist on the system.
 
 The rest of this section describes how to manage software using AppCafe®.
 
@@ -121,7 +114,7 @@ The rest of this section describes how to manage software using AppCafe®.
 Software Management
 -------------------
 
-The "Home" tab, seen in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1c>`, is used to browse for available PBIs. Applications which are already installed and which are not
+The "Home" tab, seen in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>`, is used to browse for available software. Applications which are already installed and which are not
 required by other applications have a red "X". If you click a red "X", a pop-up message will ask if you would like to uninstall that application. Applications which are not installed have a
 grey download icon. Click the icon to install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow
 "Required" triangle will be displayed and a "Related" tab will indicate the name of the application(s) which require it.
@@ -129,17 +122,17 @@ grey download icon. Click the icon to install that application. Applications whi
 The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
 
 The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. Alternately, to view all of
-the PBIs for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
-PBIs within that category.
+the available applications for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
+software within that category.
 
 To view all of the applications installed on the system, click the "Installed Apps" tab. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application.
 
-In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4b>`, the user has clicked "Firefox" on a system that has Firefox installed.
+In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4d>`, the user has clicked "Firefox" on a system that has Firefox installed.
 
-.. _remote4b:
+.. _remote4d:
 
-.. figure:: images/remote4b.png
+.. figure:: images/remote4d.png
 
 The information for an application includes the following: 
 
@@ -174,110 +167,57 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Plugins:** provides an installable list of associated plugins. For an example, search for "firefox" and open its "Plugins" tab.
 
-- **Options:** shows the values of the make options that the PBI or package was built with.
+- **Options:** shows the values of the make options that the package was built with.
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-The "App Search" tab is shown in :numref:`Figure %s: Searching for Applications <remote5b>`. 
+The "App Search" tab is shown in :numref:`Figure %s: Searching for Applications <remote5c>`. 
 
-.. _remote5b:
+.. _remote5c:
 
-.. figure:: images/remote5b.png
+.. figure:: images/remote5c.png
 
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
 
-By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBIs and packages" box.
+By default, only recommended packages are searched. To search for all available software, including packages, check the "Search all available software" box.
 
-If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <appcafe6>`, the firefox application was installed.
+If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <remote6a>`, the firefox application was installed.
 Click the hyperlink under the "Result" column to review the installation log.
 
-.. _appcafe6:
+.. _remote6a:
 
-.. figure:: images/appcafe6.png
+.. figure:: images/remote6a.png
 
-.. index:: AppCafe®
-.. _Jail Management:
+.. index:: pkg
+.. _Using the CLI pkg Utilities:
 
-Plugins
--------
+Using the CLI pkg Utilities
+===========================
 
-Beginning with PC-BSD® 10.2, plugins can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
-light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
-with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
-installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
-running on the PC-BSD® system.
+PC-BSD® uses :command:`pkg` to manage packages from the command line.
 
-Plugins use `iocage <https://github.com/iocage/iocage>`_ for managing jails using either the AppCafe® GUI or :command:`iocage` command line utility. iocage was specifically
-designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration file. 
+The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 4.4.1 is not
+needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
+Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
+know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
+:command:`pkg install`, type :command:`pkg help install`.
 
-To create, delete, and manage plugins within AppCafe®, click the "Plugins" tab. This will change the entries in the top blue menu bar to the following:
-
-* **Home:** used to return to the Plugins home page.
-
-* **Installed Plugins:** lists the available plugins. The "download" and red "x" icons indicate which plugins are already installed.
-
-* **Configuration:** used to configure the range of IP addresses available for use by plugins.
-
-* **System Apps:** used to return to the main AppCafe® page so that you can manage packages and PBIs.
-
-* **Status:** this tab appears if you have installed or uninstalled any software and contains the logs for each action.
-
-The first time you use plugins, the "Configuration" tab shown in :numref:`Figure %s: Initial Plugins Configuration <remote6c>` will prompt you to configure the range of IP addresses on your
-network that you will reserve for plugins.
-
-.. _remote6c:
-
-.. figure:: images/remote6c.png
-
-In this example, AppCafe® has detected that the PC-BSD® system is on the *192.168.1.x* network and the user has input a range of available addresses from
-*192.168.1.5* to
-*192.168.1.10* and the subnet mask to use. When inputting your own address range and mask, make sure that no other hosts on your network are, or will be, using those reserved addresses. If
-you have control over the DHCP server in your network, make a reservation for those addresses so that the DHCP server does not assign them to other hosts on your network.
-
-In this example, AppCafe® has also detected that the name of the ZFS pool is *tank*. If you have multiple ZFS pools and would like to specify which one is used for plugins, use the
-"Plugin zpool" drop-down menu to select the desired pool.
-
-When finished, click "Save". This will open the "Installed Plugins" tab, showing the listing of available plugins. In the example shown in
-:numref:`Figure %s: List of Available Plugins <remote7a>`, the `Plex Media Server <https://plex.tv/>`_ plugin is available for installation.
-
-.. _remote7a:
-
-.. figure:: images/remote7a.png
-
-.. note:: at this time, only the Plex Media Server is available as a plugin. More plugins will be added in future updates to PC-BSD®. If you would like to install other, isolated
-   applications, refer to the section on :ref:`Managing Jails from the CLI`.
-
-Click the plugin's install icon to begin the installation. Installation will take a few minutes as a new jail will be created, the jail will be assigned the next available reserved IP
-address, and the application will be installed into the jail. Once installed, a screen similar to :numref:`Figure %s: Plugin is Installed <plugin1>` will indicate that the plugin is
-installed.
-
-.. _plugin1:
-
-.. figure:: images/plugin1.png
-
-The title bar will indicate the name of the application that was installed and the IP address assigned to the jail where the application was installed. To configure the application,
-click the hyperlink for the "Plex Web Interface" configuration icon. This will open the configuration screen shown in :numref:`Figure %s: Plugin Configuration <plugin2>`.
-
-.. _plugin2:
-
-.. figure:: images/plugin2.png
-
-.. note:: depending upon the window manager's default web browser, the configuration link may or may not display properly. For example, the default web browser for the KDE window manager is
-   Konqueror, which does not render the configuration page. To change the default web browser within KDE, click
-   :menuselection:`Kickoff --> System Settings --> Default Applications -->Web Browser --> in the following browser` and use the browse button to select another web browser, such as Firefox.
-
-Click the "Agree" button to accept the application's license. You can now configure your channels and playlists. If you are new to Plex, refer to the
-`Plex Getting Started Guide <https://support.plex.tv/hc/en-us/categories/200007268-Getting-Started>`_.
-
-.. index:: AppCafe®
+.. index:: AppCafe®, iocage
 .. _Managing Jails from the CLI:
 
 Managing Jails from the CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Beginning with PC-BSD® 10.2, :command:`iocage` has been added for jail management and this utility will replace the :command:`warden` utility in a future version of PC-BSD®. Note that
-:command:`warden` is still available in this version of PC-BSD® to provide time for users to transition to using  :command:`iocage`. Documentation for using the command line version of
+In PC-BSD®, `iocage <https://github.com/iocage/iocage>`_ can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
+light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
+with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
+installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
+running on the PC-BSD® system.
+
+:command:`iocage` was specifically designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration
+file. Beginning with PC-BSD® 10.2, :command:`iocage` has been added for jail management and this utility will replace the :command:`warden` utility in a future version of PC-BSD®. Note that
+:command:`warden` is still available in PC-BSD® to provide time for users to transition to using  :command:`iocage`. Documentation for using the command line version of
 :command:`warden` can be found in
 `this section of the 10.1.2 User Guide <http://download.pcbsd.org/iso/10.1-RELEASE/amd64/docs/html/controlpanel.html#using-the-command-line-version-of-warden>`_.
 
@@ -287,64 +227,67 @@ the command line. Advanced users can also refer to the command line version in t
 If you type :command:`iocage` at the command line, you will receive a summary of its usage::
 
  usage:
-  iocage activate ZPOOL
-  iocage fetch [release=RELEASE | ftphost=ftp.hostname.org | ftpdir=/dir/ |
-                ftpfiles="base.txz doc.txz lib32.txz src.txz"]
-  iocage init-host IP zpool
-  iocage create [-b|-c|-e] [release=RELEASE] [pkglist=file] [property=value]
-  iocage clone UUID|TAG [UUID|TAG@snapshot] [property=value]
-  iocage destroy [-f] UUID|TAG|ALL
-  iocage reset UUID|TAG|ALL
-  iocage list [-t|-r]
-  iocage start UUID|TAG
-  iocage stop UUID|TAG
-  iocage restart UUID|TAG
-  iocage rcboot
-  iocage rcshutdown
-  iocage console UUID|TAG
-  iocage exec [-u username | -U username] UUID|TAG|ALL command [arg ...]
-  iocage chroot UUID|TAG [command]
-  iocage df
-  iocage show property
-  iocage get property|all UUID|TAG
-  iocage set property=value UUID|TAG
-  iocage cap UUID|TAG
-  iocage limits [UUID|TAG]
-  iocage uncap UUID|TAG
-  iocage inuse [UUID|TAG]
-  iocage snapshot UUID|TAG [UUID|TAG@snapshotname]
-  iocage snaplist UUID|TAG
-  iocage snapremove UUID|TAG@snapshotname|ALL
-  iocage rollback UUID|TAG@snapshotname
-  iocage promote UUID|TAG
-  iocage runtime UUID|TAG
-  iocage update UUID|TAG
-  iocage upgrade UUID|TAG [release=RELEASE]
-  iocage record start|stop UUID|TAG
-  iocage package UUID|TAG
-  iocage export UUID|TAG
-  iocage import UUID [property=value]
-  iocage defaults
-  iocage version | --version
-  iocage help
+  iocage [-v] activate ZPOOL
+  iocage [-v] cap UUID|TAG
+  iocage [-v] clean [-f] [-a|-r|-j|-t]
+  iocage [-v] clone UUID|TAG [UUID|TAG@snapshot] [property=value]
+  iocage [-v] console [-f] UUID|TAG
+  iocage [-v] create [-e] [base=[RELEASE|NAME]] [pkglist=file] [property=value] [count=value]
+  iocage [-v] deactivate ZPOOL
+  iocage [-v] defaults
+  iocage [-v] destroy [-f] UUID|TAG
+  iocage [-v] df
+  iocage [-v] exec [-u username | -U username] UUID|TAG|ALL command [arg ...]
+  iocage [-v] export UUID|TAG
+  iocage [-v] fetch [-P|-p|--ports] [release=RELEASE | ftphost=ftp.hostname.org |
+                    ftpdir=/dir/ | ftpfiles="base.txz doc.txz lib32.txz src.txz"]
+                    [ ftplocaldir=/dir/ ] [ compression=ALGO ]
+  iocage [-v] get [-r] property|all UUID|TAG
+  iocage [-v] help
+  iocage [-v] import UUID [property=value]
+  iocage [-v] init-host IP ZPOOL
+  iocage [-v] inuse UUID|TAG
+  iocage [-v] limits [UUID|TAG]
+  iocage [-v] list [-t|-r|-s jd|uuid|boot|state|tag|type|ip4]
+  iocage [-v] promote UUID|TAG
+  iocage [-v] rcboot
+  iocage [-v] reboot|restart [-s] UUID|TAG
+  iocage [-v] rcshutdown
+  iocage [-v] reset UUID|TAG|ALL
+  iocage [-v] restart UUID|TAG
+  iocage [-v] rollback UUID|TAG@snapshotname
+  iocage [-v] runtime UUID|TAG
+  iocage [-v] send [-c|-i|-I|-h|-u|-m] POOL
+  iocage [-v] set property=value [property=value] UUID|TAG
+  iocage [-v] snaplist UUID|TAG
+  iocage [-v] snapremove UUID|TAG@snapshotname|ALL
+  iocage [-v] snapshot|snap [-f|-r] UUID|TAG [UUID|TAG@snapshotname]
+  iocage [-v] start [-f] UUID|TAG
+  iocage [-v] stop UUID|TAG|ALL
+  iocage [-v] uncap UUID|TAG
+  iocage [-v] update [-p|-P] UUID|TAG|RELEASE
+  iocage [-v] upgrade UUID|TAG [release=RELEASE]
+  iocage [-v] version | --version
 
-  Hint:  you can use shortened UUIDs or TAGs interchangeably!
+Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available and to install the selection, run :command:`iocage fetch`. By
+default, the currently installed version will be selected as seen in this example::
 
-  e.g. for  adae47cb-01a8-11e4-aa78-3c970ea3222f
-       use  adae47cb or just adae
-
-Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available::
-
- iocage fetch
-  INFO: Creating tank/iocage
-  INFO: Creating tank/iocage/jails
-  INFO: Creating tank/iocage/.defaults
-  INFO: Creating tank/iocage/download
-  INFO: Creating tank/iocage/releases
+ sudo iocage fetch
+ Password:
+ Setting up zpool [tank] for iocage usage...
+ If you wish to change zpool, use 'iocage activate'
+   INFO: creating tank/iocage
+   INFO: creating tank/icoage/.defaults
+   INFO: creating tank/iocage/download
+   INFO: creating tank/iocage/jails
+   INFO: creating tank/iocage/releases
+   INFO: creating tank/iocage/templates
  Supported releases are: 
-   10.1-RELEASE
+   11.0-CURRENT
+   10.3-RELEASE
+   10.2-RELEASE
     9.3-RELEASE
- Please select a release [-]: 10.1-RELEASE
+ Please select a release [10.3-RELEASE]:
  base.txz                                      100% of   63 MB 1908 kBps 00m34s
  doc.txz                                       100% of 1395 kB 1301 kBps 00m01s
  lib32.txz                                     100% of   15 MB 1762 kBps 00m10s
@@ -353,47 +296,48 @@ Before creating a jail for the first time, specify the version of FreeBSD to ins
  Extracting: doc.txz
  Extracting: lib32.txz
  Extracting: src.txz
- * Updating base jail..
- src component not installed, skipped
+ * Updating base jail template.
  Looking up update.FreeBSD.org mirrors... none found.
  Fetching public key from update.FreeBSD.org... done.
- Fetching metadata signature for 10.1-RELEASE from update.FreeBSD.org... done.
+ Looking up update.FreeBSD.org mirrors... none found.
+ Fetching public key from update.FreeBSD.org... done.
+ Fetching metadata signature for 10.3-RELEASE from update.FreeBSD.org... done.
  Fetching metadata index... done.
  Fetching 2 metadata files... done.
  Inspecting system... done.
  Preparing to download files... done.
- Fetching 672 patches.....10....20....30....40....50....60....70....80....90....100....110....120....130....140....150....160....170....180....190....200....210....220....230....240....250....260....270....280....290....300....310....320....330....340....350....360....370....380....390....400....410....420....430....440....450....460....470....480....490....500....510....520....530....540....550....560....570....580....590....600....610....620....630....640....650....660....670. done.
- Applying patches... done.
- Fetching 988 files... done.
- <snip output>
  Installing updates... done.
  Creating basejail ZFS datasets... please wait.
 
-In this example, FreeBSD 10.1 and 9.3 are available as jail templates and the user has specified to install the 10.1-RELEASE template. Once the template has been installed, you can create
-a jail. In this example, the template to use, the jail's hostname, network interface, and IP address are specified::
+In this example, the user has specified to install the 10.3-RELEASE template. Once the template has been installed, you can create a jail. In this example, the template to use, the jail's
+hostname, network interface, and IP address are specified::
 
- iocage create release=10.1-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
- <snip output>
+ sudo iocage create release=10.3-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
+ Password:
+ Successfully created: b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
  
-The output of this command will list the properties of the new jail. You can list those properties with this command::
+You can list the properties of the jail with this command::
 
  iocage get all jail1
  
 To start the jail and check its status::
 
- iocage start jail1
- * Starting fdba67ce-40eb-11e5-81f2-0800277f9a55 (jail1)
-  + Started (shared IP mode) OK
+ sudo iocage start jail1
+ Password:
+ * Starting b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
+  + Started 
+  + Configuring VNETifconfig: interface em0 does not exist	OK
   + Starting services        OK
 
  iocage list
- JID   UUID                                  BOOT  STATE  TAG
- 1     fdba67ce-40eb-11e5-81f2-0800277f9a55  off   up     jail1
+ JID   UUID                                  BOOT  STATE  TAG   TYPE
+ 1     b00945a3-d028-11e5-8dc9-68f72865c4fc  off   up     jail1 basejail
 
 To access the jail::
 
- iocage console jail1
- FreeBSD 10.2-RELEASE-p1 (GENERIC) #0: Mon Aug 10 15:54:50 UTC 2015
+ sudo iocage console jail1
+ Password:
+ FreeBSD 10.3-RELEASE (GENERIC) #0: Mon Apr 11 15:54:50 UTC 2016
 
  Welcome to FreeBSD!
 
@@ -414,23 +358,9 @@ To access the jail::
  FreeBSD directory layout:      man hier
 
  Edit /etc/motd to change this login announcement.
- root@fdba67ce-40eb-11e5-81f2-0800277f9a55:~ # 
+ root@b00945a3-d028-11e5-8dc9-68f72865c4fc:~ # 
 
 Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`. To leave the jail, type :command:`exit`.
-
-.. index:: pkg
-.. _Using the CLI pkg Utilities:
-
-Using the CLI pkg Utilities
-===========================
-
-PC-BSD® uses :command:`pkg` to manage packages from the command line.
-
-The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
-needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
-Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
-know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
-:command:`pkg install`, type :command:`pkg help install`.
 
 .. index:: updates
 .. _Update Manager:
@@ -508,8 +438,8 @@ This menu contains the following options:
 How PC-BSD® Updating Works
 ---------------------------
 
-The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. Beginning with
-version 10.1.1, the following steps occur automatically during an update: 
+The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. The following steps occur automatically during
+an update:
 
 * The update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
   background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
@@ -563,25 +493,25 @@ The "View" menu of Update Manager provides the following information:
 
 * **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
   against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown in
-  :numref:`Figure %s: Viewing Operating System Patches <update15>`, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA).
+  :numref:`Figure %s: Viewing Operating System Patches <update15a`, the system is running "10.2-RELEASE-p15, or patch level 15. Most patch levels have an associated Security Advisory (SA).
   More information about each advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
 
 .. _update14:
 
 .. figure:: images/update14.png
 
-.. _update15:
+.. _update15a:
 
-.. figure:: images/update15.png
+.. figure:: images/update15a.png
 
 The "System" menu of Update Manager provides one option:
 
 * **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in
-  :numref:`Figure %s: Switching Branches <branch1>`, this system is currently running the 10.1* branch and the upcoming 11.0 branch is available for selection.
+  :numref:`Figure %s: Switching Branches <branch1a>`, this system is currently running the 10.2 branch and the upcoming 11.0 branch is available for selection.
 
-.. _branch1:
+.. _branch1a:
 
-.. figure:: images/branch1.png
+.. figure:: images/branch1a.png
 
 Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
 either the GUI or the command-line method.
@@ -592,7 +522,7 @@ either the GUI or the command-line method.
 Manual Updates (GUI Method)
 ---------------------------
 
-Beginning in version 10.1.1, the automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up menu, shown in
+The automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up menu, shown in
 :numref:`Figure %s: Managing the Reboot After Update <update9>`, indicates that a reboot is needed to complete the update process. The automatic updater will only update what it has been
 configured to update. If you would like to double-check or change what gets updated, start Update Manager, enter your password, and use the drop-down menu in
 the "Configure Automatic Updates" screen shown in :numref:`Figure %s: Configuring What to Update <update11a>`. 
@@ -631,7 +561,7 @@ TrueOS® users, or those who prefer to use a command-line utility, can use :comm
 :command:`pc-updatemanager`, it will show its available options::
 
  pc-updatemanager
- /usr/local/bin/pc-updatemanager - Usage
+ pc-updatemanager - Usage
  ----
  branches             - List available system branches
  chbranch <tag>       - Change to new system branch
@@ -804,8 +734,8 @@ users should backup their important data to another system or external drive and
 Upgrading from 10.x to |version|
 --------------------------------
 
-Upgrading from any 10.x version to |version| is the same as applying any package update. This means the update to |version| will either appear in Update
-Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
+Upgrading from any 10.x version to |version| is the same as applying any system update. This means the update to |version| will either appear in Update
+Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager check`.
 
 .. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
    installation), full disk encryption, or the
