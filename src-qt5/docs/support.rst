@@ -27,7 +27,8 @@ the subjects being discussed on the testing mailing list.
 
 Anyone can become a beta tester. Follow these tips so that you can accurately describe your findings so they can be fixed as soon as possible: 
 
-* Before you :ref:`Report a bug`, search the testing mailing list to see if anyone else has reported a similar problem.
+* Before you :ref:`Report a bug`, skim through the archives of the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_ to see if anyone else has reported a similar
+  problem.
 
 * When reporting a new issue, use a descriptive subject that includes the error and the version of PC-BSD®. Ideally, the subject is short (8 words or less)
   and contains key words about the error. An example would be "AppCafe on 10.2-RELEASE-p1 fails to create jail". 
@@ -167,23 +168,24 @@ These instructions are for a PC-BSD® system::
  sudo pkg install pcbsd-toolchain
  rehash
  git clone git://github.com/pcbsd/pcbsd.git
- cd pcbsd/src-qt5/doc 
- make i18n
+ cd pcbsd/src-qt5/docs 
+ sudo make i18n
  make html
  ls _build
- doctrees                html-es                 html-uk                 pcbsd-handbook-i18n.txz
- html                    html-fr                 locale
- html-de                 html-pt_BR              locale-po
+ doctrees                html-es                 html-tr  		pcbsd-handbook-i18n.txz               
+ html                    html-fr                 html-uk
+ html-da		 html-id		 locale
+ html-de                 html-pt_BR        	 locale-po     
 
  
-This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
-Brazilian Portuguese, and UK English. To update the HTML at a later time::
+This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), Danish, German, Spanish,
+French, Indonesian, Brazilian Portuguese, Turkish, and UK English. To update the HTML at a later time::
 
  cd ~/pcbsd
  git pull
- cd src-qt5/doc 
- make i18n
- make html
+ cd src-qt5/docs 
+ sudo make i18n
+ sudo make html
 
 .. index:: translations
 .. _Website Translation:
@@ -195,11 +197,7 @@ If you are interested in translating the PC-BSD® website, send an email to the
 `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_. Someone will introduce you to the webmaster who will get you started on
 website translation.
 
-Currently, the following translated websites are available: 
-
-* `French <http://www.pcbsd.org/fr/>`_
-
-* `Spanish <http://www.pcbsd.org/es/>`_
+Currently, the the website is being translated to several languages, including: Dutch, French, German, Polish, Spanish, Swedish, and Turkish.
 
 .. index:: development
 .. _Become a Developer:
