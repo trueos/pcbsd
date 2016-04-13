@@ -15,7 +15,6 @@ multimedia/kodi
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/pcbsd-util*
-sysutils/pcbsd-appweb
 sysutils/sysadm
 sysutils/sysadm-client
 www/firefox
