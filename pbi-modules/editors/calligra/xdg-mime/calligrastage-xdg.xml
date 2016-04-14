@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-calligrastage">
-  <glob weight="100" pattern="*.odp"/>
-  <glob weight="100" pattern="*.fodp"/>
-  <glob weight="100" pattern="*.ppt"/>
-  <glob weight="100" pattern="*.pptx"/>
- </mime-type>
-</mime-info>

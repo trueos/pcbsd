@@ -1,8 +1,0 @@
-# SERVICE = Service name, should match what "service" command expects
-# RCSCRIPT = Script to run with start/stop/restart
-# TYPE = PRIMARY / SECONDARY
-#        PRIMARY - Can be enabled / disabled by user interface
-#        SECONDARY - Simply enabled and hidden from UI
-
-# SERVICENAME		RCSCRIPT		TYPE
-tomcat60		tomcat6			PRIMARY

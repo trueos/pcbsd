@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-deluge">
-    <comment>Deluge File</comment>
-    <glob weight="100" pattern="*.torrent"/>
-    <glob weight="100" pattern="*.TORRENT"/>
- </mime-type>
-</mime-info>

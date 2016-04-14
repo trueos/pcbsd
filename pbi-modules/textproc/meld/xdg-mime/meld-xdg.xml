@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-meld">
-    <comment>Meld File</comment>
-    <glob weight="100" pattern="*.bat"/>
-    <glob weight="100" pattern="*.BAT"/>
- </mime-type>
-</mime-info>

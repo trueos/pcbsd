@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-lomath">
-  <glob weight="100" pattern="*.odf"/>
-  <glob weight="100" pattern="*.ODF"/>
-  <glob weight="100" pattern="*.sxm"/>
-  <glob weight="100" pattern="*.SXM"/>
- </mime-type>
-</mime-info>

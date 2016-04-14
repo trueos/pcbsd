@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-sbase">
-  <glob weight="100" pattern="*.odb"/>
-  <glob weight="100" pattern="*.ODB"/>
- </mime-type>
-</mime-info>
