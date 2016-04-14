@@ -15,6 +15,7 @@
 
 void netKey::setSSID(QString SSID){
  //Set the label to show the SSID 
+  ssid = SSID;
  labelssid->setText(SSID);
  //Also set the slot/signal connections here (for now)
  connect( pushApply,SIGNAL( clicked() ),this,SLOT( slotApply() ) );
@@ -44,7 +45,7 @@ void netKey::slotApply()
     } else {
 	bool useHex = true;
 	if( group_keytype->isVisible() && radio_text->isChecked() ){ useHex = false; }
-  	emit saved(lineKey->text(), labelssid->text(), useHex);
+  	emit saved(lineKey->text(), ssid, useHex);
         close();
     }
 }
