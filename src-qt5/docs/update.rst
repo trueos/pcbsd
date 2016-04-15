@@ -493,7 +493,7 @@ The "View" menu of Update Manager provides the following information:
 
 * **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
   against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown in
-  :numref:`Figure %s: Viewing Operating System Patches <update15a`, the system is running "10.2-RELEASE-p15, or patch level 15. Most patch levels have an associated Security Advisory (SA).
+  :numref:`Figure %s: Viewing Operating System Patches <update15a>`, the system is running "10.2-RELEASE-p15, or patch level 15. Most patch levels have an associated Security Advisory (SA).
   More information about each advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
 
 .. _update14:
