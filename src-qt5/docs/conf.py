@@ -109,28 +109,28 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'classic'
+html_theme = 'pcbsd_style'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "stickysidebar": "true",
-    "rightsidebar": "false",
+#    "stickysidebar": "true",
+#    "rightsidebar": "false",
 #    "pagewidth" : "60em",
 #    "documentwidth" : "45em",
-    "sidebarwidth" : "240",
+#    "sidebarwidth" : "240",
 #    "linkcolor" : "#b90009",
-#   "headerlinkcolor" : "#b90009",
-    "headbgcolor" : "#fff",
-    "relbarbgcolor" : "#696969",
-    "sidebarbgcolor" : "#696969",
-    "bgcolor" : "#fff"
+#    "headerlinkcolor" : "#b90009",
+#    "headbgcolor" : "#fff",
+#    "relbarbgcolor" : "#696969",
+#    "sidebarbgcolor" : "#696969",
+#    "bgcolor" : "#fff"
 #    "headercolor1"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+html_theme_path = ['themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
