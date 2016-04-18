@@ -232,7 +232,7 @@ This will create a directory named :file:`pcbsd/` which contains the local copy 
 repository, run :command:`git pull` within the :file:`pcbsd` directory.
 
 PC-BSD® graphical applications use Qt version 5 and their source is located in :file:`pcbsd/src-qt5/`. In order to compile the applications in this
-directory, install the "PC-BSD Build Toolchain" PBI using :ref:`AppCafe®`. To instead install this PBI from the command line, type :command:`pkg install pcbsd-toolchain`.
+directory, install the "PC-BSD Build Toolchain" package using :ref:`AppCafe®`. To instead install this software from the command line, type :command:`pkg install pcbsd-toolchain`.
 
 Most of the PC-BSD® source code is divided into two sub-categories: 
 
@@ -254,10 +254,10 @@ To compile the graphical utilities::
 
  make
 
-Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://wiki.qt.io/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
+Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://wiki.qt.io/Category:Tools::QtCreator>`_ application is a full-featured IDE designed
 to help new Qt users get up and running faster while boosting the productivity of experienced Qt developers.
 `Qt Designer <http://doc.qt.io/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
-other IDE functionality. To install this package, check the "Search all available PBI and packages" in the "App Search" tab of AppCafe® and search for "qt5-designer".
+other IDE functionality. To install this package, check the "Search all available software" in the "App Search" tab of AppCafe® and search for "qt5-designer".
 Alternately, install it using :command:`pkg install qt5-designer`.
 
 If you plan to submit changes so that they can be included in PC-BSD®, fork the repository using the instructions in
@@ -379,10 +379,10 @@ Developers will also find the following resources helpful:
 .. index:: development
 .. _Make Minor Modifications to a PBI Module:
 
-Make Minor Modifications to a PBI Module
-========================================
+Make Minor Modifications to a Package Module
+============================================
 
-If you have a GitHub account and are logged in, you can contribute minor PBI changes to the
+If you have a GitHub account and are logged in, you can contribute minor changes to the
 `pbi-modules repository <https://github.com/pcbsd/pcbsd/tree/master/pbi-modules>`_ using a web browser. If you do not have a GitHub account,
 `create one <https://github.com/>`_ using a valid email address as you will need to confirm your email address.
 

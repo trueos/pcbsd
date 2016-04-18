@@ -20,8 +20,7 @@ AppCafe®
 =========
 
 AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
-pre-built applications tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
-is displayed in AppCafe®, such as screenshots and lists of similar applications.
+pre-built applications tested for FreeBSD. It includes extra meta-data which is displayed in AppCafe®, such as screenshots and lists of similar applications.
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are

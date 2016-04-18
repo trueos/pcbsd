@@ -175,6 +175,8 @@ The following features or enhancements were introduced for PC-BSD® |version|:
   
 * The "Boot to console (Disable X)" option has been added to the graphical boot menu.
 
+* The graphical and command line versions of PBI Manager and Warden have been removed.
+
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
 
@@ -284,7 +286,7 @@ common commands and what they are used for.
 +-----------------------------------+------------------------------------------------------------+
 | :command:`kldload <module>`       | load a kernel module for the current session               |
 +-----------------------------------+------------------------------------------------------------+
-| :command:`pbi_add -r <pbiname>`   | install software from the command line                     |
+| :command:`pkg install <pkgname>`  | install software from the command line                     |
 +-----------------------------------+------------------------------------------------------------+
 | :command:`sysctl hw.realmem`      | display hardware memory                                    |
 +-----------------------------------+------------------------------------------------------------+

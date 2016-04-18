@@ -364,7 +364,7 @@ Depending upon the operating system, you may have to first install or enable RDP
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
   repository for the operating system or use a web search to find out how to install and configure one of these applications on that operating system. If you
-  are connecting to another PC-BSD® system, use :ref:`AppCafe®`, check the box "Search all available PBI and packages", and search for "rdp" or "vnc".
+  are connecting to another PC-BSD® system, use :ref:`AppCafe®`, check the box "Search all available software", and search for "rdp" or "vnc".
 
 If there is a firewall on either system or a network firewall between the two systems, check that it allows connections to the TCP port required by the type
 of connection that you will be using: 
@@ -383,7 +383,7 @@ considered to be the client and will be initiating the connection, you do not ha
 Connecting with KRDC 
 --------------------
 
-KRDC can be used to initiate a connection request. This application can be installed using :ref:`AppCafe®` Check the "Search all available PBI and packages" box within the
+KRDC can be used to initiate a connection request. This application can be installed using :ref:`AppCafe®` Check the "Search all available software" box within the
 "App Search" tab to install this package.
 
 To launch this application, go to :menuselection:`Applications --> Internet --> Remote Desktop Client` within KDE or type :command:`krdc` at the command line
@@ -465,7 +465,7 @@ Using Desktop Sharing
 ---------------------
 
 If you wish another user to connect to your computer, the KDE Desktop Sharing application can be used to generate a connection invitation The :command:`krfb`
-application can be installed using :ref:`AppCafe®`. Check the "Search all available PBI and packages" box within "App Search" to search for this application.
+application can be installed using :ref:`AppCafe®`. Check the "Search all available software" box within "App Search" to search for this application.
 
 To launch this application within KDE, go to :menuselection:`Applications --> Internet --> Desktop Sharing` or type :command:`krfb` from the command prompt of
 any desktop. If you press :kbd:`F1` while in this application, it will open the
@@ -859,7 +859,7 @@ More information about the options provided by Universal Access can be found at 
 KDE Accessibility Tools
 -----------------------
 
-To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search all available PBI and packages" in "App Search" and search for the "kdeaccessibility" package.
+To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search all available software" in "App Search" and search for the "kdeaccessibility" package.
 
 The KDE-Accessibility component installs the following software: 
 
