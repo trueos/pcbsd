@@ -376,59 +376,6 @@ Developers will also find the following resources helpful:
 
 * `C++ Tutorials <http://www.cplusplus.com/doc/tutorial/>`_
 
-.. index:: development
-.. _Make Minor Modifications to a PBI Module:
-
-Make Minor Modifications to a Package Module
-============================================
-
-If you have a GitHub account and are logged in, you can contribute minor changes to the
-`pbi-modules repository <https://github.com/pcbsd/pcbsd/tree/master/pbi-modules>`_ using a web browser. If you do not have a GitHub account,
-`create one <https://github.com/>`_ using a valid email address as you will need to confirm your email address.
-
-For example, to add a screenshot for an application, upload the screenshot file to a publicly accessible site, then add the URL to the screenshot in between
-the quotes of the *PBI_SCREENSHOTS=""* line in the :file:`pbi.conf` file for that module. Or, to add a similar application, put the package category and
-package name in between the *PBI_PLUGINS=""* line in the :file:`pbi.conf` file for that module. As an example, refer to the
-`pbi.conf for the www/firefox PBI module <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. More information about the
-available :file:`pbi.conf` variables can be found in Table 11.4a. 
-
-**Table 11.4a: Commonly Used pbi.conf Variables**
-
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| Variable         | Description                                                                                                         |
-+==================+=====================================================================================================================+
-| PBI_ORIGIN=      | mandatory; the "category/portname" of the FreeBSD package                                                           |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGNAME=    | mandatory; name of the application                                                                                  |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGWEB=     | mandatory unless does not exist; website for the application                                                        |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGAUTHOR=  | mandatory; often found at the website for the application                                                           |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_LICENSE=     | the type of open source license used by the application                                                             |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_TAGS=        | a comma separated list (no spaces) of search terms associated with the application                                  |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGTYPE=    | mandatory; use "Graphical" or "Text"                                                                                |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_OTHERPKGS=   | a space separated list in the format "category/portname" of other applications to bundle into the PBI               |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format "category/portname" of similar packages                                        |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in :file:`.png` or :file:`.jpg` format                                |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_RELATED=     | a space separated list in the format "category/portname" of similar PBIs                                            |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-| export           | mandatory; followed by a list of all of the variables used in the file                                              |
-+------------------+---------------------------------------------------------------------------------------------------------------------+
-
-To make the edit, click on the :file:`pbi.conf` file for the module, click the "Edit" button, make the change, then click the "Commit changes" button. This
-will issue a "git pull" request which will be reviewed by a developer who will either approve it or contact you if more information about the edit is needed.
-Once the request is approved, you will receive an email about the approval and the change will appear in :ref:`AppCafe®` when the next package set becomes
-available. How long that takes depends upon whether the user's system is set to use the PRODUCTION or EDGE package set.
-
 .. index:: advocacy
 .. _Purchase PC-BSD® Swag:
 
