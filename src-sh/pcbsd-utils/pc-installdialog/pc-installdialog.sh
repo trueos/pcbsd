@@ -580,14 +580,6 @@ get_root_pw()
        continue
     fi
     #   Check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
-    if [ $? -eq 0 ] ; then     
-    else   
-       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 40
-       rm /tmp/.vartemp.$$
-       continue      
-    fi
     ROOTPW="$ANS"
     get_dlg_ans "--passwordbox 'Confirm root password' 8 30"
     if [ -z "$ANS" ] ; then
@@ -617,14 +609,6 @@ get_user_pw()
        continue
     fi
     # Check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
-    if [ $? -eq 0 ] ; then      
-    else   
-       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 40
-       rm /tmp/.vartemp.$$
-       continue  
-    fi
     USERPW="$ANS"   
     get_dlg_ans "--passwordbox 'Confirm password' 8 40"
     if [ -z "$ANS" ] ; then
@@ -958,9 +942,7 @@ gen_pc-sysinstall_cfg()
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
      # TrueOS install
-     if [ "$APPCAFEINSTALL" = "YES" ] ; then
-       echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
-     else
+     if [ "$SYSTYPE" = "server" ] ; then
        echo "installPackages=misc/trueos-base ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
      fi
      echo "" >> ${CFGFILE}
@@ -996,17 +978,6 @@ gen_pc-sysinstall_cfg()
    # Are we enabling SSHD?
    if [ "$SYSSSHD" = "YES" ] ; then
      echo "runCommand=echo 'sshd_enable=\"YES\"' >> /etc/rc.conf" >> ${CFGFILE}
-   fi
-}
-   
-
-
-#ask if user wants to install appweb
-zans_appweb()
-{
-   APPCAFEINSTALL="NO"
-   if dialog --yesno "Do you want to install the AppCafe browser based package manager? This allows remote package / jail management."  8 60; then
-     APPCAFEINSTALL="YES"
    fi
 }
 
@@ -1069,7 +1040,7 @@ start_full_wizard()
      get_user_realname
      get_user_shell
      change_networking
-     zans_appweb
+
   else
      APPCAFEINSTALL="YES"
   fi
