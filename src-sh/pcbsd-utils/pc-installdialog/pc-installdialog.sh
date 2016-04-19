@@ -396,7 +396,6 @@ get_sys_bootmanager()
   SYSBOOTMANAGER="$ANS"
 
   # If we are not using grub / gpt, nothing left to ask
-  if [ "$SYSBOOTMANAGER" != "GRUB" ]; then return; fi
   if [ "$DISKFORMAT" = "MBR" ]; then return; fi
 
   # If we are using GRUB, ask if we want to do GELI encryption
@@ -1040,9 +1039,6 @@ start_full_wizard()
      get_user_realname
      get_user_shell
      change_networking
-
-  else
-     APPCAFEINSTALL="YES"
   fi
   gen_pc-sysinstall_cfg
 }
