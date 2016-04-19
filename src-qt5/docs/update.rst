@@ -20,8 +20,7 @@ AppCafe®
 =========
 
 AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
-pre-built applications tested for FreeBSD. It also provides a front-end to PBIs, which are packages that contain extra meta-data which
-is displayed in AppCafe®, such as screenshots and lists of similar applications.
+pre-built applications tested for FreeBSD. It includes extra meta-data which is displayed in AppCafe®, such as screenshots and lists of similar applications.
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
 However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
@@ -216,10 +215,7 @@ installed applications or your data. Each jail has its own IP address, running p
 running on the PC-BSD® system.
 
 :command:`iocage` was specifically designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration
-file. Beginning with PC-BSD® 10.2, :command:`iocage` has been added for jail management and this utility will replace the :command:`warden` utility in a future version of PC-BSD®. Note that
-:command:`warden` is still available in PC-BSD® to provide time for users to transition to using  :command:`iocage`. Documentation for using the command line version of
-:command:`warden` can be found in
-`this section of the 10.1.2 User Guide <http://download.pcbsd.org/iso/10.1-RELEASE/amd64/docs/html/controlpanel.html#using-the-command-line-version-of-warden>`_.
+file.
 
 The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer to manage jails using
 the command line. Advanced users can also refer to the command line version in their own jail management scripts.

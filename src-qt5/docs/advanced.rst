@@ -671,8 +671,7 @@ is set to the type of media that you will be installing from.
 
 You may also need to add some extra files if you set the following variables in your custom configuration file: 
 
-* **installComponents=** make sure that any extra components you wish to install exist in :file:`extras/PBI/` (if they end in the :file:`.pbi` extension) or
-  :file:`extras/components/` (if they end in :file:`.tbz`) 
+* **installComponents=** make sure that any extra components you wish to install exist in :file:`extras/components/`
 
 * **runCommand=** make sure the command exists in the specified path 
 

@@ -13,44 +13,52 @@ This section describes the boot process, the post-installation configuration scr
 Booting Into PC-BSD®
 =====================
 
-After installation, PC-BSD® will reboot and display the graphical PC-BSD® bootloader menu shown in :numref:`Figure %s: PC-BSD® Graphical Boot Menu <boot1a>`.
+After installation, PC-BSD® will reboot and again display the boot menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`.
+
+.. _install1b:
+
+.. figure:: images/install1b.png
+
+This menu provides the following options. To pause this menu, press any key except for :kbd:`Enter`. To select an option, press either the bolded number or key for that option. Once you
+have finished making your selections, press :kbd:`Enter` to boot using the selected options.
+
+* **1. Boot Multi User:** this is the default option for booting PC-BSD®. The system will automatically use this option after pausing for a few moments or if you press :kbd:`Enter` when this
+  menu displays.
+
+* **2. Boot Single User:** advanced users can select this option to fix critical system failures.
+
+* **3. Escape to loader prompt:** advanced users can select this option to perform advanced operations, such as loading kernel modules.
+
+* **4. Reboot:** reboots the system.
+
+* **5. Kernel:** this option will indicate how many kernels are available. Press either :kbd:`5` or :kbd:`k` to toggle between available kernels.
+
+* **6. Configure Boot Options:** if you press either :kbd:`6` or :kbd:`o`, the boot options screen shown in :numref:`Figure %s: Boot Options Menu <boot1a>` will open. To change an option,
+  press either the bolded number or key for that option to toggle through its available settings. When finished, press either :kbd:`1` or :kbd:`Backspace` to return to the main boot menu.
+
+* **7. Select Boot Environment:** in PC-BSD®, boot environments are automatically created when the system updates and can also be manually created using :ref:`Boot Manager`. This allows you
+  to boot the system to the point in time before an update occurred and can be used to recover from a failed update. Press either :kbd:`7` or :kbd:`e` to view the available boot
+  environments. Note that the first time the system boots, no additional boot environments are available. Over time, this menu will populate as boot environments are created.
 
 .. _boot1a:
 
 .. figure:: images/boot1a.png
 
-This boot menu is used to display the entry for PC-BSD®, any boot environments (which are automatically created when the system updates and can also be manually created using
-:ref:`Boot Manager`), and any other operating systems installed on the system.
+The following boot options are available in the :numref:`Figure %s: Boot Options Menu <boot1a>`:
 
-To pause this menu, press any key except for :kbd:`Enter`. If you have performed any updates and wish to access a previous boot environment, use the down arrow to select "Boot
-Environment Menu" and press :kbd:`Enter` to see the list of available boot environments.
+* **3. ACPI Support:** toggles  power  management support,  which may be useful for  certain BIOS's  and laptops. 
 
-If you pause the graphical menu or change its default selection, the PC-BSD® boot options screen shown in :numref:`Figure %s:  PC-BSD® Graphical Boot Menu Options <boot2a>` will load once
-you press :kbd:`Enter`. 
+* **4. Safe Mode:** select this option if the  installation hangs when probing your hardware and option "3 ACPI Support" did not help. It will boot with a forced PIO mode (disabling the use
+  of DMA), disable write caching for all IDE hard drives and CD ROM drives, and disable the probing of EISA slots (as very few systems have them). 
 
-.. _boot2a:
+* **5. Single User:** advanced users can select this option to fix critical system failures.
 
-.. figure:: images/boot2a.png
-
-The following boot options are available: 
-
-* **Normal Bootup:** continues to boot PC-BSD®. 
-
-* **Single User Mode:** advanced users can select this option to fix critical system failures.
-
-* **Verbose Mode:** select this option if you would like to see more detailed messages during the boot process. This can be useful if you are troubleshooting
+* **6. Verbose:** select this option if you would like to see more detailed messages during the boot process. This can be useful if you are troubleshooting
   a piece of hardware.
 
-* **Run the Display Wizard:** if you are unable to access the GUI due to a display setting, enable this option to boot into the display settings wizard.
+* **7. Display Wizard:** if you are unable to access the GUI due to a display setting, enable this option to boot into the display settings wizard.
 
-* **Run X in vesa mode:** try this option if the screen goes black or the system freezes when booting into PC-BSD®. 
-
-* **Boot to console (Disable X):** boots the system to a command prompt. This is useful if you want to manually configure and test the X configuration file.
-
-Use the arrow keys to select an option then press enter to boot using that option.
-
-This menu is provided by GRUB. If you are familiar with editing GRUB, you can press :kbd:`e` to access the GRUB editor or :kbd:`c` to access the GRUB command
-line.
+* **8. Disable X:** boots the system to a command prompt. This is useful if you want to manually configure and test the X configuration file.
 
 The first time the boot completes, the post-installer configuration script will attempt to set the optimal display settings. A pop-up menu will ask if you would like to accept these
 settings. If you click "Yes", PC-BSD® will then proceed to the :ref:`Language Screen` so that you can perform the initial configuration of the system. 
@@ -344,7 +352,7 @@ its highest value. Also check to see if the BIOS is set to prefer built-in graph
 order of the devices listed; in this case, make sure that the preferred device is listed first. If you can not see your BIOS settings you may need to move a
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
-If that change did not help, try rebooting and selecting "6. Configure Boot Options" from the boot menu shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1b>`.
+If that change did not help, try rebooting and selecting "6. Configure Boot Options" from the boot menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`.
 This will open the screen shown in :numref:`Figure %s: PC-BSD® Boot Options <menu1>`.
 
 .. _menu1:

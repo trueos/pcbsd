@@ -2110,8 +2110,8 @@ To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Di
 .. figure:: images/lpreserver9.png
 
 If you want, you can change the filename of the archive to create. By default it will be in the format *username-YYYYMMDD-HHMM*. This screen also allows you to
-define which files to exclude from the backup. By default, it will exclude PBI shortcuts and, if it exists, the :file:`/bin` directory in the user's home
-directory. To exclude a specific file, click the white file icon to browse to the location of the file. To exclude a specific directory, click the blue
+define which files to exclude from the backup. By default, it will exclude the :file:`/bin` directory in the user's home
+directory, if it exists. To exclude a specific file, click the white file icon to browse to the location of the file. To exclude a specific directory, click the blue
 directory icon to browse to the location of the directory.
 
 Press "Start" to start the backup. A progress bar will indicate the status and size of the backup. Once the backup is complete, click the "Finished" button to
