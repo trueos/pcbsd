@@ -22,35 +22,20 @@ The previous section discussed a default installation of PC-BSD®. This section 
 Using the Text Installer
 ========================
 
-If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, select the option "Text Install/Emergency Console" from
-the PC-BSD® installer boot menu shown in Figure 3a. Once the installer finishes loading, you will see the screen shown in :numref:`Figure %s: Text Installation Menu <text1>`.
+If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, start the installation as usual and select the option "install" from
+the :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
 
-.. _text1:
+.. _install1c:
 
-.. figure:: images/text1.png
+.. figure:: images/install1c.png
 
-This initial menu provides the following options: 
-
-* **install:** continues the installation using the text-based installer.
-
-* **xorg:** launches the graphical installer described in :ref:`Installing PC-BSD®`. 
-
-* **vesa:** launches the graphical installer in VESA mode.
-
-* **utility:** launches the menu described in :ref:`Using the System Utilities Menu`. 
-
-* **reboot:** exits the installer and reboots the system.
-
-Use the up/down arrows to highlight a menu item then press the :kbd:`spacebar` to select the highlighted item. When finished, press :kbd:`Enter` to save the
-selection and move on to the next screen.
-
-If you keep the default selection of "install", the next screen will prompt to install a desktop or a server, as seen in :numref:`Figure %s: Select Desktop or Server <text2>`. 
+The next screen will prompt to install a desktop or a server, as seen in :numref:`Figure %s: Select Desktop or Server <text2>`. 
 
 .. _text2:
 
 .. figure:: images/text2.png
 
-If you choose to install a desktop, the KDE and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
+If you choose to install a desktop, the Lumina and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
 system will boot into the usual post-installation configuration screens.
 
 If you choose to install a server, neither X nor a window manager will be installed, resulting in a command-line only TrueOS® installation. Once the server installation
@@ -81,32 +66,15 @@ The next screen, shown in :numref:`Figure %s: Select Disk Format <text5>`, is us
 
 .. figure:: images/text5.png
 
-The next screen, shown in :numref:`Figure %s: Select Boot Manager <text6>`, is used to select whether or not to use the GRUB boot manager.
+The next screen, shown in :numref:`Figure %s: Select Boot Manager <text6>`, is used to select the boot manager.
 
 .. _text6:
 
 .. figure:: images/text6.png
 
-The default is to use *GRUB* as it is required to support boot environments. If you select *none*, no boot manager will be installed and boot environments will not be available.
-
-The next screen is shown in :numref:`Figure %s: Full Disk Encryption <text7>`.
-
-.. _text7:
-
-.. figure:: images/text7.png
-
-This screen provides the option to encrypt the selected disk(s) with the FreeBSD `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli/qgit/>`_ framework. If
-you keep the default of *Yes* and press enter, you will be prompted to enter and confirm a passphrase. You will be prompted to enter this passphrase whenever
-you boot into PC-BSD®. This means that if someone else boots your computer, they will not be able to boot into PC-BSD® if they do not know your passphrase.
-**However, if you forget your passphrase, you will not be able to access PC-BSD® either.** For these reasons, it is important to choose a good passphrase
-that other users will not guess and which you will not forget. Passphrases are case-sensitive and can contain spaces. The passphrase should be memorable to
-you, such as a line from a song or piece of literature, but hard to guess in that people who know you should not be able to guess your favorite line from a
-song or piece of literature.
-
-.. warning:: be careful if you have changed your keyboard variant and layout. At this time, the GELI encryption framework only supports QWERTY passphrases, so
-   do not use any characters not found on a QWERTY keyboard in your passphrase. **DO NOT** set a passphrase with accents or special characters which are not
-   found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
-   will render that partition as inaccessible.
+The default is to use *BSD* as it provides native support for boot environments. While 
+*GRUB* provides some boot environment support, it may not be as up-to-date as the BSD support. It is recommended to only select this option if you are dual booting and the BSD boot manager
+does not find your other operating systems. If you select  *none*, no boot manager will be installed and boot environments will not be available.
 
 If you choose to install a server in the screen shown in :numref:`Figure %s: Select Desktop or Server <text2>`, the installer will next prompt for the following information: 
 
@@ -131,15 +99,6 @@ If you choose to install a server in the screen shown in :numref:`Figure %s: Sel
   address of the default gateway.
 
 * whether or not you want to enable SSH access to the server.
-
-For both a desktop and a server install, the next screen is shown in :numref:`Figure %s: Configure Remote Access to AppCafe <text8>`.
-
-.. _text8:
-
-.. figure:: images/text8.png
-
-If you would like to manage installed software or jails from your phone or a remote system, press enter to select the default option of *Yes*. If you only
-plan to use :ref:`AppCafe®` from the system you are installing, arrow over to *No* instead.
 
 The next screen, shown in :numref:`Figure %s: Review Installation Options <text9>`, provides the following options: 
 
@@ -215,7 +174,7 @@ Using the System Utilities Menu
 
 The text installer contains some handy tools for troubleshooting and fixing an existing PC-BSD® or TrueOS® installation.
 
-If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: Text Installation Menu <text1>`, it will open the screen shown in
+If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`, it will open the screen shown in
 :numref:`Figure %s: System Utilities Menu <util1>`. 
 
 .. _util1:
@@ -237,7 +196,7 @@ This screen provides the following options:
 * **fixgrub:** this option can be used to restamp the GRUB boot loader should the installed system no longer boot. When this option is selected, it will first
   show the available ZFS pools and prompt you to input the name of the pool to import.
 
-* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: Text Installation Menu <text1>`. 
+* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
 
 .. index:: install
 .. _Install a Server:
@@ -263,12 +222,8 @@ For a server installation, using the PC-BSD® installer rather than the FreeBSD 
 .. note:: this section describes how to install a command-line only server using the PC-BSD® graphical installer. Alternately, you can also install a server
    :ref:`Using the TrueOS® CD` or :ref:`Using the Text Installer`.
 
-To perform a server installation, start the PC-BSD® installer as usual. When you get to the :ref:`System Selection Screen` of the installer, select "Server
-(TrueOS)", as shown in :numref:`Figure %s: Selecting to Install TrueOS® <server1>`.
-
-.. _server1:
-
-.. figure:: images/server1.png
+To perform a graphical server installation, start the PC-BSD® installation as usual. When you get to the :ref:`System Selection Screen` of the installer, select "TrueOS
+(Console based server)".
 
 Click "Next" to start the "Server Setup Wizard" then click "Next" again to see the screen shown in :numref:`Figure %s: Set the Root Password <server2>`.
 
@@ -317,29 +272,15 @@ Use the "Network Interface" drop-down menu to select from the following:
 
 * **IPv6-SLAAC:** will configure every active interface for DHCP and for IPv6 
 
-Alternately, select the device name for the interface that you wish to manually configure and input the IPv4 and/or IPv6 addressing information. When
-finished, click "Next" to proceed to the screen shown in :numref:`Figure %s: Configure Remote Access to AppCafe <server6>`. 
-
-.. _server6:
-
-.. figure:: images/server6.png
-
-If you would like to manage installed software or jails from your phone or a remote system, check the box "Enable AppCafe Remote". If you only plan to use
-:ref:`AppCafe®` from the system you are installing, click "Next" to instead continue to the next screen.
-
-If you check the box to configure remote access, input a username and password and select the port number to use when accessing AppCafe® from another device.
-When finished, click "Next" to access the screen shown in :numref:`Figure %s: Install Ports <server7>`.
+Alternately, select the device name for the interface that you wish to manually configure and input the IPv4 and/or IPv6 addressing information. When finished, click "Next" to access the
+screen shown in :numref:`Figure %s: Install Ports <server7>`.
 
 .. _server7:
 
 .. figure:: images/server7.png
 
 If you wish to install the FreeBSD ports collection, check the "Install ports tree" box then click "Finish" to exit the wizard and access the summary screen
-shown in :numref:`Figure %s: Review Installation Summary <install5>`.
-
-.. _install5:
-
-.. figure:: images/install5.png
+shown in :numref:`Figure %s: Disk Selection Screen <install5a>`.
 
 Click "Customize" if you wish to proceed to the  screen in order to configure the system's disk(s).
 
