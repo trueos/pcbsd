@@ -2667,8 +2667,8 @@ div[class^='highlight'] pre {
     background: #e3e3ff
 }
 .wy-menu-vertical li.current a {
-    color: gray;
-    border-right: solid 1px #c9c9c9;
+    color: white;
+    border-right: solid 1px #5d6963;
     padding: 0.4045em 2.427em
 }
 .wy-menu-vertical li.current a:hover {
@@ -2694,24 +2694,24 @@ div[class^='highlight'] pre {
 }
 .wy-menu-vertical li.on a,
 .wy-menu-vertical li.current>a {
-    color: #404040;
+    color: #f5f5f5;
     padding: 0.4045em 1.618em;
     font-weight: bold;
     position: relative;
 //    background: #fcfcfc;
-    background: #F0F0FF;
+    background: #5d6963;
     border: none;
-    border-bottom: solid 1px #c9c9c9;
-    border-top: solid 1px #c9c9c9;
+    border-bottom: solid 1px #5d6963;
+    border-top: solid 1px #5d6963;
     padding-left: 1.618em -4px
 }
 .wy-menu-vertical li.on a:hover,
 .wy-menu-vertical li.current>a:hover {
-    background: #fcfcfc
+    background: #0d8585
 }
 .wy-menu-vertical li.on a:hover span.toctree-expand,
 .wy-menu-vertical li.current>a:hover span.toctree-expand {
-    color: gray
+    color: white
 }
 .wy-menu-vertical li.on a span.toctree-expand,
 .wy-menu-vertical li.current>a span.toctree-expand {
@@ -2729,13 +2729,13 @@ div[class^='highlight'] pre {
     display: block
 }
 .wy-menu-vertical li.toctree-l2.current>a {
-    background: #c9c9ff;
+    background: #5d6963;
     padding: 0.4045em 2.427em
 }
 .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
     display: block;
 //    background: #c9c9c9;
-    background: #ACACFF;
+    background: #5d6963;
     padding: 0.4045em 4.045em
 }
 .wy-menu-vertical li.toctree-l2 a:hover span.toctree-expand {
@@ -2790,7 +2790,7 @@ div[class^='highlight'] pre {
     display: block;
     position: relative;
     font-size: 90%;
-    color: #b3b3b3
+    color: #f5f5f5
 }
 .wy-menu-vertical a:hover {
     background-color: #4e4a4a;
@@ -3624,7 +3624,7 @@ span[id*='MathJax-Span'] {
 
 .wy-nav-side,
 div.related {
-    background-color: #0D0DE5!important;
+    background-color: #850d0d!important;
     /* was 0f0df0 */
 }
 code.kbd,
@@ -3847,7 +3847,12 @@ margin: 0px 2px -2px 0px;
 
 .wy-side-nav-search {
     z-index: 200;
-    background-color: rgb(45, 175,255);
+    /*background-color: rgb(45, 175,255);*/
+	background-color: -webkit-gradient( linear, right top, right bottom,
+	  color-stop(0.7, #5D6963),
+	  color-stop(1, #850D0D) 
+	  );
+	  background-image: linear-gradient(to bottom, #5D6963 80%, #850D0D 100%);
     text-align: center;
     padding: 0.809em;
     display: block;
