@@ -301,14 +301,10 @@ Using the TrueOS® CD
 PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your
 intent is to only install servers and you do not need a graphical installer, this ISO is convenient to use and quick to download.
 
-To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu, shown in :numref:`Figure %s: TrueOS® Boot Menu <cd1>`, indicates that this is a
-TrueOS® installation.
+To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu will be similar to the :numref:`Figure %s: Initial Boot Menu <install1b>`, but
+the logo will be for TrueOS instead of PC-BSD.
 
-.. _cd1:
-
-.. figure:: images/cd1.png
-
-The installer will finish booting and display the installation menu shown in :numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
+Once the system has finished booting into the installer, it will display the installation menu shown in :numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
 
 .. _cd2:
 
