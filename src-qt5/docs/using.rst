@@ -14,10 +14,8 @@ Java and Flash
 IcedTea-Web provides an open source Java browser plugin which automatically works with the FireFox, Chromium, and Opera web browsers without any
 additional configuration. To install this software, search for "icedtea" within :ref:`AppCafe®`. 
 
-PC-BSD® installs and configures the Adobe Flash player (version 11) plugin for you. This means that flash should "just work" when browsing the web. You will
-find several web browsers in the Web Browsers category of :ref:`AppCafe®`, including Firefox, Opera, and Chromium.
-
-If Adobe Flash does not seem to be working, running the following command as your regular user account should fix the problem::
+Version 11 of the Adobe Flash player is also available from :ref:`AppCafe®`. Once installed, flash should "just work" when browsing the web. If Adobe Flash does not seem to be working, 
+running the following command as your regular user account should fix the problem::
 
  flashpluginctl on
 
