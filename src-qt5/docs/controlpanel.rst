@@ -250,7 +250,7 @@ To create and manage boot environments using a graphical interface, go to :menus
 
 PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in
 :numref:`Figure %s: Managing Boot Environments <be1>`, there
-is an entry named *default* that represents the original installation and an entry that was created when the operating system was updated to patch level 20.
+is an entry named *initial* that represents the original installation and an entry that was created when the operating system was updated to patch level 20.
 
 .. _be1:
 
@@ -348,7 +348,7 @@ To view all boot environments, use the :command:`list` command::
 
  beadm list
  BE                                  Active Mountpoint  Space Created             Nickname
- default                             -      -            8.4G 2015-05-07 10:14    default
+ initial                             -      -            8.4G 2015-05-07 10:14    intial
  10.1-RELEASE-p20-up-20150512_114505 NR     /           33.1G 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
  beforeupgrade                       -      -            8.2M 2015-05-12 17:30    beforeupgrade
 
@@ -369,7 +369,7 @@ In this example, the current boot environment is called *10.1-RELEASE-p20-up-201
 
  beadm list
  BE                                  Active Mountpoint  Space Created             Nickname
- default                             -      -            8.4G 2015-05-07 10:14    default
+ intial                             -      -            8.4G 2015-05-07 10:14     initial
  10.1-RELEASE-p20-up-20150512_114505 N      /           12.6M 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
  beforeupgrade                       R      -           33.1G 2015-05-12 17:30    beforeupgrade
 
