@@ -1447,6 +1447,11 @@ if [ \$? -ne 0 ] ; then
 fi
 cd ${REALPKGDLCACHE}
 
+# And now we re-install pkg without -U flag
+# Sucks that we have to do this, but -U won't allow upgrading local
+# on-disk database schema also
+pkg \${PKG_CFLAG} ${PKG_FLAG} install -f -y ports-mgmt/pkg
+
 # Need to export this before installing pkgs, some scripts may try to be interactive
 PACKAGE_BUILDING=\"YES\"
 export PACKAGE_BUILDING
