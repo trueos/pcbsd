@@ -148,11 +148,11 @@ setup_zfs_mirror_parts()
       export ZFS_CLONE_DISKS
 
       echo "Setting up ZFS disk $_zvars" >>${LOGOUT}
-      init_gpt_full_disk "$_zvars" "$_tBL" >/dev/null 2>/dev/null
+      init_gpt_full_disk "$_zvars" "$_tBL"
 
       # If we are not using GRUB we need to add pmbr / gptzfsboot
       if [ "$_tBL" != "GRUB" -a "$BOOTMODE" != "UEFI" ] ; then
-        rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}" >/dev/null 2>/dev/null
+        rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}"
       fi
       # If GELI is enabled
       if [ "$ENC" = "ON" ] ; then
