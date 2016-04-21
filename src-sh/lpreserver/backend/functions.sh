@@ -100,14 +100,13 @@ isDirMounted() {
 }
 
 mkZFSSnap() {
-  zdate=`date +%Y-%m-%d-%H-%M-%S`
   if [ "$RECURMODE" = "ON" ] ; then
     # Get list of datasets to snap
     build_dset_list "$1" "snap"
     unset _snap
     for dset in $DSETS
     do
-      _snap="${_snap} ${dset}@${2}${zdate}"
+      _snap="${_snap} ${dset}@${2}"
     done
     echo "zfs snapshot ${_snap}" > /tmp/.zSnap.$$
     sh /tmp/.zSnap.$$
@@ -115,13 +114,13 @@ mkZFSSnap() {
     rm /tmp/.zSnap.$$
   else
     flags=""
-    zfs snapshot $flags ${1}@${2}${zdate} >>${CMDLOG} 2>>${CMDLOG}
+    zfs snapshot $flags ${1}@${2} >>${CMDLOG} 2>>${CMDLOG}
     err=$?
   fi
 
   # Do we have a comment to set?
   if [ -n "$3" ] ; then
-    zfs set lpreserver:comment="${3}" ${1}@${2}${zdate}
+    zfs set lpreserver:comment="${3}" ${1}@${2}
   fi
 
   return $err

@@ -219,7 +219,8 @@ fi
 
 # Create the snapshot now with the "auto-" tag
 echo_log "Creating snapshot on ${DATASET}"
-mkZFSSnap "${DATASET}" "auto-" "Automated Snapshot"
+zdate=`date +%Y-%m-%d-%H-%M-%S`
+mkZFSSnap "${DATASET}" "auto-${zdate}" "Automated Snapshot"
 if [ $? -ne 0 ] ; then
   echo_log "ERROR: Failed creating snapshot on ${DATASET}"
   queue_msg "ERROR: Failed creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
