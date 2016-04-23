@@ -1068,6 +1068,11 @@ build_pkg_list()
 
 dl_pkgs()
 {
+
+  # Make sure PKG itself is upgraded
+  echo_log "Checking for updates to ports-mgmt/pkg.."
+  ${PKG_CMD} upgrade -y ports-mgmt/pkg
+
   # Update the DB first
   echo_log "Updating the package repo database..."
   ${PKG_CMD} ${PKG_FLAG} update -f >/dev/null 2>/dev/null
