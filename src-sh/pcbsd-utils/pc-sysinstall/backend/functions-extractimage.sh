@@ -163,6 +163,7 @@ start_extract_uzip_tar()
       mount -o ro /dev/${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
 
       rsync -avH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}${UZIP_DIR} ${FSMNT}/
+      chmod 755 ${FSMNT}/
       if [ "$?" != "0" ]
       then
         umount -f ${CDMNT}${UZIP_DIR}
