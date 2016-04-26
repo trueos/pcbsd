@@ -2,25 +2,6 @@
 
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
-do_prune()
-{
-  PRUNEFILE="/usr/local/share/pcbsd/conf/prune-port-files"
-  if [ ! -e "$PRUNEFILE" ] ; then return; fi
-        
-  while read pLine
-  do
-     if [ -z "${pLine}" ] ; then continue ; fi
-     echo $pLine | grep -q "^#"
-     if [ $? -eq 0 ] ; then continue ; fi
-
-     ls ${pLine} >/dev/null 2>/dev/null
-     if [ $? -eq 0 ] ; then
-        echo "Pruning: $pLine"
-        rm ${pLine}
-     fi
-  done <${PRUNEFILE}
-}
-
 do_i3dvorak()
 {
 	distfile="/usr/local/share/pcbsd/distfiles/i3dvorak.txz"
@@ -41,9 +22,6 @@ do_ports_overlay()
 {
 
   distFile="/usr/local/share/pcbsd/distfiles/port-overlay.txz"
-
-  # Cleanup any extra port cruft that doesn't place nice with PC-BSD
-  do_prune
 
   # Since PKGNG requires this dir, but we can't ship an empty one
   # with git, lets make sure it exists

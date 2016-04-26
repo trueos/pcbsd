@@ -107,7 +107,6 @@ share/pcbsd/conf/pbi-mirror
 share/pcbsd/conf/pkg-mirror
 share/pcbsd/conf/iso-mirror
 share/pcbsd/conf/update-mirror
-share/pcbsd/conf/prune-port-files
 share/pcbsd/conf/desktop-excludes
 share/pcbsd/conf/server-excludes
 share/pcbsd/conf/loader.conf.pcbsd
