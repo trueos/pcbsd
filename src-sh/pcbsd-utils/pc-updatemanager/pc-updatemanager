@@ -64,6 +64,10 @@ PKG_CMD="/usr/sbin/pkg"
 # Make sure we don't keep these from system environment
 unset INJAIL PKG_FLAG
 
+# Set pkg flags for which repo we want to use
+PKG_PCBSD_REPO="-r pcbsd-major"
+PKG_BASE_REPO="-r pcbsd-base"
+
 ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 
 # The default log file for output messages
@@ -155,8 +159,6 @@ show_usage() {
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate [-f]	- Install packages updates (-f to force)
-  fbsdupdate		- Install freebsd-update patches
-  fbsdupdatepkgs	- Install freebsd-update patches and any package updates
   syncconf		- Update PC-BSD pkg configuration
   confcheck		- Check PC-BSD pkg configuration
   cron                  - Perform delayed check for system and pkg updates.
@@ -222,32 +224,18 @@ pcbsd-major: {
                enabled: true
               }
 EOF
-  else
-     # Not using a CUSTOM repo
-     if [ "$CDN_TYPE" = "IPFS" -a -e "/usr/local/etc/rc.d/ipfs-go" ] ; then
-        # Get current IPFS CDN Hash for this release
-	fetch -o /tmp/.ipfs-cdn.$$ "http://download.pcbsd.org/ipfs/$MAJORVER/$ARCH/hash-current" 2>/dev/null >/dev/null
-	_err=$?
-	PKGHASH=`cat /tmp/.ipfs-cdn.$$ 2>/dev/null`
-        rm /tmp/.ipfs-cdn.$$ >/dev/null 2>/dev/null
-	if [ $_err -ne 0 -o -z "$PKGHASH" ] ; then
-	   echo "Falling back to HTTP mirror"
-	   sed_pkg_repo_file_http
-	   return 0
-	fi
-
-	# Save the new IPFS CDN pkg config
-        cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
-pcbsd-major: {
-               url: "http://127.0.0.1:8080/ipfs/${PKGHASH}",
+     # Now do the same for base packages
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     cat << EOF >/usr/local/etc/pkg/repos/pcbsd-base.conf
+pcbsd-base: {
+               url: "${CUSTOM_URL}/base",
                signature_type: "fingerprints",
                fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
                enabled: true
               }
 EOF
-     else
-	sed_pkg_repo_file_http
-     fi
+  else
+    sed_pkg_repo_file_http
   fi
 }
 
@@ -258,6 +246,13 @@ sed_pkg_repo_file_http() {
 	| sed "s|%ARCH%|$ARCH|g" \
 	| sed "s|VERSION|$MAJORVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+  cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+	| sed "s|pcbsd: |pcbsd-base: |g" \
+	| sed "s|%VERSION%|$MAJORVER|g" \
+	| sed "s|%ARCH%|$ARCH|g" \
+	| sed "s|VERSION|$MAJORVER|g" \
+	| sed "s|ARCH|$ARCH/base|g" > /usr/local/etc/pkg/repos/pcbsd-base.conf
 }
 
 get_update_file() {
@@ -838,78 +833,6 @@ check_valid_uptarget()
   fi
 }
 
-update_freebsd()
-{
-  check_valid_uptarget
-  touch_updateinprogress
-
-  pc-fbsdupdatecheck | grep -q "will be updated"
-  if [ $? -ne 0 ] ; then
-    exit_err "No FreeBSD updates available!"
-  fi
-
-  if [ -e "/usr/local/bin/pc-systemflag" ]; then
-    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
-  fi
-
-  # Check if user requested to do updates + pkgs
-  doPkgUpdates="NO"
-  if [ "$1" = "pkgs" ] ; then
-    doPkgUpdates="YES"
-  fi
-
-  # First lets see if we have packages to update at the same time
-  ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
-  grep -q "Your packages are up to date" /tmp/.pkgData.$$
-  if [ $? -eq 0 ] ; then doPkgUpdates="NO"; fi
-  rm /tmp/.pkgData.$$
-
-  # SaveState
-  echo "$doPkgUpdates" > ${STATEDIR}/.doPkgUpdates
-
-  set_update_vars
-
-  if [ "$doPkgUpdates" = "YES" ] ; then
-    mk_pkg_conf "stage1"
-    build_pkg_list
-    dl_pkgs "pkg"
-    run_update_pre "PKG"
-  else
-    run_update_pre "SECURITY"
-  fi
-
-  run_freebsd_update_fetch
-
-  prep_update_shutdown "update_freebsd"
-}
-
-update_freebsd_stage2() {
-  mk_pkg_conf "stage2"
-
-  mk_stage_be
-  mount_stage_be
-
-  run_freebsd_update_install
-
-  if [ "$doPkgUpdates" = "YES" ] ; then
-    prep_pkgs_chroot
-    install_pkgs_chroot
-  fi
-
-  umount_stage_be
-  mk_stage_be_default
-
-  if [ -e "/usr/local/bin/pc-systemflag" ]; then
-    pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
-  fi
-
-  if [ "$doPkgUpdates" = "YES" ] ; then
-    run_update_post "PKG"
-  else
-    run_update_post "SECURITY"
-  fi
-}
-
 update_pkgs_only()
 {
   check_valid_uptarget
@@ -929,6 +852,13 @@ update_pkgs_only()
        echo "Your packages are already up to date!"
        exit 0
     fi
+  fi
+
+  # Make sure we have base system packages installed
+  pkg info | grep -q "^FreeBSD-"
+  if [ $? -ne 0 ] ; then
+    echo "Boot-strapping package base..."
+    pkg install -yfg 'FreeBSD-*'
   fi
 
   touch_updateinprogress
@@ -957,14 +887,14 @@ update_pkgs_only_stage2() {
   mount_stage_be
   if [ "$FULLUPDATE" = "YES" ] ; then
     # We are doing a forced / full update, lets nuke and re-install all
-    prep_pkgs_chroot
+    prep_pkgs_chroot "pkg"
     install_pkgs_chroot
   else
     # Lets attempt a traditional PKG upgrade, fallback to full if that fails
     do_lite_pkgupdate_chroot
     if [ $? -ne 0 ] ; then
       echo_log "Failed incremental pkg upgrade! Doing full package upgrade now."
-      prep_pkgs_chroot
+      prep_pkgs_chroot "pkg"
       install_pkgs_chroot
     fi
   fi
@@ -1001,7 +931,6 @@ update_world_and_pkgs()
   mk_pkg_conf "stage1"
   build_pkg_list
   dl_pkgs "world"
-  prep_rc_script_fetch
 
   prep_update_shutdown "update_world_and_pkgs"
 }
@@ -1013,8 +942,7 @@ update_world_and_pkgs_stage2() {
 
   mk_stage_be
   mount_stage_be
-  prep_pkgs_chroot
-  prep_rc_script_install
+  prep_pkgs_chroot "world"
   umount_stage_be
   mk_stage_be_default
 
@@ -1107,6 +1035,13 @@ pcbsd-major: {
                fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
                enabled: true
               }
+pcbsd-base: {
+               url: "$CUSTOM_URL/base",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
 EOF
   else
     # Using PC-BSD CDN
@@ -1116,6 +1051,12 @@ EOF
       | sed "s|%ARCH%|$ARCH|g" \
       | sed "s|VERSION|$MAJORVER|g" \
       | sed "s|ARCH|$ARCH|g" > /usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
+    cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+      | sed "s|pcbsd: |pcbsd-base: |g" \
+      | sed "s|%VERSION%|$MAJORVER|g" \
+      | sed "s|%ARCH%|$ARCH|g" \
+      | sed "s|VERSION|$MAJORVER|g" \
+      | sed "s|ARCH|$ARCH/base|g" >> /usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
   fi
 
   # Set the new PKG_FLAG to use this repo config
@@ -1358,11 +1299,6 @@ mount_stage_be()
     rc_halt_cleanup "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
   fi
   rc_halt_cleanup "mount -t devfs devfs ${STAGEMNT}/dev"
-
-  # Cleanup the old freebsd-update dir
-  rm -rf ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
-  mkdir -p ${STAGEMNT}/var/db/freebsd-update 2>/dev/null
-  chmod 600 ${STAGEMNT}/var/db/freebsd-update
 }
 
 do_lite_pkgupdate_chroot()
@@ -1412,6 +1348,16 @@ prep_pkgs_chroot()
   PACKAGE_BUILDING="YES"
   export PACKAGE_BUILDING
 
+  # If moving to a new world, boot-strap the package base
+  if [ "$1" = "world" ] ; then
+    echo "Boot-strapping package base..."
+    pkg -c ${STAGEMNT} ${PKG_CFLAG} ${PKG_FLAG} install -yfg 'FreeBSD-*'
+    if [ \$? -ne 0 ] ; then
+      echo "FAILED INSTALLING world base packages"
+      exit 1
+    fi
+  fi
+
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
 
@@ -1423,7 +1369,9 @@ echo \"PKG_DBDIR: /var/db/pc-updatemanager/pkgdb\" >> /var/db/pc-updatemanager/.
 # Cleanup the old pkgs
 echo \"Removing old packages... Please wait...\"
 pkg \${PKG_CFLAG} ${PKG_FLAG} unlock -ay
-pkg \${PKG_CFLAG} ${PKG_FLAG} delete -ay
+
+# Since we cant remove pkgs via repository, this will have to do
+pkg query -e '%n !~ FreeBSD-*' %o | grep -v 'ports-mgmt/pkg' | xargs pkg \${PKG_CFLAG} ${PKG_FLAG} delete -fy
 if [ \$? -ne 0 ] ; then
   echo \"WARNING: Failed removing old packages...\"
 fi
@@ -1526,100 +1474,6 @@ install_pkgs_chroot()
   echo_log "Installing packages to stage BE... (This may take a while)"
   rc_halt_cleanup "chroot ${STAGEMNT} sh /.doPkgUp.sh" 2>&1 | tee -a ${LOGOUT}
   rm ${STAGEMNT}/.doPkgUp.sh
-}
-
-prep_freebsd_update_hack()
-{
-   if [ ! -d "${STAGEMNT}/var/db/pc-updatefbsd" ] ; then
-     mkdir -p ${STAGEMNT}/var/db/pc-updatefbsd
-   fi
-
-   FREEBSDUP="/.freebsd-up.sh"
-   echo "#!/bin/sh
-cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /.fbsdup
-chmod 755 /.fbsdup
-/.fbsdup --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
-res=\$?
-rm /.fbsdup
-exit \$res
-" >${STAGEMNT}${FREEBSDUP}
-   chmod 755 ${STAGEMNT}${FREEBSDUP}
-}
-
-prep_freebsd_update_hack_local()
-{
-   if [ ! -d "/var/db/pc-updatefbsd" ] ; then
-     mkdir -p /var/db/pc-updatefbsd
-   fi
-
-   FREEBSDUPLOCAL="/.freebsd-up-local.sh"
-   echo "#!/bin/sh
-cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' > /.fbsdup-local
-chmod 755 /.fbsdup-local
-/.fbsdup-local --non-interactive -d /var/db/pc-updatefbsd \$1 \$2 \$3 \$4 \$5
-res=\$?
-rm /.fbsdup-local
-exit \$res
-" >${FREEBSDUPLOCAL}
-   chmod 755 ${FREEBSDUPLOCAL}
-}
-
-run_freebsd_update_fetch()
-{
-  prep_freebsd_update_hack_local
-
-  echo_log "Fetching freebsd-update files..."
-  ${FREEBSDUPLOCAL} fetch
-  if [ $? -ne 0 ] ; then
-    rm ${FREEBSDUPLOCAL}
-    exit_err "failed fetching freebsd update files"
-  fi
-  rm ${FREEBSDUPLOCAL}
-}
-
-run_freebsd_update_install()
-{
-  prep_freebsd_update_hack
-
-  # Start the upgrade with freebsd-update, get files downloaded installed
-  echo_log "Installing freebsd-update files..."
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
-
-  # Run again to remove any shared objs
-  chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
-  NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version | cut -d '-' -f 1-2`"
-
-  rm ${STAGEMNT}/${FREEBSDUP}
-}
-
-prep_rc_script_fetch()
-{
-  prep_freebsd_update_hack_local
-
-  echo_log "Fetching freebsd-update files..."
-  rc_halt "${FREEBSDUPLOCAL} -r $NEWFREEBSDVERSION upgrade"
-  if [ $? -ne 0 ] ; then
-    exit_err "failed fetching freebsd update files"
-  fi
-  rm ${FREEBSDUPLOCAL}
-}
-
-prep_rc_script_install()
-{
-  prep_freebsd_update_hack
-
-  # Start the upgrade with freebsd-update
-  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
-
-  rm ${STAGEMNT}/${FREEBSDUP}
-
-  # Now prep the RC script to do the rest of the upgrade after reboot
-  rc_halt_cleanup "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
-  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/proc"
-  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/sys"
-  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc"
-  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc-update"
-  rc_halt_cleanup "cp ${PROGDIR}/rc-doupdate ${STAGEMNT}/etc/rc-doupdate"
 }
 
 umount_stage_be()
@@ -1837,8 +1691,6 @@ shutdown_update() {
   echo "*****************************************************"
 
   case $UPTYPE in
-  update_freebsd) update_freebsd_stage2 >${TTY} 2>${TTY}
-                  ;;
 update_pkgs_only) update_pkgs_only_stage2 >${TTY} 2>${TTY}
 		  ;;
 update_world_and_pkgs) update_world_and_pkgs_stage2 >${TTY} 2>${TTY}
@@ -1883,7 +1735,8 @@ while [ $# -gt 0 ] ; do
    case $1 in
 	  autobe) require_root
 		  do_auto_be ;;
-	   check) do_fbsdcheck
+	   check) sync_pkgconf
+		  do_fbsdcheck
 		  get_update_file
                   do_check
 		  exit $?
@@ -1912,20 +1765,9 @@ while [ $# -gt 0 ] ; do
 		  sync_pkgconf ; break ;;
        confcheck) check_pkgconf ; break ;;
        pkgupdate) require_root
+		  sync_pkgconf
 		  rotate_log
 		  update_pkgs_only "$2"
-		  exit 0
-                  break
-                  ;;
-  fbsdupdatepkgs) require_root
-		  rotate_log
-		  update_freebsd "pkgs"
-		  exit 0
-                  break
-                  ;;
-      fbsdupdate) require_root
-		  rotate_log
-		  update_freebsd ""
 		  exit 0
                   break
                   ;;
