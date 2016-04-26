@@ -5,7 +5,6 @@ bin/disable-tor-mode
 bin/enable-tor-mode
 bin/pbreg
 bin/pc-autoupdate
-bin/pc-pkg
 bin/pc-extractoverlay
 bin/pc-updatemanager
 bin/pc-fbsdupdatecheck
@@ -117,7 +116,6 @@ share/pcbsd/conf/rc.conf.pcbsd
 share/pcbsd/conf/smb4.conf
 share/pcbsd/conf/torrc
 share/pcbsd/distfiles/desktop-overlay.txz
-share/pcbsd/distfiles/port-overlay.txz
 share/pcbsd/distfiles/server-overlay.txz
 share/pcbsd/pc-xdgutil/applications.menu
 share/pcbsd/pc-xdgutil/xfce-applications.menu
@@ -210,6 +208,8 @@ etc/pc-activedirectory.conf
 etc/pc-ldap.conf
 etc/pcupdate.d/post/README
 etc/pcupdate.d/pre/README
+etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+etc/pkg/repos/pcbsd.conf.dist
 etc/rc.activedirectory
 etc/rc.ldap
 etc/rc.d/pc-activedirectory

@@ -1494,10 +1494,6 @@ if [ \$? -ne 0 ] ; then
   exit 1
 fi
 
-echo \"Extracting ports overlay...\"
-/usr/local/bin/pc-extractoverlay ports
-if [ \$? -ne 0 ] ; then exit 1; fi
-
 echo \"Updating pkgng config...\"
 /usr/local/bin/pc-updatemanager syncconf
 if [ \$? -ne 0 ] ; then exit 1; fi

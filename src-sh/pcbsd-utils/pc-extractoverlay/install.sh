@@ -41,12 +41,6 @@ fi
 sed -i '' "s|PACKAGE_SET:.*|PACKAGE_SET: $INSTALLPACKAGESET|g" server-overlay/usr/local/etc/pcbsd.conf
 sed -i '' "s|PACKAGE_SET:.*|PACKAGE_SET: $INSTALLPACKAGESET|g" desktop-overlay/usr/local/etc/pcbsd.conf
 
-# Now create overlay.txz file
-tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/port-overlay.txz -C ports-overlay .
-if [ $? -ne 0 ] ; then
-  exit 1
-fi
-
 # Now create desktop-overlay.txz file
 tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/desktop-overlay.txz -C desktop-overlay .
 if [ $? -ne 0 ] ; then

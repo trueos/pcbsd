@@ -152,6 +152,3 @@ if [ -e "/tmp/appcafe-user" -a -e "/tmp/appcafe-pass" ] ; then
   # Enable remote access now
   sed -i '' 's|remote = false|remote = true|g' /usr/local/etc/appcafe.conf
 fi
-
-# Update ports overlay files
-/usr/local/bin/pc-extractoverlay ports
