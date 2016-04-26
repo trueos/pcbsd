@@ -54,6 +54,17 @@ check_autologin()
       # Remmoving the auto-login & ghostbsd user line
       sed -i "" "s/AutomaticLoginEnable=True/AutomaticLoginEnable=False/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
     fi
+      elif [ "${INSTALLTYPE}" = "DesktopBSD" ]
+  then
+    if [ -n "${VAL}" ]
+    then
+      AUTOU="${VAL}"
+      # Adding the auto-login user line
+      sed -i "" "s/desktopbsd/${AUTOU}/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
+    else
+      # Remmoving the auto-login & desktopbsd user line
+      sed -i "" "s/AutomaticLoginEnable=True/AutomaticLoginEnable=False/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
+    fi
   fi
 };
 
