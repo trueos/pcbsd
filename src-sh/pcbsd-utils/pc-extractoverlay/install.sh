@@ -27,12 +27,6 @@ if [ ! -d "${LB}/share/pcbsd/distfiles" ] ; then
   mkdir -p ${LB}/share/pcbsd/distfiles
 fi
 
-# Copy port prune list
-cp prune-port-files ${LB}/share/pcbsd/conf
-if [ $? -ne 0 ] ; then
-  exit 1
-fi
-
 # Copy exclude lists
 cp desktop-excludes ${LB}/share/pcbsd/conf
 if [ $? -ne 0 ] ; then
