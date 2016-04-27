@@ -792,7 +792,7 @@ QStringList Installer::getGlobalCfgSettings()
   else
     tmpList << "installType=FreeBSD";
 
-  tmpList << "packageType=dist";
+  tmpList << "packageType=pkg";
 
   // Set the distFiles being used
   tmpList << "distFiles=" + distFiles;

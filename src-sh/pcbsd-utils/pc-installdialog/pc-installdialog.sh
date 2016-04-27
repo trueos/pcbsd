@@ -855,7 +855,7 @@ gen_pc-sysinstall_cfg()
    else
      echo "installType=FreeBSD" >>${CFGFILE}
    fi
-   echo "packageType=dist" >> ${CFGFILE}
+   echo "packageType=pkg" >> ${CFGFILE}
 
    if [ "`uname -m`" = "amd64" ] ; then
      echo "distFiles=base doc kernel lib32" >> ${CFGFILE}
