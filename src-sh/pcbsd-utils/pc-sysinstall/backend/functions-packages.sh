@@ -65,6 +65,10 @@ bootstrap_pkgng()
 
 get_package_location()
 {
+  if [ ! -d "${FSMNT}/mnt" ] ; then
+    rc_halt "mkdir ${FSMNT}/mnt"
+  fi
+
   case "${INSTALLMEDIUM}" in
   usb|dvd) rc_halt "mount_nullfs ${CDMNT}/packages ${FSMNT}/mnt"
            PKGDLDIR="${FSMNT}/mnt" ;;
