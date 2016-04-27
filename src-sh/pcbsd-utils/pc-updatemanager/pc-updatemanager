@@ -75,9 +75,6 @@ LOGOUT="/var/log/pc-updatemanager.log"
 
 # Return codes
 PKGUPDATERTN=100
-FBSDUPDATEONLYRTN=150
-FBSDMAJORONLYRTN=151
-FBSDUPDATEPLUSMAJORRTN=152
 UPDATEOTHERRTN=125
 
 ######################################################################
@@ -380,39 +377,8 @@ list_branches() {
 
 };
 
-do_fbsdcheck() {
-  # Setup our variable, we have no patches so far
-  PATCHFOUND="0" 
-  echo "Checking for FreeBSD updates..."
-  if [ "`id -u`" = "0" ] ; then
-    pc-fbsdupdatecheck | grep -q "will be updated"
-    if [ $? -eq 0 ] ; then
-       PATCHFOUND="1"
-    fi
-  else
-    sudo /usr/local/bin/pc-fbsdupdatecheck | grep -q "will be updated"
-    if [ $? -eq 0 ] ; then
-       PATCHFOUND="1"
-    fi
-  fi
-
-  if [ "${PATCHFOUND}" = "1" ]; then
-    echo "The following updates are available:"
-    echo "------------------------------------"
-    echo "NAME: FreeBSD security updates"
-    echo "TYPE: SECURITYUPDATE"
-    echo " "
-    echo "To install: \"pc-updatemanager fbsdupdate\""
-    echo " "
-
-    if [ -e "/usr/local/bin/pc-systemflag" ]; then
-      pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
-    fi
-    HAVEFREEBSDUPDATES="YES"
-  fi
-}
-
 do_check() {
+  PATCHFOUND="0"
 
   while read line
   do
@@ -448,16 +414,6 @@ do_check() {
     pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
   fi
   rm ${PATCHTMPFILE}
-
-  if [ -n "$HAVEFREEBSDUPDATES" -a -n "$HAVEMAJORUPDATES" ] ; then
-     return $FBSDUPDATEPLUSMAJORRTN
-  fi
-  if [ -n "$HAVEFREEBSDUPDATES" ] ; then
-     return $FBSDUPDATEONLYRTN
-  fi
-  if [ -n "$HAVEMAJORUPDATES" ] ; then
-     return $FBSDMAJORONLYRTN
-  fi
 
   # Other updates
   return $UPDATEOTHERRTN
@@ -1736,7 +1692,6 @@ while [ $# -gt 0 ] ; do
 	  autobe) require_root
 		  do_auto_be ;;
 	   check) sync_pkgconf
-		  do_fbsdcheck
 		  get_update_file
                   do_check
 		  exit $?
@@ -1781,7 +1736,6 @@ while [ $# -gt 0 ] ; do
             cron) require_root
                   waittime=$(jot -r 1 1 3600)
                   sleep $waittime
-                  do_fbsdcheck
                   get_update_file
                   do_check
                   checkup_pkgs ; break ;;
