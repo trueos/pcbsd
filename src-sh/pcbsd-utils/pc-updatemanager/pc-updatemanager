@@ -228,7 +228,7 @@ EOF
      CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
      cat << EOF >/usr/local/etc/pkg/repos/pcbsd-base.conf
 pcbsd-base: {
-               url: "${CUSTOM_URL}/base",
+               url: "${CUSTOM_URL}-base",
                signature_type: "fingerprints",
                fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
                enabled: true
@@ -252,7 +252,7 @@ sed_pkg_repo_file_http() {
 	| sed "s|%VERSION%|$MAJORVER|g" \
 	| sed "s|%ARCH%|$ARCH|g" \
 	| sed "s|VERSION|$MAJORVER|g" \
-	| sed "s|ARCH|$ARCH/base|g" > /usr/local/etc/pkg/repos/pcbsd-base.conf
+	| sed "s|ARCH|${ARCH}-base|g" > /usr/local/etc/pkg/repos/pcbsd-base.conf
 }
 
 get_update_file() {
@@ -1036,7 +1036,7 @@ pcbsd-major: {
                enabled: true
               }
 pcbsd-base: {
-               url: "$CUSTOM_URL/base",
+               url: "${CUSTOM_URL}-base",
                signature_type: "fingerprints",
                fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
                enabled: true
@@ -1056,7 +1056,7 @@ EOF
       | sed "s|%VERSION%|$MAJORVER|g" \
       | sed "s|%ARCH%|$ARCH|g" \
       | sed "s|VERSION|$MAJORVER|g" \
-      | sed "s|ARCH|$ARCH/base|g" >> /usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
+      | sed "s|ARCH|${ARCH}-base|g" >> /usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
   fi
 
   # Set the new PKG_FLAG to use this repo config
