@@ -109,7 +109,7 @@ install a command-line only server.
 
 .. figure:: images/install3b.png
 
-By default, "PC-BSD (Graphical desktop)" will be selected and the :ref:`Lumina` desktop manager will be installed. You can install additional software post-installation, using
+By default, "PC-BSD (Graphical desktop)" will be selected and the :ref:`Lumina Desktop` will be installed. You can install additional software post-installation, using
 :ref:`AppCafe®`.
 
 To install the desktop, click the "Next" button to proceed to the next screen.

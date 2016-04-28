@@ -119,7 +119,7 @@ PC-BSD® provides the following features:
 
 * **Automatically configured hardware:** video, sound, network, and other devices are automatically configured for you.
 
-* **Intuitive desktop interface:** PC-BSD® comes with a choice of :ref:`Desktops` to support your day-to-day computing needs.
+* **Intuitive desktop interface:** PC-BSD® comes with the :ref:`Lumina` desktop and additional desktop environments can be installed to support your day-to-day computing needs.
 
 * **Easy software management:** with :ref:`AppCafe®`, installing, upgrading, and uninstalling software is safe and easy.
 

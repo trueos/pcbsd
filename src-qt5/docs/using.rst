@@ -165,7 +165,7 @@ You can now search for and watch media. To exit Plex, click the "<" then "Quit".
 Files and File Sharing
 ======================
 
-Depending upon which :ref:`Desktops` you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
+Depending upon which desktops you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
 logged into a specific window manager to use an installed file manager. For example, if KDE is installed, you can run its file manager from any window manager
 by typing :command:`dolphin`. KDE, GNOME, LXDE, and XFCE install their own file managers while most of the other desktops assume that you will install your
 favorite file manager. Table 9.4a summarizes the available file managers and indicates which desktop they are installed with. Some file managers can be
@@ -173,7 +173,7 @@ installed independent of a desktop using :ref:`AppCafe®`. Once a file manager i
 
 **Table 9.4a: Available File Managers**
 
-+---------------+-----------    ---+--------------------------------------------------------------------+
++---------------+------------------+--------------------------------------------------------------------+
 | File Manager  | Desktop/AppCafe  | Screenshots                                                        |
 +===============+==================+====================================================================+
 | dolphin       | KDE              | `<https://userbase.kde.org/Dolphin>`_                              |

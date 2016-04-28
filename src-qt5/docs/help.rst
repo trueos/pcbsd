@@ -44,7 +44,7 @@ The current categories and the forum descriptions are described below:
 
 * `Hardware Support and Questions <https://forums.pcbsd.org/forum-83.html>`_: if you are having problems with any hardware devices, post the details of your problem to this forum.
 
-* `Lumina <https://forums.pcbsd.org/forum-26.html>`_: this forum is for the discussion of the :ref:`Lumina` desktop.
+* `Lumina <https://forums.pcbsd.org/forum-26.html>`_: this forum is for the discussion of the :ref:`Lumina Desktop`.
 
 * `Developers Corner <https://forums.pcbsd.org/forum-84.html>`_: a discussion area for PC-BSD® developers and for discussing improvements to the operating system.
 

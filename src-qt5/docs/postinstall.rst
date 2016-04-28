@@ -286,8 +286,7 @@ the following:
 
 * **password:** input the password associated with the selected user.
 
-* **desktop:** if you installed any desktops, use the drop-down menu to select the desktop to log into. If you did not install any desktops, :ref:`Fluxbox`
-  will be the only available desktop. You can install or uninstall desktops using :ref:`AppCafe®`.
+* **desktop:** if you installed any additional desktops using :ref:`AppCafe®`, use the drop-down menu to select the desktop to log into.
 
 .. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in
    :numref:`Figure %s: PC-BSD® PersonaCrypt Login Screen <login5>`, this will add an extra field to the login screen so that you can input the password associated with the PersonaCrypt
