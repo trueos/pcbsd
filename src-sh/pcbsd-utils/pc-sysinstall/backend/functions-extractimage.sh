@@ -36,6 +36,11 @@ start_extract_pkg()
   ABI="FreeBSD:`uname -r | cut -d '.' -f 1`:`uname -m`"
   export ABI
 
+  # Ugly hack to get distribution files on disk until pkg DTRT
+  if [ -e "${1}/packages/All/fbsd-distrib.txz" ] ; then
+    rc_halt "tar xvpf ${1}/packages/All/fbsd-distrib.txz -C ${FSMNT}"
+  fi
+
   # Create some common mountpoints that pkgng doesn't do right now
   for mpnt in dev compat mnt proc root var/run
   do
