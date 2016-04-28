@@ -206,7 +206,7 @@ know the name of a command, you can also use the built-in help system to get mor
 .. _Managing Jails from the CLI:
 
 Managing Jails from the CLI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 In PC-BSD®, `iocage <https://github.com/iocage/iocage>`_ can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
 light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
