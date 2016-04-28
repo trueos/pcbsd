@@ -1,7 +1,7 @@
-.. _The Lumina Desktop:
+.. _Lumina Desktop:
 
-The Lumina Desktop
-******************
+Lumina Desktop
+**************
 
 Beginning with |version|, the PC-BSD® installer installs the Lumina Desktop Environment (Lumina for short). Additional window managers can be installed using :ref:`AppCafe®`. This chapter
 describes the Lumina Configuration utility and the various utilities which are built into Lumina. For instructions on how to install Lumina on other operating systems or how to contribute

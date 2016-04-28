@@ -357,7 +357,7 @@ To burn your ISO, launch K3B, insert a blank DVD/CD media, browse to the locatio
 
 Click the "Start" button to burn the file. K3B will automatically eject the media once the burn is complete.
 
-`The Brasero burner <https://wiki.gnome.org/Apps/Brasero>`_ provides an alternative, easy-to-use burning application included with the :ref:`GNOME` desktop. A stand-alone application is also
+`The Brasero burner <https://wiki.gnome.org/Apps/Brasero>`_ provides an alternative, easy-to-use burning application included with the GNOME desktop. A stand-alone application is also
 available within :ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager.
 :numref:`Figure %s: Brasero's Initial Screen <brasero1>` shows the initial Brasero screen.
 
