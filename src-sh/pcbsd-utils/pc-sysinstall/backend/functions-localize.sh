@@ -36,6 +36,12 @@ localize_freebsd()
 {
   sed -i.bak "s/lang=en_US/lang=${LOCALE}/g" ${FSMNT}/etc/login.conf
   rm ${FSMNT}/etc/login.conf.bak
+  if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
+    sed -i '' "S/LANG=en_US/LANG=${LOCALE}/g" ${FSMNT}/etc/profile
+    sed -i '' "s/GDM_LANG=en_US/GDM_LANG=${LOCALE}/g" ${FSMNT}/etc/profile
+  fi
+  
+
 };
 
 localize_x_desktops() {
