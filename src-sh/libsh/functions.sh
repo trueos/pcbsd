@@ -270,6 +270,20 @@ printerror() {
   exit_err $*
 }
 
+# Check if given dataset is valid and exists
+# Arg1 = The dataset to check
+isZFSvalid() {
+   local _chkZFS="${1}"
+
+   # Is this a valid dataset
+   if zfs list -H -o name "${_chkZFS}" >/dev/null 2>/dev/null; then
+     return 0
+   else
+     return 1
+   fi
+
+}
+
 
 # Check if the target directory is on ZFS
 # Arg1 = The dir to check
@@ -672,12 +686,19 @@ map_gptid_to_dev()
 map_diskid_to_dev()
 {
   # Remove the .eli / s1 / p2 or whatever from end of label
-  diskID=`echo $1 | sed 's|.eli||g' | rev | cut -c 3- | rev`
-
-  devName="`glabel status | grep -w -e $diskID | awk '{print $3}'`"
-  if [ -n "$devName" ] ; then
-     echo "${devName}"
-  fi
+  local i
+  diskID=`echo $1 | sed 's|.eli||g'`
+  expectedDepth="$(geom part list | grep scheme | sort -u | wc -l | awk '{print $1}')"
+  i=1
+  while [ "$i" -le "$expectedDepth" ] ; do
+    devName="`glabel status | awk -v find="$diskID" '($1 == find) {print $3}'`"
+    if [ -n "$devName" ] ; then
+       echo "${devName}" ; return
+    fi
+    partParent="`gpart status | awk -v find="$diskID" '($1 == find) {print $3}'`"
+    diskID="$partParent"
+    i="$(( i + 1 ))"
+  done
 }
 
 # Restamp grub-install onto the ZFS root disks

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=kodi-standalone
-TryExec=kodi-standalone
-Icon=/usr/local/share/pixmaps/kodi.png
-Type=Application
-Name=Kodi
-Comment=This session will start Kodi Media Center

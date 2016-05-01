@@ -2,55 +2,46 @@
 # Functions we source for starting the install / live mode
 ###########################################################
 
-# Function which checks is a nic is wifi or not
-check_is_wifi()
-{
-  ifconfig ${1} | grep -q "802.11"
-  return $?
-}
-
 # Function which simply enables plain dhcp on all detected nics
 # and creates the wlan[0-9] entries for wireless devices
 enable_dhcp_all()
 {
-  WLANCOUNT="0"
+  # Add local ethernet devices
   for NIC in `ifconfig -l`
   do
     if [ "${NIC}" = "lo0" ] ; then continue ; fi
-    check_is_wifi ${NIC}
-    if [ $? -eq 0 ]
-    then
+    echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
+    echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+  done
+
+  # Check for any wifi devices to setup
+  for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
+  do
+    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+    if [ $? -ne 0 ] ; then
       # We have a wifi device, setup a wlan* entry for it
-      WLAN="wlan${WLANCOUNT}"
-      cat /etc/rc.conf | grep -q "wlans_${NIC}="
-      if [ $? -ne 0 ] ; then
-        echo "wlans_${NIC}=\"${WLAN}\"" >>/etc/rc.conf
+      grep -q "^wlans_" /etc/rc.conf
+      if [ $? -eq 0 ] ; then
+        WLANCOUNT=`cat /etc/rc.conf | grep "^wlans_" | wc -l | awk '{print $1}'`
+      else
+        WLANCOUNT="0"
       fi
-      echo "ifconfig_${WLAN}=\"SYNCDHCP\"" >>/etc/rc.conf
+      WLAN="wlan${WLANCOUNT}"
+
+      # Save the wlan interface
+      echo "wlans_${wnic}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
+
+      # Create the wlanX device
+      ifconfig $WLAN create wlandev $wnic
+      echo "ifconfig_${WLAN}=\"WPA SYNCDHCP\"" >>/etc/rc.conf
       echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
-      WLANCOUNT=$((WLANCOUNT+1))
-    else
-      echo "ifconfig_${NIC}=\"SYNCDHCP\"" >>/etc/rc.conf
-      echo "ifconfig_${NIC}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
     fi
   done
+
 }
 
 detect_x() 
 {
-  # Check if the user requested VESA mode
-  xvesa="NO"
-  v=`/bin/kenv xvesa 2>/dev/null`
-  if [ $? -eq 0 ]; then
-        xvesa=$v
-  fi
-
-  # If we are starting in VESA only mode
-  if [ "$xvesa" = "YES" ]; then
-    cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
-    return
-  fi
-
   # First check if we are running as a VirtualBox guest
   pciconf -lv | grep -q "VirtualBox"
   if [ $? -eq 0 ] ; then cp /root/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf ; return; fi
@@ -159,39 +150,51 @@ start_xorg()
   # Now run the X auto-detection
   detect_x
 
+  ATTEMPT=0
+
   # Run X Now
-  startx
-  if [ ! -e "/tmp/.xstarted" ]
-  then
-    # Failed to start X
-    # Lets try again with a secondary video card
-    rm /etc/X11/xorg.conf 2>/dev/null
-    cfg_card_busid "2"
-
+  while :
+  do
+    # Try bringing up X now
     startx
-    if [ ! -e "/tmp/.xstarted" ]
-    then
-      echo "ERROR: Failed to start X in SAFE mode... Trying VESA mode..."
-      rm /etc/X11/xorg.conf
-      cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
-      startx
-     if [ ! -e "/tmp/.xstarted" ]
-      then
-        # Try the Intel driver, since nvidia/vesa will fail on optimus cards
-        cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
-        startx
-        if [ ! -e "/tmp/.xstarted" ]
-        then
-          echo "ERROR: Failed to start X..."
-          echo "Dropping to failsafe console... Edit /etc/X11/xorg.conf, and run #startx to bring up the GUI."
-          echo "[Press Enter to Continue]"
-          read tmp
-          /bin/sh
-        fi
-      fi
-    fi
-  fi
+    # If we have a success, we can end here
+    if [ -e "/tmp/.xstarted" ]; then return 0; fi
 
+    case $ATTEMPT in
+       0) # Lets try again with a secondary video card
+	  echo "Looking for secondary / optimus video card..."
+          rm /etc/X11/xorg.conf 2>/dev/null
+          cfg_card_busid "2"
+          ;;
+       1) echo "Trying VESA driver..."
+          rm /etc/X11/xorg.conf
+          cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+          ;;
+       2) # Try the Intel driver, since nvidia/vesa will fail on optimus cards
+	  echo "Trying Intel-only driver..."
+          cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+          ;;
+       3) if [ `sysctl -n machdep.bootmethod` = "UEFI" ] ; then
+            # Last but not least, if we are on UEFI we can always try SCFB
+	    echo "Trying SCFB - UEFI driver..."
+            cp /root/cardDetect/XF86Config.scfb /etc/X11/xorg.conf
+	  else
+            break
+	  fi
+          ;;
+
+       *) break ;;
+    esac
+
+    ATTEMPT=$(expr $ATTEMPT + 1)
+  done
+
+  # Couldn't find a valid Xorg config.. Boo :(
+  echo "ERROR: Failed to start X..."
+  echo "Dropping to failsafe console... Edit /etc/X11/xorg.conf, and run #startx to bring up the GUI."
+  echo "[Press Enter to Continue]"
+  read tmp
+  /bin/sh
 }
 
 rtn()

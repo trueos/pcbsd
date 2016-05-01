@@ -22,10 +22,10 @@ PC-BSD® Forums
 ===============
 
 `The PC-BSD® Forums <https://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
-active members and you will find that most questions are replied to quickly. If you are having problems with something on your PC-BSD® system, try using the
+active members and you will find that most questions are quickly answered. If you are having problems with something on your PC-BSD® system, try using the
 forum's search utility. You will often find that someone else has posted a similar question and that other users have responded with a fix or a how-to.
 
-The Forums have been categorized, allowing users to skim through the categories that interest them while learning some things along the way. You do not have
+The Forums have been categorized, allowing users to skim through the categories that interest them while learning some new information along the way. You do not have
 to create a login account in order to search or read through the forums. However, if you wish to ask or answer a question on a forum or subscribe to a forum
 in order to be automatically notified when a new post is added, you will need to be logged in. To subscribe to a forum, open the page for the forum and
 click the "Subscribe to this Forum" link in the far right end of the bar that contains the forum's name. If you would like to view new posts, click your
@@ -40,11 +40,11 @@ The current categories and the forum descriptions are described below:
 
 * `Desktop Questions and Support <https://forums.pcbsd.org/forum-13.html>`_: use this forum if your question does not fit into any of the other forum categories.
 
-* `Server Questions and Support <https://forums.pcbsd.org/forum-15.html>`_: this forum is for discussion of server-related topics.
+* `Server Questions and Support <https://forums.pcbsd.org/forum-15.html>`_: this forum is for discussion of server related topics.
 
 * `Hardware Support and Questions <https://forums.pcbsd.org/forum-83.html>`_: if you are having problems with any hardware devices, post the details of your problem to this forum.
 
-* `Lumina <https://forums.pcbsd.org/forum-26.html>`_: this forum is for the discussion of the :ref:`Lumina` desktop.
+* `Lumina <https://forums.pcbsd.org/forum-26.html>`_: this forum is for the discussion of the :ref:`Lumina Desktop`.
 
 * `Developers Corner <https://forums.pcbsd.org/forum-84.html>`_: a discussion area for PC-BSD® developers and for discussing improvements to the operating system.
 
@@ -73,11 +73,13 @@ categories for organizing posts. The following forums are available:
 
 * `German <https://forums.pcbsd.org/forum-46.html>`_
 
+* `Italian <https://forums.pcbsd.org/forum-85.html>`_
+
 * `Japanese <https://forums.pcbsd.org/forum-50.html>`_
 
 * `Russian <https://forums.pcbsd.org/forum-49.html>`_
 
-* `Slovene <https://forums.pcbsd.org/forum-48.html>`_
+* `Slovenian <https://forums.pcbsd.org/forum-48.html>`_
 
 * `Spanish <https://forums.pcbsd.org/forum-44.html>`_
 
@@ -111,15 +113,15 @@ In addition to the forums available from the PC-BSD® Forums website, the follow
 PC-BSD® IRC Channel
 ====================
 
-Like many open source projects, PC-BSD® has an `IRC Channel <https://en.wikipedia.org/wiki/Internet_Relay_Chat>`_ so that users can chat and get help in real time. To get
+Like many open source projects, PC-BSD® has an :wikipedia:`Internet Relay Chat` (IRC) channel so that users can chat and get help in real time. To get
 connected, use the following information in your IRC client: 
 
 * **Server name:** irc.freenode.net 
 
 * **Channel name:** #pcbsd (note that the # is required) 
 
-:ref:`AppCafe®` has an IRC category where you can find PBIs for IRC clients. If you do not wish to install an IRC client, you can instead use the
-`web interface to #pcbsd <http://www.pcbsd.org/en/join-us-on-pcbsd.html>`_. 
+:ref:`AppCafe®` has an IRC category where you can find IRC client software. If you do not wish to install an IRC client, you can instead use the
+`web interface to #pcbsd <http://irc.lc/freenode/pcbsd>`_.  
 
 IRC is a great way to chat with other users and get answers to your questions. A few things to keep in mind if you ask a question on IRC: 
 
@@ -196,13 +198,13 @@ Social Media
 The PC-BSD® project maintains several social media sites to help users keep up-to-date with what is happening and to provide venues for developers and users
 to network with each other. Anyone is welcome to join.
 
-* `Official PC-BSD® Blog <http://blog.pcbsd.org/>`_
+* `Official PC-BSD® Blog <https://blog.pcbsd.org/>`_
 
 * `PC-BSD® on Twitter <https://twitter.com/PCBSD/>`_
 
-* `PC-BSD® Facebook Group <http://www.facebook.com/group.php?gid=4210443834>`_
+* `PC-BSD® Facebook Group <https://www.facebook.com/groups/4210443834/>`_
 
-* `PC-BSD® Google+ page <https://plus.google.com/u/0/b/118078374333558564924/>`_
+* `PC-BSD® Google+ page <https://plus.google.com/u/0/+pcbsd/posts>`_
 
 * `PC-BSD® LinkedIn Group <http://www.linkedin.com/groups?gid=1942544>`_
 
@@ -224,7 +226,7 @@ Many BSD related search portals exist. If you can not find the answer that you a
 
 * `BSD Guides <http://www.bsdguides.org/guides/>`_
 
-* `Slashdot BSD <http://bsd.slashdot.org/>`_
+* `Slashdot BSD <https://bsd.slashdot.org/>`_
 
 * `DistroWatch <http://distrowatch.com/>`_
 
@@ -248,7 +250,7 @@ The following BSD sites and resources may also contain useful information:
 
 * `BSD Now <http://www.bsdnow.tv/>`_
 
-* `BSD Magazine <http://bsdmag.org/>`_ (free, monthly download) 
+* `BSD Magazine <https://bsdmag.org/>`_ (free, monthly download) 
 
 * `FreeBSD Journal <http://www.freebsdjournal.com/>`_ (bi-monthly magazine) 
 

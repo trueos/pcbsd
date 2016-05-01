@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# Set this to YES if you want to manually enable ibus
-FORCEIBUS="NO"
+# If you want to unconditionally enable ibus modify ~/.xprofile
+# by adding the line:  FORCEIBUS=YES
+
+# default to NO if not set in ~/.xprofile
+: ${FORCEIBUS:="NO"}
 
 # Do not modify below
 ##########################################################################

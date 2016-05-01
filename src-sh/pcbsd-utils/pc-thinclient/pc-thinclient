@@ -365,8 +365,6 @@ check_worldports() {
 	cp ${PROGDIR}/resources/gdm/gdm-rc /usr/local/etc/rc.d/gdm
 	cp ${PROGDIR}/resources/gdm/custom.conf /usr/local/etc/gdm/custom.conf
 	
-	# Re-extract the ports overlay data
-	pc-extractoverlay ports
 }
 
 # Check if we need to build the world environment

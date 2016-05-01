@@ -38,7 +38,7 @@ At a **bare minimum** you need to meet these requirements in order to install PC
 
 * Network card 
 
-The following are the minimum **recommended** requirements. The more RAM and available disk space, the better your computing experience: 
+The following are the minimum **recommended** requirements. More RAM and available disk space will improve your computing experience: 
 
 * 64-bit processor 
 
@@ -57,7 +57,7 @@ than 50GB for a desktop installation. The installation itself does not require t
 sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots and boot environments.
 
 You can never have too much RAM, so install as much as you can afford. To play modern video games, you should use a fast CPU. If you want to create a
-collection of tunes and movies on your computer, you will want a large disk which can be internal or external.
+collection of music and movies on your computer, you will want a large disk which can be internal or external.
 
 .. index:: hardware
 .. _Supported Hardware:
@@ -66,7 +66,7 @@ Supported Hardware
 ==================
 
 PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
-manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html#proc>`_ list the amd64
+manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/11.0R/hardware.html#proc>`_ list the amd64
 processors known to work.
 
 Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
@@ -86,10 +86,10 @@ or may not be able to successfully load a graphics driver on your hardware. If y
 option to disable one of the graphics adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel
 driver and disable NVIDIA. This will change in the future when the NVIDIA driver supports Optimus.
 
-A list of graphics cards which are known to work can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
+A list of usable graphics cards can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
-`FreeBSD driver <http://www.freebsd.org/releases/10.2R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
+`FreeBSD driver <http://www.freebsd.org/releases/11.0R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `Status of Atheros Wifi Hardware wiki page <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 A list of supported Intel devices and known limitations can be found on the `iwn(4) Intel 802.11n series NICs wiki page <https://wiki.freebsd.org/dev/iwn%284%29>`_.
 
@@ -100,10 +100,10 @@ Certain Broadcom devices, typically found in cheap laptops, are quite buggy and 
 mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
 If you wish to check your hardware before installing PC-BSD®, a good place to start is the
-`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.2R/hardware.html>`_. Another good resource is to start the installer and click the
+`FreeBSD Hardware Notes <http://www.freebsd.org/releases/11.0R/hardware.html>`_. Another good resource is to start the installer and click the
 :ref:`Hardware Compatibility` icon.
 
-While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. It should be remembered that
+While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. Remember that
 PC-BSD® is really FreeBSD, meaning that any hardware that works on FreeBSD will work on PC-BSD®. If you are experiencing problems with a device, start with
 a web search for the term "FreeBSD" plus the type and model of the hardware. This will let you know if there is a known issue with the device. If there are
 many search results, concentrate on the most recent ones as often hardware that used to be problematic has since been fixed or the missing driver will be
@@ -120,7 +120,7 @@ Laptops
 Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
 deal with: 
 
-* **Sleep/suspend:** unfortunately, `ACPI <https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface>`_ is not an exact science, meaning that
+* **Sleep/suspend:** unfortunately, :wikipedia:`Advanced Configuration and Power Interface` (ACPI) is not an exact science, meaning that
   you may have to experiment with various :command:`sysctl` variables in order to achieve successful sleep and suspend states on your particular laptop model.
   If your laptop is a ThinkPad, `ThinkWiki <http://www.thinkwiki.org/wiki/ThinkWiki>`_ is an excellent source. For other types of laptops, try reading the "SYSCTL VARIABLES"
   section of :command:`man 4 acpi` and check to see if there is an ACPI man page specific to your vendor by typing :command:`apropos acpi.` The
@@ -131,7 +131,7 @@ deal with:
 * **Internal wireless:** some chipsets do not have a FreeBSD driver yet.
 
 * **Synaptics:** depending upon the hardware, you may or may not be able to disable the system's touchpad. This
-  `forum post <https://forums.freebsd.org/threads/how-to-disable-mousepad-tapping.17370/#post-100670>`_ describes how to enable Synaptics and some
+  `forum post <https://forums.freebsd.org/threads/17370/#post-100670>`_ describes how to enable Synaptics and some
   of the :command:`sysctl` options that this feature provides.
 
 * **Optimus graphics:** the current workaround is to disable Optimus in the BIOS, set the onboard Intel video to be dominant, or to change the graphics mode
@@ -140,7 +140,7 @@ deal with:
 If you wish to test your laptop's hardware, use the "Hardware Compatibility" icon in the :ref:`Language Selection Screen` before continuing with the
 installation.
 
-If you would like to install PC-BSD® onto an Asus Eee, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
+If you would like to install PC-BSD® onto an Asus Eee PC, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
 
 The `FreeBSD Tuning Power Consumption page <https://wiki.FreeBSD.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
 
@@ -182,7 +182,7 @@ partition.
 .. figure:: images/partition1.jpg
 
 Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install PC-BSD® into. To
-shrink the data partition, right-click the partition, in this example it is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
+shrink the data partition, right-click the partition, which in this example is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
 volume for available shrink space. The results will be displayed as seen in the example in :numref:`Figure %s: Available Shrink Space <shrink1>`. 
 
 .. _shrink1:
@@ -216,7 +216,7 @@ where |version| is the most recent version, and either the word :file:`RELEASE` 
   features and drivers. If you wish to have or test the latest features and drivers as they become available and can tolerate possible breakage caused by new
   features being available before the next RELEASE, use the STABLE version.
 
-The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_. Previous RELEASE versions and
+The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org/download/>`_. Previous RELEASE versions and
 STABLE versions can be downloaded from the `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_. 
 
 Several types of files are available for download. Before downloading a file, review the following descriptions to see which one best suits your needs: 
@@ -242,7 +242,7 @@ device.
 If you prefer to install a command-line only server, you can either download the same ISO or download the ISO with :file:`TRUEOS` in the name. The
 :file:`TRUEOS` download is smaller and can be burned to a CD or written to a removable USB device.
 
-Pre-installed virtual images are also available, making it easy to use or try out PC-BSD® in a virtual environment. Four types of images are
+Pre-installed virtual images are also available, making it easy to use or try PC-BSD® in a virtual environment. Four types of images are
 available: 
 
 * Files ending in :file:`.ova` can be used in VirtualBox, as described in :ref:`Using the Downloadable .ova File`.
@@ -264,11 +264,11 @@ If you downloaded an installation file, instead of a virtual image, refer to :re
 bootable media.
 
 If you have a slow download connection or wish to support the PC-BSD® project financially, you can purchase PC-BSD® DVDs from the
-`FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/su=yes/fi=prod_bsd/sf=sku/sf=title/sf=category/se=pcbsd>`_.
+`FreeBSD Mall <https://www.freebsdmall.com/cgi-bin/fm/scan/su=yes/fi=prod_bsd/sf=sku/sf=title/sf=category/se=pcbsd>`_.
 
 Members of the PC-BSD® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths. Visiting a PC-BSD® booth is an
-excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <http://blog.pcbsd.org/>`_ to see if any events are
-happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org/en/support/>`_ to arrange for DVDs.
+excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <https://blog.pcbsd.org/>`_ to see if any events are
+happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org/support/>`_ to arrange for DVDs.
 
 .. index:: checksum
 .. _Data Integrity Check:
@@ -281,7 +281,7 @@ portion of the file may get damaged or lost, making the installation file unusab
 If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
 verify a checksum, you will need to use a checksum verification utility.
 
-.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/en/download.html>`_  only lists the SHA256 while the
+.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org/download/>`_  only lists the SHA256 while the
    `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists both the :file:`.md5` and the :file:`.sha256` checksum files. This section demonstrates how to verify an
    MD5 checksum.
 
@@ -298,7 +298,7 @@ will capitalize the letters.
 On Linux and BSD systems you can use the built-in :command:`md5` or :command:`md5sum` command line tool to check the MD5 checksum. In this example, the file
 is located in the :file:`Downloads` subdirectory directory. You should substitute the name and location of the file that you downloaded::
 
- md5 Downloads/PCBSD10.2-RELEASE-x64-DVD-USB.iso 
+ md5 Downloads/PCBSD11.0-RELEASE-x64-DVD-USB.iso 
 
 .. index:: burn
 .. _Burning the Installation Media:
@@ -357,7 +357,7 @@ To burn your ISO, launch K3B, insert a blank DVD/CD media, browse to the locatio
 
 Click the "Start" button to burn the file. K3B will automatically eject the media once the burn is complete.
 
-`The Brasero burner <https://wiki.gnome.org/Apps/Brasero>`_ provides an alternative, easy-to-use burning application included with the :ref:`GNOME` desktop. A PBI is also
+`The Brasero burner <https://wiki.gnome.org/Apps/Brasero>`_ provides an alternative, easy-to-use burning application included with the GNOME desktop. A stand-alone application is also
 available within :ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager.
 :numref:`Figure %s: Brasero's Initial Screen <brasero1>` shows the initial Brasero screen.
 
@@ -390,7 +390,7 @@ If you just get your prompt back, the driver successfully loaded. If you get the
 driver was already loaded. If the device is USB or SCSI, no additional drivers need to be loaded if you are running the generic FreeBSD kernel. After
 inserting the DVD media into the device, you can start the burn using this command::
 
- growisofs -Z /dev/cd0=PCBSD10.2-RELEASE-x64-DVD-USB.iso
+ growisofs -Z /dev/cd0=PCBSD11.0-RELEASE-x64-DVD-USB.iso
 
 If your device is not the first CD device, change the number *0* accordingly. If your ISO has a different name, substitute the correct name in the command
 shown above.
@@ -427,7 +427,7 @@ Once the image is written, boot from the removable device and proceed with the P
 To write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
 system, the superuser can use this command to write the file to the first plugged in USB device::
 
- dd if=PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
+ dd if=PCBSD11.0-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
  3658+1 records in
  3658+1 records out 
  3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
@@ -447,7 +447,7 @@ When using the :command:`dd` command:
    without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
    Linux has very limited support for UFS, the BSD filesystem that gets created on the USB stick.
 
-To burn the image file on a Windows system, you can use `win32-image-writer <http://sourceforge.net/projects/win32diskimager/>`_. When downloading win32-image-writer,
+To burn the image file on a Windows system, you can use `win32-image-writer <https://sourceforge.net/projects/win32diskimager/>`_. When downloading win32-image-writer,
 download the latest version that ends in :file:`-binary.zip` and use a utility such as Windows Explorer or 7zip to unzip the executable.
 
 If you launch :command:`win32-image-writer.exe`, it will start the Win32 Disk Imager utility, shown in :numref:`Figure %s: Using Win32 Disk Imager to Write the Image <writer1>`. Use the
@@ -477,7 +477,7 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  diskutil unmountDisk /dev/disk1
  Unmount of all volumes on disk1 was successful
 
- sudo dd if=/Users/dru/Downloads/ PCBSD10.2-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m # 4M for older OS X
+ sudo dd if=/Users/dru/Downloads/ PCBSD11.0-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m # 4M for older OS X
  Password:
  3658+1 records in
  3658+1 records out 
@@ -631,7 +631,7 @@ just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
 On a Linux or BSD system, use the :command:`xz` command by giving it the name of the file which you downloaded::
 
- xz -d PCBSD10.2-RELEASE-x64-consumer-desktop.vmdk.xz
+ xz -d PCBSD11.0-RELEASE-x64-consumer-desktop.vmdk.xz
 
 Since this is a large file, the command will take a few minutes to extract the image. You will receive the prompt back when it has finished.
 

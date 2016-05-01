@@ -27,12 +27,6 @@ if [ ! -d "${LB}/share/pcbsd/distfiles" ] ; then
   mkdir -p ${LB}/share/pcbsd/distfiles
 fi
 
-# Copy port prune list
-cp prune-port-files ${LB}/share/pcbsd/conf
-if [ $? -ne 0 ] ; then
-  exit 1
-fi
-
 # Copy exclude lists
 cp desktop-excludes ${LB}/share/pcbsd/conf
 if [ $? -ne 0 ] ; then
@@ -46,12 +40,6 @@ fi
 # Set the default package set
 sed -i '' "s|PACKAGE_SET:.*|PACKAGE_SET: $INSTALLPACKAGESET|g" server-overlay/usr/local/etc/pcbsd.conf
 sed -i '' "s|PACKAGE_SET:.*|PACKAGE_SET: $INSTALLPACKAGESET|g" desktop-overlay/usr/local/etc/pcbsd.conf
-
-# Now create overlay.txz file
-tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/port-overlay.txz -C ports-overlay .
-if [ $? -ne 0 ] ; then
-  exit 1
-fi
 
 # Now create desktop-overlay.txz file
 tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/desktop-overlay.txz -C desktop-overlay .

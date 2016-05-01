@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-calligrawords">
-  <glob weight="100" pattern="*.doc"/>
-  <glob weight="100" pattern="*.docx"/>
-  <glob weight="100" pattern="*.odt"/>
-  <glob weight="100" pattern="*.fodt"/>
- </mime-type>
-</mime-info>

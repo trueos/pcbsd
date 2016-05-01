@@ -36,6 +36,9 @@ PCDMgui::PCDMgui() : QMainWindow()
 	pcTimer->setInterval(15000); //every 15 seconds
 	connect(pcTimer, SIGNAL(timeout()), this, SLOT(LoadAvailableUsers()) );
     if(!pcAvail.isEmpty()){ pcTimer->start(); } //LoadAvailableUsers was already run once
+    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(slotScreensChanged()) );
+   // connect(QApplication::desktop(), SIGNAL(primaryScreenChanged()), this, SLOT(slotScreensChanged()) );
+    connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(slotScreensChanged()) );
 
 }
 
@@ -66,14 +69,27 @@ void PCDMgui::loadTheme(){
 void PCDMgui::createGUIfromTheme(){
   QString style;
   QString tmpIcon; //used for checking image files before loading them
-  QWidget *leftscreen = 0;
-  for(int i=0; i<screens.length(); i++){
-    if(screens[i]->x()==0){
-      leftscreen = screens[i];
+  QWidget *mainscreen = 0;
+  qDebug() << "Screens:" << QApplication::desktop()->screenCount() << screens.length();
+  if(QApplication::desktop()->primaryScreen() < screens.length()){
+    //Primary screen set - use this
+    qDebug() << " - Primary Screen:" << QApplication::desktop()->primaryScreen();
+    mainscreen = screens[QApplication::desktop()->primaryScreen()];
+  }else{
+    //No primary set? just use the left-most one
+    for(int i=0; i<screens.length(); i++){
+      if(screens[i]->x()==0){ 
+	qDebug() << " - Use Main screen:" << i;
+	mainscreen = screens[i]; 
+      }
+    }
+    if(mainscreen==0){
+      mainscreen = screens.first(); //fallback - just use the first screen
     }
   }
+  
   //Define the default icon size
-  int perc = qRound(leftscreen->height()*0.035); //use 3.5% of the screen height
+  int perc = qRound(mainscreen->height()*0.035); //use 3.5% of the screen height
   defIconSize = QSize(perc,perc);
   //Set the background image
   if(DEBUG_MODE){ qDebug() << "Setting Background Image"; }
@@ -98,22 +114,30 @@ void PCDMgui::createGUIfromTheme(){
   //Fill the translator
   m_translator = new QTranslator();
   //Create the Toolbar
-  toolbar = new QToolBar();
+  toolbar = new QToolBar(mainscreen);
   //Add the Toolbar to the window
+  QSize tmpsz = currentTheme->itemIconSize("toolbar");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
+    toolbar->setIconSize( tmpsz ); //use theme size
   if(DEBUG_MODE){ qDebug() << "Create Toolbar"; }
     //use the theme location   
     QString tarea = currentTheme->itemValue("toolbar");
     if(tarea == "left"){
-      this->addToolBar( Qt::LeftToolBarArea, toolbar ); 	    
+      toolbar->setGeometry(0,0,tmpsz.width(), mainscreen->height());
     }else if( tarea=="top"){
-      this->addToolBar( Qt::TopToolBarArea, toolbar );  	   
-      toolbar->setFixedWidth(leftscreen->width());
+      //this->addToolBar( Qt::TopToolBarArea, toolbar );  	   
+      toolbar->setGeometry(0,0,mainscreen->width(), tmpsz.height());
+      //toolbar->setFixedWidth(mainscreen->width());
     }else if(tarea=="right"){
-      this->addToolBar( Qt::RightToolBarArea, toolbar );   	    
+      toolbar->setGeometry(mainscreen->width()-tmpsz.width(),0,tmpsz.width(), mainscreen->height());
+      //this->addToolBar( Qt::RightToolBarArea, toolbar );   	    
     }else{ //bottom is default
-      this->addToolBar( Qt::BottomToolBarArea, toolbar ); 	
-      toolbar->setFixedWidth(leftscreen->width());
+      toolbar->setGeometry(0,mainscreen->height()-tmpsz.height(),mainscreen->width(), tmpsz.height());
+      //this->addToolBar( Qt::BottomToolBarArea, toolbar ); 	
+      //toolbar->setFixedWidth(mainscreen->width());
     }
+    //Now make sure the toolbar cannot be resize by the layout
+    toolbar->setFixedSize(toolbar->size());
     //Set toolbar flags
     toolbar->setVisible(true);
     toolbar->setMovable(false);
@@ -125,10 +149,6 @@ void PCDMgui::createGUIfromTheme(){
     else if(tstyle=="textbesideicon"){ toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon); }
     else if(tstyle=="textundericon"){ toolbar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon); }
     else{ toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly); } //default to icon only
-    
-    QSize tmpsz = currentTheme->itemIconSize("toolbar");
-    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
-    toolbar->setIconSize( tmpsz ); //use theme size
     toolbar->setFocusPolicy( Qt::NoFocus );
   //Populate the Toolbar with items (starts at leftmost/topmost)
     //----Virtual Keyboard
@@ -197,22 +217,20 @@ void PCDMgui::createGUIfromTheme(){
     //Username/Password/Login widget
     if(DEBUG_MODE){ qDebug() << " - Create Login Widget"; }
     loginW = new LoginWidget;
-    /*loginW->setUsernames(Backend::getSystemUsers()); //add in the detected users
-    QString lastUser = Backend::getLastUser();
-    if(!lastUser.isEmpty()){ //set the previously used user
-    	loginW->setCurrentUser(lastUser); 
-    }*/
     //Set Icons from theme
+    // - login icon
     tmpIcon = currentTheme->itemIcon("login");
     tmpsz = currentTheme->itemIconSize("login");
     if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next.png"; }
     loginW->changeButtonIcon("login",tmpIcon, tmpsz);
+    // - stealth session icon
     tmpIcon = currentTheme->itemIcon("anonlogin");
     tmpsz = currentTheme->itemIconSize("login");
     if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next-stealth.png"; }
     loginW->changeButtonIcon("anonlogin", tmpIcon, tmpsz);
+    // - user/password icons
     tmpIcon = currentTheme->itemIcon("user");
     slotUserChanged(loginW->currentUsername()); //Make sure that we have the correct user icon
     tmpIcon = currentTheme->itemIcon("password");
@@ -220,11 +238,18 @@ void PCDMgui::createGUIfromTheme(){
     if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/password.png"; }
     loginW->changeButtonIcon("pwview",tmpIcon, tmpsz);
+    // -personacrypt password icon
     tmpIcon = currentTheme->itemIcon("encdevice");
     tmpsz = currentTheme->itemIconSize("device");
     if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/usbdevice.png"; }
     loginW->changeButtonIcon("device", tmpIcon, tmpsz);
+    // - refresh button icon
+    tmpIcon = currentTheme->itemIcon("refresh");
+    tmpsz = currentTheme->itemIconSize("refresh");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
+    if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/refresh.png"; }
+    loginW->changeButtonIcon("refresh", tmpIcon, tmpsz);
     //Enable/disable the password view functionality
     loginW->allowPasswordView( Config::allowPasswordView() );
     loginW->allowUserSelection( Config::allowUserSelection() );
@@ -239,6 +264,7 @@ void PCDMgui::createGUIfromTheme(){
     connect(loginW,SIGNAL(escapePressed()),this,SLOT(slotShutdownComputer()));
     connect(loginW,SIGNAL(UserSelected(QString)), this, SLOT(slotUserSelected(QString)) );
     connect(loginW,SIGNAL(UserChanged(QString)), this, SLOT(slotUserChanged(QString)) );
+    connect(loginW,SIGNAL(refreshUsers()), this, SLOT(LoadAvailableUsers()) );
     
     //----Desktop Environment Switcher
     if(simpleDESwitcher){
@@ -280,7 +306,7 @@ void PCDMgui::createGUIfromTheme(){
     }
 
   //Connect the grid to the leftmost screen widget
-  leftscreen->setLayout(grid);
+  mainscreen->setLayout(grid);
     
   //Now translate the UI and set all the text
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
@@ -296,36 +322,35 @@ void PCDMgui::fillScreens(){
     //Set a background image on any other available screens
     QDesktopWidget *DE = QApplication::desktop();
     screens.clear();
-    //Generate the background style sheet
-    //QString tmpIcon = currentTheme->itemIcon("background");
-    //if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
-    //QString bgstyle = "QWidget#BGSCREEN{border-image: url(BGIMAGE) stretch;}"; 
-      //bgstyle.replace("BGIMAGE", tmpIcon);
-    //this->setStyleSheet(bgstyle);
     //Now apply the background to all the other screens   
     // - Keep track of the total width/height of all screens combined (need to set the QMainWindow to this size)
     int wid, high;
     wid = high = 0;
+    QList<QRect> geoms;
     for(int i=0; i<DE->screenCount(); i++){
-      //if(i != DE->screenNumber(this)){
         //Just show a generic QWidget with the proper background image on every screen
+	QRect rec = DE->screenGeometry(i);
+	if(geoms.contains(rec)){ continue; } //duplicate geom - skip it
+	geoms << rec;
 	QWidget *screen = new QWidget(this->centralWidget());
 	screen->setObjectName("BGSCREEN");
-	QRect rec = DE->screenGeometry(i);
+	//QRect rec = DE->screenGeometry(i);
+	//if(geoms.contains(rec)){ continue; } //duplicate geometry - skip it
+	qDebug() << "Detected Screen:" << i << rec;
 	screen->setGeometry( rec );
 	if(rec.height() > high){ high = rec.height(); }
 	wid += rec.width();
-	//screen->setStyleSheet(bgstyle);
 	screen->show();
 	screens << screen;
-      /*}else{
-        //Now move the mouse cursor over this window (fix for multi-monitor setups)
-        QCursor::setPos( DE->screenGeometry(i).center() );	      
-      }*/
     }
     this->setGeometry(0,0,wid,high);
     this->activateWindow();
     QCursor::setPos( DE->screenGeometry(0).center() );	  
+}
+
+void PCDMgui::slotScreensChanged(){
+  //Restart the GUI 
+  QApplication::exit(-1); //special code to restart the GUI-only
 }
 
 void PCDMgui::slotStartLogin(QString displayname, QString password){
@@ -360,7 +385,7 @@ void PCDMgui::slotLoginSuccess(){
   if(simpleDESwitcher){ de = loginW->currentDE(); }
   else{ de = deSwitcher->currentItem(); }
   saveLastLogin( loginW->currentUsername(), de );*/
-  slotClosePCDM(); //now start to close down the PCDM GUI
+  slotUpdateGUI(); //now start to close down the PCDM GUI
 }
 
 void PCDMgui::slotLoginFailure(){
@@ -419,7 +444,7 @@ void PCDMgui::slotShutdownComputer(){
 
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Shutting down computer");
-    system("shutdown -po now");
+    system("shutdown -p now");
     QCoreApplication::exit(1); //flag that this is not a normal GUI close
   }
 }
@@ -435,17 +460,26 @@ void PCDMgui::slotRestartComputer(){
 
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Restarting computer");
-    system("shutdown -ro now");
+    system("shutdown -r now");
     QCoreApplication::exit(1); //flag that this is not a normal GUI close
   }
 }
 
 void PCDMgui::slotClosePCDM(){
+  //Same as UpdateGUI, but stops the daemon as well for debugging purposes
+  system("killall -9 xvkbd"); //be sure to close the virtual keyboard
+  for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
+  QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
+  QCoreApplication::exit(0);
+  close();
+}
+
+void PCDMgui::slotUpdateGUI(){
   system("killall -9 xvkbd"); //be sure to close the virtual keyboard
   for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
   //QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
   QCoreApplication::exit(0);
-  close();
+  close();	
 }
 
 void PCDMgui::slotChangeLocale(){
@@ -512,8 +546,7 @@ void PCDMgui::slotLocaleChanged(QString langCode){
 
 void PCDMgui::LoadAvailableUsers(){
   if(DEBUG_MODE){ qDebug() << "Update Users:"; }
-  if(pcAvail.isEmpty()){ pcAvail = Backend::getRegisteredPersonaCryptUsers(); }
-  //if(sysAvail.isEmpty()){ sysAvail = Backend::getSystemUsers(false); } //make sure to get usernames, not real names
+  pcAvail = Backend::getRegisteredPersonaCryptUsers();
   //qDebug() << "Loading Users:" << pcAvail << sysAvail << pcCurrent;
   QStringList userlist = Backend::getSystemUsers(false);
   if(userlist.isEmpty()){ 
@@ -607,6 +640,8 @@ void PCDMgui::retranslateUi(){
   systemButton->defaultAction()->setText(tr("System"));
   //Menu entries for system button
     systemMenu->clear();	
+    systemMenu->addAction( tr("Refresh PCDM"), this, SLOT(slotUpdateGUI()) );
+    systemMenu->addSeparator();
     systemMenu->addAction( tr("Restart"),this, SLOT(slotRestartComputer()) );
     systemMenu->addAction( tr("Shut Down"), this, SLOT(slotShutdownComputer()) );
     if(DEBUG_MODE){systemMenu->addAction( tr("Close PCDM"), this, SLOT(slotClosePCDM()) ); }

@@ -22,35 +22,20 @@ The previous section discussed a default installation of PC-BSD®. This section 
 Using the Text Installer
 ========================
 
-If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, select the option "Text Install/Emergency Console" from
-the PC-BSD® installer boot menu shown in Figure 3a. Once the installer finishes loading, you will see the screen shown in :numref:`Figure %s: Text Installation Menu <text1>`.
+If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, start the installation as usual and select the option "install" from
+the :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
 
-.. _text1:
+.. _install1c:
 
-.. figure:: images/text1.png
+.. figure:: images/install1c.png
 
-This initial menu provides the following options: 
-
-* **install:** continues the installation using the text-based installer.
-
-* **xorg:** launches the graphical installer described in :ref:`Installing PC-BSD®`. 
-
-* **vesa:** launches the graphical installer in VESA mode.
-
-* **utility:** launches the menu described in :ref:`Using the System Utilities Menu`. 
-
-* **reboot:** exits the installer and reboots the system.
-
-Use the up/down arrows to highlight a menu item then press the :kbd:`spacebar` to select the highlighted item. When finished, press :kbd:`Enter` to save the
-selection and move on to the next screen.
-
-If you keep the default selection of "install", the next screen will prompt to install a desktop or a server, as seen in :numref:`Figure %s: Select Desktop or Server <text2>`. 
+The next screen will prompt to install a desktop or a server, as seen in :numref:`Figure %s: Select Desktop or Server <text2>`. 
 
 .. _text2:
 
 .. figure:: images/text2.png
 
-If you choose to install a desktop, the KDE and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
+If you choose to install a desktop, the :ref:`Lumina Desktop` will be installed and configured for you. After the installation is complete, the
 system will boot into the usual post-installation configuration screens.
 
 If you choose to install a server, neither X nor a window manager will be installed, resulting in a command-line only TrueOS® installation. Once the server installation
@@ -81,32 +66,15 @@ The next screen, shown in :numref:`Figure %s: Select Disk Format <text5>`, is us
 
 .. figure:: images/text5.png
 
-The next screen, shown in :numref:`Figure %s: Select Boot Manager <text6>`, is used to select whether or not to use the GRUB boot manager.
+The next screen, shown in :numref:`Figure %s: Select Boot Manager <text6>`, is used to select the boot manager.
 
 .. _text6:
 
 .. figure:: images/text6.png
 
-The default is to use *GRUB* as it is required to support boot environments. If you select *none*, no boot manager will be installed and boot environments will not be available.
-
-The next screen is shown in :numref:`Figure %s: Full Disk Encryption <text7>`.
-
-.. _text7:
-
-.. figure:: images/text7.png
-
-This screen provides the option to encrypt the selected disk(s) with the FreeBSD `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli/qgit/>`_ framework. If
-you keep the default of *Yes* and press enter, you will be prompted to enter and confirm a passphrase. You will be prompted to enter this passphrase whenever
-you boot into PC-BSD®. This means that if someone else boots your computer, they will not be able to boot into PC-BSD® if they do not know your passphrase.
-**However, if you forget your passphrase, you will not be able to access PC-BSD® either.** For these reasons, it is important to choose a good passphrase
-that other users will not guess and which you will not forget. Passphrases are case-sensitive and can contain spaces. The passphrase should be memorable to
-you, such as a line from a song or piece of literature, but hard to guess in that people who know you should not be able to guess your favorite line from a
-song or piece of literature.
-
-.. warning:: be careful if you have changed your keyboard variant and layout. At this time, the GELI encryption framework only supports QWERTY passphrases, so
-   do not use any characters not found on a QWERTY keyboard in your passphrase. **DO NOT** set a passphrase with accents or special characters which are not
-   found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
-   will render that partition as inaccessible.
+The default is to use *BSD* as it provides native support for boot environments. While 
+*GRUB* provides some boot environment support, it may not be as up-to-date as the BSD support. It is recommended to only select this option if you are dual booting and the BSD boot manager
+does not find your other operating systems. If you select  *none*, no boot manager will be installed and boot environments will not be available.
 
 If you choose to install a server in the screen shown in :numref:`Figure %s: Select Desktop or Server <text2>`, the installer will next prompt for the following information: 
 
@@ -131,15 +99,6 @@ If you choose to install a server in the screen shown in :numref:`Figure %s: Sel
   address of the default gateway.
 
 * whether or not you want to enable SSH access to the server.
-
-For both a desktop and a server install, the next screen is shown in :numref:`Figure %s: Configure Remote Access to AppCafe <text8>`.
-
-.. _text8:
-
-.. figure:: images/text8.png
-
-If you would like to manage installed software or jails from your phone or a remote system, press enter to select the default option of *Yes*. If you only
-plan to use :ref:`AppCafe®` from the system you are installing, arrow over to *No* instead.
 
 The next screen, shown in :numref:`Figure %s: Review Installation Options <text9>`, provides the following options: 
 
@@ -215,7 +174,7 @@ Using the System Utilities Menu
 
 The text installer contains some handy tools for troubleshooting and fixing an existing PC-BSD® or TrueOS® installation.
 
-If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: Text Installation Menu <text1>`, it will open the screen shown in
+If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`, it will open the screen shown in
 :numref:`Figure %s: System Utilities Menu <util1>`. 
 
 .. _util1:
@@ -225,8 +184,9 @@ If you click the *utility* option in the main menu of the text based installer s
 This screen provides the following options: 
 
 * **shell:** this option is useful if you are troubleshooting a PC-BSD® system that no longer boots. It will open a shell with administrative access that
-  includes the base FreeBSD utilities. You can use this shell to try to determine what the problem is and, if necessary, to create a backup or copy essential
-  files to another system. When you are finished using the shell, type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`. 
+  includes the base FreeBSD utilities. Advanced users can use this shell to try to determine what the problem is, to create a backup or copy essential
+  files to another system, or edit configuration files with an editor such as `ee <https://www.freebsd.org/cgi/man.cgi?query=ee>`_ or :command:`vi`. When you are finished using the shell,
+  type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`.  
 
 * **zimport** this option will display the names of available ZFS pools. Type the name of an available pool and it will import it then display the available boot environments (BEs).
   Type the name of the desired BE and this option will mount it then offer to open a chroot shell so that you can view its contents and manipulate files as
@@ -236,7 +196,7 @@ This screen provides the following options:
 * **fixgrub:** this option can be used to restamp the GRUB boot loader should the installed system no longer boot. When this option is selected, it will first
   show the available ZFS pools and prompt you to input the name of the pool to import.
 
-* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: Text Installation Menu <text1>`. 
+* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
 
 .. index:: install
 .. _Install a Server:
@@ -262,12 +222,8 @@ For a server installation, using the PC-BSD® installer rather than the FreeBSD 
 .. note:: this section describes how to install a command-line only server using the PC-BSD® graphical installer. Alternately, you can also install a server
    :ref:`Using the TrueOS® CD` or :ref:`Using the Text Installer`.
 
-To perform a server installation, start the PC-BSD® installer as usual. When you get to the :ref:`System Selection Screen` of the installer, select "Server
-(TrueOS)", as shown in :numref:`Figure %s: Selecting to Install TrueOS® <server1>`.
-
-.. _server1:
-
-.. figure:: images/server1.png
+To perform a graphical server installation, start the PC-BSD® installation as usual. When you get to the :ref:`System Selection Screen` of the installer, select "TrueOS
+(Console based server)".
 
 Click "Next" to start the "Server Setup Wizard" then click "Next" again to see the screen shown in :numref:`Figure %s: Set the Root Password <server2>`.
 
@@ -316,29 +272,15 @@ Use the "Network Interface" drop-down menu to select from the following:
 
 * **IPv6-SLAAC:** will configure every active interface for DHCP and for IPv6 
 
-Alternately, select the device name for the interface that you wish to manually configure and input the IPv4 and/or IPv6 addressing information. When
-finished, click "Next" to proceed to the screen shown in :numref:`Figure %s: Configure Remote Access to AppCafe <server6>`. 
-
-.. _server6:
-
-.. figure:: images/server6.png
-
-If you would like to manage installed software or jails from your phone or a remote system, check the box "Enable AppCafe Remote". If you only plan to use
-:ref:`AppCafe®` from the system you are installing, click "Next" to instead continue to the next screen.
-
-If you check the box to configure remote access, input a username and password and select the port number to use when accessing AppCafe® from another device.
-When finished, click "Next" to access the screen shown in :numref:`Figure %s: Install Ports <server7>`.
+Alternately, select the device name for the interface that you wish to manually configure and input the IPv4 and/or IPv6 addressing information. When finished, click "Next" to access the
+screen shown in :numref:`Figure %s: Install Ports <server7>`.
 
 .. _server7:
 
 .. figure:: images/server7.png
 
 If you wish to install the FreeBSD ports collection, check the "Install ports tree" box then click "Finish" to exit the wizard and access the summary screen
-shown in :numref:`Figure %s: Review Installation Summary <install5>`.
-
-.. _install5:
-
-.. figure:: images/install5.png
+shown in :numref:`Figure %s: Disk Selection Screen <install5a>`.
 
 Click "Customize" if you wish to proceed to the  screen in order to configure the system's disk(s).
 
@@ -359,14 +301,10 @@ Using the TrueOS® CD
 PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your
 intent is to only install servers and you do not need a graphical installer, this ISO is convenient to use and quick to download.
 
-To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu, shown in :numref:`Figure %s: TrueOS® Boot Menu <cd1>`, indicates that this is a
-TrueOS® installation.
+To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu will be similar to the :numref:`Figure %s: Initial Boot Menu <install1b>`, but
+the logo will be for TrueOS instead of PC-BSD.
 
-.. _cd1:
-
-.. figure:: images/cd1.png
-
-The installer will finish booting and display the installation menu shown in :numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
+Once the system has finished booting into the installer, it will display the installation menu shown in :numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
 
 .. _cd2:
 
@@ -383,8 +321,8 @@ Dual Booting
 ============
 
 A PC-BSD® installation assumes that you have an existing primary partition to install into. If your computer has only one disk and PC-BSD® will be the only
-operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, care has to be
-taken that PC-BSD® is installed into the correct partition; otherwise, you may inadvertently overwrite an existing operating system.
+operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, be
+careful that PC-BSD® is installed into the correct partition or you may inadvertently overwrite an existing operating system.
 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 
@@ -413,7 +351,7 @@ PC-BSD® requires that its version of GRUB be installed as the primary boot-load
 **Using another boot-loader will break this critical functionality, and is strongly discouraged.**
 
 The GRUB boot-loader is capable of dual-booting most other systems, including Windows and Linux. In order to dual-boot PC-BSD® with other operating systems,
-you can add entries to the :file:`/usr/local/etc/grub.d/40_custom` file, which will be preserved across upgrades. For more information on the syntax used,
+you can add entries to the :file:`/usr/local/etc/grub.d/40_custom.dist` file, which will be preserved across upgrades. For more information on the syntax used,
 refer to the `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_. 
 
 PC-BSD® will attempt to identify other installed operating systems to add to the GRUB menu automatically. If you have an operating system which is not
@@ -537,7 +475,7 @@ complete descriptions for each variable.
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | installComponents=         | e.g. "amarok,firefox,ports"                                                    | components must exist in */PCBSD/pc-sysinstall/components/*; typically, *installPackages=* is used instead                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installPackages=           | e.g. "Xorg cabextract                                                          | list of traditional or pkgng packages to install; requires *pkgExt=*                                                                                                                                    |
+| installPackages=           | e.g. "Xorg cabextract                                                          | list of traditional or pkg packages to install; requires *pkgExt=*                                                                                                                                      |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | pkgExt=                    | ".txz" or ".tbz"                                                               | specify the extension used by the type of package to be installed                                                                                                                                       |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -670,8 +608,7 @@ is set to the type of media that you will be installing from.
 
 You may also need to add some extra files if you set the following variables in your custom configuration file: 
 
-* **installComponents=** make sure that any extra components you wish to install exist in :file:`extras/PBI/` (if they end in the :file:`.pbi` extension) or
-  :file:`extras/components/` (if they end in :file:`.tbz`) 
+* **installComponents=** make sure that any extra components you wish to install exist in :file:`extras/components/`
 
 * **runCommand=** make sure the command exists in the specified path 
 

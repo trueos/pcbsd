@@ -396,7 +396,6 @@ get_sys_bootmanager()
   SYSBOOTMANAGER="$ANS"
 
   # If we are not using grub / gpt, nothing left to ask
-  if [ "$SYSBOOTMANAGER" != "GRUB" ]; then return; fi
   if [ "$DISKFORMAT" = "MBR" ]; then return; fi
 
   # If we are using GRUB, ask if we want to do GELI encryption
@@ -580,14 +579,6 @@ get_root_pw()
        continue
     fi
     #   Check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
-    if [ $? -eq 0 ] ; then     
-    else   
-       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 40
-       rm /tmp/.vartemp.$$
-       continue      
-    fi
     ROOTPW="$ANS"
     get_dlg_ans "--passwordbox 'Confirm root password' 8 30"
     if [ -z "$ANS" ] ; then
@@ -617,14 +608,6 @@ get_user_pw()
        continue
     fi
     # Check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
-    if [ $? -eq 0 ] ; then      
-    else   
-       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 40
-       rm /tmp/.vartemp.$$
-       continue  
-    fi
     USERPW="$ANS"   
     get_dlg_ans "--passwordbox 'Confirm password' 8 40"
     if [ -z "$ANS" ] ; then
@@ -872,7 +855,7 @@ gen_pc-sysinstall_cfg()
    else
      echo "installType=FreeBSD" >>${CFGFILE}
    fi
-   echo "packageType=dist" >> ${CFGFILE}
+   echo "packageType=pkg" >> ${CFGFILE}
 
    if [ "`uname -m`" = "amd64" ] ; then
      echo "distFiles=base doc kernel lib32" >> ${CFGFILE}
@@ -942,9 +925,15 @@ gen_pc-sysinstall_cfg()
    echo "commitDiskLabel" >> ${CFGFILE}
    echo "" >> ${CFGFILE}
 
+   if [ "$SYSBOOTMANAGER" = "GRUB" ]; then
+     BLPKG="sysutils/grub2-pcbsd sysutils/grub2-efi"
+   else
+     BLPKG=""
+   fi
+
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
-     echo "installPackages=misc/pcbsd-base x11/lumina sysutils/pcbsd-appweb www/firefox emulators/linux_base-c6 www/linux-c6-flashplugin www/nspluginwrapper java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip editors/vim ${EXTRAPKGS}" >> ${CFGFILE}
+     echo "installPackages=misc/pcbsd-base x11/lumina www/firefox java/icedtea-web mail/thunderbird multimedia/vlc misc/pcbsd-meta-virtualbox editors/libreoffice archivers/unrar archivers/unzip editors/vim ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}
@@ -952,10 +941,8 @@ gen_pc-sysinstall_cfg()
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
      # TrueOS install
-     if [ "$APPCAFEINSTALL" = "YES" ] ; then
-       echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS}" >> ${CFGFILE}
-     else
-       echo "installPackages=misc/trueos-base ${EXTRAPKGS}" >> ${CFGFILE}
+     if [ "$SYSTYPE" = "server" ] ; then
+       echo "installPackages=misc/trueos-base ${EXTRAPKGS} ${BLPKG}" >> ${CFGFILE}
      fi
      echo "" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
@@ -990,17 +977,6 @@ gen_pc-sysinstall_cfg()
    # Are we enabling SSHD?
    if [ "$SYSSSHD" = "YES" ] ; then
      echo "runCommand=echo 'sshd_enable=\"YES\"' >> /etc/rc.conf" >> ${CFGFILE}
-   fi
-}
-   
-
-
-#ask if user wants to install appweb
-zans_appweb()
-{
-   APPCAFEINSTALL="NO"
-   if dialog --yesno "Do you want to install the AppCafe browser based package manager? This allows remote package / jail management."  8 60; then
-     APPCAFEINSTALL="YES"
    fi
 }
 
@@ -1063,9 +1039,6 @@ start_full_wizard()
      get_user_realname
      get_user_shell
      change_networking
-     zans_appweb
-  else
-     APPCAFEINSTALL="YES"
   fi
   gen_pc-sysinstall_cfg
 }

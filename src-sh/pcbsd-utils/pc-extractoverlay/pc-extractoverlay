@@ -2,51 +2,20 @@
 
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
-do_prune()
+do_i3dvorak()
 {
-  PRUNEFILE="/usr/local/share/pcbsd/conf/prune-port-files"
-  if [ ! -e "$PRUNEFILE" ] ; then return; fi
-        
-  while read pLine
-  do
-     if [ -z "${pLine}" ] ; then continue ; fi
-     echo $pLine | grep -q "^#"
-     if [ $? -eq 0 ] ; then continue ; fi
-
-     ls ${pLine} >/dev/null 2>/dev/null
-     if [ $? -eq 0 ] ; then
-        echo "Pruning: $pLine"
-        rm ${pLine}
-     fi
-  done <${PRUNEFILE}
-}
-
-do_ports_overlay()
-{
-
-  distFile="/usr/local/share/pcbsd/distfiles/port-overlay.txz"
-
-  # Cleanup any extra port cruft that doesn't place nice with PC-BSD
-  do_prune
-
-  # Since PKGNG requires this dir, but we can't ship an empty one
-  # with git, lets make sure it exists
-  if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
-     mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked
-  fi
-
-  echo -e "Extracting ports overlay data...\c"
-  cd /
-  tar xvm --no-same-owner -f ${distFile} 2>/dev/null
-  if [ $? -eq 0 ] ; then
-    echo -e "DONE"
-    post_extract_setup
-    exit 0
-  else
-    echo -e "FAILED"
-    post_extract_setup
-    exit 1
-  fi
+	distfile="/usr/local/share/pcbsd/distfiles/i3dvorak.txz"
+	cd /
+  	tar xvm --no-same-owner -f ${distFile} 2>/dev/null
+  	if [ $? -eq 0 ] ; then
+    		echo -e "DONE"
+    		post_extract_setup
+    		exit 0
+  	else
+    		echo -e "FAILED"
+    		post_extract_setup
+    		exit 1
+  	fi
 }
 
 do_desktop_overlay()
@@ -54,6 +23,12 @@ do_desktop_overlay()
   distFile="/usr/local/share/pcbsd/distfiles/desktop-overlay.txz"
   if [ "$sysinit" != "YES" ] ; then
     excludeOpt="-X /usr/local/share/pcbsd/conf/desktop-excludes"
+  fi
+
+  # Since PKGNG requires this dir, but we can't ship an empty one
+  # with git, lets make sure it exists
+  if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
+     mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked
   fi
 
   echo -e "Extracting desktop overlay data...\c"
@@ -79,6 +54,12 @@ do_server_overlay()
   distFile="/usr/local/share/pcbsd/distfiles/server-overlay.txz"
   if [ "$sysinit" != "YES" ] ; then
     excludeOpt="-X /usr/local/share/pcbsd/conf/server-excludes"
+  fi
+
+  # Since PKGNG requires this dir, but we can't ship an empty one
+  # with git, lets make sure it exists
+  if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
+     mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked
   fi
 
   echo -e "Extracting server overlay data...\c"
@@ -148,15 +129,6 @@ post_extract_setup()
     grep -q 'autoupdate' /usr/local/etc/anacrontab
     if [ $? -ne 0 ] ; then
        echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
-    fi
-
-    # Enable the pc-sysconfig daemon
-    grep -q 'pcsysconfig_enable' /etc/rc.conf.pcbsd 2>/dev/null
-    if [ $? -ne 0 ]; then
-       grep -q 'pcsysconfig_enable' /etc/rc.conf
-       if [ $? -ne 0 ]; then
-         echo "pcsysconfig_enable=\"YES\"" >> /etc/rc.conf
-       fi
     fi
 
     # Check if we need to copy pcbsd or trueos overlay
@@ -232,7 +204,7 @@ show_opts()
 usage: `basename $0` [options]
                 
 Options:
-  ports          -- Extract port overlay files
+  i3dvorak	 -- Extract i3 dvorak system config
   desktop        -- Extract desktop overlay files (Excluding user-configurable)
   server         -- Extract server overlay files (Excluding user-configurable)
   --sysinit      -- Overwrite user-configurable files (Used for first time init)
@@ -250,7 +222,7 @@ while [ $# -gt 0 ]; do
    case "$1" in
      desktop) target="desktop" ;;
       server) target="server" ;;
-       ports) target="ports" ;;
+       i3dvorak) target="i3dvorak" ;;
    --sysinit) sysinit="YES" ;;
            *) echo "Invalid option $1 specified!"
 	      show_opts
@@ -264,7 +236,7 @@ done
 case $target in
     desktop) do_desktop_overlay ;;
      server) do_server_overlay ;;
-      ports) do_ports_overlay ;;
+      portsi3dv) do_i3dvorak ;;
           *) show_opts ;;
 esac
 

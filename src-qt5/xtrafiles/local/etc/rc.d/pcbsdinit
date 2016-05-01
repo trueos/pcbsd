@@ -48,6 +48,9 @@ pcbsdinit_start()
 
 			# Create the wlanX device
 			ifconfig $WLAN create wlandev $wnic
+
+			echo "ifconfig_${WLAN}=\"WPA SYNCDHCP\"" >>/etc/rc.conf
+			echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
 		fi
 	done
 

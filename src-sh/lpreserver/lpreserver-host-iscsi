@@ -37,7 +37,7 @@ fi
 # Lets get the target name automatically
 if [ -e "/etc/ctl.conf" ] ; then
  tNum=0
- while : do
+ while : ; do
    grep -q "target${tNum}" /etc/ctl.conf
    if [ $? -ne 0 ] ; then
       targetName="target${tNum}"
@@ -178,7 +178,6 @@ if [ ! -e "/usr/local/etc/stunnel/stunnel.conf" ] ; then
   cat >/usr/local/etc/stunnel/stunnel.conf << EOF
 setuid = stunnel
 setgid = nogroup
-options = NO_SSLv2
 client = no
 
 [iscsi]

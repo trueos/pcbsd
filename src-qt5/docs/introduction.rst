@@ -5,7 +5,7 @@ Written by users of the PC-BSD® operating system.
 
 Version |version|
 
-Copyright © 2005 - 2015 The PC-BSD® Project.
+Copyright © 2005 - 2016 The PC-BSD® Project.
 
 Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of many individuals. If you are interested in assisting with the Handbook, refer to the documentation `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other PC-BSD® users.
 
@@ -104,7 +104,7 @@ PC-BSD® is essentially a customized installation of FreeBSD, not a forked deriv
 
 * The PC-BSD® boot menu supports boot environments, or snapshots of the operating system, and the PC-BSD® Update Manager automatically adds a new boot environment to the boot menu before updating the operating system or software. This means that if an update fails, you can reboot into the previous version of the operating system, before the update occurred.
 
-PC-BSD® started off as an independent project, but since October, 2006 PC-BSD® is financially backed and supported by the enterprise-class hardware solutions provider `iXsystems <https://www.ixsystems.com/>`_.
+PC-BSD® began as an independent project, but since October 2006, PC-BSD® is financially backed and supported by the enterprise-class hardware solutions provider `iXsystems <https://www.ixsystems.com/>`_.
 
 .. index:: features
 .. _Goals and Features:
@@ -119,7 +119,7 @@ PC-BSD® provides the following features:
 
 * **Automatically configured hardware:** video, sound, network, and other devices are automatically configured for you.
 
-* **Intuitive desktop interface:** PC-BSD® comes with a choice of :ref:`Desktops` to support your day-to-day computing needs.
+* **Intuitive desktop interface:** PC-BSD® comes with the :ref:`Lumina` desktop and additional desktop environments can be installed to support your day-to-day computing needs.
 
 * **Easy software management:** with :ref:`AppCafe®`, installing, upgrading, and uninstalling software is safe and easy.
 
@@ -155,63 +155,27 @@ What's New in |version|
 
 The following features or enhancements were introduced for PC-BSD® |version|:
 
-* Based on FreeBSD 10.2 which adds these `features <https://www.freebsd.org/releases/10.2R/relnotes.html>`_.
+* Based on FreeBSD 11.0 which adds these `features <https://www.freebsd.org/releases/11.0R/relnotes.html>`_.
 
-* CD-sized network installers are available for both the graphical and text installers. The installation looks the same for both, with the difference being the size of the
-  downloaded media and the fact that the installation files are retrieved over the network rather than from the installation media.
+* By default, the GRUB bootloader has been replaced by the FreeBSD bootloader, as it now provides both GELI and boot environment support. The "Use GRUB bootloader" checkbox has been added
+  to the "Customize" Disk Selection screens for users of dual-boot systems who prefer to use the GRUB boot loader.
 
-* Lumina has been updated to `0.8.6 <http://blog.pcbsd.org/2015/08/lumina-desktop-0-8-6-released/>`_.
+* Lumina is now the default window manager. Additional window managers can be installed using :ref:`AppCafe®`.
 
-* `iocage <https://github.com/iocage/iocage>`_ has replaced Warden as the back-end for jail management in :ref:`AppCafe®` and the "Warden" tab has been renamed to "Plugins". The
-  Warden graphical utility has been removed from Control Panel and the command line usage docs have been changed to describe how to use the :command:`iocage` command line utility.
+* The SysAdm™ client and server utilities have been added, creating powerful new user-friendly options for system management.
 
-* The default Serif/Sans Serif font is now `Noto <http://www.google.com/get/noto/>`_ instead of Dejavu.
+* :command:`freebsd-update` has been retired in favor of using :command:`pkg` for system updates.
 
-* The graphical installer now uses the `Droid <http://www.droidfonts.com/>`_ font.
+* The option to use the SCFB display driver has been added to the installation menu. This driver is suitable for newer UEFI laptops as it automatically detects native resolution and is a
+  good solution for newer Intel drivers, such as Broadwell, that have not been ported yet to FreeBSD. Before selecting this driver, check the BIOS and make sure the CSM module is disabled.
+  This driver does not support a dual-head configuration, such as an external port for presentations, or suspend and resume.
 
-* The installer now supports installing to free space. This means that you no longer need to temporarily format a partition after shrinking a drive when installing PC-BSD® in a
-  dual-boot scenario.
+* The "Customize" button has been removed from the :ref:`System Selection Screen` in order to reduce the size of the installation media. You can install additional software
+  post-installation, using :ref:`AppCafe®`.
   
-* The graphical installer now provides a shortcut to :ref:`Disk Manager`.
+* The "Boot to console (Disable X)" option has been added to the graphical boot menu.
 
-* Wine has been removed from the installer but can be installed afterwards using :ref:`AppCafe®`.
-
-* The "Domain Name" field has been added to the :ref:`Time Zone Selection Screen`.
-
-* The "Enable Optional Services" screen has been added to the post-configuration wizard. Currently, this screen allows you to enable the SSH service or to disable IPv6.
-
-* The "Tile Plugins" and "Cascade Plugins" entries have been added to the right-click menu of Lumina.
-
-* You can now create and manage more than two panels using the Lumina configuration utility.
-
-* The "Save Pkg List" option has been added to the "Configure" button of :ref:`AppCafe®`.
-
-* The "Enterprise (Long Term Support)" repository has been added to :menuselection:`AppCafe® --> Configure --> Repository Configuration`. This option is meant for
-  enterprise users that wish to only receive software updates which fix known security vulnerabilities.
-  
-* If you install or uninstall any software in AppCafe®, a "Status" tab will appear so that you can review the installation log.
-
-* The :menuselection:`System --> Branches` menu has been added to :ref:`Update Manager`. This can be used to change which software branch is used to track updates.
-
-* The **showeol** option has been added to :command:`pc-updatemanager`.
-
-* The "Allow Valid Users with UID under 1000" checkbox and "Additional Excluded Users" field have been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
-
-* The **probe-netdrives**,
-  **list-mountednetdrives**,
-  **mountnet**, and
-  **unmountnet** options have been added to :ref:`pc-sysconfig`.
-
-* The "Domain Name" field has been added to :menuselection:`Control Panel --> Network Configuration --> Network Configuration (Advanced)`.
-
-* The "Replication Server" screen has been removed from the :ref:`Life Preserver` initial configuration wizard and an option has been added to the last screen of the
-  wizard offering to open the advanced configuration options so that replication can be configured.
-
-* Life Preserver's "Local Snapshots" tab now allows you to create a list of datasets to exclude when creating snapshots.
-
-* Life Preserver's "Replication" tab now allows you to create a list of datasets to exclude when replicating to the remote server.
-
-* The "Reset Replication Password" option has been added to the :menuselection:`Life Preserver --> Snapshots` menu.
+* The graphical and command line versions of PBI Manager and Warden have been removed.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
@@ -322,7 +286,7 @@ common commands and what they are used for.
 +-----------------------------------+------------------------------------------------------------+
 | :command:`kldload <module>`       | load a kernel module for the current session               |
 +-----------------------------------+------------------------------------------------------------+
-| :command:`pbi_add -r <pbiname>`   | install software from the command line                     |
+| :command:`pkg install <pkgname>`  | install software from the command line                     |
 +-----------------------------------+------------------------------------------------------------+
 | :command:`sysctl hw.realmem`      | display hardware memory                                    |
 +-----------------------------------+------------------------------------------------------------+

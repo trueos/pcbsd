@@ -233,6 +233,7 @@ do
        echo "`clear`" >/dev/console
        echo "ERROR: Trying XORG automatic mode..." >/dev/console
     fi
+
   elif [ "${ATTEMPT}" = "4" ] ; then
 
     # Still failed, drop to VESA failsafe
@@ -240,6 +241,14 @@ do
     cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
     echo "`clear`" >/dev/console
     echo "Detected settings failed... Using failsafe VESA 1024x768 mode..." >/dev/console
+
+  elif [ "${ATTEMPT}" = "5" ] ; then
+
+    # Give the SCFB driver an attempt
+    rm /etc/X11/xorg.conf
+    cp ${PROGDIR}/cardDetect/XF86Config.scfb /etc/X11/xorg.conf
+    echo "`clear`" >/dev/console
+    echo "Trying the SCFB - UEFI Driver..." >/dev/console
 
   else
 

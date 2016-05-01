@@ -57,6 +57,7 @@ void MountTray::programInit()
     
   // Tie the left-click signal to open the context menu
   connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated()) );
+  
   //Connect the message clicked slot
   connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotPopupClicked()) );
   //Set the default Tray Icon (will change once tray menus are set)
@@ -92,9 +93,10 @@ void MountTray::programInit()
 }
 
 void MountTray::slotTrayActivated() {
+     if(trayIcon->contextMenu()->isVisible()){ trayIcon->contextMenu()->hide(); return;}
      UpdateDeviceMenu(true); //do the quick version
      //qDebug() << "Show Menu";
-     trayIcon->contextMenu()->popup( QPoint( trayIcon->geometry().x()+(trayIcon->geometry().width()/2), trayIcon->geometry().y() + (trayIcon->geometry().height()/2)  ) );
+    trayIcon->contextMenu()->popup(QCursor::pos());
 }
 
 
@@ -108,8 +110,13 @@ void MountTray::startupDevdProc(){
   }
 }
 
-void MountTray::newDevdMessage(){	
-  devdTimer->start(1500); //wait 1.5 seconds before checking for device changes
+void MountTray::newDevdMessage(){
+  //Verify that the new message involves a removable device
+  QStringList info = QString(devdProc->readAll()).split("\n");
+  //qDebug() << "Devd Message:" << info;
+  if(!info.filter("!system=GEOM ").isEmpty() || !info.filter("umass").isEmpty()){
+    devdTimer->start(500); //wait 0.5 seconds before checking for device changes (let it settle)
+  }
   return;
 }
 

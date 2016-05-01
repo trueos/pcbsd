@@ -29,7 +29,7 @@ fi
  
 case $1 in
     on )
-	linux_module=`kldstat | grep linux | awk '{print $5}'`
+	linux_module=`kldstat | grep linux | awk '{print $5}' | head -n 1`
 	if [ "$linux_module" != "linux.ko" ]; then
 	        if [ `whoami` != "root" ]; then
 		    echo "I need root permission for load linux kernel module!"

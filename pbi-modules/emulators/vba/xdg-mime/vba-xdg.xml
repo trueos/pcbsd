@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-  <mime-type type="application/x-vba">
-    <comment>Visual Boy Advance File</comment>
-    <glob weight="100" pattern="*.gba"/>
-    <glob weight="100" pattern="*.GBA"/>
- </mime-type>
-</mime-info>

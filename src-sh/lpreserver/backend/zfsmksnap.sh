@@ -17,7 +17,7 @@ if [ -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
 fi
 
-SNAPNAME="${2}-"
+SNAPNAME="${2}"
 if [ -z "${SNAPNAME}" ]; then
   exit_err "No snapshot name specified!"
 fi

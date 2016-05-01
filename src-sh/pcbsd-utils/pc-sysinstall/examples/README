@@ -269,7 +269,7 @@ Display less information during the installation
 
 The installer archive, if not using the defaults specified in conf/pc-sysinstall.conf
 
-# packageType=(tar, uzip, split, dist)
+# packageType=(tar, uzip, split, dist, pkg)
 
 The archive type we are extracting from when using dvd, usb or ftp
 

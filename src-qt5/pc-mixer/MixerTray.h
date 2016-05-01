@@ -77,6 +77,7 @@ private slots:
 	//  (double-tap on login)
 	void doneStarting(){
 	  starting = false;
+      timer->start();
 	}
 
 	void slotSingleInstance(){

@@ -29,6 +29,46 @@
 
 . ${BACKEND}/functions-mountoptical.sh
 
+# Do the package base installation
+start_extract_pkg()
+{
+  # Set the default ABI
+  ABI="FreeBSD:`uname -r | cut -d '.' -f 1`:`uname -m`"
+  export ABI
+
+  # Ugly hack to get distribution files on disk until pkg DTRT
+  if [ -e "${1}/packages/All/fbsd-distrib.txz" ] ; then
+    rc_halt "tar xvpf ${1}/packages/All/fbsd-distrib.txz -C ${FSMNT}"
+  fi
+
+  # Create some common mountpoints that pkgng doesn't do right now
+  for mpnt in dev compat mnt proc root var/run
+  do
+    if [ ! -d "${FSMNT}/${mpnt}" ] ; then
+      rc_halt "mkdir -p ${FSMNT}/${mpnt}"
+    fi
+  done
+
+  # Mount the packages into the chroot
+  rc_nohalt "mkdir -p ${FSMNT}/packages"
+  rc_halt "mount_nullfs ${1}/packages ${FSMNT}/packages"
+
+  # Do the package installation
+  for pkg in `ls ${FSMNT}/packages/All/FreeBSD-*`
+  do
+    inspkg=$(basename $pkg)
+    echo_log "pkg -c ${FSMNT} add /packages/All/$inspkg"
+    pkg -c ${FSMNT} add /packages/All/$inspkg
+    if [ $? -ne 0 ] ; then
+      exit_err "Failed installing $inspkg!"
+    fi
+  done
+
+  # Unmount packages
+  rc_halt "umount -f ${FSMNT}/packages"
+
+}
+
 # Performs the extraction of data to disk from FreeBSD dist files
 start_extract_dist()
 {
@@ -163,6 +203,7 @@ start_extract_uzip_tar()
       mount -o ro /dev/${DEVICE}.uzip ${CDMNT}${UZIP_DIR}
 
       rsync -avH --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'gbi' --exclude 'cdmnt-install' ${CDMNT}${UZIP_DIR} ${FSMNT}/
+      chmod 755 ${FSMNT}/
       if [ "$?" != "0" ]
       then
         umount -f ${CDMNT}${UZIP_DIR}
@@ -594,6 +635,8 @@ init_extraction()
       if [ "$PACKAGETYPE" = "dist" ] ; then
         INSFILE="${INSFILE}" ; export INSFILE
         start_extract_dist "$LOCALPATH"
+      elif [ "$PACKAGETYPE" = "pkg" ] ; then
+        start_extract_pkg "$LOCALPATH"
       else
         INSFILE="${LOCALPATH}/${INSFILE}" ; export INSFILE
         start_extract_uzip_tar

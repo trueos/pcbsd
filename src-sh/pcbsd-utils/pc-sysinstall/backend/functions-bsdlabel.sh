@@ -148,11 +148,11 @@ setup_zfs_mirror_parts()
       export ZFS_CLONE_DISKS
 
       echo "Setting up ZFS disk $_zvars" >>${LOGOUT}
-      init_gpt_full_disk "$_zvars" "$_tBL" >/dev/null 2>/dev/null
+      init_gpt_full_disk "$_zvars" "$_tBL"
 
       # If we are not using GRUB we need to add pmbr / gptzfsboot
-      if [ "$_tBL" != "GRUB" ] ; then
-        rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}" >/dev/null 2>/dev/null
+      if [ "$_tBL" != "GRUB" -a "$BOOTMODE" != "UEFI" ] ; then
+        rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}"
       fi
       # If GELI is enabled
       if [ "$ENC" = "ON" ] ; then
@@ -358,6 +358,7 @@ new_gpart_partitions()
     sleep 2
     # Use a trick from FreeBSD, create / destroy / create to remove any
     # backup meta-data which still may exist on the disk/slice
+    gpart destroy ${_wSlice} 2>/dev/null
     rc_halt "gpart create -s BSD ${_wSlice}"
     rc_halt "gpart destroy ${_wSlice}"
     rc_halt "gpart create -s BSD ${_wSlice}"
@@ -375,6 +376,7 @@ new_gpart_partitions()
     if [ "${_pType}" = "mbr" ] ; then
       # Use a trick from FreeBSD, create / destroy / create to remove any
       # backup meta-data which still may exist on the disk/slice
+      gpart destroy ${_wSlice} 2>/dev/null
       rc_halt "gpart create -s BSD ${_wSlice}"
       rc_halt "gpart destroy ${_wSlice}"
       rc_halt "gpart create -s BSD ${_wSlice}"

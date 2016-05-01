@@ -92,7 +92,7 @@ unmount_all_filesystems()
 
     if [ "${PARTFS}" = "SWAP" ]
     then
-      rc_nohalt "swapoff ${PARTDEV}${EXT}"
+      rc_nohalt "swapoff ${PARTDEV}${EXT}" >/dev/null 2>/dev/null
     fi
 
     # Check if we've found "/", and unmount that last
@@ -194,7 +194,7 @@ unmount_all_filesystems_failure()
 
     if [ "${PARTFS}" = "SWAP" ]
     then
-      rc_nohalt "swapoff ${PARTDEV}${EXT}"
+      rc_nohalt "swapoff ${PARTDEV}${EXT}" >/dev/null 2>/dev/null
     fi
 
     # Check if we've found "/", and unmount that last
@@ -330,31 +330,13 @@ setup_efi_boot()
     efip=`gpart show $gDisk | grep ' efi ' | awk '{print $3}'`
     EFIPART="${gDisk}p${efip}"
 
-    if [ -z "$DONEEFILABEL" ] ; then
-       # Label this sucker
-       rc_halt "glabel label efibsd ${EFIPART}"
-
-       # Save to systems fstab file
-       echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
-       DONEEFILABEL="YES"
-    fi
-
     # Mount the partition
     rc_nohalt "mkdir ${FSMNT}/boot/efi"
     rc_halt "mount -t msdosfs ${EFIPART} ${FSMNT}/boot/efi"
 
-    # Setup the loader.rc file
-    rc_nohalt "mkdir -p ${FSMNT}/boot/efi/boot"
-    cat > ${FSMNT}/boot/efi/boot/loader.rc << EOF
-unload
-set currdev=zfs:${ZPOOLNAME}/ROOT/${BENAME}:
-load /boot/kernel/kernel
-load /boot/kernel/zfs.ko
-autoboot
-EOF
     # Copy the .efi file
     rc_nohalt "mkdir -p ${FSMNT}/boot/efi/efi/boot"
-    rc_halt "cp ${FSMNT}/boot/loader.efi ${FSMNT}/boot/efi/efi/boot/BOOTx64.efi"
+    rc_halt "cp ${FSMNT}/boot/boot1.efi ${FSMNT}/boot/efi/efi/boot/BOOTx64.efi"
 
     # Cleanup
     rc_halt "umount ${FSMNT}/boot/efi"

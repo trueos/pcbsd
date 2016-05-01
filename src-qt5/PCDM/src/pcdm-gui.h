@@ -45,6 +45,7 @@ public:
     void progInit();
 
 private slots:
+    void slotScreensChanged();
     void slotStartLogin(QString,QString);
     void slotLoginSuccess();
     void slotLoginFailure();
@@ -53,11 +54,11 @@ private slots:
     void slotRestartComputer();
     void slotShutdownComputer();
     void slotClosePCDM();
+    void slotUpdateGUI();
     void slotChangeLocale();
     void slotChangeKeyboardLayout();
     void slotPushVirtKeyboard();    // Start xvkbd
     void slotLocaleChanged(QString);
-
     void LoadAvailableUsers();
 
 private:

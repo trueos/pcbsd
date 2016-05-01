@@ -72,3 +72,6 @@ net.graph.maxdata=65536
 loader_brand="pcbsd"
 loader_logo="pcbsd"
 loader_menu_title="Welcome to PC-BSD"
+
+# Enable Synaptics for touchpads
+hw.psm.synaptics_support="1"

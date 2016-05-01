@@ -11,8 +11,9 @@ you to fetch and install it. Say yes to the prompts to do so. Once it is finishe
 
 Instructions are given for both the port and the package as some software may not have a package. Try the pkg command first as it is faster. If the pkg
 command succeeds, you do not need to run the make command as the software is already installed; however if it fails, use the make command to install the
-software. If the software is already installed, the pkg command will indicate that the most recent version is already installed. PC-BSD users can also
-install the packages using AppCafe.
+software. If the software is already installed, the pkg command will indicate that the most recent version is already installed. 
+
+PC-BSD users can alternately install the pcbsd-toolchain package using AppCafe as it contains all of the necessary packages.
 
 ```
 portsnap fetch extract
@@ -20,6 +21,7 @@ pkg install devel/git (cd /usr/ports/devel/git/ && make install)
 pkg install textproc/py-sphinx (cd /usr/ports/textproc/py-sphinx/ && make install)
 pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphinxcontrib-httpdomain && make install)
 pkg install textproc/py-sphinx_numfig (cd /usr/ports/textproc/py-sphinx_numfig && make install)
+pkg install textproc/py-sphinx_wikipedia (cd /usr/ports/textproc/py-sphinx_wikipedia && make install)
 rehash
 ```
 

@@ -81,6 +81,7 @@ int runSingleSession(int argc, char *argv[]){
   Backend::readDefaultSysEnvironment(lang,kmodel,klayout,kvariant);
   //setenv("LANG", lang.toUtf8(), 0);
   lang = lang.section(".",0,0); //just in case it also had the encoding saved to the file
+  if(lang.isEmpty()){ lang = "en_US"; }
   setenv("LANG", lang.toUtf8(), 0);
   Backend::changeKbMap(kmodel,klayout,kvariant);
   //Check for the flag to try and auto-login
@@ -173,7 +174,9 @@ int runSingleSession(int argc, char *argv[]){
   //qDebug() << "AutoLogin Finished:" << QString::number(clock.elapsed())+" ms";
   if(!goodAL){
     // ------START THE PCDM GUI-------
-
+   retCode = -1;
+   while(retCode==-1){
+    retCode = 0;
     qDebug() << "Starting up PCDM interface";
     PCDMgui w;
 
@@ -194,6 +197,7 @@ int runSingleSession(int argc, char *argv[]){
 
     //Now start the event loop until the window closes
     retCode = a.exec();
+   }//end special retCode==-1 check (restart GUI)
   }  // end of PCDM GUI running
   //Wait for the desktop session to finish before exiting
     desktop.waitForSessionClosed(); 

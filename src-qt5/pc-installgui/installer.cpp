@@ -26,7 +26,6 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     haveWarnedSpace=false;
     force4K = false;
     defaultInstall = true;
-    forceBIOS="";
 
     connect(abortButton, SIGNAL(clicked()), this, SLOT(slotAbort()));
     connect(backButton, SIGNAL(clicked()), this, SLOT(slotBack()));
@@ -282,10 +281,14 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
     totalSize = totalSize - 110;
 
   // Setup some swap space
-  if ( totalSize > 30000 ) {
-    // 2GB if over 30GB of disk space, 512MB otherwise
+  if ( totalSize > 50000 ) {
+    // 4GB if over 50GB of disk space
+    swapsize = 4096;
+  } else if ( totalSize > 30000 ) {
+    // 2GB if over 30GB of disk space
     swapsize = 2048;
   } else {
+    // Minimum 512MB
     swapsize = 512;
   }
   totalSize = totalSize - swapsize;
@@ -498,25 +501,18 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->setWindowModality(Qt::ApplicationModal);
   if ( radioRestore->isChecked() )
     wDisk->setRestoreMode();
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, QString, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool, QString)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool)));
   wDisk->show();
   wDisk->raise();
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce, QString biosMode )
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce)
 {
 
   bootLoader=BL;
   zpoolName = zName; 
   force4K = zForce;
-  forceBIOS=biosMode;
   defaultInstall = false;
-
-  // Check if we are running in EFI mode
-  if ( forceBIOS == "efi" )
-    efiMode=true;
-  else
-    efiMode=false;
 
   // Save the new disk layout
   sysPartType=partType;
@@ -796,7 +792,7 @@ QStringList Installer::getGlobalCfgSettings()
   else
     tmpList << "installType=FreeBSD";
 
-  tmpList << "packageType=dist";
+  tmpList << "packageType=pkg";
 
   // Set the distFiles being used
   tmpList << "distFiles=" + distFiles;
@@ -1510,13 +1506,14 @@ QStringList Installer::getDeskPkgCfg()
    if ( radioDesktop->isChecked() ) {
      // Our default list of packages that makeup a desktop
      // This is always able to be changed by user post-install
-     pkgList << "misc/pcbsd-base" << "sysutils/pcbsd-appweb" << "x11/lumina";
+     pkgList << "misc/pcbsd-base" << "x11/lumina";
+
+     // If using GRUB, make sure the pkgs get loaded
+     if ( bootLoader == "GRUB" )
+       pkgList << "sysutils/grub2-pcbsd" << "sysutils/grub2-efi";
 
      // The default web-browser and plugins
      pkgList << "www/firefox" << "java/icedtea-web";
-
-     // Linux Compat stuff
-     pkgList << "emulators/linux_base-c6" << "www/linux-c6-flashplugin11" << "audio/linux-c6-alsa-plugins-oss" << "security/linux-c6-openssl-compat" << "www/nspluginwrapper";
 
      // The default mail client
      pkgList << "mail/thunderbird";
@@ -1544,7 +1541,7 @@ QStringList Installer::getDeskPkgCfg()
        while (!in.atEnd()) {
           QString line = in.readLine();
           if ( line.indexOf("NVIDIA Unified Driver") != -1 ) {
-            pkgList << "x11/nvidia-driver";
+            pkgList << "misc/pcbsd-meta-nvidia";
             break;
           }
        }     

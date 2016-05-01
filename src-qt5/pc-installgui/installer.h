@@ -47,7 +47,7 @@ private slots:
 
     // Disk slots
     void slotDiskCustomizeClicked();
-    void slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool, QString);
+    void slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool);
 
     // Slots for the installation
     void slotInstallProcFinished( int exitCode, QProcess::ExitStatus status);

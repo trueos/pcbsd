@@ -72,24 +72,6 @@ enable_dhcp_all
 # Enable networking
 /etc/rc.d/netif restart
 
-# Check if we are booting in LIVE or INSTALL mode
-if [ -e "/usr/pcbsd-live" ]; then
-
-  # Check if we should be going to the console instead of X directly
-  /sbin/sysctl kern.module_path | /usr/bin/grep "CONSOLE" >/dev/null 2>/dev/null
-  FOUND="$?"
-  if [ "$FOUND" = "0" ]
-  then
-    /root/PCBSDtext.sh
-    reboot -q
-    exit
-  fi
-
-  # We are running LIVE mode, start that script now
-  sh /root/PCBSDStartLive.sh
-  exit 0
-fi
-
 # Check if we have an auto-install directive
 if [ -e "/pc-autoinstall.conf" ]
 then
@@ -105,16 +87,8 @@ ln -s /memfs/.fluxbox /root/.fluxbox
 mkdir /tmp/.qt
 mkdir /tmp/xkb
 
-# Check if we should be going to the console instead of X directly
-kenv xconsole 2>/dev/null | grep -q "YES"
-if [ $? -eq 0 -o -e "/root/trueos-installonly" ]; then
-  /root/PCBSDtext.sh
-  reboot -q
-  exit
-fi
-
-# Now start xorg
-start_xorg
+# Run the text menu
+/root/PCBSDtext.sh
 
 # Check if we had a successful SysInstaller exit
 if [ -e "/root/.exitStatus" ] ; then
@@ -131,3 +105,5 @@ if [ -e "/root/.exitStatus" ] ; then
     fi
   fi
 fi
+
+reboot -q

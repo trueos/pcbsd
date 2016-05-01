@@ -11,13 +11,11 @@ This section discusses how to perform common tasks that were not discussed in th
 Java and Flash
 ==============
 
-The IcedTea-Web PBI provides an open source Java browser plugin which automatically works with the FireFox, Chromium, and Opera web browsers without any
-additional configuration. To install this PBI, search for "icedtea" within :ref:`AppCafe®`. 
+IcedTea-Web provides an open source Java browser plugin which automatically works with the FireFox, Chromium, and Opera web browsers without any
+additional configuration. To install this software, search for "icedtea" within :ref:`AppCafe®`. 
 
-PC-BSD® installs and configures the Adobe Flash player (version 11) plugin for you. This means that flash should "just work" when browsing the web. You will
-find several web browsers in the Web Browsers category of :ref:`AppCafe®`, including Firefox, Opera, and Chromium.
-
-If Adobe Flash does not seem to be working, running the following command as your regular user account should fix the problem::
+Version 11 of the Adobe Flash player is also available from :ref:`AppCafe®`. Once installed, flash should "just work" when browsing the web. If Adobe Flash does not seem to be working, 
+running the following command as your regular user account should fix the problem::
 
  flashpluginctl on
 
@@ -49,13 +47,12 @@ The options available in each tab and when to use them are described at the Adob
 Installing Custom Fonts 
 =======================
 
-PC-BSD® installs Microsoft TrueType fonts which include the Times New Roman, Courier New, Georgia, Trebuchet MS, Comic Sans MS Arial, Arial Black, Verdana,
-Andale Mono, and Impact fonts.
+PC-BSD® includes `Google Noto <http://www.google.com/get/noto/>`_ which provide multi-lingual Sans and Serif fonts.
 
 If you have a collection of fonts that you have downloaded or purchased, you can configure your PC-BSD® system to also use these fonts. Which utility you use
 depends upon which window manager you have logged into.
 
-.. note:: many fonts are available from :ref:`AppCafe®`. Check the "Search all available PBI and packages" box in the "App Search" tab to search for fonts. Any font installed using
+.. note:: many other fonts are available from :ref:`AppCafe®`. Check the "Search all available software" box in the "App Search" tab to search for fonts. Any font installed using
    AppCafe® should not require any additional configuration to "just work". 
 
 To install custom fonts within KDE, go to :menuselection:`System Settings --> Font Management`. In :numref:`Figure %s: Using KDE's Font Installer to Install Custom Fonts <font1>`, "All
@@ -94,14 +91,15 @@ Multimedia
 ==========
 
 PC-BSD® has been pre-configured to support most multimedia formats and makes it easy to install most open source media applications using :ref:`AppCafe®`.
-PC-BSD® supports both `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
+PC-BSD® supports both `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
 either sound server should work.
 
 If you install your web browser using AppCafe®, you should be able to play most media formats, including YouTube videos, Internet radio, and many trailer and
 movie sites.
 
 If people are blue in YouTube videos, this is due to a known issue in flash which Adobe hasn't fixed for open source players. To resolve this issue,
-right-click an area in the video, select "Settings", then uncheck the box "Enable hardware acceleration". Alternately, use the Minitube PBI to watch YouTube.
+right-click an area in the video, select "Settings", then uncheck the box "Enable hardware acceleration". Alternately, install `Minitube <http://flavio.tordini.org/minitube>`_ using
++:ref:`AppCafe®` and use it to watch YouTube.
 
 .. note:: if you happen to come across a file that you can not play in a web browser or media player, it is probably because it is in a proprietary format
    that requires a licensing fee or restricts distribution of the codec that is required to play that media format.
@@ -111,7 +109,7 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 * `aTunes <http://www.atunes.org/?page_id=5>`_: full-featured audio player and manager that can play mp3, ogg, wma, wav, flac, mp4 and radio streaming,
   allowing users to easily edit tags, organize music and rip audio CDs.
 
-* `Audacity <http://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
+* `Audacity <https://sourceforge.net/projects/audacity/?lang=en>`_: multilingual audio editor and recorder.
 
 * `DeaDBeeF <http://deadbeef.sourceforge.net/screenshots.html>`_: music player that supports most audio formats.
 
@@ -132,13 +130,12 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 Kodi
 ----
 
-`Kodi, formerly known as XBMC, <http://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
-formats. It can play CDs and DVDs from a disk or image file and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a
-personalized library with album covers, descriptions, and fan art. 
+`Kodi, formerly known as XBMC, <https://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
+formats, CDs and DVDs from a disk or image file, and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a personalized library with album covers,
+descriptions, and fan art. 
 
-During the installation of PC-BSD®, the installer provided an option to install Kodi. If you wish to install Kodi afterwards, use AppCafe®. Click the box "Search all
-available PBI and packages" and search for "pcbsd-meta-kodi". Once installed, an entry for "Media Center" should be added to the "Multimedia" section of the application menu
-of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
+To install Kodi, use AppCafe®. Click "App Search" and search for "pcbsd-meta-kodi". Once installed, an entry for "Media Center" should be added to the "Multimedia"
+section of the application menu of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
 
 If you have never used Kodi before, take some time to skim through the `Kodi Wiki Manual <http://kodi.wiki/>`_.
 The `Turn PC-BSD into a home theater forum post <https://forums.pcbsd.org/thread-19799.html>`_ contains a quick how-to for configuring Kodi.
@@ -152,8 +149,8 @@ PlexHome Theater
 `Plex Home Theater <https://plex.tv/>`_ is a centralized media playback system. The central Plex Media Server streams media to many Plex player Apps which are used to view
 your media library and watch shows. 
 
-During the installation of PC-BSD®, the installer provided an option to install PlexHome Theater. If you wish to install it afterwards, use AppCafe®. Click the box "Search all
-available PBI and packages" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
+To install PlexHome Theater, use AppCafe®. Click the box "Search all
+available software" and search for "plexhometheater". Once installed, an entry should be added to the "Multimedia" section of the application menu
 of your desktop. You can also start this application by typing :command:`plexhometheater` from a command prompt. 
 
 Once installed, an entry for "Plex Home Theater" will also be added to the login manager so that you can login directly to the home theater instead of a desktop.
@@ -168,34 +165,33 @@ You can now search for and watch media. To exit Plex, click the "<" then "Quit".
 Files and File Sharing
 ======================
 
-Depending upon which :ref:`Desktops` you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
+Depending upon which desktops you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
 logged into a specific window manager to use an installed file manager. For example, if KDE is installed, you can run its file manager from any window manager
 by typing :command:`dolphin`. KDE, GNOME, LXDE, and XFCE install their own file managers while most of the other desktops assume that you will install your
 favorite file manager. Table 9.4a summarizes the available file managers and indicates which desktop they are installed with. Some file managers can be
-installed independent of a desktop using :ref:`AppCafe®`  to install the PBI. Once a file manager is installed, type its name if you wish to run it from
-another desktop.
+installed independent of a desktop using :ref:`AppCafe®`. Once a file manager is installed, type its name if you wish to run it from another desktop.
 
 **Table 9.4a: Available File Managers**
 
-+---------------+--------------+--------------------------------------------------------------------+
-| File Manager  | Desktop/PBI  | Screenshots                                                        |
-+===============+==============+====================================================================+
-| dolphin       | KDE          | `<https://userbase.kde.org/Dolphin>`_                              |
-+---------------+--------------+--------------------------------------------------------------------+
-| emelfm2       | PBI          | `<http://emelfm2.net/wiki/ScreenShots>`_                           |
-+---------------+--------------+--------------------------------------------------------------------+
-| caja          | MATE         | `<http://mate-desktop.org/gallery/1.6/>`_                          |
-+---------------+--------------+--------------------------------------------------------------------+
-| mucommander   | PBI          | `<http://www.mucommander.com/screenshots.php>`_                    |
-+---------------+--------------+--------------------------------------------------------------------+
-| nautilus      | GNOME, PBI   | `<https://projects.gnome.org/nautilus/screenshots.html>`_          |
-+---------------+--------------+--------------------------------------------------------------------+
-| pcmanfm       | LXDE, PBI    | `<http://lxde.org/easy_fast_file_management_pcmanfm>`_             |
-+---------------+--------------+--------------------------------------------------------------------+
-| thunar        | XFCE, PBI    | `<http://docs.xfce.org/xfce/thunar/start>`_                        |
-+---------------+--------------+--------------------------------------------------------------------+
-| xfe           | PBI          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
-+---------------+--------------+--------------------------------------------------------------------+
++---------------+------------------+--------------------------------------------------------------------+
+| File Manager  | Desktop/AppCafe  | Screenshots                                                        |
++===============+==================+====================================================================+
+| dolphin       | KDE              | `<https://userbase.kde.org/Dolphin>`_                              |
++---------------+------------------+--------------------------------------------------------------------+
+| emelfm2       | AppCafe          | `<http://emelfm2.net/wiki/ScreenShots>`_                           |
++---------------+------------------+--------------------------------------------------------------------+
+| caja          | MATE             | `<http://mate-desktop.org/gallery/1.6/>`_                          |
++---------------+------------------+--------------------------------------------------------------------+
+| mucommander   | AppCafe          | `<http://www.mucommander.com/screenshots.php>`_                    |
++---------------+------------------+--------------------------------------------------------------------+
+| nautilus      | GNOME, AppCafe   | `<https://projects.gnome.org/nautilus/screenshots.html>`_          |
++---------------+------------------+--------------------------------------------------------------------+
+| pcmanfm       | LXDE, AppCafe    | `<http://lxde.org/easy_fast_file_management_pcmanfm>`_             |
++---------------+------------------+--------------------------------------------------------------------+
+| thunar        | XFCE, AppCafe    | `<http://docs.xfce.org/xfce/thunar/start>`_                        |
++---------------+------------------+--------------------------------------------------------------------+
+| xfe           | AppCafe          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
++---------------+------------------+--------------------------------------------------------------------+
 
 When working with files on your PC-BSD® system, save your own files to your home directory. Since most of the files outside of your home directory are used
 by the operating system and applications, you should not delete or modify any files outside of your home directory, unless you know what you are doing.
@@ -266,27 +262,27 @@ Table 9.4b summarizes the directory structure found on a PC-BSD® system. :comma
 PC-BSD® provides built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
 your network. If a desktop is installed, you do not have to be logged into that desktop in order to use that utility.
 
-Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with and whether or not a
-separate PBI is available, and a short description of how to access the available shares using that utility.
+Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with, whether or not it can be installed
+separately using :ref:`AppCafe®`, and a short description of how to access the available shares using that utility.
 
 **Table 9.4c: Utilities that Support Windows Shares**
 
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| **Utility**  | **Desktop/PBI**  | **How to Access Existing Shares**                                                                                        |
-+==============+==================+==========================================================================================================================+
-| dolphin      | KDE              | in the left frame, click on :menuselection:`Network --> Samba Shares`, then the Workgroup name; if the network requires  |
-|              |                  | a username and password to browse for shares, set this in :menuselection:`Control Panel --> System Settings --> Sharing` |
-|              |                  | while in KDE or type :command:`systemsettings` and click "Sharing" while in another desktop                              |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| konqueror    | KDE              | in the location bar, type *smb:/*                                                                                        |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| mucommander  | PBI              | click on :menuselection:`Go --> Connect to server --> SMB`; input the NETBIOS name of server, name of share, name of     |
-|              |                  | domain (or workgroup), and the share's username and password                                                             |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| nautilus     | GNOME, PBI       | click on :menuselection:`Browse Network --> Windows Network`                                                             |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
-| thunar       | XFCE, PBI        | in the left frame, click on :menuselection:`Network --> Windows Network`                                                 |
-+--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| **Utility**  | **Desktop/AppCafe**  | **How to Access Existing Shares**                                                                                        |
++==============+======================+==========================================================================================================================+
+| dolphin      | KDE                  | in the left frame, click on :menuselection:`Network --> Samba Shares`, then the Workgroup name; if the network requires  |
+|              |                      | a username and password to browse for shares, set this in :menuselection:`Control Panel --> System Settings --> Sharing` |
+|              |                      | while in KDE or type :command:`systemsettings` and click "Sharing" while in another desktop                              |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| konqueror    | KDE                  | in the location bar, type *smb:/*                                                                                        |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| mucommander  | AppCafe              | click on :menuselection:`Go --> Connect to server --> SMB`; input the NETBIOS name of server, name of share, name of     |
+|              |                      | domain (or workgroup), and the share's username and password                                                             |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| nautilus     | GNOME, AppCafe       | click on :menuselection:`Browse Network --> Windows Network`                                                             |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
+| thunar       | XFCE, AppCafe        | in the left frame, click on :menuselection:`Network --> Windows Network`                                                 |
++--------------+----------------------+--------------------------------------------------------------------------------------------------------------------------+
 
 .. index:: windows
 .. _Windows Emulation:
@@ -294,7 +290,7 @@ separate PBI is available, and a short description of how to access the availabl
 Windows Emulation
 =================
 
-`Wine <https://www.winehq.org/>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
+`Wine <https://wiki.winehq.org/Main_Page>`_ is an application that allows you to create a Windows environment for installing Windows software. This can be useful if your
 favorite Windows game or productivity application has not been ported to Linux or BSD.
 
 Wine is not guaranteed to work with every Windows application. If you are unsure if the application that you require is supported, search for it in the
@@ -341,8 +337,7 @@ Once the installation is complete, browse to the application's location. :numref
 Running Steam
 -------------
 
-Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. The necessary configuration and a list of tested games can be found
-on the `PC-BSD® Wine Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/emulators/i386-wine-devel#Tips_and_Tricks>`_. Video instructions can be found
+Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. Video instructions can be found
 at `Steam on PC-BSD - How to Get Wine Running 3D Games <https://www.youtube.com/watch?v=B04EuZ9hpAI>`_ and at
 `Steam on PCBSD 2 - Using Wine as a Streaming Client <http://blog.pcbsd.org/2014/12/steam-on-pcbsd-2-using-wine-as-a-streaming-client/>`_.
 
@@ -356,18 +351,18 @@ Occasionally it is useful to allow connections between desktop sessions running 
 both users will be able to see the error on the problematic system and either user can take control of the mouse and keyboard in order to fix the problem.
 Typically this is a temporary situation as providing access to one's computer allows a remote user the ability to both view and modify its settings.
 
-The `remote desktop protocol (RDP) <https://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
+The :wikipedia:`Remote Desktop Protocol` (RDP) can be used to make a connection to another computer. 
 Depending upon the operating system, you may have to first install or enable RDP software on the remote computer:
 
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
   the full version of RDP is included, remote access may or may not be enabled by default. If you have trouble connecting using RDP, do a web search for
   "remote desktop" and the name of the version of Windows you are using to find out how to configure its remote desktop settings. If you still can not
-  connect, you can instead download, install, and configure `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`_ server software on the system.
+  connect, you can instead download, install, and configure :wikipedia:`Virtual Network Computing` (VNC) server software on the system.
 
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
   repository for the operating system or use a web search to find out how to install and configure one of these applications on that operating system. If you
-  are connecting to another PC-BSD® system, use :ref:`AppCafe®`, check the box "Search all available PBI and packages", and search for "rdp" or "vnc".
+  are connecting to another PC-BSD® system, use :ref:`AppCafe®`, check the box "Search all available software", and search for "rdp" or "vnc".
 
 If there is a firewall on either system or a network firewall between the two systems, check that it allows connections to the TCP port required by the type
 of connection that you will be using: 
@@ -386,7 +381,7 @@ considered to be the client and will be initiating the connection, you do not ha
 Connecting with KRDC 
 --------------------
 
-KRDC can be used to initiate a connection request. This application can be installed using :ref:`AppCafe®` Check the "Search all available PBI and packages" box within the
+KRDC can be used to initiate a connection request. This application can be installed using :ref:`AppCafe®` Check the "Search all available software" box within the
 "App Search" tab to install this package.
 
 To launch this application, go to :menuselection:`Applications --> Internet --> Remote Desktop Client` within KDE or type :command:`krdc` at the command line
@@ -468,7 +463,7 @@ Using Desktop Sharing
 ---------------------
 
 If you wish another user to connect to your computer, the KDE Desktop Sharing application can be used to generate a connection invitation The :command:`krfb`
-application can be installed using :ref:`AppCafe®`. Check the "Search all available PBI and packages" box within "App Search" to search for this application.
+application can be installed using :ref:`AppCafe®`. Check the "Search all available software" box within "App Search" to search for this application.
 
 To launch this application within KDE, go to :menuselection:`Applications --> Internet --> Desktop Sharing` or type :command:`krfb` from the command prompt of
 any desktop. If you press :kbd:`F1` while in this application, it will open the
@@ -525,8 +520,8 @@ This section demonstrates how to configure and use both the PXE Boot Desktop Ser
 PXE Boot Desktop Server
 -----------------------
 
-A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <https://en.wikipedia.org/wiki/Diskless_node>`_ where
-each computer has a network interface card capable of `PXE <https://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
+A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a :wikipedia:`Diskless node` where
+each computer has a network interface card capable of :wikipedia:`Preboot Execution Environment` (PXE) booting. When a client boots from
 their network interface instead of their hard disk, they automatically connect to the PXE Boot Desktop Server and receive a login window. Once authenticated,
 they can use PC-BSD®, even if PC-BSD® is not installed on their own computer and even if their computer does not have a hard drive.
 
@@ -758,7 +753,7 @@ The security features built into PC-BSD® include:
   default, the first user you create during installation is added to the *wheel* group. You can use :ref:`User Manager` to add other users to this group. You
   can change the default :command:`sudo` configuration using the :command:`visudo` command as the superuser.
 
-* `AESNI <https://en.wikipedia.org/wiki/AES_instruction_set>`_ support is loaded by default for the Intel Core i5/i7 processors that support this
+* :wikipedia:`AES instruction set` (AESNI) support is loaded by default for the Intel Core i5/i7 processors that support this
   encryption set. This support speeds up AES encryption and decryption.
 
 * **Automatic notification of security advisories:** :ref:`Update Manager` will automatically notify you if an update is available as the result of a
@@ -862,7 +857,7 @@ More information about the options provided by Universal Access can be found at 
 KDE Accessibility Tools
 -----------------------
 
-To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search all available PBI and packages" in "App Search" and search for the "kdeaccessibility" package.
+To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search all available software" in "App Search" and search for the "kdeaccessibility" package.
 
 The KDE-Accessibility component installs the following software: 
 

@@ -36,7 +36,7 @@ QStringList LPBackend::listPoolDatasets(QString pool){
 }
 
 QStringList LPBackend::listDatasets(){
-  QString cmd = "lpreserver listcron snap";
+  QString cmd = "lpreserver cronsnap list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -51,7 +51,7 @@ QStringList LPBackend::listDatasets(){
 }
 
 QStringList LPBackend::listScrubs(){
-  QString cmd = "lpreserver listcron scrub";
+  QString cmd = "lpreserver cronscrub list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -94,7 +94,7 @@ QStringList LPBackend::listSnapshots(QString dsmountpoint){
 }
 
 QStringList LPBackend::listLPSnapshots(QString dataset, QStringList &comments){
-  QString cmd = "lpreserver listsnap "+dataset;
+  QString cmd = "lpreserver snapshot list "+dataset;
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -159,23 +159,23 @@ bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   else{ freq = "auto"; }
   
   //Create the command
-  QString cmd = "lpreserver cronsnap "+dataset+" start "+freq;
+  QString cmd = "lpreserver cronsnap start "+dataset+" "+freq;
   if(freq != "auto"){ cmd.append(" "+QString::number(numToKeep) ); } //also add the number to keep
-  //qDebug() << "Lpreserver Command:" << cmd;
+  qDebug() << "Lpreserver Command:" << cmd;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::removeDataset(QString dataset){
-  QString cmd = "lpreserver cronsnap "+dataset+" stop";
+  QString cmd = "lpreserver cronsnap stop "+dataset;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
-  QString cmd = "lpreserver listcron snap";
+  QString cmd = "lpreserver cronsnap list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
@@ -225,21 +225,21 @@ bool LPBackend::setDatasetExcludes(QString pool, QString type, QStringList list)
 void LPBackend::newSnapshot(QString dataset, QString snapshotname, QString snapshotcomment){
   //This needs to run externally - since the snapshot is simply added to the queue, and the replication
   //   afterwards may take a long time.
-  QString cmd = "lpreserver mksnap " + dataset + " " + snapshotname.replace(" ", "") + " \"" + snapshotcomment +"\"";
+  QString cmd = "lpreserver snapshot create " + dataset + " " + snapshotname.replace(" ", "") + " \"" + snapshotcomment +"\"";
   QProcess::startDetached(cmd);
    
   return;
 }
 
 bool LPBackend::removeSnapshot(QString dataset, QString snapshot){
-  QString cmd = "lpreserver rmsnap "+dataset +" "+snapshot;
+  QString cmd = "lpreserver snapshot remove "+dataset +" "+snapshot;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
-  QString cmd = "lpreserver revertsnap "+dataset +" "+snapshot;
+  QString cmd = "lpreserver snapshot revert "+dataset +" "+snapshot;
   int ret  = LPBackend::runCmd(cmd);
    
   return (ret == 0);
@@ -251,12 +251,12 @@ bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
 
 bool LPBackend::setupScrub(QString dataset, int time, int day, QString schedule){
   //Create the command
-  QString cmd = "";
-  if(schedule == "daily"){
-    cmd = "lpreserver cronscrub "+dataset+" start "+schedule+"@"+QString::number(time);
-  }
-  if((schedule == "weekly") || (schedule == "monthly")){
-    cmd = "lpreserver cronscrub "+dataset+" start "+schedule+"@"+QString::number(day)+"@"+QString::number(time);
+  QString cmd = "lpreserver cronscrub start "+dataset+" ";
+  if(schedule == "daily"){ cmd.append(schedule+"@"+QString::number(time) ); }
+  else if((schedule == "weekly") || (schedule == "monthly")){
+    cmd.append(schedule+"@"+QString::number(day)+"@"+QString::number(time));
+  }else{
+    cmd.append(QString::number(day)); //a set number of days
   }
   int ret = LPBackend::runCmd(cmd);
   qDebug() << "Lpreserver Command:" << cmd;
@@ -264,7 +264,7 @@ bool LPBackend::setupScrub(QString dataset, int time, int day, QString schedule)
 }
 
 bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedule){
-  QString cmd = "lpreserver listcron scrub";
+  QString cmd = "lpreserver cronscrub list";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
@@ -286,6 +286,11 @@ bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedul
 	schedule = "monthly";
         day = sch.section(" @ ",1,1).simplified().toInt();
         time = sch.section(" @ ",2,2).simplified().toInt();
+      } 
+      else{
+        schedule = "days";
+	day = sch.section("every",1,1).section("days",0,0).simplified().toInt();
+	time = 0;
       }
       ok=true;
       break;
@@ -296,7 +301,7 @@ bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedul
 }
 
 bool LPBackend::removeScrub(QString dataset){
-  QString cmd = "lpreserver cronscrub "+dataset+" stop";
+  QString cmd = "lpreserver cronscrub stop "+dataset;
   int ret = LPBackend::runCmd(cmd);
 
   return (ret == 0);
@@ -309,9 +314,6 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   QString stime = "sync"; //synchronize on snapshot creation (default)
   if(time >= 0 && time < 24){
      stime = QString::number(time);
-     // Needs 0 in front of single digits
-     if ( stime.length() == 1)
-        stime = "0" + stime;
   } //daily at a particular hour (24 hour notation)
   else if(time == -60){ stime = "hour"; }
   else if(time == -30){ stime = "30min"; }
@@ -320,6 +322,7 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   
   
   QString cmd = "lpreserver replicate add "+remotehost+" "+user+" "+ QString::number(port)+" "+dataset+" "+remotedataset+" "+stime;
+  //qDebug() << " Replicate add command: " << cmd;
   int ret = LPBackend::runCmd(cmd);
   
   return (ret == 0);

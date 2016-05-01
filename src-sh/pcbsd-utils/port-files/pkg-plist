@@ -5,7 +5,6 @@ bin/disable-tor-mode
 bin/enable-tor-mode
 bin/pbreg
 bin/pc-autoupdate
-bin/pc-pkg
 bin/pc-extractoverlay
 bin/pc-updatemanager
 bin/pc-fbsdupdatecheck
@@ -25,7 +24,6 @@ bin/pc-runxgui
 bin/pc-checkxdisplay
 bin/pc-installdialog
 bin/pc-sysconfig
-bin/pc-sysconfig-daemon
 bin/pc-systemflag
 bin/personacrypt
 bin/restamp-grub
@@ -108,7 +106,6 @@ share/pcbsd/conf/pbi-mirror
 share/pcbsd/conf/pkg-mirror
 share/pcbsd/conf/iso-mirror
 share/pcbsd/conf/update-mirror
-share/pcbsd/conf/prune-port-files
 share/pcbsd/conf/desktop-excludes
 share/pcbsd/conf/server-excludes
 share/pcbsd/conf/loader.conf.pcbsd
@@ -119,7 +116,6 @@ share/pcbsd/conf/rc.conf.pcbsd
 share/pcbsd/conf/smb4.conf
 share/pcbsd/conf/torrc
 share/pcbsd/distfiles/desktop-overlay.txz
-share/pcbsd/distfiles/port-overlay.txz
 share/pcbsd/distfiles/server-overlay.txz
 share/pcbsd/pc-xdgutil/applications.menu
 share/pcbsd/pc-xdgutil/xfce-applications.menu
@@ -212,6 +208,8 @@ etc/pc-activedirectory.conf
 etc/pc-ldap.conf
 etc/pcupdate.d/post/README
 etc/pcupdate.d/pre/README
+etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+etc/pkg/repos/pcbsd.conf.dist
 etc/rc.activedirectory
 etc/rc.ldap
 etc/rc.d/pc-activedirectory
@@ -220,7 +218,6 @@ etc/rc.d/pc-kinit
 etc/rc.d/pc-nsswitch
 etc/rc.d/pc-pam
 etc/rc.d/pc-samba
-etc/rc.d/pc-sysconfig
 etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
@@ -229,3 +226,4 @@ etc/fonts/local.conf
 man/man1/pc-systemflag.1.gz
 man/man8/pc-sysinstall.8.gz
 man/man8/pc-sysconfig.8.gz
+man/man8/personacrypt.8.gz

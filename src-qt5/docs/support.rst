@@ -17,7 +17,7 @@ reporting problems you encounter while using PC-BSD®.
 
 If you have a spare system or virtual machine, you can also download and try out the latest release candidate snapshots. These versions are still in testing
 and have not been officially released yet. Having as many people as possible using PC-BSD® on many different hardware configurations assists the Project in
-finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <http://blog.pcbsd.org/>`_ is a good way to keep
+finding and fixing bugs. This makes using PC-BSD® better for everyone. Subscribing to the `PC-BSD® blog <https://blog.pcbsd.org/>`_ is a good way to keep
 up-to-date on the availability of testing snapshots and any major bugs that affect users.
 
 If becoming a tester interests you, subscribe to the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_. As new testing versions become
@@ -27,7 +27,8 @@ the subjects being discussed on the testing mailing list.
 
 Anyone can become a beta tester. Follow these tips so that you can accurately describe your findings so they can be fixed as soon as possible: 
 
-* Before you :ref:`Report a bug`, search the testing mailing list to see if anyone else has reported a similar problem.
+* Before you :ref:`Report a bug`, skim through the archives of the `testing mailing list <http://lists.pcbsd.org/mailman/listinfo/testing>`_ to see if anyone else has reported a similar
+  problem.
 
 * When reporting a new issue, use a descriptive subject that includes the error and the version of PC-BSD®. Ideally, the subject is short (8 words or less)
   and contains key words about the error. An example would be "AppCafe on 10.2-RELEASE-p1 fails to create jail". 
@@ -68,7 +69,7 @@ updates that affect translators.
 Interface Translation
 ---------------------
 
-PC-BSD® uses `Pootle <https://en.wikipedia.org/wiki/Pootle>`_ for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
+PC-BSD® uses :wikipedia:`Pootle` for managing localization of the menu screens used by the installer and the PC-BSD® utilities.
 Pootle makes it possible to find out if your native language has been fully localized for PC-BSD®. Pootle also makes it easy for users to check and submit
 translated text as it provides a web editor and commenting system. This means that translators can spend their time making and reviewing translations rather
 than learning how to use a translation tool.
@@ -167,23 +168,24 @@ These instructions are for a PC-BSD® system::
  sudo pkg install pcbsd-toolchain
  rehash
  git clone git://github.com/pcbsd/pcbsd.git
- cd pcbsd/src-qt5/doc 
- make i18n
+ cd pcbsd/src-qt5/docs 
+ sudo make i18n
  make html
  ls _build
- doctrees                html-es                 html-uk                 pcbsd-handbook-i18n.txz
- html                    html-fr                 locale
- html-de                 html-pt_BR              locale-po
+ doctrees                html-es                 html-tr  		pcbsd-handbook-i18n.txz               
+ html                    html-fr                 html-uk
+ html-da		 html-id		 locale
+ html-de                 html-pt_BR        	 locale-po     
 
  
-This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), German, Spanish, French,
-Brazilian Portuguese, and UK English. To update the HTML at a later time::
+This will make an HTML version of the Guide for each of the available translations. In this example, translations are available for English (in :file:`html`), Danish, German, Spanish,
+French, Indonesian, Brazilian Portuguese, Turkish, and UK English. To update the HTML at a later time::
 
  cd ~/pcbsd
  git pull
- cd src-qt5/doc 
- make i18n
- make html
+ cd src-qt5/docs 
+ sudo make i18n
+ sudo make html
 
 .. index:: translations
 .. _Website Translation:
@@ -195,11 +197,7 @@ If you are interested in translating the PC-BSD® website, send an email to the
 `translations mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_. Someone will introduce you to the webmaster who will get you started on
 website translation.
 
-Currently, the following translated websites are available: 
-
-* `French <http://www.pcbsd.org/fr/>`_
-
-* `Spanish <http://www.pcbsd.org/es/>`_
+Currently, the the website is being translated to several languages, including: Dutch, French, German, Polish, Spanish, Swedish, and Turkish.
 
 .. index:: development
 .. _Become a Developer:
@@ -234,7 +232,7 @@ This will create a directory named :file:`pcbsd/` which contains the local copy 
 repository, run :command:`git pull` within the :file:`pcbsd` directory.
 
 PC-BSD® graphical applications use Qt version 5 and their source is located in :file:`pcbsd/src-qt5/`. In order to compile the applications in this
-directory, install the "PC-BSD Build Toolchain" PBI using :ref:`AppCafe®`. To instead install this PBI from the command line, type :command:`pkg install pcbsd-toolchain`.
+directory, install the "PC-BSD Build Toolchain" package using :ref:`AppCafe®`. To instead install this software from the command line, type :command:`pkg install pcbsd-toolchain`.
 
 Most of the PC-BSD® source code is divided into two sub-categories: 
 
@@ -256,10 +254,10 @@ To compile the graphical utilities::
 
  make
 
-Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://wiki.qt.io/Category:Tools::QtCreator>`_ PBI is a full-featured IDE designed
+Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://wiki.qt.io/Category:Tools::QtCreator>`_ application is a full-featured IDE designed
 to help new Qt users get up and running faster while boosting the productivity of experienced Qt developers.
 `Qt Designer <http://doc.qt.io/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
-other IDE functionality. To install this package, check the "Search all available PBI and packages" in the "App Search" tab of AppCafe® and search for "qt5-designer".
+other IDE functionality. To install this package, check the "Search all available software" in the "App Search" tab of AppCafe® and search for "qt5-designer".
 Alternately, install it using :command:`pkg install qt5-designer`.
 
 If you plan to submit changes so that they can be included in PC-BSD®, fork the repository using the instructions in
@@ -378,27 +376,6 @@ Developers will also find the following resources helpful:
 
 * `C++ Tutorials <http://www.cplusplus.com/doc/tutorial/>`_
 
-.. index:: development
-.. _Make Minor Modifications to a PBI Module:
-
-Make Minor Modifications to a PBI Module
-========================================
-
-If you have a GitHub account and are logged in, you can contribute minor PBI changes to the
-`pbi-modules repository <https://github.com/pcbsd/pcbsd/tree/master/pbi-modules>`_ using a web browser. If you do not have a GitHub account,
-`create one <https://github.com/>`_ using a valid email address as you will need to confirm your email address.
-
-For example, to add a screenshot for an application, upload the screenshot file to a publicly accessible site, then add the URL to the screenshot in between
-the quotes of the *PBI_SCREENSHOTS=""* line in the :file:`pbi.conf` file for that module. Or, to add a similar application, put the package category and
-package name in between the *PBI_PLUGINS=""* line in the :file:`pbi.conf` file for that module. As an example, refer to the
-`pbi.conf for the www/firefox PBI module <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. More information about the
-available :file:`pbi.conf` variables can be found in Table 8.1a. 
-
-To make the edit, click on the :file:`pbi.conf` file for the module, click the "Edit" button, make the change, then click the "Commit changes" button. This
-will issue a "git pull" request which will be reviewed by a developer who will either approve it or contact you if more information about the edit is needed.
-Once the request is approved, you will receive an email about the approval and the change will appear in :ref:`AppCafe®` when the next package set becomes
-available. How long that takes depends upon whether the user's system is set to use the PRODUCTION or EDGE package set.
-
 .. index:: advocacy
 .. _Purchase PC-BSD® Swag:
 
@@ -408,7 +385,7 @@ Purchase PC-BSD® Swag
 While PC-BSD® is free, some users may wish to purchase media or other items to show their support for the PC-BSD® Project. PC-BSD® items are available from
 the following websites: 
 
-* `FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
+* `FreeBSD Mall <https://www.freebsdmall.com/cgi-bin/fm/scan/fi=prod_bsd/tf=list_order/sf=sku/sf=title/sf=category/se=pc-bsd?id=B3TkJm7G&mv_pc=5>`_: sells
   PC-BSD® DVDs and subscriptions, stickers, and apparel. 
 
 * Amazon: sells The Definitive Guide to PC-BSD® (hard copy and Kindle formats) as well as the Kindle versions of the PC-BSD® Handbook. Items available for

@@ -27,9 +27,10 @@ private slots:
    void slotShowKey();
 
 private:
-
+    QString ssid;
 signals:
     void saved(QString, QString, bool);
+
 
 } ;
 #endif // NETKEY_H

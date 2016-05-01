@@ -104,7 +104,8 @@ exit_err()
   echo "EXITERROR: ${1}" >>$LOGOUT
 
   # Check if we need to unmount any file-systems after this failure
-  unmount_all_filesystems_failure
+  echo "Cleaning up..."
+  unmount_all_filesystems_failure >/dev/null 2>/dev/null
 
   echo "For more details see log file: $LOGOUT"
 
