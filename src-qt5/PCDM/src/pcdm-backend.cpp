@@ -435,7 +435,7 @@ bool Backend::writeFile(QString fileName, QStringList contents){
 }
 
 
-//****** PRIVATE FUNCTIONS ******
+// ****** PRIVATE FUNCTIONS ******
 
 void Backend::loadXSessionsData(){
   //Clear the current variables
@@ -461,7 +461,6 @@ void Backend::loadXSessionsData(){
     if(!tmp.isEmpty()){
       //Complete file paths if necessary
       //if(!tmp[0].startsWith("/")){ tmp[0] = "/usr/local/bin/"+tmp[0]; }
-      if(!tmp[3].startsWith("/")&&!tmp[3].startsWith(":")&&!tmp[3].isEmpty()){ tmp[3] = xIconDir+tmp[3]; }
       if(!tmp[4].startsWith("/") && !QFile::exists(tmp[4])){ 
 	for(int p=0; p<paths.length(); p++){
 	  if(QFile::exists(paths[p]+"/"+tmp[4])){
@@ -478,7 +477,19 @@ void Backend::loadXSessionsData(){
 	instXCommentList << tmp[2];
 	instXDEList << tmp[5]; //Non-localized name of the DE
 	//Check to make sure we have a valid icon
-	if(!tmp[3].isEmpty() && !QFile::exists(tmp[3]) ){ tmp[3] = ""; }
+	//if(!tmp[3].isEmpty() && !QFile::exists(tmp[3]) ){
+        if( QFile::exists(xIconDir+tmp[3]) ){ tmp[3] = xIconDir+tmp[3]; }
+        else if( QFile::exists(xIconDir+tmp[3]+".png") ){ tmp[3] = xIconDir+tmp[3]+".png"; }
+        else{
+          //Try to turn this into a valid icon path
+         QDir dir("/usr/local/share/pixmaps");
+         QStringList found = dir.entryList(QStringList() << tmp[3]+".*", QDir::Files, QDir::NoSort);
+         if(found.isEmpty()){ found = dir.entryList(QStringList() << tmp[3]+"*", QDir::Files, QDir::NoSort); }
+         if(found.isEmpty()){ found = dir.entryList(QStringList() << "*"+tmp[3]+"*", QDir::Files, QDir::NoSort); }
+         if(!found.isEmpty()){ tmp[3] = dir.filePath(found.first()); }
+	   else{  tmp[3] = ""; }
+       }
+      //}
 	instXIconList << tmp[3];
 	Backend::log( "PCDM: Found xsession: " + deFiles[i].section("/",-1)+": "+tmp.join(" - ") );
       }
@@ -620,6 +631,7 @@ void Backend::readSystemUsers(bool directfile){
 }
 
 void Backend::readSystemLastLogin(){
+    lastDE="Lumina-DE.desktop"; //PC-BSD default desktop (use if nothing else set)
     if(!QFile::exists(DBDIR+"lastlogin")){
       lastUser.clear();
       Backend::log("PCDM: No previous login data found");
@@ -631,7 +643,7 @@ void Backend::readSystemLastLogin(){
       }else{
         QTextStream in(&file);
         lastUser= in.readLine();
-	lastDE= in.readLine();
+	  lastDE= in.readLine();
         file.close();
       }
     }  
@@ -678,5 +690,3 @@ void Backend::writeUserLastDesktop(QString user, QString desktop){
     file2.close();
   }
 }
-
-
