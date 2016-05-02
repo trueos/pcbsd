@@ -35,7 +35,7 @@ The next screen will prompt to install a desktop or a server, as seen in :numref
 
 .. figure:: images/text2.png
 
-If you choose to install a desktop, the Lumina and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
+If you choose to install a desktop, the :ref:`Lumina Desktop` will be installed and configured for you. After the installation is complete, the
 system will boot into the usual post-installation configuration screens.
 
 If you choose to install a server, neither X nor a window manager will be installed, resulting in a command-line only TrueOS® installation. Once the server installation
