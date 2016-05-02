@@ -12,7 +12,7 @@
 IMAGE_DIR=./  #location of all/most image files for this theme ("./" = current directory)
 
 #### Images (relative to IMAGE_DIR) ####
-BACKGROUND_IMAGE=background.jpg  	# will stretch to fill the screen
+BACKGROUND_IMAGE=background.png  	# will stretch to fill the screen
   BACKGROUND_DISABLE=FALSE		# Flag to disable using a background image
 
 HEADER_IMAGE=banner.png 	# Image to be displayed as a window header
@@ -79,50 +79,50 @@ ADDSPACER=horizontal::[2,2]
 # NOTE: Use point sizes (pt) for fonts so that they scale properly according to screen size!!
 # ----------
 APP_STYLESHEET_START
-QToolBar{ background-color: rgba(253,253,255,100); }
-QWindow{ background-color: white; color: black; }
+QToolBar{ background-color: rgba(0,0,0,100); color: white; }
+QWindow{ background-color: rgba(0,0,0,100); color: white; }
 QWidget{
 	font-size: 12pt;
 	font-family: Caladea;
 }
 QListWidget{
 	font-size: 14pt;
-	color: black;
-	background: rgba(253,253,253,180);
+	color: white;
+	background: rgba(0,0,0,100); color: white; }
 	border: 1px solid grey;
 	border-radius: 5px;
 }
 QComboBox{
-	color: black;
-	background: rgba(253,253,253,180);
+        color: white;
+        background: rgba(0,0,0,100);
 }
 QComboBox QAbstractItemView{
-	color: black;
-	background: rgba(253,253,253,180);
+        color: white;
+        background: rgba(0,0,0,100);
 }
-QToolButton{ background-color: transparent; border: none; }
+QToolButton{ background-color: transparent; border: none; color: white; }
 QToolButton:hover{ background-color: transparent; border: 1px solid grey; border-radius: 5px; }
-QGroupBox{ 
-	background-color: rgba(253,253,255,245); 
-	border: 1px solid grey; 
-	border-radius: 5px;
-	padding: 15px;
+QGroupBox{
+        background-color: rgba(0,0,0,100);
+        border: 1px solid rgba(0,0,0,100);
+        border-radius: 5px;
+        padding: 15px;
 }
-QGroupBox::title{ 
-	background-color: rgba(253,253,255,150); 
-	border: 1px solid grey;
-	border-radius: 5px;
-	subcontrol-position: top center;
-	color: black;
+QGroupBox::title{
+        background-color: rgba(0,0,0,100);
+        border: 1px solid transparent;
+        border-radius: 5px;
+        subcontrol-position: top center;
+        color: white;
 }
-QGraphicsView{ 
-	background: rgba(253,253,253,180); 
-	color: black; 
-	border: 1px solid grey; 
-	border-radius: 5px; 
+QGraphicsView{
+        background: rgba(0,0,0,100);
+        color: white;
+        border: 1px solid transparent;
+        border-radius: 5px;
 }
 QPushButton{ background-color: transparent; border: none; }
-QPushButton:hover{ background-color: transparent; border: 1px solid grey; border-radius: 5px; }
+QPushButton:hover{ background-color: transparent; border: 1px solid black; border-radius: 5px; }
 QMessageBox{}
 
 
