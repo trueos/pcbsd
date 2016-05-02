@@ -60,7 +60,7 @@ include/pcbsd-xdgutils.h
 %%QT_LIBDIR%%/%%QT_LIBDIR%%pcbsd-utils.so.0.9.9
 sbin/PCDMd
 share/PCDM/pcdm-session
-share/PCDM/themes/default/background.jpg
+share/PCDM/themes/default/background.png
 share/PCDM/themes/default/banner.png
 share/PCDM/themes/default/default-desktop.png
 share/PCDM/themes/default/default-user.png
