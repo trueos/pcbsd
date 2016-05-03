@@ -899,6 +899,7 @@ update_world_and_pkgs_stage2() {
   mk_stage_be
   mount_stage_be
   prep_pkgs_chroot "world"
+  prep_rc_script_install
   umount_stage_be
   mk_stage_be_default
 
@@ -1201,6 +1202,17 @@ dl_pkgs()
 
   echo_log "-----------------------------------------------"
   echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
+}
+
+prep_rc_script_install()
+{
+  # Now prep the RC script to do the rest of the upgrade after reboot
+  rc_halt_cleanup "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
+  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/proc"
+  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/sys"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc-update"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-doupdate ${STAGEMNT}/etc/rc-doupdate"
 }
 
 check_low_space()
