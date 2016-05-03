@@ -53,26 +53,26 @@ Start Menu
 
 .. figure:: images/lumina1c.png
 
-The start menu provides quick access for user interaction with the system. The top frame indicates which user is logged in. Hover over the battery icon to display the current status of
-the battery, if your system has one, and the estimated time remaining if that battery is discharging.
+The Start Menu contains the following:
 
-The next frame contains a list of "Favorites". Click an entry to launch that application. Right-click an entry to "Remove from Favorites" or to "Add to Quicklaunch". In Lumina, "Favorites"
-appear in this section of the start menu and "QuickLaunch" adds a button for the application to the panel that is next to the start menu button.
+* **Start menu:** Provides quick access for user interaction with the system. The top frame indicates which user is logged in. Hover over the battery icon to display the current status of
+  the battery, if your system has one, and the estimated time remaining if that battery is discharging.
+  
+* **Favorites:** The largest section of the menu. Click an entry to launch that application. Right-click an entry to "Remove from Favorites" or to "Add to Quicklaunch". In Lumina, "Favorites"
+  appear in this section of the start menu and "QuickLaunch" adds a button for the application to the panel that is next to the start menu button.  
 
-The remainder of the start menu contains the following:
+* **Browse Files:** used to browse for files and directories using the :ref:`Insight File Manager`. One of the actions available in this file manager is the ability to add a file or directory
+  to the list of Favorites. Simply select the file or directory and click the star icon in Insight.
 
-**Browse Files:** used to browse for files and directories using the :ref:`Insight File Manager`. One of the actions available in this file manager is the ability to add a file or directory
-to the list of Favorites. Simply select the file or directory and click the star icon in Insight.
+* **Browse Applications:** click this entry to browse all the applications currently registered on the system. Applications are listed alphabetically by category and the "Show Categories"
+  button has three modes. Click "Show Categories" to toggle between showing just the category names (black box icon), just the contents of the categories (white box icon), or the categories
+  and their contents (1/2 black 1/2 white icon). Click an application's name to start that application. If you right-click an application's name, you can "Pin to Desktop", "Add to Favorites",
+  or "Add to Quicklaunch". If you are running PC-BSD® or another operating system that has a pre-defined application store, click "Manage Applications" at the top of the list of applications
+  in order to open that application store. For example, on a PC-BSD® system, "Manage Applications" opens AppCafe®. Click the "Back" button to return to the start menu.
 
-**Browse Applications:** click this entry to browse all the applications currently registered on the system. Applications are listed alphabetically by category and the "Show Categories"
-button has three modes. Click "Show Categories" to toggle between showing just the category names (black box icon), just the contents of the categories (white box icon), or the categories
-and their contents (1/2 black 1/2 white icon). Click an application's name to start that application. If you right-click an application's name, you can "Pin to Desktop", "Add to Favorites",
-or "Add to Quicklaunch". If you are running PC-BSD® or another operating system that has a pre-defined application store, click "Manage Applications" at the top of the list of applications
-in order to open that application store. For example, on a PC-BSD® system, "Manage Applications" opens AppCafe®. Click the "Back" button to return to the start menu.
+* **Control Panel:** if you are on PC-BSD®, or an operating system which provides a control panel, click this entry to open that operating system's control panel.
 
-**Control Panel:** if you are on PC-BSD®, or an operating system which provides a control panel, click this entry to open that operating system's control panel.
-
-**Preferences:** click this entry to access the following:
+* **Preferences:** click this entry to access the following:
 
 * **Configure Desktop:** click this entry to open the :ref:`Lumina Configuration` utility.
 
@@ -90,9 +90,9 @@ in order to open that application store. For example, on a PC-BSD® system, "Man
 
 * **Back:** click to return to the start menu.
 
-**Leave:** click this entry in order to "Suspend System" (if the operating system supports it, press the system's power button to login and resume operation) "Restart System" (if the user
-has permission), "Power Off system" (if the user has permission), "Sign Out User", or to go "Back" to the system menu. Alternately, click the "lock" icon next to "Leave" to lock the system
-and return it to a login prompt.
+* **Leave:** click this entry in order to "Suspend System" (if the operating system supports it, press the system's power button to login and resume operation) "Restart System" (if the user
+  has permission), "Power Off system" (if the user has permission), "Sign Out User", or to go "Back" to the system menu. Alternately, click the "lock" icon next to "Leave" to lock the system
+  and return it to a login prompt.
 
 .. note:: On a PC-BSD system which is in the middle of applying updates, the shutdown and restart options will be disabled until the updates are complete and a note will indicate that
    updates are in progress.
