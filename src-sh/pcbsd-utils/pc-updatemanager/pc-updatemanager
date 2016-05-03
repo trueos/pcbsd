@@ -998,7 +998,6 @@ pcbsd-base: {
                enabled: true
               }
 EOF
-EOF
   else
     # Using PC-BSD CDN
     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
