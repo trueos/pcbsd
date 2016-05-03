@@ -37,7 +37,7 @@ localize_freebsd()
   sed -i.bak "s/lang=en_US/lang=${LOCALE}/g" ${FSMNT}/etc/login.conf
   rm ${FSMNT}/etc/login.conf.bak
   if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
-    sed -i '' "S/LANG=en_US/LANG=${LOCALE}/g" ${FSMNT}/etc/profile
+    sed -i '' "s/LANG=en_US/LANG=${LOCALE}/g" ${FSMNT}/etc/profile
     sed -i '' "s/GDM_LANG=en_US/GDM_LANG=${LOCALE}/g" ${FSMNT}/etc/profile
   fi
   
@@ -70,18 +70,15 @@ localize_x_desktops() {
   ##########################################################################
 
   # See if GDM is enabled and customize its lang
-  # if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
-  if [ -d "${FSMNT}/usr/local/etc/gdm" ] ; then
-      printf "LANG=\"${LOCALE}.UTF-8\"
-LC_CTYPE=\"${LOCALE}.UTF-8\"
-LC_MESSAGES=\"${LOCALE}.UTF-8\"" > ${FSMNT}/usr/local/etc/gdm/locale.conf
+  # For some reeson the condtion that PCBSD use doesn't work with GhostBSD
+  if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
+    echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
+  else
+    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
+    if [ "$?" = "0" ] ; then
+      echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
+    fi
   fi
-  # else
-  #   cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
-  #   if [ "$?" = "0" ] ; then
-  #     echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
-  #   fi
-  # fi
 };
 
 # Function which localizes a PC-BSD install
