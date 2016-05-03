@@ -6,6 +6,7 @@
 
 #include "themeStruct.h"
 
+#include <QDir>
 
 void ThemeStruct::loadThemeFile(QString filePath){
   qDebug() << "Loading PCDM Theme File:" << filePath;
@@ -196,6 +197,14 @@ QString ThemeStruct::itemIcon(QString item){
     ret = items[index].icon;
   }  
   //qDebug() << "Theme:" << item << "Icon:" << ret;
+  if(!ret.isEmpty() && !QFile::exists(ret)){
+    //Try to turn this into a valid icon path
+    QDir dir("/usr/local/share/pixmaps");
+    QStringList found = dir.entryList(QStringList() << ret+".*", QDir::Files, QDir::NoSort);
+    if(found.isEmpty()){ found = dir.entryList(QStringList() << ret+"*", QDir::Files, QDir::NoSort); }
+    if(found.isEmpty()){ found = dir.entryList(QStringList() << "*"+ret+"*", QDir::Files, QDir::NoSort); }
+    if(!found.isEmpty()){ ret = dir.filePath(found.first()); }
+  }
   return ret;
 }
 

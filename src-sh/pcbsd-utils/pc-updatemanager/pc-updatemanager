@@ -899,6 +899,7 @@ update_world_and_pkgs_stage2() {
   mk_stage_be
   mount_stage_be
   prep_pkgs_chroot "world"
+  prep_rc_script_install
   umount_stage_be
   mk_stage_be_default
 
@@ -997,7 +998,6 @@ pcbsd-base: {
                fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
                enabled: true
               }
-EOF
 EOF
   else
     # Using PC-BSD CDN
@@ -1188,8 +1188,31 @@ dl_pkgs()
     ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} upgrade -U -F -y 2>&1 | tee -a ${PKGUPGRADELOG}
   fi
 
+  # Doing a world upgrade, lets fetch FreeBSD packages
+  if [ "$1" = "world" ] ; then
+    echo_log "Verifying / fetching packages for FreeBSD Base"
+    echo "Verifying / fetching packages for FreeBSD Base" >> ${PKGUPGRADELOG}
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y -g 'FreeBSD-*' 2>&1 | tee -a ${PKGUPGRADELOG}
+    if [ $? -ne 0 ]; then
+      echo_log "*****" ${PKGUPGRADELOG}
+      echo_log "Failed fetching: FreeBSD Base" >> ${PKGUPGRADELOG}
+      exit_err "Failed fetching: FreeBSD Base"
+    fi
+  fi
+
   echo_log "-----------------------------------------------"
   echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
+}
+
+prep_rc_script_install()
+{
+  # Now prep the RC script to do the rest of the upgrade after reboot
+  rc_halt_cleanup "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
+  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/proc"
+  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/sys"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc-update"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-doupdate ${STAGEMNT}/etc/rc-doupdate"
 }
 
 check_low_space()
@@ -1308,7 +1331,7 @@ prep_pkgs_chroot()
   if [ "$1" = "world" ] ; then
     echo "Boot-strapping package base..."
     pkg -c ${STAGEMNT} ${PKG_CFLAG} ${PKG_FLAG} install -yfg 'FreeBSD-*'
-    if [ \$? -ne 0 ] ; then
+    if [ $? -ne 0 ] ; then
       echo "FAILED INSTALLING world base packages"
       exit 1
     fi

@@ -44,12 +44,6 @@ desktops are installed using :ref:`AppCafe®`.
 
 The following utilities are found in the Control Panel of a PC-BSD® system, regardless of which desktops are installed: 
 
-**Software and updates** 
-
-* :ref:`AppCafe®`
-
-* :ref:`Update Manager`
-
 **System management** 
 
 * :ref:`About`
