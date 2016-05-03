@@ -1506,7 +1506,7 @@ QStringList Installer::getDeskPkgCfg()
    if ( radioDesktop->isChecked() ) {
      // Our default list of packages that makeup a desktop
      // This is always able to be changed by user post-install
-     pkgList << "misc/pcbsd-base" << "x11/lumina";
+     pkgList << "misc/pcbsd-base" << "x11/lumina" << "x11/lumina-i18n";
 
      // If using GRUB, make sure the pkgs get loaded
      if ( bootLoader == "GRUB" )

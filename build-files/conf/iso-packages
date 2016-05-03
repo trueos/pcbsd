@@ -22,4 +22,5 @@ sysutils/grub2-pcbsd
 sysutils/grub2-efi
 www/firefox
 x11/lumina
+x11/lumina-i18n
 x11-drivers/xf86-video-scfb
