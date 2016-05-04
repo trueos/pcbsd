@@ -58,7 +58,7 @@ start_extract_pkg()
   do
     inspkg=$(basename $pkg)
     echo_log "pkg -c ${FSMNT} add /packages/All/$inspkg"
-    pkg -c ${FSMNT} add /packages/All/$inspkg
+    pkg -c ${FSMNT} add -f /packages/All/$inspkg
     if [ $? -ne 0 ] ; then
       exit_err "Failed installing $inspkg!"
     fi
