@@ -358,9 +358,9 @@ new_gpart_partitions()
     sleep 2
     # Use a trick from FreeBSD, create / destroy / create to remove any
     # backup meta-data which still may exist on the disk/slice
-    gpart destroy ${_wSlice} 2>/dev/null
+    gpart destroy -F ${_wSlice} 2>/dev/null
     rc_halt "gpart create -s BSD ${_wSlice}"
-    rc_halt "gpart destroy ${_wSlice}"
+    rc_halt "gpart destroy -F ${_wSlice}"
     rc_halt "gpart create -s BSD ${_wSlice}"
     rc_halt "sync"
     _pType="mbr"
@@ -376,9 +376,9 @@ new_gpart_partitions()
     if [ "${_pType}" = "mbr" ] ; then
       # Use a trick from FreeBSD, create / destroy / create to remove any
       # backup meta-data which still may exist on the disk/slice
-      gpart destroy ${_wSlice} 2>/dev/null
+      gpart destroy -F ${_wSlice} 2>/dev/null
       rc_halt "gpart create -s BSD ${_wSlice}"
-      rc_halt "gpart destroy ${_wSlice}"
+      rc_halt "gpart destroy -F ${_wSlice}"
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
