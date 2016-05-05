@@ -10,6 +10,7 @@ COMMENT=	PC-BSD Command-Line Utilities
 
 LICENSE=	BSD3CLAUSE
 
+BUILD_DEPENDS=	smbpass:${PORTSDIR}/net/samba42
 RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 		eject:${PORTSDIR}/sysutils/eject \
 		unzip:${PORTSDIR}/archivers/unzip
