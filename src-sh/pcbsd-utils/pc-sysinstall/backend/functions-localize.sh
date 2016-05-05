@@ -39,6 +39,7 @@ localize_freebsd()
   if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
     sed -i '' "s/LANG=en_US/LANG=${LOCALE}/g" ${FSMNT}/etc/profile
     sed -i '' "s/GDM_LANG=en_US/GDM_LANG=${LOCALE}/g" ${FSMNT}/etc/profile
+    sed -i '' "s/LC_ALL=en_US/LC_ALL=${LOCALE}/g" ${FSMNT}/etc/profile
   fi
   
 
