@@ -15,4 +15,4 @@ xterm*rightScrollBar:     true
 xterm*jumpScroll:         true
 xterm*multiScroll:        true
 xterm*toolBar:            false
-xTerm*selectToClipboard:  true
+xterm*selectToClipboard:  true
