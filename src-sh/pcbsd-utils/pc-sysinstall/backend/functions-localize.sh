@@ -71,14 +71,13 @@ localize_x_desktops() {
   ##########################################################################
 
   # See if GDM is enabled and customize its lang
-  # For some reeson the condtion that PCBSD use doesn't work with GhostBSD
-  if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
+  if [ -d "${FSMNT}/usr/local/etc/gdm" ] ; then
+    echo "LANG=\"${LOCALE}.UTF-8\"" > ${FSMNT}/usr/local/etc/gdm/locale.conf
+    echo "LC_CTYPE=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/usr/local/etc/gdm/locale.conf
+    echo "LC_MESSAGES=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/usr/local/etc/gdm/locale.conf
+  fi
+  if [ "$?" = "0" ] ; then
     echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
-  else
-    cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
-    if [ "$?" = "0" ] ; then
-      echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
-    fi
   fi
 };
 
