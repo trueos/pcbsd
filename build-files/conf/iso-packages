@@ -1,9 +1,11 @@
 archivers/unrar
 archivers/unzip
+archivers/peazip
 editors/libreoffice
 editors/vim
 java/icedtea-web
 mail/thunderbird
+mail/trojita
 misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
@@ -12,6 +14,7 @@ misc/pcbsd-meta-virtualbox
 misc/pcbsd-meta-virtualboxguest
 misc/pcbsd-meta-vmwareguest
 misc/trueos-base
+multimedia/openh264
 multimedia/vlc
 ports-mgmt/pkg
 security/openvpn
@@ -21,6 +24,7 @@ sysutils/pcbsd-utils-qt5
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 www/firefox
+www/qupzilla
 x11/lumina
 x11/lumina-i18n
 x11-drivers/xf86-video-scfb

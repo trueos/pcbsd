@@ -1513,13 +1513,13 @@ QStringList Installer::getDeskPkgCfg()
        pkgList << "sysutils/grub2-pcbsd" << "sysutils/grub2-efi";
 
      // The default web-browser and plugins
-     pkgList << "www/firefox" << "java/icedtea-web";
+     pkgList << "www/firefox" << "java/icedtea-web" << "www/qupzilla";
 
      // The default mail client
-     pkgList << "mail/thunderbird";
+     pkgList << "mail/thunderbird" << "mail/trojita";
 
      // Multimedia player
-     pkgList << "multimedia/vlc";
+     pkgList << "multimedia/vlc" << "multimedia/openh264";
 
      // VirtualBox
      pkgList << "misc/pcbsd-meta-virtualbox";
@@ -1528,7 +1528,7 @@ QStringList Installer::getDeskPkgCfg()
      pkgList << "editors/libreoffice";
 
      // Utilities
-     pkgList << "archivers/unrar" << "archivers/unzip" << "editors/vim";
+     pkgList << "archivers/unrar" << "archivers/unzip" << "archivers/peazip" << "editors/vim";
 
      // Include i18n stuff?
      if ( comboLanguage->currentIndex() != 0 )

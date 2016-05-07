@@ -16,7 +16,7 @@ usage_func() {
     exit
 }
  
-check_file "/usr/local/lib/browser_plugins/linux-c6-flashplugin/libflashplayer.so" "www/linux-c6-flashplugin10"
+check_file "/usr/local/lib/browser_plugins/linux-c6_64-flashplugin/libflashplayer.so" "www/linux-c6-flashplugin10"
 check_file "/usr/local/bin/nspluginwrapper" "www/nspluginwrapper"
  
 if [ $# -ne 1 ]; then
@@ -38,7 +38,7 @@ case $1 in
 		fi
 		kldload linux
 	fi
-	nspluginwrapper -i /usr/local/lib/browser_plugins/linux-c6-flashplugin/libflashplayer.so
+	nspluginwrapper -i /usr/local/lib/browser_plugins/linux-c6_64-flashplugin/libflashplayer.so
 	printf "\nFlash Plugin for user '`whoami`' enabled\n\n"
 	;;
  

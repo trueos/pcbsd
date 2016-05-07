@@ -1302,6 +1302,9 @@ do_lite_pkgupdate_chroot()
     return 1
   fi
 
+  # Do any postupgrade setup
+  chroot ${STAGEMNT} pc-extractoverlay postupgrade
+
   # We've seen cases of pkg returning 0, but really it failed... Lets try to catch this
   cat ${LOGOUT}.tmp | grep -q "Cannot solve problem using SAT"
   if [ $? -eq 0 ] ; then
@@ -1441,6 +1444,9 @@ echo \"Moving updated pkg repo...\"
 rm -rf /var/db/pkg.preUpgrade 2>/dev/null
 mv /var/db/pkg /var/db/pkg.preUpgrade
 mv /var/db/pc-updatemanager/pkgdb /var/db/pkg
+
+# Do any postupgrade setup
+pc-extractoverlay postupgrade
 
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh

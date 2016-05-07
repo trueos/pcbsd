@@ -1,5 +1,6 @@
 editors/libreoffice
 mail/thunderbird
+mail/trojita
 misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
@@ -9,14 +10,13 @@ misc/pcbsd-meta-virtualbox
 misc/pcbsd-meta-virtualboxguest
 misc/pcbsd-toolchain
 misc/trueos-base
-multimedia/plexhometheater
+multimedia/openh264
 multimedia/vlc
-multimedia/kodi
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/pcbsd-util*
 sysutils/sysadm
 sysutils/sysadm-client
 www/firefox
-www/chromium
+www/qupzilla
 x11/lumina
