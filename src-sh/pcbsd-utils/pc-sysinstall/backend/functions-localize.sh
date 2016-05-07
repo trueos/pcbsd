@@ -326,6 +326,11 @@ localize_get_codes()
       SETLANG="fr"
       LOCALE="fr_FR"
       ;;
+    fr_CA)
+	  COUNTRY="ca"
+      SETLANG="fr_CA"
+      LOCALE="fr_CA"
+      ;;
     he)
 	  COUNTRY="il"
       SETLANG="he:ar"
