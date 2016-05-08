@@ -391,6 +391,10 @@ localize_get_codes()
       SETLANG="pt_BR"
       LOCALE="pt_BR"
       ;;
+    ro)
+	  COUNTRY="ro"
+      SETLANG="ro_RO"
+      LOCALE="ro_RO"
     ru)
 	  COUNTRY="ru"
       SETLANG="ru"
