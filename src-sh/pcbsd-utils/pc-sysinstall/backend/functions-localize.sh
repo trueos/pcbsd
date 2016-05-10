@@ -36,6 +36,13 @@ localize_freebsd()
 {
   sed -i.bak "s/lang=en_US/lang=${LOCALE}/g" ${FSMNT}/etc/login.conf
   rm ${FSMNT}/etc/login.conf.bak
+  if [ "${INSTALLTYPE}" = "GhostBSD" ] ; then
+    sed -i '' "s/LANG=en_US/LANG=${LOCALE}/g" ${FSMNT}/etc/profile
+    sed -i '' "s/GDM_LANG=en_US/GDM_LANG=${LOCALE}/g" ${FSMNT}/etc/profile
+    sed -i '' "s/LC_ALL=en_US/LC_ALL=${LOCALE}/g" ${FSMNT}/etc/profile
+  fi
+  
+
 };
 
 localize_x_desktops() {
@@ -64,11 +71,14 @@ localize_x_desktops() {
   ##########################################################################
 
   # See if GDM is enabled and customize its lang
-  cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "gdm_enable=\"YES\"" 2>/dev/null
+  if [ -d "${FSMNT}/usr/local/etc/gdm" ] ; then
+    echo "LANG=\"${LOCALE}.UTF-8\"" > ${FSMNT}/usr/local/etc/gdm/locale.conf
+    echo "LC_CTYPE=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/usr/local/etc/gdm/locale.conf
+    echo "LC_MESSAGES=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/usr/local/etc/gdm/locale.conf
+  fi
   if [ "$?" = "0" ] ; then
     echo "gdm_lang=\"${LOCALE}.UTF-8\"" >> ${FSMNT}/etc/rc.conf
   fi
-
 };
 
 # Function which localizes a PC-BSD install
@@ -77,7 +87,7 @@ localize_pcbsd()
   # Check if we have a localized splash screen and copy it
   if [ -e "${FSMNT}/usr/local/share/pcbsd/splash-screens/loading-screen-${SETLANG}.pcx" ]
   then
-    cp ${FSMNT}/usr/local/share/pcbsd/splash-screens/loading-screen-${SETLANG}.pcx ${FSMNT}/boot/loading-screen.pcx    
+    cp ${FSMNT}/usr/local/share/pcbsd/splash-screens/loading-screen-${SETLANG}.pcx ${FSMNT}/boot/loading-screen.pcx
   fi
 
 };
@@ -142,7 +152,7 @@ localize_x_keyboard()
       echo "setxkbmap ${SETXKBMAP}" >>${FSMNT}/usr/local/kde4/share/config/kdm/Xsetup
     fi
   fi
- 
+
   # Create the kxkbrc configuration using these options
   if [ -d "${FSMNT}/usr/share/skel/.kde4/share/config" ] ; then
     echo "[Layout]
@@ -208,7 +218,7 @@ localize_prune_langs()
   if [ -z "$KEEPLANG" ] ; then
     KEEPLANG="en"
   fi
-  export KEEPLANG 
+  export KEEPLANG
 
   echo_log "Pruning other l10n files, keeping ${KEEPLANG}"
 
@@ -232,7 +242,7 @@ localize_prune_langs()
 
 # Function which sets COUNTRY SETLANG and LOCALE based upon $1
 localize_get_codes()
-{ 
+{
   TARGETLANG="${1}"
   # Setup the presets for the specific lang
   case $TARGETLANG in
@@ -316,6 +326,11 @@ localize_get_codes()
       SETLANG="fr"
       LOCALE="fr_FR"
       ;;
+    fr_CA)
+	  COUNTRY="ca"
+      SETLANG="fr_CA"
+      LOCALE="fr_CA"
+      ;;
     he)
 	  COUNTRY="il"
       SETLANG="he:ar"
@@ -375,6 +390,11 @@ localize_get_codes()
 	  COUNTRY="br"
       SETLANG="pt_BR"
       LOCALE="pt_BR"
+      ;;
+    ro)
+	  COUNTRY="ro"
+      SETLANG="ro_RO"
+      LOCALE="ro_RO"
       ;;
     ru)
 	  COUNTRY="ru"
