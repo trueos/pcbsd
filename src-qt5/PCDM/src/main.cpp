@@ -138,7 +138,7 @@ int runSingleSession(int argc, char *argv[]){
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
     
-  //*** STARTUP THE PROGRAM ***
+  // *** STARTUP THE PROGRAM ***
   bool goodAL = false; //Flag for whether the autologin was successful
   // Start the autologin procedure if applicable
   if( ALtriggered && Config::useAutoLogin() ){
@@ -163,7 +163,7 @@ int runSingleSession(int argc, char *argv[]){
 	}
 	//now start the autologin if appropriate
 	if(goodAL){
-	  desktop.loginToXSession(user,pwd, dsk,langCode,"",false);
+	  desktop.loginToXSession(user,pwd, dsk,lang,"",false);
 	  //splash.close();
 	  if(desktop.isRunning()){
 	    goodAL=true; //flag this as a good login to skip the GUI
