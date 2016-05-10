@@ -33,14 +33,28 @@
   font-family: &quot;Noto Sans&quot;;
   font-size: 12pt;
 }
+/* Note: The status bar and footer are on top of the Installer */
+QWidget#Installer{
+background-color: lightgrey;
+}
+QWidget#centralwidget{
+background-color: qradialgradient(spread:reflect, cx:-0.1, cy:-0.875, radius:0.7, fx:-0.1, fy:-0.88, stop:0 rgba(255, 255, 255, 110), stop:1 rgba(0,0,0,130));
+}
 QStatusBar{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 70, 175,255), stop:1 rgba(0, 70, 175,220));
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0,0, 0,255), stop:1 rgba(0,0, 0,255));
 color: white;
 font-weight: bold;
 }
 QWidget#footerWidget{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:-0.5, stop:0 rgba(0, 70, 175,220), stop:1 transparent);
-/*rgba(255, 240, 240, 240));*/
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 0, 0,255), stop:1 transparent);
+}
+/*Note: While the Pages are on top of the installStackWidget */
+QWidget#installStackWidget{
+background: transparent;
+}
+
+QWidget#page, QWidget#page_2, QWidget#page_3, QWidget#page_4, QWidget#pgae_5{
+background-color: transparent;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -67,9 +81,6 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:-0.5, stop:0 
      <widget class="QStackedWidget" name="installStackWidget">
       <property name="autoFillBackground">
        <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
        <number>1</number>
