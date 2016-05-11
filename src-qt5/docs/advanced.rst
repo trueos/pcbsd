@@ -346,22 +346,12 @@ wish to install into and **make sure that you do not select a partition that alr
 GRUB Boot Loader
 ----------------
 
-PC-BSD® uses a customized version of the GRUB boot-loader to provide ZFS boot environment support, which is used as part of the system updating mechanism.
-PC-BSD® requires that its version of GRUB be installed as the primary boot-loader on the disk.
-**Using another boot-loader will break this critical functionality, and is strongly discouraged.**
+In PC-BSD® 11, the FreeBSD boot loader is the preferred, and default, boot loader as it provides native support for ZFS boot environments. If you changed the default during installation,
+the installer will use a customized version of the GRUB boot loader that provides limited ZFS boot environment support.
 
-The GRUB boot-loader is capable of dual-booting most other systems, including Windows and Linux. In order to dual-boot PC-BSD® with other operating systems,
-you can add entries to the :file:`/usr/local/etc/grub.d/40_custom.dist` file, which will be preserved across upgrades. For more information on the syntax used,
-refer to the `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_. 
-
-PC-BSD® will attempt to identify other installed operating systems to add to the GRUB menu automatically. If you have an operating system which is not
-detected, please open a new bug report on `bugs.pcbsd.org <https://bugs.pcbsd.org/>`_ with the following information: 
-
-* name of the operating system 
-
-* output of the :command:`gpart show` and :command:`glabel list` commands 
-
-* any entries you added to :file:`/usr/local/etc/grub.d/40_custom`
+The PC-BSD® version of GRUB will attempt to identify other installed operating systems, such as Windows and Linux, and add them to the GRUB boot menu. If your other operating system is not
+automatically detected, you will need to manually add an entry to the :file:`/usr/local/etc/grub.d/40_custom.dist` file. For more information on the syntax used, refer to the
+`GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_. 
 
 .. index:: install
 .. _Creating an Automated Installation:

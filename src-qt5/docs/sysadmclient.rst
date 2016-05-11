@@ -815,17 +815,17 @@ Configured clients will now use your local mirror whenever they use :command:`pk
 Manage SSL Keys
 ===============
 
-.. index:: sysadm, configuration
+.. index:: sysadm, boot environments, ZFS
 .. _Boot Environment Manager:
 
 Boot Environment Manager
 ========================
 
 PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs). With multiple boot environments, the process of updating software becomes a
-low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system. If needed, you also have the
-option of booting into a backup boot environment. For example: 
+low-risk operation as the updates are applied to a different boot environment. If needed, you have the option of booting into a backup boot environment. Other examples of using boot
+environments include: 
 
-* If you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
+* If you are making software changes, you can take a snapshot of that boot environment at any stage during the modifications.
 
 * You can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
   software packages on each.
@@ -839,43 +839,38 @@ option of booting into a backup boot environment. For example:
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
-To create and manage boot environments using a graphical interface, go to :menuselection:`Control Panel --> Boot Manager` or type
-:command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
-
-PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in
-:numref:`Figure %s: Managing Boot Environments <be1>`, there
-is an entry named *initial* that represents the original installation and an entry that was created when the operating system was updated to patch level 20.
+To ensure that the files that the operating system needs are included when the system boots, all boot environments on a PC-BSD® system include :file:`/usr`, :file:`/usr/local`,
+and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
+:file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of which boot environment is selected at system boot.
+   
+To view, manage, and create boot environments using the SysAdm™ graphical client, go to :menuselection:`System Management --> Boot Environment Manager`. In the example shown in
+:numref:`Figure %s: Managing Boot Environments <be1>`, there is an entry named *initial* that represents the original PC-BSD® installation.
 
 .. _be1:
 
 .. figure:: images/be1.png
 
-To ensure that the files that the operating system needs are included when the system boots, all boot environments include :file:`/usr`, :file:`/usr/local`,
-and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
-:file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of which boot environment is selected at system boot.
+From left to right, the icons on the top bar are used to: 
 
-From top to bottom, the icons on the far left are used to: 
-
-**Create:** a new boot environment. You should do this before making any changes to the system that may impact on your current boot environment. You will be
+**Create BE:** a new boot environment. You should do this before making any changes to the system that may impact on your current boot environment. You will be
 prompted for a name which can only contain letters or numbers. Once you click "OK", the system will create the environment, then add it to the list of boot
 environments.
 
-**Remove:** will delete the highlighted boot environment. You can not delete the boot environment which has a "Running" status of *Yes* as that is the current
+**Clone BE:** creates a copy of an existing boot environment.
+
+**Delete BE:** will delete the highlighted boot environment. You can not delete the boot environment which has a "Running" status of *Yes* as that is the current
 boot environment.
 
-**Copy:** creates a copy of an existing boot environment.
-
-**Rename:** used to rename the highlighted boot environment. The name is what appears in the boot menu when the system boots. You cannot rename the BE you are
+**Rename BE:** used to rename the highlighted boot environment. The name is what appears in the boot menu when the system boots. You cannot rename the BE you are
 currently booted into and an error message will occur if you try to do so.
 
-**Activate:** tells the system to boot into the highlighted boot environment at next system boot. The "Default" will change to *Yes*, but the "Running" will
+**Mount BE:** mounts the highlighted BE in :file:`/tmp` so that its contents are browseable. Note that this setting only applies to inactive BEs.
+
+**Unmount BE:** unmounts the previously mounted BE.
+
+**Activate BE:** tells the system to boot into the highlighted boot environment at next system boot. The "Default" will change to *Yes*, but the "Running" will
 remain the same. In other words, "Running" refers to the boot environment the system last booted into (is currently running from) whereas "Default" indicates
 which boot environment the system will boot into at next system boot.
-
-This screen also lets you set the "Maximum auto-generated boot environments". The default is *5* and the range is from *1* to *10*. PC-BSD® automatically
-creates a boot environment before updating any software and the operating system as well as before applying a system update. Once the configured maximum
-number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment. However, it will not
-delete any boot environments you create manually.
 
 Whenever there are multiple boot environments, a boot menu similar to the one seen in :numref:`Figure %s: Boot Menu With Multiple Boot Environments <be4>` will appear for two seconds during
 system boot. If you do not pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated another boot environment, the
@@ -895,35 +890,6 @@ environment.
 .. _be2:
 
 .. figure:: images/be2.png
-
-To customize the appearance of the boot menu, click the "Grub Configuration" tab in Boot Manager to see the screen seen in :numref:`Figure %s: Managing GRUB Configuration <be3>`. 
-
-.. _be3:
-
-.. figure:: images/be3.png
-
-The fields in this screen are used to configure the:
-
-* **Theme File:** used to customize the look of the GRUB menu. The theme file format is described in
-  `this section of the GRUB Manual <http://www.gnu.org/software/grub/manual/html_node/Theme-file-format.html>`_. The
-  `GRUB 2 Theme Reference <http://wiki.rosalab.ru/en/index.php/Grub2_theme_/_reference>`_ provides additional information.
-
-* **Font File:** before a font can be used in the GRUB menu, it must first be converted to :file:`.pf2` format using the :command:`grub-mkfont(1)` command.
-
-* **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
-  increase this timer.
-  
-* **Show Timer Countdown:** if this box is unchecked, the timer countdown will not display, though you can still interrupt the boot process during the delay time.
-
-* **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
-  `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.
-
-If you make any changes in this tab, the two buttons below "Settings" or "Custom Entries" will be activated. Use them to save your changes or to re-load the
-GRUB configuration. If you forget to do so, a pop-up message will remind you that you have unsaved changes when you exit Boot Manager. If you do not save the
-changes using these buttons, the boot menu will remain the same.
-
-.. note:: the "Emergency Services" menu can be used to "Rebuild GRUB Menu" or to "Restore GRUB Defaults". If you make any changes to
-   :file:`/boot/loader.conf`, remember to use the "Rebuild GRUB Menu" so that GRUB is aware of the changes to this file.
 
 .. index:: boot manager
 .. _Managing Boot Environments from the Command Line:
@@ -968,14 +934,6 @@ In this example, the current boot environment is called *10.1-RELEASE-p20-up-201
  beforeupgrade                       R      -           33.1G 2015-05-12 17:30    beforeupgrade
 
 The flags now indicate that the system is currently booted into *10.1-RELEASE-p20-up-20150512_114505*, but at next boot the system will boot into *beforeupgrade*.
-
-The boot menu configuration can be found in the ASCII text file :file:`/usr/local/etc/default/grub`::
-
- more /usr/local/etc/default/grub
- GRUB_THEME=/boot/grub/themes/pcbsd/theme.txt
- GRUB_FONT=/boot/grub/pcbsdfont.pf2
- GRUB_HIDDEN_TIMEOUT_QUIET=false
- GRUB_TIMEOUT=2
  
 To modify the maximum number of boot environments, change the number of this variable in :file:`/usr/local/etc/pcbsd.conf`::
 
