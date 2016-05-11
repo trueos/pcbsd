@@ -571,9 +571,10 @@ new_gpart_partitions()
         sleep 2
 	# MBR type
 	if [ "$PARTLETTER" = "a" ] ; then
-          aCmd="gpart add -b 16 ${SOUT} -t ${PARTYPE} ${_wSlice}"
-	else
+          # The BOOT/ROOT partition must NOT be aligned
           aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+	else
+          aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_wSlice}"
 	fi
       fi
 
