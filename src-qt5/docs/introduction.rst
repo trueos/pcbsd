@@ -119,7 +119,7 @@ PC-BSD® provides the following features:
 
 * **Automatically configured hardware:** video, sound, network, and other devices are automatically configured for you.
 
-* **Intuitive desktop interface:** PC-BSD® comes with the :ref:`Lumina` desktop and additional desktop environments can be installed to support your day-to-day computing needs.
+* **Intuitive desktop interface:** PC-BSD® comes with the :ref:`Lumina Desktop` and additional desktop environments can be installed to support your day-to-day computing needs.
 
 * **Easy software management:** with :ref:`AppCafe®`, installing, upgrading, and uninstalling software is safe and easy.
 
@@ -174,6 +174,11 @@ The following features or enhancements were introduced for PC-BSD® |version|:
   post-installation, using :ref:`AppCafe®`.
   
 * The "Boot to console (Disable X)" option has been added to the graphical boot menu.
+
+* The following utilities have been removed from :ref:`Control Panel` as they have been converted to the SysAdm™ API and are available in the SysAdm™ client: :ref:`AppCafe®`,
+  :ref:`Update Manager`, :ref:`Boot Environment Manager`, and :ref:`Life Preserver`.
+  
+* These new utilites are available in the SysAdm™ client: :ref:`Manage SSL Keys` and :ref:`Task Manager`.  
 
 * The graphical and command line versions of PBI Manager and Warden have been removed.
 

@@ -18,7 +18,7 @@ Contents:
    postinstall
    advanced
    lumina
-   update
+   sysadmclient
    controlpanel
    using
    help

@@ -36,8 +36,8 @@ have finished making your selections, press :kbd:`Enter` to boot using the selec
 * **6. Configure Boot Options:** if you press either :kbd:`6` or :kbd:`o`, the boot options screen shown in :numref:`Figure %s: Boot Options Menu <boot1a>` will open. To change an option,
   press either the bolded number or key for that option to toggle through its available settings. When finished, press either :kbd:`1` or :kbd:`Backspace` to return to the main boot menu.
 
-* **7. Select Boot Environment:** in PC-BSD®, boot environments are automatically created when the system updates and can also be manually created using :ref:`Boot Manager`. This allows you
-  to boot the system to the point in time before an update occurred and can be used to recover from a failed update. Press either :kbd:`7` or :kbd:`e` to view the available boot
+* **7. Select Boot Environment:** in PC-BSD®, boot environments are automatically created when the system updates and can also be manually created using :ref:`Boot Environment Manager`. This
+  allows you to boot the system to the point in time before an update occurred and can be used to recover from a failed update. Press either :kbd:`7` or :kbd:`e` to view the available boot
   environments. Note that the first time the system boots, no additional boot environments are available. Over time, this menu will populate as boot environments are created.
 
 .. _boot1a:

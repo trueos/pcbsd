@@ -111,7 +111,7 @@ The next screen, shown in :numref:`Figure %s: Review Installation Options <text9
 * **hardware:** selecting this option will display a summary of the system's hardware. The example shown in :numref:`Figure %s: Hardware Summary <text10>` is from a system with a disabled
   sound card and no wireless card.
 
-* **quit:** select this option to return to the screen shown in :numref:`Figure %s: Text Installation Menu <text1>`. 
+* **quit:** select this option to return to the screen shown in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
 
 .. _text9: 
 
