@@ -685,8 +685,8 @@ new_gpart_partitions()
         esac 
       fi
 
-      # Make sure to stamp the MBR loader
-      if [ "$_pType" = "mbr" -a "$_tBL" != "GRUB" ] ; then
+      # Make sure to stamp the MBR on NON-ZFS loader
+      if [ "$_pType" = "mbr" -a "$_tBL" != "GRUB" -a "$BOOTTYPE" != "freebsd-zfs" ] ; then
 	rc_halt "gpart bootcode -b /boot/boot ${_wSlice}"
       fi
 

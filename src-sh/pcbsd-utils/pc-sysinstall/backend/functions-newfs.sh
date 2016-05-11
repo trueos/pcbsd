@@ -60,6 +60,9 @@ setup_zfs_filesystem()
   # Check if we have multiple zfs mounts specified
   for i in `echo ${PARTMNT} | sed 's|,| |g'`
   do
+    # Strip off any ZFS options
+    i=`echo $i | cut -d '(' -f 1`
+
     # Check if we ended up with needing a zfs bootable partition
     if [ "${i}" = "/" -o "${i}" = "/boot" ]
     then
