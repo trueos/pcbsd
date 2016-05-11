@@ -2673,7 +2673,7 @@ div[class^='highlight'] pre {
 }
 .wy-menu-vertical li.current a:hover {
 //    background: #d6d6d6 // HOVER
-    background: #ffcfff
+    background: #6c2020
 }
 .wy-menu-vertical li code,
 .wy-menu-vertical li .rst-content tt,
@@ -2707,7 +2707,7 @@ div[class^='highlight'] pre {
 }
 .wy-menu-vertical li.on a:hover,
 .wy-menu-vertical li.current>a:hover {
-    background: #0d8585
+    background: #6c2020
 }
 .wy-menu-vertical li.on a:hover span.toctree-expand,
 .wy-menu-vertical li.current>a:hover span.toctree-expand {
@@ -2729,13 +2729,13 @@ div[class^='highlight'] pre {
     display: block
 }
 .wy-menu-vertical li.toctree-l2.current>a {
-    background: #5d6963;
+    background: #850d0d;
     padding: 0.4045em 2.427em
 }
 .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
     display: block;
 //    background: #c9c9c9;
-    background: #5d6963;
+    background: #850d0d;
     padding: 0.4045em 4.045em
 }
 .wy-menu-vertical li.toctree-l2 a:hover span.toctree-expand {
@@ -2760,7 +2760,7 @@ div[class^='highlight'] pre {
     border-bottom: none
 }
 .wy-menu-vertical li.toctree-l3 a:hover span.toctree-expand {
-    color: gray
+    color: #4e4a4a
 }
 .wy-menu-vertical li.toctree-l3 span.toctree-expand {
     color: #969696
