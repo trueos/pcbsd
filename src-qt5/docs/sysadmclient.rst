@@ -1004,23 +1004,64 @@ the snapshot, allowing you to choose a name that is useful in helping you rememb
 Replication Tab
 ---------------
 
-:numref:`Figure %s: Replication Tab <lpreserver2>` shows the initial Replication tab on a system that has not yet been configured. This screen is used to create, view, remove, and
-configure the schedule for replicating local snapshots to another system. This ensures that you have a backup copy of your snapshots on another system. The replicated data is sent over an
-encrypted connection but it is stored unencrypted on the other system.
+Life Preserver can be configured to replicate snapshots to another system over an encrypted SSH connection, though the backup itself is stored in an encrypted format. This ensures that you
+have a backup copy of your snapshots on another system. 
+
+In order to configure replication, the remote system to hold a copy of the snapshots must first meet the following requirements:
+
+* The backup server **must be formatted with the latest version of ZFS,** also known as ZFS feature flags or ZFSv5000. Operating systems that support this
+  version of ZFS include PC-BSD®, FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
+
+* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD®, SSH is already installed and you can start
+  SSH using :ref:`Service Manager`. If that system is running FreeNAS® or FreeBSD, SSH is already installed, but you will need to start SSH.
+
+* If the backup server is running PC-BSD®, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
+  firewall has been configured, add a rule to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default. Also, if there is a
+  network firewall between the PC-BSD® system and the backup system, make sure it has a rule to allow SSH.
+
+:numref:`Figure %s: Replication Tab <lpreserver2>` shows the initial "Replication" tab on a system that has not yet been configured for replication. This screen is used to create, view,
+remove, and configure the replication schedule.  
 
 .. _lpreserver2:
 
 .. figure:: images/lpreserver2.png
 
-In order to configure replication, first ensure that the other system is running the same version of ZFS and has SSH enabled. To schedule the replication, click the "+" button to display
-the screen shown in :numref:`Figure %s: Scheduling a Replication <lpreserver3>`.
+To schedule the replication, click the "+" button to display the "Setup Replication" screen shown in :numref:`Figure %s: Scheduling a Replication <lpreserver3>`.
 
 .. _lpreserver3:
 
 .. figure:: images/lpreserver3.png
 
+Input the following information:
 
+* **Host IP:** the IP address of the remote system to store the replicated snapshots.
 
+* **SSH Port:** the port number, if the remote system is running SSH on a port other than the default of 22.
+
+* **Dataset:** the name of the ZFS pool and optional dataset on the remote system. For example, "remotetank" will save the snapshots to a ZFS pool of that name and "remotetank/mybackups"
+  will save the snapshots to an existing dataset named "mybackups" on the pool named "remotetank".
+
+* **Frequency:** use the drop-down menu to select how often to initiate the replication. Available choices are "Sync with snapshot" (at the same time a snapshot is created), "Daily" (when
+  selected, displays a time drop-down menu so you can select the time of day), "Hourly", every "30 minutes", every "10 minutes", or "Manual Only" (only occurs when you click the "Start"
+  button) in this screen.
+
+* **Username:** the username must already exist on the remote system, have write access to the specified "Dataset", and have permission to SSH into that system.
+
+* **Password:** the password associated with the "Username".
+
+* **Local DS:** use the drop-down menu to select the pool or dataset to replicate to the remote system.
+
+The buttons at the top of the "Setup Replication" screen are used to:
+
+**+ icon** add a replication schedule. Multiple schedules are supported, meaning that you can replicate to multiple systems or replicate different "Local DS" datasets at different times.
+
+**- icon** remove an already created, and highlighted, replication schedule.
+
+**gear icon:** modify the schedule for the highlighted replication.
+
+**Start:** manually starts a replication to the system specified in the highlighted replication.
+
+**Initialize:** deletes the existing replicated snapshots on the remote system and starts a new replication. This is useful if a replication gets stuck and will not complete.
 
 .. index:: configuration, life preserver
 .. _Schedules Tab:
