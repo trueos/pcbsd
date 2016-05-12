@@ -1513,7 +1513,7 @@ QStringList Installer::getDeskPkgCfg()
        pkgList << "sysutils/grub2-pcbsd" << "sysutils/grub2-efi";
 
      // The default web-browser and plugins
-     pkgList << "www/firefox" << "java/icedtea-web" << "www/qupzilla";
+     pkgList << "www/firefox" << "java/icedtea-web" << "www/qupzilla-qt5";
 
      // The default mail client
      pkgList << "mail/thunderbird" << "mail/trojita";

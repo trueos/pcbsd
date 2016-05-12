@@ -18,5 +18,5 @@ sysutils/pcbsd-util*
 sysutils/sysadm
 sysutils/sysadm-client
 www/firefox
-www/qupzilla
+www/qupzilla-qt5
 x11/lumina
