@@ -2,21 +2,100 @@
 # Script which performs updating services
 ############################################################################
 
-# Source our functions
-. /usr/local/share/pcbsd/scripts/functions.sh
+# Exit with a error message
+exit_err() {
+        if [ -n "${LOGFILE}" ] ; then
+           echo "ERROR: $*" >> ${LOGFILE}
+        fi
+        echo >&2 "ERROR: $*"
+        exit 1
+}
+
+# Run-command, halt if command exits with non-0
+rc_halt()
+{
+  CMD="$@"
+
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_halt()"
+  fi
+
+  ${CMD}
+  STATUS=$?
+  if [ ${STATUS} -ne 0 ] ; then
+    exit_err "Error ${STATUS}: ${CMD}"
+  fi
+}
+
 
 # Set the program location
 PROGDIR="/usr/local/share/pcbsd/pc-updatemanager" ; export PROGDIR
+
+# Set the pub openssl key
+SKEY="${PROGDIR}/conf/security.key" ; export SKEY
 
 # Start by sourcing /etc/profile
 # This grabs any HTTP_ / FTP_ PROXY variables
 . /etc/profile
 
+do_self_bootstrap() {
+  # Only do this as root
+  if [ `id -u` != "0" ] ; then return 0; fi
+
+  # Start the updaters self-update protocol
+  local fbsdmajor=$(uname -r | cut -d '-' -f 1 | cut -d '.' -f 1)
+  local fbsdupdateurl="http://www.pcbsd.org/updates/pc-updater-${fbsdmajor}.txz"
+  local dlfile=`mktemp /tmp/.pc-updater.XXXXXX`
+  if [ $? -ne 0 ] ; then
+    return 0
+  fi
+  echo -e "Boot-strapping updater...\c"
+
+  # Fetch the updater
+  fetch -m -o ${dlfile} ${fbsdupdateurl} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then echo "FAILED Fetch" ; return 1; fi
+
+  # Fetch the signature
+  fetch -m -o ${dlfile}.sha1 ${fbsdupdateurl}.sha1 >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then echo "FAILED Fetch2" ; return 1; fi
+
+  # Lets verify the signature of the file
+  openssl dgst -sha1 -verify ${SKEY} \
+	-signature ${dlfile}.sha1 \
+        ${dlfile} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then echo "FAILED signature" ; return 1; fi
+
+  extractdir=`mktemp -d /tmp/pc-update-XXXXXX`
+  if [ $? -ne 0 ] ; then echo "FAILED - mktemp" ; return 1; fi
+
+  tar xvpf ${dlfile} -C $extractdir >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then echo "FAILED - extract" ; return 1; fi
+
+  # Install it now
+  make -C $extractdir install >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then echo "FAILED - install" ; return 1; fi
+
+  if [ -n "$extractdir" -a "$extractdir" != "/" -a -d "$extractdir" ] ; then
+    rm -rf $extractdir
+  fi
+  echo "OK"
+
+  return 0
+}
+
+# Check if we need to try a self-update
+if [ -z "$DISABLE_UPDATE_BOOTSTRAP" ] ; then
+  export DISABLE_UPDATE_BOOTSTRAP="YES"
+
+  do_self_bootstrap
+
+  # Run the original command now
+  ${0} ${@}
+  exit $?
+fi
+
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 export PCBSD_ETCCONF
-
-# Set the pub openssl key
-SKEY="${PROGDIR}/conf/security.key" ; export SKEY
 
 # Directory to store downloaded updates
 DOWNLOADDIR="/usr/local/tmp"
@@ -123,6 +202,80 @@ esac
 # Set the location for saving program state
 STATEDIR="/var/db/pc-updatemanager"
 
+# Function to download a file from remote using fetch
+# Arg1 = Remote File URL
+# Arg2 = Where to save file
+# Arg3 = Number of attempts to make before failing
+get_file() {
+
+	_rf="${1}"
+	_lf="${2}"
+        _ftries=${3}
+	if [ -z "$_ftries" ] ; then _ftries=3; fi
+
+        # Get any proxy information
+        . /etc/profile
+
+	if [ -e "${_lf}" ] ; then 
+		echo "Resuming download of: ${_lf}"
+	fi
+
+	if [ "$GUI_FETCH_PARSING" != "YES" -a -z "$PCFETCHGUI" ] ; then
+		fetch -r -o "${_lf}" "${_rf}"
+		_err=$?
+	else
+		echo "FETCH: ${_rf}"
+
+		# Doing a front-end download, parse the output of fetch
+		_eFile="/tmp/.fetch-exit.$$"
+		fetch -s "${_rf}" > /tmp/.fetch-size.$$ 2>/dev/null
+		_fSize=`cat /tmp/.fetch-size.$$ 2>/dev/null`
+		_fSize="`expr ${_fSize} / 1024 2>/dev/null`"
+		rm "/tmp/.fetch-size.$$" 2>/dev/null
+		_time=1
+   		if [ -z "$_fSize" ] ; then _fSize=0; fi
+
+		( fetch -r -o "${_lf}" "${_rf}" >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
+		FETCH_PID=`ps -auwwwx | grep -v grep | grep "fetch -r -o ${_lf}" | awk '{print $2}'`
+		while : 
+		do
+			if [ -e "${_lf}" ] ; then
+				_dSize=`du -k ${_lf} | tr -d '\t' | cut -d '/' -f 1`
+				if [ $(is_num "$_dSize") ] ; then
+					if [ ${_fSize} -lt ${_dSize} ] ; then _dSize="$_fSize" ; fi
+					_kbs=`expr ${_dSize} \/ $_time`
+					echo "SIZE: ${_fSize} DOWNLOADED: ${_dSize} SPEED: ${_kbs} KB/s"
+				fi
+			fi
+
+			# Make sure download isn't finished
+			ps -p $FETCH_PID >/dev/null 2>/dev/null
+			if [ "$?" != "0" ] ; then break ; fi
+			sleep 2
+			_time=`expr $_time + 2`
+		done
+
+		_err="`cat ${_eFile} 2>/dev/null`"
+		if [ -z "$_err" ] ; then _err="0"; fi
+                rm ${_eFile} 2>/dev/null
+		if [ "$_err" = "0" ]; then echo "FETCHDONE" ; fi
+		unset FETCH_PID
+	fi
+
+	echo ""
+	if [ $_err -ne 0 -a $_ftries -gt 0 ] ; then
+		sleep 30
+		_ftries=`expr $_ftries - 1`
+
+		# Remove the local file if we failed
+		if [ -e "${_lf}" ]; then rm "${_lf}"; fi
+
+		get_file "${_rf}" "${_lf}" $_ftries	
+		_err=$?
+	fi
+	return $_err
+}
+
 # Run-command, halt if command exits with non-0
 rc_halt_cleanup()
 {
@@ -212,7 +365,7 @@ setup_pkgng_conf() {
   # Now create standard pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
      # Change %VERSION% / %ARCH% keys
-     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g" | sed 's|/$||g'`
      cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
 pcbsd-major: {
                url: "$CUSTOM_URL",
@@ -222,7 +375,7 @@ pcbsd-major: {
               }
 EOF
      # Now do the same for base packages
-     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g" | sed 's|/$||g'`
      cat << EOF >/usr/local/etc/pkg/repos/pcbsd-base.conf
 pcbsd-base: {
                url: "${CUSTOM_URL}-base",
@@ -984,7 +1137,7 @@ setup_pkgng_newrepo_conf() {
   # Now create standard pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
      # Change %VERSION% / %ARCH% keys
-     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g" | sed 's|/$||g'`
      cat << EOF >/usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
 pcbsd-major: {
                url: "$CUSTOM_URL",
