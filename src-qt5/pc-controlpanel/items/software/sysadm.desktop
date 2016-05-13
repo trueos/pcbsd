@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=sysadm-client -localhost
+Type=Application
+Icon=/usr/local/share/pixmaps/sysadm.svg
+Name=SysAdm
+TryExec=/usr/local/bin/sysadm-client
+Comment=More System Management Options
