@@ -2908,7 +2908,7 @@ div[class^='highlight'] pre {
     padding-bottom: 2em;
     width: 300px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     min-height: 100%;
     background: #343131;
     z-index: 200
