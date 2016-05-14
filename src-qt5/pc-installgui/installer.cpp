@@ -46,9 +46,6 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::Fra
     backButton->setText(tr("&Back"));
     nextButton->setText(tr("&Next"));
 
-    // Init the boot-loader
-    bootLoader = QString("BSD");
-
     // We use GPT by default now
     sysPartType="GPT";
 
@@ -501,15 +498,14 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->setWindowModality(Qt::ApplicationModal);
   if ( radioRestore->isChecked() )
     wDisk->setRestoreMode();
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, QString, bool)));
   wDisk->show();
   wDisk->raise();
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, QString partType, QString zName, bool zForce)
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString partType, QString zName, bool zForce)
 {
 
-  bootLoader=BL;
   zpoolName = zName; 
   force4K = zForce;
   defaultInstall = false;
@@ -1048,7 +1044,7 @@ QStringList Installer::getDiskCfgSettings()
     }
 
     // Which boot-loader are we stamping?
-    tmpList << "bootManager=" + bootLoader;
+    tmpList << "bootManager=" + comboBootLoader->currentText();
 
     // Set the GPT/MBR options
     if ( sysPartType == "GPT" ) 
@@ -1509,7 +1505,7 @@ QStringList Installer::getDeskPkgCfg()
      pkgList << "misc/pcbsd-base" << "x11/lumina" << "x11/lumina-i18n";
 
      // If using GRUB, make sure the pkgs get loaded
-     if ( bootLoader == "GRUB" )
+     if ( comboBootLoader->currentText() == "GRUB" )
        pkgList << "sysutils/grub2-pcbsd" << "sysutils/grub2-efi";
 
      // The default web-browser and plugins
