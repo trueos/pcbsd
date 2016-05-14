@@ -245,6 +245,7 @@ share/pcbsd/pc-controlpanel/items/network/fwmanager.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-q4wine.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-swine.desktop
 share/pcbsd/pc-controlpanel/items/software/pkg-winecfg.desktop
+share/pcbsd/pc-controlpanel/items/software/sysadm.desktop
 share/pcbsd/pc-controlpanel/items/system/about.desktop
 share/pcbsd/pc-controlpanel/items/system/gnome-system-log.desktop
 share/pcbsd/pc-controlpanel/items/system/ibus-setup.desktop

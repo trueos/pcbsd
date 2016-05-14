@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=life-preserver-tray
+Exec=sysadm-client -page page_lp
 Icon=/usr/local/share/lifePreserver/images/lifepreserver.png
 MimeType=
 Path=
