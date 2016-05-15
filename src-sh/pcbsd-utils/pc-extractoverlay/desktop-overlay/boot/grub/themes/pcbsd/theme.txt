@@ -22,7 +22,7 @@
 # THE SOFTWARE.
 
 #general settings
-title-text: "PC-BSD / TrueOS Installation"
+title-text: "PC-BSD Bootloader"
 title-font: "DejaVu Sans Bold 14"
 title-color: "#FFFFFF"
 message-font: "DejaVu Sans Regular 12"
