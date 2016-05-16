@@ -26,11 +26,11 @@ QList<service> Services::getServiceList(){
     service S;
     S.ID = "DISABLE-IPV6";
     S.file = "/etc/rc.conf"; //This file needs to exist to show/start this service
-    S.name = QObject::tr("Disable IPv6");
+    S.name = QObject::tr("Disable IPv6 (Requires Reboot)");
     S.description = QObject::tr("Disable the use of IPv6 connections");
     //S.openPorts
+    S.rcRemove << QRegExp("*ipv6*", Qt::CaseInsensitive,  QRegExp::Wildcard);
     S.rcLines << "ipv6_activate_all_interfaces=NO";
-    S.rcRemove << QRegExp("*ipv6*", Qt::CaseInsensitive,  QRegExp::Wildcard); 
     //S.cmds << "service netif restart"; //optional extra commands
     out << S;
   }
