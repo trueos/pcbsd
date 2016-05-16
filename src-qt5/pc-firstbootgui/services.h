@@ -6,6 +6,11 @@
 #include <QList>
 
 #include <unistd.h>
+/*struct rcrule{
+  QRegExp match;
+  QString find;
+  QString replace;
+}*/
 
 class service{
 public:
@@ -19,7 +24,7 @@ public:
   QStringList cmds; //Optional commands to run before enabling the service
   QStringList openPorts; //Which ports to open in the IPFW firewall (Example: "tcp 22")
   QStringList rcLines; //Lines to put into /etc/rc.conf (Example: sshd_enable="YES")
-  QStringList rcFilter; //Lines to put into /etc/rc.conf (Example: sshd_enable="YES")
+  QList<QRegExp> rcRemove; //Lines to remove from /etc/rc.conf (Example: sshd_enable="YES")
 };
 
 
