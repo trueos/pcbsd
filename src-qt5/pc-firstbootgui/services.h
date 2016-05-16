@@ -19,6 +19,7 @@ public:
   QStringList cmds; //Optional commands to run before enabling the service
   QStringList openPorts; //Which ports to open in the IPFW firewall (Example: "tcp 22")
   QStringList rcLines; //Lines to put into /etc/rc.conf (Example: sshd_enable="YES")
+  QStringList rcFilter; //Lines to put into /etc/rc.conf (Example: sshd_enable="YES")
 };
 
 
