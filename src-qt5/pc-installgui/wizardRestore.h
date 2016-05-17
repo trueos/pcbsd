@@ -26,11 +26,8 @@ private slots:
     virtual void accept();
     void slotClose();
     void slotCheckComplete();
-    void slotGetUSBISCSI();
-    void slotGetISCSIFile();
-
 private:
-    bool getUSBAuth(bool);
+    bool getUSBAuth();
     bool startPWAuth();
     bool getSysList();
     bool validatePage();
