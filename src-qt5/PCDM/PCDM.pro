@@ -125,6 +125,9 @@ conf=pcdm.conf
 conf.path=/usr/local/etc
 conf.extra=cp pcdm.conf $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist && chmod 600 $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist
 
-INSTALLS += scripts rcd cleanthemes theme conf target session
+xsession.files=xsessions/*.desktop
+xsession.path=/usr/local/share/xsessions
+
+INSTALLS += scripts rcd cleanthemes theme conf target session xsession
 
 RESOURCES += PCDM.qrc
