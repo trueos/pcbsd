@@ -56,7 +56,7 @@ void wizardDisk::programInit()
   connect(lineEncPass2,SIGNAL(textChanged(const QString &)),this,SLOT(slotCheckComplete()));
 
   // Check if we are running in EFI mode
-  if ( system("kenv grub.platform | grep -q 'efi'") == 0 ) {
+  if ( system("sysctl -n machdep.bootmethod | grep -q 'UEFI'") == 0 )
     efiMode=true;
     radioMBR->setEnabled(false);
     radioGPT->setChecked(true);
