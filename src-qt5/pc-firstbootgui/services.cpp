@@ -2,6 +2,7 @@
 
 #include <QFile>
 #include <QObject>
+#include <QTextStream>
 
 QList<service> Services::getServiceList(){
   //Define all the pre-set services here
@@ -25,9 +26,10 @@ QList<service> Services::getServiceList(){
     service S;
     S.ID = "DISABLE-IPV6";
     S.file = "/etc/rc.conf"; //This file needs to exist to show/start this service
-    S.name = QObject::tr("Disable IPv6");
+    S.name = QObject::tr("Disable IPv6 (Requires Reboot)");
     S.description = QObject::tr("Disable the use of IPv6 connections");
     //S.openPorts
+    S.rcRemove << QRegExp("*ipv6*", Qt::CaseInsensitive,  QRegExp::Wildcard);
     S.rcLines << "ipv6_activate_all_interfaces=NO";
     //S.cmds << "service netif restart"; //optional extra commands
     out << S;
@@ -45,6 +47,32 @@ void Services::enableService(service S){
     system("echo \""+lines.join("\n").toLocal8Bit()+"\n\" >> /etc/ipfw.openports");
     system("/bin/sh /etc/ipfw.rules"); //reload the firewall rules
   }
+  //Remove any bad rc.conf lines as needed
+  if(!S.rcRemove.isEmpty()){
+    //Open rc.conf and read all the contents
+    QFile file("/etc/rc.conf");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in(&file);
+    QStringList rcconf = in.readAll().split("\n");
+    file.close();
+    //Look for matches of the regexp
+    bool changed = true;
+    for(int i=0; i<rcconf.length(); i++){
+      bool remove = false;
+      for(int j=0; j<S.rcRemove.length(); j++){
+        if( S.rcRemove[j].indexIn(rcconf[i]) >=0){ remove = true; break; }
+      }
+      if(remove){ rcconf.removeAt(i); i--; changed = true;}
+    }
+    //Now save the file again
+    if(changed){
+      file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate);
+      QTextStream out(&file);
+      out << rcconf.join("\n");
+      file.close();
+    }
+  }
+
   //Now make any changes to /etc/rc.conf (for auto-start on next boot)
   if(!S.rcLines.isEmpty()){
     for(int i=0; i<S.rcLines.length(); i++){

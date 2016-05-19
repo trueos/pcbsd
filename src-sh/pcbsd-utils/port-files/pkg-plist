@@ -4,9 +4,7 @@ bin/de-logout
 bin/disable-tor-mode
 bin/enable-tor-mode
 bin/pbreg
-bin/pc-autoupdate
 bin/pc-extractoverlay
-bin/pc-updatemanager
 bin/pc-fbsdupdatecheck
 bin/pc-su
 bin/pc-krbconf
@@ -194,10 +192,6 @@ share/pcbsd/de-profiles/gnome.profile
 share/pcbsd/de-profiles/mate.profile
 share/pcbsd/de-profiles/cinnamon.profile
 share/pcbsd/de-profiles/xfce.profile
-share/pcbsd/pc-updatemanager/conf/sysupdate.conf
-share/pcbsd/pc-updatemanager/conf/security.key
-share/pcbsd/pc-updatemanager/rc-update
-share/pcbsd/pc-updatemanager/rc-doupdate
 share/pcbsd/scripts/mkzfsdir.sh
 share/pcbsd/scripts/reset-firewall
 share/pcbsd/scripts/reset-firewall-tor
@@ -206,8 +200,6 @@ share/pcbsd/scripts/sys-init.sh
 share/pcbsd/version
 etc/pc-activedirectory.conf
 etc/pc-ldap.conf
-etc/pcupdate.d/post/README
-etc/pcupdate.d/pre/README
 etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
 etc/pkg/repos/pcbsd.conf.dist
 etc/rc.activedirectory

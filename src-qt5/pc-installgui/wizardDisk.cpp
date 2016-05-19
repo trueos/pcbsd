@@ -132,7 +132,6 @@ void wizardDisk::slotClose()
 
 void wizardDisk::accept()
 {
-  QString bootLoader;
   QString partType="none";
   bool force4K = false;
   QString zpoolName;
@@ -144,12 +143,6 @@ void wizardDisk::accept()
       partType="MBR";
     }
   }
-
-  // Get the boot-loader
-  if ( checkGRUB->isChecked() )
-    bootLoader="GRUB";
-  else
-    bootLoader="BSD";
 
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
@@ -163,9 +156,9 @@ void wizardDisk::accept()
      zpoolName = lineZpoolName->text();
 
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, QString("NONE"), partType, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, partType, zpoolName, force4K);
   else
-    emit saved(sysFinalDiskLayout, bootLoader, partType, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, partType, zpoolName, force4K);
   close();
 }
 

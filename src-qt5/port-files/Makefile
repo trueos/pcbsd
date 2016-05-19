@@ -19,7 +19,8 @@ BUILD_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
 		${PYTHON_PKGNAMEPREFIX}sphinx_wikipedia>=0:${PORTSDIR}/textproc/py-sphinx_wikipedia \
 		tex-formats>=0:${PORTSDIR}/print/tex-formats \
 		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
-RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
+RUN_DEPENDS=	pc-su:${PORTSDIR}/sysutils/pcbsd-utils \
+		pc-updatemanager:${PORTSDIR}/sysutils/pc-updatemanager \
 		${PYTHON_PKGNAMEPREFIX}dbus>=0:${PORTSDIR}/devel/py-dbus \
 		cdda2wav:${PORTSDIR}/sysutils/cdrtools
 LIB_DEPENDS=	libcurl.so:${PORTSDIR}/ftp/curl \

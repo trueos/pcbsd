@@ -24,10 +24,10 @@
 #general settings
 title-text: "PC-BSD / TrueOS Installation"
 title-font: "DejaVu Sans Bold 14"
-title-color: "#000"
+title-color: "#FFFFFF"
 message-font: "DejaVu Sans Regular 12"
-message-color: "#000"
-message-bg-color: "#000"
+message-color: "#FFFFFF"
+message-bg-color: "#FFFFFF"
 terminal-box: "terminal_box_*.png"
 terminal-font: "DejaVu Sans Regular 12"
 desktop-image: "background.png"
@@ -41,7 +41,7 @@ desktop-image: "background.png"
 	text = "@KEYMAP_MIDDLE@"
 	align = "center"
 	font = "DejaVu Sans Regular 10"
-	color = "#000"
+	color = "#FFFFFF"
 }
 
 #boot menu
@@ -51,9 +51,9 @@ desktop-image: "background.png"
 	top = 15%
 	height = 45%	
 	item_font = "DejaVu Sans Regular 12"
-	item_color = "#000"
+	item_color = "#FFFFFF"
 	selected_item_font = "DejaVu Sans Bold 14"
-	selected_item_color= "#2621CC"
+	selected_item_color= "#FF0000"
 	selected_item_pixmap_style = "blob_*.png"
 	icon_height = 25
 	icon_width = 25
@@ -75,9 +75,9 @@ desktop-image: "background.png"
 	height = 20
 	width = 50%
 	font = "DejaVu Sans Regular 12"
-	text_color = "#000"
+	text_color = "#FFFFFF"
 	fg_color = "#6ac"
 	bg_color = "#fff"
-	border_color = "#000"
+	border_color = "#FFFFFF"
 	text = "@TIMEOUT_NOTIFICATION_LONG@"
 }

@@ -21,29 +21,9 @@
 void wizardRestore::programInit()
 {
    connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(slotCheckComplete()));
-   connect(pushImportUSB,SIGNAL(clicked()),this,SLOT(slotGetUSBISCSI()));
-   connect(pushAddFile,SIGNAL(clicked()),this,SLOT(slotGetISCSIFile()));
    connect(lineHostName,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckComplete()));
    connect(lineUserName,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckComplete()));
-   connect(lineLPISCSI,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckComplete()));
-   connect(lineLPPass,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckComplete()));
    connect(spinPort,SIGNAL(valueChanged(int)),this,SLOT(slotCheckComplete()));
-}
-
-void wizardRestore::slotGetISCSIFile()
-{
-  QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                "/root",
-                                                tr("LP iSCSI Settings (*.lpiscsi)"));
-  if ( fileName.isEmpty() )
-    return;
-
-  lineLPISCSI->setText(fileName);
-}
-
-void wizardRestore::slotGetUSBISCSI()
-{
-  getUSBAuth(true);
 }
 
 void wizardRestore::slotClose()
@@ -56,18 +36,12 @@ void wizardRestore::accept()
   QString targetSys;
 
   QStringList rset;
-  if ( tabRestore->currentIndex() == 0 ) {
-    rset << "ISCSI";
-    rset << lineLPISCSI->text();
-    rset << lineLPPass->text();
-  } else {
-    targetSys = sysList.at(comboBoxRestoreSystem->currentIndex());
-    rset << lineHostName->text();
-    rset << lineUserName->text();
-    rset << QString::number(spinPort->value());
-    rset << authKey;
-    rset << targetSys;
-  }
+  targetSys = sysList.at(comboBoxRestoreSystem->currentIndex());
+  rset << lineHostName->text();
+  rset << lineUserName->text();
+  rset << QString::number(spinPort->value());
+  rset << authKey;
+  rset << targetSys;
   emit saved(rset);
   close();
 }
@@ -81,30 +55,13 @@ bool wizardRestore::validatePage()
          return true;
      case Page_Host:
          // Check if on the SSH restore tab
-	 if ( tabRestore->currentIndex() == 1 ) {
-           if ( lineHostName->text().isEmpty() ) {
-             button(QWizard::NextButton)->setEnabled(false);
-             return false;
-           }
-           if ( lineUserName->text().isEmpty() ) {
-             button(QWizard::NextButton)->setEnabled(false);
-             return false;
-           }
-         } else {
-           // Check if on the ISCSI restore tab
-           if ( lineLPISCSI->text().isEmpty() ) {
-             button(QWizard::NextButton)->setEnabled(false);
-             return false;
-           }
-	   // Make sure the file exists
-	   if ( ! QFile::exists(lineLPISCSI->text() ) ) {
-             button(QWizard::NextButton)->setEnabled(false);
-             return false;
-           }
-           if ( lineLPPass->text().isEmpty() ) {
-             button(QWizard::NextButton)->setEnabled(false);
-             return false;
-           }
+         if ( lineHostName->text().isEmpty() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return false;
+         }
+         if ( lineUserName->text().isEmpty() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return false;
          }
 
          // if we get this far, all the fields are filled in
@@ -162,7 +119,7 @@ void wizardRestore::initializePage(int page)
 
        // Lets start the auth process
        if ( radioUSBAuth->isChecked() ) {
-	  if ( ! getUSBAuth(false) ) {
+	  if ( ! getUSBAuth() ) {
 	     QMessageBox::critical(this, tr("No keys found!"),
                                 tr("No Auth keys could be found on that memory stick!\n"
                                    "Please try another USB stick or use password authentication."),
@@ -196,27 +153,20 @@ void wizardRestore::initializePage(int page)
      case Page_Finish:
        plainTextEditSummary->clear();
        plainTextEditSummary->appendPlainText(tr("Will restore from:"));
-       if ( tabRestore->currentIndex() == 0 ) {
-         plainTextEditSummary->appendPlainText("Life-Preserver iSCSI config: " + lineLPISCSI->text());
-       } else {
-         plainTextEditSummary->appendPlainText("Host: " + lineHostName->text());
-         plainTextEditSummary->appendPlainText("User: " + lineUserName->text());
-         plainTextEditSummary->appendPlainText("Target System: " + comboBoxRestoreSystem->currentText());
-       }
+       plainTextEditSummary->appendPlainText("Host: " + lineHostName->text());
+       plainTextEditSummary->appendPlainText("User: " + lineUserName->text());
+       plainTextEditSummary->appendPlainText("Target System: " + comboBoxRestoreSystem->currentText());
        break;
    }
 }
 
-bool wizardRestore::getUSBAuth(bool ISCSI)
+bool wizardRestore::getUSBAuth()
 {
   QStringList keys, dispKeys;
 
   QProcess p;
 
-  if ( ISCSI )
-    p.start(SCRIPTDIR + "/load-usb-key.sh", QStringList() << "ISCSI");
-  else
-    p.start(SCRIPTDIR + "/load-usb-key.sh", QStringList());
+  p.start(SCRIPTDIR + "/load-usb-key.sh", QStringList());
 
   while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
       p.waitForFinished(200);
@@ -246,10 +196,7 @@ bool wizardRestore::getUSBAuth(bool ISCSI)
 
   QString item;
 
-  if ( ISCSI )
-    item = QInputDialog::getItem(this, tr("Select the SSH key to use"), tr("Key File:"), dispKeys, 0, false, &ok);
-  else
-    item = QInputDialog::getItem(this, tr("Select the .lpiscsi to use"), tr("ISCSI File:"), dispKeys, 0, false, &ok);
+  item = QInputDialog::getItem(this, tr("Select the SSH key to use"), tr("Key File:"), dispKeys, 0, false, &ok);
 
   if ( !ok || item.isEmpty() )
      return false;
@@ -258,8 +205,6 @@ bool wizardRestore::getUSBAuth(bool ISCSI)
      if ( item == keys.at(i).section("/", -1) )
      {
         authKey = keys.at(i);
-	if ( ISCSI )
-          lineLPISCSI->setText(authKey);
         return true;
      }
   

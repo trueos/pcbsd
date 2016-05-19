@@ -47,7 +47,7 @@ private slots:
 
     // Disk slots
     void slotDiskCustomizeClicked();
-    void slotSaveDiskChanges(QList<QStringList>, QString, QString, QString, bool);
+    void slotSaveDiskChanges(QList<QStringList>, QString, QString, bool);
 
     // Slots for the installation
     void slotInstallProcFinished( int exitCode, QProcess::ExitStatus status);
@@ -128,7 +128,6 @@ private:
     QList<QStringList> sysDisks; // Our lists which contains disk info
     QList<QStringList> sysPartitions; // Our lists which contains partition info
     QList<QStringList> sysFinalDiskLayout; // Our lists which contains the final disk layout
-    QString bootLoader;
     QString sysPartType;
     int systemMemory; // Ammount of system RAM we have in MB
     QList<QStringList> listComponents; // QStringList for our available components
