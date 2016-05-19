@@ -248,8 +248,6 @@ share/pcbsd/desktop-defaults/usr/local/etc/screenrc
 share/pcbsd/desktop-defaults/usr/local/etc/default/grub
 share/pcbsd/desktop-defaults/usr/local/etc/polkit-1/localauthority/50-local.d/system.pkla
 share/pcbsd/desktop-defaults/usr/local/etc/volman.conf
-share/pcbsd/desktop-defaults/usr/share/skel/.gtkrc-2.0
-share/pcbsd/desktop-defaults/usr/share/skel/.fluxbox
 share/pcbsd/desktop-defaults/usr/share/skel/.fluxbox/menu
 share/pcbsd/desktop-defaults/usr/share/skel/.fluxbox/startup
 share/pcbsd/desktop-defaults/usr/share/skel/.fluxbox/overlay
