@@ -42,6 +42,7 @@ nvidia-xconfig-\*.txz
 xwd-\*.txz
 xvkbd-\*.txz
 fribidi-\*.txz
+pc-sysinstall-\*.txz
 pcbsd-utils-qt5-\*.txz
 pcbsd-i18n-qt5-\*.txz
 virtualbox-ose-additions-\*.txz

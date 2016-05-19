@@ -19,6 +19,7 @@ multimedia/vlc
 ports-mgmt/pkg
 security/openvpn
 sysutils/diskscrub
+sysutils/pc-sysinstall
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt5
 sysutils/grub2-pcbsd
