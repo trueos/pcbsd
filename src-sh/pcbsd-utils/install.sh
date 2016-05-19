@@ -21,7 +21,7 @@ DIR=`realpath $DIR`
 cd ${DIR}
 
 SUBPROJ="about de-info de-logout pbreg pc-adctl pc-checkxdisplay \
-	 pc-extractoverlay pc-fbsdupdatecheck pc-firstgui pc-installdialog \
+	 pc-fbsdupdatecheck pc-firstgui pc-installdialog \
 	 pc-runxgui pc-su pc-sysconfig pc-sysinstall pc-systemflag \
 	 pc-thinclient pc-xdgutil personacrypt xtrafiles"
 

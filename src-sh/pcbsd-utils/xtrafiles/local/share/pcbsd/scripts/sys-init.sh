@@ -93,8 +93,9 @@ if [ "$1" = "desktop" ] ;then
   touch /etc/defaults/pcbsd
   chflags schg /etc/defaults/pcbsd
 
-  # Init the desktop
-  /usr/local/bin/pc-extractoverlay desktop --sysinit
+  # Copy the default desktop files over
+  echo "Copying defaults to base system"
+  tar cvf - -C /usr/local/share/pcbsd/desktop-defaults 2>/dev/null | tar xvf - -C / 2>/dev/null
 
   # Need to save a language?
   if [ -n "$2" ] ; then
@@ -111,8 +112,9 @@ if [ "$1" = "server" ] ; then
   touch /etc/defaults/trueos
   chflags schg /etc/defaults/trueos
 
-  # Init the server
-  /usr/local/bin/pc-extractoverlay server --sysinit
+  # Copy the default server files over
+  echo "Copying defaults to base system"
+  tar cvf - -C /usr/local/share/pcbsd/server-defaults 2>/dev/null | tar xvf - -C / 2>/dev/null
 fi
 
 ################################################
