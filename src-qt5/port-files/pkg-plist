@@ -350,7 +350,6 @@ share/pcbsd/splash-screens/loading-screen-vi.pcx
 share/pcbsd/splash-screens/loading-screen-xh.pcx
 share/pcbsd/splash-screens/loading-screen-zh_CN.pcx
 share/pcbsd/splash-screens/loading-screen-zh_TW.pcx
-share/pcbsd/xdg-auto/checkupdater.sh
 share/pcbsd/xdg-auto/checkwelcome.sh
 share/pcbsd/xdg-auto/life-preserver.sh
 share/pcbsd/xdg-auto/net-trays.sh

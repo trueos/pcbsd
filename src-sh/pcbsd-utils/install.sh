@@ -20,7 +20,7 @@ DIR=`dirname $0`
 DIR=`realpath $DIR`
 cd ${DIR}
 
-SUBPROJ="about de-info de-logout pbreg pc-adctl pc-checkxdisplay \
+SUBPROJ="about de-info de-logout pc-adctl pc-checkxdisplay \
 	 pc-fbsdupdatecheck pc-firstgui pc-installdialog \
 	 pc-runxgui pc-su pc-sysconfig pc-systemflag \
 	 pc-thinclient pc-xdgutil personacrypt xtrafiles"

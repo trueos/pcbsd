@@ -77,21 +77,9 @@ fi
 ################################################
 if [ "$1" = "desktop" ] ;then
 
-  # Init the flash plugin for all users
-  cd /home
-  for i in `ls -d * 2>/dev/null`
-  do
-    su ${i} -c "flashpluginctl off"
-    su ${i} -c "flashpluginctl on"
-  done
-
-  # Enable the system updater tray
-  pbreg set /PC-BSD/SystemUpdater/runAtStartup true
-
-  # Set running desktop
-  pbreg set /PC-BSD/SysType PCBSD
-  touch /etc/defaults/pcbsd
-  chflags schg /etc/defaults/pcbsd
+  # Set for desktop mode
+  touch /etc/defaults/trueos-desktop
+  chflags schg /etc/defaults/trueos-desktop
 
   # Copy the default desktop files over
   echo "Copying defaults to base system"
@@ -108,9 +96,8 @@ fi
 ################################################
 if [ "$1" = "server" ] ; then
   # Set running a server
-  pbreg set /PC-BSD/SysType TRUEOS
-  touch /etc/defaults/trueos
-  chflags schg /etc/defaults/trueos
+  touch /etc/defaults/trueos-server
+  chflags schg /etc/defaults/trueos-server
 
   # Copy the default server files over
   echo "Copying defaults to base system"

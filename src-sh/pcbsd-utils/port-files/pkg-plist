@@ -3,7 +3,6 @@ bin/de-info
 bin/de-logout
 bin/disable-tor-mode
 bin/enable-tor-mode
-bin/pbreg
 bin/pc-fbsdupdatecheck
 bin/pc-su
 bin/pc-krbconf

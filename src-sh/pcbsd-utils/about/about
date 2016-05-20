@@ -9,18 +9,12 @@ CACHE_MEM=$((`sysctl -n vm.stats.vm.v_cache_count` * $VM_PAGESIZE))
 AVAIL_MEMORY=$((`sysctl -n hw.realmem` /1024/1024))
 FREE_MEMORY=$((($FREE_MEM + $INACT_MEM + $CACHE_MEM) /1024 /1024))
 
-#############3 System type Pc-BSd or TrueOS #################3
-SYSTYPE="`pbreg get /PC-BSD/SysType`"
-
-display_pcbsd_banner()
-{
-  echo "     ____  ______        ____ _____ ____"
-  echo "    / __ \/ ____/       / __ ) ___// __ \ " 
-  echo "   / /_/ / /     ___   / __  \__ \/ / / / " 
-  echo "  / ____/ /___  /___/ / /_/ /__/ / /_/ / " 
-  echo " /_/    \____/       /_____/____/_____/" 
-  echo ""
-}
+#############3 System type TrueOS #################3
+if [ -e "/etc/defaults/trueos-desktop" ] ; then
+  SYSTYPE="DESKTOP"
+else
+  SYSTYPE="SERVER"
+fi
 
 display_trueos_banner()
 {
@@ -31,6 +25,7 @@ echo " / / / /  / /_/ /  __/  / /_/ /___/ / "
 echo "/_/ /_/   \__,_/\___/   \____//____/  "
 echo ""                                      
 }
+
 display_pkg_version()
 {
   VER=`pkg query %v $2`
@@ -40,14 +35,7 @@ display_pkg_version()
   fi
 }
 
-if [ "$SYSTYPE" = "PCBSD" ]; then 
-    display_pcbsd_banner    
-    VERNAME="PC-BSD"
-fi
-if [ "$SYSTYPE" = "TRUEOS" ]; then 
-    display_trueos_banner 
-fi
-
+display_trueos_banner 
 
 echo "General info:"
 echo "       Host:...............`hostname`"
@@ -55,18 +43,14 @@ echo "       User:...............`whoami`"
 echo "       Uptime:.............`uptime | awk '{sub(/^.* up +/,"");sub(/, *[0-9]+ users.*/,"");print}'`"
 echo "       FreeBSD kernel ver:.`uname -r`"
 echo "       FreeBSD world ver:..`freebsd-version`"
-if [ "$SYSTYPE" = "PCBSD" ]; then
-  echo "       PC-BSD ver:.........`cat /usr/local/share/pcbsd/version`"
-else
-  echo "       TrueOS ver:.........`cat /usr/local/share/pcbsd/version`"
-fi
+echo "       TrueOS ver:.........`cat /usr/local/share/pcbsd/version`"
 echo "       Arch:...............`uname -m`"
 echo "       Kernel ident:.......`uname -i`"
 echo "       CPU:................`sysctl -n hw.model`"
 echo "       CPU cores:..........`sysctl -n kern.smp.cpus`"
 echo "       Memory (free/avail):${FREE_MEMORY} / ${AVAIL_MEMORY} Mb"
 echo "       Package set:........`cat /usr/local/etc/pcbsd.conf 2>/dev/null | grep 'PACKAGE_SET: ' | sed 's|PACKAGE_SET: ||g'`"
-if [ "$SYSTYPE" = "PCBSD" ]; then 
+if [ "$SYSTYPE" = "DESKTOP" ]; then 
 echo "       Desktop environment:`de-info | grep "DE name" | sed "s/DE name: //"`"
 echo "       X11 Driver:.........`awk '{if (sub(/^.*Loading.*modules\/drivers\//,"")) { print; } }'  < /var/log/Xorg.0.log`"
 fi
@@ -76,7 +60,7 @@ ifconfig | grep "inet " |  awk '{ print "       "$2 }'
 ##echo " ==> Network ipv6 ip: "
 ##ifconfig | grep "inet6" |  awk '{ print $2 }'
 
-if [ "$SYSTYPE" = "PCBSD" ]; then 
+if [ "$SYSTYPE" = "DESKTOP" ]; then 
 echo ""
 echo "Installed desktop environments:"
 display_pkg_version "       KDE apps:....." "kde-baseapps"
