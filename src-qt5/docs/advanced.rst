@@ -4,7 +4,7 @@
 Advanced Installation Topics
 ****************************
 
-The previous section discussed a default installation of PC-BSD®. This section covers the following advanced installation topics: 
+The previous section discussed a default installation of PC-BSD®. This section covers these installation topics: 
 
 * :ref:`Using the Text Installer`
 
