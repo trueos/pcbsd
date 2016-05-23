@@ -91,7 +91,7 @@ void ZManagerWindow::GetCurrentTopology()
     QStringList h=pcbsd::Utils::runShellCommand("gpart list");
     QStringList h2=pcbsd::Utils::runShellCommand("gpart show -p");
     QStringList lbl=pcbsd::Utils::runShellCommand("glabel status");
-    QStringList fsid=pcbsd::Utils::runShellCommand("sh -c blkid /dev/da* /dev/ada*");
+    QStringList fsid=pcbsd::Utils::runShellCommand("sh -c \"file -s /dev/da* /dev/ada*\"");
     QStringList m=pcbsd::Utils::runShellCommand("mount");
     QStringList ps=pcbsd::Utils::runShellCommand("sh -c \"ps -A -w -w | grep 'ntfs\\|ext4'\"");
     QStringList prop;   // GET PROPERTIES FOR ALL POOLS ONCE WE HAVE A LIST OF POOLS
@@ -533,7 +533,7 @@ void ZManagerWindow::GetCurrentTopology()
     }
 
 
-    // GET FILE SYSTEM TYPES FROM BLKID
+    // GET FILE SYSTEM TYPES FROM FILES
 
 
     idx=fsid.constBegin();
@@ -546,24 +546,45 @@ void ZManagerWindow::GetCurrentTopology()
         if(tokens.count()<2) { ++ idx; continue; }
         // FIND DISK OR PARTITION WITH GIVEN NAME
 
+        FileSystemID.clear();
+
         for(f=1;f<tokens.count();++f) {
-            if(tokens.at(f).startsWith("TYPE=")) {
-                FileSystemID=tokens.at(f).mid(6,tokens.at(f).length()-7);
-
-                // APPLY CORRECTIONS DEPENDING ON PARTITION TYPE
-
-                if(FileSystemID=="vfat") {
-                // DETECT FAT16 VS FAT32 VARIANTS
-                int k;
-                for(k=1;k<tokens.count();++k) {
-                    if(tokens.at(k)=="SEC_TYPE=\"msdos\"") { FileSystemID="fat16"; break; }
-                    }
-                if(k==tokens.count()) FileSystemID="fat32";
-
+            if(tokens.at(f).startsWith("FAT")) {
+                if(f+1<tokens.count()) {
+                    if(tokens.at(f+1).startsWith("(16")) { FileSystemID="fat16"; break; }
+                    if(tokens.at(f+1).startsWith("(32")) {FileSystemID="fat32"; break; }
                 }
+            }
+            if(tokens.at(f).startsWith("ext2")) {
+                if(tokens.at(f+1).startsWith("filesystem"))
+                { FileSystemID="ext2"; break; }
+            }
+            if(tokens.at(f).startsWith("ext3")) {
+                if(tokens.at(f+1).startsWith("filesystem"))
+                { FileSystemID="ext3"; break; }
+            }
+            if(tokens.at(f).startsWith("ext4")) {
+                if(tokens.at(f+1).startsWith("filesystem"))
+                { FileSystemID="ext4"; break; }
+            }
 
+            if(tokens.at(f).startsWith("NTFS")) {
+                FileSystemID="ntfs";
                 break;
             }
+
+            if(tokens.at(f).startsWith("Unix")) {
+                if(f+4<tokens.count()) {
+                    if(!tokens.at(f+1).startsWith("Fast")) break;
+                    if(!tokens.at(f+2).startsWith("File")) break;
+                    FileSystemID="ufs";
+                    break;
+
+                }
+            }
+
+
+
         }
 
 
@@ -581,11 +602,15 @@ void ZManagerWindow::GetCurrentTopology()
 
                         // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
                         if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
-                            if(!(*partit).PartType.startsWith("ms-")) (*partit).FSType.clear();
+                            if(((*partit).PartType!=FileSystemID) && (!(*partit).PartType.startsWith("ms-"))) (*partit).FSType.clear();
                         }
                         if(FileSystemID.startsWith("ext")) {
                             if(!(*partit).PartType.startsWith("linux-")) (*partit).FSType.clear();
                         }
+                        if(FileSystemID.startsWith("ufs")) {
+                            if(!(*partit).PartType.startsWith("freebsd-ufs")) (*partit).FSType.clear();
+                        }
+
 
                         break;
 
@@ -597,11 +622,15 @@ void ZManagerWindow::GetCurrentTopology()
 
                             // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
                             if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
-                                if(!(*partit).PartType.startsWith("ms-")) (*partit).FSType.clear();
+                                if(((*partit).PartType!=FileSystemID) && (!(*partit).PartType.startsWith("ms-"))) (*partit).FSType.clear();
                             }
                             if(FileSystemID.startsWith("ext")) {
                                 if(!(*partit).PartType.startsWith("linux-")) (*partit).FSType.clear();
                             }
+                            if(FileSystemID.startsWith("ufs")) {
+                                if(!(*partit).PartType.startsWith("freebsd-ufs")) (*partit).FSType.clear();
+                            }
+
 
 
 
@@ -618,11 +647,15 @@ void ZManagerWindow::GetCurrentTopology()
 
                         // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
                         if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
-                            if(!(*sliceit).PartType.startsWith("ms-")) (*sliceit).FSType.clear();
+                            if(((*sliceit).PartType!=FileSystemID) && (!(*sliceit).PartType.startsWith("ms-"))) (*sliceit).FSType.clear();
                         }
                         if(FileSystemID.startsWith("ext")) {
                             if(!(*sliceit).PartType.startsWith("linux-")) (*sliceit).FSType.clear();
                         }
+                        if(FileSystemID.startsWith("ufs")) {
+                            if(!(*sliceit).PartType.startsWith("freebsd-ufs")) (*sliceit).FSType.clear();
+                        }
+
 
 
 
@@ -636,10 +669,13 @@ void ZManagerWindow::GetCurrentTopology()
 
                             // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
                             if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
-                                if(!(*sliceit).PartType.startsWith("ms-")) (*sliceit).FSType.clear();
+                                if(((*sliceit).PartType!=FileSystemID) && (!(*sliceit).PartType.startsWith("ms-"))) (*sliceit).FSType.clear();
                             }
                             if(FileSystemID.startsWith("ext")) {
                                 if(!(*sliceit).PartType.startsWith("linux-")) (*sliceit).FSType.clear();
+                            }
+                            if(FileSystemID.startsWith("ufs")) {
+                                if(!(*sliceit).PartType.startsWith("freebsd-ufs")) (*sliceit).FSType.clear();
                             }
 
 
@@ -658,10 +694,13 @@ void ZManagerWindow::GetCurrentTopology()
 
                 // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
                 if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
-                    if(!(*dskit).PartType.startsWith("ms-")) (*dskit).FSType.clear();
+                    if(((*dskit).PartType!=FileSystemID) && (!(*dskit).PartType.startsWith("ms-"))) (*dskit).FSType.clear();
                 }
                 if(FileSystemID.startsWith("ext")) {
                     if(!(*dskit).PartType.startsWith("linux-")) (*dskit).FSType.clear();
+                }
+                if(FileSystemID.startsWith("ufs")) {
+                    if(!(*dskit).PartType.startsWith("freebsd-ufs")) (*dskit).FSType.clear();
                 }
 
 
@@ -675,10 +714,13 @@ void ZManagerWindow::GetCurrentTopology()
 
                     // CHECK IF PARTITION TYPE MAKES SENSE WITH FILE SYSTEM
                     if((FileSystemID=="fat16")||(FileSystemID=="fat32")||(FileSystemID=="ntfs")) {
-                        if(!(*dskit).PartType.startsWith("ms-")) (*dskit).FSType.clear();
+                        if(((*dskit).PartType!=FileSystemID) && (!(*dskit).PartType.startsWith("ms-"))) (*dskit).FSType.clear();
                     }
                     if(FileSystemID.startsWith("ext")) {
                         if(!(*dskit).PartType.startsWith("linux-")) (*dskit).FSType.clear();
+                    }
+                    if(FileSystemID.startsWith("ufs")) {
+                        if(!(*dskit).PartType.startsWith("freebsd-ufs")) (*dskit).FSType.clear();
                     }
 
 
@@ -1628,7 +1670,16 @@ void ZManagerWindow::refreshState()
             // IS NOT MOUNTED, CHECK IF IT HAS ANY PARTITIONS
             if((*idx).Partitions.count()==0) {
                 // NO PARTITIONS, IT'S EITHER UNUSED OR PART OF A POOL (DEDICATED)
-                if((*idx).InPool.isEmpty())  { if((*idx).Size!=0) item->setText(1,tr("Avaliable")); else item->setText(1,tr("No disk")); }
+                if((*idx).InPool.isEmpty())  {
+                    if((*idx).FSType.isEmpty()) {
+                    if((*idx).Size!=0) item->setText(1,tr("Avaliable"));
+                    else item->setText(1,tr("No disk"));
+                    }
+                    else {
+                    // CONTAINS A FILE SYSTEM - NO PARTITION TABLE!
+                    item->setText(1,tr("Unmounted"));
+                    }
+                }
                 else item->setText(1,tr("ZPool: ")+(*idx).InPool);
             } else item->setText(1,tr("Sliced")); }
         else item->setText(1,tr("Mounted: ")+(*idx).MountPoint);
@@ -1651,7 +1702,11 @@ void ZManagerWindow::refreshState()
             if((*partidx).MountPoint.isEmpty()) {
                 if((*partidx).Partitions.count()==0) {
                     if( (*partidx).InPool.isEmpty()) {
-                        if((*partidx).PartType.isEmpty() || ((*partidx).PartType=="BSD")) subitem->setText(1,tr("Available")); else subitem->setText(1,tr("Unmounted"));
+                        if((*partidx).PartType.isEmpty() || ((*partidx).PartType=="BSD")) subitem->setText(1,tr("Available")); else
+                        {
+                            if((*partidx).FSType.isEmpty()) subitem->setText(1,tr("Blank"));
+                            else subitem->setText(1,tr("Unmounted"));
+                        }
                     } else subitem->setText(1,tr("ZPool: ") + (*partidx).InPool);
                 } else subitem->setText(1,tr("Partitioned")); }
             else subitem->setText(1,tr("Mounted: ")+(*partidx).MountPoint);
@@ -1673,7 +1728,11 @@ void ZManagerWindow::refreshState()
                 if((*part2idx).MountPoint.isEmpty()) {
 
                     if((*part2idx).InPool.isEmpty()) {
-                        if( (*part2idx).PartType.isEmpty()) subsubitem->setText(1,tr("Available")); else subsubitem->setText(1,tr("Unmounted"));
+                        if( (*part2idx).PartType.isEmpty()) subsubitem->setText(1,tr("Available")); else
+                        {
+                            if((*part2idx).FSType.isEmpty()) subsubitem->setText(1,tr("Blank"));
+                            else subsubitem->setText(1,tr("Unmounted"));
+                        }
                     } else subsubitem->setText(1,tr("ZPool: ") + (*part2idx).InPool);
                 }
                 else subsubitem->setText(1,tr("Mounted: ")+(*part2idx).MountPoint);
@@ -2198,6 +2257,9 @@ if(result) {
     else cmdline+="/dev/"+device->Alias;
 
     cmdline += " \"" + mnt.getMountLocation()+"\"";
+
+    QMessageBox mbox(QMessageBox::Warning,"Title",cmdline + "device->FSType=" + device->FSType);
+    mbox.exec();
 
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
