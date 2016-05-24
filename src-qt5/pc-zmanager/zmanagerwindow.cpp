@@ -1514,11 +1514,12 @@ void ZManagerWindow::refreshState()
     splash.setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     splash.setWindowFlags(Qt::SplashScreen);
 
-    int x=this->pos().x();
-    int y=this->pos().y();
+    splash.setParent(this);
 
-    x+=this->width()/2;
-    y+=this->height()/2;
+    int x;
+    int y;
+    x=this->width()/2;
+    y=this->height()/2;
 
     x-=50;
     y-=50;
@@ -1704,7 +1705,7 @@ void ZManagerWindow::refreshState()
                     if( (*partidx).InPool.isEmpty()) {
                         if((*partidx).PartType.isEmpty() || ((*partidx).PartType=="BSD")) subitem->setText(1,tr("Available")); else
                         {
-                            if((*partidx).FSType.isEmpty()) subitem->setText(1,tr("Blank"));
+                            if((*partidx).FSType.isEmpty()) subitem->setText(1,tr("Blank/Unknown"));
                             else subitem->setText(1,tr("Unmounted"));
                         }
                     } else subitem->setText(1,tr("ZPool: ") + (*partidx).InPool);
@@ -1730,7 +1731,7 @@ void ZManagerWindow::refreshState()
                     if((*part2idx).InPool.isEmpty()) {
                         if( (*part2idx).PartType.isEmpty()) subsubitem->setText(1,tr("Available")); else
                         {
-                            if((*part2idx).FSType.isEmpty()) subsubitem->setText(1,tr("Blank"));
+                            if((*part2idx).FSType.isEmpty()) subsubitem->setText(1,tr("Blank/Unknown"));
                             else subsubitem->setText(1,tr("Unmounted"));
                         }
                     } else subsubitem->setText(1,tr("ZPool: ") + (*part2idx).InPool);
@@ -1906,6 +1907,8 @@ void ZManagerWindow::zpoolContextMenu(QPoint p)
         }
     }
 
+    p.setX(p.x()+5);
+    p.setY(p.y()+5);
 
     needRefresh=false;
     m.exec(ui->zpoolList->viewport()->mapToGlobal(p));
@@ -1926,15 +1929,17 @@ void ZManagerWindow::deviceContextMenu(QPoint p)
 
     if(!dev->InPool.isEmpty()) {
         // DISK IS IN A POOL, NOTHING TO DO UNTIL IT'S REMOVED
-        return;
+        m.addAction(tr("Manage zpool ")+dev->InPool)->setData(QVariant(9));
     }
-
+    else {
     if(!dev->MountPoint.isEmpty()) m.addAction(tr("Unmount"))->setData(QVariant(1));  // OFFER TO UNMOUNT IF PARTITION IS MOUNTED
     else {
         if( (!dev->PartType.isEmpty()) && (dev->Partitions.count()==0) && (dev->PartType!="MBR") && (dev->PartType!="GPT") && (dev->PartType!="BSD") && (dev->PartType!="freebsd") )
         {
-            // THIS IS A PARTITION WITH A FILE SYSTEM BUT NOT MOUNTED
-            m.addAction(tr("Mount"))->setData(QVariant(2));
+            if(!dev->FSType.isEmpty()) {
+                // THIS IS A PARTITION WITH A FILE SYSTEM BUT NOT MOUNTED
+                m.addAction(tr("Mount"))->setData(QVariant(2));
+            }
         }
 
         if(dev->PartType.isEmpty() && dev->Level<2) {
@@ -1963,8 +1968,9 @@ void ZManagerWindow::deviceContextMenu(QPoint p)
 
 
     }
-
-
+    }
+    p.setX(p.x()+5);
+    p.setY(p.y()+5);
 
     QAction *result=m.exec(ui->deviceList->viewport()->mapToGlobal(p));
 
@@ -1992,6 +1998,10 @@ void ZManagerWindow::deviceContextMenu(QPoint p)
             break;
         case 8:
             result=deviceDestroyPartition(dev);
+            break;
+        case 9:
+            result=0;
+            ui->tabContainer->setCurrentIndex(1);
             break;
         default:
             result=false;
@@ -2257,9 +2267,6 @@ if(result) {
     else cmdline+="/dev/"+device->Alias;
 
     cmdline += " \"" + mnt.getMountLocation()+"\"";
-
-    QMessageBox mbox(QMessageBox::Warning,"Title",cmdline + "device->FSType=" + device->FSType);
-    mbox.exec();
 
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
@@ -3404,6 +3411,8 @@ void ZManagerWindow::filesystemContextMenu(QPoint p)
         }
     }
 
+    p.setX(p.x()+5);
+    p.setY(p.y()+5);
 
     needRefresh=false;
     m.exec(ui->fsList->viewport()->mapToGlobal(p));
@@ -3821,3 +3830,8 @@ void    ZManagerWindow::inheritFSProperty(zfs_t *fs,QString Property,bool recurs
 
 }
 
+
+void ZManagerWindow::on_refreshButton_clicked()
+{
+ this->refreshState();
+}
