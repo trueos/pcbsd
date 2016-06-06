@@ -1527,7 +1527,7 @@ QStringList Installer::getDeskPkgCfg()
      pkgList << "archivers/unrar" << "archivers/unzip" << "archivers/peazip" << "editors/vim";
 
      // Printer packages
-     pkgList << print/cups-pdf;
+     pkgList << "print/cups-pdf";
 
      // Include i18n stuff?
      if ( comboLanguage->currentIndex() != 0 )
