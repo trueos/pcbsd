@@ -1526,6 +1526,9 @@ QStringList Installer::getDeskPkgCfg()
      // Utilities
      pkgList << "archivers/unrar" << "archivers/unzip" << "archivers/peazip" << "editors/vim";
 
+     // Printer packages
+     pkgList << print/cups-pdf;
+
      // Include i18n stuff?
      if ( comboLanguage->currentIndex() != 0 )
        pkgList << "misc/pcbsd-i18n" << "misc/pcbsd-i18n-qt5";
@@ -1566,8 +1569,8 @@ QStringList Installer::getDeskPkgCfg()
    } else {
      pkgList << "misc/trueos-base";
      // If the user enabled AppCafe remote, install it now
-     if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
-       pkgList << "sysutils/pcbsd-appweb";
+     //if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
+       //pkgList << "sysutils/pcbsd-appweb";
    }
 
    cfgList << "installPackages=" + pkgList.join(" ");

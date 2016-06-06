@@ -12,6 +12,7 @@ misc/pcbsd-toolchain
 misc/trueos-base
 multimedia/openh264
 multimedia/vlc
+print/cups-pdf
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/pcbsd-util*

@@ -17,6 +17,7 @@ misc/trueos-base
 multimedia/openh264
 multimedia/vlc
 ports-mgmt/pkg
+print/cups-pdf
 security/openvpn
 sysutils/diskscrub
 sysutils/pc-sysinstall
