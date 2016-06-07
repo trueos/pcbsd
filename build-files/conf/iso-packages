@@ -19,6 +19,7 @@ ports-mgmt/pkg
 print/cups-pdf
 security/openvpn
 sysutils/diskscrub
+sysutils/life-preserver
 sysutils/pc-sysinstall
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt5
