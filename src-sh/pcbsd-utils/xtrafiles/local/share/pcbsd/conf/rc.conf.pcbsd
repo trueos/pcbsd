@@ -35,10 +35,6 @@ if [ -e "/etc/defaults/trueos" ] ; then
   kldxref_enable="YES"
   kldxref_clobber="YES"
 
-  # Enable AppCafe / PHP / SysCache
-  syscache_enable="YES"
-  appcafe_enable="YES"
-
   # Clean out temporary files.
   clear_tmp_enable="YES"
   clean_tmp_X="YES"
@@ -46,8 +42,11 @@ if [ -e "/etc/defaults/trueos" ] ; then
   # Support for iSCSI with Life-Preserver
   iscsid_enable="YES"
 
-  # Start relaunchd
-  launchd_enable="YES"
+  # Enable the sysadm daemon
+  sysadm_enable="YES"
+
+  # Start jobd
+  jobd_enable="YES"
 fi
 
 # Defaults for PC-BSD desktops
@@ -134,8 +133,8 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   # Enable moused
   moused_enable="YES"
 
-  # Enable the Warden
-  warden_enable="YES"
+  # Enable the sysadm daemon
+  sysadm_enable="YES"
 
   # Enable uhidd
   uhidd_enable="YES"
@@ -153,10 +152,6 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   kldxref_enable="YES"
   kldxref_clobber="YES"
 
-  # Enable AppCafe / PHP / SysCache
-  syscache_enable="YES"
-  appcafe_enable="YES"
-
   # Enable AutoFS mounting
   autofs_enable="YES"
 
@@ -170,6 +165,6 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   # Enable iocage
   iocage_enable="YES"
 
-  # Start relaunchd
-  launchd_enable="YES"
+  # Start jobd
+  jobd_enable="YES"
 fi
