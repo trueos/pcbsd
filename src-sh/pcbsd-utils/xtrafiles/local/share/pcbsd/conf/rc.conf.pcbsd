@@ -8,8 +8,8 @@
 # WARNING - WARNING - WARNING - WARNING - WARNING - WARNING
 ###########################################################
 
-# Defaults for TrueOS servers
-if [ -e "/etc/defaults/trueos" ] ; then
+# Defaults for servers
+if [ -e "/etc/defaults/trueos-server" ] ; then
 
   # Enable ZFS
   zfs_enable="YES"
@@ -49,8 +49,8 @@ if [ -e "/etc/defaults/trueos" ] ; then
   jobd_enable="YES"
 fi
 
-# Defaults for PC-BSD desktops
-if [ -e "/etc/defaults/pcbsd" ] ; then
+# Defaults for desktops
+if [ -e "/etc/defaults/trueos-desktop" ] ; then
 
   # Enable ZFS
   zfs_enable="YES"
