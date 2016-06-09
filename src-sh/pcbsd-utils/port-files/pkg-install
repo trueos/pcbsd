@@ -14,15 +14,13 @@ if [ $? -eq 0 ] ; then
 fi
 
 # Copy over the rc.conf.pcbsd file
-if [ -d "${PREFIX}/share/pcbsd/conf" ] ; then
-   install -m 644 ${PREFIX}/share/pcbsd/conf/rc.conf.pcbsd /etc/rc.conf.pcbsd
-   if [ -e "/etc/default/pcbsd" -o -e "/etc/default/trueos-desktop" ] ; then
-     install -m 644 ${PREFIX}/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
-     install -m 644 ${PREFIX}/share/pcbsd/conf/brand-pcbsd.4th /boot/brand-pcbsd.4th
-   else
-     install -m 644 ${PREFIX}/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
-     install -m 644 ${PREFIX}/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
-   fi
+install -m 644 ${PREFIX}/share/pcbsd/conf/rc.conf.pcbsd /etc/rc.conf.pcbsd
+if [ -e "/etc/default/pcbsd" -o -e "/etc/defaults/trueos-desktop" ] ; then
+  install -m 644 ${PREFIX}/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+  install -m 644 ${PREFIX}/share/pcbsd/conf/brand-pcbsd.4th /boot/brand-pcbsd.4th
+else
+  install -m 644 ${PREFIX}/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+  install -m 644 ${PREFIX}/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
 fi
 
 exit 0
