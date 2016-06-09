@@ -23,4 +23,14 @@ else
   install -m 644 ${PREFIX}/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
 fi
 
+if [ ! -e "${PREFIX}/etc/pcbsd.conf" ] ; then
+  # Do the first-time setup
+  echo "Doing first-time bootstrap"
+  if [ -e "/etc/defaults/trueos-desktop" ] ; then
+    tar cvf - -C ${PREFIX}/share/pcbsd/desktop-defaults/ . 2>/dev/null | tar xvf - -C / 2>/dev/null
+  else
+    tar cvf - -C ${PREFIX}/share/pcbsd/server-defaults/ . 2>/dev/null | tar xvf - -C / 2>/dev/null
+  fi
+fi
+
 exit 0
