@@ -15,6 +15,7 @@ misc/pcbsd-meta-vmwareguest
 misc/trueos-base
 multimedia/openh264
 multimedia/vlc
+multimedia/webcamd
 ports-mgmt/pkg
 print/cups-pdf
 security/openvpn
