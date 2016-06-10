@@ -1,6 +1,6 @@
 #!/bin/sh
 # License: BSD
-# Authors: Joshua Smith (joshms@pcbsd.org) & Kris Moore (kris@pcbsd.org)
+# Authors: Joshua Smith (joshms@ixsystems.com) & Kris Moore (kris@ixsystems.com)
 ########################################################
 # This script is fairly linear, it will walk through a series of questions
 # and when finished, generate a pc-sysinstall script
@@ -10,7 +10,7 @@
 
 
 # Dialog menu title
-TITLE="PC-BSD Install Dialog"
+TITLE="TrueOS Install Dialog"
 
 # pc-sysinstall config file to write out to
 CFGFILE="/tmp/sys-install.cfg"
@@ -369,9 +369,9 @@ get_sys_type()
 {
   unset SYSTYPE
 
-  # Determine if sys-type is TrueOS or PC-BSD
+  # Determine if sys-type is TrueOS Core or TrueOS Desktop
   if [ -e /usr/local/bin/startx ] ; then
-    get_dlg_ans "--radiolist \"System type\" 12 50 5 desktop \"PC-BSD Desktop\" on server \"TrueOS / FreeBSD Server\" off"
+    get_dlg_ans "--radiolist \"System type\" 12 50 5 desktop \"TrueOS Desktop\" on server \"TrueOS Core / FreeBSD Server\" off"
     SYSTYPE="$ANS"
   else
     SYSTYPE="server"
@@ -1056,7 +1056,7 @@ start_edit_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zpool "Change zpool settings" zfs "Change ZFS layout" network "Change networking" packages "choose meta-packages to install" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
+    dialog --title "TrueOS Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zpool "Change zpool settings" zfs "Change ZFS layout" network "Change networking" packages "choose meta-packages to install" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -1090,7 +1090,7 @@ start_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" hardware "check compatibility" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "TrueOS Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" hardware "check compatibility" quit "Quit install wizard" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"

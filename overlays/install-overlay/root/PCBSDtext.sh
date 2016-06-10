@@ -1,6 +1,6 @@
 #!/bin/sh
-# PC-BSD System Install Menu
-# Copyright 2013 PC-BSD Software
+# TrueOS System Install Menu
+# Copyright 2016 IX Systems
 # http://www.pcbsd.com
 # Author: Kris Moore
 ###########################################################################
@@ -12,9 +12,9 @@ i="1"
 do
 
 if [ -e "/usr/local/bin/startx" ] ; then
-	dialog --title "PC-BSD Installation Menu" --menu "Please select from the following options:" 20 55 15 xorg "Start graphical install (Auto-Detect Video) " vesa "Start graphical install (VESA)" scfb "Start graphical install (SCFB)" install "Start text install" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
+	dialog --title "TrueOS Installation Menu" --menu "Please select from the following options:" 20 55 15 xorg "Start graphical install (Auto-Detect Video) " vesa "Start graphical install (VESA)" scfb "Start graphical install (SCFB)" install "Start text install" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
 else
-  dialog --title "PC-BSD Installation Menu" --menu "Please select from the following options:" 20 55 15 install "Start text install" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
+  dialog --title "TrueOS Installation Menu" --menu "Please select from the following options:" 20 55 15 install "Start text install" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
 fi
 
 ANS="`cat /tmp/answer`"
