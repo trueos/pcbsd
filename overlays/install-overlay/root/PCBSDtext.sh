@@ -1,6 +1,6 @@
 #!/bin/sh
 # TrueOS System Install Menu
-# Copyright 2016 IX Systems
+# Copyright 2016 iXsystems, Inc.
 # http://www.pcbsd.com
 # Author: Kris Moore
 ###########################################################################
