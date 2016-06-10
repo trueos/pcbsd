@@ -33,14 +33,15 @@
 	1+ \ increase y for next time we're called
 ;
 
-: brand ( x y -- ) \ "PC-BSD" [wide] logo in B/W (7 rows x 42 columns)
+: brand ( x y -- ) \ "TrueOS" [wide] logo in B/W (7 rows x 42 columns)
 
-	s"  _____   _____      ____   _____ _____    " brand+
-	s" |  __ \ / ____|    |  _ \ / ____|  __ \   " brand+
-	s" | |__) | |   ______| |_) | (___ | |  | |  " brand+
-	s" |  ___/| |  |______|  _ < \___ \| |  | |  " brand+
-	s" | |    | |____     | |_) |____) | |__| |  " brand+
-	s" |_|     \_____|    |____/|_____/|_____/   " brand+
+	s"  _______               ____   _____       " brand+
+	s" |__   __|             / __ \ / ____|      " brand+
+	s"    | |_ __ _   _  ___| |  | | (___        " brand+
+	s"    | | '__| | | |/ _ \ |  | |\___ \       " brand+
+	s"    | | |  | |_| |  __/ |__| |____) |      " brand+
+	s"    |_|_|   \__,_|\___|\____/|_____/       " brand+
+                                     
                                          
 	2drop
 ;

@@ -69,7 +69,7 @@ net.inet.ip.fw.one_pass=0
 net.graph.maxdata=65536
 
 # Set the brand/loader logo
-loader_brand="trueos"
+loader_brand="pcbsd"
 loader_logo="pcbsd"
 loader_menu_title="Welcome to TrueOS"
 
