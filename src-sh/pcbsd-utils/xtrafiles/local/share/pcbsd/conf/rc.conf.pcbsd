@@ -9,7 +9,7 @@
 ###########################################################
 
 # Defaults for servers
-if [ -e "/etc/defaults/trueos-server" ] ; then
+if [ -e "/etc/defaults/trueos-server" -o -e "/etc/defaults/trueos" ] ; then
 
   # Enable ZFS
   zfs_enable="YES"
@@ -50,7 +50,7 @@ if [ -e "/etc/defaults/trueos-server" ] ; then
 fi
 
 # Defaults for desktops
-if [ -e "/etc/defaults/trueos-desktop" ] ; then
+if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
 
   # Enable ZFS
   zfs_enable="YES"
