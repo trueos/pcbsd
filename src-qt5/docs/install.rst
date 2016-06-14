@@ -1,14 +1,14 @@
 .. index:: installation
-.. _Installing PC-BSD®:
+.. _Installing TrueOS®:
 
-Installing PC-BSD®
+Installing TrueOS®
 *******************
 
 This chapter describes how to use the graphical installer to install a graphical desktop directly onto a hard drive or into a virtual machine using virtualization software such as
 `VirtualBox <https://www.virtualbox.org/>`_. If you have downloaded the CD version of TrueOS® or prefer to use a text based installer, instead use the
 instructions in :ref:`Using the Text Installer`.
 
-To begin the PC-BSD® installation, insert the prepared boot media and boot the system. If the computer boots into an existing operating system instead of the
+To begin the TrueOS® installation, insert the prepared boot media and boot the system. If the computer boots into an existing operating system instead of the
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
@@ -19,7 +19,7 @@ system will continue to boot.
 
 .. figure:: images/install1b.png
 
-Next, the "PC-BSD Installation Menu", shown in :numref:`Figure %s: PC-BSD® Installer Boot Menu <install1c>`, will be displayed. If you press any key (other than :kbd:`Enter`) this
+Next, the "TrueOS Installation Menu", shown in :numref:`Figure %s: TrueOS® Installer Boot Menu <install1c>`, will be displayed. If you press any key (other than :kbd:`Enter`) this
 screen will pause so that you can review its options. If you do not pause this screen, it will automatically boot into the **xorg** option after a few seconds. This menu offers the
 following options:
 
@@ -84,7 +84,7 @@ Hover over an icon to view its description in the tip bar at the bottom of the s
 A button is also provided to "Load config from USB". If you have saved the configuration from a previous installation, it can be loaded at this time from a
 FAT-formatted USB stick.
 
-By default, PC-BSD® menus will display in English, unless you select another language in the drop-down menu in this screen. The menus in PC-BSD® have been
+By default, TrueOS® menus will display in English, unless you select another language in the drop-down menu in this screen. The menus in TrueOS® have been
 translated to several different languages and you can see the status of your native language at the `PC-BSD® Translation Site <http://translate.pcbsd.org/>`_.
 If your language does not show 100% translation at this website, it means that not all of the menus have been translated yet and that the untranslated menus will
 be displayed in English. Refer to :ref:`Become a Translator` if you would like to assist in translating the graphical menus to your native language.
@@ -101,7 +101,7 @@ When you are finished reviewing this screen, click the "Next" button to go to th
 System Selection Screen
 =======================
 
-The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3b>`, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also
+The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3b>`, allows you to install a desktop or a server operating system. It also
 can be used for :ref:`Restoring the Operating System`. This chapter concentrates on a desktop installation. Refer to :ref:`Install a Server` for instructions on how to
 install a command-line only server.
 
@@ -129,11 +129,11 @@ The "Disk Selection" screen, seen in :numref:`Figure %s: Disk Selection Screen <
 
 .. figure:: images/install5a.png
 
-.. warning:: by default, PC-BSD® will assume that you wish to install on the entire first disk. If you are installing PC-BSD® as the only operating system
+.. warning:: by default, TrueOS® will assume that you wish to install on the entire first disk. If you are installing TrueOS® as the only operating system
    on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
-   layout your disk. If you plan on booting PC-BSD® with another operating system, you should also review the section on :ref:`Dual Booting`.
+   layout your disk. If you plan on booting TrueOS® with another operating system, you should also review the section on :ref:`Dual Booting`.
 
-If you wish to select which disk or partition to install PC-BSD® into, click the "Customize" button to start the Disk Setup Wizard, shown in
+If you wish to select which disk or partition to install TrueOS® into, click the "Customize" button to start the Disk Setup Wizard, shown in
 :numref:`Figure %s: Disk Setup Wizard <install6a>`. 
 
 .. _install6a: 
@@ -178,8 +178,8 @@ the "Selected Partition" drop-down menu to select the desired partition.
 By default, the system will use the FreeBSD boot loader as it supports boot environments. If you will be dual-booting the system and prefer to use the GRUB bootloader, check the box
 to "Use GRUB bootloader".
 
-.. note:: PC-BSD® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install PC-BSD® into a secondary or an extended partition.
-          If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
+.. note:: TrueOS® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install TrueOS® into a secondary or an extended partition.
+   If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
 
 Once you have selected the disk and partition, click "Next" to return to the disk "Summary" screen so that you can review your selections. If you wish to
 change anything, use the "Back" button to return to a previous screen. Otherwise, click "Finish" to leave the wizard. Click "Next" then "Yes" to start the
@@ -203,8 +203,8 @@ This screen provides the following options:
 
 * **Selected Partition:** select the desired partition or area of free space.
 
-.. note:: PC-BSD® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install PC-BSD® into a secondary or an extended partition.
-          If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
+.. note:: TrueOS® will only install into a primary partition, a GPT partition, or an area of free space. That is, you can not install TrueOS® into a secondary or an extended partition.
+   If you wish to create an area of free space to install into, refer to :ref:`Creating Free Space` for instructions.
 
 * **Partition Scheme:**  the default of "GPT (Best for new hardware)" is a partition table layout that supports larger partition sizes than the traditional "MBR (Legacy)" layout.
   **If your installation disk/partition is larger than 2 TB, the GPT option must be selected**. Since some older motherboards do
@@ -319,11 +319,11 @@ If your system contains multiple drives and you would like to use them to create
 will enable this screen. Any available disks will be listed in the box below the "ZFS Virtual Device Mode" drop-down menu. Select the desired level of redundancy,
 then the desired number of disks.
 
-.. note:: the PC-BSD® installer requires you to use entire disks (not partitions) when adding additional disks to the pool.
+.. note:: the TrueOS® installer requires you to use entire disks (not partitions) when adding additional disks to the pool.
 
 While ZFS will let you use disks of different sizes, this is discouraged as it will decrease storage capacity and ZFS performance.
 
-The PC-BSD® installer supports the following ZFS configurations: 
+The TrueOS® installer supports the following ZFS configurations: 
 
 * **mirror:** requires a minimum of 2 disks.
 
@@ -373,9 +373,9 @@ When finished, click "Next" to move on the screen shown in :numref:`Figure %s: D
 
 Regardless of how many disks you selected for your ZFS configuration, the default layout will be the same. ZFS does not require separate partitions for
 :file:`/usr`, :file:`/tmp`, or :file:`/var`. Instead, you create one ZFS partition (pool) and specify a mount for each dataset. A :file:`/boot` partition is
-not mandatory with ZFS as the PC-BSD® installer puts a 64k partition at the beginning of the drive.
+not mandatory with ZFS as the TrueOS® installer puts a 64k partition at the beginning of the drive.
 
-.. warning:: **do not remove any of the default mount points** as they are used by PC-BSD®.
+.. warning:: **do not remove any of the default mount points** as they are used by TrueOS®.
 
 You can use the "Add" button to add additional mount points. You will only be prompted for the name of the mount point as size is not limited at creation
 time. Instead, the data on any mount point can continue to grow as long as space remains within the ZFS pool.
@@ -436,10 +436,10 @@ A typical installation takes between 15 and 30 minutes.
 Installation Finished Screen
 ============================
 
-The screen shown in :numref:`Figure %s: PC-BSD® Installation is Now Complete <install14a>` appears once the installation is complete.
+The screen shown in :numref:`Figure %s: TrueOS® Installation is Now Complete <install14a>` appears once the installation is complete.
 
 .. _install14a:
 
 .. figure:: images/install14a.png
 
-Click the "Finish" button to reboot into your PC-BSD® installation. Wait until the installer exits before removing the installation media.
+Click the "Finish" button to reboot into your TrueOS® installation. Wait until the installer exits before removing the installation media.

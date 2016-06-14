@@ -4,16 +4,16 @@
 Post Installation Configuration and Installation Troubleshooting
 ****************************************************************
 
-Once the PC-BSD® system has finished booting for the first time, the installer will present you with some additional screens so that you can configure your system.
+Once the TrueOS® system has finished booting for the first time, the installer will present you with some additional screens so that you can configure your system.
 This section describes the boot process, the post-installation configuration screens, and provides some troubleshooting tips for failed installations.
 
 .. index:: boot
-.. _Booting Into PC-BSD®:
+.. _Booting Into TrueOS®:
 
-Booting Into PC-BSD®
+Booting Into TrueOS®
 =====================
 
-After installation, PC-BSD® will reboot and again display the boot menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`.
+After installation, TrueOS® will reboot and again display the boot menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`.
 
 .. _install1b:
 
@@ -22,7 +22,7 @@ After installation, PC-BSD® will reboot and again display the boot menu shown i
 This menu provides the following options. To pause this menu, press any key except for :kbd:`Enter`. To select an option, press either the bolded number or key for that option. Once you
 have finished making your selections, press :kbd:`Enter` to boot using the selected options.
 
-* **1. Boot Multi User:** this is the default option for booting PC-BSD®. The system will automatically use this option after pausing for a few moments or if you press :kbd:`Enter` when this
+* **1. Boot Multi User:** this is the default option for booting TrueOS®. The system will automatically use this option after pausing for a few moments or if you press :kbd:`Enter` when this
   menu displays.
 
 * **2. Boot Single User:** advanced users can select this option to fix critical system failures.
@@ -36,7 +36,7 @@ have finished making your selections, press :kbd:`Enter` to boot using the selec
 * **6. Configure Boot Options:** if you press either :kbd:`6` or :kbd:`o`, the boot options screen shown in :numref:`Figure %s: Boot Options Menu <boot1a>` will open. To change an option,
   press either the bolded number or key for that option to toggle through its available settings. When finished, press either :kbd:`1` or :kbd:`Backspace` to return to the main boot menu.
 
-* **7. Select Boot Environment:** in PC-BSD®, boot environments are automatically created when the system updates and can also be manually created using :ref:`Boot Environment Manager`. This
+* **7. Select Boot Environment:** in TrueOS®, boot environments are automatically created when the system updates and can also be manually created using :ref:`Boot Environment Manager`. This
   allows you to boot the system to the point in time before an update occurred and can be used to recover from a failed update. Press either :kbd:`7` or :kbd:`e` to view the available boot
   environments. Note that the first time the system boots, no additional boot environments are available. Over time, this menu will populate as boot environments are created.
 
@@ -61,7 +61,7 @@ The following boot options are available in the :numref:`Figure %s: Boot Options
 * **8. Disable X:** boots the system to a command prompt. This is useful if you want to manually configure and test the X configuration file.
 
 The first time the boot completes, the post-installer configuration script will attempt to set the optimal display settings. A pop-up menu will ask if you would like to accept these
-settings. If you click "Yes", PC-BSD® will then proceed to the :ref:`Language Screen` so that you can perform the initial configuration of the system. 
+settings. If you click "Yes", TrueOS® will then proceed to the :ref:`Language Screen` so that you can perform the initial configuration of the system. 
 
 Read through the rest of this section if you have encrypted your disk(s) or if you have problems setting the display settings. If you are dual booting and your other operating system was not
 automatically added to the graphical boot menu by the installer, refer to :ref:`Dual Booting`.
@@ -72,7 +72,7 @@ automatically added to the graphical boot menu by the installer, refer to :ref:`
 If you Encrypted Your Disks
 ---------------------------
 
-If you selected the "Encrypt disk with GELI" checkbox during installation, you will need physical access to the PC-BSD® system when it boots. As the system
+If you selected the "Encrypt disk with GELI" checkbox during installation, you will need physical access to the TrueOS® system when it boots. As the system
 starts to boot, it will display a message similar to the one shown in :numref:`Figure %s:  Input Password to Decrypt Master Key <encrypt1>`.
 
 .. _encrypt1:
@@ -182,9 +182,9 @@ The "User Details" tab is used to create a login user. This screen requires you 
 * **Specify UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
   cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
   
-PC-BSD® provides the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
+TrueOS® provides the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
 or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use :ref:`PersonaCrypt`, their username
-will only appear in the login menu if the removable media associated with that PC-BSD® system is inserted and they must input the password associated with the
+will only appear in the login menu if the removable media associated with that TrueOS® system is inserted and they must input the password associated with the
 removable device in order to login.
 
 The "PersonaCrypt" tab, shown in :numref:`Figure %s: Initializing PersonaCrypt for this User <persona1>`, is used to initialize PersonaCrypt for the user.
@@ -254,7 +254,7 @@ The next screen is shown in :numref:`Figure %s: Optional Services <optional1a>`.
 If you check the "Disable IPV6" box, the system will be configured to only support IPv4 addresses. The default is to support both IPv4 and IPv6 and to prefer IPv6 over IPv4.
 
 If you check the "Enable SSH" box, the SSH service will start and be configured to start whenever the system boots. It will also create the firewall rules needed to allow
-incoming SSH connections to the PC-BSD® system. **DO NOT check this box if you do not want to allow SSH connections to the system.**
+incoming SSH connections to the TrueOS® system. **DO NOT check this box if you do not want to allow SSH connections to the system.**
 
 When finished, click the "Next" button. The screen in :numref:`Figure %s: Setup is Complete <config6>` indicates that the post-installation setup is complete. Click the "Finish" button to
 access the login menu.
@@ -270,7 +270,7 @@ Logging In
 ==========
 
 Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen. An example is seen in
-:numref:`Figure %s: PC-BSD® Login Screen <login1>`.
+:numref:`Figure %s: TrueOS® Login Screen <login1>`.
 
 .. _login1:
 
@@ -281,7 +281,7 @@ the following:
 
 * **user:** the first time you login, the "Username" that you created in the :ref:`Create a User Screen` will be the only available user to login as. Later,
   if you create additional users using :ref:`User Manager`, they will be added to the drop-down menu so you choose which user to login as. PCDM will not let
-  you login as the *root* user. Instead, whenever you access a utility that requires administrative access, PC-BSD® will first ask you to input the
+  you login as the *root* user. Instead, whenever you access a utility that requires administrative access, TrueOS® will first ask you to input the
   password of your login account.
 
 * **password:** input the password associated with the selected user.
@@ -289,7 +289,7 @@ the following:
 * **desktop:** if you installed any additional desktops using :ref:`AppCafe®`, use the drop-down menu to select the desktop to log into.
 
 .. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in
-   :numref:`Figure %s: PC-BSD® PersonaCrypt Login Screen <login5>`, this will add an extra field to the login screen so that you can input the password associated with the PersonaCrypt
+   :numref:`Figure %s: TrueOS® PersonaCrypt Login Screen <login5>`, this will add an extra field to the login screen so that you can input the password associated with the PersonaCrypt
    device.
 
 .. _login5:
@@ -315,7 +315,7 @@ The first time you log in, the PC-BSD® "Getting Started" screen will load as se
 .. figure:: images/welcome1.png
 
 If you click the "Next" button, you can read an overview of the utilities that are used to configure your network connection, install applications, configure
-your system, make a backup, and keep the system updated, as well as how to get involved with the PC-BSD® community. Check the box "Don't show on next
+your system, make a backup, and keep the system updated, as well as how to get involved with the TrueOS® community. Check the box "Don't show on next
 startup" if you do not want to see this screen the next time you log in. To re-open the screen after checking that box, type :command:`pc-welcome`.
 
 .. index:: troubleshooting
@@ -324,11 +324,11 @@ startup" if you do not want to see this screen the next time you log in. To re-o
 Installation Troubleshooting
 ============================
 
-Installing PC-BSD® is usually an easy process that "just works". However, sometimes you will run into a problem. This section will look at solutions to the
+Installing TrueOS® is usually an easy process that "just works". However, sometimes you will run into a problem. This section will look at solutions to the
 most common installation problems.
 
-The PC-BSD® installer creates a log which keeps a record of all the steps that are completed as well as any errors. When an installation error occurs, the
-PC-BSD® installer will ask if you would like to generate an error report. If you click "Yes", a pop-up message will ask if you would like to save the error
+The TrueOS® installer creates a log which keeps a record of all the steps that are completed as well as any errors. When an installation error occurs, the
+TrueOS® installer will ask if you would like to generate an error report. If you click "Yes", a pop-up message will ask if you would like to save the error
 log to a USB stick. Type **y** and insert a FAT formatted USB thumb drive to copy the log.
 
 While in the installer, you can read this log to see what went wrong. Click the black "Emergency Shell and Utilities" icon, then select "shell" from the "PC-BSD Utility Menu".
@@ -352,7 +352,7 @@ order of the devices listed; in this case, make sure that the preferred device i
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
 If that change did not help, try rebooting and selecting "6. Configure Boot Options" from the boot menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`.
-This will open the screen shown in :numref:`Figure %s: PC-BSD® Boot Options <menu1>`.
+This will open the screen shown in :numref:`Figure %s: TrueOS® Boot Options <menu1>`.
 
 .. _menu1:
 

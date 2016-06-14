@@ -1,19 +1,19 @@
 
 **Preface** 
 
-Written by users of the PC-BSD® operating system.
+Written by users of the TrueOS® operating system.
 
 Version |version|
 
-Copyright © 2005 - 2016 The PC-BSD® Project.
+Copyright © 2005 - 2016 The TrueOS® Project.
 
-Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® |version|. This Handbook is a work in progress and relies on the contributions of many individuals. If you are interested in assisting with the Handbook, refer to the documentation `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other PC-BSD® users.
+Welcome to TrueOS®! This Handbook covers the installation and use of TrueOS® |version|. This Handbook is a work in progress and relies on the contributions of many individuals. If you are interested in assisting with the Handbook, refer to the documentation `README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other TrueOS® users.
 
 Previous versions of the Handbook in various formats and languages are available from `here <ftp://ftp.pcbsd.org/pub/handbook/>`_. 
 
-The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the `Creative Commons Attribution License <https://creativecommons.org/licenses/by/4.0/>`_. This means that you have permission to copy, distribute, translate, and adapt the work as long as you attribute the PC-BSD® Project as the original source of the Handbook.
+The TrueOS® Users Handbook is freely available for sharing and redistribution under the terms of the `Creative Commons Attribution License <https://creativecommons.org/licenses/by/4.0/>`_. This means that you have permission to copy, distribute, translate, and adapt the work as long as you attribute the TrueOS® Project as the original source of the Handbook.
 
-PC-BSD® and the PC-BSD® logo are registered trademarks of `iXsystems <https://www.ixsystems.com/>`_. If you wish to use the PC-BSD® logo in your own works, ask for permission first from marketing@ixsystems.com.
+TrueOS® and the TrueOS® logo are registered trademarks of `iXsystems <https://www.ixsystems.com/>`_. If you wish to use the TrueOS® logo in your own works, ask for permission first from marketing@ixsystems.com.
 
 AMD is a trademark of Advanced Micro Devices, Inc.
 
@@ -86,25 +86,26 @@ Windows® is a registered trademark of Microsoft Corporation in the United State
 Introduction
 ************
 
-Welcome to PC-BSD®!
+Welcome to TrueOS®!
 
-`PC-BSD® <http://www.pcbsd.org/>`_ began in 2005 when Kris Moore presented the first beta version of a FreeBSD operating system pre-configured for desktop use. Since then, PC-BSD® has matured into a polished, feature-rich, free-of-charge, open source operating system that meets the desktop or server needs of the beginner to the advanced user alike.
+`TrueOS® <http://www.pcbsd.org/>`_ (formerly known as PC-BSD) began in 2005 when Kris Moore presented the first beta version of a FreeBSD operating system pre-configured for desktop use.
+Since then, TrueOS® has matured into a polished, feature-rich, free-of-charge, open source operating system that meets the desktop or server needs of the beginner to the advanced user alike.
 
-PC-BSD® is essentially a customized installation of FreeBSD, not a forked derivative. Since the underlying FreeBSD system has been kept intact, you have a fully functional FreeBSD system under the hood. PC-BSD® provides a graphical installer which can be used to easily install a desktop or a server version of FreeBSD, known as TrueOS®. Other differences from FreeBSD include: 
+TrueOS® is essentially a customized installation of FreeBSD, not a forked derivative. Since the underlying FreeBSD system has been kept intact, you have a fully functional FreeBSD system under the hood. TrueOS® provides a graphical installer which can be used to easily install a desktop or a server version of FreeBSD, known as TrueOS®. Other differences from FreeBSD include: 
 
-* PC-BSD® pre-configures at least one desktop environment during a desktop installation. Installed desktop environments appear in the login menu, allowing the user to select which environment to log into.
+* TrueOS® pre-configures the BSD-licensed, :ref:`Lumina Desktop` environment during a desktop installation. Installed desktop environments appear in the login menu, allowing the user to select which environment to log into.
 
-* The PC-BSD® graphical installer supports additional features such as configuring ZFS and encryption during installation.
+* The TrueOS® graphical installer supports additional features such as configuring ZFS and encryption during installation.
 
-* PC-BSD® provides a graphical software management system for the desktop and a command line equivalent for the server.
+* TrueOS® provides a graphical software management system for the desktop and a command line equivalent for the server.
 
-* PC-BSD® provides a :ref:`Control Panel` of utilities for configuring the system. The graphical versions of these utilities are available on both versions, the desktop and server.
+* TrueOS® provides a :ref:`Control Panel` of utilities for configuring the system. The graphical versions of these utilities are available on both versions, the desktop and server.
 
-* PC-BSD® comes pre-configured with a number of automatic scripts to perform tasks such as connecting digital cameras or USB memory sticks.
+* TrueOS® comes pre-configured with a number of automatic scripts to perform tasks such as connecting digital cameras or USB memory sticks.
 
-* The PC-BSD® boot menu supports boot environments, or snapshots of the operating system, and the PC-BSD® Update Manager automatically adds a new boot environment to the boot menu before updating the operating system or software. This means that if an update fails, you can reboot into the previous version of the operating system, before the update occurred.
+* The TrueOS® boot menu supports boot environments, or snapshots of the operating system, and the TrueOS® Update Manager automatically adds a new boot environment to the boot menu before updating the operating system or software. This means that if an update fails, you can reboot into the previous version of the operating system, before the update occurred.
 
-PC-BSD® began as an independent project, but since October 2006, PC-BSD® is financially backed and supported by the enterprise-class hardware solutions provider `iXsystems <https://www.ixsystems.com/>`_.
+While it began as an independent project, since October 2006 TrueOS® is financially backed and supported by the enterprise-class hardware solutions provider `iXsystems <https://www.ixsystems.com/>`_.
 
 .. index:: features
 .. _Goals and Features:
@@ -112,37 +113,36 @@ PC-BSD® began as an independent project, but since October 2006, PC-BSD® is fi
 Goals and Features
 ==================
 
-PC-BSD® provides the following features: 
+TrueOS® provides the following features: 
 
-* **Easy installation:** to install either a graphical desktop or command-line server version of PC-BSD®, simply insert the installation media, reboot the
+* **Easy installation:** to install either a graphical desktop or command-line server version of TrueOS®, simply insert the installation media, reboot the
   system to start the installer, and answer a few questions in the installation menus.
 
 * **Automatically configured hardware:** video, sound, network, and other devices are automatically configured for you.
 
-* **Intuitive desktop interface:** PC-BSD® comes with the :ref:`Lumina Desktop` and additional desktop environments can be installed to support your day-to-day computing needs.
+* **Intuitive desktop interface:** TrueOS® comes with the :ref:`Lumina Desktop` and additional desktop environments can be installed to support your day-to-day computing needs.
 
 * **Easy software management:** with :ref:`AppCafe®`, installing, upgrading, and uninstalling software is safe and easy.
 
-* **Lots of software available:** in addition to its own software, PC-BSD® can install software that has been ported to FreeBSD (currently over 24,700
-  applications).
+* **Lots of software available:** in addition to its own software, TrueOS® can install software that has been ported to FreeBSD (currently over 26,100 applications).
 
-* **Easy to update:** PC-BSD® provides a built-in :ref:`Update Manager` that will notify you of available updates and allow you to apply operating system
+* **Easy to update:** TrueOS® provides a built-in :ref:`Update Manager` that will notify you of available updates and allow you to apply operating system
   security fixes, bug fixes, and system enhancements as well as upgrade to newer versions of the operating system or installed software.
 
-* **Virus-free:** PC-BSD® is not affected by viruses, spyware, or other malware.
+* **Virus-free:** TrueOS® is not affected by viruses, spyware, or other malware.
 
-* **No defragmentation:** PC-BSD® hard drives do not need to be defragmented and do not slow down over time. PC-BSD® uses OpenZFS which is a self-healing
+* **No defragmentation:** TrueOS® hard drives do not need to be defragmented and do not slow down over time. TrueOS® uses OpenZFS which is a self-healing
   filesystem.
 
 * **Laptop support:** provides power saving and swap space encryption and automatically switches between wired and wifi network connections.
 
-* **Secure environment:** PC-BSD® provides a pre-configured firewall and a built-in host-based Intrusion Detection System.
+* **Secure environment:** TrueOS® provides a pre-configured firewall and a built-in host-based Intrusion Detection System.
 
-* **Easy system administration:** PC-BSD® provides a :ref:`Control Panel` containing many graphical tools for performing system administration tasks.
+* **Easy system administration:** TrueOS® provides a :ref:`Control Panel` containing many graphical tools for performing system administration tasks.
 
-* **Localization:** PC-BSD® supports a number of native languages and locales.
+* **Localization:** TrueOS® supports a number of native languages and locales.
 
-* **Vibrant community:** PC-BSD® has a friendly and helpful community. 
+* **Vibrant community:** TrueOS® has a friendly and helpful community. 
 
 * **Professional support:** professional email and phone support is available from
   `iXsystems <https://www.ixsystems.com/support/>`_.
@@ -153,7 +153,7 @@ PC-BSD® provides the following features:
 What's New in |version|
 =======================
 
-The following features or enhancements were introduced for PC-BSD® |version|:
+The following features or enhancements were introduced for TrueOS® |version|:
 
 * Based on FreeBSD 11.0 which adds these `features <https://www.freebsd.org/releases/11.0R/relnotes.html>`_.
 
@@ -183,26 +183,26 @@ The following features or enhancements were introduced for PC-BSD® |version|:
 * The graphical and command line versions of PBI Manager and Warden have been removed.
 
 .. index:: Linux
-.. _PC-BSD® for Linux Users:
+.. _TrueOS® for Linux Users:
 
-PC-BSD® for Linux Users
+TrueOS® for Linux Users
 ========================
 
-PC-BSD® is based on FreeBSD, meaning that it is not a Linux distribution. If you have used Linux before, you will find that some features that you are used
+TrueOS® is based on FreeBSD, meaning that it is not a Linux distribution. If you have used Linux before, you will find that some features that you are used
 to have different names on a BSD system and that some commands are different. This section covers some of these differences.
 
 .. index:: filesystems
 .. _Filesystems:
 
-BSD and Linux use different filesystems during installation. Many Linux distros use EXT2, EXT3, EXT4, or ReiserFS, while PC-BSD® uses OpenZFS. This means
+BSD and Linux use different filesystems during installation. Many Linux distros use EXT2, EXT3, EXT4, or ReiserFS, while TrueOS® uses OpenZFS. This means
 that if you wish to dual-boot with Linux or access data on an external drive that has been formatted with another filesystem, you will want to do a bit of
 research first to see if the data will be accessible to both operating systems.
 
-Table 1.3a summarizes the various filesystems commonly used by desktop systems. Most of the desktop managers available from PC-BSD® should automatically
+Table 1.3a summarizes the various filesystems commonly used by desktop systems. Most of the desktop managers available from TrueOS® should automatically
 mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), EXT4 (read-only), NTFS5, NTFS6, and XFS. See the section on
 :ref:`Files and File Sharing` for more information about available file manager utilities.
 
-**Table 1.3a: Filesystem Support on PC-BSD®**
+**Table 1.3a: Filesystem Support on TrueOS®**
 
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
 | Filesystem | Native to         | Type of non-native support                     | **Usage notes**                                                          |
@@ -241,7 +241,7 @@ mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), 
 |            |                   | r/w support on Mac; UFS Explorer can be used   |                                                                          |
 |            |                   | on Windows                                     | changed to r/o support in Mac Lion                                       |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
-| ZFS        | PC-BSD, FreeBSD   |                                                |                                                                          |
+| ZFS        | TrueOS, FreeBSD   |                                                |                                                                          |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
 
 .. index:: devices
@@ -259,11 +259,11 @@ Some of the features used by BSD have similar counterparts to Linux, but the nam
 **Table 1.3b: Names for BSD and Linux Features**
 
 +------------------------------------------------+--------------------------------------+--------------------------------------------------------------------+
-| PC-BSD                                         | Linux                                | **Description**                                                    |
+| TrueOS                                         | Linux                                | **Description**                                                    |
 +================================================+======================================+====================================================================+
 | IPFW                                           | iptables                             | default firewall                                                   |
 +------------------------------------------------+--------------------------------------+--------------------------------------------------------------------+
-| :file:`/etc/rc.d/` for operating system and    | :file:`rc0.d/`, :file:`rc1.d/`, etc. | in PC-BSD the directories containing the startup scripts do not    |
+| :file:`/etc/rc.d/` for operating system and    | :file:`rc0.d/`, :file:`rc1.d/`, etc. | in TrueOS the directories containing the startup scripts do not    |
 | :file:`/usr/local/etc/rc.d/` for applications  |                                      | link to runlevels as there are no runlevels; system startup        |
 |                                                |                                      | scripts are separated from third-party application scripts         |
 +------------------------------------------------+--------------------------------------+--------------------------------------------------------------------+

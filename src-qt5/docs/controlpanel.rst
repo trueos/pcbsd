@@ -4,13 +4,13 @@
 Control Panel
 *************
 
-PC-BSD® provides a Control Panel which contains tools for managing your system. The Control Panel is available from any desktop, meaning it is available
+TrueOS® provides a Control Panel which contains tools for managing your system. The Control Panel is available from any desktop, meaning it is available
 regardless of which desktop you log into.
 
 .. note:: if a desktop does not contain an icon or menu item for Control Panel, type :command:`pc-controlpanel` from a shell prompt to launch the Control
    Panel.
 
-A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: PC-BSD® Control Panel <control1a>`.
+A screenshot of Control Panel started from the KDE desktop can be seen in :numref:`Figure %s: TrueOS® Control Panel <control1a>`.
 
 .. _control1a:
 
@@ -30,7 +30,7 @@ If an icon includes a yellow exclamation mark, you will need to input your passw
    other accounts to this group.
 
 Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from just the operating system (as seen in the example in
-:numref:`Figure %s: PC-BSD® Control Panel <control1a>`), all installed desktops, or one of these installed desktops: KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina.
+:numref:`Figure %s: TrueOS® Control Panel <control1a>`), all installed desktops, or one of these installed desktops: KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina.
 In the example shown in :numref:`Figure %s: Desktop Selector Menu <control2>`, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities.
 The menu icon indicates the control panel view while "(current)" will be beside the desktop that is presently active.
 
@@ -42,7 +42,7 @@ Switching between the icons in the selector changes the icons displayed within t
 is set by the desktop selector, you will see every utility that is available, depending upon which desktops are currently installed. You can change which
 desktops are installed using :ref:`AppCafe®`.
 
-The following utilities are found in the Control Panel of a PC-BSD® system, regardless of which desktops are installed: 
+The following utilities are found in the Control Panel of a TrueOS® system, regardless of which desktops are installed: 
 
 **System management** 
 
@@ -94,14 +94,14 @@ This chapter describes these utilities in more detail.
 About
 =====
 
-The "About" icon of Control Panel can be used to quickly find information about the PC-BSD® system. To start the application, double-click its icon in
+The "About" icon of Control Panel can be used to quickly find information about the TrueOS® system. To start the application, double-click its icon in
 Control Panel or type :command:`about-gui`. An example is seen in :numref:`Figure %s: About Information <about1>`. 
 
 .. _about1:
 
 .. figure:: images/about1.png
 
-he displayed information includes the version of PC-BSD®, whether the system is using the PRODUCTION, EDGE, or ENTERPRISE package set, the hostname of the system, the underlying version of
+he displayed information includes the version of TrueOS®, whether the system is using the PRODUCTION, EDGE, or ENTERPRISE package set, the hostname of the system, the underlying version of
 FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed memory.
 
 If you click the "Software and system components" button, the screen shown in :numref:`Figure %s: System Components Screen <about2a>` will be displayed. 
@@ -141,7 +141,7 @@ To start the application, double-click its icon in Control Panel or type :comman
 
 .. figure:: images/ldap1.png
 
-.. note:: to prevent "DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED" errors, set the PC-BSD® hostname to include the realm name. For
+.. note:: to prevent "DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED" errors, set the TrueOS® hostname to include the realm name. For
    example, if the current hostname is "pcbsd-3881" and the realm name is "maloney.local", change the hostname to "pcbsd-3881.maloney.local" in
    :menuselection:`Control Panel --> Network Configuration (Advanced) -->  Misc`.
 
@@ -151,7 +151,7 @@ the screen, allowing you to configure the following:
 * **Domain Name (DNS/Realm-Name):** input the name of the Active Directory domain (e.g. *example.com*) or child domain (e.g. *sales.example.com*). This
   setting is mandatory.
 
-* **NetBIOS Name:** input the hostname of the PC-BSD® system as listed in the :ref:`About` icon.
+* **NetBIOS Name:** input the hostname of the TrueOS® system as listed in the :ref:`About` icon.
 
 * **Workgroup Name:** input the name of the Windows workgroup. Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
 
@@ -217,8 +217,8 @@ If you are new to LDAP terminology, you may find it useful to skim through the
 Hardware Compatibility
 ======================
 
-The PC-BSD® installer allows you to quickly determine if your system's video card, Ethernet card, wireless device, and sound card are compatible with
-PC-BSD®. 
+The TrueOS® installer allows you to quickly determine if your system's video card, Ethernet card, wireless device, and sound card are compatible with
+TrueOS®. 
 
 A "Hardware Compatibility" icon in Control Panel provides a quick overview of the system's detected hardware. To start the application, double-click its icon
 in Control Panel or type :command:`pc-sysinstaller -checkhardware`.
@@ -248,8 +248,8 @@ A Login Manager utility is available in Control Panel. :numref:`Figure %s: Login
 
 .. figure:: images/login2.png
 
-For security reasons, PC-BSD® defaults to a login screen. This means that users are required to input their password before logging into the PC-BSD® system.
-If you are the only user on the PC-BSD® computer, always use the same window manager, and do not consider it a security risk for the system to automatically
+For security reasons, TrueOS® defaults to a login screen. This means that users are required to input their password before logging into the TrueOS® system.
+If you are the only user on the TrueOS® computer, always use the same window manager, and do not consider it a security risk for the system to automatically
 boot into that window manager, you can enable auto-login using the "Auto login" tab.
 
 As seen in the example in :numref:`Figure %s: Login Manager <login2>`, the "Enable auto login" box is unchecked by default. If you check the box, the "Auto login user" drop-down menu will be
@@ -271,7 +271,7 @@ or from another VNC client.
 .. figure:: images/login3.png
 
 .. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
-   a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
+   a user logs in over VNC as their password is sent in clear text. If you need someone to access your TrueOS® system to assist with troubleshooting,
    consider using :ref:`Remote Desktop` instead, which allows you to send an invitation to connect. Always disable any type of remote login **immediately**
    after finishing your troubleshooting session. If you are instead using this option to login to your desktop from a remote location such as work or school,
    configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
@@ -290,13 +290,13 @@ next to the typed password in the login screen, the asterisks will change to rev
 
 **Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in :numref:`Figure %s: Logging Into a Stealth Session <stealth>`.
 When a user logs into a stealth session, meaning that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary
-home directory. When the user logs out, the zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without
-leaving any data from their login session on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also
+home directory. When the user logs out, the zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a TrueOS® system without
+leaving any data from their login session on the TrueOS® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also
 allows you to login and run applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the one-time key is lost, rendering
 the data useless. A stealth session is similar to a web browser's private mode, except for your entire desktop session.
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
-   PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
+   TrueOS® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
 
 **Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
 this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
@@ -322,7 +322,7 @@ Service Manager, seen in :numref:`Figure %s: Managing Services Using Service Man
 .. figure:: images/service.png
 
 Buttons make it easy to start, stop, or restart services and to set the highlighted service to be enabled or disabled whenever the system boots. To access
-this utility, go to PC-BSD® :menuselection:`Control Panel --> Service Manager` or type :command:`pc-su pc-servicemanager`. You will be prompted for your
+this utility, go to :menuselection:`Control Panel --> Service Manager` or type :command:`pc-su pc-servicemanager`. You will be prompted for your
 password.
 
 By default, services will be listed alphabetically. You can reorder the services by clicking on the "Service Name", "Running", or "Enabled" headers. Service
@@ -353,7 +353,7 @@ This section describes the various tasks that can be performed using the graphic
 
 The "General" tab, shown in :numref:`Figure %s: General Tab of System Manager Utility <system1>`, displays the following system information: 
 
-* the version numbers for the PC-BSD® base and its command-line and graphical utilities
+* the version numbers for the TrueOS® base and its command-line and graphical utilities
 
 * the version of the underlying FreeBSD base 
 
@@ -388,7 +388,7 @@ The "Generate" button can be used to create a report that includes the following
 When you click the "Generate" button, you will be prompted to input the name and location of the text file that will be created. Since it is a text file, you
 can view its contents in any text editor. When troubleshooting your system, this file is handy to include when you :ref:`Report a bug`.
 
-During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
+During the installation of TrueOS® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
 "Tasks" tab of System Manager, shown in :numref:`Figure %s: Tasks Tab of the System Manager Utility <system2>`.
 
 .. _system2:
@@ -418,7 +418,7 @@ Latin keyboard.
 User Manager
 ============
 
-The PC-BSD® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password. To access
+The TrueOS® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password. To access
 this utility, go to :menuselection:`Control Panel --> User Manager` or type :command:`pc-su pc-usermanager`. You will need to input your password in order to
 access this utility.
 
@@ -437,14 +437,14 @@ as the "Can administrate system" checkbox is checked.
 
 If you click the "Remove" button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of
 their files). If you click "No", the user will still be deleted but their home directory will remain. If you have only created one user account, the "Remove"
-button will be greyed out as you need at least one user to be able to login to the PC-BSD® system.
+button will be greyed out as you need at least one user to be able to login to the TrueOS® system.
 
 .. note:: while a removed user will no longer be listed, the user account will not actually be deleted until you click the "Apply" button. A pop-up message
    will indicate that you have pending changes if you close User Manager without clicking "Apply". If you change your mind, click "No" and the user account
    will not be deleted; otherwise, click "Yes" and the user will be deleted and User Manager will close.
 
 The password for any user can be changed by first highlighting the user name then clicking the "Change Password" button. You will not be prompted for the old
-password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the PC-BSD® system. If you
+password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the TrueOS® system. If you
 click the "Change Admin Password" button, you can change the root user's password.
 
 If you click the "Advanced View" button, this screen will change to show all of the accounts on the system, not just the user accounts that you created. An
@@ -500,9 +500,9 @@ Once you have made your selections, press the "Save" button to create the accoun
 PersonaCrypt
 ------------
 
-Beginning with 10.1.2, PC-BSD® provides support for PersonaCrypt. A PersonaCrypt device is a removable USB media, such as a USB stick, which has been formatted with ZFS
+TrueOS® provides support for PersonaCrypt. A PersonaCrypt device is a removable USB media, such as a USB stick, which has been formatted with ZFS
 and encrypted with GELI. This device is used to hold a specific user's home directory, meaning that they can securely transport and access their personal files on any
-PC-BSD® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
+TrueOS® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
 protected by an encryption key and a password which is, and should be, separate from the user's login password.
 
 .. note:: when a user is configured to use a PersonaCrypt device, that user can not login using an unencrypted session on the same system. In other words, the PersonaCrypt username is
@@ -520,10 +520,10 @@ Advanced Mode can be used to initialize a PersonaCrypt device for any created us
 
 .. figure:: images/user5.png
 
-Before a user is configured to use PersonaCrypt on a PC-BSD® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
+Before a user is configured to use PersonaCrypt on a TrueOS® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
 if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user to display these options:
 
-* **Import Key:** if the user has already created a PersonaCrypt device on another PC-BSD® system, click this button to import a previously saved copy of the key associated with
+* **Import Key:** if the user has already created a PersonaCrypt device on another TrueOS® system, click this button to import a previously saved copy of the key associated with
   the device. Once the key is imported, the user can now login to this computer using PersonaCrypt.
 
 * **Initialize Device:** used to prepare the USB device that will be used as the user's home directory.
@@ -545,9 +545,9 @@ display the device's key options, as seen in :numref:`Figure %s: PersonaCrypt Ke
 
 The following options are now available:
 
-* **Export Key:** used to create a copy of the encryption key so that it can be imported for use on another PC-BSD® system.
+* **Export Key:** used to create a copy of the encryption key so that it can be imported for use on another TrueOS® system.
 
-* **Disable Key (No Data):** used to uninitialize the PersonaCrypt device on this system. Note that the device can still be used to login to other PC-BSD® systems.
+* **Disable Key (No Data):** used to uninitialize the PersonaCrypt device on this system. Note that the device can still be used to login to other TrueOS® systems.
 
 * **Disable Key (Import Data):** in addition to uninitializing the PersonaCrypt device on this system, copy the contents of the user's home directory to this system.
 
@@ -600,7 +600,7 @@ Again, do **not** remove any groups that you did not create yourself or applicat
 Disk Manager
 ============
 
-The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system. To access this utility, use
+The TrueOS® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system. To access this utility, use
 :menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
 access this utility.
 
@@ -792,7 +792,7 @@ Display Troubleshooting
 -----------------------
 
 If you are having problems with your display settings and would like to manually edit :file:`/etc/X11/xorg.conf` or run :command:`Xorg --config`, first tell
-the PC-BSD® system to not automatically start X. To do so, add this temporary line to :file:`/etc/rc.conf`, then reboot the system::
+the TrueOS® system to not automatically start X. To do so, add this temporary line to :file:`/etc/rc.conf`, then reboot the system::
 
  pcdm_enable="NO"
 
@@ -888,7 +888,7 @@ The following options are available in the "More Options" menu:
 pc-sysconfig
 ------------
 
-The previous section described PC-BSD®'s graphical mount utility. This graphical utility has a command-line backend, :command:`pc-sysconfig`, which can be
+The previous section described TrueOS®'s graphical mount utility. This graphical utility has a command-line backend, :command:`pc-sysconfig`, which can be
 used directly from the command line on TrueOS® systems, window managers without a system tray, or by users who prefer to use the command line.
 
 For usage information, run the command without any options::
@@ -946,7 +946,7 @@ For example, to see a listed of the supported filesystems, use::
 PC-BSD Keyboard Settings
 ========================
 
-The PC-BSD® control panel includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
+The TrueOS® control panel includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
 icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in :numref:`Figure %s: Configuring Keyboard Settings <keyboard1>`. 
 
 .. _keyboard1:
@@ -997,7 +997,7 @@ example, several categories have been expanded to show their options. To enable 
 PC-BSD Mixer Tray
 =================
 
-PC-BSD® includes a graphical utility for managing the sound card's mixer settings. Desktops that include a system tray should have a speaker icon in the system tray
+TrueOS® includes a graphical utility for managing the sound card's mixer settings. Desktops that include a system tray should have a speaker icon in the system tray
 which can be used to access this utility. If this icon does not appear in the system tray, either double-click the "PC-BSD Mixer Tray" icon in Control Panel or
 type :command:`pc-mixer &` to add it. Alternately, to open this application without adding it to the system tray, type :command:`pc-mixer -notray`.
 
@@ -1032,14 +1032,14 @@ This tab contains the following options:
 * **Default Tray Device:** use the drop-down menu to set the default slider to display in the system tray.
 
 * **Audio Output Channel:** use the drop-down menu to change the sound device and use the "Test" button to determine that sound is working. This is sometimes
-  necessary when you change audio devices. For example, if you connect a USB headset, PC-BSD® will detect the new device and will automatically change the
+  necessary when you change audio devices. For example, if you connect a USB headset, TrueOS® will detect the new device and will automatically change the
   audio device to the USB input. However, if you insert a headset into an audio jack, the system may not detect the new input so you will have to manually
   change the default device.
 
 The "File" menu can be used to quit this mixer screen or to close both this screen and remove the icon from the system tray.
 
 The "Configuration" menu provides options for accessing the "PulseAudio Mixer" and "PulseAudio Settings" utilities as well as for restarting PulseAudio.
-PC-BSD® provides full `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
+TrueOS® provides full `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
 network sound devices and mixer levels.
 
 For command line only systems, type :command:`mixer` from the command line to see the current sound settings::
@@ -1081,7 +1081,7 @@ problem:
 * `FreeBSD Sound Wiki <https://wiki.FreeBSD.org/Sound>`_
 
 If you still have problems with sound, see the section on :ref:`Finding Help` to determine which help resources are available. When reporting your problem,
-include your version of PC-BSD® and the name of your sound card.
+include your version of TrueOS® and the name of your sound card.
 
 .. index:: printing
 .. _Printing:
@@ -1089,7 +1089,7 @@ include your version of PC-BSD® and the name of your sound card.
 Printing
 ========
 
-Like many open source operating systems, PC-BSD® uses the Common Unix Printing System (`CUPS <http://cups.org/>`_) to manage printing. Control Panel provides
+Like many open source operating systems, TrueOS® uses the Common Unix Printing System (`CUPS <http://cups.org/>`_) to manage printing. Control Panel provides
 a graphical front-end for adding and managing printers.
 
 While the graphical utility is easy to use, it may or may not automatically detect your printer depending upon how well your printer is supported by an open
@@ -1121,7 +1121,7 @@ Once the model is selected, click on the "Show this printer" button to see the r
 
 .. figure:: images/print2.png
 
-For this model, the HPLIP driver is recommended. In PC-BSD®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
+For this model, the HPLIP driver is recommended. In TrueOS®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
 see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`.
 
 .. index:: printing
@@ -1242,7 +1242,7 @@ Here are some solutions to common printing problems:
 
 - **Nothing happens when you try to print:** in this case, type :command:`tail -f /var/log/cups/error_log` in a console and then print a test page. The error
   messages should appear in the console. If the solution is not obvious from the error messages, try a web search for the error message. If you are still
-  stuck, post the error, the model of your printer, and your version of PC-BSD® using the :ref:`Report a Bug` tool.
+  stuck, post the error, the model of your printer, and your version of TrueOS® as you :ref:`Report a Bug`.
 
 .. index:: scanner
 .. _Scanner:
@@ -1252,14 +1252,14 @@ Scanner
 
 Control Panel provides an icon for accessing `XSane <http://www.xsane.org/>`_, a graphical utility for managing scanners.
 
-To use your scanner, make sure the device is plugged into the PC-BSD® system and click the "Scanner" icon in Control Panel or type :command:`xsane` from the
+To use your scanner, make sure the device is plugged into the TrueOS® system and click the "Scanner" icon in Control Panel or type :command:`xsane` from the
 command line. A pop-up message will indicate that XSane is detecting devices and will prompt you to accept the XSane license if a device is detected.
 If a device is not detected, search for your device at the `list of supported scanners <http://www.sane-project.org/sane-backends.html>`_. 
 
 .. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
    installed, and install it if it is not, using :ref:`AppCafe®`.
 
-:numref:`Figure %s: XSane Interface <sane>` shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
+:numref:`Figure %s: XSane Interface <sane>` shows the XSane interface running on a TrueOS® system attached to an HP OfficeJet.
 
 .. _sane:
 
@@ -1277,7 +1277,7 @@ window manager so you may need to do an Internet search if you need to set that 
 Firewall Manager
 ================
 
-PC-BSD® uses the `IPFW firewall <http://www.freebsd.org/cgi/man.cgi?query=ipfw>`_ to protect your system. By default, the firewall is configured to allow all
+TrueOS® uses the `IPFW firewall <http://www.freebsd.org/cgi/man.cgi?query=ipfw>`_ to protect your system. By default, the firewall is configured to allow all
 outgoing connections, but to deny all incoming connection requests. The default rulebase is located in :file:`/etc/ipfw.rules`. Use the Firewall Manager GUI
 utility to view and modify the existing firewall rules.
 
@@ -1318,7 +1318,7 @@ the custom rules list.
    your custom rules are not used whenever the system is in :ref:`Tor Mode`.
 
 Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow incoming SSH connections, try connecting
-to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
+to your TrueOS® system using :command:`ssh` to verify that the firewall is now allowing the connection.
 
 .. index:: network
 .. _Network Configuration:
@@ -1326,10 +1326,10 @@ to your PC-BSD® system using :command:`ssh` to verify that the firewall is now 
 Network Configuration
 =====================
 
-During installation, PC-BSD® configures your Ethernet interfaces to use DHCP and provides a screen to :ref:`Connect to a Wireless Network`. In most cases,
-this means that your connected interfaces should "just work" whenever you use your PC-BSD® system.
+During installation, TrueOS® configures your Ethernet interfaces to use DHCP and provides a screen to :ref:`Connect to a Wireless Network`. In most cases,
+this means that your connected interfaces should "just work" whenever you use your TrueOS® system.
 
-For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card. If you hover over the wireless icon, shown in
+For desktops that provide a system tray, a wireless configuration icon will appear if TrueOS® detects a supported wireless card. If you hover over the wireless icon, shown in
 :numref:`Figure %s: Wireless Information in System Tray <network1>`, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
 connection strength, connection speed, MAC address, and type of wireless device.
 
@@ -1344,7 +1344,7 @@ icon in the system tray. If you do not use one of the devices, click its "Close 
 
 To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
 :command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network Configuration, indicate the name of the
-new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of network interfaces that PC-BSD® recognizes. In the example seen in
+new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of network interfaces that TrueOS® recognizes. In the example seen in
 :numref:`Figure %s: Network Configuration Utility <network2a>`, the system has one Intel Ethernet interface that uses the *em* driver and an Intel wireless interface that uses the
 *wlan* driver.
 
@@ -1378,14 +1378,14 @@ There are two ways to configure an Ethernet interface:
    should be using on your network. If you do not know which IP address or subnet mask to use, you will have to ask your Internet provider or network
    administrator.
 
-By default, PC-BSD® will attempt to obtain an address from a DHCP server. If you wish to manually type in your IP address, check the box "Assign static IP
+By default, TrueOS® will attempt to obtain an address from a DHCP server. If you wish to manually type in your IP address, check the box "Assign static IP
 address". Type in the IP address, using the right arrow key or the mouse to move between octets. Then, double-check that the subnet mask ("Netmask") is the
 correct value and change it if it is not.
 
 If the Ethernet network uses 802.1x authentication, check the box "Enable WPA authentication" which will enable the "Configure WPA" button. Click this button
 to select the network and to input the authentication values required by the network.
 
-By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
+By default, the "Disable this network device" box is unchecked. If you check this checkbox, TrueOS® will immediately stop the interface from using the
 network. The interface will remain inactive until this checkbox is unchecked.
 
 The "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of an Ethernet Interface's Network Settings <network4>`, allows advanced users to change their
@@ -1424,17 +1424,17 @@ associated with the wireless network listed in the "Configured Network Profiles"
 
 To associate with a wireless network, click the "Scan" button to receive the list of possible wireless networks to connect to. Highlight the network you wish
 to associate with and click the "Add Selected" button. If the network requires authentication, a pop-up window will prompt you for the authentication details.
-Input the values required by the network then click the "Close" button. PC-BSD® will add an entry for the network in the "Configured Network Profiles"
+Input the values required by the network then click the "Close" button. TrueOS® will add an entry for the network in the "Configured Network Profiles"
 section.
 
 If the network is hidden, click the "Add Hidden" button, input the name of the network in the pop-up window, and click "OK".
 
-If you add multiple networks, use the arrow keys to place them in the desired connection order. PC-BSD® will try to connect to the first profile in the list
-and will move down the list in order if it is unable to connect. When finished, click the "Apply" button. A pop-up message will indicate that PC-BSD® is
+If you add multiple networks, use the arrow keys to place them in the desired connection order. TrueOS® will try to connect to the first profile in the list
+and will move down the list in order if it is unable to connect. When finished, click the "Apply" button. A pop-up message will indicate that TrueOS® is
 restarting the network. If all went well, there should be an IP address and status of "associated" when you hover over the wireless icon in the system tray.
 If this is not the case, double-check for typos in your configuration values and read the section on :ref:`Troubleshooting Network Settings`. 
 
-PC-BSD® supports the types of authentication shown in :numref:`Figure %s: Configuring Wireless Authentication Settings <network7>`. You can access this screen (and change your authentication
+TrueOS® supports the types of authentication shown in :numref:`Figure %s: Configuring Wireless Authentication Settings <network7>`. You can access this screen (and change your authentication
 settings) by highlighting an entry in the "Configured Network Profiles" section and clicking the "Edit" button.
 
 .. _network7: 
@@ -1570,7 +1570,7 @@ network, but instead uses it to encrypt a value sent from the server). Do not se
 
 **Specify a Username/Password:** check this box and input the username and password if they are required to connect to the proxy server.
 
-Proxy settings are saved to the :file:`/etc/profile` and :file:`/etc/csh.cshrc` files so that they are available to the PC-BSD® utilities as well as any
+Proxy settings are saved to the :file:`/etc/profile` and :file:`/etc/csh.cshrc` files so that they are available to the TrueOS® utilities as well as any
 application that uses :command:`fetch`.
 
 Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's
@@ -1627,7 +1627,7 @@ The settings in this screen are optional and allow you to fine-tune the access p
 Troubleshooting Network Settings 
 ---------------------------------
 
-While Ethernet networking usually "just works" on a PC-BSD® system, users sometimes encounter problems, especially when connecting to wireless networks.
+While Ethernet networking usually "just works" on a TrueOS® system, users sometimes encounter problems, especially when connecting to wireless networks.
 Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available. This section is meant to help you pinpoint the
 problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
 
@@ -1645,7 +1645,7 @@ Here is an example of the :file:`rc.conf` entries for an ethernet driver (*em0*)
 
 When reading through your own file, look for lines that begin with *ifconfig*. For a wireless interface, also look for lines containing *wlans*.
 
-.. note:: unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset. Each driver name has an associated man
+.. note:: unlike Linux interface driver names, FreeBSD/TrueOS® interface driver names indicate the type of chipset. Each driver name has an associated man
    page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver. When reading the man
    page, do not include the interface number. For the above example, you could read :command:`man em` and :command:`man run`.
 

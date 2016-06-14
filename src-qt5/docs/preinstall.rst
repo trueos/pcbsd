@@ -1,9 +1,9 @@
 Pre-Installation Tasks
 **********************
 
-While the PC-BSD® installer is very easy to use, installing a brand new operating system can sometimes be a daunting task.
+While the TrueOS® installer is very easy to use, installing a brand new operating system can sometimes be a daunting task.
 
-Before you begin, there are a few things you should check to ensure that your system is ready to install PC-BSD®. 
+Before you begin, there are a few things you should check to ensure that your system is ready to install TrueOS®. 
 
 * **Are you dual-booting or installing over the entire drive?** If you are dual-booting you will need to ensure that you have a primary partition available.
   Refer to the section on :ref:`Dual Booting`.
@@ -11,12 +11,12 @@ Before you begin, there are a few things you should check to ensure that your sy
 * **Have you backed up your important data?** Any irreplaceable data, such as emails, bookmarks, or important files and documents should **always** be backed
   up to an external media, such as a removable drive or another system, **before** installing or upgrading any operating system.
 
-If you wish to determine if your hardware is detected by PC-BSD®, start an installation and click the :ref:`Hardware Compatibility` button in the
+If you wish to determine if your hardware is detected by TrueOS®, start an installation and click the :ref:`Hardware Compatibility` button in the
 :ref:`Language Selection Screen`.
 
 Should you run into an issue with your installation, refer to :ref:`Finding Help`. 
 
-This section discusses the PC-BSD® hardware requirements, how to prepare the system for installation, and how to obtain and prepare the installation media.
+This section discusses the TrueOS® hardware requirements, how to prepare the system for installation, and how to obtain and prepare the installation media.
 
 .. index:: hardware
 .. _Minimum Requirements:
@@ -24,11 +24,11 @@ This section discusses the PC-BSD® hardware requirements, how to prepare the sy
 Minimum Requirements
 ====================
 
-PC-BSD® has moderate hardware requirements and commonly uses less resources than its commercial counterparts. Before installing PC-BSD®, make sure that your
-hardware or virtual machine at least meets the minimum requirements. To get the most out of your PC-BSD® experience, use a system that meets the recommended system
+TrueOS® has moderate hardware requirements and commonly uses less resources than its commercial counterparts. Before installing TrueOS®, make sure that your
+hardware or virtual machine at least meets the minimum requirements. To get the most out of your TrueOS® experience, use a system that meets the recommended system
 requirements.
 
-At a **bare minimum** you need to meet these requirements in order to install PC-BSD®: 
+At a **bare minimum** you need to meet these requirements in order to install TrueOS®: 
 
 * 64-bit processor
 
@@ -52,7 +52,7 @@ The following are the minimum **recommended** requirements. More RAM and availab
 
 * NVIDIA 3D-accelerated video card 
 
-The PC-BSD® installer's hardware check will display a warning message if the selected partition contains less than 20GB for a server installation or less
+The TrueOS® installer's hardware check will display a warning message if the selected partition contains less than 20GB for a server installation or less
 than 50GB for a desktop installation. The installation itself does not require this much disk space. Instead, the minimum recommendation is to provide
 sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots and boot environments.
 
@@ -65,50 +65,50 @@ collection of music and movies on your computer, you will want a large disk whic
 Supported Hardware 
 ==================
 
-PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
+TrueOS® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
 manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/11.0R/hardware.html#proc>`_ list the amd64
 processors known to work.
 
-Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
+Like most open source operating systems, TrueOS® uses X.org drivers for graphics support. TrueOS® will automatically detect the optimal video settings for
 supported video drivers. You can verify that your graphics hardware is supported by clicking the :ref:`Hardware Compatibility` icon within the installer.
 
 Support for the major graphic vendors is as follows: 
 
-**NVIDIA:** if you want to use 3D acceleration, NVIDIA is currently the best supported as there is a native driver for PC-BSD®. If an NVIDIA video card is
+**NVIDIA:** if you want to use 3D acceleration, NVIDIA is currently the best supported as there is a native driver for TrueOS®. If an NVIDIA video card is
 detected, an "nVidia settings" icon will be added to the Control Panel for managing NVIDIA settings.
 
 **Intel:** 3D acceleration on most Intel graphics is supported.
 
 **ATI/Radeon:** 3D acceleration on most ATI and Radeon cards is supported.
 
-**Optimus:** at this time there is no switching support between the two graphics adapters provided by Optimus. Optimus implementations vary, so PC-BSD® may
+**Optimus:** at this time there is no switching support between the two graphics adapters provided by Optimus. Optimus implementations vary, so TrueOS® may
 or may not be able to successfully load a graphics driver on your hardware. If you get a blank screen after installation, check your BIOS to see if it has an
-option to disable one of the graphics adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel
+option to disable one of the graphics adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, TrueOS® will default to the 3D Intel
 driver and disable NVIDIA. This will change in the future when the NVIDIA driver supports Optimus.
 
 A list of usable graphics cards can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
-PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
+TrueOS® has built-in support for dozens of wireless networking cards. You can check if your card has a
 `FreeBSD driver <http://www.freebsd.org/releases/11.0R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `Status of Atheros Wifi Hardware wiki page <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 A list of supported Intel devices and known limitations can be found on the `iwn(4) Intel 802.11n series NICs wiki page <https://wiki.freebsd.org/dev/iwn%284%29>`_.
 
-PC-BSD® will automatically detect available wireless networks for supported wireless devices. You can verify that your device is supported by clicking the
+TrueOS® will automatically detect available wireless networks for supported wireless devices. You can verify that your device is supported by clicking the
 :ref:`Hardware Compatibility` icon within the installer. If it an external wireless device, insert it before running the "Hardware Compatibility" utility.
 
 Certain Broadcom devices, typically found in cheap laptops, are quite buggy and can have lockups when in DMA mode. If the device freezes, try switching to "PIO"
 mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
-If you wish to check your hardware before installing PC-BSD®, a good place to start is the
+If you wish to check your hardware before installing TrueOS®, a good place to start is the
 `FreeBSD Hardware Notes <http://www.freebsd.org/releases/11.0R/hardware.html>`_. Another good resource is to start the installer and click the
 :ref:`Hardware Compatibility` icon.
 
-While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. Remember that
-PC-BSD® is really FreeBSD, meaning that any hardware that works on FreeBSD will work on PC-BSD®. If you are experiencing problems with a device, start with
+While most hardware "just works" with TrueOS®, it is possible that you will run across a piece of hardware that does not. Remember that
+TrueOS® is really FreeBSD, meaning that any hardware that works on FreeBSD will work on TrueOS®. If you are experiencing problems with a device, start with
 a web search for the term "FreeBSD" plus the type and model of the hardware. This will let you know if there is a known issue with the device. If there are
 many search results, concentrate on the most recent ones as often hardware that used to be problematic has since been fixed or the missing driver will be
 available in an upcoming release of FreeBSD. If you experience problems with a device that should work but does not or you can not find any existing problem
-reports for your hardware, you can help improve hardware support for all PC-BSD® users if you :ref:`Report a bug` so that it can be addressed by the
+reports for your hardware, you can help improve hardware support for all TrueOS® users if you :ref:`Report a bug` so that it can be addressed by the
 developers.
 
 .. index:: laptops
@@ -117,7 +117,7 @@ developers.
 Laptops
 -------
 
-Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
+Many TrueOS® users successfully run TrueOS® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
 deal with: 
 
 * **Sleep/suspend:** unfortunately, :wikipedia:`Advanced Configuration and Power Interface` (ACPI) is not an exact science, meaning that
@@ -140,7 +140,7 @@ deal with:
 If you wish to test your laptop's hardware, use the "Hardware Compatibility" icon in the :ref:`Language Selection Screen` before continuing with the
 installation.
 
-If you would like to install PC-BSD® onto an Asus Eee PC, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
+If you would like to install TrueOS® onto an Asus Eee PC, read the `FreeBSD Eee page <https://wiki.FreeBSD.org/AsusEee>`_ first.
 
 The `FreeBSD Tuning Power Consumption page <https://wiki.FreeBSD.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
 
@@ -157,7 +157,7 @@ previously, redo the installation with the box unchecked.
 Touch Screens 
 --------------
 
-PC-BSD® should automatically detect USB-based touch screen devices. If your display is USB and is not auto-detected, send the output of :command:`usbconfig`
+TrueOS® should automatically detect USB-based touch screen devices. If your display is USB and is not auto-detected, send the output of :command:`usbconfig`
 and your :file:`/etc/X11/xorg.conf` file using the :ref:`Report a bug` tool.
 
 .. index:: partition
@@ -166,9 +166,9 @@ and your :file:`/etc/X11/xorg.conf` file using the :ref:`Report a bug` tool.
 Creating Free Space
 ===================
 
-If you wish to dual-boot PC-BSD® with an existing operating system, you must first make sure that there is either a free partition or an area of free space to install into.
+If you wish to dual-boot TrueOS® with an existing operating system, you must first make sure that there is either a free partition or an area of free space to install into.
 For example, if you are currently running a Windows operating system, it will be installed to the entire hard drive. You will need to first shrink the partition that contains
-the current operating system in order to make room to install PC-BSD®. Shrinking is an operation that retains the current operating system, while reducing the size of its partition.
+the current operating system in order to make room to install TrueOS®. Shrinking is an operation that retains the current operating system, while reducing the size of its partition.
 This section demonstrates how to create free space within Windows 7.
 
 .. warning:: **before** shrinking a partition, make sure that you first back up your valuable data to an external media such as a removable USB drive!
@@ -181,7 +181,7 @@ partition.
 
 .. figure:: images/partition1.jpg
 
-Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install PC-BSD® into. To
+Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install TrueOS® into. To
 shrink the data partition, right-click the partition, which in this example is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
 volume for available shrink space. The results will be displayed as seen in the example in :numref:`Figure %s: Available Shrink Space <shrink1>`. 
 
@@ -189,23 +189,23 @@ volume for available shrink space. The results will be displayed as seen in the 
 
 .. figure:: images/shrink1.jpg
 
-In this example, 321089MB of space is available. To divide the partition between Windows and PC-BSD®, change that number to *230000* and click the "Shrink"
+In this example, 321089MB of space is available. To divide the partition between Windows and TrueOS®, change that number to *230000* and click the "Shrink"
 button. When finished, the newly created free space will be displayed, as seen in :numref:`Figure %s: Disk Now Has Free Space <shrink2>`.
 
 .. _shrink2: 
 
 .. figure:: images/shrink2.jpg
 
-.. warning:: it is important that you **do not** choose to install PC-BSD® into any of the three Windows partitions when you get
+.. warning:: it is important that you **do not** choose to install TrueOS® into any of the three Windows partitions when you get
    to the :ref:`Disk Selection Screen` of the installer. It is a good idea to write down the sizes of all of the partitions so that you will recognize the free space when the
-   PC-BSD® installer displays your current partitions.
+   TrueOS® installer displays your current partitions.
 
-.. _Obtaining PC-BSD®:
+.. _Obtaining TrueOS®:
 
-Obtaining PC-BSD®
+Obtaining TrueOS®
 ==================
 
-PC-BSD® version numbers are similar to those used by FreeBSD. In addition, PC-BSD® provides two branches. The branch that you choose to install or upgrade to
+TrueOS® version numbers are similar to those used by FreeBSD. In addition, TrueOS® provides two branches. The branch that you choose to install or upgrade to
 determines when you will receive updates as new features and drivers are added to the operating system. Downloadable image names include the version number,
 where |version| is the most recent version, and either the word :file:`RELEASE` or :file:`STABLE`, where: 
 
@@ -242,7 +242,7 @@ device.
 If you prefer to install a command-line only server, you can either download the same ISO or download the ISO with :file:`TRUEOS` in the name. The
 :file:`TRUEOS` download is smaller and can be burned to a CD or written to a removable USB device.
 
-Pre-installed virtual images are also available, making it easy to use or try PC-BSD® in a virtual environment. Four types of images are
+Pre-installed virtual images are also available, making it easy to use or try TrueOS® in a virtual environment. Four types of images are
 available: 
 
 * Files ending in :file:`.ova` can be used in VirtualBox, as described in :ref:`Using the Downloadable .ova File`.
@@ -256,18 +256,18 @@ available:
 When selecting a virtual image file, choose a format that matches your virtualization technology, and an edition that matches what you would like to use.
 The following editions are available: 
 
-* :file:`consumer-desktop`: provides an installed version of PC-BSD® with the KDE and Fluxbox desktop environments.
+* :file:`consumer-desktop`: provides an installed version of TrueOS® with the KDE and Fluxbox desktop environments.
 
 * :file:`trueos-server`: provides a pre-installed TrueOS® server that is command-line only.
 
 If you downloaded an installation file, instead of a virtual image, refer to :ref:`Burning the Installation Media` for instructions on how to burn the file to
 bootable media.
 
-If you have a slow download connection or wish to support the PC-BSD® project financially, you can purchase PC-BSD® DVDs from the
+If you have a slow download connection or wish to support the TrueOS® project financially, you can purchase PC-BSD® DVDs from the
 `FreeBSD Mall <https://www.freebsdmall.com/cgi-bin/fm/scan/su=yes/fi=prod_bsd/sf=sku/sf=title/sf=category/se=pcbsd>`_.
 
-Members of the PC-BSD® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths. Visiting a PC-BSD® booth is an
-excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <https://blog.pcbsd.org/>`_ to see if any events are
+Members of the TrueOS® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths. Visiting a PC-BSD® booth is an
+excellent way to meet other TrueOS® users and to get your questions answered. Check the `PC-BSD® Blog <https://blog.pcbsd.org/>`_ to see if any events are
 happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org/support/>`_ to arrange for DVDs.
 
 .. index:: checksum
@@ -276,8 +276,8 @@ happening near you. If you are organizing a PC-BSD® booth, `contact us <http://
 Data Integrity Check 
 ---------------------
 
-After downloading the desired file, it is a good idea to check that the file is exactly the same as the one on the PC-BSD® server. While downloading, a
-portion of the file may get damaged or lost, making the installation file unusable. Each PC-BSD® installation file has an associated MD5 and SHA256 checksum.
+After downloading the desired file, it is a good idea to check that the file is exactly the same as the one on the TrueOS® server. While downloading, a
+portion of the file may get damaged or lost, making the installation file unusable. Each TrueOS® installation file has an associated MD5 and SHA256 checksum.
 If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
 verify a checksum, you will need to use a checksum verification utility.
 
@@ -375,8 +375,8 @@ Click "Burn image" to open the screen seen in :numref:`Figure %s: Brasero Image 
 The name and size of your :file:`.iso` file should appear and Brasero will indicate the size of the media. If you click on the "Properties" button, you can change some options, but it is
 fine to keep the default settings. When you are ready, click the "Burn" button and Brasero will burn your ISO.
 
-If you are familiar with using the command line on a FreeBSD or PC-BSD® system, you can use the :command:`growisofs` command line utility to burn the DVD.
-This utility is included with the dvd+rw-tools FreeBSD port which is installed by default on a PC-BSD® system. If that software is not yet installed on a
+If you are familiar with using the command line on a FreeBSD or TrueOS® system, you can use the :command:`growisofs` command line utility to burn the DVD.
+This utility is included with the dvd+rw-tools FreeBSD port which is installed by default on a TrueOS® system. If that software is not yet installed on a
 FreeBSD system, issue this command as the superuser::
 
  pkg install dvd+rw-tools
@@ -419,7 +419,7 @@ To write to a USB device, you will need the following:
 
 * a USB thumb drive or hard drive large enough to hold the image 
 
-Once the image is written, boot from the removable device and proceed with the PC-BSD® installation.
+Once the image is written, boot from the removable device and proceed with the TrueOS® installation.
 
 .. note:: if there is a card reader on the system or the USB drive is connected using a USB dongle, device enumeration may be affected. For example, with the USB card reader dongle
    as the destination, the device name could be :file:`/dev/da1` instead of :file:`/dev/da0`.
@@ -496,19 +496,19 @@ hardware as each virtual machine uses CPU and RAM. Depending upon the amount of 
 install using virtualization software runs slowly. If your computer slows down greatly, try closing other applications running on your computer to free up
 some RAM.
 
-During the installation of PC-BSD®, you can choose to install the `VirtualBox <https://www.virtualbox.org/>`_ open source virtualization program and the
+During the installation of TrueOS®, you can choose to install the `VirtualBox <https://www.virtualbox.org/>`_ open source virtualization program and the
 `VirtualBox Guest Additions <http://www.virtualbox.org/manual/ch04.html>`_ with the operating system. The guest additions add mouse pointer integration,
 shared folders between the host and guest, better video support, and a shared clipboard. To install these after installation, use :ref:`AppCafe®` and search
 for "virtualbox".
 
-.. note:: the first time you run VirtualBox on a PC-BSD® system, a background script will automatically give your user account the permissions required to run
+.. note:: the first time you run VirtualBox on a TrueOS® system, a background script will automatically give your user account the permissions required to run
    this application. Depending upon your desktop, this might break any existing shortcuts to VirtualBox. To fix the shortcut, logout and back in.
 
 If your computer is running another operating system, download the binary for your operating system from the
 `VirtualBox Downloads page <https://www.virtualbox.org/wiki/Downloads>`_. VirtualBox runs on Windows, Linux, Macintosh, and OpenSolaris and supports a large
 number of operating systems that can be installed into a virtual machine.
 
-This section describes how to prepare VirtualBox for an installation of PC-BSD® using an :file:`.iso` file as well as how to use the downloadable
+This section describes how to prepare VirtualBox for an installation of TrueOS® using an :file:`.iso` file as well as how to use the downloadable
 :file:`.vmdk`, :file:`.vdi`, and :file:`.ova` images with VirtualBox.
 
 .. index:: virtualization
@@ -517,12 +517,12 @@ This section describes how to prepare VirtualBox for an installation of PC-BSD®
 Creating a Virtual Machine for an ISO File
 ------------------------------------------
 
-Once you have downloaded the PC-BSD® ISO and installed VirtualBox on the current system, create a virtual machine and use the ISO to install PC-BSD® into
+Once you have downloaded the TrueOS® ISO and installed VirtualBox on the current system, create a virtual machine and use the ISO to install TrueOS® into
 the virtual machine. The virtual machine must meet the following minimum requirements: 
 
 * 1024 MB base memory size 
 
-* a virtual disk **at least 20 GB in size** for a TrueOS® installation or **at least 50 GB in size** for a PC-BSD® installation 
+* a virtual disk **at least 20 GB in size** for a server installation or **at least 50 GB in size** for a desktop installation 
 
 * a bridged adapter 
 
@@ -579,8 +579,8 @@ select "Next", you will see the screen in :numref:`Figure %s: Select the File Na
 
 .. figure:: images/vbox7.png
 
-This screen is used to set the size (or upper limit) of the virtual machine. If you plan to install PC-BSD® into the virtual machine,
-**increase the size to at least 20 GB** or you will receive an error during the PC-BSD® installation. If you plan to install KDE, GNOME, multiple desktop
+This screen is used to set the size (or upper limit) of the virtual machine. If you plan to install TrueOS® into the virtual machine,
+**increase the size to at least 20 GB** or you will receive an error during the TrueOS® installation. If you plan to install KDE, GNOME, multiple desktop
 managers, or applications within the virtual machine, you will probably want to choose at least 50GB. Whatever size you set, make sure that your computer has
 enough free disk space to support it. Use the folder icon to browse to a directory on disk with sufficient space to hold your virtual machine.
 
@@ -607,17 +607,17 @@ the storage screen seen in :numref:`Figure %s: The Storage Settings of the Virtu
 
 .. figure:: images/vbox10.png
 
-Double-click the word "Empty", which represents your DVD reader. If you wish to access the PC-BSD® installer from your DVD reader, double-check that the
+Double-click the word "Empty", which represents your DVD reader. If you wish to access the TrueOS® installer from your DVD reader, double-check that the
 "Slot" is pointing to the correct location (e.g. "IDE Secondary Master") and use the drop-down menu to change it if the location is incorrect. Click the
 "CD/DVD Device" drop-down menu to change it from empty to the "Host Drive" value.
 
 If you prefer to use an ISO that is stored on your hard disk, click the DVD icon then "Choose a virtual CD/DVD disk file" to open a browser menu where you can
 navigate to the location of the ISO. Highlight the desired ISO and click "Open". The name of the ISO will now appear in the "Storage Tree" section.
 
-You are now ready to install PC-BSD® into your virtual machine. Simply highlight the virtual machine and click on the green "Start" icon. A window will open
+You are now ready to install TrueOS® into your virtual machine. Simply highlight the virtual machine and click on the green "Start" icon. A window will open
 indicating that the virtual machine is starting. If you have a DVD inserted, you should hear it spin and it should start to boot into the installation
 program. If it does not or if you are using an ISO stored on the hard disk, press "F12" to select the boot device when you see the message to do so, then
-press "c" to boot from CD-ROM. You can then proceed through the installation as described in :ref:`Installing PC-BSD®`.
+press "c" to boot from CD-ROM. You can then proceed through the installation as described in :ref:`Installing TrueOS®`.
 
 .. index:: virtualization
 .. _Using the Downloadable VirtualBox or VMWare Disk:
@@ -625,7 +625,7 @@ press "c" to boot from CD-ROM. You can then proceed through the installation as 
 Using the Downloadable VirtualBox or VMWare Disk
 ------------------------------------------------
 
-PC-BSD® provides pre-built VirtualBox and VMWare disks which create a a pre-made virtual machine with PC-BSD® already installed. The VirtualBox file ends in
+TrueOS® provides pre-built VirtualBox and VMWare disks which create a a pre-made virtual machine with TrueOS® already installed. The VirtualBox file ends in
 a :file:`.vdi.xz` extension and the VMWare disk file ends in a :file:`.vmdk.xz` extension. The :file:`.xz` means that the file needs to be unzipped first so that it
 just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
@@ -662,11 +662,11 @@ virtualization technology that supports OVF, such as VirtualBox or VMware.
 
 If you double-click the :file:`.ova` file on a Windows or Mac system, it will automatically open the image for you in the default virtualization application.
 
-The first time you open an :file:`.ova` file on a PC-BSD® system, right-click the file, select "Open With", browse to the application to open it with, and
+The first time you open an :file:`.ova` file on a TrueOS® system, right-click the file, select "Open With", browse to the application to open it with, and
 check the box "Remember application association for this type of file". The following example assumes the user has selected
 :menuselection:`System --> Oracle VM VirtualBox` as the application.
 
-The first time a PC-BSD® :file:`.ova` file is opened, a screen will open so that you can review the virtual machine's settings that came with the file. An
+The first time a TrueOS® :file:`.ova` file is opened, a screen will open so that you can review the virtual machine's settings that came with the file. An
 example is shown in :numref:`Figure %s: Appliance Settings Screen <ova1>`. To edit a setting, double-click its name.
 
 .. _ova1:

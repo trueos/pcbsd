@@ -4,7 +4,7 @@
 Finding Help
 ************
 
-The PC-BSD® Project strives to make using PC-BSD® as easy as possible for newcomers. Should you need help, there are plenty of ways to get in touch with the PC-BSD® community.
+The TrueOS® Project strives to make using TrueOS® as easy as possible for newcomers. Should you need help, there are plenty of ways to get in touch with the TrueOS® community.
 This chapter describes the available resources.
 
 As your teacher may have told you, "Do or Do Not, there is no try", or more likely, that "there is no such thing as a stupid question". However, there are
@@ -16,13 +16,13 @@ describe how and why it is important to follow certain protocols when requesting
 * `How To Ask Questions The Smart Way <http://catb.org/~esr/faqs/smart-questions.html>`_
 
 .. index:: forums
-.. _PC-BSD® Forums:
+.. _TrueOS® Forums:
 
-PC-BSD® Forums
+TrueOS® Forums
 ===============
 
 `The PC-BSD® Forums <https://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
-active members and you will find that most questions are quickly answered. If you are having problems with something on your PC-BSD® system, try using the
+active members and you will find that most questions are quickly answered. If you are having problems with something on your TrueOS® system, try using the
 forum's search utility. You will often find that someone else has posted a similar question and that other users have responded with a fix or a how-to.
 
 The Forums have been categorized, allowing users to skim through the categories that interest them while learning some new information along the way. You do not have
@@ -35,8 +35,8 @@ The current categories and the forum descriptions are described below:
 
 **The General Forum** contains the following sub-forums: 
 
-* `Announcements <https://forums.pcbsd.org/forum-16.html>`_: contains announcements of new releases and news related to PC-BSD®. Subscribing to this
-  forum is a good way to keep up-to-date with the latest news about PC-BSD®. 
+* `Announcements <https://forums.pcbsd.org/forum-16.html>`_: contains announcements of new releases and news related to TrueOS®. Subscribing to this
+  forum is a good way to keep up-to-date with the latest news about TrueOS®. 
 
 * `Desktop Questions and Support <https://forums.pcbsd.org/forum-13.html>`_: use this forum if your question does not fit into any of the other forum categories.
 
@@ -46,25 +46,25 @@ The current categories and the forum descriptions are described below:
 
 * `Lumina <https://forums.pcbsd.org/forum-26.html>`_: this forum is for the discussion of the :ref:`Lumina Desktop`.
 
-* `Developers Corner <https://forums.pcbsd.org/forum-84.html>`_: a discussion area for PC-BSD® developers and for discussing improvements to the operating system.
+* `Developers Corner <https://forums.pcbsd.org/forum-84.html>`_: a discussion area for TrueOS® developers and for discussing improvements to the operating system.
 
-* `Tips, Tricks, and Guides <https://forums.pcbsd.org/forum-17.html>`_: this forum contains suggestions and how-tos for configuring and tweaking your PC-BSD® system.
+* `Tips, Tricks, and Guides <https://forums.pcbsd.org/forum-17.html>`_: this forum contains suggestions and how-tos for configuring and tweaking your TrueOS® system.
 
-* `Ports, Packages, and Software <https://forums.pcbsd.org/forum-82.html>`_: a general discussion area regarding software which can be installed on PC-BSD®.
+* `Ports, Packages, and Software <https://forums.pcbsd.org/forum-82.html>`_: a general discussion area regarding software which can be installed on TrueOS®.
 
-* `Documentation Project <https://forums.pcbsd.org/forum-41.html>`_: this is a discussion area for those who wish to help with PC-BSD® documentation.
+* `Documentation Project <https://forums.pcbsd.org/forum-41.html>`_: this is a discussion area for those who wish to help with TrueOS® documentation.
 
 * `Books on BSD <https://forums.pcbsd.org/forum-19.html>`_: this forum contains errata and discussion for published books about BSD.  
 
-* `Advocacy <https://forums.pcbsd.org/forum-20.html>`_: this is a brainstorming area for promoting PC-BSD®. 
+* `Advocacy <https://forums.pcbsd.org/forum-20.html>`_: this is a brainstorming area for promoting TrueOS®. 
 
-* `The Lounge <https://forums.pcbsd.org/forum-14.html>`_: this is a general discussion area for PC-BSD® users. Posts in this forum are not of a
-  technical nature. Posts should be of interest to other PC-BSD® users and not contain any mature or slanderous content.
+* `The Lounge <https://forums.pcbsd.org/forum-14.html>`_: this is a general discussion area for TrueOS® users. Posts in this forum are not of a
+  technical nature. Posts should be of interest to other TrueOS® users and not contain any mature or slanderous content.
 
-**The International Forum** contains forums for non-English speakers for PC-BSD® related discussions in their native language. Each forum has its own
+**The International Forum** contains forums for non-English speakers for TrueOS® related discussions in their native language. Each forum has its own
 categories for organizing posts. The following forums are available: 
 
-* `Translations <https://forums.pcbsd.org/forum-40.html>`_: this is a discussion area for translators who localize PC-BSD® menus or translate PC-BSD®
+* `Translations <https://forums.pcbsd.org/forum-40.html>`_: this is a discussion area for translators who localize TrueOS® menus or translate TrueOS®
   documentation.
 
 * `Chinese <https://forums.pcbsd.org/forum-47.html>`_
@@ -97,14 +97,14 @@ questions to understand your problem. Make sure you are subscribed to your threa
 You can ask a question by clicking on the "Start new topic" button in the forum category that most closely matches your question. If you do not see a category that
 matches your question, try the "Desktop Questions and Support" category.
 
-In addition to the forums available from the PC-BSD® Forums website, the following forums may assist you in troubleshooting your PC-BSD® system: 
+In addition to the forums available from the TrueOS® Forums website, the following forums may assist you in troubleshooting your TrueOS® system: 
 
-* `FreeBSD Forums <https://forums.freebsd.org/>`_: many PC-BSD® problems are related to the underlying FreeBSD operating system. The FreeBSD forums are very
-  active and full of useful information that can apply to your PC-BSD® system.
+* `FreeBSD Forums <https://forums.freebsd.org/>`_: many TrueOS® problems are related to the underlying FreeBSD operating system. The FreeBSD forums are very
+  active and full of useful information that can apply to your TrueOS® system.
 
 * `BSD Foren <http://www.bsdforen.de/index.php>`_: these forums are in German and contain many categories for each of the BSD operating systems.
 
-* `BSD Guru PC-BSD® Forum <http://www.bsdguru.org/dyskusja/viewforum.php?f=45>`_: this forum is in Polish and is specific to PC-BSD®, forums for the other
+* `BSD Guru PC-BSD® Forum <http://www.bsdguru.org/dyskusja/viewforum.php?f=45>`_: this forum is in Polish and is specific to TrueOS®, forums for the other
   BSD operating systems are also available at `BSD Guru <http://www.bsdguru.org/dyskusja/>`_. 
 
 .. index:: irc
@@ -146,10 +146,10 @@ IRC is a great way to chat with other users and get answers to your questions. A
 Mailing Lists
 =============
 
-Mailing lists are a handy way to discuss problems, solutions, and requested features as they create a searchable archive of discussions. The PC-BSD® Project
+Mailing lists are a handy way to discuss problems, solutions, and requested features as they create a searchable archive of discussions. The TrueOS® Project
 offers the following mailing lists to cover a wide variety of discussion topics: 
 
-* `Announce <http://lists.pcbsd.org/mailman/listinfo/announce>`_: a read-only, low frequency list used by the PC-BSD® team to make announcements to the
+* `Announce <http://lists.pcbsd.org/mailman/listinfo/announce>`_: a read-only, low frequency list used by the TrueOS® team to make announcements to the
   community.
 
 * `Commits <http://lists.pcbsd.org/mailman/listinfo/commits>`_: lists commits as PC-BSD® code is added or modified by developers.
@@ -173,8 +173,8 @@ you subscribed to the list.
 Several of the mailing lists are archived at `gmane <http://dir.gmane.org/index.php?prefix=gmane.os.pcbsd>`_. Gmane allows you to read the archives in several
 different formats. It also provides RSS feeds in various formats for keeping up-to-date on new messages and topics.
 
-In addition to the official mailing lists, there are mailing lists set up by PC-BSD® users. Many of these lists are designed for discussion in other
-languages. A list of alternative PC-BSD® mailing lists can be found at `Google groups <https://groups.google.com/forum/#!search/pc-bsd>`_. 
+In addition to the official mailing lists, there are mailing lists set up by TrueOS® users. Many of these lists are designed for discussion in other
+languages. A list of alternative TrueOS® mailing lists can be found at `Google groups <https://groups.google.com/forum/#!search/pc-bsd>`_. 
 
 .. index:: help
 .. _FreeBSD Handbook and FAQ:
@@ -182,11 +182,11 @@ languages. A list of alternative PC-BSD® mailing lists can be found at `Google 
 FreeBSD Handbook and FAQ
 ========================
 
-PC-BSD® uses FreeBSD as its underlying operating system, so everything in the `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`_ and
-`FreeBSD FAQ <http://www.freebsd.org/doc/en/books/faq/>`_ applies to PC-BSD® as well. Both documents are comprehensive and cover nearly every task you
-can accomplish on a FreeBSD system. They are also an excellent resource for learning how things work under the hood of your PC-BSD® system.
+TrueOS® uses FreeBSD as its underlying operating system, so everything in the `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`_ and
+`FreeBSD FAQ <http://www.freebsd.org/doc/en/books/faq/>`_ applies to TrueOS® as well. Both documents are comprehensive and cover nearly every task you
+can accomplish on a FreeBSD system. They are also an excellent resource for learning how things work under the hood of your TrueOS® system.
 
-.. note:: some configurations described in the FreeBSD Handbook already "just work" on your PC-BSD® system as they have been pre-configured for you. In these
+.. note:: some configurations described in the FreeBSD Handbook already "just work" on your TrueOS® system as they have been pre-configured for you. In these
    instances, reading that FreeBSD Handbook section can help you to understand how your system is configured and why it works.
 
 .. index:: help
@@ -195,7 +195,7 @@ can accomplish on a FreeBSD system. They are also an excellent resource for lear
 Social Media
 ============
 
-The PC-BSD® project maintains several social media sites to help users keep up-to-date with what is happening and to provide venues for developers and users
+The TrueOS® project maintains several social media sites to help users keep up-to-date with what is happening and to provide venues for developers and users
 to network with each other. Anyone is welcome to join.
 
 * `Official PC-BSD® Blog <https://blog.pcbsd.org/>`_
