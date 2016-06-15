@@ -13,11 +13,11 @@ This section describes the boot process, the post-installation configuration scr
 Booting Into TrueOS®
 =====================
 
-After installation, TrueOS® will reboot and again display the boot menu shown in :numref:`Figure %s: Initial Boot Menu <install1b>`.
+After installation, TrueOS® will reboot and display the boot menu shown in :numref:`Figure %s: Initial Boot Menu <boot2>`.
 
-.. _install1b:
+.. _boot2:
 
-.. figure:: images/install1b.png
+.. figure:: images/boot2.png
 
 This menu provides the following options. To pause this menu, press any key except for :kbd:`Enter`. To select an option, press either the bolded number or key for that option. Once you
 have finished making your selections, press :kbd:`Enter` to boot using the selected options.
@@ -33,16 +33,16 @@ have finished making your selections, press :kbd:`Enter` to boot using the selec
 
 * **5. Kernel:** this option will indicate how many kernels are available. Press either :kbd:`5` or :kbd:`k` to toggle between available kernels.
 
-* **6. Configure Boot Options:** if you press either :kbd:`6` or :kbd:`o`, the boot options screen shown in :numref:`Figure %s: Boot Options Menu <boot1a>` will open. To change an option,
+* **6. Configure Boot Options:** if you press either :kbd:`6` or :kbd:`o`, the boot options screen shown in :numref:`Figure %s: Boot Options Menu <boot1b>` will open. To change an option,
   press either the bolded number or key for that option to toggle through its available settings. When finished, press either :kbd:`1` or :kbd:`Backspace` to return to the main boot menu.
 
 * **7. Select Boot Environment:** in TrueOS®, boot environments are automatically created when the system updates and can also be manually created using :ref:`Boot Environment Manager`. This
   allows you to boot the system to the point in time before an update occurred and can be used to recover from a failed update. Press either :kbd:`7` or :kbd:`e` to view the available boot
   environments. Note that the first time the system boots, no additional boot environments are available. Over time, this menu will populate as boot environments are created.
 
-.. _boot1a:
+.. _boot1b:
 
-.. figure:: images/boot1a.png
+.. figure:: images/boot1b.png
 
 The following boot options are available in the :numref:`Figure %s: Boot Options Menu <boot1a>`:
 
@@ -108,11 +108,11 @@ to proceed.
 Language Screen
 ===============
 
-The language selection screen is seen in :numref:`Figure %s: Language Selection Screen <config1>`. 
+The language selection screen is seen in :numref:`Figure %s: Language Selection Screen <config1a>`. 
 
-.. _config1:
+.. _config1a:
 
-.. figure:: images/config1.png
+.. figure:: images/config1a.png
 
 This allows you to select the language you will use to access the installed system.
 
@@ -124,11 +124,11 @@ Once you have made your selection from the drop-down menu, click "Next" to go to
 Time Zone Selection Screen
 ==========================
 
-The next configuration screen, shown in :numref:`Figure %s: Select Time Zone <config2a>`, allows you to select your timezone.
+The next configuration screen, shown in :numref:`Figure %s: Select Time Zone <config2b>`, allows you to select your timezone.
 
-.. _config2a:
+.. _config2b:
 
-.. figure:: images/config2a.png
+.. figure:: images/config2b.png
 
 Use the drop-down menu to select the city closest to your location. If the system is connected to the Internet, the installer will most likely have the
 correct timezone already selected.
@@ -146,11 +146,11 @@ When finished, click "Next" to proceed to the next screen.
 Set Root Password Screen
 ========================
 
-This configuration screen, seen in :numref:`Figure %s: Set Root Password <config3>`, requires you to set the root password.
+This configuration screen, seen in :numref:`Figure %s: Set Root Password <config3a>`, requires you to set the root password.
 
-.. _config3:
+.. _config3a:
 
-.. figure:: images/config3.png
+.. figure:: images/config3a.png
 
 The password must be a minimum of 4 characters and you are required to type it in twice to confirm the password. Click the "Next" button when you are
 finished.
@@ -211,11 +211,11 @@ If you share your computer with other users, you will be able to create addition
 Configure Audio Output
 ======================
 
-The next screen, seen in :numref:`Figure %s: Configure Audio Output <audio1>`, is used to configure the default audio output.
+The next screen, seen in :numref:`Figure %s: Configure Audio Output <audio1a>`, is used to configure the default audio output.
 
-.. _audio1:
+.. _audio1a:
 
-.. figure:: images/audio1.png
+.. figure:: images/audio1a.png
 
 Click the "Output Device" drop-down menu to select the desired sound device. You can click the "Test" button to verify the setting as a working configuration will result in
 a test sound. You can also use the "Testing Volume" slider to set the default volume level.
@@ -256,12 +256,12 @@ If you check the "Disable IPV6" box, the system will be configured to only suppo
 If you check the "Enable SSH" box, the SSH service will start and be configured to start whenever the system boots. It will also create the firewall rules needed to allow
 incoming SSH connections to the TrueOS® system. **DO NOT check this box if you do not want to allow SSH connections to the system.**
 
-When finished, click the "Next" button. The screen in :numref:`Figure %s: Setup is Complete <config6>` indicates that the post-installation setup is complete. Click the "Finish" button to
+When finished, click the "Next" button. The screen in :numref:`Figure %s: Setup is Complete <config6a>` indicates that the post-installation setup is complete. Click the "Finish" button to
 access the login menu.
 
-.. _config6:
+.. _config6a:
 
-.. figure:: images/config6.png
+.. figure:: images/config6a.png
 
 .. index:: login
 .. _Logging In:
@@ -308,11 +308,11 @@ Once you have made your selections, input the password associated with the selec
 
 .. index:: welcome
 
-The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in :numref:`Figure %s: PC-BSD® Getting Started Screen <welcome1>`. 
+The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in :numref:`Figure %s: PC-BSD® Getting Started Screen <welcome1a>`. 
 
-.. _welcome1:
+.. _welcome1a:
 
-.. figure:: images/welcome1.png
+.. figure:: images/welcome1a.png
 
 If you click the "Next" button, you can read an overview of the utilities that are used to configure your network connection, install applications, configure
 your system, make a backup, and keep the system updated, as well as how to get involved with the TrueOS® community. Check the box "Don't show on next
