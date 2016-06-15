@@ -1524,7 +1524,7 @@ QStringList Installer::getDeskPkgCfg()
      //pkgList << "editors/libreoffice";
 
      // Utilities
-     pkgList << "archivers/unrar" << "archivers/unzip";
+     pkgList << "archivers/unrar" << "archivers/unzip" << "misc/pcbsd-meta-hunspell";
 
      // Printer packages
      pkgList << "print/cups-pdf";

@@ -4,6 +4,7 @@ mail/trojita
 misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
+misc/pcbsd-meta-hunspell
 misc/pcbsd-meta-nvidia
 misc/pcbsd-meta-nvidia-340
 misc/pcbsd-meta-virtualbox
