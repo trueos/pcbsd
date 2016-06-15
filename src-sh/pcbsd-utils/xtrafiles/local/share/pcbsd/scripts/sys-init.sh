@@ -70,31 +70,18 @@ if [ $? -ne 0 ] ; then
   echo "vfs.zfs.arc_max=\"${zArc}M\"" >> /boot/loader.conf
 fi
 
-
-
 ################################################
 # Do desktop specific init
 ################################################
 if [ "$1" = "desktop" ] ;then
 
-  # Init the flash plugin for all users
-  cd /home
-  for i in `ls -d * 2>/dev/null`
-  do
-    su ${i} -c "flashpluginctl off"
-    su ${i} -c "flashpluginctl on"
-  done
+  # Set for desktop mode
+  touch /etc/defaults/trueos-desktop
+  chflags schg /etc/defaults/trueos-desktop
 
-  # Enable the system updater tray
-  pbreg set /PC-BSD/SystemUpdater/runAtStartup true
-
-  # Set running desktop
-  pbreg set /PC-BSD/SysType PCBSD
-  touch /etc/defaults/pcbsd
-  chflags schg /etc/defaults/pcbsd
-
-  # Init the desktop
-  /usr/local/bin/pc-extractoverlay desktop --sysinit
+  # Copy the default desktop files over
+  echo "Copying defaults to base system"
+  tar cvf - -C /usr/local/share/pcbsd/desktop-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
 
   # Need to save a language?
   if [ -n "$2" ] ; then
@@ -107,13 +94,16 @@ fi
 ################################################
 if [ "$1" = "server" ] ; then
   # Set running a server
-  pbreg set /PC-BSD/SysType TRUEOS
-  touch /etc/defaults/trueos
-  chflags schg /etc/defaults/trueos
+  touch /etc/defaults/trueos-server
+  chflags schg /etc/defaults/trueos-server
 
-  # Init the server
-  /usr/local/bin/pc-extractoverlay server --sysinit
+  # Copy the default server files over
+  echo "Copying defaults to base system"
+  tar cvf - -C /usr/local/share/pcbsd/server-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
 fi
+
+# Boot-strap the PKG config
+pc-updatemanager syncconf
 
 ################################################
 # Specific setup if installing into pre-built VM
@@ -121,34 +111,4 @@ fi
 if [ "$3" = "vm" ] ; then
    # Since the NIC may change, set all to DHCP
    echo "ifconfig_DEFAULT=\"DHCP\"" >> /etc/rc.conf
-fi
-
-################################################
-# Do we have AppCafe remote files to process?
-################################################
-
-if [ -e "/tmp/appcafe-user" -a -e "/tmp/appcafe-pass" ] ; then
-  appUser="`cat /tmp/appcafe-user`"
-
-  # Set the AppCafe username / password now
-  cat /tmp/appcafe-pass | /usr/local/bin/appcafe-setpass $appUser --
-
-  # Remove temp files
-  rm /tmp/appcafe-user
-  rm /tmp/appcafe-pass
-
-  # Check if the conf file is ready
-  if [ ! -e "/usr/local/etc/appcafe.conf" ] ; then
-     cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
-  fi
-
-  if [ -e "/tmp/appcafe-port" ] ; then
-     appPort="`cat /tmp/appcafe-port`"
-
-     # Set the port now
-     sed -i '' "s|port = 8885|port = $appPort|g" /usr/local/etc/appcafe.conf
-  fi
-
-  # Enable remote access now
-  sed -i '' 's|remote = false|remote = true|g' /usr/local/etc/appcafe.conf
 fi

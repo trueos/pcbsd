@@ -67,10 +67,10 @@ fi
 . /root/functions.sh
 
 # Set all NICS to DHCP mode
-enable_dhcp_all
+#enable_dhcp_all
 
 # Enable networking
-/etc/rc.d/netif restart
+#/etc/rc.d/netif restart
 
 # Check if we have an auto-install directive
 if [ -e "/pc-autoinstall.conf" ]

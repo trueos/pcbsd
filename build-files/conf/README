@@ -29,4 +29,4 @@ here to adjust package options when using pcbsd-build scripts.
 
 trueos/
 --------------------
-Sub-directory of the same files, specific to the TrueOS builds
+Sub-directory of the same files, specific to the TrueOS server builds

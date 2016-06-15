@@ -23,7 +23,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string notr="true">PC-BSD</string>
+   <string notr="true">TrueOS</string>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -307,7 +307,7 @@ selection-background-color: rgb(160, 160, 160);</string>
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>Welcome to PC-BSD! Please select your language and click next to continue.</string>
+              <string>Welcome to TrueOS! Please select your language and click next to continue.</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -419,7 +419,7 @@ selection-background-color: rgb(160, 160, 160);</string>
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>PC-BSD (Graphical desktop)</string>
+              <string>TrueOS (Graphical desktop)</string>
              </property>
              <property name="icon">
               <iconset resource="sysinstaller.qrc">
@@ -442,7 +442,7 @@ selection-background-color: rgb(160, 160, 160);</string>
               <string>Best for servers and headless systems</string>
              </property>
              <property name="text">
-              <string>TrueOS (Console based server)</string>
+              <string>TrueOS Core (Console based server)</string>
              </property>
              <property name="icon">
               <iconset resource="sysinstaller.qrc">

@@ -250,6 +250,7 @@ private slots:
     void on_fspoolList_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
 
 
+    void on_refreshButton_clicked();
 };
 
 

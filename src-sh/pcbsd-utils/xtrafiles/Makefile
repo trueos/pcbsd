@@ -1,5 +1,5 @@
 #############################################################################
-# Makefile for building: pc-extractoverlay
+# Makefile for building: xtrafiles
 #############################################################################
 
 PREFIX?= /usr/local

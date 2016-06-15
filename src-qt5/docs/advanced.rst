@@ -4,7 +4,7 @@
 Advanced Installation Topics
 ****************************
 
-The previous section discussed a default installation of PC-BSD®. This section covers the following advanced installation topics: 
+The previous section discussed a default installation of TrueOS®. This section covers the following advanced installation topics: 
 
 * :ref:`Using the Text Installer`
 
@@ -23,7 +23,7 @@ Using the Text Installer
 ========================
 
 If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, start the installation as usual and select the option "install" from
-the :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
+the :numref:`Figure %s: TrueOS® Installation Menu <install1c>`. 
 
 .. _install1c:
 
@@ -111,7 +111,7 @@ The next screen, shown in :numref:`Figure %s: Review Installation Options <text9
 * **hardware:** selecting this option will display a summary of the system's hardware. The example shown in :numref:`Figure %s: Hardware Summary <text10>` is from a system with a disabled
   sound card and no wireless card.
 
-* **quit:** select this option to return to the screen shown in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
+* **quit:** select this option to return to the screen shown in :numref:`Figure %s: TrueOS® Installation Menu <install1c>`. 
 
 .. _text9: 
 
@@ -172,9 +172,9 @@ This screen contains the following options:
 Using the System Utilities Menu
 -------------------------------
 
-The text installer contains some handy tools for troubleshooting and fixing an existing PC-BSD® or TrueOS® installation.
+The text installer contains some handy tools for troubleshooting and fixing an existing TrueOS® installation.
 
-If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`, it will open the screen shown in
+If you click the *utility* option in the main menu of the text based installer shown in :numref:`Figure %s: TrueOS® Installation Menu <install1c>`, it will open the screen shown in
 :numref:`Figure %s: System Utilities Menu <util1>`. 
 
 .. _util1:
@@ -183,7 +183,7 @@ If you click the *utility* option in the main menu of the text based installer s
 
 This screen provides the following options: 
 
-* **shell:** this option is useful if you are troubleshooting a PC-BSD® system that no longer boots. It will open a shell with administrative access that
+* **shell:** this option is useful if you are troubleshooting a TrueOS® system that no longer boots. It will open a shell with administrative access that
   includes the base FreeBSD utilities. Advanced users can use this shell to try to determine what the problem is, to create a backup or copy essential
   files to another system, or edit configuration files with an editor such as `ee <https://www.freebsd.org/cgi/man.cgi?query=ee>`_ or :command:`vi`. When you are finished using the shell,
   type :command:`exit` to return to the screen shown in :numref:`Figure %s: System Utilities Menu <util1>`.  
@@ -196,7 +196,7 @@ This screen provides the following options:
 * **fixgrub:** this option can be used to restamp the GRUB boot loader should the installed system no longer boot. When this option is selected, it will first
   show the available ZFS pools and prompt you to input the name of the pool to import.
 
-* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: PC-BSD® Installation Menu <install1c>`. 
+* **exit:** this option will return you to the main menu seen in :numref:`Figure %s: TrueOS® Installation Menu <install1c>`. 
 
 .. index:: install
 .. _Install a Server:
@@ -204,14 +204,13 @@ This screen provides the following options:
 Install a Server 
 =================
 
-The :ref:`System Selection Screen` of the PC-BSD® installer can be used to install TrueOS®, a FreeBSD-based server operating system, rather than a PC-BSD®
-desktop operating system.
+The :ref:`System Selection Screen` of the TrueOS® installer can be used to install a FreeBSD-based server operating system rather than a  desktop operating system.
 
 TrueOS® adds the following to a vanilla installation of FreeBSD: :command:`iocage` for jail management and the command line
 versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs the software mentioned in
 `the RUN_DEPENDS= section of this file <https://github.com/pcbsd/freebsd-ports/blob/master/misc/trueos-base/Makefile>`_.
 
-For a server installation, using the PC-BSD® installer rather than the FreeBSD installer offers several benefits: 
+For a server installation, using the TrueOS® installer rather than the FreeBSD installer offers several benefits: 
 
 * the ability to easily configure ZFS during installation 
 
@@ -219,10 +218,10 @@ For a server installation, using the PC-BSD® installer rather than the FreeBSD 
 
 * a wizard (described in this section) is provided during installation to configure the server for first use
 
-.. note:: this section describes how to install a command-line only server using the PC-BSD® graphical installer. Alternately, you can also install a server
+.. note:: this section describes how to install a command-line only server using the graphical installer. Alternately, you can also install a server
    :ref:`Using the TrueOS® CD` or :ref:`Using the Text Installer`.
 
-To perform a graphical server installation, start the PC-BSD® installation as usual. When you get to the :ref:`System Selection Screen` of the installer, select "TrueOS
+To perform a graphical server installation, start the TrueOS® installation as usual. When you get to the :ref:`System Selection Screen` of the installer, select "TrueOS
 (Console based server)".
 
 Click "Next" to start the "Server Setup Wizard" then click "Next" again to see the screen shown in :numref:`Figure %s: Set the Root Password <server2>`.
@@ -298,13 +297,11 @@ can now configure and use the server as you would any other FreeBSD server insta
 Using the TrueOS® CD
 =====================
 
-PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your
+The CD-sized TrueOS® ISO provides an ncurses installer for installing a command-line version of TrueOS®. If your
 intent is to only install servers and you do not need a graphical installer, this ISO is convenient to use and quick to download.
 
-To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu will be similar to the :numref:`Figure %s: Initial Boot Menu <install1b>`, but
-the logo will be for TrueOS instead of PC-BSD.
-
-Once the system has finished booting into the installer, it will display the installation menu shown in :numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
+To start a server installation using the TrueOS® ISO, insert the prepared boot media. Once the system has finished booting into the installer, it will display the installation menu shown in
+:numref:`Figure %s: TrueOS® Installation Menu <cd2>`. 
 
 .. _cd2:
 
@@ -320,20 +317,20 @@ The TrueOS® boot media can also be used to repair an existing installation, usi
 Dual Booting
 ============
 
-A PC-BSD® installation assumes that you have an existing primary partition to install into. If your computer has only one disk and PC-BSD® will be the only
-operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing PC-BSD® with other operating systems, be
-careful that PC-BSD® is installed into the correct partition or you may inadvertently overwrite an existing operating system.
+A TrueOS® installation assumes that you have an existing primary partition to install into. If your computer has only one disk and TrueOS® will be the only
+operating system, it is fine to accept the default partitioning scheme. However, if you will be sharing TrueOS® with other operating systems, be
+careful that TrueOS® is installed into the correct partition or you may inadvertently overwrite an existing operating system.
 
 If you wish to install multiple operating systems on your computer, you will need the following: 
 
-* a partition for each operating system. Many operating systems, including PC-BSD®, can only be installed into a primary or GPT partition. This means that
+* a partition for each operating system. Many operating systems, including TrueOS®, can only be installed into a primary or GPT partition. This means that
   you will need to use partitioning software as described in :ref:`Creating Free Space`. 
 
 * a backup of any existing data. This backup should not be stored on your computer's hard drive but on another computer or on a removable media such as a USB
   drive or burnt onto a DVD media. If you are careful in your installation, everything should go fine. However, you will be glad that you made a backup should
   something go wrong.
 
-When installing PC-BSD® onto a computer that is to contain multiple operating systems, care must be taken to **select the correct partition** in the
+When installing TrueOS® onto a computer that is to contain multiple operating systems, care must be taken to **select the correct partition** in the
 :ref:`Disk Selection Screen` of the installation. On a system containing multiple partitions, each partition will be listed. Highlight the partition that you
 wish to install into and **make sure that you do not select a partition that already contains an operating system or data that you wish to keep.**
 
@@ -346,10 +343,10 @@ wish to install into and **make sure that you do not select a partition that alr
 GRUB Boot Loader
 ----------------
 
-In PC-BSD® 11, the FreeBSD boot loader is the preferred, and default, boot loader as it provides native support for ZFS boot environments. If you changed the default during installation,
+In TrueOS® 11, the FreeBSD boot loader is the preferred, and default, boot loader as it provides native support for ZFS boot environments. If you changed the default during installation,
 the installer will use a customized version of the GRUB boot loader that provides limited ZFS boot environment support.
 
-The PC-BSD® version of GRUB will attempt to identify other installed operating systems, such as Windows and Linux, and add them to the GRUB boot menu. If your other operating system is not
+The TrueOS® version of GRUB will attempt to identify other installed operating systems, such as Windows and Linux, and add them to the GRUB boot menu. If your other operating system is not
 automatically detected, you will need to manually add an entry to the :file:`/usr/local/etc/grub.d/40_custom.dist` file. For more information on the syntax used, refer to the
 `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_. 
 
@@ -359,14 +356,14 @@ automatically detected, you will need to manually add an entry to the :file:`/us
 Creating an Automated Installation
 ==================================
 
-PC-BSD® provides a set of Bourne shell scripts that allow advanced users to create automatic or customized PC-BSD® installations. :command:`pc-sysinstall`
+TrueOS® provides a set of Bourne shell scripts that allow advanced users to create automatic or customized TrueOS® installations. :command:`pc-sysinstall`
 is the name of the master script; it reads a customizable configuration file and uses dozens of backend scripts to perform the installation. You can read more
 about this utility by typing **man pc-sysinstall**.
 
 Here is a quick overview of the components used by :command:`pc-sysinstall`: 
 
-* :file:`/usr/local/share/pc-sysinstall/backend/` contains the scripts used by the PC-BSD® installer. Scripts have been divided by function, such as
-  :file:`functions-bsdlabel.sh` and :file:`functions-installcomponents.sh`. If you have ever wondered how the PC-BSD® installer works, read through these
+* :file:`/usr/local/share/pc-sysinstall/backend/` contains the scripts used by the TrueOS® installer. Scripts have been divided by function, such as
+  :file:`functions-bsdlabel.sh` and :file:`functions-installcomponents.sh`. If you have ever wondered how the TrueOS® installer works, read through these
   scripts. This directory also contains the :file:`parseconfig.sh` and :file:`startautoinstall.sh` scripts which :command:`pc-sysinstall` uses to parse the
   configuration file and begin the installation.
 
@@ -388,7 +385,7 @@ First, determine which variables you wish to customize. A list of possible varia
 are summarized in Table 5.5a. Note that the Table is meant as a quick reference to determine which variables are available. The :file:`README` file contains more
 complete descriptions for each variable.
 
-**Table 5.5a: Available Variables for Customizing a PC-BSD® Installation**
+**Table 5.5a: Available Variables for Customizing a TrueOS® Installation**
 
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable                   | Options                                                                        | Description                                                                                                                                                                                             |
@@ -567,7 +564,7 @@ Finally, create a custom installation media or installation server. :command:`pc
 
 * from an installation directory on an HTTP, FTP, SSH+rsync, or a :ref:`PXE Boot Install Server`
 
-The easiest way to create a custom installation media is to modify an existing installation image. For example, if you have downloaded an ISO for the PC-BSD®
+The easiest way to create a custom installation media is to modify an existing installation image. For example, if you have downloaded an ISO for the TrueOS®
 version that you wish to customize, the superuser can access the contents of the ISO as follows::
 
  mdconfig -a -t vnode -f PCBSD10.1.2-RELEASE-x64-DVD-USB.iso -u 1

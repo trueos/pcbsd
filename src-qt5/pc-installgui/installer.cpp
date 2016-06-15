@@ -1509,25 +1509,28 @@ QStringList Installer::getDeskPkgCfg()
        pkgList << "sysutils/grub2-pcbsd" << "sysutils/grub2-efi";
 
      // The default web-browser and plugins
-     pkgList << "www/firefox" << "java/icedtea-web" << "www/qupzilla-qt5";
+     pkgList <<  "www/qupzilla-qt5";
 
      // The default mail client
-     pkgList << "mail/thunderbird" << "mail/trojita";
+     pkgList << "mail/trojita";
 
      // Multimedia player
      pkgList << "multimedia/vlc" << "multimedia/openh264";
 
      // VirtualBox
-     pkgList << "misc/pcbsd-meta-virtualbox";
+     //pkgList << "misc/pcbsd-meta-virtualbox";
 
      // Office Suite
-     pkgList << "editors/libreoffice";
+     //pkgList << "editors/libreoffice";
 
      // Utilities
-     pkgList << "archivers/unrar" << "archivers/unzip" << "archivers/peazip" << "editors/vim";
+     pkgList << "archivers/unrar" << "archivers/unzip" << "misc/pcbsd-meta-hunspell";
+
+     // Printer packages
+     pkgList << "print/cups-pdf";
 
      // Include i18n stuff?
-     if ( comboLanguage->currentIndex() != 0 )
+     //if ( comboLanguage->currentIndex() != 0 )
        pkgList << "misc/pcbsd-i18n" << "misc/pcbsd-i18n-qt5";
 
      // Check if we are using NVIDIA driver and include it automatically
@@ -1566,8 +1569,8 @@ QStringList Installer::getDeskPkgCfg()
    } else {
      pkgList << "misc/trueos-base";
      // If the user enabled AppCafe remote, install it now
-     if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
-       pkgList << "sysutils/pcbsd-appweb";
+     //if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
+       //pkgList << "sysutils/pcbsd-appweb";
    }
 
    cfgList << "installPackages=" + pkgList.join(" ");

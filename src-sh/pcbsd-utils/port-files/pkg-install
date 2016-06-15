@@ -1,0 +1,36 @@
+#!/bin/sh
+# Script to install preload.conf
+
+PREFIX=${PKG_PREFIX-/usr/local}
+
+if [ "$2" != "POST-INSTALL" ] ; then
+   exit 0
+fi
+
+# If this is during staging, we can skip for now
+echo $PREFIX | grep -q '/stage/'
+if [ $? -eq 0 ] ; then
+   exit 0
+fi
+
+# Copy over the rc.conf.pcbsd file
+install -m 644 ${PREFIX}/share/pcbsd/conf/rc.conf.pcbsd /etc/rc.conf.pcbsd
+if [ -e "/etc/default/pcbsd" -o -e "/etc/defaults/trueos-desktop" ] ; then
+  install -m 644 ${PREFIX}/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+  install -m 644 ${PREFIX}/share/pcbsd/conf/brand-pcbsd.4th /boot/brand-pcbsd.4th
+else
+  install -m 644 ${PREFIX}/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+  install -m 644 ${PREFIX}/share/pcbsd/conf/brand-trueos.4th /boot/brand-trueos.4th
+fi
+
+if [ ! -e "${PREFIX}/etc/pcbsd.conf" ] ; then
+  # Do the first-time setup
+  echo "Doing first-time bootstrap"
+  if [ -e "/etc/defaults/trueos-desktop" ] ; then
+    tar cvf - -C ${PREFIX}/share/pcbsd/desktop-defaults/ . 2>/dev/null | tar xvf - -C / 2>/dev/null
+  else
+    tar cvf - -C ${PREFIX}/share/pcbsd/server-defaults/ . 2>/dev/null | tar xvf - -C / 2>/dev/null
+  fi
+fi
+
+exit 0

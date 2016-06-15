@@ -3,12 +3,12 @@
 Lumina Desktop
 **************
 
-Beginning with |version|, the PC-BSD® installer installs the Lumina Desktop Environment (Lumina for short). Additional window managers can be installed using :ref:`AppCafe®`. This chapter
+Beginning with |version|, the TrueOS® installer installs the Lumina Desktop Environment (Lumina for short). Additional window managers can be installed using :ref:`AppCafe®`. This chapter
 describes the Lumina Configuration utility and the various utilities which are built into Lumina. For instructions on how to install Lumina on other operating systems or how to contribute
 to the Lumina Project, refer to the documentation at the `Lumina website <http://www.lumina-desktop.org>`_.
 
 Lumina is a lightweight, XDG-compliant, BSD-licensed desktop environment that focuses specifically on streamlining the ability to get work done while minimizing system overhead. It is
-specifically designed for PC-BSD® and FreeBSD, but has also been ported to many other BSD and Linux operating systems. It is based on the Qt graphical toolkit and the Fluxbox window manager,
+specifically designed for TrueOS® and FreeBSD, but has also been ported to many other BSD and Linux operating systems. It is based on the Qt graphical toolkit and the Fluxbox window manager,
 and uses a small number of X utilities for various tasks, such as :command:`numlockx` and :command:`xscreensaver`.
 
 Lumina's features include: 
@@ -49,7 +49,7 @@ Lumina's features include:
 Start Menu
 ==========
 
-:numref:`Figure %s: Lumina Desktop <lumina1d>` shows a screenshot of Lumina on a PC-BSD® system. The user has clicked the "fireball" icon in order to open the start menu.
+:numref:`Figure %s: Lumina Desktop <lumina1d>` shows a screenshot of Lumina on a TrueOS® system. The user has clicked the "fireball" icon in order to open the start menu.
 
 .. _lumina1d:
 
@@ -72,10 +72,10 @@ The Start Menu contains the following:
 * **Browse Applications:** click this entry to browse all the applications currently registered on the system. Applications are listed alphabetically by category and the "Show Categories"
   button has three modes. Click "Show Categories" to toggle between showing just the category names (black box icon), just the contents of the categories (white box icon), or the categories
   and their contents (1/2 black 1/2 white icon). Click an application's name to start that application. If you right-click an application's name, you can "Pin to Desktop", "Add to Favorites",
-  or "Add to Quicklaunch". If you are running PC-BSD® or another operating system that has a pre-defined application store, click "Manage Applications" at the top of the list of applications
-  in order to open that application store. For example, on a PC-BSD® system, "Manage Applications" opens AppCafe®. Click the "Back" button to return to the start menu.
+  or "Add to Quicklaunch". If you are running TrueOS® or another operating system that has a pre-defined application store, click "Manage Applications" at the top of the list of applications
+  in order to open that application store. For example, on a TrueOS® system, "Manage Applications" opens AppCafe®. Click the "Back" button to return to the start menu.
 
-* **Control Panel:** if you are on PC-BSD®, or an operating system which provides a control panel, click this entry to open that operating system's control panel.
+* **Control Panel:** if you are on TrueOS®, or an operating system which provides a control panel, click this entry to open that operating system's control panel.
 
 * **Preferences:** click this entry to access the following:
 
@@ -101,7 +101,7 @@ The Start Menu contains the following:
   has permission), "Power Off system" (if the user has permission), "Sign Out User", or to go "Back" to the system menu. Alternately, click the "lock" icon next to "Leave" to lock the system
   and return it to a login prompt.
 
-.. note:: On a PC-BSD system which is in the middle of applying updates, the shutdown and restart options will be disabled until the updates are complete and a note will indicate that
+.. note:: On a TrueOS system which is in the middle of applying updates, the shutdown and restart options will be disabled until the updates are complete and a note will indicate that
    updates are in progress.
 
 .. _Panel and System Tray:
@@ -120,7 +120,7 @@ click it again, it will automatically minimize it. If there are multiple windows
 If you right-click the title of an open window, a menu of options will appear so that you can shade, stick, maximize, iconify, raise, lower, set the window
 title, send the window to a workspace, layer/dock the window, set the window's transparency, remember a specified setting, or close the window.
 
-The system tray is located in the right portion of the panel. Any applications that register a tray icon will appear in this area. For example, on a PC-BSD system, icons will appear for
+The system tray is located in the right portion of the panel. Any applications that register a tray icon will appear in this area. For example, on a TrueOS system, icons will appear for
 Life Preserver, Mount Tray, and Update Manager. Click or right-click an icon to interact with that application directly. The current system time shown by the clock is in the default format
 for the current locale. If you click the clock icon and then click "Time Zone", a menu will open where you can select to either "Use System Time" or click a country name in order to select a
 city to change to that city's time zone.
@@ -433,7 +433,7 @@ The "Locale" tab is shown in :numref:`Figure %s: Session Locale Tab <lumina21b>`
    :scale: 100%
 
 The lumina-i18n package provides localization files. Once installed, this allows you to customize which locale is used for the various items listed in
-:numref:`Figure %s: Session Locale Tab <lumina21b>`. To install this package on a PC-BSD or FreeBSD system, use :command:`sudo pkg install lumina-i18n`. On other operating systems, use the
+:numref:`Figure %s: Session Locale Tab <lumina21b>`. To install this package on a TrueOS or FreeBSD system, use :command:`sudo pkg install lumina-i18n`. On other operating systems, use the
 software management tool that comes with the operating system. If the Lumina Configuration utility was open before the installation, restart it so that the list of localizations can be
 loaded into the drop-down menus of this screen. Since each setting has its own drop-down menu, you have the flexibility to select different locales for each item shown in this screen. Note
 that if you make any changes in the "Locale" tab, click the "Save Changes" button and restart Lumina so that the configured locales can be loaded.

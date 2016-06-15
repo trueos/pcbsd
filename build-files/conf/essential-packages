@@ -4,14 +4,16 @@ mail/trojita
 misc/pcbsd-base
 misc/pcbsd-i18n
 misc/pcbsd-i18n-qt5
+misc/pcbsd-meta-hunspell
 misc/pcbsd-meta-nvidia
 misc/pcbsd-meta-nvidia-340
 misc/pcbsd-meta-virtualbox
-misc/pcbsd-meta-virtualboxguest
 misc/pcbsd-toolchain
 misc/trueos-base
 multimedia/openh264
 multimedia/vlc
+multimedia/webcamd
+print/cups-pdf
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/pcbsd-util*

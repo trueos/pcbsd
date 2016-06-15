@@ -34,10 +34,10 @@ This chapter describes these utilities in more detail.
 AppCafe®
 =========
 
-Both PC-BSD® and TrueOS® provide tools to make it easy to manage software and to keep both the operating system and installed software up-to-date. PC-BSD®
-provides the graphical :ref:`AppCafe®` and :ref:`Update Manager` utilities for managing and upgrading software from the local system or from a web browser or
-mobile device. Since TrueOS® is a command-line only install and some users prefer to use command-line utilities, both PC-BSD® and TrueOS® provide the
-:command:`pkg` command line utility to manage software, as well as :command:`pc-updatemanager` to manage updates. If you install
+TrueOS® provides tools to make it easy to manage software and to keep both the operating system and installed software up-to-date. The
+graphical :ref:`AppCafe®` and :ref:`Update Manager` utilities can be used for managing and upgrading software from the local system or from a web browser or
+mobile device. In addition, the
+:command:`pkg` command line utility can be used to manage software and the :command:`pc-updatemanager` command line utility can be used to manage updates. If you install
 software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
 
 The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
@@ -61,7 +61,7 @@ Configuring AppCafe®
 AppCafe® includes the ability to remotely manage software from another system or mobile device. During the installation
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
 a web browser. On a desktop installation, AppCafe® can be run as a local application and optionally configured for remote access. To launch the
-AppCafe® application on a PC-BSD® desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type  :command:`appcafe` from a command prompt. When
+AppCafe® application on a desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type  :command:`appcafe` from a command prompt. When
 prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>` shows the initial AppCafe® screen when it is started from a desktop.
 
 .. _remote1d:
@@ -142,7 +142,7 @@ required by other applications have a red "X". If you click a red "X", a pop-up 
 grey download icon. Click the icon to install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow
 "Required" triangle will be displayed and a "Related" tab will indicate the name of the application(s) which require it.
 
-The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users.
+The "Recommended Applications" section displays applications which are recommended by other TrueOS® users.
 
 The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. Alternately, to view all of
 the available applications for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
@@ -218,10 +218,10 @@ Click the hyperlink under the "Result" column to review the installation log.
 Using the CLI pkg Utilities
 ===========================
 
-PC-BSD® uses :command:`pkg` to manage packages from the command line.
+TrueOS® uses :command:`pkg` to manage packages from the command line.
 
 The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 4.4.1 is not
-needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
+needed on a TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
 Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
 know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
 :command:`pkg install`, type :command:`pkg help install`.
@@ -232,7 +232,7 @@ know the name of a command, you can also use the built-in help system to get mor
 Managing Jails from the CLI
 ---------------------------
 
-In PC-BSD®, `iocage <https://github.com/iocage/iocage>`_ can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
+In TrueOS®, `iocage <https://github.com/iocage/iocage>`_ can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
 light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
 with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
 installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
@@ -241,7 +241,7 @@ running on the PC-BSD® system.
 :command:`iocage` was specifically designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration
 file.
 
-The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer to manage jails using
+The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line by users who prefer to manage jails using
 the command line. Advanced users can also refer to the command line version in their own jail management scripts.
 
 If you type :command:`iocage` at the command line, you will receive a summary of its usage::
@@ -388,7 +388,7 @@ Once inside the jail, you can manage it just like any other FreeBSD system and i
 Update Manager
 ==============
 
-Update Manager provides a graphical interface for keeping the PC-BSD® operating system and its installed applications up-to-date. Update Manager will automatically track
+Update Manager provides a graphical interface for keeping the TrueOS® operating system and its installed applications up-to-date. Update Manager will automatically track
 updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®`.
 
 This utility can be started from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
@@ -453,12 +453,12 @@ This menu contains the following options:
 * **Quit:** to remove Update Manager from the system tray, click this entry. You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
 
 .. index:: updates
-.. _How PC-BSD® Updating Works:
+.. _How TrueOS® Updating Works:
 
-How PC-BSD® Updating Works
+How TrueOS® Updating Works
 ---------------------------
 
-The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. The following steps occur automatically during
+The TrueOS® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. The following steps occur automatically during
 an update:
 
 * The update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
@@ -480,7 +480,7 @@ an update:
   session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
   until you reboot.
   
-* The default ZFS layout used by PC-BSD® ensures that when new boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+* The default ZFS layout used by TrueOS® ensures that when new boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
   :file:`/var/` directories remain untouched. This way, if you decide to rollback to a previous boot environment, you will not lose data in your home directories, any
   installed applications, or downloaded src or ports. However, you will return the system to its previous state, before the update was applied.
 
@@ -488,7 +488,7 @@ an update:
   :numref:`Figure %s: Viewing the Update Log <update10a>`. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
   the previous log is written to :file:`/var/log/pc-updatemanager.log.prev`, so that you also have a copy of the previous update's log.
 
-* You no longer need to initiate updates manually. PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20
+* You no longer need to initiate updates manually. TrueOS® uses an automated updater that automatically checks for updates, no more than once per day, 20
   minutes after a reboot and then every 24 hours. You can configure what gets updated using the "Configure Automatic Updates" tab of Update Manager, shown in
   :numref:`Figure %s: Configuring What to Update <update11a>`. Choices are "Security & Packages" (all updates), "Security" (only security patches and operating system updates), "Packages"
   (only installed software), or "Nothing" (disables automatic updating).
@@ -768,7 +768,7 @@ Manager as a package update, for both "Edge" and "Production" users, or in the l
 Create a Local Package Mirror
 =============================
 
-The official PC-BSD® package repository is hosted as a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It is possible to
+The official TrueOS® package repository is hosted as a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It is possible to
 :command:`rsync` a copy of the package repository, which means you can have a locally hosted, complete package repository available for your own clients.
 
 To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
@@ -821,7 +821,7 @@ Manage SSL Keys
 Boot Environment Manager
 ========================
 
-PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs). With multiple boot environments, the process of updating software becomes a
+TrueOS® supports a feature of ZFS known as multiple boot environments (BEs). With multiple boot environments, the process of updating software becomes a
 low-risk operation as the updates are applied to a different boot environment. If needed, you have the option of booting into a backup boot environment. Other examples of using boot
 environments include: 
 
@@ -839,12 +839,12 @@ environments include:
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
-To ensure that the files that the operating system needs are included when the system boots, all boot environments on a PC-BSD® system include :file:`/usr`, :file:`/usr/local`,
+To ensure that the files that the operating system needs are included when the system boots, all boot environments on a TrueOS® system include :file:`/usr`, :file:`/usr/local`,
 and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
 :file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of which boot environment is selected at system boot.
    
 To view, manage, and create boot environments using the SysAdm™ graphical client, go to :menuselection:`System Management --> Boot Environment Manager`. In the example shown in
-:numref:`Figure %s: Managing Boot Environments <be1>`, there is an entry named *initial* that represents the original PC-BSD® installation.
+:numref:`Figure %s: Managing Boot Environments <be1>`, there is an entry named *initial* that represents the original TrueOS® installation.
 
 .. _be1:
 
@@ -965,12 +965,12 @@ local ZFS pool and to optionally replicate those snapshots to another system ove
   the point-in-time for the version of the file that you need. Life Preserver makes it easy to configure when snapshots are taken and provides a built-in
   graphical browser for finding and restoring the files within a snapshot.
 
-* Replication is an efficient way to keep the files on two systems in sync. In the case of Life Preserver, the snapshots taken on the PC-BSD® system will be
+* Replication is an efficient way to keep the files on two systems in sync. In the case of Life Preserver, the snapshots taken on the TrueOS® system will be
   synchronized with their versions stored on the backup server.
 
 * Snapshots are sent to the backup server oven an encrypted connection and can optionally be stored in an encrypted format, which protects the contents of the snapshots.
 
-* Having a copy of the snapshots on another system makes it possible to perform an operating system restore should the PC-BSD® system become unusable or to deploy an identical system
+* Having a copy of the snapshots on another system makes it possible to perform an operating system restore should the TrueOS® system become unusable or to deploy an identical system
   to different hardware.
   
 To manage snapshots and replication using the SysAdm™ graphical client, go to :menuselection:`Utilities --> Life Preserver`. The rest of this section describes where to find and how to
@@ -1010,14 +1010,14 @@ have a backup copy of your snapshots on another system.
 In order to configure replication, the remote system to hold a copy of the snapshots must first meet the following requirements:
 
 * The backup server **must be formatted with the latest version of ZFS,** also known as ZFS feature flags or ZFSv5000. Operating systems that support this
-  version of ZFS include PC-BSD®, FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
+  version of ZFS include TrueOS®, FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
 
-* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD®, SSH is already installed and you can start
+* That system must have SSH installed and the SSH service must be running. If the backup server is running TrueOS®, SSH is already installed and you can start
   SSH using :ref:`Service Manager`. If that system is running FreeNAS® or FreeBSD, SSH is already installed, but you will need to start SSH.
 
-* If the backup server is running PC-BSD®, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
+* If the backup server is running TrueOS®, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
   firewall has been configured, add a rule to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default. Also, if there is a
-  network firewall between the PC-BSD® system and the backup system, make sure it has a rule to allow SSH.
+  network firewall between the TrueOS® system and the backup system, make sure it has a rule to allow SSH.
 
 :numref:`Figure %s: Replication Tab <lpreserver2>` shows the initial "Replication" tab on a system that has not yet been configured for replication. This screen is used to create, view,
 remove, and configure the replication schedule.  
@@ -1150,7 +1150,7 @@ Input a "Volume Name", drag the slider to select the desired number of available
 select the optimal layout for both storage capacity and redundancy. In this example, a RAIDZ2 named *volume1* will be created.
 
 .. note:: make sure that the size of the pool is large enough to hold the replicated snapshots. To determine the size of the initial snapshot, run
-   :command:`zpool list` on the PC-BSD® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
+   :command:`zpool list` on the TrueOS® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
    data that has changed.
 
 To create the dataset to backup to, click the "+" next to the entry for the newly created volume, then click "Create ZFS Dataset". In the example shown in
@@ -1191,7 +1191,7 @@ Click the red "OFF" button next to SSH to enable that service. Once it turns to 
 
 click the "+SSH" button. Life Preserver will scan the network for systems running SSHD and, if the scan is successful, a pop-up
 menu will show the hostnames of the available systems. If multiple systems are running SSH, use the drop-down menu to select the desired system and click "OK". If you instead receive an
-error message, check to see if there is a firewall between the PC-BSD® and the FreeNAS® system as this scan requires UDP port 5353 to be open on any firewalls running on or between the two
+error message, check to see if there is a firewall between the TrueOS® and the FreeNAS® system as this scan requires UDP port 5353 to be open on any firewalls running on or between the two
 systems.
 
 Once the system is selected, its IP address will be added to the drop-down menu to the left of the "+SSH" button, the port number SSH is listening on will display in the
@@ -1226,7 +1226,7 @@ until the replication is finished and it will not start a second replication bef
 Restoring the Operating System
 ------------------------------
 
-If you have replicated the system's snapshots to a remote backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
+If you have replicated the system's snapshots to a remote backup server, you can use a TrueOS® installation media to perform an operating system restore or to clone
 another system. Start the installation as usual until you get to the screen shown in :numref:`Figure %s: Selecting to Restore/Clone From Backup <restore1>`. 
 
 .. _restore1: 
@@ -1272,7 +1272,7 @@ out as they will be recreated from the backup during the restore. Once you are f
 Using the lpreserver CLI
 ------------------------
 
-The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system. This
+The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a TrueOS® system. This
 command needs to be run as the superuser. To display its usage, type the command without any arguments::
 
  lpreserver

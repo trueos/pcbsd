@@ -42,9 +42,12 @@ nvidia-xconfig-\*.txz
 xwd-\*.txz
 xvkbd-\*.txz
 fribidi-\*.txz
+pc-sysinstall-\*.txz
 pcbsd-utils-qt5-\*.txz
 pcbsd-i18n-qt5-\*.txz
-virtualbox-ose-additions-\*.txz
+pc-sysinstall-\*.txz
+life-preserver-\*.txz
 grub2-pcbsd-\*.txz
 stunnel-\*.txz
 diskscrub-\*.txz
+webcamd-\*.txz

@@ -1,6 +1,6 @@
-.. _Using PC-BSD®:
+.. _Using TrueOS®:
 
-Using PC-BSD®
+Using TrueOS®
 **************
 
 This section discusses how to perform common tasks that were not discussed in the :ref:`Control Panel` section.
@@ -47,9 +47,9 @@ The options available in each tab and when to use them are described at the Adob
 Installing Custom Fonts 
 =======================
 
-PC-BSD® includes `Google Noto <http://www.google.com/get/noto/>`_ which provide multi-lingual Sans and Serif fonts.
+TrueOS® includes `Google Noto <http://www.google.com/get/noto/>`_ which provide multi-lingual Sans and Serif fonts.
 
-If you have a collection of fonts that you have downloaded or purchased, you can configure your PC-BSD® system to also use these fonts. Which utility you use
+If you have a collection of fonts that you have downloaded or purchased, you can configure your TrueOS® system to also use these fonts. Which utility you use
 depends upon which window manager you have logged into.
 
 .. note:: many other fonts are available from :ref:`AppCafe®`. Check the "Search all available software" box in the "App Search" tab to search for fonts. Any font installed using
@@ -90,8 +90,8 @@ Then, refresh the fonts cache::
 Multimedia
 ==========
 
-PC-BSD® has been pre-configured to support most multimedia formats and makes it easy to install most open source media applications using :ref:`AppCafe®`.
-PC-BSD® supports both `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
+TrueOS® has been pre-configured to support most multimedia formats and makes it easy to install most open source media applications using :ref:`AppCafe®`.
+TrueOS® supports both `PulseAudio <https://www.freedesktop.org/wiki/Software/PulseAudio/>`_ and `OSS <http://opensound.com/>`_ so that applications using
 either sound server should work.
 
 If you install your web browser using AppCafe®, you should be able to play most media formats, including YouTube videos, Internet radio, and many trailer and
@@ -193,12 +193,12 @@ installed independent of a desktop using :ref:`AppCafe®`. Once a file manager i
 | xfe           | AppCafe          | `<http://roland65.free.fr/xfe/index.php?page=screenshots>`_        |
 +---------------+------------------+--------------------------------------------------------------------+
 
-When working with files on your PC-BSD® system, save your own files to your home directory. Since most of the files outside of your home directory are used
+When working with files on your TrueOS® system, save your own files to your home directory. Since most of the files outside of your home directory are used
 by the operating system and applications, you should not delete or modify any files outside of your home directory, unless you know what you are doing.
 
-Table 9.4b summarizes the directory structure found on a PC-BSD® system. :command:`man hier` explains this directory structure in more detail.
+Table 9.4b summarizes the directory structure found on a TrueOS® system. :command:`man hier` explains this directory structure in more detail.
 
-**Table 9.4b: PC-BSD Directory Structure**
+**Table 9.4b: TrueOS Directory Structure**
 
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Directory                | Contents                                                                                                                        |
@@ -259,7 +259,7 @@ Table 9.4b summarizes the directory structure found on a PC-BSD® system. :comma
 | /var/                    | files that change (vary), such as log files and print jobs                                                                      |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
-PC-BSD® provides built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
+TrueOS® provides built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
 your network. If a desktop is installed, you do not have to be logged into that desktop in order to use that utility.
 
 Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with, whether or not it can be installed
@@ -362,7 +362,7 @@ Depending upon the operating system, you may have to first install or enable RDP
 * If the other computer you are connecting to is a Mac, Linux, or BSD system, you will have to first install either `xrdp <http://www.xrdp.org/>`_ or a VNC
   server on the other system. Depending upon the operating system, either software may or may not already be installed. If it is not, check the software
   repository for the operating system or use a web search to find out how to install and configure one of these applications on that operating system. If you
-  are connecting to another PC-BSD® system, use :ref:`AppCafe®`, check the box "Search all available software", and search for "rdp" or "vnc".
+  are connecting to another TrueOS® system, use :ref:`AppCafe®`, check the box "Search all available software", and search for "rdp" or "vnc".
 
 If there is a firewall on either system or a network firewall between the two systems, check that it allows connections to the TCP port required by the type
 of connection that you will be using: 
@@ -372,8 +372,8 @@ of connection that you will be using:
 - **VNC:** uses port 5900 (for the first connection, 5901 for the second connection, etc.) 
 
 If you need to manually add a firewall rule, it is best to only allow the IP address of the computer that will be connecting. You should immediately remove or
-disable this firewall rule after the connection is finished so that other computers do not try to connect to the computer. Since your PC-BSD® system is
-considered to be the client and will be initiating the connection, you do not have to modify the firewall on the PC-BSD® system.
+disable this firewall rule after the connection is finished so that other computers do not try to connect to the computer. Since your TrueOS® system is
+considered to be the client and will be initiating the connection, you do not have to modify the firewall on the TrueOS® system.
 
 .. index:: KRDC
 .. _Connecting with KRDC:
@@ -509,8 +509,8 @@ invitation password. Once the password is accepted, they will see your desktop.
 Thin Client
 ===========
 
-PC-BSD® provides a Thin Client script which can be used to easily create a PXE Boot Desktop Server, to support thin clients, and a PXE Boot Install Server,
-for creating a central server which systems can connect to in order to be installed with PC-BSD®. 
+TrueOS® provides a Thin Client script which can be used to easily create a PXE Boot Desktop Server, to support thin clients, and a PXE Boot Install Server,
+for creating a central server which systems can connect to in order to be installed with TrueOS®. 
 
 This section demonstrates how to configure and use both the PXE Boot Desktop Server and the PXE Boot Install Server.
 
@@ -520,19 +520,19 @@ This section demonstrates how to configure and use both the PXE Boot Desktop Ser
 PXE Boot Desktop Server
 -----------------------
 
-A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a :wikipedia:`Diskless node` where
+A TrueOS® PXE Boot Desktop Server allows you to automatically configure a :wikipedia:`Diskless node` where
 each computer has a network interface card capable of :wikipedia:`Preboot Execution Environment` (PXE) booting. When a client boots from
 their network interface instead of their hard disk, they automatically connect to the PXE Boot Desktop Server and receive a login window. Once authenticated,
-they can use PC-BSD®, even if PC-BSD® is not installed on their own computer and even if their computer does not have a hard drive.
+they can use TrueOS®, even if TrueOS® is not installed on their own computer and even if their computer does not have a hard drive.
 
-To prepare your PC-BSD® system for a PXE Boot Desktop Server configuration, perform these tasks first: 
+To prepare your TrueOS® system for a PXE Boot Desktop Server configuration, perform these tasks first: 
 
 1. If the diskless clients will require Internet access, install two network cards where one NIC is connected to the Internet and the other is connected to a
    private LAN from which the thin clients can PXE boot from.
 
-2. The PC-BSD® system should have lots of RAM installed, especially if multiple clients will be connecting. 
+2. The TrueOS® system should have lots of RAM installed, especially if multiple clients will be connecting. 
 
-To configure the PC-BSD® system as a PXE Boot Desktop Server, run the following script as the superuser::
+To configure the TrueOS® system as a PXE Boot Desktop Server, run the following script as the superuser::
 
  pc-thinclient
  /usr/local/bin/pc-thinclient will install the components to convert this system into a thin-client server.
@@ -541,8 +541,8 @@ To configure the PC-BSD® system as a PXE Boot Desktop Server, run the following
  If you wish to use an external server please make sure it supports adding next server and bootfile name options.
  (d/e)
 
-If you wish to have the PC-BSD® system act as the DHCP server, type **d**. If the network already has a configured DHCP server, type **e**. The following
-example will install the DHCP server on the PC-BSD® system. After making your selection, press enter to continue::
+If you wish to have the TrueOS® system act as the DHCP server, type **d**. If the network already has a configured DHCP server, type **e**. The following
+example will install the DHCP server on the TrueOS® system. After making your selection, press enter to continue::
 
  Do you wish to make this a remote X desktop server or install server?
  (r/i) r
@@ -601,7 +601,7 @@ the prompts.
 
 After a successful installation and reboot of the PXE Boot Desktop Server, the DHCP service will be running on the NIC you specified. Make sure that this NIC
 and a PXE capable client are connected to the same hub or switch. When you boot up the client, PXE should automatically obtain an IP address and begin to load
-PC-BSD®. If it does not, review the boot order settings in the BIOS on the client to make sure that PXE is listed first.
+TrueOS®. If it does not, review the boot order settings in the BIOS on the client to make sure that PXE is listed first.
 
 After the boot process has finished, the client will be brought to this prompt::
 
@@ -613,14 +613,14 @@ If you wait 10 seconds, this message will timeout, and the client will bring up 
 auto-detect settings, and test the new configuration. When finished, choose "Save working config" to send this configuration to the PXE Boot Desktop Server.
 This will prompt for the password of the pxeboot user. Once authenticated, the file will be saved by the client's MAC address in
 :file:`/home/pxeboot/mnt/xorg-config/<mac>.conf`. The next time you boot the client, it will automatically use the saved :file:`xorg.conf` file and bring the
-system to the PC-BSD® login screen.
+system to the TrueOS® login screen.
 
 .. note:: in order for the login to succeed, the user account must already exist on the PXE Boot Desktop Server.
 
 The client's boot environment is located in :file:`/home/pxeboot`. This is mounted read-only during the PXE boot process to allow the client to bootup and
 create an XDCMP connection to the server.
 
-Once logged in to the PXE Boot Desktop Server, using PC-BSD® will be the same as if you had installed PC-BSD® on the client system. You will be able to use
+Once logged in to the PXE Boot Desktop Server, using TrueOS® will be the same as if you had installed TrueOS® on the client system. You will be able to use
 to install software and to save and use the files in your home directory.
 
 Use the **-remove** option if you wish to uninstall the PXE Boot Desktop Server::
@@ -654,7 +654,7 @@ Your interface name and IP address may differ from those in the example. The *dh
 PXE Boot Install Server
 -----------------------
 
-A PC-BSD® PXE Boot Install Server can be used to install PC-BSD®, FreeBSD, or TrueOS® onto computers who connect to the server using PXE. The installations
+A TrueOS® PXE Boot Install Server can be used to install TrueOS®, FreeBSD, or TrueOS® onto computers who connect to the server using PXE. The installations
 can be interactive or fully automated. The PXE Boot Install Server supports multiple, concurrent installations with the only limiting factor being the
 server's disk I/O and the network's bandwidth.
 
@@ -706,7 +706,7 @@ no longer boot and you wish to either access the disk's contents or attempt to r
 
 Any scripts that you create and place in the :file:`/usr/home/thinclient/installscripts/` directory will be selectable as an installation option within the
 PXE client boot menu. Tables 5.5a and 5.5b in  summarize the available configuration options when creating an installation script. Alternately, every time you
-install PC-BSD, the installation script is automatically saved to :file:`/root/pc-sysinstall.cfg`. This means that if you wish to repeat an installation, you
+install TrueOS, the installation script is automatically saved to :file:`/root/pc-sysinstall.cfg`. This means that if you wish to repeat an installation, you
 simply need to copy that file to the :file:`/usr/home/thinclient/installscripts/` directory on the PXE Boot Install Server.
 
 The PXE Boot Install Server also supports completely unattended installations. To perform fully-automated installations over the PXE interface, create a
@@ -720,13 +720,13 @@ plugging a PXE boot client into the wrong LAN cable could cause it to be re-inst
 Security
 ========
 
-Your PC-BSD® system is secure by default. This section provides an overview of the built-in security features and additional resources should you like to
+Your TrueOS® system is secure by default. This section provides an overview of the built-in security features and additional resources should you like to
 learn more about increasing the security of your system beyond its current level.
 
-The security features built into PC-BSD® include: 
+The security features built into TrueOS® include: 
 
 * **Naturally immune to viruses and other malware:** most viruses are written to exploit Windows systems and do not understand the binaries or paths found on
-  a PC-BSD® system. Antivirus software is still available in the Security section of :ref:`AppCafe®` as this can be useful if you send or forward email
+  a TrueOS® system. Antivirus software is still available in the Security section of :ref:`AppCafe®` as this can be useful if you send or forward email
   attachments to users running other operating systems.
 
 * **Potential for serious damage is limited:** file and directory ownership and permissions along with separate user and group functions mean that as an
@@ -757,10 +757,10 @@ The security features built into PC-BSD® include:
   encryption set. This support speeds up AES encryption and decryption.
 
 * **Automatic notification of security advisories:** :ref:`Update Manager` will automatically notify you if an update is available as the result of a
-  `security advisory <http://www.freebsd.org/security/advisories.html>`_ that affects PC-BSD®. This allows you to keep your operating system fully patched
+  `security advisory <http://www.freebsd.org/security/advisories.html>`_ that affects TrueOS®. This allows you to keep your operating system fully patched
   with just the click of a mouse.
 
-* PC-BSD® packages are built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
+* TrueOS® packages are built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
 
 * :ref:`PersonaCrypt` allows a user to use a removable, encrypted device as their home directory.
 
@@ -770,7 +770,7 @@ The security features built into PC-BSD® include:
 * :ref:`Tor Mode` can be used to anonymously access Internet sites as this mode automatically forwards all Internet traffic through the
   `Tor Project's <https://www.torproject.org/>`_ transparent proxy service.
 
-If you would like to learn more about security on FreeBSD/PC-BSD® systems, :command:`man security` is a good place to start. These resources provide more
+If you would like to learn more about security on FreeBSD/TrueOS® systems, :command:`man security` is a good place to start. These resources provide more
 information about security on FreeBSD-based operating systems: 
 
 * `FreeBSD Security Information <http://www.freebsd.org/security/>`_
@@ -817,7 +817,7 @@ To enable and disable tor mode from the command line or on a desktop that does n
 Accessibility
 =============
 
-The GNOME and KDE desktop environments provide accessibility features to assist users with vision and mobility impairments. In PC-BSD®, these desktops can be
+The GNOME and KDE desktop environments provide accessibility features to assist users with vision and mobility impairments. In TrueOS®, these desktops can be
 installed either during installation or afterwards using :ref:`AppCafe®`.
 
 This section provides an overview of the features provided by each desktop and additional references to these features.
