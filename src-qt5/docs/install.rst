@@ -19,7 +19,7 @@ system will continue to boot.
 
 .. figure:: images/install1b.png
 
-Next, the "TrueOS Installation Menu", shown in :numref:`Figure %s: TrueOS® Installer Boot Menu <install1c>`, will be displayed. If you press any key (other than :kbd:`Enter`) this
+Next, the "TrueOS Installation Menu", shown in :numref:`Figure %s: TrueOS® Installer Boot Menu <install1d>`, will be displayed. If you press any key (other than :kbd:`Enter`) this
 screen will pause so that you can review its options. If you do not pause this screen, it will automatically boot into the **xorg** option after a few seconds. This menu offers the
 following options:
 
@@ -36,9 +36,9 @@ following options:
 
 * **reboot:** exits the installer and reboots the system.
 
-.. _install1c:
+.. _install1d:
 
-.. figure:: images/install1c.png
+.. figure:: images/install1d.png
 
 To select an option from this menu, use the arrow keys to highlight the option, then press :kbd:`Enter` to continue to boot into that option.
 
@@ -50,12 +50,12 @@ The rest of this chapter describes the screens of the graphical installer. If yo
 Language Selection Screen
 =========================
 
-The first graphical installer screen, seen in :numref:`Figure %s: Welcome and Language Selection Screen <install2a>`, indicates that the installer successfully loaded and is ready to present
+The first graphical installer screen, seen in :numref:`Figure %s: Welcome and Language Selection Screen <install2b>`, indicates that the installer successfully loaded and is ready to present
 you with its options.
 
-.. _install2a:
+.. _install2b:
 
-.. figure:: images/install2a.png
+.. figure:: images/install2b.png
 
 Starting on the left-hand side, the icons in the bottom navigation area allow you to: 
 
@@ -101,13 +101,13 @@ When you are finished reviewing this screen, click the "Next" button to go to th
 System Selection Screen
 =======================
 
-The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3b>`, allows you to install a desktop or a server operating system. It also
+The "System Selection" screen, shown in :numref:`Figure %s: System Selection Screen <install3c>`, allows you to install a desktop or a server operating system. It also
 can be used for :ref:`Restoring the Operating System`. This chapter concentrates on a desktop installation. Refer to :ref:`Install a Server` for instructions on how to
 install a command-line only server.
 
-.. _install3b: 
+.. _install3c: 
 
-.. figure:: images/install3b.png
+.. figure:: images/install3c.png
 
 By default, "PC-BSD (Graphical desktop)" will be selected and the :ref:`Lumina Desktop` will be installed. You can install additional software post-installation, using
 :ref:`AppCafe®`.
@@ -123,22 +123,22 @@ To install the desktop, click the "Next" button to proceed to the next screen.
 Disk Selection Screen
 =====================
 
-The "Disk Selection" screen, seen in :numref:`Figure %s: Disk Selection Screen <install5a>`, summarizes the default disk configuration.
+The "Disk Selection" screen, seen in :numref:`Figure %s: Disk Selection Screen <install5b>`, summarizes the default disk configuration.
 
-.. _install5a:
+.. _install5b:
 
-.. figure:: images/install5a.png
+.. figure:: images/install5b.png
 
 .. warning:: by default, TrueOS® will assume that you wish to install on the entire first disk. If you are installing TrueOS® as the only operating system
    on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
    layout your disk. If you plan on booting TrueOS® with another operating system, you should also review the section on :ref:`Dual Booting`.
 
 If you wish to select which disk or partition to install TrueOS® into, click the "Customize" button to start the Disk Setup Wizard, shown in
-:numref:`Figure %s: Disk Setup Wizard <install6a>`. 
+:numref:`Figure %s: Disk Setup Wizard <install6b>`. 
 
-.. _install6a: 
+.. _install6b: 
 
-.. figure:: images/install6a.png
+.. figure:: images/install6b.png
 
 The wizard provides three modes of operation. The rest of this section describes these modes in detail.
 
@@ -191,11 +191,11 @@ installation.
 Advanced Mode 
 --------------
 
-If you select advanced mode, the wizard will display the screen shown in :numref:`Figure %s: Advanced Mode Options <install8b>`. 
+If you select advanced mode, the wizard will display the screen shown in :numref:`Figure %s: Advanced Mode Options <install8c>`. 
 
-.. _install8b:
+.. _install8c:
 
-.. figure:: images/install8b.png
+.. figure:: images/install8c.png
 
 This screen provides the following options: 
 
@@ -309,11 +309,11 @@ that a significant percentage of it will fit on the SSD. Note that a dedicated L
 ZFS Layout 
 ^^^^^^^^^^^
 
-In "Advanced Mode", the disk setup wizard allows you to configure your ZFS layout. The initial ZFS configuration screen is seen in :numref:`Figure %s: ZFS Configuration <install9a>`. 
+In "Advanced Mode", the disk setup wizard allows you to configure your ZFS layout. The initial ZFS configuration screen is seen in :numref:`Figure %s: ZFS Configuration <install9b>`. 
 
-.. _install9a:
+.. _install9b:
 
-.. figure:: images/install9a.png
+.. figure:: images/install9b.png
 
 If your system contains multiple drives and you would like to use them to create a ZFS mirror or RAIDZ*, check the box "Add additional disks to zpool" which
 will enable this screen. Any available disks will be listed in the box below the "ZFS Virtual Device Mode" drop-down menu. Select the desired level of redundancy,
@@ -340,19 +340,19 @@ The installer will not let you save a configuration if your system does not meet
 configuration, a message will indicate how many more disks you need to select.
 
 To use multiple disks, select the type of configuration from the "ZFS Virtual Device Mode" drop-down menu, then check the box for each disk that you would
-like to add to that configuration. When finished, click the "Next" button to see the screen shown in :numref:`Figure %s: Add L2ARC or ZIL <install10a>`. 
+like to add to that configuration. When finished, click the "Next" button to see the screen shown in :numref:`Figure %s: Add L2ARC or ZIL <install10b>`. 
 
-.. _install10a:
+.. _install10b:
 
-.. figure:: images/install10a.png
+.. figure:: images/install10b.png
 
 This screen can be used to specify an SSD to use as an L2ARC or a secondary log device. Any available devices will be listed in the boxes in this screen.
 Note that a separate SSD is needed for each type of device. Refer to the descriptions for ZIL and L2ARC in the :ref:`ZFS Overview` to determine if your system
-would benefit from any of these devices before adding them in this screen. When finished, click "Next" to see the screen shown in :numref:`Figure %s: Configure Encryption <install11a>`.
+would benefit from any of these devices before adding them in this screen. When finished, click "Next" to see the screen shown in :numref:`Figure %s: Configure Encryption <install11b>`.
 
-.. _install11a:
+.. _install11b:
 
-.. figure:: images/install11a.png
+.. figure:: images/install11b.png
 
 This screen can be used to configure full-disk encryption which is meant to protect the data on the disks should the system itself be lost or stolen. This
 type of encryption prevents the data on the disks from being available during bootup, unless the correct passphrase is typed at the bootup screen. Once the
@@ -365,11 +365,11 @@ not forget, but hard for other users, especially those who know you, to guess.
 
 .. warning:: if you ever forget this passphrase, you will be unable to decrypt the disks and will lose access to their data!
 
-When finished, click "Next" to move on the screen shown in :numref:`Figure %s: Default ZFS Layout <install12a>`.
+When finished, click "Next" to move on the screen shown in :numref:`Figure %s: Default ZFS Layout <install12b>`.
 
-.. _install12a: 
+.. _install12b: 
 
-.. figure:: images/install12a.png
+.. figure:: images/install12b.png
 
 Regardless of how many disks you selected for your ZFS configuration, the default layout will be the same. ZFS does not require separate partitions for
 :file:`/usr`, :file:`/tmp`, or :file:`/var`. Instead, you create one ZFS partition (pool) and specify a mount for each dataset. A :file:`/boot` partition is
@@ -420,12 +420,12 @@ Selection" screen.
 Installation Progress Screen
 ============================
 
-Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: Installation Progress Screen <install13a>`, provides a progress bar and messages so that you
+Once you select "Yes" to start the installation, a progress screen, seen in :numref:`Figure %s: Installation Progress Screen <install13b>`, provides a progress bar and messages so that you
 can watch the installation's progress.
 
-.. _install13a:
+.. _install13b:
 
-.. figure:: images/install13a.png
+.. figure:: images/install13b.png
 
 How long the installation takes depends upon the speed of your hardware, the installation type you selected, and the number of components to be installed.
 A typical installation takes between 15 and 30 minutes.
