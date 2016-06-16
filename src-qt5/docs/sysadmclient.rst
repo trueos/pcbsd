@@ -4,7 +4,17 @@
 SysAdm™ Client
 **************
 
-The following utilities are available in the SysAdm™ client:
+Beginning with TrueOS® 11, most of the system management utilities that
+were previously available in the PC-BSD® :ref:`Control Panel` have been
+rewritten to use the SysAdm™ API. This API is designed to make it easy
+to manage any FreeBSD or TrueOS® desktop or server system over a secure
+connection from any operating system that has the SysAdm™ application
+installed. SysAdm™ is built into TrueOS® and downloadable packages for
+other operating systems are available from the
+`SysAdm Website <https://sysadm.us/>`_.
+
+The following utilities have been removed from :ref:`Control Panel` as
+they are now available in the SysAdm™ client:
 
 **Application Management**
 
@@ -26,7 +36,18 @@ The following utilities are available in the SysAdm™ client:
 
 * :ref:`Life Preserver`
 
-This chapter describes these utilities in more detail.
+The rest of this chapter provides an overview of the SysAdm™
+architecture, how to manage its secure connections, and how to use its
+built-in utilities.
+
+SysAdm™ Overview
+================
+
+Managing Connections
+====================
+
+Configuring SysAdm™
+===================
 
 .. index:: software, configuration, sysadm
 .. _AppCafe®:
@@ -34,100 +55,11 @@ This chapter describes these utilities in more detail.
 AppCafe®
 =========
 
-TrueOS® provides tools to make it easy to manage software and to keep both the operating system and installed software up-to-date. The
-graphical :ref:`AppCafe®` and :ref:`Update Manager` utilities can be used for managing and upgrading software from the local system or from a web browser or
-mobile device. In addition, the
-:command:`pkg` command line utility can be used to manage software and the :command:`pc-updatemanager` command line utility can be used to manage updates. If you install
-software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
-
-The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
-:ref:`Create a Local Package Mirror`.
-
-AppCafe® provides an intuitive, graphical method for installing and managing software. It provides a graphical front-end to FreeBSD packages, which are
-pre-built applications tested for FreeBSD. It includes extra meta-data which is displayed in AppCafe®, such as screenshots and lists of similar applications.
-
-AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
-However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
-able to manage software. 
-
-If you prefer to manage software from the command line, refer to the section on :ref:`Using the CLI pkg Utilities`.
-
-.. index:: software
-.. _Configuring AppCafe®:
-
-Configuring AppCafe®
----------------------
-
-AppCafe® includes the ability to remotely manage software from another system or mobile device. During the installation
-of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
-a web browser. On a desktop installation, AppCafe® can be run as a local application and optionally configured for remote access. To launch the
-AppCafe® application on a desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type  :command:`appcafe` from a command prompt. When
-prompted, input your password. :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>` shows the initial AppCafe® screen when it is started from a desktop.
-
-.. _remote1d:
-
-.. figure:: images/remote1d.png
-
-.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
-   If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
-   perform the actual update and that you won't be able to add or delete any software while an update is in progress.
-
-The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to access the following options:
-
-* **Configure:** used to configure the package repository and remote access to AppCafe®. 
-
-* **Save Pkg List:** click this option to generate a list of the installed software packages. A pop-up message will indicate the path to the file containing the list.
-
-* **Search for Text:** opens a search bar where you can input the name of an application. This is useful for quickly navigating to an application listed on the current screen.
-
-* **Close AppCafe:** used to exit this application.
-
-:numref:`Figure %s: Configuring the AppCafe® Repository <remote2a>` shows the menu that appears if you click the "Configure" option. 
-
-.. _remote2a:
-
-.. figure:: images/remote2a.png
-
-The "Repository Configuration" tab is used to determine which package set to use, where:
-
-* **Enterprise:** this package set is meant for enterprise users that wish to only receive software updates which fix known security vulnerabilities. 
-
-* **Production:** is the default and recommended setting for most users. Software updates are provided every three months, which gives sufficient time for new software versions to be tested.
-
-* **Edge:** is meant for users who wish to assist with software testing or who can tolerate the occasional breakage caused by installing new software versions. Software updates are provided
-  approximately every two weeks. 
-  
-* **Custom:** assumes that you have followed the instructions to :ref:`Create a Local Package Mirror` and are ready to click the "+" button to browse to the location of the custom
-  :file:`.rpo` file. To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
-
-To configure remote access, use the "Remote Access" tab shown in :numref:`Figure %s: Configuring Remote Access <remote3>`. 
-
-.. _remote3:
-
-.. figure:: images/remote3.png
-
-Check the box to "Enable AppCafe Remote". Then, input a username and password to use for remote access and select a port number. If the system has a public IP
-address, be sure to use a hard-to-guess username and password. If you change the port number, make sure it does not conflict with another application running
-on the system. Click "Apply" to complete the configuration. You will be prompted to input your password to save the configuration.
-
-When using AppCafe® to access a system from a public network, it is highly recommended to configure the local firewall to only allow connections over
-the specified port number and from allowed IP address(es).
-
-AppCafe® uses SSL by default and will automatically create a certificate to use for remote access. Once remote access is configured, use :file:`https://` and
-specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The AppCafe® interface will load in
-the web browser. It will be similar to the one shown in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>`, except the top navigational buttons and configure
-button will not be displayed and a "Logout" option will be added to the dark grey bar. Note that AppCafe® will automatically log you out after 60
-minutes of inactivity.
-
-The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote", "port", and "ssl" options are set using
-the information you provided either during a server installation or using the screen shown in :numref:`Figure %s: Configuring Remote Access <remote3>`.
-The "mode" option is not set by default, but can be configured by removing the comment symbol (";") from that option and setting its value to either
-"desktop" or "server". Here are the descriptions of the available modes as listed in that file::
-
- ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
- ; desktop = Full access to local system packages and jails
- ; server = Full access to local system packages and jails, no Xorg packages listed
- ; mode = desktop
+AppCafe® provides a graphical interface for installing and managing
+FreeBSD packages, which are pre-built applications that have been tested
+for FreeBSD-based operating systems. This interface displays extra
+meta-data, such as application screenshots and lists of similar
+applications.
 
 The rest of this section describes how to manage software using AppCafe®.
 
@@ -137,25 +69,50 @@ The rest of this section describes how to manage software using AppCafe®.
 Software Management
 -------------------
 
-The "Home" tab, seen in :numref:`Figure %s: Running AppCafe® from a Desktop <remote1d>`, is used to browse for available software. Applications which are already installed and which are not
-required by other applications have a red "X". If you click a red "X", a pop-up message will ask if you would like to uninstall that application. Applications which are not installed have a
-grey download icon. Click the icon to install that application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow
+The "Browse" tab, shown in
+:numref:`Figure %s: Browse Tab of AppCafe® <appcafe1>`, is used to find
+available software. 
+
+.. _appcafe1:
+
+.. figure:: images/appcafe1.png
+
+This screen contains the following options:
+
+**Back:** click this button to leave a category or search result and
+return to the previous screen.
+
+**Search:** to see if an application is available, enter its name and
+click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
+software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
+
+
+**pcbsd-major:** the name of this drop-down menu will vary, depending
+upon the selection. This menu allows you to browse a specific pkg set.
+
+**Browse Categories:** this drop-down menu lists the available software
+categories. If you select a category, it will display all of the
+available applications within that category.
+
+**Popular Searches and Popular Categories:** the buttons in these
+sections can be used to quickly find applications which are recommended
+by other TrueOS® users. Click a button to get a curated list of
+applications that match the button's description.
+
+Displayed applications will be listed in alphabetical order.
+Applications which are already installed and which are not required by
+other applications have a trashcan icon which can be clicked to
+uninstall that application. Applications which are not installed have a
+down arrow icon which can be clicked to install that application. 
+Applications which are required by other applications will not display an icon. If you click on that application, a yellow
 "Required" triangle will be displayed and a "Related" tab will indicate the name of the application(s) which require it.
 
-The "Recommended Applications" section displays applications which are recommended by other TrueOS® users.
+Click the name of an application to view more information about the application.
+In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <appcafe2>`, the user has clicked "Firefox" on a system that has Firefox installed.
 
-The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. Alternately, to view all of
-the available applications for each category, click the "Recommended" button which will change to an "All Apps" button. Click the name of a category to view the available
-software within that category.
+.. _appcafe2:
 
-To view all of the applications installed on the system, click the "Installed Apps" tab. The applications will be
-listed in alphabetical order. Click the name of an application to view more information about the application.
-
-In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <remote4d>`, the user has clicked "Firefox" on a system that has Firefox installed.
-
-.. _remote4d:
-
-.. figure:: images/remote4d.png
+.. figure:: images/appcafe2.png
 
 The information for an application includes the following: 
 
@@ -194,16 +151,13 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-The "App Search" tab is shown in :numref:`Figure %s: Searching for Applications <remote5c>`. 
+To view and manage the applications which are installed on the system,
+click the "Installed" tab.  An example is seen in
+:numref:`Figure %s: Installed Tab of AppCafe® <appcafe3>`. 
 
-.. _remote5c:
+.. _appcafe3:
 
-.. figure:: images/remote5c.png
-
-To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
-software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
-
-By default, only recommended packages are searched. To search for all available software, including packages, check the "Search all available software" box.
+.. figure:: images/appcafe3.png
 
 If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <remote6a>`, the firefox application was installed.
 Click the hyperlink under the "Result" column to review the installation log.
