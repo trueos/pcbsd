@@ -66,8 +66,8 @@ The rest of this section describes how to manage software using AppCafe®.
 .. index:: AppCafe®
 .. _Software Management:
 
-Software Management
--------------------
+Finding Software
+----------------
 
 The "Browse" tab, shown in
 :numref:`Figure %s: Browse Tab of AppCafe® <appcafe1>`, is used to find
@@ -85,7 +85,6 @@ return to the previous screen.
 **Search:** to see if an application is available, enter its name and
 click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
-
 
 **pcbsd-major:** the name of this drop-down menu will vary, depending
 upon the selection. This menu allows you to browse a specific pkg set.
@@ -107,8 +106,10 @@ down arrow icon which can be clicked to install that application.
 Applications which are required by other applications will not display an icon. If you click on that application, a yellow
 "Required" triangle will be displayed and a "Related" tab will indicate the name of the application(s) which require it.
 
-Click the name of an application to view more information about the application.
-In the example shown in :numref:`Figure %s: Viewing the Details of an Installed Application <appcafe2>`, the user has clicked "Firefox" on a system that has Firefox installed.
+Click the name of an application to view more information about that
+application. In the example shown in
+:numref:`Figure %s: Viewing the Details of an Installed Application <appcafe2>`,
+the user has clicked "Firefox" on a system that has Firefox installed.
 
 .. _appcafe2:
 
@@ -116,48 +117,80 @@ In the example shown in :numref:`Figure %s: Viewing the Details of an Installed 
 
 The information for an application includes the following: 
 
-* Name, version, and icon of the application.
-
-* A hyperlink to the application's website. In this example, clicking "Mozilla" will open the application's website in the user's default web browser.
-
-* A hyperlink to the application's information at `freshports.org <http://www.freshports.org/>`_. Click the arrow icon next to "Mozilla" to open the FreshPorts website in the user's
+* Icon, name, and description of the application. Click the
+  application's name to open the website for the application in the
   default web browser.
-
-* A rating of up to five stars. Click the stars to open the PC-BSD® wiki page for the application. If you login to the wiki and hover the mouse over the
-  number of stars to select, it will add your ranking and increment the vote number. If you make a mistake in your vote, refresh the browser, click the
-  "remove" button, and re-select the desired number of stars. 
-
-* User contributed tips and how-tos for the application. Click the blue circle icon to open this wiki page. If you login to the wiki, you can add
-  your own usage tips for the application.
-
-* The download size.
-
-* Hyperlinks to add an icon for the application to the desktop (on window managers that support desktop icons), to add an entry for the application to the
-  desktop menu for the logged on user only (on window managers that provide desktop menus), or to add an entry to the desktop menu of all users.
-
-* An icon indicating whether or not the application is already installed, can be installed, or is required by another application.
   
-* A description of the application.
+* An uninstall button.  
+  
+* A description of the application.  
 
-The following tabs may also be displayed. If a tab is not displayed, it means that that information is not currently available for this particular application.
-
-- **Screenshots:** click a screenshot to view a larger version of the screenshot.
-
-- **Related:** provides an installable list of applications that provide similar functionality.
-
-- **Plugins:** provides an installable list of associated plugins. For an example, search for "firefox" and open its "Plugins" tab.
-
-- **Options:** shows the values of the make options that the package was built with.
-
-- **Dependencies:** lists the packages that are dependencies of this application.
-
-To view and manage the applications which are installed on the system,
-click the "Installed" tab.  An example is seen in
-:numref:`Figure %s: Installed Tab of AppCafe® <appcafe3>`. 
+An example of the "?" tab is shown in 
+:numref:`Figure %s: More Application Details <appcafe3>`
 
 .. _appcafe3:
 
 .. figure:: images/appcafe3.png
+
+This tab displays following information:
+
+* Software version.
+
+* Email address for the maintainer of the FreeBSD port the package is
+  built from.
+
+* The application's architecture. This will indicate the FreeBSD version
+  and whether or not the application is 32-bit or 64-bit. Note that
+  TrueOS® can run both 32- and 64-bit applications.
+  
+* The application's license.  
+
+* The application's installation size.
+
+* The application's download size.
+
+If the package includes screenshots of the application, you can click
+the next tab, which has an image icon, to view and scroll through the
+screenshots. An example is shown in
+:numref:`Figure %s: Viewing the Application's Screenshots <appcafe4>`
+
+.. _appcafe4:
+
+.. figure:: images/appcafe4.png
+
+An example of the last tab, which has a list icon, is shown in
+:numref:`Figure %s: Viewing the Details of an Installed Application <appcafe5>`.
+
+.. _appcafe5:
+
+.. figure:: images/appcafe5.png
+
+This tab contains the following information. Click the right arrow next
+to an entry to expand its information and the down arrow to collapse the
+information.
+
+* **Build Options:** shows the values of the make options that the
+  package was built with.
+
+* **Dependencies:** lists the dependent packages that this
+  application requires to be installed.
+
+* **Required By:** indicates the names of any other packages that
+  require this software to be installed.
+
+* **Shared Libaries (Required):** lists the names of the libraries that
+  this application requires.
+  
+Managing Installed Software
+---------------------------
+
+To view and manage the applications which are installed on the system,
+click the "Installed" tab.  An example is seen in
+:numref:`Figure %s: Installed Tab of AppCafe® <appcafe6>`. 
+
+.. _appcafe6:
+
+.. figure:: images/appcafe6.png
 
 If you install or uninstall any software, a "Status" tab will be added. In the example shown in :numref:`Figure %s: Example Status Tab <remote6a>`, the firefox application was installed.
 Click the hyperlink under the "Result" column to review the installation log.
@@ -165,176 +198,6 @@ Click the hyperlink under the "Result" column to review the installation log.
 .. _remote6a:
 
 .. figure:: images/remote6a.png
-
-.. index:: pkg
-.. _Using the CLI pkg Utilities:
-
-Using the CLI pkg Utilities
-===========================
-
-TrueOS® uses :command:`pkg` to manage packages from the command line.
-
-The `FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 4.4.1 is not
-needed on a TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
-Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
-know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
-:command:`pkg install`, type :command:`pkg help install`.
-
-.. index:: AppCafe®, iocage
-.. _Managing Jails from the CLI:
-
-Managing Jails from the CLI
----------------------------
-
-In TrueOS®, `iocage <https://github.com/iocage/iocage>`_ can be used to install a pre-configured, isolated application into its own jail. A :wikipedia:`FreeBSD jail` provides a very
-light-weight, operating system-level virtualization. A jail is similar to running an independent instance of FreeBSD on the same hardware, without all of the overhead usually associated
-with virtualization. Jails are usually created for running applications or services. For example, you could host your own media server on your desktop system without affecting other
-installed applications or your data. Each jail has its own IP address, running processes, and users. Whatever happens in that jail does not affect your operating system or other jails
-running on the PC-BSD® system.
-
-:command:`iocage` was specifically designed for jail management on systems formatted with the ZFS filesystem. It stores its configuration as a ZFS property rather than using a configuration
-file.
-
-The :command:`iocage` command line utility is a Bourne shell script. This script can be manually run from the command line by users who prefer to manage jails using
-the command line. Advanced users can also refer to the command line version in their own jail management scripts.
-
-If you type :command:`iocage` at the command line, you will receive a summary of its usage::
-
- usage:
-  iocage [-v] activate ZPOOL
-  iocage [-v] cap UUID|TAG
-  iocage [-v] clean [-f] [-a|-r|-j|-t]
-  iocage [-v] clone UUID|TAG [UUID|TAG@snapshot] [property=value]
-  iocage [-v] console [-f] UUID|TAG
-  iocage [-v] create [-e] [base=[RELEASE|NAME]] [pkglist=file] [property=value] [count=value]
-  iocage [-v] deactivate ZPOOL
-  iocage [-v] defaults
-  iocage [-v] destroy [-f] UUID|TAG
-  iocage [-v] df
-  iocage [-v] exec [-u username | -U username] UUID|TAG|ALL command [arg ...]
-  iocage [-v] export UUID|TAG
-  iocage [-v] fetch [-P|-p|--ports] [release=RELEASE | ftphost=ftp.hostname.org |
-                    ftpdir=/dir/ | ftpfiles="base.txz doc.txz lib32.txz src.txz"]
-                    [ ftplocaldir=/dir/ ] [ compression=ALGO ]
-  iocage [-v] get [-r] property|all UUID|TAG
-  iocage [-v] help
-  iocage [-v] import UUID [property=value]
-  iocage [-v] init-host IP ZPOOL
-  iocage [-v] inuse UUID|TAG
-  iocage [-v] limits [UUID|TAG]
-  iocage [-v] list [-t|-r|-s jd|uuid|boot|state|tag|type|ip4]
-  iocage [-v] promote UUID|TAG
-  iocage [-v] rcboot
-  iocage [-v] reboot|restart [-s] UUID|TAG
-  iocage [-v] rcshutdown
-  iocage [-v] reset UUID|TAG|ALL
-  iocage [-v] restart UUID|TAG
-  iocage [-v] rollback UUID|TAG@snapshotname
-  iocage [-v] runtime UUID|TAG
-  iocage [-v] send [-c|-i|-I|-h|-u|-m] POOL
-  iocage [-v] set property=value [property=value] UUID|TAG
-  iocage [-v] snaplist UUID|TAG
-  iocage [-v] snapremove UUID|TAG@snapshotname|ALL
-  iocage [-v] snapshot|snap [-f|-r] UUID|TAG [UUID|TAG@snapshotname]
-  iocage [-v] start [-f] UUID|TAG
-  iocage [-v] stop UUID|TAG|ALL
-  iocage [-v] uncap UUID|TAG
-  iocage [-v] update [-p|-P] UUID|TAG|RELEASE
-  iocage [-v] upgrade UUID|TAG [release=RELEASE]
-  iocage [-v] version | --version
-
-Before creating a jail for the first time, specify the version of FreeBSD to install. To see which versions are available and to install the selection, run :command:`iocage fetch`. By
-default, the currently installed version will be selected as seen in this example::
-
- sudo iocage fetch
- Password:
- Setting up zpool [tank] for iocage usage...
- If you wish to change zpool, use 'iocage activate'
-   INFO: creating tank/iocage
-   INFO: creating tank/icoage/.defaults
-   INFO: creating tank/iocage/download
-   INFO: creating tank/iocage/jails
-   INFO: creating tank/iocage/releases
-   INFO: creating tank/iocage/templates
- Supported releases are: 
-   11.0-CURRENT
-   10.3-RELEASE
-   10.2-RELEASE
-    9.3-RELEASE
- Please select a release [10.3-RELEASE]:
- base.txz                                      100% of   63 MB 1908 kBps 00m34s
- doc.txz                                       100% of 1395 kB 1301 kBps 00m01s
- lib32.txz                                     100% of   15 MB 1762 kBps 00m10s
- src.txz                                       100% of  109 MB 2116 kBps 00m53s
- Extracting: base.txz
- Extracting: doc.txz
- Extracting: lib32.txz
- Extracting: src.txz
- * Updating base jail template.
- Looking up update.FreeBSD.org mirrors... none found.
- Fetching public key from update.FreeBSD.org... done.
- Looking up update.FreeBSD.org mirrors... none found.
- Fetching public key from update.FreeBSD.org... done.
- Fetching metadata signature for 10.3-RELEASE from update.FreeBSD.org... done.
- Fetching metadata index... done.
- Fetching 2 metadata files... done.
- Inspecting system... done.
- Preparing to download files... done.
- Installing updates... done.
- Creating basejail ZFS datasets... please wait.
-
-In this example, the user has specified to install the 10.3-RELEASE template. Once the template has been installed, you can create a jail. In this example, the template to use, the jail's
-hostname, network interface, and IP address are specified::
-
- sudo iocage create release=10.3-RELEASE tag=jail1 ip4_addr="em0|192.168.1.7/24"
- Password:
- Successfully created: b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
- 
-You can list the properties of the jail with this command::
-
- iocage get all jail1
- 
-To start the jail and check its status::
-
- sudo iocage start jail1
- Password:
- * Starting b00945a3-d028-11e5-8dc9-68f72865c4fc (jail1)
-  + Started 
-  + Configuring VNETifconfig: interface em0 does not exist	OK
-  + Starting services        OK
-
- iocage list
- JID   UUID                                  BOOT  STATE  TAG   TYPE
- 1     b00945a3-d028-11e5-8dc9-68f72865c4fc  off   up     jail1 basejail
-
-To access the jail::
-
- sudo iocage console jail1
- Password:
- FreeBSD 10.3-RELEASE (GENERIC) #0: Mon Apr 11 15:54:50 UTC 2016
-
- Welcome to FreeBSD!
-
- Release Notes, Errata: https://www.FreeBSD.org/releases/
- Security Advisories:   https://www.FreeBSD.org/security/
- FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
- FreeBSD FAQ:           https://www.FreeBSD.org/faq/
- Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
- FreeBSD Forums:        https://forums.FreeBSD.org/
-
- Documents installed with the system are in the /usr/local/share/doc/freebsd/
- directory, or can be installed later with:  pkg install en-freebsd-doc
- For other languages, replace "en" with a language code like de or fr.
-
- Show the version of FreeBSD installed:  freebsd-version ; uname -a
- Please include that output and any error messages when posting questions.
- Introduction to manual pages:  man man
- FreeBSD directory layout:      man hier
-
- Edit /etc/motd to change this login announcement.
- root@b00945a3-d028-11e5-8dc9-68f72865c4fc:~ # 
-
-Once inside the jail, you can manage it just like any other FreeBSD system and install software using :command:`pkg`. To leave the jail, type :command:`exit`.
 
 .. index:: updates
 .. _Update Manager:
@@ -525,244 +388,6 @@ When package updates are available a "View Package Updates" box can be clicked t
    against being updated, select "Security" or "Nothing" in the "Configure Automatic Updates" tab of Update Manager and manually update software as needed using
    :command:`pkg`.
 
-.. index:: updates
-.. _Manual Updates (CLI Method):
-
-Manual Updates (CLI Method)
----------------------------
-
-TrueOS® users, or those who prefer to use a command-line utility, can use :command:`pc-updatemanager` to manually apply updates. If you type
-:command:`pc-updatemanager`, it will show its available options::
-
- pc-updatemanager
- pc-updatemanager - Usage
- ----
- branches             - List available system branches
- chbranch <tag>       - Change to new system branch
- check                - Check for system updates
- showeol	      - Show end of life (support) date for this release
- install <tag>,<tag2> - Install system updates
- pkgcheck             - Check for updates to packages
- pkgupdate [-f]       - Install packages updates 
- fbsdupdate           - Install freebsd-update patches
- fbsdupdatepkgs       - Install freebsd-update patches and any package updates
- syncconf             - Update PC-BSD pkg configuration 
- confcheck            - Check PC-BSD pkg configuration
- cron                 - Perform delayed check for system and pkg updates.
-
-To determine if any system updates are available, type the following command::
-
- sudo pc-updatemanager check
- Checking for FreeBSD updates... 
- The following updates are available: 
- ------------------------------------
- NAME: FreeBSD security updates 
- TYPE: SECURITYUPDATE 
-
- To install: "pc-updatemanager fbsdupdate" 
- 
- End of Life Notice
- ------------------------------------
- This version of PC-BSD / TrueOS has an EOL date of:
- Sat Dec 31 18:59:59 EST 2016
- ------------------------------------
-
-If any updates are available, follow the instructions to install the update::
-
- sudo pc-updatemanager fbsdupdate
- Stopping syscache...
- Creating stage BE...
- Pruning old boot-environments...
- Mounting the stage BE...
- Mounted successfully on '/.updateStage'
- Fetching freebsd-update files...
- Installing freebsd-update files...
- Unmounting stage BE...
- Unmounted successfully
- GRUB configuration updated successfully
- Renamed successfully
- GRUB configuration updated successfully
- Renamed successfully
- GRUB configuration updated successfully
- Activated successfully
- Generating grub configuration file ...
- Found theme: /boot/grub/themes/pcbsd/theme.txt
- done
- Installing GRUB to ada0
- Starting syscache...
- Your update is finished! Please reboot to load into the new boot-environment
-
-If no updates are available, the **check** command will indicate "Your system is up to date!". 
-
-To determine if package updates are available, use this command::
-
- sudo pc-updatemanager pkgcheck
- Updating repository catalogue
- pcbsd-major repository is up-to-date.
- All repositories are up-to-date.
- Updating pcbsd-major repository catalogue...
- pcbsd-major repository is up-to-date.
- All repositories are up-to-date.
- Checking for upgrades (1471 candidates)... done
- Processing candidates (1471 candidates)... done
- The following 8 package(s) will be affected (of 0 checked):
-     
-  Installed packages to be UPGRADED:
-          pcbsd-utils-qt5: 1430339597 -> 1430509574
-          pcbsd-utils: 1430412291 -> 1430489128
-          pcbsd-syscache: 1430342138 -> 1430496237
-          pcbsd-i18n-qt5: 1430413188 -> 1430610765
-          lumina: 0.8.4_1 -> 0.8.4_1,1
-          life-preserver: 1430338357 -> 1430521060
-          git: 2.3.6 -> 2.3.7
-          curl: 7.42.0 -> 7.42.1
-     
-  The process will require 923 KiB more space.
-  112 MiB to be downloaded.
-  The following updates are available:
-  ------------------------------------
-  NAME: System package updates
-  TYPE: PKGUPDATE
-     
-  To install: "pc-updatemanager pkgupdate"
-
-In this example, newer versions are available. If no updates were available, the output would have instead said "All packages are up to date!". 
-
-If updates are available, you can install them with this command::
-
- sudo pc-updatemanager pkgupdate
- Stopping syscache...
- Updating the package repo database...
- Cleaning old pkg upgrade cache...
- Verifying / fetching packages for ports-mgmt/pkg - pkg-1.5.1.txz
- The following packages will be fetched:
-     
-  New packages to be FETCHED:
-         pkg-1.5.1 (100.00% of 2 MiB: 2 MiB)
-     
-  The process will require 2 MiB more space.
-  2 MiB to be downloaded.
-  Fetching pkg-1.5.1.txz... done
-  Verifying / fetching packages for misc/pcbsd-base - pcbsd-base-1425064224.txz
-  The following packages will be fetched:
-     
-  New packages to be FETCHED:
-  <SNIP>
-  The process will require 733 MiB more space.
-  733 MiB to be downloaded.
-  <SNIP>
-  Creating stage BE...
-  Pruning old boot-environments...
-  Mounting the stage BE...
-  Mounted successfully on '/.updateStage'
-  Preparing the new boot-environment... (This may take a while)
-  <SNIP>
-  Deinstallation has been requested for the following 1590 packages (of 0 packages in the universe):
-  <SNIP>
-  The operation will free 11 GiB.
-  [1/1590] Deinstalling pcbsd-meta-kde-1429798531...
-  <SNIP>
-  Extracting ports overlay...
-  Pruning: /usr/local/share/applications/cups.desktop
-  Pruning: /usr/local/share/kde4/services/kdm.desktop
-  Pruning: /usr/local/share/applications/kde4/kuser.desktop
-  Pruning: /usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
-  Extracting ports overlay data...DONE
-  Updating pkgng config...
-  Unmounting stage BE...
-  Unmounted successfully
-  GRUB configuration updated successfully
-  Renamed successfully
-  GRUB configuration updated successfully
-  Renamed successfully
-  GRUB configuration updated successfully
-  Activated successfully
-  Generating grub configuration file ...
-  Found theme: /boot/grub/themes/pcbsd/theme.txt
-  done
-  Installing GRUB to ada0
-  Starting syscache...
-  Your update is finished! Please reboot to load into the new boot-environment
-
-While the package output has been snipped from this example due to the amount of packages to be upgraded, the update process will download the latest versions
-of the packages which need updating, displaying the download progress for each file. Once the downloads are complete, it will create a new boot environment and
-display the installation process for each file within the boot environment. The last step of the update process is to extract the desktop (or server) overlay and
-upgrade GRUB and then to return the prompt. Once the update is complete, reboot to boot into the updated version of the system.
-
-.. index:: updates
-.. _Upgrading from 9.x to 10.x:
-
-Upgrading from 9.x to 10.x
---------------------------
-
-PC-BSD® 10.x has switched to 64-bit and ZFS-only. This means that you can **not** upgrade a system that is either 32-bit or formatted with UFS. If the hardware supports
-64-bit, you will need to backup your important data to another system or external drive and then perform a new installation. The new installation will perform
-a format of the selected disk(s) with ZFS.
-
-The boot loader and default ZFS layout has changed to support the :ref:`Boot Environment Manager` and ZFS snapshot management with :ref:`Life Preserver`. For this reason, 9.x
-users should backup their important data to another system or external drive and then perform a new installation which will create the required ZFS layout.
-
-.. index:: updates
-.. _Upgrading from 10.x to |version|:
-
-Upgrading from 10.x to |version|
---------------------------------
-
-Upgrading from any 10.x version to |version| is the same as applying any system update. This means the update to |version| will either appear in Update
-Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager check`.
-
-.. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
-   installation), full disk encryption, or the
-   `improved encryption key generation provided by GELIv7 <https://github.com/freebsd/freebsd/commit/38de8ef1dd0e468ff1e3ec1c431f465e270beba3>`_. This means
-   that you will have to backup your data to an external drive or another system, perform the new install, then restore your data from the backup.
-
-.. index:: software
-.. _Create a Local Package Mirror:
-
-Create a Local Package Mirror
-=============================
-
-The official TrueOS® package repository is hosted as a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It is possible to
-:command:`rsync` a copy of the package repository, which means you can have a locally hosted, complete package repository available for your own clients.
-
-To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
-private web server, as long as it is accessible to your target audience. Ensure this directory is browsable by a web browser from a client
-system **before** moving on to the next step.
-
-Once you have the HTTP directory ready for serving, use the following commands to sync with the official package repository::
-
- rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg /my/path/to/httpd/directory/pkg
-
-The complete package repository may be well over 200GB in size. If you do not need the entire repository, you can instead sync the specific version of PC-BSD®
-packages to pull as shown in these examples::
-
- rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg/10.0-RELEASE /my/path/to/httpd/directory/pkg
-
- rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg/11.0-CURRENTMAR2015 /my/path/to/httpd/directory/pkg
-
-Note that for major RELEASES, you will pull the *.0* version for the entire branch. In other words, both the 10.1 and 10.2 minor releases use the
-*10.0-RELEASE* package directory.
-
-Once the repository is downloaded, configure each client by editing their :file:`/usr/local/etc/pcbsd.conf` file with the following. Replace *<myhost>*
-with the URL to the local repository::
-
- PACKAGE_SET: CUSTOM
- PACKAGE_URL: http://<myhost>/pkg/%VERSION%/edge/%ARCH%
-
-After editing each client's file, run :command:`pc-updatemanager syncconf` on the client to apply the
-changes. 
-
-Alternately, on each client, configure :ref:`Appcafe®` to use the custom repository. Go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen
-shown in :numref:`Figure %s: Add the Custom Repository to AppCafe® <repo1>`, then the "+" button. Input the URL to the repository and click "OK". 
-
-.. _repo1:
-
-.. figure:: images/repo1.png
-
-It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
-
-Configured clients will now use your local mirror whenever they use :command:`pkg` or AppCafe®.
-
 .. index:: sysadm, configuration
 .. _Manage SSL Keys:
 
@@ -844,57 +469,6 @@ environment.
 .. _be2:
 
 .. figure:: images/be2.png
-
-.. index:: boot manager
-.. _Managing Boot Environments from the Command Line:
-
-Managing Boot Environments from the Command Line
-------------------------------------------------
-
-If you are running TrueOS® or prefer to use the command line, you can manage boot environments using the :command:`beadm` command as the superuser. For
-example, this command creates a boot environment named *beforeupgrade*::
-
- beadm create beforeupgrade
- GRUB configuration updated successfully
- Created successfully
-
-To view all boot environments, use the :command:`list` command::
-
- beadm list
- BE                                  Active Mountpoint  Space Created             Nickname
- initial                             -      -            8.4G 2015-05-07 10:14    intial
- 10.1-RELEASE-p20-up-20150512_114505 NR     /           33.1G 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
- beforeupgrade                       -      -            8.2M 2015-05-12 17:30    beforeupgrade
-
-The possible flags in the "Active" field are as follows: 
-
-* **R:** active on reboot 
-
-* **N:** active now 
-
-* **-:** inactive 
-
-In this example, the current boot environment is called *10.1-RELEASE-p20-up-20150512_114505*, it is active now, will be used at next reboot, and it is mounted. The newly created
-*beforeupgrade* boot environment exists, but is inactive and unmounted. To activate the new boot environment::
-
- beadm activate beforeupgrade
- GRUB configuration updated successfully
- Activated successfully
-
- beadm list
- BE                                  Active Mountpoint  Space Created             Nickname
- intial                             -      -            8.4G 2015-05-07 10:14     initial
- 10.1-RELEASE-p20-up-20150512_114505 N      /           12.6M 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
- beforeupgrade                       R      -           33.1G 2015-05-12 17:30    beforeupgrade
-
-The flags now indicate that the system is currently booted into *10.1-RELEASE-p20-up-20150512_114505*, but at next boot the system will boot into *beforeupgrade*.
- 
-To modify the maximum number of boot environments, change the number of this variable in :file:`/usr/local/etc/pcbsd.conf`::
-
- MAXBE: 5
- 
-Note that valid values range from *1* to
-*10*.
 
 .. index:: sysadm, configuration
 .. _Task Manager:
@@ -1219,156 +793,3 @@ After making your selection, click "Next". The restore wizard will provide a sum
 associated with the replication, and the hostname of the target system. Click "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At
 this point, you can click the "Customize" button to customize the disk options. However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed
 out as they will be recreated from the backup during the restore. Once you are finished with any customizations, click "Next" to perform the restore.
-
-.. index:: backup
-.. _Using the lpreserver CLI:
-
-Using the lpreserver CLI
-------------------------
-
-The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a TrueOS® system. This
-command needs to be run as the superuser. To display its usage, type the command without any arguments::
-
- lpreserver
- Life-Preserver 
- --------------------------------- 
- Available commands 
- Type in help <command> for information and usage about that command
-       help - This help file or the help for the specified command
-   cronsnap - Schedule snapshot creation via cron
-  cronscrub - Schedule scrub via cron
-        get - Get list of lpreserver options
-   listcron - Listing of scheduled snapshots
-   listsnap - List snapshots of a zpool/dataset
-     mksnap - Create a ZFS snapshot of a zpool/dataset
-  replicate - Enable / Disable ZFS replication to a remote system
- revertsnap - Revert zpool/dataset to a snapshot
-     rmsnap - Remove a snapshot
-        set - Set lpreserver options
-     status - List datasets, along with last snapshot / replication date 
-      zpool - Manage a zpool by attaching / detaching disks
-
-Each command has its own help text that describes its parameters and provides a usage example. For example, to receive help on how to use the
-:command:`lpreserver cronsnap` command, type::
-
- lpreserver help cronsnap
- Life-Preserver
- ---------------------------------
- Help cronsnap
- Schedule a ZFS snapshot
- Usage:
- For a listing of all scheduled snapshots
- # lpreserver listcron
- or
- To start / stop snapshot scheduling
- # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
- action = start / stop
- frequency = auto / daily@XX / hourly / 30min / 10min / 5min
-                          ^^ Hour to execute
-
- numToKeep = Number of snapshots to keep total
-
- NOTE: When Frequency is set to auto the following will take place:
- * Snapshots will be created every 5 minutes and kept for an hour.
- * A hourly snapshot will be kept for a day.
- * A daily snapshot will be kept for a month.
- * A Monthly snapshot will be kept for a year.
- * The life-preserver daemon will also keep track of the zpool disk space,
-   if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
-
- Example:
- lpreserver cronsnap tank1/usr/home/kris start daily@22 10
- or
- lpreserver cronsnap tank1/usr/home/kris stop
-
-Table 8.19a shows the command line equivalents to the graphical options provided by the Life Preserver GUI. Note that some options are only available from the
-command line.
-
-**Table 8.19a: Command Line and GUI Equivalents** 
-
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **Command Line**  | **GUI**                                       | **Description**                                                                        |
-+===================+===============================================+========================================================================================+
-| **cronsnap**      | :menuselection:`Configure --> Local Snapshots`| schedule when snapshots occur and how long to keep them; the **stop** option can be    |
-|                   |                                               | used to disable snapshot creation                                                      |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **cronscrub**     |                                               | schedule a ZFS scrub                                                                   |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **get**           |                                               | list Life Preserver options                                                            |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **listcron**      |                                               | list which ZFS pools have a scheduled snapshot                                         |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **listsnap**      | Restore Data                                  | list snapshots of specified dataset                                                    |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **mksnap**        | :menuselection:`Snapshots --> New Snapshot`   | create and replicate a new ZFS snapshot; by default, snapshots are recursive, meaning  |
-|                   |                                               | that a snapshot is taken of every dataset within a pool                                |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **replicate**     | :menuselection:`Configure --> Replication`    | used to list, add, and remove backup server; read the **help** for this command for    |
-|                   |                                               | examples                                                                               |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **revertsnap**    |                                               | revert dataset to the specified snapshot version                                       |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **rmsnap**        | :menuselection:`Snapshots --> Delete Snapshot`| deletes specified snapshot; by default, all datasets within the snapshot are deleted   |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **set**           |                                               | configures Life Preserver options; read **help** for the list of configurable options  |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **status**        | Status                                        | lists the last snapshot name and replication status                                    |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-| **zpool**         | :menuselection:`Disks --> Attach Disk` and    | used to attach/detach drives from the pool; read **help** for examples                 |
-|                   | :menuselection:`Disks --> Detach Disk`        |                                                                                        |
-+-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
-
-.. index:: backup
-.. _Mirroring the System to a Local Disk:
-
-Mirroring the System to a Local Disk 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In addition to replicating to a remote server, the :command:`lpreserver` command also provides a method for attaching a new disk drive to an existing ZFS
-pool, and live-mirroring all data to that disk as data changes on the pool. The attached disk drive can be another internal disk or an external USB disk. When
-the new disk is attached for the first time, it will be erased and used solely as a mirror of the existing system drive. In addition, it will be made
-bootable, allowing you to boot from and use the new disk should the primary disk fail. In order to use this feature you will need the following: 
-
-* an internal or external disk drive that is the same size or larger than the existing system disk.
-
-* since the disk will be formatted, it must be either blank or not have any data that you wish to keep intact.
-
-* in order to boot from the disk should the primary disk fail, the system must support booting from the new disk. For example, if you are using a USB disk,
-  make sure that the BIOS is able to boot from a USB disk.
-
-The superuser can setup the new disk using the following command. Replace *tank1* with the name of your ZFS pool and */dev/da0* with the name of the disk to
-format. For example, the first USB disk will be */dev/da0* and the second internal hard disk will be */dev/ad1*::
-
- lpreserver zpool attach tank1 /dev/da0
-
-When the disk is first attached, it will be formatted with ZFS and configured to mirror the size of the existing disk. GRUB will also be stamped on the new
-disk, making it bootable should another drive in the array go bad. You can add multiple disks to the pool in this manner, giving any level of redundancy that
-you require.
-
-Once the disk is attached, it will begin to resilver. This process mirrors the data from the primary disk to the newly attached disk. This may take a while,
-depending upon the speed of the disks and system load. Until this is finished you should not reboot the system, or detach the disk. You can monitor the
-resilvering process by typing :command:`zpool status`.
-
-To get a listing of the disks in your mirror, run this command, replacing *tank1* with the name of the pool::
-
- lpreserver zpool list tank1
-
-If you are using an external drive, there may be occasions where you wish to disconnect the backup drive, such as when using a laptop and going on the road.
-In order to so this safely, it is recommended that you first offline the external disk using the following command::
-
- lpreserver zpool offline tank1 /dev/da0
-
-Then when you re-connect the drive, you can place it in online mode again using::
-
- lpreserver zpool online tank1 /dev/da0
-
-Sometimes, the disk name will change as a result of being disconnected. The :command:`lpreserver zpool list tank1` command can be used to get the proper
-device ID.
-
-If you wish to permanently remove a disk from the mirror, run the following command. If you decide to re-attach this disk later, a full disk copy will again
-have to be performed::
-
- lpreserver zpool detach tank1 /dev/da0
-
-.. note:: in addition to working with mirrors, the :command:`lpreserver zpool` command can also be used to manage a RAIDZ configuration, although you will
-   probably not want to use external disks in this case.
