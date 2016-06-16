@@ -205,174 +205,66 @@ Click the hyperlink under the "Result" column to review the installation log.
 Update Manager
 ==============
 
-Update Manager provides a graphical interface for keeping the TrueOS® operating system and its installed applications up-to-date. Update Manager will automatically track
-updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®`.
+Update Manager provides a graphical interface for keeping the TrueOS®
+operating system and its installed applications up-to-date.
 
-This utility can be started from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
-that provides a system tray.
+The TrueOS® update mechanism provides several safeguards to ensure that
+updating the operating system or its software is a low-risk operation.
+The following steps occur automatically during an update:
 
-The status of the icon lets you determine at a glance if any of your installed applications are out-of-date, if a system update is available, or if a new
-version of the operating system is available. The possible statuses are as follows:
+* The update automatically creates a snapshot (copy) of the current
+  operating system, known as a boot environment (BE), and mounts that
+  snapshot in the background. All of the updates then occur in the
+  snapshot. This means that you can safely continue to use your system
+  while it is updating as no changes are being made to the running
+  version of the operating system or any of the applications currently
+  in use. Instead, all changes are being made to the mounted copy.
 
-.. image:: images/update1.png 
+.. note:: if the system is getting low on disk space and there is not
+   enough space to create a new BE, the update will fail with a message
+   indicating that there is not enough space to perform the update.
 
-Your system is up-to-date.
+* While the update is occurring, and until you reboot after the update,
+  you will not be able to use AppCafe® to manage software. This is a
+  safety measure to prevent package conflicts. Also, the system shutdown
+  and restart buttons will be greyed out until the update is complete
+  and the system is ready for reboot. Should a power failure occur in
+  the middle of an update, the system will reboot into the current boot
+  environment, returning the system to the point before the upgrade
+  started. Simply restart the update to continue the update process.
 
-.. image:: images/update2.png 
-
-The system is currently checking for updates and patches.
-
-.. image:: images/update3.png 
-
-Your operating system is out-of-date and system update(s) or patch(es) are available.
-
-.. image:: images/update4.png 
-
-Newer versions of installed applications are available.
-
-.. image:: images/update5.png 
-
-The system was unable to check for updates, meaning you should check your Internet connection.
-
-.. image:: images/update6.png
-
-The system is currently updating.
-
-.. image:: images/update7.png 
-
-The system needs to restart in order for the newly installed update to take effect.
-
-If you right-click the icon, you will see the menu shown in :numref:`Figure %s: Right-click Menu for Update Manager <update8a>`. 
-
-.. _update8a:
-
-.. figure:: images/update8a.png
-
-This menu contains the following options:
-
-* **Start the Update Manager:** launches the Update Manager GUI which can be used as described in :ref:`Manual Updates (GUI Method)`.
-
-* **Check for Updates:** by default, updates are checked every 24 hours or 20 minutes after booting the system. However, the system won't check for updates more than once per day
-  should you reboot multiple times within a day. You can check for updates now by clicking this option.
-
-* **Start the AppCafe:** launches AppCafe® which can be used to manage installed software as described in :ref:`AppCafe®`.
-
-* **Run at Startup:** to disable the automatic update check after the system boots, uncheck this box.
-
-* **Display Notifications:** to disable the pop-up message over the icon when an update becomes available, uncheck this box.
-
-* **Check Jails:** to also be notified when updates are available to running jails, check this box.
-
-* **Routing through Tor:** check this box to start browsing the Internet anonymously as described in :ref:`Tor Mode`.
-
-* **Check Tor connection:** click this to determine if the system is currently routing all Internet traffic through the Tor network.
-
-* **Quit:** to remove Update Manager from the system tray, click this entry. You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
-
-.. index:: updates
-.. _How TrueOS® Updating Works:
-
-How TrueOS® Updating Works
----------------------------
-
-The TrueOS® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. The following steps occur automatically during
-an update:
-
-* The update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
-  background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
-  being made to the operating system or any of the applications currently in use. Instead, all changes are being made to the mounted copy.
-
-.. note:: if the system is getting low on disk space and there is not enough space to create a new BE, the update will fail with a message indicating that there is
-   not enough space to perform the update.
-
-* While the update is occurring, and until you reboot after the update, you won't be able to use AppCafe® to manage software. This is a safety measure to prevent
-  package conflicts. Also, the system shutdown and restart buttons will be greyed out until the update is complete and the system is ready for reboot. Should a power
-  failure occur in the middle of an update, the system will reboot into the current boot environment, returning the system to the point before the upgrade started.
-  Simply restart the update to continue the update process.
-
-* Once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system will boot into it, unless you
-  pause the boot menu and specify otherwise. A pop-up message, shown in :numref:`Figure %s: Managing the Reboot After Update <update9>`, will indicate that a reboot is required.
-  You can either finish what you are doing and reboot now into the upgraded snapshot, or ask the system to remind you again at a later time. To configure the
-  time of the next warning, click the "Next Reminder" drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login
+* Once the update is complete, the new boot environment, or updated
+  snapshot, is added as the first entry in the boot menu and activated
+  so that the system will boot into it, unless you pause the boot menu
+  and specify otherwise. A pop-up message, shown in
+  :numref:`Figure %s: Managing the Reboot After Update <update1>`, will
+  indicate that a reboot is required. You can either finish what you are
+  doing and reboot now into the upgraded snapshot, or ask the system to
+  remind you again at a later time. To configure the time of the next warning, click the "Next Reminder" drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login
   session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
   until you reboot.
   
-* The default ZFS layout used by TrueOS® ensures that when new boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
-  :file:`/var/` directories remain untouched. This way, if you decide to rollback to a previous boot environment, you will not lose data in your home directories, any
-  installed applications, or downloaded src or ports. However, you will return the system to its previous state, before the update was applied.
+* The default ZFS layout used by TrueOS® ensures that when new boot
+  environments are created, the :file:`/usr/local/`, :file:`/usr/home/`,
+  :file:`/usr/ports/`, :file:`/usr/src/` and :file:`/var/` directories
+  remain untouched. This way, if you decide to rollback to a previous
+  boot environment, you will not lose data in your home directories, any
+  installed applications, or downloaded src or ports. However, you will
+  return the system to its previous state, before the update was
+  applied.
 
-* As the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update Manager utility, shown in
-  :numref:`Figure %s: Viewing the Update Log <update10a>`. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
-  the previous log is written to :file:`/var/log/pc-updatemanager.log.prev`, so that you also have a copy of the previous update's log.
+.. _update1:
 
-* You no longer need to initiate updates manually. TrueOS® uses an automated updater that automatically checks for updates, no more than once per day, 20
-  minutes after a reboot and then every 24 hours. You can configure what gets updated using the "Configure Automatic Updates" tab of Update Manager, shown in
-  :numref:`Figure %s: Configuring What to Update <update11a>`. Choices are "Security & Packages" (all updates), "Security" (only security patches and operating system updates), "Packages"
-  (only installed software), or "Nothing" (disables automatic updating).
+.. figure:: images/update1.png
 
-.. _update9:
+Managing Updates
+----------------
 
-.. figure:: images/update9.png
+The "System Updates" tab of Update Manager can be used to determine if
+any updates are available and to start the selected updates.
 
-.. _update10a:
-
-.. figure:: images/update10a.png
-
-.. _update11a:
-
-.. figure:: images/update11a.png
-
-The "View" menu of Update Manager provides the following information:
-
-* **Vulnerabilities:** click this entry to determine if any of the installed software has a known, unpatched vulnerability. In the example shown in
-  :numref:`Figure %s: Viewing Installed Software Vulnerability Information <update14>`, two installed packages have known vulnerabilities. If you highlight an entry and click the "More
-  info..." button, the default web browser will open to a page that provides more details about the vulnerability.
-
-* **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
-  against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown in
-  :numref:`Figure %s: Viewing Operating System Patches <update15a>`, the system is running "10.2-RELEASE-p15, or patch level 15. Most patch levels have an associated Security Advisory (SA).
-  More information about each advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
-
-.. _update14:
-
-.. figure:: images/update14.png
-
-.. _update15a:
-
-.. figure:: images/update15a.png
-
-The "System" menu of Update Manager provides one option:
-
-* **Branches:** users who wish to test upcoming versions can switch software branches and update to that software branch. In the example shown in
-  :numref:`Figure %s: Switching Branches <branch1a>`, this system is currently running the 10.2 branch and the upcoming 11.0 branch is available for selection.
-
-.. _branch1a:
-
-.. figure:: images/branch1a.png
-
-Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
-either the GUI or the command-line method.
-
-.. index:: updates
-.. _Manual Updates (GUI Method):
-
-Manual Updates (GUI Method)
----------------------------
-
-The automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up menu, shown in
-:numref:`Figure %s: Managing the Reboot After Update <update9>`, indicates that a reboot is needed to complete the update process. The automatic updater will only update what it has been
-configured to update. If you would like to double-check or change what gets updated, start Update Manager, enter your password, and use the drop-down menu in
-the "Configure Automatic Updates" screen shown in :numref:`Figure %s: Configuring What to Update <update11a>`. 
-
-Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period. To manually check for updates, right-click the
-Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
-will appear, as seen in the example in :numref:`Figure %s: Updates are Available <update12a>`. If no updates are available, of if the system is currently updating, this tab will not appear.
-
-.. _update12a:
-
-.. figure:: images/update12a.png
-
-In this example, a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
+In the example shown in :numref:`Figure %s: Managing Updates <update2>`,
+a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
 boot into the newly patched operating system.
 
 When package updates are available a "View Package Updates" box can be clicked to see which packages will be upgraded.
@@ -387,6 +279,19 @@ When package updates are available a "View Package Updates" box can be clicked t
    AppCafe®, Update Manager will fail and will generate a message in the log indicating that the failure is due to a locked package. If you prefer to lock certain applications
    against being updated, select "Security" or "Nothing" in the "Configure Automatic Updates" tab of Update Manager and manually update software as needed using
    :command:`pkg`.
+   
+The "Change Branches" tab of Update Manager provides a listing of available branches. In the example shown in
+  :numref:`Figure %s: Switching Branches <update3>`, this system is currently running the 10.2 branch and the upcoming 11.0 branch is available for selection.
+
+.. _update3:
+
+.. figure:: images/update3.png   
+
+.. index:: updates
+.. _Upgrading from 10.x to |version|:
+
+Upgrading from 10.x to |version|
+--------------------------------
 
 .. index:: sysadm, configuration
 .. _Manage SSL Keys:
@@ -400,54 +305,82 @@ Manage SSL Keys
 Boot Environment Manager
 ========================
 
-TrueOS® supports a feature of ZFS known as multiple boot environments (BEs). With multiple boot environments, the process of updating software becomes a
-low-risk operation as the updates are applied to a different boot environment. If needed, you have the option of booting into a backup boot environment. Other examples of using boot
-environments include: 
+TrueOS® supports a feature of ZFS known as multiple boot environments
+(BEs). With multiple boot environments, the process of updating software
+becomes a low-risk operation as the updates are applied to a different
+boot environment. If needed, you have the option of rebooting into a
+backup boot environment. Other examples of using boot environments
+include: 
 
-* If you are making software changes, you can take a snapshot of that boot environment at any stage during the modifications.
+* If you are making software changes, you can take a snapshot of that
+  boot environment at any stage during the modifications.
 
-* You can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
-  software packages on each.
+* You can save multiple boot environments on your system and perform
+  various updates on each of them as needed. You can install, test, and
+  update different software packages on each.
 
-* You can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
+* You can mount a boot environment in order to :command:`chroot` into
+  the mount point and update specific packages on the mounted
+  environment.
 
-* You can move a boot environment to another machine, physical or virtual, in order to check hardware support.
+* You can move a boot environment to another machine, physical or
+  virtual, in order to check hardware support.
 
-.. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
-   boot environments are created, the :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
-   :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
-   installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
+.. note:: for boot environments to work properly, 
+   **do not delete the default ZFS mount points during installation.** 
+   The default ZFS layout ensures that when boot environments are
+   created, the :file:`/usr/local/`, :file:`/usr/home/`,
+   :file:`/usr/ports/`, :file:`/usr/src/` and :file:`/var/` directories
+   remain untouched. This way, if you rollback to a previous boot
+   environment, you will not lose data in your home directories, any
+   installed applications, or downloaded src or ports. During
+   installation, you can add additional mount points, just don't delete
+   the default ones.
 
-To ensure that the files that the operating system needs are included when the system boots, all boot environments on a TrueOS® system include :file:`/usr`, :file:`/usr/local`,
-and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
-:file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of which boot environment is selected at system boot.
+To ensure that the files that the operating system needs are included
+when the system boots, all boot environments on a TrueOS® system include
+:file:`/usr`, :file:`/usr/local`, and :file:`/var`. User-specific data
+is **not** included in the boot environment. This means that
+:file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
+:file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of
+which boot environment is selected at system boot.
    
-To view, manage, and create boot environments using the SysAdm™ graphical client, go to :menuselection:`System Management --> Boot Environment Manager`. In the example shown in
-:numref:`Figure %s: Managing Boot Environments <be1>`, there is an entry named *initial* that represents the original TrueOS® installation.
+To view, manage, and create boot environments using the SysAdm™
+graphical client, go to
+:menuselection:`System Management --> Boot Environment Manager`. In the
+example shown in :numref:`Figure %s: Managing Boot Environments <be1>`,
+there is an entry named *initial* that represents the original TrueOS®
+installation.
 
 .. _be1:
 
 .. figure:: images/be1.png
 
-From left to right, the icons on the top bar are used to: 
+From left to right, the buttons on the top bar are used to: 
 
-**Create BE:** a new boot environment. You should do this before making any changes to the system that may impact on your current boot environment. You will be
-prompted for a name which can only contain letters or numbers. Once you click "OK", the system will create the environment, then add it to the list of boot
-environments.
+**Create BE:** creates a new boot environment. You should do this before
+making any changes to the system that may impact on your current boot
+environment. You will be prompted for a name which can only contain
+letters or numbers. Once you click "OK", the system will create the
+environment, then add it to the list of boot environments.
 
-**Clone BE:** creates a copy of an existing boot environment.
+**Clone BE:** creates a copy of the highlighted boot environment.
 
-**Delete BE:** will delete the highlighted boot environment. You can not delete the boot environment which has a "Running" status of *Yes* as that is the current
+**Delete BE:** deletes the highlighted boot environment. You can not delete the boot environment which has a "Running" status of *Yes* as that is the current
 boot environment.
 
-**Rename BE:** used to rename the highlighted boot environment. The name is what appears in the boot menu when the system boots. You cannot rename the BE you are
+**Rename BE:** renames the highlighted boot environment. The name is
+what appears in the boot menu when the system boots. You cannot rename the BE you are
 currently booted into and an error message will occur if you try to do so.
 
-**Mount BE:** mounts the highlighted BE in :file:`/tmp` so that its contents are browseable. Note that this setting only applies to inactive BEs.
+**Mount BE:** mounts the highlighted BE in :file:`/tmp` so that its
+contents are browseable. Note that this setting only applies to inactive
+BEs.
 
 **Unmount BE:** unmounts the previously mounted BE.
 
-**Activate BE:** tells the system to boot into the highlighted boot environment at next system boot. The "Default" will change to *Yes*, but the "Running" will
+**Activate BE:** tells the system to boot into the highlighted boot
+environment at next system boot. The "Default" will change to *Yes*, but the "Running" will
 remain the same. In other words, "Running" refers to the boot environment the system last booted into (is currently running from) whereas "Default" indicates
 which boot environment the system will boot into at next system boot.
 
@@ -482,27 +415,42 @@ Task Manager
 Life Preserver
 ==============
 
-The built-in Life Preserver utility was designed to take full advantage of the functionality provided by ZFS snapshots. This utility allows you to schedule snapshots of a
-local ZFS pool and to optionally replicate those snapshots to another system over an encrypted connection. This design provides several benefits: 
+The Life Preserver utility is designed to take full advantage of the
+functionality provided by ZFS snapshots. This utility allows you to
+schedule snapshots of a ZFS pool and to optionally replicate those
+snapshots to another system over an encrypted connection. This design
+provides several benefits: 
 
-* A snapshot provides a "point-in-time" image of the ZFS pool. In one way, this is similar to a full system backup as the snapshot contains the information
-  for the entire filesystem. However, it has several advantages over a full backup. Snapshots occur instantaneously, meaning that the filesystem does not need
-  to be unmounted and you can continue to use applications on your system as the snapshot is created. Since snapshots contain the meta-data ZFS uses to access
-  files, the snapshots themselves are small and subsequent snapshots only contain the changes that occurred since the last snapshot was taken. This space
-  efficiency means that you can take snapshots often. Snapshots also provide a convenient way to access previous versions of files as you can simply browse to
-  the point-in-time for the version of the file that you need. Life Preserver makes it easy to configure when snapshots are taken and provides a built-in
-  graphical browser for finding and restoring the files within a snapshot.
+* A snapshot provides a "point-in-time" image of the ZFS pool. In one
+  way, this is similar to a full system backup as the snapshot contains
+  the information for the entire filesystem. However, it has several
+  advantages over a full backup. Snapshots occur instantaneously,
+  meaning that the filesystem does not need to be unmounted and you can
+  continue to use applications on your system as the snapshot is
+  created. Since snapshots contain the meta-data ZFS uses to access
+  files, the snapshots themselves are small and subsequent snapshots
+  only contain the changes that occurred since the last snapshot was
+  taken. This space efficiency means that you can take snapshots often.
+  Snapshots also provide a convenient way to access previous versions of
+  files as you can browse to the point-in-time for the version of the
+  file that you need. Life Preserver makes it easy to configure when
+  snapshots are taken and provides a built-in graphical browser for finding and restoring the files within a snapshot.
 
-* Replication is an efficient way to keep the files on two systems in sync. In the case of Life Preserver, the snapshots taken on the TrueOS® system will be
-  synchronized with their versions stored on the backup server.
+* Replication is an efficient way to keep the files on two systems in
+  sync. With Life Preserver, the snapshots taken on the TrueOS® system
+  will be synchronized with their versions stored on the specified
+  backup server.
 
-* Snapshots are sent to the backup server oven an encrypted connection and can optionally be stored in an encrypted format, which protects the contents of the snapshots.
+* Snapshots are sent to the backup server over an encrypted connection.
 
-* Having a copy of the snapshots on another system makes it possible to perform an operating system restore should the TrueOS® system become unusable or to deploy an identical system
-  to different hardware.
+* Having a copy of the snapshots on another system makes it possible to
+  perform an operating system restore should the TrueOS® system become
+  unusable or to deploy an identical system to different hardware.
   
-To manage snapshots and replication using the SysAdm™ graphical client, go to :menuselection:`Utilities --> Life Preserver`. The rest of this section describes where to find and how to
-use the features built into Life Preserver.
+To manage snapshots and replication using the SysAdm™ graphical client,
+go to :menuselection:`Utilities --> Life Preserver`. The rest of this
+section describes where to find and how to use the features built into
+Life Preserver.
 
 .. index:: snapshots, life preserver
 .. _Snapshots Tab:
