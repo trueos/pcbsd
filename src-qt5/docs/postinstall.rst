@@ -44,7 +44,7 @@ have finished making your selections, press :kbd:`Enter` to boot using the selec
 
 .. figure:: images/boot1b.png
 
-The following boot options are available in the :numref:`Figure %s: Boot Options Menu <boot1a>`:
+The following boot options are available in the :numref:`Figure %s: Boot Options Menu <boot1b>`:
 
 * **3. ACPI Support:** toggles  power  management support,  which may be useful for  certain BIOS's  and laptops. 
 
@@ -79,7 +79,7 @@ starts to boot, it will display a message similar to the one shown in :numref:`F
 
 .. figure:: images/encrypt1.png
 
-The boot process will wait for you to successfully input the password that you created in the installation screen shown in :numref:`Figure %s: Configure Encryption <install11a>`. If the
+The boot process will wait for you to successfully input the password that you created in the installation screen shown in :numref:`Figure %s: Configure Encryption <install11b>`. If the
 correct password is typed in, the system will continue to boot.
 
 .. index:: video

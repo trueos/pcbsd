@@ -1206,7 +1206,7 @@ Input the name of the user and the name of the dataset you created on the FreeNA
 *volume1/backups*.
 
 When finished, click "Apply", Life Preserver will check that it can connect to the backup server and will prompt for the password of "User Name". A
-second pop-up message will remind you to save the SSH key to a USB stick (as described in :ref:`Life Preserver Options`) as this key is required for
+second pop-up message will remind you to save the SSH key to a USB stick as this key is required for
 :ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
@@ -1246,7 +1246,7 @@ the server is listening on a non-standard SSH port, change the "SSH port" number
 
 .. figure:: images/restore2.png
 
-.. _lpreserver17: 
+.. _restore3: 
 
 .. figure:: images/restore3.png
 

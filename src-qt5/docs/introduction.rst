@@ -227,7 +227,7 @@ The following features or enhancements were introduced for TrueOS®
 * A TrueOS® installation installs the :ref:`Lumina Desktop`. Additional
   window managers can be installed using :ref:`AppCafe®`.
 
-* :ref:`The SysAdm™ Client` and server have been added and most of the
+* The :ref:`SysAdm™ Client` and server have been added and most of the
   :ref:`Control Panel` utilities have been rewritten to use the SysAdm™
   middleware. Under the hood, SysAdm™ provides REST and WebSocket APIs
   for securely managing local and remote FreeBSD and TrueOS® systems.

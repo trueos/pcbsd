@@ -76,6 +76,25 @@ The default is to use *BSD* as it provides native support for boot environments.
 *GRUB* provides some boot environment support, it may not be as up-to-date as the BSD support. It is recommended to only select this option if you are dual booting and the BSD boot manager
 does not find your other operating systems. If you select  *none*, no boot manager will be installed and boot environments will not be available.
 
+The next screen is shown in :numref:`Figure %s: Full Disk Encryption <text7>`.
+
+.. _text7:
+
+.. figure:: images/text7.png
+
+This screen provides the option to encrypt the selected disk(s) with the FreeBSD `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli/qgit/>`_ framework. If
+you keep the default of *Yes* and press enter, you will be prompted to enter and confirm a passphrase. You will be prompted to enter this passphrase whenever
+you boot into PC-BSD®. This means that if someone else boots your computer, they will not be able to boot into PC-BSD® if they do not know your passphrase.
+**However, if you forget your passphrase, you will not be able to access PC-BSD® either.** For these reasons, it is important to choose a good passphrase
+that other users will not guess and which you will not forget. Passphrases are case-sensitive and can contain spaces. The passphrase should be memorable to
+you, such as a line from a song or piece of literature, but hard to guess in that people who know you should not be able to guess your favorite line from a
+song or piece of literature.
+
+.. warning:: be careful if you have changed your keyboard variant and layout. At this time, the GELI encryption framework only supports QWERTY passphrases, so
+   do not use any characters not found on a QWERTY keyboard in your passphrase. **DO NOT** set a passphrase with accents or special characters which are not
+   found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
+   will render that partition as inaccessible.
+
 If you choose to install a server in the screen shown in :numref:`Figure %s: Select Desktop or Server <text2>`, the installer will next prompt for the following information: 
 
 * the *root* password 
@@ -279,7 +298,7 @@ screen shown in :numref:`Figure %s: Install Ports <server7>`.
 .. figure:: images/server7.png
 
 If you wish to install the FreeBSD ports collection, check the "Install ports tree" box then click "Finish" to exit the wizard and access the summary screen
-shown in :numref:`Figure %s: Disk Selection Screen <install5a>`.
+shown in :ref:`Disk Selection Screen`.
 
 Click "Customize" if you wish to proceed to the  screen in order to configure the system's disk(s).
 
