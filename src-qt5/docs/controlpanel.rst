@@ -751,19 +751,23 @@ format it.
 Display
 =======
 
-:menuselection:`Control Panel --> Display` can be used to configure the system to run the display wizard the next time the system boots. This allows you to
-reconfigure your video driver and display settings.
+:menuselection:`Control Panel --> Display` can be used to configure the
+system to run the display wizard the next time the system boots. This
+allows you to reconfigure your video driver and display settings.
 
 .. note:: if you have an NVIDIA card, double-check that "pcbsd-meta-nvidia" is installed in :ref:`AppCafe®` and install it if it is not. To check for this
    driver, search for "nvidia" in the "App Search" tab of AppCafe®. 
 
-If you click this icon in Control Panel, you will receive the message shown in :numref:`Figure %s: Display Wizard Will Run at Next Boot <display2>`. 
+If you click this icon in Control Panel, you will receive the message
+shown in
+:numref:`Figure %s: Display Wizard Will Run at Next Boot <display2>`. 
 
 .. _display2:
 
 .. figure:: images/display2.png
 
-Select "Yes" which will prompt for your password. You should then save your work and reboot the system.
+Select "Yes" which will prompt for your password. You should then save
+your work and reboot the system.
 
 Alternately, you can use the boot menu to start the display wizard. As soon as the system starts to boot, press the left :kbd:`Shift` button to access the
 GRUB boot menu. Unless you are dual booting or have configured boot environments, there will be one entry named "PC-BSD (default)" in the boot menu. Press
@@ -777,48 +781,36 @@ confirm the resolution if it finds an optimal one. To configure a different reso
 
 .. figure:: images/display3.png
 
-This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
-provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
+This screen can be used to select the desired screen resolution, color
+depth, and video driver. If you select the "vesa" driver, it will always
+work but will provide sub-optimal performance. Click on the drop-down
+menu to select the driver that most closely matches your video card
+name.
 
-You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be the
+You can also use the drop-down menus to change the screen resolution and
+color depth values. If the value you desire is not listed, it may be the
 selected driver does not support that resolution or depth.
 
-Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in :numref:`Figure %s: Advanced Tab of Display Settings <display4>`.
+Advanced users can select their monitor's horizontal sync and vertical
+refresh rate in the "Advanced" tab, seen in
+:numref:`Figure %s: Advanced Tab of Display Settings <display4>`.
 
 .. _display4:
 
 .. figure:: images/display4.png
 
-Use caution and refer to your monitor's documentation if you make any changes here. If you are not sure what you are doing, leave the default values as-is.
+Use caution and refer to your monitor's documentation if you make any
+changes here. If you are not sure what you are doing, leave the default
+values as-is.
 
-If your computer is connected to two monitors, check the box "Enable Dual-Head support". 
+If your computer is connected to two monitors, check the box "Enable
+Dual-Head support". 
 
-When you are finished, click the "Apply" button for your settings to be tested. If anything goes wrong during testing, you should be taken back to the
-"Display Settings" screen so that you can try another setting. Once you are satisfied with the settings, click "Yes" when prompted to accept them.
-
-.. index:: compositing
-.. _Desktop Effects and Compositing:
-
-Desktop Effects and Compositing 
---------------------------------
-
-To prevent problems with video cards that do not support them, desktop effects (used by KDE) and display compositing (used by XFCE) are disabled by default.
-You can change this default if your video card supports desktop effects.
-
-To enable desktop effects while logged into KDE, click :menuselection:`Favorites --> System Settings --> Desktop Effects` to access the configuration screen shown in
-:numref:`Figure %s: Enabling Desktop Effects in KDE <display5>`. Check the box "Enable desktop effects at startup". You can use the "All Effects" tab to get more information about each
-possible effect and to enable the effects that interest you.
-
-.. _display5:
-
-.. figure:: images/display5.png
-
-To enable display compositing while logged into XFCE, go to :menuselection:`Settings --> Window Manager Tweaks --> Compositor`. In the screen shown in
-:numref:`Figure %s: Enabling Compositing in XFCE <display6>`, check the "Enable display compositing" box to enable the compositing options.
-
-.. _display6: 
-
-.. figure:: images/display6.png
+When you are finished, click the "Apply" button for your settings to be
+tested. If anything goes wrong during testing, you should be taken back
+to the "Display Settings" screen so that you can try another setting.
+Once you are satisfied with the settings, click "Yes" when prompted to
+accept them.
 
 .. index:: troubleshooting
 .. _Display Troubleshooting:
@@ -826,30 +818,40 @@ To enable display compositing while logged into XFCE, go to :menuselection:`Sett
 Display Troubleshooting 
 -----------------------
 
-If you are having problems with your display settings and would like to manually edit :file:`/etc/X11/xorg.conf` or run :command:`Xorg --config`, first tell
-the TrueOS® system to not automatically start X. To do so, add this temporary line to :file:`/etc/rc.conf`, then reboot the system::
+If you are having problems with your display settings and would like to
+manually edit :file:`/etc/X11/xorg.conf` or run
+:command:`Xorg --config`, first tell the TrueOS® system to not
+automatically start X. To do so, add this temporary line to
+:file:`/etc/rc.conf`, then reboot the system::
 
  pcdm_enable="NO"
 
-The system will reboot to a login prompt. After logging in, try the instructions in the
-`FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
-for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that temporary line from :file:`/etc/rc.conf` and start PCDM::
+The system will reboot to a login prompt. After logging in, try the
+instructions in the
+`FreeBSD Handbook <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html>`_ 
+to manually configure and test Xorg. Once you have a configuration that
+works for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that
+temporary line from :file:`/etc/rc.conf` and start PCDM::
 
  service pcdm start
 
-If your graphics white-out after a suspend or resume, try running this command as the superuser::
+If your graphics white-out after a suspend or resume, try running this
+command as the superuser::
 
  sysctl hw.acpi.reset_video=1
 
-If that fixes the problem, carefully add this line to :file:`/etc/sysctl.conf`::
+If that fixes the problem, carefully add this line to
+:file:`/etc/sysctl.conf`::
 
  hw.acpi.reset_video=1
 
-If the monitor goes blank and does not come back, try running this command as your regular user account::
+If the monitor goes blank and does not come back, try running this
+command as your regular user account::
 
  xset -dpms
 
-If that fixes the problem, add that line to the :file:`.xprofile` file in your home directory.
+If that fixes the problem, add that line to the :file:`.xprofile` file
+in your home directory.
 
 .. index:: mount
 .. _Mount Tray:
