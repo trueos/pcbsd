@@ -453,9 +453,12 @@ Latin keyboard.
 User Manager
 ============
 
-The TrueOS® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password. To access
-this utility, go to :menuselection:`Control Panel --> User Manager` or type :command:`pc-su pc-usermanager`. You will need to input your password in order to
-access this utility.
+The TrueOS® User Manager utility allows you to easily add and delete
+users and groups, as well as change a user's or the administrative
+password. To access this utility, go to
+:menuselection:`Control Panel --> User Manager` or type
+:command:`pc-su pc-usermanager`. You will need to input your password in
+order to access this utility.
 
 .. index:: users
 .. _Managing User Accounts:
@@ -463,71 +466,110 @@ access this utility.
 Managing User Accounts
 ----------------------
 
-In the example shown in :numref:`Figure %s: Viewing User Accounts in User Manager <user1>`, the system has two user accounts. The *dru* account has the ability to become the superuser
-as the "Can administrate system" checkbox is checked.
+In the example shown in
+:numref:`Figure %s: Viewing User Accounts in User Manager <user1>`, the
+system has two user accounts. The *dru* account has the ability to
+become the superuser as the "Can administrate system" checkbox is
+checked.
 
 .. _user1:
 
 .. figure:: images/user1.png
 
-If you click the "Remove" button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of
-their files). If you click "No", the user will still be deleted but their home directory will remain. If you have only created one user account, the "Remove"
-button will be greyed out as you need at least one user to be able to login to the TrueOS® system.
+If you click the "Remove" button for a highlighted user, a pop-up menu
+will ask if you would like to also delete the user's home directory
+(along with all of their files). If you click "No", the user will still
+be deleted but their home directory will remain. If you have only
+created one user account, the "Remove" button will be greyed out as you
+need at least one user to be able to login to the TrueOS® system.
 
-.. note:: while a removed user will no longer be listed, the user account will not actually be deleted until you click the "Apply" button. A pop-up message
-   will indicate that you have pending changes if you close User Manager without clicking "Apply". If you change your mind, click "No" and the user account
-   will not be deleted; otherwise, click "Yes" and the user will be deleted and User Manager will close.
+.. note:: while a removed user will no longer be listed, the user
+   account will not actually be deleted until you click the "Apply"
+   button. A pop-up message will indicate that you have pending changes
+   if you close User Manager without clicking "Apply". If you change
+   your mind, click "No" and the user account will not be deleted;
+   otherwise, click "Yes" and the user will be deleted and User Manager
+   will close.
 
-The password for any user can be changed by first highlighting the user name then clicking the "Change Password" button. You will not be prompted for the old
-password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the TrueOS® system. If you
-click the "Change Admin Password" button, you can change the root user's password.
+The password for any user can be changed by first highlighting the user
+name then clicking the "Change Password" button. You will not be
+prompted for the old password in order to reset a user's password; this
+can be handy if a user has forgotten their password and can no longer
+log into the TrueOS® system. If you click the "Change Admin Password"
+button, you can change the root user's password.
 
-If you click the "Advanced View" button, this screen will change to show all of the accounts on the system, not just the user accounts that you created. An
-example is seen in :numref:`Figure %s: Viewing All Accounts and Their Details <user2>`. 
+If you click the "Advanced View" button, this screen will change to show
+all of the accounts on the system, not just the user accounts that you
+created. An example is seen in
+:numref:`Figure %s: Viewing All Accounts and Their Details <user2>`. 
 
 .. _user2:
 
 .. figure:: images/user2.png
 
-The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. Do **not** delete
-any accounts that you did not create yourself as doing so may cause a previously working application to stop working. "Advanced View" provides additional
-information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group. System
-accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
+The accounts that you did not create are known as system accounts and
+are needed by the operating system or installed applications. Do **not**
+delete any accounts that you did not create yourself as doing so may
+cause a previously working application to stop working. "Advanced View"
+provides additional information associated with each account, such as
+the user ID number, full name (description), home directory, default
+shell, and primary group. System accounts usually have a shell of
+*nologin* for security reasons, meaning that an attacker can not try to
+login to the system using that account name.
 
-:numref:`Figure %s: Creating a New User Account <user3>` shows the add user account creation screen that opens when you click the "Add" button.
+:numref:`Figure %s: Creating a New User Account <user3>` shows the add
+user account creation screen that opens when you click the "Add" button.
 
 .. _user3:
 
 .. figure:: images/user3.png
 
-.. note:: if you click the "Add" button while in "Simple View", you will only be prompted to enter the username, full name, and password.
+.. note:: if you click the "Add" button while in "Simple View", you will
+only be prompted to enter the username, full name, and password.
 
-This screen is used to input the following information when adding a new user or system account: 
+This screen is used to input the following information when adding a new
+user or system account: 
 
-**Full Name:** this field provides a description of the account and can contain spaces. If it is a user account, use the person's first and last name. If it
-is a system account, input a description to remind you which application uses the account.
+**Full Name:** this field provides a description of the account and can
+contain spaces. If it is a user account, use the person's first and las
+t name. If it is a system account, input a description to remind you
+which application uses the account.
 
-**Username:** the name the user will use when they log in to the system; it is case sensitive and can not contain any spaces. If you are creating a system
-account needed by an application, use the name provided by the application's installation instructions. If the name that you choose already exists as an
-account, it will be highlighted in red and the utility will prompt you to use another name.
+**Username:** the name the user will use when they log in to the system;
+it is case sensitive and can not contain any spaces. If you are creating
+a system account needed by an application, use the name provided by the
+application's installation instructions. If the name that you choose
+already exists as an account, it will be highlighted in red and the
+utility will prompt you to use another name.
 
-**Home Directory:** leave this field empty for a user account as the system will automatically create a ZFS dataset for the user's home directory under
-:file:`/usr/home/username`. However, if you are creating a system account it is important to override this default by typing in :file:`/var/empty` or
-:file:`/nonexistent` unless the application's installation instructions specify that the account needs a specific home directory.
+**Home Directory:** leave this field empty for a user account as the
+system will automatically create a ZFS dataset for the user's home
+directory under :file:`/usr/home/username`. However, if you are creating
+a system account it is important to override this default by typing in
+:file:`/var/empty` or :file:`/nonexistent` unless the application's
+installation instructions specify that the account needs a specific home
+directory.
 
-**Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt. You can either keep the default or select a
-shell which the user prefers.
+**Shell:** this drop-down menu contains the shells that are available to
+users when they are at a command prompt. You can either keep the default
+or select a shell which the user prefers.
 
-**UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
-cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
+**UID:** by default, the user will be assigned the next available User
+ID (UID). If you need to force a specific UID, you can set it here. Note
+that you cannot set a UID lower than 1001 or specify a UID that is
+already in use by another user account.
 
-**Primary Group:** if you leave the default button of "New Group" selected, a group will be created with the same name as the user. This is usually what you
-want unless you are creating a system account and the installation instructions specify a different group name. Note that the drop-down menu for specifying a
-group name will only show existing groups, but you can quickly create a group using the "Groups" tab.
+**Primary Group:** if you leave the default button of "New Group"
+selected, a group will be created with the same name as the user. This
+is usually what you want unless you are creating a system account and
+the installation instructions specify a different group name. Note that
+the drop-down menu for specifying a group name will only show existing
+groups, but you can quickly create a group using the "Groups" tab.
 
 **Password:** the password is case-sensitive and needs to be confirmed.
 
-Once you have made your selections, press the "Save" button to create the account.
+Once you have made your selections, press the "Save" button to create
+the account.
 
 .. index:: users
 .. _PersonaCrypt:
@@ -535,44 +577,79 @@ Once you have made your selections, press the "Save" button to create the accoun
 PersonaCrypt
 ------------
 
-TrueOS® provides support for PersonaCrypt. A PersonaCrypt device is a removable USB media, such as a USB stick, which has been formatted with ZFS
-and encrypted with GELI. This device is used to hold a specific user's home directory, meaning that they can securely transport and access their personal files on any
-TrueOS® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
-protected by an encryption key and a password which is, and should be, separate from the user's login password.
+TrueOS® provides support for PersonaCrypt. A PersonaCrypt device is a
+removable USB media, such as a USB stick, which has been formatted with
+ZFS and encrypted with GELI. This device is used to hold a specific
+user's home directory, meaning that they can securely transport and
+access their personal files on any TrueOS® or PC-BSD® 10.1.2 or higher
+system. This can be used, for example, to securely access one's home
+directory from a laptop, home computer, and work computer. The device is
+protected by an encryption key and a password which is, and should be,
+separate from the user's login password.
 
-.. note:: when a user is configured to use a PersonaCrypt device, that user can not login using an unencrypted session on the same system. In other words, the PersonaCrypt username is
-   reserved for PersonaCrypt use. If you need to login to both encrypted and unencrypted sessions on the same system, create two different user accounts, one for each type of session.
+.. note:: when a user is configured to use a PersonaCrypt device, that
+   user can not login using an unencrypted session on the same system.
+   In other words, the PersonaCrypt username is reserved for
+   PersonaCrypt use. If you need to login to both encrypted and
+   unencrypted sessions on the same system, create two different user
+   accounts, one for each type of session.
 
-PersonaCrypt uses GELI's ability to split the key into two parts: one being your passphrase, and the other being a key stored on disk. Without both of these parts, the
-media cannot be decrypted. This means that if somebody steals the key and manages to get your password, it is still worthless without the system it was paired with.
+PersonaCrypt uses GELI's ability to split the key into two parts: one
+being your passphrase, and the other being a key stored on disk. Withou
+t both of these parts, the media cannot be decrypted. This means that if
+somebody steals the key and manages to get your password, it is still 
+worthless without the system it was paired with.
 
-.. warning:: USB devices can and do eventually fail. Always backup any important files stored on the PersonaCrypt device to another device or system.
+.. warning:: USB devices can and do eventually fail. Always backup any
+   important files stored on the PersonaCrypt device to another device
+   or system.
 
-Advanced Mode can be used to initialize a PersonaCrypt device for any created user, **except** for the currently logged in user. In the example shown in
-:numref:`Figure %s: Initialize PersonaCrypt Device <user5>`, a new user, named *dlavigne*, has been created and the entry for that user has been clicked.
+Advanced Mode can be used to initialize a PersonaCrypt device for any
+created user, **except** for the currently logged in user. In the
+example shown in
+:numref:`Figure %s: Initialize PersonaCrypt Device <user5>`, a new user,
+named *dlavigne*, has been created and the entry for that user has been
+clicked.
 
 .. _user5: 
 
 .. figure:: images/user5.png
 
-Before a user is configured to use PersonaCrypt on a TrueOS® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
-if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user to display these options:
+Before a user is configured to use PersonaCrypt on a TrueOS® system, two
+buttons are available in the "PersonaCrypt" section of "Advanced Mode".
+Note that this section is hidden if the currently logged in user is
+selected. Also, if you have just created a user and do not see these
+options, click "Apply" then re-highlight the user to display these
+options:
 
-* **Import Key:** if the user has already created a PersonaCrypt device on another TrueOS® system, click this button to import a previously saved copy of the key associated with
-  the device. Once the key is imported, the user can now login to this computer using PersonaCrypt.
+* **Import Key:** if the user has already created a PersonaCrypt device
+  on another TrueOS® system, click this button to import a previously
+  saved copy of the key associated with the device. Once the key is
+  imported, the user can now login to this computer using PersonaCrypt.
 
-* **Initialize Device:** used to prepare the USB device that will be used as the user's home directory.
+* **Initialize Device:** used to prepare the USB device that will be
+  used as the user's home directory.
 
-To prepare a PersonaCrypt device for this user, insert a USB stick and click "Initialize Device". A pop-up menu will indicate that the current contents of the device
-will be wiped and that the device must be larger than the user's current home directory.
+To prepare a PersonaCrypt device for this user, insert a USB stick and
+click "Initialize Device". A pop-up menu will indicate that the current
+contents of the device will be wiped and that the device must be larger
+than the user's current home directory.
 
-.. warning:: since the USB stick will hold the user's home directory and files, ensure that the stick is large enough to meet the anticipated storage needs of the home directory. Since
-   the stick will be reformatted during the initialization process, make sure that any current data on the stick that you need has been copied elsewhere. Also, the faster the
-   stick, the better the user experience while logged in.
+.. warning:: since the USB stick will hold the user's home directory and
+   files, ensure that the stick is large enough to meet the anticipated
+   storage needs of the home directory. Since the stick will be
+   reformatted during the initialization process, make sure that any
+   current data on the stick that you need has been copied elsewhere.
+   Also, the faster the stick, the better the user experience while
+   logged in.
 
-Press "OK" in the pop-up menu. This will prompt you to input and confirm the password to associate with the device. Another message will ask if you are ready. Click "Yes" to
-initialize the device. The User Manager screen will be greyed out while the device is prepared. Once the initialization is complete, the User Manager screen will change to
-display the device's key options, as seen in :numref:`Figure %s: PersonaCrypt Key Options <user6>`.
+Press "OK" in the pop-up menu. This will prompt you to input and confirm
+the password to associate with the device. Another message will ask if
+you are ready. Click "Yes" to initialize the device. The User Manager
+screen will be greyed out while the device is prepared. Once the
+initialization is complete, the User Manager screen will change to
+display the device's key options, as seen in
+:numref:`Figure %s: PersonaCrypt Key Options <user6>`.
 
 .. _user6:
 
@@ -580,24 +657,37 @@ display the device's key options, as seen in :numref:`Figure %s: PersonaCrypt Ke
 
 The following options are now available:
 
-* **Export Key:** used to create a copy of the encryption key so that it can be imported for use on another TrueOS® system.
+* **Export Key:** used to create a copy of the encryption key so that it
+  can be imported for use on another TrueOS® system.
 
-* **Disable Key (No Data):** used to uninitialize the PersonaCrypt device on this system. Note that the device can still be used to login to other TrueOS® systems.
+* **Disable Key (No Data):** used to uninitialize the PersonaCrypt
+  device on this system. Note that the device can still be used to login
+  to other TrueOS® systems.
 
-* **Disable Key (Import Data):** in addition to uninitializing the PersonaCrypt device on this system, copy the contents of the user's home directory to this system.
+* **Disable Key (Import Data):** in addition to uninitializing the
+  PersonaCrypt device on this system, copy the contents of the user's
+  home directory to this system.
 
-Once a user has been initialized for PersonaCrypt on the system, their user account will no longer be displayed when :ref:`Logging In` **unless** their PersonaCrypt device is
-inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in the example shown in Figure 4.8b.
+Once a user has been initialized for PersonaCrypt on the system, their
+user account will no longer be displayed when :ref:`Logging In`
+**unless** their PersonaCrypt device is inserted. Once the USB device is
+inserted, the login screen will add an extra field, as seen in the
+example shown in Figure 4.8b.
 
-.. note:: if the "Allow Stealth Sessions" checkbox has been checked in :menuselection:`Control Panel --> Login Manager --> Misc`, PersonaCrypt users will still be displayed in the
-   login menu, even if their USB device is not inserted. This is to allow those users the option to instead login using a stealth session. See :ref:`Login Manager` for more information
-   about stealth sessions.
+.. note:: if the "Allow Stealth Sessions" checkbox has been checked in
+   :menuselection:`Control Panel --> Login Manager --> Misc`,
+   PersonaCrypt users will still be displayed in the login menu, even if
+   their USB device is not inserted. This is to allow those users the
+   option to instead login using a stealth session. See
+   :ref:`Login Manager` for more information about stealth sessions.
 
-In the field with the yellow padlock icon, input the password for the user account. In the field with the grey USB stick icon, input the password associated with the
-PersonaCrypt device.
+In the field with the yellow padlock icon, input the password for the
+user account. In the field with the grey USB stick icon, input the
+password associated with the PersonaCrypt device.
 
-.. warning:: To prevent data corruption and freezing the system **DO NOT** remove the PersonaCrypt device while logged in! Always log out of your session before physically
-   removing the device.
+.. warning:: To prevent data corruption and freezing the system
+   **DO NOT** remove the PersonaCrypt device while logged in! Always log
+   out of your session before physically removing the device.
 
 .. index:: users
 .. _Managing Groups:
@@ -605,7 +695,9 @@ PersonaCrypt device.
 Managing Groups
 ---------------
 
-If you click the "Groups" tab, you can view all of the groups on the system, as seen in :numref:`Figure %s: Managing Groups Using User Manager <user4>`. 
+If you click the "Groups" tab, you can view all of the groups on the 
+system, as seen in
+:numref:`Figure %s: Managing Groups Using User Manager <user4>`. 
 
 .. _user4: 
 
@@ -615,19 +707,27 @@ This screen has 3 columns:
 
 **Groups:** shows all of the groups on the system.
 
-**Available:** shows all of the system and user accounts on the system in alphabetical order.
+**Available:** shows all of the system and user accounts on the system
+in alphabetical order.
 
-**Members:** indicates if the highlighted group contains any user accounts.
+**Members:** indicates if the highlighted group contains any user
+accounts.
 
-To add an account to a group, highlight the group name in the "Groups" column. Then, highlight the account name in the "Available" column. Click the right arrow
-and the selected account will appear in the "Members" column. You should only add user accounts to groups that you create yourself or when an application's
-installation instructions indicate that an account needs to be added to a group.
+To add an account to a group, highlight the group name in the "Groups"
+column. Then, highlight the account name in the "Available" column.
+Click the right arrow and the selected account will appear in the
+"Members" column. You should only add user accounts to groups that you
+create yourself or when an application's installation instructions
+indicate that an account needs to be added to a group.
 
-If you click the "Add" button, a pop-up menu will prompt you for the name of the new group. Once you press "OK", the group will be added to the "Groups"
-column.
+If you click the "Add" button, a pop-up menu will prompt you for the
+name of the new group. Once you press "OK", the group will be added to
+the "Groups" column.
 
-If you click the "Remove" button, the highlighted group will automatically be deleted after you press the "Apply" button, so be sure to do this with care.
-Again, do **not** remove any groups that you did not create yourself or applications that used to work may stop working.
+If you click the "Remove" button, the highlighted group will
+automatically be deleted after you press the "Apply" button, so be sure
+to do this with care. Again, do **not** remove any groups that you did
+not create yourself or applications that used to work may stop working.
 
 .. index:: configuration
 .. _Disk Manager:
