@@ -267,6 +267,10 @@ In the example shown in :numref:`Figure %s: Managing Updates <update2>`,
 a security update is available. Click the "Start Updates" button to manually start the update. When prompted, reboot so that the system can
 boot into the newly patched operating system.
 
+.. _update2:
+
+.. figure:: images/update2.png
+
 When package updates are available a "View Package Updates" box can be clicked to see which packages will be upgraded.
 
 .. note:: how often package updates are available depends upon the "Repository Settings" set in :menuselection:`AppCafe® --> Configure`. The default setting
