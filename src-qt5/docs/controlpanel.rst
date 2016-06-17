@@ -128,87 +128,122 @@ Click the arrow next to an entry to display or hide its its details. The followi
 Active Directory & LDAP
 =======================
 
-The "Active Directory & LDAP" icon is used for managing connections to an Active Directory or OpenLDAP domain. If your network contains an Active Directory or
-OpenLDAP server, use this icon to input the settings needed to connect to your account information stored on the network.
+The "Active Directory & LDAP" icon is used for managing connections to
+an Active Directory or OpenLDAP domain. If your network contains an
+Active Directory or OpenLDAP server, use this icon to input the settings
+needed to connect to your account information stored on the network.
 
-This utility is to manage the settings of the client, not the Active Directory or OpenLDAP server itself. This application also needs more testing from users.
-If you have trouble using this utility or find a bug, please post the details using the :ref:`Report a bug` tool.
+This utility is to manage the settings of the client, not the Active
+Directory or OpenLDAP server itself. This application also needs more
+testing from users. If you have trouble using this utility or find a
+bug, please post the details using the instructions in
+:ref:`Report a bug`.
 
-To start the application, double-click its icon in Control Panel or type :command:`pc-su pc-adsldap`. You will be prompted to input your password.
-:numref:`Figure %s: Initial Active Directory & LDAP Screen <ldap1>` shows the configuration utility with the Active Directory tab open.
+To start the application, double-click its icon in Control Panel or type
+:command:`pc-su pc-adsldap`. You will be prompted to input your
+password.
+:numref:`Figure %s: Initial Active Directory & LDAP Screen <ldap1>`
+shows the configuration utility with the Active Directory tab open.
 
 .. _ldap1:
 
 .. figure:: images/ldap1.png
 
-.. note:: to prevent "DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED" errors, set the TrueOS® hostname to include the realm name. For
+.. note:: to prevent "DNS Update for localhost.hostname failed: ERROR_DNS_UPDATE_FAILED" errors, set the TrueOS® hostname to include the realm name. For
    example, if the current hostname is "pcbsd-3881" and the realm name is "maloney.local", change the hostname to "pcbsd-3881.maloney.local" in
    :menuselection:`Control Panel --> Network Configuration (Advanced) -->  Misc`.
 
-If you need to connect to a network running Active Directory, check the box "Enable Active Directory". This will change the greyed-out status of the rest of
-the screen, allowing you to configure the following: 
+If you need to connect to a network running Active Directory, check the
+box "Enable Active Directory". This will change the greyed-out status of
+the rest of the screen, allowing you to configure the following: 
 
-* **Domain Name (DNS/Realm-Name):** input the name of the Active Directory domain (e.g. *example.com*) or child domain (e.g. *sales.example.com*). This
-  setting is mandatory.
+* **Domain Name (DNS/Realm-Name):** input the name of the Active
+  Directory domain (e.g. *example.com*) or child domain (e.g.
+  *sales.example.com*). This setting is mandatory.
 
-* **NetBIOS Name:** input the hostname of the TrueOS® system as listed in the :ref:`About` icon.
+* **NetBIOS Name:** input the hostname of the TrueOS® system as listed
+  in the :ref:`About` icon.
 
-* **Workgroup Name:** input the name of the Windows workgroup. Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
+* **Workgroup Name:** input the name of the Windows workgroup. Unless
+  the administrator has changed it, the default workgroup name is
+  *WORKGROUP*.
 
 * **Allow Trusted Domains:** only check this box if the network has
   `active domain/forest trusts <https://technet.microsoft.com/en-us/library/cc757352(WS.10).aspx>`_. 
 
-* **Administrator Name:** input the name of the Active Directory Administrator account.
+* **Administrator Name:** input the name of the Active Directory
+  Administrator account.
 
-* **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
+* **Administrator Password:** input and confirm the password for the
+  Active Directory Administrator account.
 
-The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf` and :file:`/usr/local/etc/smb4.conf`.
+The values that you input using this GUI are saved to
+:file:`/usr/local/etc/pc-activedirectory.conf` and
+:file:`/usr/local/etc/smb4.conf`.
 
 .. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
-:numref:`Figure %s: Managing LDAP Client Settings <ldap2>` shows the configuration utility with the LDAP tab open.
+:numref:`Figure %s: Managing LDAP Client Settings <ldap2>` shows the
+configuration utility with the LDAP tab open.
 
 .. _ldap2:
 
 .. figure:: images/ldap2.png
 
-If you need to connect to a network which contains a configured LDAP server, check the box "Enable LDAP". This will change the greyed-out status of the rest
-of the screen, allowing you to configure the following: 
+If you need to connect to a network which contains a configured LDAP
+server, check the box "Enable LDAP". This will change the greyed-out
+status of the rest of the screen, allowing you to configure the
+following: 
 
-* **Hostname:** input the hostname or IP address of the OpenLDAP server. This setting is mandatory.
+* **Hostname:** input the hostname or IP address of the LDAP server.
+  This setting is mandatory.
 
-* **Base DN:** input the top level of the LDAP directory tree to be used when searching for resources (e.g. *dc=test,dc=org*).
+* **Base DN:** input the top level of the LDAP directory tree to be used
+  when searching for resources (e.g. *dc=test,dc=org*).
 
-* **Allow Anon Binding:** only check this box if the LDAP server allows read and write access without requiring authentication.
+* **Allow Anon Binding:** only check this box if the LDAP server allows
+  read and write access without requiring authentication.
 
-* **Root bind DN:** input the name of the administrative account on the LDAP server (e.g. *cn=Manager,dc=test,dc=org*).
+* **Root bind DN:** input the name of the administrative account on the
+  LDAP server (e.g. *cn=Manager,dc=test,dc=org*).
 
 * **Root bind password:** input the password for the "Root bind DN".
 
-* **Password Encryption:** select a type supported by the LDAP server, choices are: "clear" (unencrypted), "crypt", "md5", "nds", "racf", "ad", or "exop".
+* **Password Encryption:** select a type supported by the LDAP server,
+  choices are: "clear" (unencrypted), "crypt", "md5", "nds", "racf",
+  "ad", or "exop".
 
-* **User Suffix:** this setting is optional and is usually a department or company name. The input value will be added to the name when a user account is
-  added to the LDAP directory 
+* **User Suffix:** this setting is optional and is usually a department
+  or company name. The input value will be added to the name when a user
+  account is added to the LDAP directory 
 
-* **Group Suffix:** this setting is optional and is usually a department or company name. The input value will be added to the name when a group is added to
-  the LDAP directory.
+* **Group Suffix:** this setting is optional and is usually a department
+  or company name. The input value will be added to the name when a
+  group is added to the LDAP directory.
 
-* **Password Suffix:** this setting is optional. The input value will be added to the password when a password is added to the LDAP directory.
+* **Password Suffix:** this setting is optional. The input value will be
+  added to the password when a password is added to the LDAP directory.
 
-* **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting. The input value will be added to the name
-  when a system is added to the LDAP directory.
+* **Machine Suffix:** this setting is optional and usually represents a
+  description such as server or accounting. The input value will be
+  added to the name when a system is added to the LDAP directory.
 
-* **Encryption Mode:** choices are "NONE", "SSL", or "TLS". The selected type must be supported by the LDAP server.
+* **Encryption Mode:** choices are "NONE", "SSL", or "TLS". The selected
+  type must be supported by the LDAP server.
 
-* **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used. Paste the output of the command 
-  :command:`openssl s_client -connect server:port -showcerts`.
+* **Self Signed Certificate:** used to verify the certificate of the
+  LDAP server if SSL connections are used. Paste the output of the
+  command  :command:`openssl s_client -connect server:port -showcerts`.
 
-* **Auxiliary Parameters:** `ldap.conf(5) <http://www.openldap.org/software/man.cgi?query=ldap.conf>`_ options, one per line, not covered by other options in
-  this screen.
+* **Auxiliary Parameters:**
+  `ldap.conf(5) <http://www.openldap.org/software/man.cgi?query=ldap.conf>`_ 
+  options, one per line, not covered by other options in this screen.
 
-The values that you input into this tab are saved to :file:`/usr/local/etc/pc-ldap.conf`.
+The values that you input into this tab are saved to
+:file:`/usr/local/etc/pc-ldap.conf`.
 
-If you are new to LDAP terminology, you may find it useful to skim through the
+If you are new to LDAP terminology, you may find it useful to skim
+through the
 `OpenLDAP Software 2.4 Administrator's Guide <http://www.openldap.org/doc/admin24/>`_. 
 
 .. index:: configuration
