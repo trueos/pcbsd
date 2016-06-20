@@ -4001,3 +4001,78 @@ margin: 0px 2px -2px 0px;
  |    Allow for printing from browser            | 
  |    with reasonable appearance         (END)   | 
  *"""""""""""""""""""""""""""""""""""""""""""""""*/
+/*"""""""""""""""""""""""""""""""""""""""""""""""""""""*
+ | Language Menu with links to different handbook  |
+ | versions		  											       |
+ *"""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+menu ul ul {
+	display: none;
+}
+
+	menu ul li:hover > ul {
+		display: block;
+	}
+
+menu ul {
+	background: #efefef; 
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%);
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0 10px;
+	border-radius: 10px;  
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 5%;
+	width: 8em;
+	margin-top: -2.5em;
+	display: inline-table;
+    }
+	
+	menu ul:after {
+		content: ""; clear: both; display: block;
+	}
+	
+menu ul li {
+	float: left;
+}
+	menu ul li:hover {
+		background: #4b545f;
+		background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+		background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+		background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+	}
+		menu ul li:hover a {
+			color: #fff;
+		}
+	
+	menu ul li a {
+		display: block; padding: 15px 20px;
+		color: #757575; text-decoration: none;
+	}
+	
+menu ul ul {
+	background: #5f6975; border-radius: 0px; padding: 0px;
+	position: absolute; top: 100%; margin-top: 0px; margin-right: 10px;
+}
+	menu ul ul li {
+		float: none; 
+		border-top: 1px solid #6b727c;
+		border-bottom: 1px solid #575f6a;
+		position: relative;
+	}
+		menu ul ul li a {
+			padding: 10px 20px;
+			color: #fff;
+		}	
+			menu ul ul li a:hover {
+				background: #4b545f;
+			}
+			
+menu ul ul ul {
+	position: absolute; right: 100%; top:0; margin-left: 0px; margin-right: 0px;
+}
+/*"""""""""""""""""""""""""*
+ | Language Menu (End)  |
+ *"""""""""""""""""""""""""*/
