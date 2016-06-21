@@ -122,7 +122,7 @@ Documentation Translation
 -------------------------
 
 The source for the TrueOS® Users Handbook is stored in the
-`PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the documentation and any translations can be built
+`PC-BSD® github repository <https://github.com/trueos/pcbsd/tree/master/src-qt5/docs>`_. This means that the documentation and any translations can be built
 with the operating system and updates to this documentation can be automatically installed when the system is updated using :ref:`Update Manager`. This has the
 added advantage of making sure that the installed version of the Handbook always matches the operating system version and that, as new features are added,
 that they are documented and appear as a local copy on the user's system. The local copy is stored in :file:`/usr/local/share/pcbsd/doc/html` and a desktop shortcut
@@ -130,7 +130,7 @@ provides easy access to the documentation.
 
 At this time, the TrueOS® build server has been configured to automatically build the HTML version of the TrueOS® Users Handbook. Over time, additional
 :file:`Makefiles` will be tested and added to provide the documentation in other formats, such as single HTML, PDF, and EPUB. Instructions for building your own
-HTML or PDF version can be found in this `README.md <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_.
+HTML or PDF version can be found in this `README.md <https://github.com/trueos/pcbsd/blob/master/src-qt5/docs/README.md>`_.
 
 The documentation source files have been integrated into the Pootle translation system so that the TrueOS® documentation can be translated using a web browser.
 The process is similar to :ref:`Interface Translation` except that you must first select "PC-BSD Handbook" from the "Projects" drop-down menu shown in
@@ -167,7 +167,7 @@ These instructions are for a TrueOS® system::
 
  sudo pkg install pcbsd-toolchain
  rehash
- git clone git://github.com/pcbsd/pcbsd.git
+ git clone git://github.com/trueos/pcbsd.git
  cd pcbsd/src-qt5/docs 
  sudo make i18n
  make html
@@ -226,7 +226,7 @@ The TrueOS® source code is available from github and :command:`git` needs to be
 
 To download the source code, :command:`cd` to the directory to store the source and type::
 
- git clone git://github.com/pcbsd/pcbsd.git
+ git clone git://github.com/trueos/pcbsd.git
 
 This will create a directory named :file:`pcbsd/` which contains the local copy of the repository. To keep the local copy in sync with the official
 repository, run :command:`git pull` within the :file:`pcbsd` directory.
