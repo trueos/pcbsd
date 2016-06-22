@@ -261,6 +261,8 @@ The following features or enhancements were introduced for TrueOS®
 
 * The graphical and command line versions of PBI Manager and Warden have
   been removed.
+  
+* The "Report a Bug" utility has been removed from :ref:`Control Panel`.
 
 .. index:: Linux
 .. _TrueOS® for Linux Users:
