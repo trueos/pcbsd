@@ -5,7 +5,6 @@ bin/life-preserver
 bin/life-preserver-tray
 bin/openwith
 bin/pc-adsldap
-bin/pc-bugreport
 bin/pc-controlpanel
 bin/pc-cupscfg
 bin/pc-dmconf
@@ -95,7 +94,6 @@ share/applications/fwmanager.desktop
 share/applications/handbook.desktop
 share/applications/pc-dmconf.desktop
 share/applications/pc-welcome.desktop
-share/applications/pcbugreport.desktop
 share/applications/pccontrol.desktop
 share/applications/pc-pdfviewer.desktop
 share/applications/pcsyskeyboard.desktop
@@ -157,7 +155,6 @@ share/pcbsd/pc-controlpanel/icons/kde-cron.png
 share/pcbsd/pc-controlpanel/icons/lifepreserver.png
 share/pcbsd/pc-controlpanel/icons/lifepreserver64x64.png
 share/pcbsd/pc-controlpanel/icons/nvidia-settings.png
-share/pcbsd/pc-controlpanel/icons/pc-bugreport.png
 share/pcbsd/pc-controlpanel/icons/pc-controlpanel.png
 share/pcbsd/pc-controlpanel/icons/pc-controlpanel64x64.png
 share/pcbsd/pc-controlpanel/icons/preferences-desktop-user-password.png
@@ -264,7 +261,6 @@ share/pcbsd/pc-controlpanel/items/system/webmin.desktop
 share/pcbsd/pc-controlpanel/items/tools/flash-player-properties.desktop
 share/pcbsd/pc-controlpanel/items/tools/kde-kcmdf.desktop
 share/pcbsd/pc-controlpanel/items/tools/lifepreserver.desktop
-share/pcbsd/pc-controlpanel/items/tools/pcbugreport.desktop
 share/pcbsd/pc-controlpanel/items/tools/x11vnc.desktop
 share/pcbsd/pc-installgui/get-zfs-restore-list.sh
 share/pcbsd/pc-installgui/load-usb-key.sh
