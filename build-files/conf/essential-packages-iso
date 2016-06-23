@@ -11,7 +11,8 @@ multimedia/webcamd
 print/cups-pdf
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
-sysutils/pcbsd-util*
+sysutils/pcbsd-utils
+sysutils/pcbsd-utils-qt5
 sysutils/sysadm
 sysutils/sysadm-client
 www/qupzilla-qt5
