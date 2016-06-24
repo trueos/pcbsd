@@ -141,12 +141,12 @@ html_title = project + " " + release
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "pcbsdlogo.png"
+html_logo = "trueoslogo.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = "pcbsd.ico"
+html_favicon = "trueos.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -225,7 +225,7 @@ latex_elements = {
 #    u'iXsystems', 'manual'),
 # ]
 latex_documents = [
-('pcbsd', u'pcbsd.pdf', u'TrueOS® User Guide 11.0',
+('trueos', u'trueos.pdf', u'TrueOS® User Guide 11.0',
    u'iXsystems', 'manual'),
 ]
 
