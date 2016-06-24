@@ -72,12 +72,12 @@
         <translation>X.org bediener weergawe:            </translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI nut:            </translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI nut:            </translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI nut:            </translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI nut:            </translation>
     </message>
     <message>
         <source>Package set:</source>

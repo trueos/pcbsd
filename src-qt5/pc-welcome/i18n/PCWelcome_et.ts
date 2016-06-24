@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>Tere tulemast PC-BSD-sse</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>Tere tulemast TrueOS-sse</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Tere tulemast!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>Kui PC-BSD on sinu jaoks uus, siis loe järgnevad leheküljed läbi, et saada kiire ülevaade selle operatsioonisüsteemi kohta.</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>Kui TrueOS on sinu jaoks uus, siis loe järgnevad leheküljed läbi, et saada kiire ülevaade selle operatsioonisüsteemi kohta.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Rakenduste paigaldamine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Otsid tarkvara? PC-BSD-s on programm nimega AppCafe, millega saab kergesti rakendusi otsida ja paigaldada.</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>Otsid tarkvara? TrueOS-s on programm nimega AppCafe, millega saab kergesti rakendusi otsida ja paigaldada.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,16 +68,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Süsteemi seadistamine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>Kui soovid kasutajaid lisada, tulemüüri seadistada või printerit lisada, siis PC-BSD juhtpaneel on peamine koht, kus saab süsteemi sätteid muuta.</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>Kui soovid kasutajaid lisada, tulemüüri seadistada või printerit lisada, siis TrueOS juhtpaneel on peamine koht, kus saab süsteemi sätteid muuta.</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>Hoia oma failid alles</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Õnnetus ei hüüa tulles. Kettaseadmed võivad krahhida ja failid kaotsi minna. PC-BSD-s on rakendus nimega Life Preserver, millega saab sünkroniseerida faile FreeNAS-süsteemi või mõne muu võrgus asuva andmeserveriga.</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>Õnnetus ei hüüa tulles. Kettaseadmed võivad krahhida ja failid kaotsi minna. TrueOS-s on rakendus nimega Life Preserver, millega saab sünkroniseerida faile FreeNAS-süsteemi või mõne muu võrgus asuva andmeserveriga.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -92,8 +92,8 @@ p, li { white-space: pre-wrap; }
         <translation>Löö kaasa</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD on kogukonna ühine projekt. Selle teevad võimalikuks paljud abilised avatud lähtekoodi toetajate hulgast. On palju võimalusi, kuidas aidata, näiteks arendamisega või küsimustele vastamisega foorumis. Allolevatelt veebisaitidelt saab infot selle kohta, mida on võimalik teha.</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS on kogukonna ühine projekt. Selle teevad võimalikuks paljud abilised avatud lähtekoodi toetajate hulgast. On palju võimalusi, kuidas aidata, näiteks arendamisega või küsimustele vastamisega foorumis. Allolevatelt veebisaitidelt saab infot selle kohta, mida on võimalik teha.</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

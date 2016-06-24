@@ -49,7 +49,7 @@ void PCBSDUserManager::setupUMDialogs()
        simpleGui = new SimpleDlgCode();
        simpleGui->programInit(back, wDir);
        //Now load the appropriate GUI
-       settings = new QSettings("PC-BSD", "UserManager", this);
+       settings = new QSettings("TrueOS", "UserManager", this);
        if(settings->value("basicview",true).toBool()){
 	 switchToSimple();
        }else{

@@ -32,8 +32,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD netværkskontrol</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS netværkskontrol</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -180,8 +180,8 @@
         <translation>Adgangskode            </translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Note: Denne mellemværtsindstilling er for særlige værktøjer for PC-BSD. Internetapplikationer akn stadig bruge deres egen mellemværtsindstilling, som så skal indstilles manuelt.            </translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Note: Denne mellemværtsindstilling er for særlige værktøjer for TrueOS. Internetapplikationer akn stadig bruge deres egen mellemværtsindstilling, som så skal indstilles manuelt.            </translation>
     </message>
     <message>
         <source>&amp;Close</source>

@@ -6,7 +6,7 @@ PORTVERSION=	%%CHGVERSION%%
 CATEGORIES=	sysutils
 
 MAINTAINER=	kmoore@FreeBSD.org
-COMMENT=	PC-BSD Command-Line Utilities
+COMMENT=	TrueOS Command-Line Utilities
 
 LICENSE=	BSD3CLAUSE
 

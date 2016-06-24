@@ -8,12 +8,12 @@
         <translation>CMD izpildes rezultāts</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Iegūstu PC-BSD portu koku</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Iegūstu TrueOS portu koku</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Iegūstu PC-BSD avotus</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Iegūstu TrueOS avotus</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -39,8 +39,8 @@
         <translation>Vispārējais</translation>
     </message>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD sistēmas konfigurācija</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS sistēmas konfigurācija</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -79,8 +79,8 @@
         <translation>Sistēmas uzdevumi</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD versijas</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS versijas</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>FreeBSD versija:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Iekraut PC-BSD &amp;sistēmas avotu</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Iekraut TrueOS &amp;sistēmas avotu</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Iekraut PC-BSD p&amp;ortu koku</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Iekraut TrueOS p&amp;ortu koku</translation>
     </message>
     <message>
         <source>Error</source>

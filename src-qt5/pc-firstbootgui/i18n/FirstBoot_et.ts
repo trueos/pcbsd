@@ -16,8 +16,8 @@
         <translation>&amp;Edasi</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Tere tulemast PC-BSD-sse! Vali keel ja vajuta &quot;Edasi&quot;, et paigaldamist jätkata.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Tere tulemast TrueOS-sse! Vali keel ja vajuta &quot;Edasi&quot;, et paigaldamist jätkata.</translation>
     </message>
     <message>
         <source>System Timezone</source>

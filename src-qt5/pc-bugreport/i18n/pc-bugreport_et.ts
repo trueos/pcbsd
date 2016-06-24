@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD bug reporting tool</source>
-        <translation>PC-BSD vigadest teatamise tööriist</translation>
+        <source>TrueOS bug reporting tool</source>
+        <translation>TrueOS vigadest teatamise tööriist</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -16,8 +16,8 @@
         <translation>FreeBSD süsteemi baas</translation>
     </message>
     <message>
-        <source>PC-BSD base system</source>
-        <translation>PC-BSD süsteemi baas</translation>
+        <source>TrueOS base system</source>
+        <translation>TrueOS süsteemi baas</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -32,15 +32,15 @@
         <translation>FreeBSD tarkvara (pordid/pakid)</translation>
     </message>
     <message>
-        <source>PC-BSD software (pbi)</source>
-        <translation>PC-BSD tarkvara (pbi)</translation>
+        <source>TrueOS software (pbi)</source>
+        <translation>TrueOS tarkvara (pbi)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Saada e-mail FreeBSD vigade meililisti. Külasta järgmist veebilehte, et seda meililisti lugeda või tellida&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
+        <source>1. Submit a bug report using using TrueOS&apos;s trac mechanism</source>
         <translation>1. Esita vearaport FreeBSD trac-mehhanismi kaudu</translation>
     </message>
     <message>
@@ -144,8 +144,8 @@
         <translation>1. Vearaporte võib proovida saata tarkvara veebisaidil</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation>2. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD meililisti pbi-bugs</translation>
+        <source>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</source>
+        <translation>2. Kui arvad, et probleem on TrueOS-s, siis edasta vearaport PC-BSD meililisti pbi-bugs</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -177,23 +177,23 @@
             </translation>
     </message>
     <message>
-        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <source>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <source>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <source>2. Create a ticket on the TrueOS bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <source>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -241,7 +241,7 @@ Visit the following web page to subscribe to or read the archives of this list</
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation>PC-BSD diagnostikaraport</translation>
+        <translation>TrueOS diagnostikaraport</translation>
     </message>
     <message>
         <source>lsusb output</source>

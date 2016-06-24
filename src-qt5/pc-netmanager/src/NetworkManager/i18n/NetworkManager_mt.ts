@@ -27,8 +27,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Network Maniġer</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS Network Maniġer</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Password</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Nota: Din il-konfigurazzjoni prokura huwa għal għodod speċifiċi PC-BSD u l-utilitajiet. Applikazzjonijiet konxji Internet jista &apos;jibqa&apos; juża konfigurazzjoni prokura tagħhom stess, li se jkollhom jiġu konfigurati manwalment.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Nota: Din il-konfigurazzjoni prokura huwa għal għodod speċifiċi TrueOS u l-utilitajiet. Applikazzjonijiet konxji Internet jista &apos;jibqa&apos; juża konfigurazzjoni prokura tagħhom stess, li se jkollhom jiġu konfigurati manwalment.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

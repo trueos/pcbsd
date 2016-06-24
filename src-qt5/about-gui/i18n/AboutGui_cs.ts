@@ -72,12 +72,12 @@
         <translation>Verze X.org serveru:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD řádkové příkazy:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS řádkové příkazy:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD grafické nástroje:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS grafické nástroje:</translation>
     </message>
     <message>
         <source>Package set:</source>

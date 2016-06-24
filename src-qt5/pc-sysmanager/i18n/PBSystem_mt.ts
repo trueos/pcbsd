@@ -8,12 +8,12 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Getting Portijiet PC-BSD Tree</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Getting Portijiet TrueOS Tree</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Getting Sorsi PC-BSD</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Getting Sorsi TrueOS</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -39,8 +39,8 @@
         <translation>Ġenerali</translation>
     </message>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>Sistema Konfigurazzjoni PC-BSD</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>Sistema Konfigurazzjoni TrueOS</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -79,8 +79,8 @@
         <translation>Kompiti sistema</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>Verżjonijiet PC-BSD</translation>
+        <source>TrueOS Versions</source>
+        <translation>Verżjonijiet TrueOS</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>FreeBSD Version:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Jġibu PC-BSD &amp;Sistema Sors</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Jġibu TrueOS &amp;Sistema Sors</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Jġibu PC-BSD P&amp;orts Tree</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Jġibu TrueOS P&amp;orts Tree</translation>
     </message>
     <message>
         <source>Error</source>

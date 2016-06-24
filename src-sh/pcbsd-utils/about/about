@@ -77,7 +77,7 @@ display_pkg_version "       Lumina:......." "lumina"
 fi
 echo ""
 echo "System components:"
-display_pkg_version "       PC-BSD CLI:...r" "pcbsd-utils"
-display_pkg_version "       PC-BSD UI:....r" "pcbsd-utils-qt5"
+display_pkg_version "       TrueOS CLI:...r" "pcbsd-utils"
+display_pkg_version "       TrueOS UI:....r" "pcbsd-utils-qt5"
 
 echo ""

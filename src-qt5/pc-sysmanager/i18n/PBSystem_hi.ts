@@ -9,12 +9,12 @@
             </translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
+        <source>Getting TrueOS Ports Tree</source>
         <translation>पी.सी-बी.एस.डी पोर्ट ट्री लिया जा रहा है
             </translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
+        <source>Getting TrueOS Sources</source>
         <translation>पी.सी-बी.एस.डी स्रोत लिए जा रहे हैं
             </translation>
     </message>
@@ -42,7 +42,7 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
+        <source>TrueOS System Configuration</source>
         <translation>पीसी-बीएसडी सिस्टम समाकृति</translation>
     </message>
     <message>
@@ -90,7 +90,7 @@
             </translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
+        <source>TrueOS Versions</source>
         <translation>पी.सी-बी.एस.डी संस्करण
             </translation>
     </message>
@@ -120,12 +120,12 @@
             </translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
+        <source>Fetch TrueOS &amp;System Source</source>
         <translation>पी.सी-बी.एस.डी &amp;सिस्टम स्रोत पकड़ें
             </translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
         <translation>पी.सी-बी.एस.डी प&amp;र्ट्स ट्री पकड़ें
             </translation>
     </message>

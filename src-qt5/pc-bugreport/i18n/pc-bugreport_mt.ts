@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD bug reporting tool</source>
-        <translation>PC-BSD għodda ta &apos;rappurtar bug</translation>
+        <source>TrueOS bug reporting tool</source>
+        <translation>TrueOS għodda ta &apos;rappurtar bug</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -16,8 +16,8 @@
         <translation>FreeBSD base system</translation>
     </message>
     <message>
-        <source>PC-BSD base system</source>
-        <translation>PC-BSD base system</translation>
+        <source>TrueOS base system</source>
+        <translation>TrueOS base system</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -32,16 +32,16 @@
         <translation>Software FreeBSD (portijiet/pakketti)</translation>
     </message>
     <message>
-        <source>PC-BSD software (pbi)</source>
-        <translation>PC-BSD software (pbi)</translation>
+        <source>TrueOS software (pbi)</source>
+        <translation>TrueOS software (pbi)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Ibgħat email lill-mailing list bugs FreeBSD. Żur il-paġna web li ġejja ta &apos;sottoskrizzjoni jew taqra l-arkivji ta&apos; din il-lista&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation>1. Tissottometti rapport bug jużaw jużaw mekkaniżmu trac PC-BSD tal</translation>
+        <source>1. Submit a bug report using using TrueOS&apos;s trac mechanism</source>
+        <translation>1. Tissottometti rapport bug jużaw jużaw mekkaniżmu trac TrueOS tal</translation>
     </message>
     <message>
         <source>X.org server</source>
@@ -144,8 +144,8 @@
         <translation>1. Tista &apos;tipprova tirrapporta bug fis-sit software</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation>2.Jekk taħseb li problema hija speċifika PC-BSD jekk jogħġbok rapport lill-mailing list PCBSD PBI-bugs</translation>
+        <source>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</source>
+        <translation>2.Jekk taħseb li problema hija speċifika TrueOS jekk jogħġbok rapport lill-mailing list PCBSD PBI-bugs</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -177,23 +177,23 @@
             </translation>
     </message>
     <message>
-        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <source>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <source>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <source>2. Create a ticket on the TrueOS bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <source>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>

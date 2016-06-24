@@ -72,12 +72,12 @@
         <translation>X.org 伺服器版本:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD 文字介面工具程式：</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS 文字介面工具程式：</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD 圖像介面工具程式：</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS 圖像介面工具程式：</translation>
     </message>
     <message>
         <source>Package set:</source>

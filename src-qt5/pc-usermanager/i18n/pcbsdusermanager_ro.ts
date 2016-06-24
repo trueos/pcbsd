@@ -324,7 +324,7 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -409,7 +409,7 @@
             </translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
+        <source>TrueOS User Manager - Advanced Mode</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -432,7 +432,7 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -636,7 +636,7 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation type="unfinished">
             </translation>
     </message>

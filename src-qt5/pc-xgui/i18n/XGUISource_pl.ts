@@ -111,8 +111,8 @@ Jeśli nie pojawi się Twój ekran, proszę poczekać, po chwili nastąpi powró
         <translation>Ostrzeżenie!</translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD nie był w stanie automatycznie wykryć twojego monitora. Może być konieczne określenie pionowej i poziomej częstotliwości odświeżania monitora w zakładce &quot;Zaawansowane&quot;.</translation>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <translation>TrueOS nie był w stanie automatycznie wykryć twojego monitora. Może być konieczne określenie pionowej i poziomej częstotliwości odświeżania monitora w zakładce &quot;Zaawansowane&quot;.</translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>

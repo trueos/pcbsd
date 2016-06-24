@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string notr="true">PC-BSD</string>
+   <string notr="true">TrueOS</string>
   </property>
   <property name="windowIcon">
    <iconset resource="sysinstaller.qrc">
@@ -820,7 +820,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup.</string>
+         <string>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup.</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>

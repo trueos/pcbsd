@@ -27,8 +27,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>Gestionnaire de Réseau de PC-BSD            </translation>
+        <source>TrueOS Network Manager</source>
+        <translation>Gestionnaire de Réseau de TrueOS            </translation>
     </message>
     <message>
         <source>Devices</source>
@@ -147,8 +147,8 @@
         <translation>Mot de passe     </translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Remarque: Cette configuration proxy est pour les outils PC-BSD et des utilitaires spécifiques. Les utilisateur d&apos;applications Internet avancées peuvent toujours utiliser leur configuration propre proxy, qui devra être configuré manuellement.            </translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Remarque: Cette configuration proxy est pour les outils TrueOS et des utilitaires spécifiques. Les utilisateur d&apos;applications Internet avancées peuvent toujours utiliser leur configuration propre proxy, qui devra être configuré manuellement.            </translation>
     </message>
     <message>
         <source>&amp;Close</source>

@@ -282,7 +282,7 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation>पी सी -बी अस  डी उप्योगे करने वाला </translation>
     </message>
     <message>
@@ -350,7 +350,7 @@
         <translation>सदस्य   </translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
+        <source>TrueOS User Manager - Advanced Mode</source>
         <translation>पी सी -बी अस डी उपयोग करने वाला -प्रगति शेली </translation>
     </message>
     <message>
@@ -371,7 +371,7 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation>पी.सी-बी.एस.डी उपयोगकर्ता प्रबंधन
             </translation>
     </message>
@@ -551,7 +551,7 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation>पी सी -बी अस डी उप्योगे करने वाला </translation>
     </message>
     <message>

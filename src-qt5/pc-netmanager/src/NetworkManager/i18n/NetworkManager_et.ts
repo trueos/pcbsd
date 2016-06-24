@@ -31,8 +31,8 @@
         <translation>IP-Aadress:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD võrguhaldur</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS võrguhaldur</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Parool</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Märkus: see proksi seadistus on PC-BSD tööriistadele ja programmidele. Internetti kasutavad rakendused võivad kasutada oma proksi seadeid, mis tuleb käsitsi määrata.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Märkus: see proksi seadistus on TrueOS tööriistadele ja programmidele. Internetti kasutavad rakendused võivad kasutada oma proksi seadeid, mis tuleb käsitsi määrata.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

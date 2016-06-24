@@ -786,8 +786,8 @@
         <translation>Tavaline vangla (turvalisem, hea teenuste jaoks)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Paigalda PKGNG ja PC-BSD tööriistad</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Paigalda PKGNG ja TrueOS tööriistad</translation>
     </message>
     <message>
         <source>Jail Version</source>

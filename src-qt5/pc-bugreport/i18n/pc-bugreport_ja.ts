@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD bug reporting tool</source>
-        <translation>PC-BSD バグ報告ツール</translation>
+        <source>TrueOS bug reporting tool</source>
+        <translation>TrueOS バグ報告ツール</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -16,8 +16,8 @@
         <translation>FreeBSD 基本システム</translation>
     </message>
     <message>
-        <source>PC-BSD base system</source>
-        <translation>PC-BSD 基本システム</translation>
+        <source>TrueOS base system</source>
+        <translation>TrueOS 基本システム</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -32,16 +32,16 @@
         <translation>FreeBSD ソフトウェア (ports/packages)</translation>
     </message>
     <message>
-        <source>PC-BSD software (pbi)</source>
-        <translation>PC-BSD ソフトウェア (pbi)</translation>
+        <source>TrueOS software (pbi)</source>
+        <translation>TrueOS ソフトウェア (pbi)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. FreeBSD bugs メーリングリストにメールを送信します。以下のウェブページで購読や過去のメーリングリストの内容を読むことができます&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation>1. PC-BSD の trac を使ってバグ報告を提出します</translation>
+        <source>1. Submit a bug report using using TrueOS&apos;s trac mechanism</source>
+        <translation>1. TrueOS の trac を使ってバグ報告を提出します</translation>
     </message>
     <message>
         <source>X.org server</source>
@@ -144,8 +144,8 @@
         <translation>1. ソフトウェアのサイトでバグを報告することができます</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation>2.もし問題が PC-BSD 特有のものと考えられるのであれば PCBSD pbi-bugs メーリングリストへバグを報告して下さい</translation>
+        <source>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</source>
+        <translation>2.もし問題が TrueOS 特有のものと考えられるのであれば PCBSD pbi-bugs メーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -176,22 +176,22 @@
         <translation>1. FreeBSD の Bugzilla を利用してバグレポートを提出します。</translation>
     </message>
     <message>
-        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <source>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>もしそれがバグかどうかわからない場合は、PC-BSD testing メーリングリストで尋ねることができます。
+        <translation>もしそれがバグかどうかわからない場合は、TrueOS testing メーリングリストで尋ねることができます。
 メーリングリストの購読やアーカイブを読む場合は以下の Web ページをご覧下さい</translation>
     </message>
     <message>
-        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
-        <translation>4. もし PC-BSD 特有の問題であると思われる場合は、バグトラッカーでチケットを作成して下さい。</translation>
+        <source>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</source>
+        <translation>4. もし TrueOS 特有の問題であると思われる場合は、バグトラッカーでチケットを作成して下さい。</translation>
     </message>
     <message>
-        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
-        <translation>2. PC-BSD バグトラッカーでチケットを作成する。</translation>
+        <source>2. Create a ticket on the TrueOS bug tracker.</source>
+        <translation>2. TrueOS バグトラッカーでチケットを作成する。</translation>
     </message>
     <message>
-        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
-        <translation>3. もし PC-BSD 特有の問題であると思われる場合は、PC-BSD バグトラッカーでチケットを作成して下さい。</translation>
+        <source>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation>3. もし TrueOS 特有の問題であると思われる場合は、PC-BSD バグトラッカーでチケットを作成して下さい。</translation>
     </message>
 </context>
 <context>

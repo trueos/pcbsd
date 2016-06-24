@@ -806,8 +806,8 @@
         <translation>Traditionellt Jail (Säkert, bäst för tjänster)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Installera PKGNG och PC-BSD verktyg</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Installera PKGNG och TrueOS verktyg</translation>
     </message>
     <message>
         <source>Jail Version</source>

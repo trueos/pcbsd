@@ -20,8 +20,8 @@
         <translation>&amp;Naprej</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Dobrodošli v PC-BSD! Prosimo da izberete vaš jezik in nato kliknete Naprej.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Dobrodošli v TrueOS! Prosimo da izberete vaš jezik in nato kliknete Naprej.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Nameščeni bodo naslednji meta-paketi:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>Namestitev PC-BSD</translation>
+        <source>TrueOS Installer</source>
+        <translation>Namestitev TrueOS</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>Izbira paketov za TrueOS</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>Izbira paketov za PC-BSD</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>Izbira paketov za TrueOS</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu odstrani namestitveni medij.
         <translation>Naloži namestitveno konfiguracijsko datoteko iz USB ključka</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Delovna postaja (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Delovna postaja (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -795,7 +795,7 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>

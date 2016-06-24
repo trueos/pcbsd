@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD Control Panel</source>
-        <translation>Панель управления PC-BSD</translation>
+        <source>TrueOS Control Panel</source>
+        <translation>Панель управления TrueOS</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>

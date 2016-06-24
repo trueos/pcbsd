@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>欢迎使用PC-BSD</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>欢迎使用TrueOS</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;欢迎！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>如果你是PC-BSD新手，请花点时间通阅以下的内容以帮助你对你的新操作系统有一个大致的了解。</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>如果你是TrueOS新手，请花点时间通阅以下的内容以帮助你对你的新操作系统有一个大致的了解。</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,20 +52,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;安装应用程序&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>苦于寻找软件?PC-BSD拥有“APPCafe”，它可以让你很轻松的搜寻到并安装软件。</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>苦于寻找软件?TrueOS拥有“APPCafe”，它可以让你很轻松的搜寻到并安装软件。</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>添加用户?配置防火墙?增加打印机?PC-BSD的控制面板可以为你提供一站式服务解决所有这些苦恼的问题。</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>添加用户?配置防火墙?增加打印机?TrueOS的控制面板可以为你提供一站式服务解决所有这些苦恼的问题。</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>保存你的文件</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>出现意外错误。磁盘无响应，文件可能永久性丢失。PC-BSD有保护程序，可以很轻松同步你的数据到远程FreeNAS系统或其他网络数据服务器。</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>出现意外错误。磁盘无响应，文件可能永久性丢失。TrueOS有保护程序，可以很轻松同步你的数据到远程FreeNAS系统或其他网络数据服务器。</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -80,8 +80,8 @@ p, li { white-space: pre-wrap; }
         <translation>包括</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD发行版是许多的开源社区伙伴努力的结果。有许多方式贡献，包括帮助开发，论坛上提问和回答问题。下面提供一些网址。</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS发行版是许多的开源社区伙伴努力的结果。有许多方式贡献，包括帮助开发，论坛上提问和回答问题。下面提供一些网址。</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

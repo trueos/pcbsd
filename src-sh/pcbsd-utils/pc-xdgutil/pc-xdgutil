@@ -9,13 +9,13 @@ show_usage() {
 	echo "${0}: Available Options
 ------------------------------------------------------------------------
 updatemenu	Copies the default xdg menu schema to the system
-applyoverlay	Re-apply PC-BSD modified port files
+applyoverlay	Re-apply TrueOS modified port files
 "
 
 	exit 1
 }
 
-# Copy over the PC-BSD XDG menu structure 
+# Copy over the TrueOS XDG menu structure 
 update_xdg_menu() {
 
 	# Copy over the dir files

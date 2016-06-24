@@ -114,7 +114,7 @@ If your screen does not appear, please wait and you will be returned to this scr
         <translation>Upozorenje!            </translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
         <translation type="unfinished">
             </translation>
     </message>

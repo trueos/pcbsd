@@ -27,8 +27,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD网络管理器</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS网络管理器</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,7 +175,7 @@
         <translation>密码</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
         <translation>注意：此代理配置适用于 PC - BSD 的特定工具和实用程序。其他使用互联网的应用程序仍然可以使用自己的代理配置（需要手动配置）。</translation>
     </message>
     <message>

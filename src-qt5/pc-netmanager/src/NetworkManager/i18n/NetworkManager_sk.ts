@@ -32,8 +32,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Network Manager</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS Network Manager</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -190,8 +190,8 @@
             </translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Poznámka: Táto konfigurácia proxy je určená pre konkrétne PC-BSD nástroje a utility. Internetové aware aplikácie môžu naďalej používať svoje vlastné nastavenia proxy, ktoré budú musieť byť manuálne konfigurované.
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Poznámka: Táto konfigurácia proxy je určená pre konkrétne TrueOS nástroje a utility. Internetové aware aplikácie môžu naďalej používať svoje vlastné nastavenia proxy, ktoré budú musieť byť manuálne konfigurované.
             </translation>
     </message>
     <message>

@@ -16,7 +16,7 @@
         <translation>&amp;Tovább</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
         <translation>Üdvözöljük az új PC–BSD-rendszerében! Fent megváltoztathatja a nyelvet. Kattintson a Tovább gombra a beállítási folyamat megkezdéséhez.</translation>
     </message>
     <message>

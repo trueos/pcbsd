@@ -80,7 +80,7 @@ Alternatively, the CVSup server for this operation may be set manually from the 
             </translation>
         </message>
         <message>
-            <source>PC-BSD has detected the fastest server to be:
+            <source>TrueOS has detected the fastest server to be:
 </source>
             <translation type="unfinished">
             </translation>
@@ -125,7 +125,7 @@ Would you like to use this server in future?</source>
             </translation>
         </message>
         <message>
-            <source>Please wait whilst PC-BSD attempts to find the fastest CVS server available for your location.</source>
+            <source>Please wait whilst TrueOS attempts to find the fastest CVS server available for your location.</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -167,7 +167,7 @@ You may wish to try testing other servers.</source>
     <context>
         <name>PBSystemTab</name>
         <message>
-            <source>PC-BSD System Configuration</source>
+            <source>TrueOS System Configuration</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -197,7 +197,7 @@ You may wish to try testing other servers.</source>
             </translation>
         </message>
         <message>
-            <source>PC-BSD Version:</source>
+            <source>TrueOS Version:</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -222,7 +222,7 @@ You may wish to try testing other servers.</source>
             </translation>
         </message>
         <message>
-            <source>Selected PC-BSD Kernel</source>
+            <source>Selected TrueOS Kernel</source>
             <translation type="unfinished">
             </translation>
         </message>

@@ -31,8 +31,8 @@
         <translation>IP-osoite:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD:n verkkoasetukset</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS:n verkkoasetukset</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Salasana</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Huomioi! Nämä välityspalvelimen asetukset koskevat vain PC-BSD:n ohjelmistoja. Sovellukset, jotka muodostavat omia internet yhteyksiä, voivat edelleen käyttää omia välityspalvelin asetuksia. Joudut muokkaamaan ne sovelluskohtaisesti itse.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Huomioi! Nämä välityspalvelimen asetukset koskevat vain TrueOS:n ohjelmistoja. Sovellukset, jotka muodostavat omia internet yhteyksiä, voivat edelleen käyttää omia välityspalvelin asetuksia. Joudut muokkaamaan ne sovelluskohtaisesti itse.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

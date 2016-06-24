@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD bug reporting tool</source>
-        <translation>PC-BSD bug reporting tool</translation>
+        <source>TrueOS bug reporting tool</source>
+        <translation>TrueOS bug reporting tool</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -16,8 +16,8 @@
         <translation>FreeBSD base system</translation>
     </message>
     <message>
-        <source>PC-BSD base system</source>
-        <translation>PC-BSD base system</translation>
+        <source>TrueOS base system</source>
+        <translation>TrueOS base system</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -32,16 +32,16 @@
         <translation>FreeBSD software (ports/packages)</translation>
     </message>
     <message>
-        <source>PC-BSD software (pbi)</source>
-        <translation>PC-BSD software (pbi)</translation>
+        <source>TrueOS software (pbi)</source>
+        <translation>TrueOS software (pbi)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</translation>
+        <source>1. Submit a bug report using using TrueOS&apos;s trac mechanism</source>
+        <translation>1. Submit a bug report using using TrueOS&apos;s trac mechanism</translation>
     </message>
     <message>
         <source>X.org server</source>
@@ -144,8 +144,8 @@
         <translation>1. You can try to report a bug at software site</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</translation>
+        <source>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</source>
+        <translation>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -176,22 +176,22 @@
         <translation>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</translation>
     </message>
     <message>
-        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <source>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <translation>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</translation>
     </message>
     <message>
-        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
-        <translation>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</translation>
+        <source>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</source>
+        <translation>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</translation>
     </message>
     <message>
-        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
-        <translation>2. Create a ticket on the PC-BSD bug tracker.</translation>
+        <source>2. Create a ticket on the TrueOS bug tracker.</source>
+        <translation>2. Create a ticket on the TrueOS bug tracker.</translation>
     </message>
     <message>
-        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
-        <translation>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</translation>
+        <source>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</translation>
     </message>
 </context>
 <context>

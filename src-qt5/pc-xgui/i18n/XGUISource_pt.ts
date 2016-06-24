@@ -113,8 +113,8 @@ Se o seu monitor não responder, por favor aguarde para ser redireccionado novam
         <translation>Atenção!</translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD foi incapaz de auto-detectar o seu monitor. Pode necessitar de especificar as taxas de refrescamento Horizontal e Vertical deste monitor na aba &quot;Avançado&quot;</translation>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <translation>TrueOS foi incapaz de auto-detectar o seu monitor. Pode necessitar de especificar as taxas de refrescamento Horizontal e Vertical deste monitor na aba &quot;Avançado&quot;</translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>

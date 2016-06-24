@@ -72,12 +72,12 @@
         <translation>X.org phiên bản server:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI Các tiện ích:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI Các tiện ích:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI Các tiện ích:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI Các tiện ích:</translation>
     </message>
     <message>
         <source>Package set:</source>

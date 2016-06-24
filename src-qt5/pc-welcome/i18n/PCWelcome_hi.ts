@@ -4,7 +4,7 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
+        <source>Welcome to TrueOS</source>
         <translation>पी.सी-बी.एस.डी में आपका स्वागत है
             </translation>
     </message>
@@ -21,7 +21,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;स्वागत है!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
         <translation>अगर आप पी.सी-बी.एस.डी के लिए नये हैं, तो कृपया करके कुछ समय निकालें शुरुआत के पन्नों में आपके नये ऑपरेटिंग सिस्टम का परिचय दिया गया है, उसको पढ़ें
             </translation>
     </message>
@@ -57,7 +57,7 @@ p, li { white-space: pre-wrap; }
             </translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
         <translation>अतिरिक्त सॉफ्टवेयर देख रहे हैं? पी.सी-बी.एस.डी में &quot;ऐप केफे&quot; शामिल है, जो आपको आसानी से अनुप्रयोगों के लिए खोज और स्थापित करने की सुविधा देता है
             </translation>
     </message>
@@ -75,7 +75,7 @@ p, li { white-space: pre-wrap; }
             </translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
         <translation>एक नया उपयोगकर्ता जोड़ने की जरूरत है? फाइयर वॉल समनुरूप करें? प्रिंटर जोड़ें? पीसी-बी.एस.डी नियंत्रण कक्ष आपके सिस्टम के प्रबंधन के लिए एक मात्र स्थान है.
             </translation>
     </message>
@@ -85,7 +85,7 @@ p, li { white-space: pre-wrap; }
             </translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
         <translation>दुर्घटनायें हो जाती हैं | डिस्क ड्राइव दुर्घटनाग्रस्त हो सकती हैं, फ़ाइलों को हमेशा के लिए खो दिया जा सकता है | पी.सी-बी.एस.डी में जीवन रक्षक अप्लिकेशन शामिल है, जो एक दूरस्थ फ्री एन.ए.एस सिस्टम या अन्य नेटवर्क डाटा सर्वरउपयोगकर्ता के डाटा को आसान बनाता है समक्रमिक करने में 
             </translation>
     </message>
@@ -105,7 +105,7 @@ p, li { white-space: pre-wrap; }
             </translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
         <translation>पी.सी-बी.एस.डी एक समुदाय की मेहनत  है , और इसके रिलीस को संभव बनाया गया है खुले स्रोत समुदाय में आपके पड़ोसियों की एक किस्म के द्वारा | विकास के साथ मदद करने से लेकर, हमारे मंचों पर सवाल पूछ रहा है और जवाब देने के लिए, योगदान में मदद करने के लिए बहुत सारे तरीके हैं | नीचे दी वेबसाइटें, आपको आरंभ करने के लिए एक महान जगह उपलब्ध कराते हैं.
             </translation>
     </message>

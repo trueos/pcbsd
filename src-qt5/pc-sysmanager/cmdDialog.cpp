@@ -25,11 +25,11 @@ void CMDDialog::start(QString cmdtype, QString branch){
   ui->textEdit->clear(); //make sure this is cleared
   QStringList cmds, dirs, info; //For generating the necessary input to the backend
   if(cmdtype.toLower() == "ports"){
-    this->setWindowTitle(tr("Getting PC-BSD Ports Tree"));
+    this->setWindowTitle(tr("Getting TrueOS Ports Tree"));
     Backend::generatePortsUpdateCMDS(cmds, dirs, info);
 	  
   }else if(cmdtype.toLower() == "source"){
-    this->setWindowTitle(tr("Getting PC-BSD Sources"));
+    this->setWindowTitle(tr("Getting TrueOS Sources"));
     Backend::generateSourceUpdateCMDS(branch, cmds, dirs, info);
 	  
   }else{

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Configuration options for src-sh applications
 
-# Set the PC-BSD version number
+# Set the TrueOS version number
 # When you update this tag, be sure to update ../src-qt4/config.h as well
 export PCBSDVERSION="master"
 

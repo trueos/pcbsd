@@ -16,8 +16,8 @@
         <translation>下一步(&amp;N)</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>欢迎来到您崭新的PC-BSD系统！您可以在上面改变您的语言，点击下一步开始安装。</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>欢迎来到您崭新的TrueOS系统！您可以在上面改变您的语言，点击下一步开始安装。</translation>
     </message>
     <message>
         <source>System Timezone</source>

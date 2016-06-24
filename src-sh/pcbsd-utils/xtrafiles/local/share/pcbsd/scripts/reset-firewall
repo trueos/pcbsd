@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (c) 2015 Kris Moore (iXsystems / PC-BSD)
+# Copyright (c) 2015 Kris Moore (iXsystems / TrueOS)
 # License: BSD
 
 rules="/etc/ipfw.rules"

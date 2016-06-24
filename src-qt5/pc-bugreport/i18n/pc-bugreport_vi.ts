@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD bug reporting tool</source>
-        <translation>PC-BSD công cụ báo cáo lỗi</translation>
+        <source>TrueOS bug reporting tool</source>
+        <translation>TrueOS công cụ báo cáo lỗi</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -16,8 +16,8 @@
         <translation>Hệ thống cơ bản FreeBSD</translation>
     </message>
     <message>
-        <source>PC-BSD base system</source>
-        <translation>Hệ thống cơ bản PC-BSD</translation>
+        <source>TrueOS base system</source>
+        <translation>Hệ thống cơ bản TrueOS</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -32,16 +32,16 @@
         <translation>Phần mềm FreeBSD (cảng/gói)</translation>
     </message>
     <message>
-        <source>PC-BSD software (pbi)</source>
-        <translation>Phần mềm PC-BSD (PBI)</translation>
+        <source>TrueOS software (pbi)</source>
+        <translation>Phần mềm TrueOS (PBI)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Gửi email đến các lỗi FreeBSD danh sách gửi thư. Truy cập vào trang web sau để đăng ký hoặc đọc các tài liệu lưu trữ của danh sách này&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation>1. Gửi một báo cáo lỗi sử dụng sử dụng cơ chế trac PC-BSD</translation>
+        <source>1. Submit a bug report using using TrueOS&apos;s trac mechanism</source>
+        <translation>1. Gửi một báo cáo lỗi sử dụng sử dụng cơ chế trac TrueOS</translation>
     </message>
     <message>
         <source>X.org server</source>
@@ -144,8 +144,8 @@
         <translation>1. Bạn có thể thử để báo lỗi tại trang web của phần mềm</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation>2.If bạn nghĩ rằng vấn đề đó là PC-BSD cụ thể xin vui lòng báo cáo PCBSD PBI-bugs danh sách gửi thư</translation>
+        <source>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</source>
+        <translation>2.If bạn nghĩ rằng vấn đề đó là TrueOS cụ thể xin vui lòng báo cáo PCBSD PBI-bugs danh sách gửi thư</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -177,23 +177,23 @@
             </translation>
     </message>
     <message>
-        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <source>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <source>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <source>2. Create a ticket on the TrueOS bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <source>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</source>
         <translation type="unfinished">
             </translation>
     </message>

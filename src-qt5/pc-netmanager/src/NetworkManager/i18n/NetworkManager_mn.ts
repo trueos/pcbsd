@@ -32,8 +32,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Сүлжээ зохицуулагч</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS Сүлжээ зохицуулагч</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -180,8 +180,8 @@
         <translation>Нууц үг</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Санамж: Энэ proxy тохируулга нь PC-BSD үйлдлийн системд зориулсан багаж, хэрэгслүүд болно. Интернэтзарим програм хангамж тухайн тохиолдолд өөр өөр proxy тохируулгатай байх ба үүнийг тус бүрт нь тусгайлан тохируулж өгнө.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Санамж: Энэ proxy тохируулга нь TrueOS үйлдлийн системд зориулсан багаж, хэрэгслүүд болно. Интернэтзарим програм хангамж тухайн тохиолдолд өөр өөр proxy тохируулгатай байх ба үүнийг тус бүрт нь тусгайлан тохируулж өгнө.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

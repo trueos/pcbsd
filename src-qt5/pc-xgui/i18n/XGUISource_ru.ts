@@ -101,8 +101,8 @@ Keep these settings?</source>
         <translation>Предупреждение!</translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD не может определить ваш монитор автоматически. Вам необходимо указать частоту вертикальной и горизонтальной развертки во вкладке «Дополнительно».</translation>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <translation>TrueOS не может определить ваш монитор автоматически. Вам необходимо указать частоту вертикальной и горизонтальной развертки во вкладке «Дополнительно».</translation>
     </message>
     <message>
         <source>The settings you have specified will now be tested.

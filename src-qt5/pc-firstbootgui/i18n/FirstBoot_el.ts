@@ -16,8 +16,8 @@
         <translation>&amp;Μπροστά</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Καλώς ήλθατε στο νέο σας PC-BSD σύστημα! Μπορείτε να αλλάξετε την γλώσσα σας παραπάνω. Μετά κάντε κλικ στο κουμπί &quot;Μπροστά&quot; για να ξεκινήσετε την εγκατάσταση.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Καλώς ήλθατε στο νέο σας TrueOS σύστημα! Μπορείτε να αλλάξετε την γλώσσα σας παραπάνω. Μετά κάντε κλικ στο κουμπί &quot;Μπροστά&quot; για να ξεκινήσετε την εγκατάσταση.</translation>
     </message>
     <message>
         <source>System Timezone</source>

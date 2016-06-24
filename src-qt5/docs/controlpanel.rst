@@ -82,6 +82,10 @@ The following utilities are found in the Control Panel of a TrueOS® system, reg
 
 * :ref:`Network Configuration`
 
+**Tools** 
+
+* :ref:`Report a bug`
+
 This chapter describes these utilities in more detail.
 
 .. index:: configuration
@@ -1850,4 +1854,78 @@ developed.
 
 The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/network-wireless.html>`_ provides a good overview of how
 wireless works and offers some troubleshooting suggestions.
+
+.. index:: bug
+.. _Report a bug:
+
+Report a bug
+============
+
+The bug reporting tool in Control Panel can be used to easily send a bug report to the development team responsible for the software which produced the bug.
+
+To access this tool, go to :menuselection:`Control Panel --> Report a bug` or type :command:`pc-bugreport` from the command line.
+The initial screen for this tool is shown in :numref:`Figure %s: PC-BSD® Bug Reporting Utility <report1>`. 
+
+.. _report1:
+
+.. figure:: images/report1.png
+
+Select the software component that most closely matches where the bug occurs. For example, if the bug occurs when using a KDE utility, select "Desktop
+environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
+"PC-BSD base system". 
+
+In the example shown in :numref:`Figure %s: Reporting a Bug <report2a>`, the user has selected "PC-BSD base system" then "Next". 
+
+.. note:: regardless of the selection, the resulting screen will be similar to :numref:`Figure %s: Reporting a Bug <report2a>`. The various screens only differ in which bug tracking system
+   or mailing list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
+   correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the error.
+
+.. _report2a:
+
+.. figure:: images/report2a.png
+
+If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
+web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is
+your first bug report on that project's bug tracker and that you must be logged in in order to create a new bug.
+
+If the development team has a mailing list, its email address will be listed. The URL to the mailing list will also be displayed so that you can search its
+archives and subscribe to the list. Note that you will need to be subscribed to a mailing list before you can report a bug using that list. To report the bug,
+click the "Compose email" button to open the default mail application. To subscribe to or read the archives of the list, click the "Launch web browser"
+button.
+
+The three icons in the "Toolbox" section can be used to gather useful information to include in your bug report. If you click the first icon on the left, a
+pop-up menu allows you to create any of the following: 
+
+* Diagnostic report 
+
+* FreeBSD version (:command:`uname -a`) 
+
+* :command:`dmesg` output 
+
+* Xorg version 
+
+* Xorg log 
+
+If you click an entry in the menu, the results will be displayed in a window so that you can copy the contents into your bug report.
+
+If you click the second icon, it will generate a PCI devices list. This is useful information if your built-in wireless card is not working.
+
+If you click the third icon, the default snapshot utility for the desktop will open so that you can include a screenshot in your bug report.
+
+While this utility makes it easy to find the correct place to send a bug report, it is still up to you to make sure that your report includes the information
+that developers need to recreate and eventually fix the bug. The following resources contain useful tips for the various development teams for the bugs you
+may encounter when using PC-BSD®. Before reporting:
+
+* a bug about the "FreeBSD base system" or "FreeBSD software (ports/packages)", read through 
+  `the FreeBSD bug reports page <http://www.freebsd.org/support/bugreports.html>`_. 
+
+* a bug about the "Xorg server", read through the `Xorg FAQ <http://www.x.org/wiki/FAQ/>`_. 
+
+* a KDE bug, read through `General Troubleshooting <https://forum.kde.org/viewtopic.php?f=14&t=38828>`_. 
+
+* a GNOME bug, read through `how to file a bug in GNOME's bugzilla <http://askubuntu.com/questions/43487/how-to-file-a-bug-on-gnomes-bugzilla>`_. 
+
+* a LXDE bug, read through `read this first <http://forum.lxde.org/viewtopic.php?t=575>`_.
+
+* a XFCE bug, read through `XFCE bug reporting <http://docs.xfce.org/contribute/bugs/start>`_. 
 

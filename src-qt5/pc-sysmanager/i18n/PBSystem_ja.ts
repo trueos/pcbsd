@@ -8,12 +8,12 @@
         <translation>コマンド出力</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>PC-BSDのPorts Treeを取得しています</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>TrueOSのPorts Treeを取得しています</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>PC-BSDのソースを取得しています</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>TrueOSのソースを取得しています</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD システムの設定</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS システムの設定</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -79,8 +79,8 @@
         <translation>キーボード入力に IBus を使用する</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD のバージョン</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS のバージョン</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>FreeBSD のバージョン:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>PC-BSD のソースを取得する(&amp;S)</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>TrueOS のソースを取得する(&amp;S)</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>PC-BSD の Ports Treeを取得する(&amp;O)</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>TrueOS の Ports Treeを取得する(&amp;O)</translation>
     </message>
     <message>
         <source>Error</source>

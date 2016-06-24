@@ -72,12 +72,12 @@
         <translation>Έκδοση εξυπηρετητή X.org:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>Εργαλεία γραμμής εντολών του PC-BSD:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>Εργαλεία γραμμής εντολών του TrueOS:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>Εργαλεία του PC-BSD με γραφικό περιβάλλον:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>Εργαλεία του TrueOS με γραφικό περιβάλλον:</translation>
     </message>
     <message>
         <source>Package set:</source>

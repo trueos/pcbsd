@@ -440,7 +440,7 @@
            <item>
             <widget class="QCheckBox" name="checkPCBSDUtils">
              <property name="text">
-              <string>Install PKGNG and PC-BSD utilities</string>
+              <string>Install PKGNG and TrueOS utilities</string>
              </property>
              <property name="checked">
               <bool>true</bool>

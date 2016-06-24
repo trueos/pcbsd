@@ -282,8 +282,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD naudotojų tvarkytuvė</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS naudotojų tvarkytuvė</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -350,8 +350,8 @@
         <translation>Nariai:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD naudotojų tvarkytuvė - Sudėtingesnis režimas</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>TrueOS naudotojų tvarkytuvė - Sudėtingesnis režimas</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -371,8 +371,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD naudotojų administratorius</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS naudotojų administratorius</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -555,8 +555,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD naudotojų tvarkytuvė</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS naudotojų tvarkytuvė</translation>
     </message>
     <message>
         <source>&amp;Add</source>

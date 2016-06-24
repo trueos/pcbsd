@@ -27,9 +27,9 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
+        <source>TrueOS Network Manager</source>
         <translation>
-مدیر شبکه PC-BSD            </translation>
+مدیر شبکه TrueOS            </translation>
     </message>
     <message>
         <source>Devices</source>
@@ -200,8 +200,8 @@ Netmask:</translation>
         <translation>رمزعبور</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>توجه: این تنظیمات پراکسی فقط برای برنامه ها و ابزار های خود PC-BSD است. برنامه هایی که از اینترنت استفاده می کنند شاید از این پیکربندی استفاده نمی کنند و باید به صورت دستی پیکربندی شوند</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>توجه: این تنظیمات پراکسی فقط برای برنامه ها و ابزار های خود TrueOS است. برنامه هایی که از اینترنت استفاده می کنند شاید از این پیکربندی استفاده نمی کنند و باید به صورت دستی پیکربندی شوند</translation>
     </message>
     <message>
         <source>&amp;Close</source>

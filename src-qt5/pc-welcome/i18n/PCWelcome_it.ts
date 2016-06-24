@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>Bevenuto in PC-BSD            </translation>
+        <source>Welcome to TrueOS</source>
+        <translation>Bevenuto in TrueOS            </translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Benvenuto!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>Se non hai esperienza con PC-BSD, puoi dedicare qualche minuto nella lettura delle seguenti pagine per i nuovi utenti, onde avere qualche informazione sul tuo nuovo Sistema Operativo</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>Se non hai esperienza con TrueOS, puoi dedicare qualche minuto nella lettura delle seguenti pagine per i nuovi utenti, onde avere qualche informazione sul tuo nuovo Sistema Operativo</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Installazione Applicazioni&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Cerchi software aggiuntivo? PC-BSD include &quot;AppCafe&quot;, che ti semplifica la ricerca e l&apos;installazione di applicazioni.</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>Cerchi software aggiuntivo? TrueOS include &quot;AppCafe&quot;, che ti semplifica la ricerca e l&apos;installazione di applicazioni.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,16 +68,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Configura il sistema&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>Vuoi aggiungere un nuovo utente? Configurare il firewall? Aggiungere una stampante? Il Pannello di Controllo PC-BSD è il modo più semplice e rapido per gestire il tuo sistema.</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>Vuoi aggiungere un nuovo utente? Configurare il firewall? Aggiungere una stampante? Il Pannello di Controllo TrueOS è il modo più semplice e rapido per gestire il tuo sistema.</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>Proteggi i tuoi file</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Le catastrofi, purtroppo, possono accadere. I dischi possono rompersi, i file possono essere perduti per sempre. PC-BSD include l&apos;applicazione Life-Preserver, che rende semplice il sincronizzare i dati del tuo utente con un sistema remoto FreeNAS oppure un altro file server di rete.</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>Le catastrofi, purtroppo, possono accadere. I dischi possono rompersi, i file possono essere perduti per sempre. TrueOS include l&apos;applicazione Life-Preserver, che rende semplice il sincronizzare i dati del tuo utente con un sistema remoto FreeNAS oppure un altro file server di rete.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -92,8 +92,8 @@ p, li { white-space: pre-wrap; }
         <translation>Partecipa</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD è un progetto gestito da una comunità, e i rilasci vengono resi possibili da una varietà di altri progetti della comunità open-source. Dall&apos;aiutare lo sviluppo al partecipare a discussioni nei nostri forum, ci sono moltissimi modi di contribuire. I siti web sotto elencati sono un buon punto di partenza.</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS è un progetto gestito da una comunità, e i rilasci vengono resi possibili da una varietà di altri progetti della comunità open-source. Dall&apos;aiutare lo sviluppo al partecipare a discussioni nei nostri forum, ci sono moltissimi modi di contribuire. I siti web sotto elencati sono un buon punto di partenza.</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

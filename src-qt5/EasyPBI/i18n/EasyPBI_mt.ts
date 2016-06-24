@@ -387,8 +387,8 @@
         <translation>Jiftħu freshports.org għal informazzjoni addizzjonali port</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Tiftaħ il-paġna Wiki PC-BSD għall-iżviluppaturi PBI</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Tiftaħ il-paġna Wiki TrueOS għall-iżviluppaturi PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

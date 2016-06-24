@@ -74,12 +74,12 @@
         <translation>ورژن سرور X.org</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>ابزارهای خط فرمان PC-BSD:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>ابزارهای خط فرمان TrueOS:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>ابزارهای رابط کاربری PC-BSD:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>ابزارهای رابط کاربری TrueOS:</translation>
     </message>
     <message>
         <source>Package set:</source>

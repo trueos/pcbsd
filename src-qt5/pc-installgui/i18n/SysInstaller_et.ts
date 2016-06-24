@@ -20,8 +20,8 @@
         <translation>&amp;Edasi</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Tere tulemast PC-BSD-sse! Palun vali oma keel ja vajuta &quot;Edasi&quot;, et jätkata.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Tere tulemast TrueOS-sse! Palun vali oma keel ja vajuta &quot;Edasi&quot;, et jätkata.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Paigaldatakse järgmised metapaketid:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>PC-BSD paigaldaja</translation>
+        <source>TrueOS Installer</source>
+        <translation>TrueOS paigaldaja</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>TrueOS-i paketivalik</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>PC-BSD paketivalik</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>TrueOS paketivalik</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Laadi paigaldamise sätete fail USB-mälupulgalt</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Töölaud (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Töölaud (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -708,8 +708,8 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Lülita sisse logimisseade</translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation>PC-BSD saab kõvakettaid krüpteerida GELI tarkvara kaudu. Kogu ketas krüpteeritakse ning arvuti käivitamisel nõutakse parooli. Kui soovid krüpteerida ainult oma kasutajakonto andmeid, siis kodukausta saab krüpteerida pärast paigaldamist.</translation>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation>TrueOS saab kõvakettaid krüpteerida GELI tarkvara kaudu. Kogu ketas krüpteeritakse ning arvuti käivitamisel nõutakse parooli. Kui soovid krüpteerida ainult oma kasutajakonto andmeid, siis kodukausta saab krüpteerida pärast paigaldamist.</translation>
     </message>
     <message>
         <source>Password</source>

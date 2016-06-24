@@ -1,7 +1,7 @@
 #!/bin/sh
  
 #(c) 2008 Sokolov Alexey [TrueBSD Project] <sokolov@truebsd.org>
-# Modified 6-10-2009 by Kris Moore [PC-BSD Project] <kris@pcbsd.org>
+# Modified 6-10-2009 by Kris Moore [TrueOS Project] <kris@pcbsd.org>
  
 check_file()
 {

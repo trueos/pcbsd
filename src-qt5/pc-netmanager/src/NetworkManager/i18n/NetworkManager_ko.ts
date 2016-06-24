@@ -31,8 +31,8 @@
         <translation>IP 주소:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD 네트워크 매니져</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS 네트워크 매니져</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>암호</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>참고: 이 프록시 구성은 PC-BSD만의 도구와 유틸리티입니다. 인터넷을 사용하는 다른 응용 프로그램은 자체적인 프록시 구성을 사용할 수 있고, 이 경우 여전히 ​​수동으로 설정해야합니다.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>참고: 이 프록시 구성은 TrueOS만의 도구와 유틸리티입니다. 인터넷을 사용하는 다른 응용 프로그램은 자체적인 프록시 구성을 사용할 수 있고, 이 경우 여전히 ​​수동으로 설정해야합니다.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

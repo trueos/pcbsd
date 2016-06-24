@@ -432,7 +432,7 @@
             </translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
         <translation type="unfinished">
             </translation>
     </message>

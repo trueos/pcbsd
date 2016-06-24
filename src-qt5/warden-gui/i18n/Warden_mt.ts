@@ -799,8 +799,8 @@
         <translation>Jail tradizzjonali (Secure, aħjar għas-servizzi)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Installa PKGNG and PC-BSD utilitajiet</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Installa PKGNG and TrueOS utilitajiet</translation>
     </message>
     <message>
         <source>Jail Version</source>

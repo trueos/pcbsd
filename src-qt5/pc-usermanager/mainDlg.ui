@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>PC-BSD User Manager</string>
+   <string>TrueOS User Manager</string>
   </property>
   <property name="windowIcon">
    <iconset resource="pcbsdusermanager.qrc">
@@ -658,7 +658,7 @@
           </font>
          </property>
          <property name="text">
-          <string>PC-BSD User Manager - Advanced Mode</string>
+          <string>TrueOS User Manager - Advanced Mode</string>
          </property>
          <property name="wordWrap">
           <bool>false</bool>

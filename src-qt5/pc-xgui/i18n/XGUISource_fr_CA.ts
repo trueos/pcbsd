@@ -109,8 +109,8 @@ Gardez ces paramètres ?            </translation>
         <translation>Attention!</translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD n&apos;a pas pu détecter automatiquement votre écran. Vous pourriez avoir besoin de spécifier les valeurs de rafraîchissement horizontale et verticale dans l&apos;onglet &apos;Avancé&apos;.</translation>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <translation>TrueOS n&apos;a pas pu détecter automatiquement votre écran. Vous pourriez avoir besoin de spécifier les valeurs de rafraîchissement horizontale et verticale dans l&apos;onglet &apos;Avancé&apos;.</translation>
     </message>
     <message>
         <source>The settings you have specified will now be tested.

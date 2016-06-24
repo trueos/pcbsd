@@ -26,7 +26,7 @@
 #
 #        Name: pc-thinclient
 # Description: Helper script to build / install the necessary bits to turn
-#              a PC-BSD system into a thin-client server 
+#              a TrueOS system into a thin-client server 
 #
 # Modified for external dhcp server support by Joe Maloney
 

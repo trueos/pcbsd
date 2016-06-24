@@ -66,9 +66,9 @@ Alternatively, the CVSup server for this operation may be set manually from the 
             <translation>कृपया अगाडि बड्नु भन्दा पहिला CVSup सर्भर तयार पर्नुहोस्।</translation>
         </message>
         <message>
-            <source>PC-BSD has detected the fastest server to be:
+            <source>TrueOS has detected the fastest server to be:
 </source>
-            <translation>PC-BSD हुनुपर्ने सब् भन्द छिटो सर्भर पत्ता लगाएकोछ : 
+            <translation>TrueOS हुनुपर्ने सब् भन्द छिटो सर्भर पत्ता लगाएकोछ : 
  </translation>
         </message>
         <message>
@@ -105,7 +105,7 @@ Would you like to use this server in future?</source>
             <translation>यो सन्देशले CVSUP सर्भर को सबभन्द दुर्त गतिको ठाउँ पता लगाउछ। यदी तपाईंले सबै देश छनुभयो भने यो पता लगाउन केही समय लगाउछ। तैसैले तपाईंले छिटो गर्न्को लागि सबै देश न्छानी आफ्नो देश र अफुलाई मन्परेको देश छनुहोस् । </translation>
         </message>
         <message>
-            <source>Please wait whilst PC-BSD attempts to find the fastest CVS server available for your location.</source>
+            <source>Please wait whilst TrueOS attempts to find the fastest CVS server available for your location.</source>
             <translation>कृपया CVSUP सर्भरले दुर्त गतिको ठाउँ पता लगाउने जरी एक्छिन कुर्नुहोस् ।</translation>
         </message>
         <message>
@@ -141,8 +141,8 @@ You may wish to try testing other servers.</source>
     <context>
         <name>PBSystemTab</name>
         <message>
-            <source>PC-BSD System Configuration</source>
-            <translation>PC-BSD को प्रणाली आकृती </translation>
+            <source>TrueOS System Configuration</source>
+            <translation>TrueOS को प्रणाली आकृती </translation>
         </message>
         <message>
             <source>&amp;Close</source>
@@ -165,7 +165,7 @@ You may wish to try testing other servers.</source>
             <translation>तपाईंले डैग्नोस्तिक पानामा प्रणालीको बारेमा निकल्न सक्नुहुन्छ। अनी यो पाना प्राबिधिकले  हेरी स्मस्य समाधान गनसकिन्छ। </translation>
         </message>
         <message>
-            <source>PC-BSD Version:</source>
+            <source>TrueOS Version:</source>
             <translation>PC -BSD को संस्करण:</translation>
         </message>
         <message>
@@ -185,8 +185,8 @@ You may wish to try testing other servers.</source>
             <translation>कर्नेल</translation>
         </message>
         <message>
-            <source>Selected PC-BSD Kernel</source>
-            <translation>PC-BSDको  केर्नेल छनियो</translation>
+            <source>Selected TrueOS Kernel</source>
+            <translation>TrueOSको  केर्नेल छनियो</translation>
         </message>
         <message>
             <source>&lt;font size=&quot;-1&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;Warning!!! Changing the booted kernel can be dangerous. Use at your own risk!&lt;/font&gt;&lt;/font&gt;</source>

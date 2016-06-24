@@ -31,8 +31,8 @@
         <translation>Dirección IP:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>Administrador de Red de PC-BSD</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>Administrador de Red de TrueOS</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Contraseña</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Nota: Esta configuración de proxy es para las herramientas específicas de PC-BSD. Aplicaciones de Internet todavía pueden utilizar su propia configuración de proxy, que tendrá que ser configurado manualmente.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Nota: Esta configuración de proxy es para las herramientas específicas de TrueOS. Aplicaciones de Internet todavía pueden utilizar su propia configuración de proxy, que tendrá que ser configurado manualmente.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

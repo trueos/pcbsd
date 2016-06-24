@@ -20,8 +20,8 @@
         <translation>次へ(&amp;N)</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>PC-BSD をご利用いただき、ありがとうございます。言語を選択してから「次へ」をクリックしてください。</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>TrueOS をご利用いただき、ありがとうございます。言語を選択してから「次へ」をクリックしてください。</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>以下のメタパッケージがインストールされます:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>PC-BSD Installer</translation>
+        <source>TrueOS Installer</source>
+        <translation>TrueOS Installer</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>TrueOS パッケージの選択</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>PC-BSD パッケージの選択</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>TrueOS パッケージの選択</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -182,8 +182,8 @@
         <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>デスクトップ(PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>デスクトップ(TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -708,8 +708,8 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>ログデバイスを有効にする</translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation>PC-BSDはGELIフレームワークを利用してディスクの暗号化ができます。これはディスク全体を暗号化するので起動時にパスワードが必要になるでしょう。もしユーザーデータのみを暗号化したい場合は、インストール後にホームディレクトリーの暗号化を利用することができます。</translation>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation>TrueOSはGELIフレームワークを利用してディスクの暗号化ができます。これはディスク全体を暗号化するので起動時にパスワードが必要になるでしょう。もしユーザーデータのみを暗号化したい場合は、インストール後にホームディレクトリーの暗号化を利用することができます。</translation>
     </message>
     <message>
         <source>Password</source>

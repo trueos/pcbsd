@@ -16,7 +16,7 @@
         <translation>ال&amp;تالي</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
         <translation>مرحبا بك في نظام التشغيل Pc-bsd! يمكنك تغير اللغة في الأعلى أو إضغط التالي لبدء عملية التثبيت</translation>
     </message>
     <message>

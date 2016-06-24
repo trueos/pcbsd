@@ -807,8 +807,8 @@
         <translation>Jaula Tradicional (segura, mejor para servicios)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Instalar PKGNG y las utilidades PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Instalar PKGNG y las utilidades TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

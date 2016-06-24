@@ -8,12 +8,12 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Hämtar PC-BSD Portsträdet</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Hämtar TrueOS Portsträdet</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Hämtar PC-BSD källor</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Hämtar TrueOS källor</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -37,8 +37,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD Systemkonfiguration</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS Systemkonfiguration</translation>
     </message>
     <message>
         <source>General</source>
@@ -81,8 +81,8 @@
         <translation>Systemuppgifter</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD Versioner</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS Versioner</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -105,12 +105,12 @@
         <translation>FreeBSD Version:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Hämta PC-BSD &amp; System Källor</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Hämta TrueOS &amp; System Källor</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Hämta PC-BSD &amp; Ports Träd</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Hämta TrueOS &amp; Ports Träd</translation>
     </message>
     <message>
         <source>Error</source>

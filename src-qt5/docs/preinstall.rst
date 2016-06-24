@@ -267,14 +267,14 @@ You will need to first shrink the partition that contains the current
 operating system in order to make room to install TrueOS®. Shrinking is
 an operation that retains the current operating system, while reducing
 the size of its partition. This section demonstrates how to create free
-space within Windows 10.
+space within Windows 7.
 
 .. warning:: **Before** shrinking a partition, make sure that you first
   back up your valuable data to an external media such as a removable
   USB drive!
 
-To shrink the drive, right-click the "Start" menu and click
-"Disk Management". In the example shown in
+To shrink the drive, open Computer Management and click
+:menuselection:`Storage --> Disk Management`. In the example shown in
 :numref:`Figure %s: Viewing Disk Layout in Disk Management <partition1>`, 
 the Windows system has three partitions: a 16GB recovery partition, a
 100MB system partition, and a 450GB data partition.
@@ -411,33 +411,23 @@ match, try downloading the file again. In order to verify a checksum,
 use a checksum verification utility.
 
 .. note:: You only need to verify one of the checksums. The
-   `PC-BSD® website <http://www.pcbsd.org/download/>`_  lists the
+   `PC-BSD® website <http://www.pcbsd.org/download/>`_  only lists the
    SHA256 while the `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists
    both the :file:`.md5` and the :file:`.sha256` checksum files. This
-   section demonstrates how to verify an SHA256 checksum.
+   section demonstrates how to verify an MD5 checksum.
 
-If you are currently using a Windows system, you can download and
-install a utility such as
-`Raymond's MD5 & SHA Checksum Utility <http://download.cnet.com/MD5-SHA-Checksum-Utility/3000-2092_4-10911445.html>`_.
-This utility can be used to simultaneously check the MD5, SHA-1,
-SHA-256, and SHA-512 checksums of any file. Once installed, launch the
-program and use the "Browse" button, shown in
-:numref:`Figure %s: Verifying a Checksum <fastsum1>`, to browse to the
-location of your downloaded file.
+If you are currently using a Windows system, you can download and install the `FastSum <http://www.fastsum.com/>`_ utility in order to verify the MD5 checksum. Once installed, launch the
+program and click the "Files" button, shown in :numref:`Figure %s: Verifying a Checksum Using FastSum <fastsum1>`, to browse to the location of your downloaded file.
 
 .. _fastsum1:
 
-.. figure:: images/checksum.png
+.. figure:: images/fastsum.png
 
-Once the file is selected, click the "Open" button to calculate the
-checksums. It may take a minute or so, depending upon the size of the
-downloaded file.
+Once the file is selected, click the green arrow to calculate the checksum. Once calculated, it will be listed in the "Checksum\State" column, though FastSum
+will capitalize the letters.
 
-On Linux and BSD systems you can use the built-in :command:`md5` or
-:command:`md5sum` command line tool to check the MD5 checksum. In this
-example, the file is located in the :file:`Downloads` directory. You
-should substitute the name and location of the file that you
-downloaded::
+On Linux and BSD systems you can use the built-in :command:`md5` or :command:`md5sum` command line tool to check the MD5 checksum. In this example, the file
+is located in the :file:`Downloads` subdirectory directory. You should substitute the name and location of the file that you downloaded::
 
  md5 Downloads/PCBSD11.0-RELEASE-x64-DVD-USB.iso 
 
@@ -458,10 +448,8 @@ different applications and operating systems.
 Burning to DVD on Windows 
 --------------------------
 
-Windows 10 has built-in support for writing ISO images to disc.
-Right-click on the :file:`.iso` file in Windows Explorer and select
-"Burn disk image". Select the DVD device in the "Disk Burner" drop-down
-menu and then click "Burn" to write the disc. See the Microsoft article
+Windows 7 has built-in support for writing ISO images to disc. Right-click on the :file:`.iso` file in Windows Explorer and select "Burn disk image". Select
+the DVD device in the "Disk Burner" drop-down menu and then click "Burn" to write the disc. See the Microsoft article
 `Burn a CD or DVD from an ISO file <http://windows.microsoft.com/en-US/windows7/Burn-a-CD-or-DVD-from-an-ISO-file>`_ for more detailed instructions.
 
 Alternately, the

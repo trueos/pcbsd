@@ -3,10 +3,10 @@
 PCVER="`uname -r`"
 DATE="`date`"
 
-echo "PC-BSD $PCVER Diagnostic Sheet
+echo "TrueOS $PCVER Diagnostic Sheet
 Generated: $DATE
 
----------------PC-BSD Packages------------------------
+---------------TrueOS Packages------------------------
 
 `pkg info 'pcbsd-*'`
 

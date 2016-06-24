@@ -36,7 +36,7 @@
         <translation>आईपी पता:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
+        <source>TrueOS Network Manager</source>
         <translation>पीसी-बीएसडी नेटवर्क प्रबंधक</translation>
     </message>
     <message>
@@ -194,7 +194,7 @@
             </translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
         <translation>नोट: यह प्रतिनिधि विन्यास पीसी बीएसडी विशिष्ट उपकरणों और उपयोगिताओं के लिए है | इंटरनेट अवगत अप्लिकेशन अभी भी अपने खुद के प्रॉक्सी समाकृति का उपयोग कर सकते हैं, जो के दस्ती रूप से समनुरूप करना चाहिए
             </translation>
     </message>

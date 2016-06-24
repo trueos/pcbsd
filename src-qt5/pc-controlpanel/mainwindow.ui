@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>PC-BSD Control Panel</string>
+   <string>TrueOS Control Panel</string>
   </property>
   <property name="windowIcon">
    <iconset resource="controlpanel.qrc">

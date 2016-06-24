@@ -799,8 +799,8 @@
         <translation>Tradycyjna cela (bezpieczna, najlepsza dla usług)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Instaluj PKGNG i narzędzia PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Instaluj PKGNG i narzędzia TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

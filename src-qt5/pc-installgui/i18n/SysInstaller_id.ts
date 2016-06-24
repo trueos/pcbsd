@@ -20,8 +20,8 @@
         <translation>Sela&amp;njutnya</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Selamat datang di PC-BSD! Silahkan pilih bahasa Anda dan klik selanjutnya untuk melanjutkan.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Selamat datang di TrueOS! Silahkan pilih bahasa Anda dan klik selanjutnya untuk melanjutkan.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Meta-pkgs berikut akan diinstal:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>Penginstal PC-BSD</translation>
+        <source>TrueOS Installer</source>
+        <translation>Penginstal TrueOS</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>Pemilihan Paket TrueOS</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>Pemilihan Paket PC-BSD</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>Pemilihan Paket TrueOS</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@ Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi.<
         <translation>Muat file konfigurasi instalasi dari USB</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Desktop (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Desktop (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -715,7 +715,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>

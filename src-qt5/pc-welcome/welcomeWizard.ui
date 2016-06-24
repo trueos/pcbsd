@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Welcome to PC-BSD</string>
+   <string>Welcome to TrueOS</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -139,7 +139,7 @@
     <item row="3" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </string>
+       <string>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -336,7 +336,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</string>
+       <string>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -456,7 +456,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_11">
       <property name="text">
-       <string>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</string>
+       <string>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -576,7 +576,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_14">
       <property name="text">
-       <string>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</string>
+       <string>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -816,7 +816,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_20">
       <property name="text">
-       <string>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</string>
+       <string>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>

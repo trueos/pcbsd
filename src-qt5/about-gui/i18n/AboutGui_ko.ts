@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>PC-BSD 정보</translation>
+        <translation>TrueOS 정보</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -72,12 +72,12 @@
         <translation>X.org 서버 버전:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI 유틸리티:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI 유틸리티:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI 유틸리티:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI 유틸리티:</translation>
     </message>
     <message>
         <source>Package set:</source>

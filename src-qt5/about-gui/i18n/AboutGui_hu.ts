@@ -72,12 +72,12 @@
         <translation>X.org-kiszolgáló verziója:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI eszközök:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI eszközök:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI eszközök:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI eszközök:</translation>
     </message>
     <message>
         <source>Package set:</source>

@@ -64,8 +64,8 @@
         <translation>Konfiguracja została zakończona! Prosze wybrać zakończ aby się zalogować.</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Witamy w twoim nowym systemie PC-BSD! Poniżej możesz zmienić język; proszę kliknąć Dalej aby zacząć proces konfiguracji.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Witamy w twoim nowym systemie TrueOS! Poniżej możesz zmienić język; proszę kliknąć Dalej aby zacząć proces konfiguracji.</translation>
     </message>
     <message>
         <source>&amp;Finish</source>

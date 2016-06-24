@@ -72,12 +72,12 @@
         <translation>X.org sunucu sürümü:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
+        <source>TrueOS CLI utilities:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
+        <source>TrueOS UI utilities:</source>
         <translation type="unfinished">
             </translation>
     </message>

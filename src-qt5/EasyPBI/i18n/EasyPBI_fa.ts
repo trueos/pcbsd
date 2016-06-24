@@ -390,8 +390,8 @@
         <translation>باز کردن freshports.org برای اطلاعات اضافی پورت های </translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>باز کردن صفحه ویکی  PC-BSD را برای توسعه دهندگان PBI</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>باز کردن صفحه ویکی  TrueOS را برای توسعه دهندگان PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

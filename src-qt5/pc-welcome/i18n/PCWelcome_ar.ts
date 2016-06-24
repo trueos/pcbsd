@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>مرحبا بك في PC-BSD            </translation>
+        <source>Welcome to TrueOS</source>
+        <translation>مرحبا بك في TrueOS            </translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;مرحبا!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>هذه هي المرة الاولى التي تستخدم فيها PC-BSD. يمكنك اخذ بعض الوقت لقراءة الصفحات التالية . التي سوف تساعدك على معرفة نظامك الجديد</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>هذه هي المرة الاولى التي تستخدم فيها TrueOS. يمكنك اخذ بعض الوقت لقراءة الصفحات التالية . التي سوف تساعدك على معرفة نظامك الجديد</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;تثبيت البرامج&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>انك تبحث عن برامج اضافية ؟PC-BSD يتيح لك &quot;AppCafe&quot; كي تثبت بكل يسر برامج جديدة</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>انك تبحث عن برامج اضافية ؟TrueOS يتيح لك &quot;AppCafe&quot; كي تثبت بكل يسر برامج جديدة</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,15 +68,15 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;اعدادات النظام&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>تريد اضافة مستخدم جديد ؟ اعداد جدار الحماية ؟ اضافة طابعة ؟ لوحة التحكم ل PC-BSD هي خيارك الاوحد لاعداد نظامك</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>تريد اضافة مستخدم جديد ؟ اعداد جدار الحماية ؟ اضافة طابعة ؟ لوحة التحكم ل TrueOS هي خيارك الاوحد لاعداد نظامك</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>حافظ على ملفاتك</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
         <translation>يمكن أن يحدث حادث بسرعة . الأقراص والملفات عرضة للضياع إلى الأبد. PC - BSD يتضمن  للانقاذLife-Preserver application, لمزامنة البيانات المستخدم الخاصة بك مع ملقم نظام FreeNAS  أو بيانات الشبكة الأخرى.</translation>
     </message>
     <message>
@@ -92,7 +92,7 @@ p, li { white-space: pre-wrap; }
         <translation>المساهمة            </translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
         <translation>PC - BSD هو نتيجة لجهد المجتمع ، والتي تحققت بفضل مشاركة عدد كبير من أعضاء مجتمع المصدر المفتوح. يمكنك أن تساعد بطرق عديدة ، من المشاركة في المنتديات الى تطوير البرمجيات. المواقع التالية هي نقطة انطلاق جيدة.</translation>
     </message>
     <message>

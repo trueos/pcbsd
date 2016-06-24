@@ -30,7 +30,7 @@ void PBSystemTab::ProgramInit()
     //qDebug() << "Username:" << username;
     // Set the Uname on the General Tab
     CheckUname();
-    // Set the PC-BSD Version on the General Tab
+    // Set the TrueOS Version on the General Tab
     CheckPBVer();
 
     //Get & Set CPU Type
@@ -140,7 +140,7 @@ void PBSystemTab::finishedSheet()
 
 void PBSystemTab::showRebootRequired()
 {
-    QMessageBox::information( this, "PC-BSD Notification",
+    QMessageBox::information( this, "TrueOS Notification",
     "Settings Updated!\n You must reboot for changes to take effect!" );
 }
 

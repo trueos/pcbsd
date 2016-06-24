@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>Merħba għall PC-BSD</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>Merħba għall TrueOS</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Merħba!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>Jekk int ġdid PC-BSD, jekk jogħġbok tieħu mument biex tinqara permezz Ftit Wara l-paġna jkollna beda għal introduzzjoni malajr ta &apos;System tiegħek Operating ġdid.</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>Jekk int ġdid TrueOS, jekk jogħġbok tieħu mument biex tinqara permezz Ftit Wara l-paġna jkollna beda għal introduzzjoni malajr ta &apos;System tiegħek Operating ġdid.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;tinstalla l-applikazzjonijiet&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Looking for softwer addizzjonali? PC-BSD jinkludi l-&quot;AppCafe&quot; li ihallik tfittxija għal u tinstalla l-applikazzjonijiet bil-faċilità.</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>Looking for softwer addizzjonali? TrueOS jinkludi l-&quot;AppCafe&quot; li ihallik tfittxija għal u tinstalla l-applikazzjonijiet bil-faċilità.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,16 +68,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Kkonfigurat sistema tiegħek&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>Bżonn li żżid utent ġdid? Kkonfigurat l-firewall? Żid printer? Il-pannell tal-kontroll PC-BSD huwa wieħed-stop shop tiegħek għall-ġestjoni tas-sistema.</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>Bżonn li żżid utent ġdid? Kkonfigurat l-firewall? Żid printer? Il-pannell tal-kontroll TrueOS huwa wieħed-stop shop tiegħek għall-ġestjoni tas-sistema.</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>Ippreserva fajls tiegħek</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Inċidenti jiġri. Disk drives jista crash, fajls jista &apos;jintilef għal dejjem. PC-BSD jinkludi Life-Preserver-applikazzjoni, li jagħmilha faċli biex jissinkronizzaw utent data tiegħek għal sistema remota FreeNAS jew server ieħor data f&apos;netwerk.</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>Inċidenti jiġri. Disk drives jista crash, fajls jista &apos;jintilef għal dejjem. TrueOS jinkludi Life-Preserver-applikazzjoni, li jagħmilha faċli biex jissinkronizzaw utent data tiegħek għal sistema remota FreeNAS jew server ieħor data f&apos;netwerk.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -92,8 +92,8 @@ p, li { white-space: pre-wrap; }
         <translation>jinvolvu ruħhom</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD huwa sforz komunità ma rilaxxi qed isiru vijabbli minn varjetà ta &apos;neighbors tiegħek fil-komunità open source. Minn tgħin ma &apos;żvilupp, li jwieġbu tistaqsi u jwieġeb mistoqsijiet huma fora tagħna, hemm bosta modi biex jgħinu Tikkontribwixxi. Il-websajts hawn taħt Ipprovdi post kbir biex tibda.</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS huwa sforz komunità ma rilaxxi qed isiru vijabbli minn varjetà ta &apos;neighbors tiegħek fil-komunità open source. Minn tgħin ma &apos;żvilupp, li jwieġbu tistaqsi u jwieġeb mistoqsijiet huma fora tagħna, hemm bosta modi biex jgħinu Tikkontribwixxi. Il-websajts hawn taħt Ipprovdi post kbir biex tibda.</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

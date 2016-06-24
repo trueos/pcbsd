@@ -388,8 +388,8 @@
         <translation>Oop te maak freshports.org vir addisionele port inligting            </translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Oop te maak die PC-BSD Wiki bladsy vir PBI ontwikkelaars            </translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Oop te maak die TrueOS Wiki bladsy vir PBI ontwikkelaars            </translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

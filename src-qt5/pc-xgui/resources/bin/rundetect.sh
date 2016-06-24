@@ -1,6 +1,6 @@
 #!/bin/sh
 # xorg-gui startup script
-# Copyright 2009 PC-BSD Software
+# Copyright 2009 TrueOS Software
 # Descr: This script is called by /usr/local/etc/rc.d/gdm to run the time X setup
 #        wizard. It allows the user to select a resolution / refresh rate and
 #        test it before continuing into the normal KDE GUI.

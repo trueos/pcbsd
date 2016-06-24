@@ -1,5 +1,5 @@
 ~OCT 2011: 
-Jesse Smith converted his command-line utility "Make-A-PBI" into the early stages of a GUI program called EasyPBI and asked the PBI developers at the PC-BSD Project for feedback and suggestions. Ken Moore came onboard at this time to assist in creating a Qt4 interface for EasyPBI.
+Jesse Smith converted his command-line utility "Make-A-PBI" into the early stages of a GUI program called EasyPBI and asked the PBI developers at the TrueOS Project for feedback and suggestions. Ken Moore came onboard at this time to assist in creating a Qt4 interface for EasyPBI.
 
 NOV 1, 2011:
 EasyPBI version 0.3 was released!
@@ -9,11 +9,11 @@ EasyPBI version 1.0 was released!
 Changes include: ability to build PBI's directly from the EasyPBI interface, numerous bugixes and interface improvements.
 
 DEC 12, 2011:
-Jesse Smith transferred ownership of EasyPBI and PBIMaker (formerly Make-A-PBI) to the PC-BSD Project.
-Ken Moore (from the PC-BSD project) takes over full development of EasyPBI.
+Jesse Smith transferred ownership of EasyPBI and PBIMaker (formerly Make-A-PBI) to the TrueOS Project.
+Ken Moore (from the TrueOS project) takes over full development of EasyPBI.
 
 MAR 20, 2012:
-EasyPBI was added to the default PC-BSD system for the upcoming PC-BSD 9.1 Beta releases.
+EasyPBI was added to the default TrueOS system for the upcoming PC-BSD 9.1 Beta releases.
 SVN location: svn://svn.pcbsd.org/pcbsd/current/src-qt4/EasyPBI
 
 ~MAR 28, 2012:
@@ -36,7 +36,7 @@ Changes include: Combine the FreeBSD ports dialog into the EasyPBI Settings dial
 
 DEC 16, 2013:
 EasyPBI version 2.2 is tagged!
-NOTE: This version requires the 10.x version of the PBI manager to build PBI's (included in PC-BSD 10.x).
+NOTE: This version requires the 10.x version of the PBI manager to build PBI's (included in TrueOS 10.x).
 Changes include: Update to work with the 10.x version of the PBI manager backend. This includes moving from using the FreeBSD ports tree to using pkgNG packages for information and building (so the FreeBSD ports tree is no longer necessary). This slims down the EasyPBI options/interface quite a bit, so a fair number of options have been removed. Packaging a local PBI is now standardized by simply creating a custom FreeBSD package on your system first, then use EasyPBI to re-package it as a PBI.
 
 FEB 18, 2014:

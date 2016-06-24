@@ -56,14 +56,14 @@ void Backend::generatePortsUpdateCMDS(QStringList &cmds, QStringList &dirs, QStr
     QString origin = Backend::shortCMD("/usr/ports", "git remote show -n origin").filter("Fetch URL:").join("").section("URL:",1,30).simplified();
     if(origin != URL){
       cmds << "git remote remove origin"; info << "Fix origin URL"; dirs <<"/usr/ports";
-      cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/ports/.git"; //setup PC-BSD git repo
+      cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/ports/.git"; //setup TrueOS git repo
     }
   }else{
     //new GIT setup
     Backend::emptyDir("/usr/ports");
     //cmds << "rm -rf /usr/ports/*"; info << "Removing the old ports tree"; dirs << ""; //Clean the old ports tree
     cmds << "git init"; info << "Initialize GIT"; dirs << "/usr/ports"; //setup git
-    cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/ports/.git"; //setup PC-BSD git repo
+    cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/ports/.git"; //setup TrueOS git repo
   }
   //Now update the tree with git
   cmds << "git fetch --depth=1"; info << "Fetch new GIT info (this may take a while)"; dirs << "/usr/ports/.git";
@@ -84,14 +84,14 @@ void Backend::generateSourceUpdateCMDS(QString branch, QStringList &cmds, QStrin
     QString origin = Backend::shortCMD("/usr/src", "git remote show -n origin").filter("Fetch URL:").join("").section("URL:",1,30).simplified();
     if(origin != URL){
       cmds << "git remote remove origin"; info << "Fix origin URL"; dirs <<"/usr/src";
-      cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/src/.git"; //setup PC-BSD git repo
+      cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/src/.git"; //setup TrueOS git repo
     }
   }else{
     //new GIT setup
     Backend::emptyDir("/usr/src");
     //cmds << "rm -rf /usr/src/*"; info << "Removing the old source tree"; dirs << ""; //Clean the old ports tree
     cmds << "git init"; info << "Initialize GIT"; dirs << "/usr/src"; //setup git
-    cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/src/.git"; //setup PC-BSD git repo
+    cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/src/.git"; //setup TrueOS git repo
   }
   //Now update the tree with git
   cmds << "git fetch --depth=1"; info << "Fetch new GIT info (this may take a while)"; dirs << "/usr/src/.git";

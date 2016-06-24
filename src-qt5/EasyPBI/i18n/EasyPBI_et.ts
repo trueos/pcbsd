@@ -357,8 +357,8 @@
         <translation>Portide kohta saab lisainfot saidilt freshports.org</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Ava PC-BSD PBI arendamise wikileht</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Ava TrueOS PBI arendamise wikileht</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

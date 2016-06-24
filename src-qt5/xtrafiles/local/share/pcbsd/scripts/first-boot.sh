@@ -1,7 +1,7 @@
 #!/bin/sh
 # Script to perform some first boot setup
 
-# PC-BSD Scripts Dir
+# TrueOS Scripts Dir
 sDir="/usr/local/share/pcbsd/scripts"
 
 # Set default mixer volume

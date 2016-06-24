@@ -72,12 +72,12 @@
         <translation>Versie van X.org-server:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>Terminalgereedschappen van PC-BSD:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>Terminalgereedschappen van TrueOS:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>Grafische hulpmiddelen van PC-BSD:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>Grafische hulpmiddelen van TrueOS:</translation>
     </message>
     <message>
         <source>Package set:</source>

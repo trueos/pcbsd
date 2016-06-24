@@ -88,12 +88,12 @@
             </translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
+        <source>TrueOS CLI utilities:</source>
         <translation>पी.सी-बी.एस.डी सी.एल.आई यूटीलिटी 
             </translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
+        <source>TrueOS UI utilities:</source>
         <translation>पी.सी-बी.एस.डी यू.आई यूटीलिटी 
             </translation>
     </message>

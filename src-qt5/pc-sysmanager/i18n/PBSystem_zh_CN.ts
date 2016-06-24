@@ -8,12 +8,12 @@
         <translation>CMD输出</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>获取PC-BSD Ports树</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>获取TrueOS Ports树</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>获取PC-BSD源码</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>获取TrueOS源码</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -41,8 +41,8 @@
         <translation>通用</translation>
     </message>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD系统配置</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS系统配置</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -81,8 +81,8 @@
         <translation>系统任务</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD版本</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS版本</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -105,12 +105,12 @@
         <translation>FreeBSD版本：</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>获取PC-BSD系统源码(&amp;S)</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>获取TrueOS系统源码(&amp;S)</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>获取PC-BSD Ports树(&amp;O)</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>获取TrueOS Ports树(&amp;O)</translation>
     </message>
     <message>
         <source>Error</source>

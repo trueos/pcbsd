@@ -6,14 +6,6 @@ Supporting TrueOS®
 
 TrueOS® is a community project which relies on involvement from its users and supporters. This section lists some ideas for becoming involved.
 
-.. index:: bug
-.. _Report a bug:
-
-Report a bug
-============
-
-
-
 .. index:: testing
 .. _Become a Beta Tester:
 

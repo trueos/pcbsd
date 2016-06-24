@@ -16,8 +16,8 @@
         <translation>&amp;Пеш</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Хуш омадед ба системаи нави PC-BSD! Шумо метавонед забони худро интихоб кунед ва тугмаи пешро барои оғози сабткунӣ зер кунед.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Хуш омадед ба системаи нави TrueOS! Шумо метавонед забони худро интихоб кунед ва тугмаи пешро барои оғози сабткунӣ зер кунед.</translation>
     </message>
     <message>
         <source>System Timezone</source>

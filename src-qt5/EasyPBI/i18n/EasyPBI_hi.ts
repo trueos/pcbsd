@@ -442,7 +442,7 @@
             </translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
         <translation>पी.बी.आई डेवलपर्स के लिए पी.सी-बी.एस.डी विकी पेज खोलो
             </translation>
     </message>

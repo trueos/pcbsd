@@ -27,8 +27,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD tīkla pārvaldnieks</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS tīkla pārvaldnieks</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Parole</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Piezīme: Šī starpservera konfigurācija ir domāta priekš specifiskiem PC-BSD rīkiem un utilītām. Aplikācijas, kuras ir Internet-patstāvīgas, var izmantot pašas savus starpserveru iestatījumus, kuriem jābūt atsevišķi manuāli iestatītiem.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Piezīme: Šī starpservera konfigurācija ir domāta priekš specifiskiem TrueOS rīkiem un utilītām. Aplikācijas, kuras ir Internet-patstāvīgas, var izmantot pašas savus starpserveru iestatījumus, kuriem jābūt atsevišķi manuāli iestatītiem.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

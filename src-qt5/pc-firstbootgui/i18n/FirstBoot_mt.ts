@@ -16,8 +16,8 @@
         <translation>&amp;Jmiss</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Merħba għas-sistema l-ġdida tiegħek PC-BSD! Inti tista &apos;tibdel il-lingwa tiegħek hawn fuq, u kklikkja li jmiss għall jibdew il-proċess setup.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Merħba għas-sistema l-ġdida tiegħek TrueOS! Inti tista &apos;tibdel il-lingwa tiegħek hawn fuq, u kklikkja li jmiss għall jibdew il-proċess setup.</translation>
     </message>
     <message>
         <source>System Timezone</source>

@@ -20,7 +20,7 @@
         <translation>&amp;Tovább</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
         <translation>Üdvözli a PC–BSD! Válassza ki a nyelvet, majd kattintson a Tovább gombra a folytatáshoz.</translation>
     </message>
     <message>
@@ -80,7 +80,7 @@
         <translation>A következő meta-csomagok lesznek telepítve:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
+        <source>TrueOS Installer</source>
         <translation>PC–BSD telepítő</translation>
     </message>
     <message>
@@ -160,7 +160,7 @@
         <translation>TrueOS csomag-összeállítás</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
+        <source>TrueOS Package Selection</source>
         <translation>PC–BSD csomag-összeállítás</translation>
     </message>
     <message>
@@ -190,7 +190,7 @@
             </translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
+        <source>Desktop (TrueOS)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -756,7 +756,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>

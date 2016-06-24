@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string notr="true">PC-BSD</string>
+   <string notr="true">TrueOS</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
@@ -179,7 +179,7 @@ background: transparent;</string>
              <string notr="true">background: transparent;</string>
             </property>
             <property name="text">
-             <string>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</string>
+             <string>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1309,7 +1309,7 @@ background: transparent;</string>
         <item row="4" column="1">
          <widget class="QLabel" name="label_28">
           <property name="text">
-           <string>Note: Audio settings can also be adjusted later through the PC-BSD audio mixer.</string>
+           <string>Note: Audio settings can also be adjusted later through the TrueOS audio mixer.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>

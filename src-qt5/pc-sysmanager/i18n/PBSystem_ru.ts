@@ -8,12 +8,12 @@
         <translation>Вывод команд</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Получение дерева портов PC-BSD</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Получение дерева портов TrueOS</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Получение исходников PC-BSD</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Получение исходников TrueOS</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>Конфигурирация PC-BSD</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>Конфигурирация TrueOS</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>Системные задачи</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>Версии PC-BSD</translation>
+        <source>TrueOS Versions</source>
+        <translation>Версии TrueOS</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>Версия FreeBSD:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Получить исходники системы PC-BSD [&amp;S]</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Получить исходники системы TrueOS [&amp;S]</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Получить дерево портов PC-BSD [&amp;O]</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Получить дерево портов TrueOS [&amp;O]</translation>
     </message>
     <message>
         <source>Error</source>

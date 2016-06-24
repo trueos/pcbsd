@@ -389,8 +389,8 @@
         <translation>開啟 freshports.org 以取得額外資訊</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>開啟為 PBI 開發者而設的 PC-BSD Wiki 頁面</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>開啟為 PBI 開發者而設的 TrueOS Wiki 頁面</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

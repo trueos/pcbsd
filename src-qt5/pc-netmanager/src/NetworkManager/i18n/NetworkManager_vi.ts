@@ -31,7 +31,7 @@
         <translation>Địa chỉ IP:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
+        <source>TrueOS Network Manager</source>
         <translation>Trình quản lý mạng</translation>
     </message>
     <message>
@@ -175,8 +175,8 @@
         <translation>Mật khẩu  </translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Lưu ý: cấu hình proxy này là cho các công cụ cụ thể PC-BSD và tiện ích. Ứng dụng phần mềm Internet vẫn có thể sử dụng cấu hình proxy của riêng mình, mà sẽ phải được cấu hình bằng tay.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Lưu ý: cấu hình proxy này là cho các công cụ cụ thể TrueOS và tiện ích. Ứng dụng phần mềm Internet vẫn có thể sử dụng cấu hình proxy của riêng mình, mà sẽ phải được cấu hình bằng tay.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

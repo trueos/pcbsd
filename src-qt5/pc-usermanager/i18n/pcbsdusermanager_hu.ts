@@ -282,7 +282,7 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation>PC–BSD-felhasználókezelő</translation>
     </message>
     <message>
@@ -350,7 +350,7 @@
         <translation>Tagok:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
+        <source>TrueOS User Manager - Advanced Mode</source>
         <translation>PC–BSD-felhasználókezelő (speciális mód)</translation>
     </message>
     <message>
@@ -371,7 +371,7 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation>PC–BSD-felhasználókezelő</translation>
     </message>
     <message>
@@ -552,7 +552,7 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
+        <source>TrueOS User Manager</source>
         <translation>PC–BSD-felhasználókezelő</translation>
     </message>
     <message>

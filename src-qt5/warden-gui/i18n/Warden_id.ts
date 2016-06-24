@@ -806,8 +806,8 @@
         <translation>Jail Tradisional (Aman, terbaik untuk layanan)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Instal PKGNG dan Kegunna PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Instal PKGNG dan Kegunna TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

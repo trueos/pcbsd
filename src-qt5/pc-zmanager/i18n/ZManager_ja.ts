@@ -1112,7 +1112,7 @@ crash dump.
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation>PC-BSD ディスクマネージャー</translation>
+        <translation>TrueOS ディスクマネージャー</translation>
     </message>
     <message>
         <source>Disks</source>

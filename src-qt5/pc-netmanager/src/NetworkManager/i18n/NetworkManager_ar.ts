@@ -31,8 +31,8 @@
         <translation>عنوان IP:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>مدير شبكة PC-BSD</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>مدير شبكة TrueOS</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation> كلمة المرور</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>ملاحظة: هذه الإعدادات للبروكسي هي للأدوات وبرامج منافع PC-BSD. تطبيقات الإنترنت قد تستمر في إستخدام البروكسي الخاص بها، مما يستدعي تهيئته يدويا.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>ملاحظة: هذه الإعدادات للبروكسي هي للأدوات وبرامج منافع TrueOS. تطبيقات الإنترنت قد تستمر في إستخدام البروكسي الخاص بها، مما يستدعي تهيئته يدويا.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

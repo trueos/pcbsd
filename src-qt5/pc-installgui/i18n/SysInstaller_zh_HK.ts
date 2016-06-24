@@ -20,8 +20,8 @@
         <translation>下一步(&amp;N)</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>歡迎使用 PC-BSD！請選擇語言並按「下一步」繼續。</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>歡迎使用 TrueOS！請選擇語言並按「下一步」繼續。</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>會安裝以下元套件(meta-pkg)：</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>PC-BSD 安裝程式</translation>
+        <source>TrueOS Installer</source>
+        <translation>TrueOS 安裝程式</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>TrueOS 套件選擇</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>PC-BSD 套件選擇</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>TrueOS 套件選擇</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -185,8 +185,8 @@
         <translation>自 USB 碟載入安裝設定檔</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>桌面 (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>桌面 (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -732,7 +732,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>

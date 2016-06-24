@@ -54,7 +54,7 @@
             </translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -100,7 +100,7 @@
             </translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
+        <source>TrueOS Installer</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -170,7 +170,7 @@
             </translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
+        <source>TrueOS Package Selection</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -270,7 +270,7 @@
             </translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
+        <source>Desktop (TrueOS)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -875,7 +875,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>
