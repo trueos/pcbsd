@@ -1673,7 +1673,7 @@ void ZManagerWindow::refreshState()
                 // NO PARTITIONS, IT'S EITHER UNUSED OR PART OF A POOL (DEDICATED)
                 if((*idx).InPool.isEmpty())  {
                     if((*idx).FSType.isEmpty()) {
-                    if((*idx).Size!=0) item->setText(1,tr("Avaliable"));
+                    if((*idx).Size!=0) item->setText(1,tr("Available"));
                     else item->setText(1,tr("No disk"));
                     }
                     else {
