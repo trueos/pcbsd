@@ -72,12 +72,12 @@
         <translation>X.Org serveri versioon:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD käsurea tööriistad:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS käsurea tööriistad:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD kasutajaliidese tööriistad:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS kasutajaliidese tööriistad:</translation>
     </message>
     <message>
         <source>Package set:</source>

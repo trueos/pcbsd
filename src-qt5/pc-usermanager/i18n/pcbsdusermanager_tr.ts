@@ -282,8 +282,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Kullanıcı Yöneticisi</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Kullanıcı Yöneticisi</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -350,8 +350,8 @@
         <translation>Üyeler:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD Kullanıcı Yöneticisi - Gelişmiş Kip</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>TrueOS Kullanıcı Yöneticisi - Gelişmiş Kip</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -371,8 +371,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Kullanıcı Yöneticisi</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Kullanıcı Yöneticisi</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -552,8 +552,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Kullanıcı Hesapları Yöneticisi</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Kullanıcı Hesapları Yöneticisi</translation>
     </message>
     <message>
         <source>&amp;Add</source>

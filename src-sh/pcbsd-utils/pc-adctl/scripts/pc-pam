@@ -74,7 +74,7 @@ rcvar="pc_pam_enable"
 : ${ldap_pam_services:="${DEFAULT_PAM_SERVICES}"}
 
 #
-# PC-BSD specifics
+# TrueOS specifics
 #
 activedirectory_pam_gdm_auth_before="pam_unix.so"
 

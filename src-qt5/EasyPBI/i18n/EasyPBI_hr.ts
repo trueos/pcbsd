@@ -397,8 +397,8 @@
         <translation>Otvori freshports.org za dodatne informacije o portovima</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Otvori PC-BSD Wiki stranicu za PBI razvijatelje</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Otvori TrueOS Wiki stranicu za PBI razvijatelje</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

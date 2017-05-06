@@ -27,8 +27,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Ağ Yöneticisi</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS Ağ Yöneticisi</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Şifre</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Not: Bu proxy yapılandırması PC-BSD özel araçlar ve uygulamalar içindir. İnternete erişebilen diğer uygulamalar için ayrıca proxy yapılandırılmasına gereksinim olabilir.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Not: Bu proxy yapılandırması TrueOS özel araçlar ve uygulamalar içindir. İnternete erişebilen diğer uygulamalar için ayrıca proxy yapılandırılmasına gereksinim olabilir.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

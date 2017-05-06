@@ -388,8 +388,8 @@
         <translation>Deschide freshports.org pentru informații suplimentare despre port      </translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Deschide pagina wiki PC-BSD pentru dezvoltatori PBI</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Deschide pagina wiki TrueOS pentru dezvoltatori PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

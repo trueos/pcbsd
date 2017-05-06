@@ -8,12 +8,12 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Getting PC-BSD Ports Tree</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Getting TrueOS Ports Tree</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Getting PC-BSD Sources</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Getting TrueOS Sources</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD System Configuration</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS System Configuration</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>System Tasks</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD Versions</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS Versions</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>FreeBSD Version:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Fetch PC-BSD &amp;System Source</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Fetch TrueOS &amp;System Source</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Fetch PC-BSD P&amp;orts Tree</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Fetch TrueOS P&amp;orts Tree</translation>
     </message>
     <message>
         <source>Error</source>

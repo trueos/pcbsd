@@ -1,9 +1,9 @@
 /* PCDM Login Manager:
 *  Written by Ken Moore (ken@pcbsd.org) 2012/2013
-*  Copyright(c) 2013 by the PC-BSD Project
+*  Copyright(c) 2013 by the TrueOS Project
 *  Available under the 3-clause BSD license
 *
-* Note: This file initially copied from the graphical PC-BSD installer 
+* Note: This file initially copied from the graphical TrueOS installer 
 */
 
 #ifndef DIALOGLOC_H

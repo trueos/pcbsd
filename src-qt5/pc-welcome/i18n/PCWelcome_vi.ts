@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>Chào mừng bạn đến PC-BSD</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>Chào mừng bạn đến TrueOS</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;trọng đải!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>Nếu bạn là người mới PC-BSD, xin vui lòng mất một vài phút để đọc thông qua việc trang bắt đầu sau đây cho một giới thiệu nhanh chóng của hệ điều hành mới của bạn. Chào mừng.</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>Nếu bạn là người mới TrueOS, xin vui lòng mất một vài phút để đọc thông qua việc trang bắt đầu sau đây cho một giới thiệu nhanh chóng của hệ điều hành mới của bạn. Chào mừng.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;cài đặt ứng dụng&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Tìm kiếm phần mềm bổ sung? PC-BSD bao gồm các &quot;AppCafe&quot; mà cho phép bạn tìm kiếm và cài đặt các ứng dụng một cách dễ dàng.</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>Tìm kiếm phần mềm bổ sung? TrueOS bao gồm các &quot;AppCafe&quot; mà cho phép bạn tìm kiếm và cài đặt các ứng dụng một cách dễ dàng.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,16 +68,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Cấu hình hệ thống của bạn&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>Cần phải thêm một người dùng mới? Cấu hình tường lửa? Thêm một máy in? PC-BSD bảng điều khiển là một cửa của bạn để quản lý hệ thống của bạn.</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>Cần phải thêm một người dùng mới? Cấu hình tường lửa? Thêm một máy in? TrueOS bảng điều khiển là một cửa của bạn để quản lý hệ thống của bạn.</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>Bảo quản tập tin của bạn            </translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Tai nạn xảy ra. Ổ đĩa có thể đụng xe, tập tin có thể bị mất mãi mãi. PC-BSD bao gồm các ứng dụng đời bảo quản, mà làm cho nó dễ dàng đồng bộ hóa dữ liệu người dùng của bạn một hệ thống FreeNAS từ xa hoặc máy chủ dữ liệu mạng khác.</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>Tai nạn xảy ra. Ổ đĩa có thể đụng xe, tập tin có thể bị mất mãi mãi. TrueOS bao gồm các ứng dụng đời bảo quản, mà làm cho nó dễ dàng đồng bộ hóa dữ liệu người dùng của bạn một hệ thống FreeNAS từ xa hoặc máy chủ dữ liệu mạng khác.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -92,8 +92,8 @@ p, li { white-space: pre-wrap; }
         <translation>Hãy tham gia</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD là một nỗ lực cộng đồng, với các phiên bản được thực hiện bởi nhiều người hàng xóm của bạn trong cộng đồng mã nguồn mở. Từ việc giúp phát triển, để hỏi và trả lời câu hỏi trên diễn đàn của chúng tôi, có rất nhiều cách để giúp đóng góp. Các trang web dưới đây cung cấp một nơi tuyệt vời để bắt đầu.</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS là một nỗ lực cộng đồng, với các phiên bản được thực hiện bởi nhiều người hàng xóm của bạn trong cộng đồng mã nguồn mở. Từ việc giúp phát triển, để hỏi và trả lời câu hỏi trên diễn đàn của chúng tôi, có rất nhiều cách để giúp đóng góp. Các trang web dưới đây cung cấp một nơi tuyệt vời để bắt đầu.</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

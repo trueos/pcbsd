@@ -1475,7 +1475,7 @@
     <string>&amp;PBI Modules</string>
    </property>
    <property name="statusTip">
-    <string>Open up the PC-BSD Wiki page for PBI developers</string>
+    <string>Open up the TrueOS Wiki page for PBI developers</string>
    </property>
   </action>
   <action name="actionExit">

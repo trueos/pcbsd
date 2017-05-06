@@ -16,8 +16,8 @@
         <translation>次へ(&amp;N)</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>PC-BSD をご利用いただき、ありがとうございます。言語を選択してから「次へ」をクリックして設定を進めてください。</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>TrueOS をご利用いただき、ありがとうございます。言語を選択してから「次へ」をクリックして設定を進めてください。</translation>
     </message>
     <message>
         <source>System Timezone</source>

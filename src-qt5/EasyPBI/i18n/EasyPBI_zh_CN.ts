@@ -387,8 +387,8 @@
         <translation>打开freshports.org以查看更多关于port的信息</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>打开PBI开发者的PC-BSD维基页面</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>打开PBI开发者的TrueOS维基页面</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

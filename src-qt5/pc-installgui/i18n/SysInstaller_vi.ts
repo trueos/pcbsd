@@ -20,8 +20,8 @@
         <translation>&amp;Tiếp</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Chào mừng bạn đến PC-BSD! Vui lòng chọn ngôn ngữ của bạn và bấm vào kế tiếp để tiếp tục.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Chào mừng bạn đến TrueOS! Vui lòng chọn ngôn ngữ của bạn và bấm vào kế tiếp để tiếp tục.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Siêu pkgs sau đây sẽ được cài đặt:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>PC-BSD cài đặt</translation>
+        <source>TrueOS Installer</source>
+        <translation>TrueOS cài đặt</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>TrueOS trọn gói chọn lựa</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>PC-BSD trọn gói chọn lựa</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>TrueOS trọn gói chọn lựa</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@
         <translation>Nạp tập tin cài đặt cấu hình từ USB</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Để bàn (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Để bàn (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -708,8 +708,8 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
         <translation>Cho phép thiết bị ghi</translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation>PC-BSD có thể mã hóa ổ đĩa của bạn bằng cách sử dụng khuôn khổ GELI. Đây là mã hóa toàn bộ đĩa và sẽ yêu cầu một mật khẩu lúc khởi động. Nếu bạn muốn mã hóa chỉ có dữ liệu người dùng của bạn, mã hóa thư mục nhà có sẵn sau khi cài đặt.</translation>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation>TrueOS có thể mã hóa ổ đĩa của bạn bằng cách sử dụng khuôn khổ GELI. Đây là mã hóa toàn bộ đĩa và sẽ yêu cầu một mật khẩu lúc khởi động. Nếu bạn muốn mã hóa chỉ có dữ liệu người dùng của bạn, mã hóa thư mục nhà có sẵn sau khi cài đặt.</translation>
     </message>
     <message>
         <source>Password</source>

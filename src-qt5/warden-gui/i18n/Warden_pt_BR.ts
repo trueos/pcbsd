@@ -816,8 +816,8 @@
         <translation>Jail tradicional (Seguro, melhor para serviços)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Instalar PKGNG e utilitários do PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Instalar PKGNG e utilitários do TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

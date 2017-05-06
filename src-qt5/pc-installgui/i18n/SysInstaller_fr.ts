@@ -20,8 +20,8 @@
         <translation>&amp;Suivant</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Bienvenue sur PC-BSD! Veuillez sélectionner votre langue et cliquer sur suivant pour continuer.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Bienvenue sur TrueOS! Veuillez sélectionner votre langue et cliquer sur suivant pour continuer.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Les meta-pkgs suivant seront installés:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>Installeur PC-BSD</translation>
+        <source>TrueOS Installer</source>
+        <translation>Installeur TrueOS</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>Sélection de paquets TrueOS</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>Sélection de paquets PC-BSD</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>Sélection de paquets TrueOS</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@
         <translation>Charger le fichier de configuration de l&apos;installation depuis une clé USB</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Bureau (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Bureau (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -707,8 +707,8 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Activer périphérique de journal</translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation>PC-BSD peut crypter vos disques à l&apos;aide du cadre de GELI. C&apos;est chiffrement complet des disques nécessitera un mot de passe au démarrage. Si vous souhaitez crypter uniquement les données des utilisateurs, cryptage home-directory est disponible après l&apos;installation.</translation>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation>TrueOS peut crypter vos disques à l&apos;aide du cadre de GELI. C&apos;est chiffrement complet des disques nécessitera un mot de passe au démarrage. Si vous souhaitez crypter uniquement les données des utilisateurs, cryptage home-directory est disponible après l&apos;installation.</translation>
     </message>
     <message>
         <source>Password</source>

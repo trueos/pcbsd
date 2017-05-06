@@ -387,8 +387,8 @@
         <translation>Mở freshports.org cho cổng thông tin bổ sung</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Mở ra các trang Wiki PC-BSD cho các PBI nhà phát triển</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Mở ra các trang Wiki TrueOS cho các PBI nhà phát triển</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

@@ -8,12 +8,12 @@
         <translation>Виведення команди</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Отримання дерева портів PC-BSD</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Отримання дерева портів TrueOS</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Отримання вихідніх кодів базової системи PC-BSD</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Отримання вихідніх кодів базової системи TrueOS</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>Налаштування системи PC-BSD</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>Налаштування системи TrueOS</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>Системні завдання</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>Версії PC-BSD</translation>
+        <source>TrueOS Versions</source>
+        <translation>Версії TrueOS</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>Версія FreeBSD:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Отримати вихідні коди базової системи PC-BSD</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Отримати вихідні коди базової системи TrueOS</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Отримати дерево портів PC-BSD</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Отримати дерево портів TrueOS</translation>
     </message>
     <message>
         <source>Error</source>

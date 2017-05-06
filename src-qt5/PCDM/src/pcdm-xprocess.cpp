@@ -1,7 +1,7 @@
 /* PCDM Login Manager:
 *  Written by Ken Moore (ken@pcbsd.org) 2012/2013
 *  Modified by Kris Moore (kris@pcbsd.org) 2013
-*  Copyright(c) 2013 by the PC-BSD Project
+*  Copyright(c) 2013 by the TrueOS Project
 *  Available under the 3-clause BSD license
 */
 

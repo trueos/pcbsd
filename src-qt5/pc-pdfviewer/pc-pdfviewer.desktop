@@ -8,5 +8,5 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Categories=Graphics;
-Name=PC-BSD PDF Viewer
-GenericName=PC-BSD PDF Viewer
+Name=TrueOS PDF Viewer
+GenericName=TrueOS PDF Viewer

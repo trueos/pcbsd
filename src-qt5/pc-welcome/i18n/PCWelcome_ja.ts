@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>PC-BSD のご案内</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>TrueOS のご案内</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;ようこそ!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>PC-BSD を使うのが初めての方はこのオペレーティングシステムの簡単な紹介をご覧ください。</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>TrueOS を使うのが初めての方はこのオペレーティングシステムの簡単な紹介をご覧ください。</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;アプリケーションのインストール&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>他のソフトウェアが必要ですか? PC-BSD に含まれている &quot;AppCafe&quot; では、簡単にアプリケーションを検索・インストールできます。</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>他のソフトウェアが必要ですか? TrueOS に含まれている &quot;AppCafe&quot; では、簡単にアプリケーションを検索・インストールできます。</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,16 +68,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;システムを設定する&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>ユーザーの追加が必要ですか? ファイアーウォールを設定しますか? プリンターを追加しますか? PC-BSD コントロールパネルでまとめてシステムを設定できます。</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>ユーザーの追加が必要ですか? ファイアーウォールを設定しますか? プリンターを追加しますか? TrueOS コントロールパネルでまとめてシステムを設定できます。</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>ファイルを守る</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>事故が起きてディスクドライブが破壊されると、ファイルは永遠に失われます。PC-BSD に含まれる Life Preserver というアプリケーションでは、簡単にあなたのデータをリモートの FreeNAS サーバーやその他のサーバーに同期できます。</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>事故が起きてディスクドライブが破壊されると、ファイルは永遠に失われます。TrueOS に含まれる Life Preserver というアプリケーションでは、簡単にあなたのデータをリモートの FreeNAS サーバーやその他のサーバーに同期できます。</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -92,8 +92,8 @@ p, li { white-space: pre-wrap; }
         <translation>参加しよう</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD はコミュニティーとオープンソースコミュニティーの仲間たちの尽力によってリリースされています。開発を手伝う、フォーラムの質問への回答など、手助けの手段はいろいろあります。これらのサイトから始めましょう。</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS はコミュニティーとオープンソースコミュニティーの仲間たちの尽力によってリリースされています。開発を手伝う、フォーラムの質問への回答など、手助けの手段はいろいろあります。これらのサイトから始めましょう。</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

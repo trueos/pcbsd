@@ -8,12 +8,12 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Bắt cổng PC-BSD cây</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Bắt cổng TrueOS cây</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Bắt nguồn PC-BSD</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Bắt nguồn TrueOS</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>Cầu hình hệ thống PC-BSD</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>Cầu hình hệ thống TrueOS</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>hệ thống nhiệm vụ</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD Phiên bản</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS Phiên bản</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>FreeBSD Version:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Lấy PC-BSD &amp;Hệ thống nguồn</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Lấy TrueOS &amp;Hệ thống nguồn</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Lấy PC-BSD P&amp;Orts cây</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Lấy TrueOS P&amp;Orts cây</translation>
     </message>
     <message>
         <source>Error</source>

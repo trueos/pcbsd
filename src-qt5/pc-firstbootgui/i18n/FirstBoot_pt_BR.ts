@@ -92,8 +92,8 @@
         <translation>Criptografar os arquivos do usuário</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Bem-vindo ao seu novo sistema PC-BSD! Você pode alterar o seu idioma acima e clicar em Próximo para iniciar o processo de configuração.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Bem-vindo ao seu novo sistema TrueOS! Você pode alterar o seu idioma acima e clicar em Próximo para iniciar o processo de configuração.</translation>
     </message>
     <message>
         <source>System Hostname</source>

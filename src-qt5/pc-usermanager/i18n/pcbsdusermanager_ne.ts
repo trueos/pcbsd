@@ -295,8 +295,8 @@ NOT RECOMMENDED</source>
     <context>
         <name>MainDlg</name>
         <message>
-            <source>PC-BSD User Manager</source>
-            <translation>PC-BSD  प्रवन्धक प्रयोगकर्ता</translation>
+            <source>TrueOS User Manager</source>
+            <translation>TrueOS  प्रवन्धक प्रयोगकर्ता</translation>
         </message>
         <message>
             <source>&amp;Users</source>
@@ -367,7 +367,7 @@ NOT RECOMMENDED</source>
             <translation>सदस्यहरू :</translation>
         </message>
         <message>
-            <source>PC-BSD User Manager - Advanced Mode</source>
+            <source>TrueOS User Manager - Advanced Mode</source>
             <translation>प्रयोगकर्ता प्रबन्धक - बिषिस्ट अवस्था</translation>
         </message>
         <message>
@@ -545,8 +545,8 @@ NOT RECOMMENDED</source>
     <context>
         <name>SimpleDlg</name>
         <message>
-            <source>PC-BSD User Manager</source>
-            <translation>PC-BSD प्रयोगकर्ता प्रवन्धक</translation>
+            <source>TrueOS User Manager</source>
+            <translation>TrueOS प्रयोगकर्ता प्रवन्धक</translation>
         </message>
         <message>
             <source>&amp;Add</source>

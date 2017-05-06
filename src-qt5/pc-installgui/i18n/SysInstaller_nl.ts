@@ -20,8 +20,8 @@
         <translation>Volge&amp;nde</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Welkom bij PC-BSD! Kies uw taal en klik op volgende om door te gaan</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Welkom bij TrueOS! Kies uw taal en klik op volgende om door te gaan</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>De volgende metapakketten zullen worden geïnstalleerd:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>PC-BSD-installatieprogramma</translation>
+        <source>TrueOS Installer</source>
+        <translation>TrueOS-installatieprogramma</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>Pakketkeuze voor TrueOS</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>Pakketkeuze voor PC-BSD</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>Pakketkeuze voor TrueOS</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@
         <translation>Laad instellingenbestand voor installatie vanaf USB-staafje</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Bureaublad (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Bureaublad (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -733,7 +733,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>

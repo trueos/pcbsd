@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>PC-BSD System Configuration</string>
+   <string>TrueOS System Configuration</string>
   </property>
   <property name="windowIcon">
    <iconset resource="PBSystem.qrc">
@@ -150,7 +150,7 @@
        <item row="2" column="0">
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>PC-BSD Versions</string>
+          <string>TrueOS Versions</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -506,7 +506,7 @@
             <item>
              <widget class="QPushButton" name="fetchSourceBut">
               <property name="text">
-               <string>Fetch PC-BSD &amp;System Source</string>
+               <string>Fetch TrueOS &amp;System Source</string>
               </property>
               <property name="shortcut">
                <string>Alt+S</string>
@@ -533,7 +533,7 @@
             <item>
              <widget class="QPushButton" name="fetchPortsBut">
               <property name="text">
-               <string>Fetch PC-BSD P&amp;orts Tree</string>
+               <string>Fetch TrueOS P&amp;orts Tree</string>
               </property>
              </widget>
             </item>

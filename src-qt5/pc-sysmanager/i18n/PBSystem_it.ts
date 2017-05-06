@@ -9,12 +9,12 @@
             </translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
+        <source>Getting TrueOS Ports Tree</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
+        <source>Getting TrueOS Sources</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -46,8 +46,8 @@
         <translation>Generali</translation>
     </message>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD Configurazione di Sistema</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS Configurazione di Sistema</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -86,7 +86,7 @@
         <translation>Attività di sistema</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
+        <source>TrueOS Versions</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -116,12 +116,12 @@
             </translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
+        <source>Fetch TrueOS &amp;System Source</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -387,7 +387,7 @@
         <translation>Відкрити www.freshports.org для додаткової інформації про порт</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
         <translation>Відкрити Вікі сторінку для PBI розробників</translation>
     </message>
     <message>

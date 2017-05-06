@@ -16,8 +16,8 @@
         <translation>&amp;Tiếp</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Chào mừng bạn đến hệ thống PC-BSD mới của bạn! Bạn có thể thay đổi ngôn ngữ của bạn ở trên, và kích Next để bắt đầu quá trình cài đặt. </translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Chào mừng bạn đến hệ thống TrueOS mới của bạn! Bạn có thể thay đổi ngôn ngữ của bạn ở trên, và kích Next để bắt đầu quá trình cài đặt. </translation>
     </message>
     <message>
         <source>System Timezone</source>

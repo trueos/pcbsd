@@ -8,12 +8,12 @@
         <translation>Saída CMD</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Obtendo Árvore de Ports do PC-BSD</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Obtendo Árvore de Ports do TrueOS</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Obtendo fontes do PC-BSD</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Obtendo fontes do TrueOS</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>Configuração do Sistema PC-BSD</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>Configuração do Sistema TrueOS</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>Tarefas do sistema</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>Versões do PC-BSD</translation>
+        <source>TrueOS Versions</source>
+        <translation>Versões do TrueOS</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>Versão do FreeBSD:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>Fetch PC-BSD e sistema fonte</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>Fetch TrueOS e sistema fonte</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Fetch PC-BSD &amp; arvore de ports</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Fetch TrueOS &amp; arvore de ports</translation>
     </message>
     <message>
         <source>Error</source>

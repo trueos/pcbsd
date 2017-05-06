@@ -31,7 +31,7 @@
         <translation>IP-cím:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
+        <source>TrueOS Network Manager</source>
         <translation>PC–BSD-hálózatkezelő</translation>
     </message>
     <message>
@@ -175,7 +175,7 @@
         <translation>Jelszó</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
         <translation>Megjegyzés: Ez a proxybeállítás csak a PC–BSD-specifikus eszközökre és segédprogramokra vonatkozik. Az internethozzáférést igénylő alkalmazások továbbra is a saját proxybeállításaikat használhatják, melyeket saját kezűleg kell beállítani.</translation>
     </message>
     <message>

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=PC-BSD Network Trays
+Name=TrueOS Network Trays
 Exec=/usr/local/share/pcbsd/xdg-auto/net-trays.sh
 Terminal=false
 Type=Application

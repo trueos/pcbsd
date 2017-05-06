@@ -19,7 +19,7 @@
             </translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
         <translation>आपके नए पी.सी-बी.एस.डी प्रणाली में आपका स्वागत है! आप ऊपर अपनी भाषा बदल सकते हैं और सेटअप प्रक्रिया शुरू करने के लिए आगे पर क्लिक करे
             </translation>
     </message>

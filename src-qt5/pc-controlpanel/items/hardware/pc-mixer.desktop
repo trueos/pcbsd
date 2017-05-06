@@ -6,6 +6,6 @@ Exec=pc-mixer
 Type=Application
 Icon=preferences-desktop-sound
 Categories=Settings;System;
-Name=PC-BSD Mixer Tray
-Comment=Tray Utility & Mixer for audio on PC-BSD
+Name=TrueOS Mixer Tray
+Comment=Tray Utility & Mixer for audio on TrueOS
 

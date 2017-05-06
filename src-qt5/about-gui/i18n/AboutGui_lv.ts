@@ -68,12 +68,12 @@
         <translation>X.org servera versija:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI rīki:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI rīki:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI rīki:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI rīki:</translation>
     </message>
     <message>
         <source>Host:</source>

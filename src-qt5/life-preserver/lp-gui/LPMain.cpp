@@ -36,7 +36,7 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
 	ui->menuView->addAction(WAAdv);
   connect(viewBasic, SIGNAL(toggled(bool)), this, SLOT(viewChanged()) );
   //Now set the default view type
-  settings = new QSettings(QSettings::UserScope, "PC-BSD", "Life-Preserver-GUI", this);
+  settings = new QSettings(QSettings::UserScope, "TrueOS", "Life-Preserver-GUI", this);
   bool basicMode = settings->value("viewmode", true).toBool(); //basic by default
   if(basicMode){ viewBasic->setChecked(true); } //will automatically call the "viewChanged" function
   else{ viewAdvanced->setChecked(true); } //will automatically call the "viewChanged" function

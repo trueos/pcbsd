@@ -113,8 +113,8 @@ Jos näyttöön ei ilmesty kuvaa, odota hetki. Ohjelma palaa tähän näyttöön
         <translation>Varoitus!</translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation type="unfinished">PC-BSD ei kyennyt määrittämään näyttöä automaattisesti. Sinun ehkä täytyy asettaa näytön pysty- ja vaakatahdistukset &apos;Tarkemmat asetukset&apos; välilehdeltä.</translation>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <translation type="unfinished">TrueOS ei kyennyt määrittämään näyttöä automaattisesti. Sinun ehkä täytyy asettaa näytön pysty- ja vaakatahdistukset &apos;Tarkemmat asetukset&apos; välilehdeltä.</translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>

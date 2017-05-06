@@ -72,12 +72,12 @@
         <translation>X.org verżjoni server:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>Utilitajiet CLI PC-BSD:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>Utilitajiet CLI TrueOS:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>Utilitajiet UI PC-BSD:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>Utilitajiet UI TrueOS:</translation>
     </message>
     <message>
         <source>Package set:</source>

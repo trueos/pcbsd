@@ -387,8 +387,8 @@
         <translation>Buka freshports.org untuk informasi port tambahan</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Buka halaman PC-BSD Wiki untuk developer PBI</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Buka halaman TrueOS Wiki untuk developer PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

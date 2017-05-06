@@ -10,4 +10,4 @@ Terminal=false
 TerminalOptions=
 Type=Application
 Categories=System;Settings;
-Name=PC-BSD keyboard settings
+Name=TrueOS keyboard settings

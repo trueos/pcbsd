@@ -281,8 +281,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Pengelola User PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Pengelola User TrueOS</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -349,8 +349,8 @@
         <translation>Anggota:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>Pengelola User PC-BSD - Mode Tingkat Lanjut</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>Pengelola User TrueOS - Mode Tingkat Lanjut</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -370,8 +370,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Pengelola User PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Pengelola User TrueOS</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -549,8 +549,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Pengelola User PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Pengelola User TrueOS</translation>
     </message>
     <message>
         <source>&amp;Add</source>

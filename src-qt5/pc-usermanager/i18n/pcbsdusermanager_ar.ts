@@ -282,8 +282,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>إدارة مستخدمين PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>إدارة مستخدمين TrueOS</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -350,8 +350,8 @@
         <translation>الأعضاء:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>إدارة مستخدمين PC-BSD - الوضع المتقدم</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>إدارة مستخدمين TrueOS - الوضع المتقدم</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -371,8 +371,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>إدارة مستخدمين PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>إدارة مستخدمين TrueOS</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -552,8 +552,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>إدارة مستخدمين PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>إدارة مستخدمين TrueOS</translation>
     </message>
     <message>
         <source>&amp;Add</source>

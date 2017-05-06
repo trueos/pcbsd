@@ -24,7 +24,7 @@
 # IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-# Source PC-BSD libsh functions
+# Source TrueOS libsh functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
 # Set the database directory

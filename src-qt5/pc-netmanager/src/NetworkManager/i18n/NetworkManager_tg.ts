@@ -31,8 +31,8 @@
         <translation>Суроғаи IP:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>Мудири Шабакаи PC-BSD</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>Мудири Шабакаи TrueOS</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Парол</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Эзоҳ: Ин танзимоти proxy барои барномаҳо ва асбобҳои махсуси PC-BSD мувофиқ аст. Барномаҳои дорои пайвастшавии Интернет то ҳол метавонанд танзимоти proxy-и худро истифода баранд, вале шумо бояд онҳоро ба таври дастӣ танзим кунед.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Эзоҳ: Ин танзимоти proxy барои барномаҳо ва асбобҳои махсуси TrueOS мувофиқ аст. Барномаҳои дорои пайвастшавии Интернет то ҳол метавонанд танзимоти proxy-и худро истифода баранд, вале шумо бояд онҳоро ба таври дастӣ танзим кунед.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

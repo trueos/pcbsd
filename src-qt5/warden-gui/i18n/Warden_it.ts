@@ -853,7 +853,7 @@
             </translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
+        <source>Install PKGNG and TrueOS utilities</source>
         <translation type="unfinished">
             </translation>
     </message>

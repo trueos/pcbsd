@@ -388,8 +388,8 @@
         <translation>Abrir freshports.org para informacion adicional de los puertos</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Abrir la Wiki de PC-BSD para desarrolladores de PBI</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Abrir la Wiki de TrueOS para desarrolladores de PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

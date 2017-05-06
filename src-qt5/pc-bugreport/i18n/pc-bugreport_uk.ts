@@ -4,8 +4,8 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD bug reporting tool</source>
-        <translation>Утиліта повідомлення про вади PC-BSD</translation>
+        <source>TrueOS bug reporting tool</source>
+        <translation>Утиліта повідомлення про вади TrueOS</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -16,8 +16,8 @@
         <translation>Базова система FreeBSD</translation>
     </message>
     <message>
-        <source>PC-BSD base system</source>
-        <translation>Базова система PC-BSD</translation>
+        <source>TrueOS base system</source>
+        <translation>Базова система TrueOS</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -32,16 +32,16 @@
         <translation>Програмне забезпечення FreeBSD (порти/пакунки)</translation>
     </message>
     <message>
-        <source>PC-BSD software (pbi)</source>
-        <translation>Програмне забезпечення PC-BSD (пакунки pbi)</translation>
+        <source>TrueOS software (pbi)</source>
+        <translation>Програмне забезпечення TrueOS (пакунки pbi)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head /&gt;&lt;body&gt;&lt;p&gt;2. Надіслати листа в список розсилки FreeBSD bugs. Завітайте до наступної сторінки щоб підписатися та переглянути архіви списку розсилки&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation>1. Створити повідомлення про ваду, використовуючи баг трекер PC-BSD</translation>
+        <source>1. Submit a bug report using using TrueOS&apos;s trac mechanism</source>
+        <translation>1. Створити повідомлення про ваду, використовуючи баг трекер TrueOS</translation>
     </message>
     <message>
         <source>X.org server</source>
@@ -144,8 +144,8 @@
         <translation>1. Ви можете спробувати повідомити про ваду на сайті програмного забезпечення</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation>2. Якщо Ви вважаєте що проблема є специфічною для PC-BSD, напишіть про неї у список розсилки pbi-bugs</translation>
+        <source>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</source>
+        <translation>2. Якщо Ви вважаєте що проблема є специфічною для TrueOS, напишіть про неї у список розсилки pbi-bugs</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -176,22 +176,22 @@
         <translation>1. Відправити повідомлення про ваду використовуючи FreeBSD Bugzilla</translation>
     </message>
     <message>
-        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+        <source>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
         <translation>Якщо Ви не певні чи це дійсно є вада Ви можете задати запитання в списку розсилки testing.
 Відвідайте наступне посилання щоб підписатися чи переглянути архів повідомлень</translation>
     </message>
     <message>
-        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
-        <translation>4. Якщо Ви вважаєте що проблема специфічна для PC-BSD, будь ласка створіть квиток у баг трекері.</translation>
+        <source>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</source>
+        <translation>4. Якщо Ви вважаєте що проблема специфічна для TrueOS, будь ласка створіть квиток у баг трекері.</translation>
     </message>
     <message>
-        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
-        <translation>2. Створити повідомлення про ваду у баг теркері PC-BSD</translation>
+        <source>2. Create a ticket on the TrueOS bug tracker.</source>
+        <translation>2. Створити повідомлення про ваду у баг теркері TrueOS</translation>
     </message>
     <message>
-        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
-        <translation>3. Якщо Ви вважаєте що проблема специфічна для PC-BSD, будь ласка створіть квиток у баг трекері.</translation>
+        <source>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation>3. Якщо Ви вважаєте що проблема специфічна для TrueOS, будь ласка створіть квиток у баг трекері.</translation>
     </message>
 </context>
 <context>

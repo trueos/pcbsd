@@ -795,8 +795,8 @@
         <translation>Truyền thống Jail (Secure, tốt nhất cho các dịch vụ)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Cài đặt PKGNG và các tiện ích PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Cài đặt PKGNG và các tiện ích TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

@@ -308,8 +308,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Идораи корбари PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Идораи корбари TrueOS</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -376,8 +376,8 @@
         <translation>Узвҳо:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>Идораи корбари PC-BSD - Ҳолати иловагӣ</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>Идораи корбари TrueOS - Ҳолати иловагӣ</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -397,8 +397,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation type="unfinished">Идораи корбари PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation type="unfinished">Идораи корбари TrueOS</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -590,8 +590,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Идораи корбари PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Идораи корбари TrueOS</translation>
     </message>
     <message>
         <source>&amp;Add</source>

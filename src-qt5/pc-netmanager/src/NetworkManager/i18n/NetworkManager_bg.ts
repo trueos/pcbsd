@@ -31,8 +31,8 @@
         <translation>IP адрес:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD мрежов мениджър</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS мрежов мениджър</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Парола</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Забележка: Тази прокси конфигурация е за специфични инструменти и помощни програми на PC-BSD. Интернет приложения, може да използват своя собствена конфигурация за прокси, които ще трябва да бъдат ръчно конфигурирани.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Забележка: Тази прокси конфигурация е за специфични инструменти и помощни програми на TrueOS. Интернет приложения, може да използват своя собствена конфигурация за прокси, които ще трябва да бъдат ръчно конфигурирани.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

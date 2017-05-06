@@ -1,4 +1,4 @@
-# Generic PC-BSD 1024x768 VESA xorg.conf file
+# Generic TrueOS 1024x768 VESA xorg.conf file
 
 Section "ServerLayout"
 	Identifier     "XFree86 Configured"

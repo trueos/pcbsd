@@ -20,8 +20,8 @@
         <translation>&amp;Jmiss</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Merħba għall PC-BSD! Jekk jogħġbok agħżel il-lingwa tiegħek u ikklikkja li jmiss biex tkompli.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Merħba għall TrueOS! Jekk jogħġbok agħżel il-lingwa tiegħek u ikklikkja li jmiss biex tkompli.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Il-pkgs metadata li ġejjin se tkun installata:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>Installazzjoni PC-BSD</translation>
+        <source>TrueOS Installer</source>
+        <translation>Installazzjoni TrueOS</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>TrueOS Pakkett Selezzjoni</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>PC-BSD Pakkett Selezzjoni</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>TrueOS Pakkett Selezzjoni</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@ Ikklikkja Finlandiża biex reboot. Wara rebooting inti tista jitfgħuha l-jinsta
         <translation>Tagħbija installazzjoni fajl konfigurazzjoni mill-USB stick</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Desktop (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Desktop (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -713,7 +713,7 @@ Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw 
             </translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished">
             </translation>
     </message>

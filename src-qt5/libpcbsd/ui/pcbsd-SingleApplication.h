@@ -1,5 +1,5 @@
 //===========================================
-//  PC-BSD source code
+//  TrueOS source code
 //  Ken Moore  <ken@pcbsd.org
 //  Copied from the Lumina Library Source code: 12/5/14
 //===========================================

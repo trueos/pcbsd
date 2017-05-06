@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>Про PC-BSD</translation>
+        <translation>Про TrueOS</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -72,12 +72,12 @@
         <translation>Версія сервера X.org:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>Утиліти командного рядка PC-BSD:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>Утиліти командного рядка TrueOS:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>Графічні утиліти PC-BSD:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>Графічні утиліти TrueOS:</translation>
     </message>
     <message>
         <source>Package set:</source>

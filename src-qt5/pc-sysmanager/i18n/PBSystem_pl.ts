@@ -8,12 +8,12 @@
         <translation>CMD - Wyjście</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>Pobierz drzewo portów PC-BSD</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>Pobierz drzewo portów TrueOS</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>Pobieranie zasobów PC-BSD</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>Pobieranie zasobów TrueOS</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>Konfiguracja systemu PC-BSD</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>Konfiguracja systemu TrueOS</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>Zadania systemowe</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>Wersje PC-BSD</translation>
+        <source>TrueOS Versions</source>
+        <translation>Wersje TrueOS</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>Wersja FreeBSD</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">Pobierz źródła PC-BSD &amp; systemowe</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation type="unfinished">Pobierz źródła TrueOS &amp; systemowe</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>Pobierz drzewo portów PC-BSD</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>Pobierz drzewo portów TrueOS</translation>
     </message>
     <message>
         <source>Error</source>

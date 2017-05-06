@@ -27,8 +27,8 @@
 <context>
     <name>NetworkMan</name>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD 網絡管理員</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS 網絡管理員</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>密碼</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>注意：此代理伺服器設定僅針對 PC-BSD 專用工具與系統程式。其他程式視其代理設定，仍需要逐一手動設定。</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>注意：此代理伺服器設定僅針對 TrueOS 專用工具與系統程式。其他程式視其代理設定，仍需要逐一手動設定。</translation>
     </message>
     <message>
         <source>&amp;Close</source>

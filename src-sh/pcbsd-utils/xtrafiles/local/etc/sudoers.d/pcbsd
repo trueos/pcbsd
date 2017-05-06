@@ -1,4 +1,4 @@
-# PC-BSD Sudoers setup
+# TrueOS Sudoers setup
 # Changes to this file will be lost!
 %wheel ALL = NOPASSWD: /usr/local/bin/pc-ethernetconfig
 %wheel ALL = NOPASSWD: /usr/local/bin/pc-netmanager

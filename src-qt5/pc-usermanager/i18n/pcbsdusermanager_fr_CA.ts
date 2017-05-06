@@ -279,8 +279,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Gestionnaire d&apos;Utilisateurs de TrueOS</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -347,8 +347,8 @@
         <translation>Membres:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD - Mode Avancé</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>Gestionnaire d&apos;Utilisateurs de TrueOS - Mode Avancé</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -366,8 +366,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>Gestion d&apos;Utilisateurs de PC-BSD</translation>
+        <source>TrueOS User Manager</source>
+        <translation>Gestion d&apos;Utilisateurs de TrueOS</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -542,8 +542,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Gestionnaire d&apos;utilisateurs</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Gestionnaire d&apos;utilisateurs</translation>
     </message>
     <message>
         <source>&amp;Add</source>

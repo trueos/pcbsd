@@ -282,8 +282,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Upravitelj korisnika</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Upravitelj korisnika</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -350,8 +350,8 @@
         <translation>Članovi:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD Upravitelj korisnika - Napredni način</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>TrueOS Upravitelj korisnika - Napredni način</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -371,8 +371,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Upravitelj korisnika</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Upravitelj korisnika</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -553,8 +553,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Upravitelj korisnika</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Upravitelj korisnika</translation>
     </message>
     <message>
         <source>&amp;Add</source>

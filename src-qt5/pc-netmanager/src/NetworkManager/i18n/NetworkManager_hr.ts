@@ -31,8 +31,8 @@
         <translation>IP Adresa:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Mrezni Upravitelj</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS Mrezni Upravitelj</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Zaporka</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Napomena: Ove proxy postavke su za PC-BSD posebne alate. Internet aplikacije mogu koristiti svoje vlastite proxy postavke, koje morate ručno namjestiti.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Napomena: Ove proxy postavke su za TrueOS posebne alate. Internet aplikacije mogu koristiti svoje vlastite proxy postavke, koje morate ručno namjestiti.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

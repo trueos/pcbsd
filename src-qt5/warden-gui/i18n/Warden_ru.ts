@@ -788,8 +788,8 @@
         <translation>Стандартное изолированное окружение (Безопасно и подходит для служебных целей)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Установить PKGNG и средства PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Установить PKGNG и средства TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

@@ -164,7 +164,7 @@ void XGUI::checkUnprobedMonitor()
      if ( ! test2.exists() )
      {
        system("touch /tmp/.warnedUnprobedMonitor");
-       QMessageBox::warning(0, tr("Warning!"), tr("PC-BSD was unable to autodetect your monitor. You may need to specify this monitor's Horizontal and Vertical refresh rates in the 'Advanced' tab."));      
+       QMessageBox::warning(0, tr("Warning!"), tr("TrueOS was unable to autodetect your monitor. You may need to specify this monitor's Horizontal and Vertical refresh rates in the 'Advanced' tab."));      
      }
      
   }

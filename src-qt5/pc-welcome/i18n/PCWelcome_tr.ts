@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>PC-BSD&apos;ye Hoşgeldiniz</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>TrueOS&apos;ye Hoşgeldiniz</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Hoşgeldiniz!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>Eğer PC-BSD&apos;de yeniyseniz, lütfen yeni işletim sisteminizi hızlıca tanımak için aşağıdaki başlangıç ​​sayfalarını okumak için birkaç dakikanızı ayırın. </translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>Eğer TrueOS&apos;de yeniyseniz, lütfen yeni işletim sisteminizi hızlıca tanımak için aşağıdaki başlangıç ​​sayfalarını okumak için birkaç dakikanızı ayırın. </translation>
     </message>
     <message>
         <source>If your computer is connected via network cable it will be auto-configured with DHCP. Wireless users may search for and connect to wifi networks by clicking the wireless tray icon:</source>
@@ -52,16 +52,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Sisteminizi yapılandırın&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>Yeni bir kullanıcı mı eklemeniz gerekiyor? Güvenlik duvarı yapılandırması? Bir yazıcı mı eklenecek? PC-BSD kontrol paneli sisteminizi tek bir noktadan yönetmenizi sağlar.</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>Yeni bir kullanıcı mı eklemeniz gerekiyor? Güvenlik duvarı yapılandırması? Bir yazıcı mı eklenecek? TrueOS kontrol paneli sisteminizi tek bir noktadan yönetmenizi sağlar.</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>Dosyalarınızı koruyun</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Kazalar yaşayabilirsiniz. Disk sürücüleri bozulabilir, dosyalarınız sonsuza kadar yok olabilir. PC-BSD kullanıcı verilerinizi uzak FreeNAS sistemine yada diğer ağlardaki veri sunucularına kolaylıkla senkronize edebileceğiniz, Life-Preserver uygulamasını içerir.</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>Kazalar yaşayabilirsiniz. Disk sürücüleri bozulabilir, dosyalarınız sonsuza kadar yok olabilir. TrueOS kullanıcı verilerinizi uzak FreeNAS sistemine yada diğer ağlardaki veri sunucularına kolaylıkla senkronize edebileceğiniz, Life-Preserver uygulamasını içerir.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -76,8 +76,8 @@ p, li { white-space: pre-wrap; }
         <translation>Siz de katılın</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD bir topluluk çalışması ürünüdür, açık kaynak topluluğunun diğer üyelerinin farklı yollardan yaptıkları katkıları ile ortaya çıkmaktadır. Geliştirme sürecine katkıda bulunmaktan, diğer kullanıcıların sorunlarına forumlarda çözüm bulmaya dek bir çok yoldan katkıda buylunabilirsiniz.. Aşağıdaki internet siteleri başlangıç yapmak için sizi bekliyor.</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS bir topluluk çalışması ürünüdür, açık kaynak topluluğunun diğer üyelerinin farklı yollardan yaptıkları katkıları ile ortaya çıkmaktadır. Geliştirme sürecine katkıda bulunmaktan, diğer kullanıcıların sorunlarına forumlarda çözüm bulmaya dek bir çok yoldan katkıda buylunabilirsiniz.. Aşağıdaki internet siteleri başlangıç yapmak için sizi bekliyor.</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>
@@ -96,8 +96,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Nasıl Bağlanılır&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Ek yazılım mı arıyorsunuz? PC-BSD ile gelen &quot;AppCafe&quot; ile kolaylıkla uygulama arayabilir ve kurabilirsiniz.</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>Ek yazılım mı arıyorsunuz? TrueOS ile gelen &quot;AppCafe&quot; ile kolaylıkla uygulama arayabilir ve kurabilirsiniz.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;

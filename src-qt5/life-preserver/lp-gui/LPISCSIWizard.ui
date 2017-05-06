@@ -23,7 +23,7 @@
        </font>
       </property>
       <property name="text">
-       <string>This utility will guide you through the steps necessary to setup fully-encrypted, offsite backups of your PC-BSD system. </string>
+       <string>This utility will guide you through the steps necessary to setup fully-encrypted, offsite backups of your TrueOS system. </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

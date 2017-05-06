@@ -1,5 +1,5 @@
 ~OCT 2011: 
-Jesse Smith converted his command-line utility "Make-A-PBI" into the early stages of a GUI program called EasyPBI and asked the PBI developers at the PC-BSD Project for feedback and suggestions. Ken Moore came onboard at this time to assist in creating a Qt4 interface for EasyPBI.
+Jesse Smith converted his command-line utility "Make-A-PBI" into the early stages of a GUI program called EasyPBI and asked the PBI developers at the TrueOS Project for feedback and suggestions. Ken Moore came onboard at this time to assist in creating a Qt4 interface for EasyPBI.
 
 NOV 1, 2011:
 EasyPBI version 0.3 was released!
@@ -10,10 +10,10 @@ Changes include: ability to build PBI's directly from the EasyPBI interface, num
 
 DEC 12, 2011:
 Jesse Smith transferred ownership of EasyPBI and PBIMaker (formerly Make-A-PBI) to the PC-BSD Project.
-Ken Moore (from the PC-BSD project) takes over full development of EasyPBI.
+Ken Moore (from the TrueOS project) takes over full development of EasyPBI.
 
 MAR 20, 2012:
-EasyPBI was added to the default PC-BSD system for the upcoming PC-BSD 9.1 Beta releases.
+EasyPBI was added to the default TrueOS system for the upcoming PC-BSD 9.1 Beta releases.
 SVN location: svn://svn.pcbsd.org/pcbsd/current/src-qt4/EasyPBI
 
 ~MAR 28, 2012:

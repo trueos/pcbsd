@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>歡迎使用PC-BSD</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>歡迎使用TrueOS</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -20,8 +20,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;歡迎！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>如果你是PC-BSD新手，請你花幾分鐘的時間閱讀以下的開始頁面來協助你快速熟悉新作業系統。</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>如果你是TrueOS新手，請你花幾分鐘的時間閱讀以下的開始頁面來協助你快速熟悉新作業系統。</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,8 +52,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;安裝應用程式&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>要尋找更多可用的應用程式？PC-BSD內建的AppCafe，讓尋找與安裝應用程式不費吹灰之力。 </translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>要尋找更多可用的應用程式？TrueOS內建的AppCafe，讓尋找與安裝應用程式不費吹灰之力。 </translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -68,16 +68,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;設定系統&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>需要增加新的使用者？啟動你的防火牆？或者新增印表機？PC-BSD控制台在你管理系統時為你提供一站到位的服務。</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>需要增加新的使用者？啟動你的防火牆？或者新增印表機？TrueOS控制台在你管理系統時為你提供一站到位的服務。</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>保護你的資料</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>意外有可能發生。磁碟驅動可能毀損，相關檔案可能永遠遺失。PC-BSD內建的Life-Preserver備份程式可以讓你輕而易舉的同步備份資料到遠端的FreeNAS系統或者其他以連網的資料伺服器。</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>意外有可能發生。磁碟驅動可能毀損，相關檔案可能永遠遺失。TrueOS內建的Life-Preserver備份程式可以讓你輕而易舉的同步備份資料到遠端的FreeNAS系統或者其他以連網的資料伺服器。</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -92,8 +92,8 @@ p, li { white-space: pre-wrap; }
         <translation>進行參與</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD是一整個社群貢獻的結果，當中可能有很多人來自於你所身處的開放原始碼團體。從直接參與系統開發到論壇上的問題回覆，有很多方法與管道可以協助我們推廣。官方網站上提供了一些加入PC-BSD計畫的方法。</translation>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <translation>TrueOS是一整個社群貢獻的結果，當中可能有很多人來自於你所身處的開放原始碼團體。從直接參與系統開發到論壇上的問題回覆，有很多方法與管道可以協助我們推廣。官方網站上提供了一些加入PC-BSD計畫的方法。</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

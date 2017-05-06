@@ -72,12 +72,12 @@
         <translation>X.org leagan fhreastalaí:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI fhóntais:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI fhóntais:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI fhóntais:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI fhóntais:</translation>
     </message>
     <message>
         <source>Package set:</source>

@@ -118,7 +118,7 @@ If your screen does not appear, please wait and you will be returned to this scr
             </translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
         <translation>पी.सी-बी.एस.डी असमर्थ रहा आपका मॉनिटर पकड़ने के लिए | आपको इस मॉनिटर की क्षैतिज और लम्बवत पुनश्चर्या दर, &apos;अग्रिम&apos; टेब से विस्तृत करनी पड़ेगी
             </translation>
     </message>

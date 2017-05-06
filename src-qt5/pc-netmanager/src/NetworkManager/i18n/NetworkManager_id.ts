@@ -31,8 +31,8 @@
         <translation>Alamat IP:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>Pengelola Jaringan PC-BSD</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>Pengelola Jaringan TrueOS</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -175,8 +175,8 @@
         <translation>Password</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Catatan: Konfigurasi proxy ini khusus untuk alat dan utilitas PC-BSD saja. Aplikasi Internet lainnya masih dapat menggunakan konfigurasi proxy-nya sendiri, yang harus dikonfigurasi secara manual.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Catatan: Konfigurasi proxy ini khusus untuk alat dan utilitas TrueOS saja. Aplikasi Internet lainnya masih dapat menggunakan konfigurasi proxy-nya sendiri, yang harus dikonfigurasi secara manual.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

@@ -806,8 +806,8 @@
         <translation>传统的Jail（安全，适用于服务）</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>安装PKGNG和PC-BSD工具</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>安装PKGNG和TrueOS工具</translation>
     </message>
     <message>
         <source>Jail Version</source>

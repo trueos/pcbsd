@@ -32,7 +32,7 @@ rootPass=root
 
 # Setup our users
 userName=pcbsd
-userComment=PC-BSD Test User
+userComment=TrueOS Test User
 userPass=pcbsd
 userShell=/bin/csh
 userHome=/home/pcbsd

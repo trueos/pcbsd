@@ -178,11 +178,11 @@ at-xy ."         `--{__________) [0m"
 	clear
 	46 4 print-logo
 	43 22 2 2 box
-	13 6 at-xy ." Welcome to PC-BSD!"
-	printmenuitem ."  Boot PC-BSD [default]" bootkey !
+	13 6 at-xy ." Welcome to TrueOS!"
+	printmenuitem ."  Boot TrueOS [default]" bootkey !
 	s" arch-i386" environment? if
 		drop
-		printmenuitem ."  Boot PC-BSD with ACPI " bootacpikey !
+		printmenuitem ."  Boot TrueOS with ACPI " bootacpikey !
 		acpienabled? if
 			." disabled"
 		else
@@ -191,9 +191,9 @@ at-xy ."         `--{__________) [0m"
 	else
 		-2 bootacpikey !
 	then
-	printmenuitem ."  Boot PC-BSD in Safe Mode" bootsafekey !
-	printmenuitem ."  Boot PC-BSD in single user mode" bootsinglekey !
-	printmenuitem ."  Boot PC-BSD with verbose logging" bootverbosekey !
+	printmenuitem ."  Boot TrueOS in Safe Mode" bootsafekey !
+	printmenuitem ."  Boot TrueOS in single user mode" bootsinglekey !
+	printmenuitem ."  Boot TrueOS with verbose logging" bootverbosekey !
 	printmenuitem ."  Run X in VESA mode" xvesa !
 	printmenuitem ."  Escape to loader prompt" escapekey !
 	printmenuitem ."  Reboot" rebootkey !

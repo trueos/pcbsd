@@ -73,7 +73,7 @@ static const QString UNSUPPORTED_DE_ICON = ":/images/unsupported_de.png";
 
 Q_DECLARE_METATYPE(CControlPanelItem*);
 
-#define CONFIG_FILE (QDir::homePath()+QString("/.config/PC-BSD/ControlPanel.conf"))
+#define CONFIG_FILE (QDir::homePath()+QString("/.config/TrueOS/ControlPanel.conf"))
 //const char* const CONFIG_FILE = "~/ControlPanel.conf";
 const char* const CONFIG_GENERAL_GROUP = "General";
 const char* const CONFIG_HIDE_DE_ITEMS = "HideDeItems";

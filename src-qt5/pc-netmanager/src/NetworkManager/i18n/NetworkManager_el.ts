@@ -32,8 +32,8 @@
         <translation type="unfinished">Διεύθυνση IP:</translation>
     </message>
     <message>
-        <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Διαχειριστής Δικτύου</translation>
+        <source>TrueOS Network Manager</source>
+        <translation>TrueOS Διαχειριστής Δικτύου</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -176,8 +176,8 @@
         <translation>Κωδικός πρόσβασης</translation>
     </message>
     <message>
-        <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Σημείωση: Αυτή η ρύθμιση παραμέτρων μεσολαβητή είναι για συγκεκριμένα εργαλεία και βοηθητικά προγράμματα του PC-BSD. Οι διαδικτύακες εφαρμογές μπορούν να χρησιμοποιούν ακόμα τη δική τους ρύθμιση μεσολαβητή, η οποία θα πρέπει να ρυθμιστεί με το χέρι.</translation>
+        <source>Note: This proxy configuration is for TrueOS specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
+        <translation>Σημείωση: Αυτή η ρύθμιση παραμέτρων μεσολαβητή είναι για συγκεκριμένα εργαλεία και βοηθητικά προγράμματα του TrueOS. Οι διαδικτύακες εφαρμογές μπορούν να χρησιμοποιούν ακόμα τη δική τους ρύθμιση μεσολαβητή, η οποία θα πρέπει να ρυθμιστεί με το χέρι.</translation>
     </message>
     <message>
         <source>&amp;Close</source>

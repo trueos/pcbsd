@@ -4,8 +4,8 @@
 <context>
     <name>welcomeWizard</name>
     <message>
-        <source>Welcome to PC-BSD</source>
-        <translation>Velkommen til PC-BSD</translation>
+        <source>Welcome to TrueOS</source>
+        <translation>Velkommen til TrueOS</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -16,8 +16,8 @@ p, li { white-space: pre-wrap; }
         <translation>Velkommen :-)</translation>
     </message>
     <message>
-        <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-        <translation>Hvis PC-BSD er nyt for dig, så brug et øjeblik på at læse de følgende begyndersider for en kort introduktion til dit nye styresystem</translation>
+        <source>If you are new to TrueOS, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
+        <translation>Hvis TrueOS er nyt for dig, så brug et øjeblik på at læse de følgende begyndersider for en kort introduktion til dit nye styresystem</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -40,8 +40,8 @@ p, li { white-space: pre-wrap; }
         <translation>Installer programmer</translation>
     </message>
     <message>
-        <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Ser du efter mere software? PC-BSD kommer med &apos;AppCafe&apos; som let lader dig søge og installere programmer.</translation>
+        <source>Looking for additional software? TrueOS includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
+        <translation>Ser du efter mere software? TrueOS kommer med &apos;AppCafe&apos; som let lader dig søge og installere programmer.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -52,16 +52,16 @@ p, li { white-space: pre-wrap; }
         <translation>Indstil dit system</translation>
     </message>
     <message>
-        <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>Skal du oprette en ny bruger? Indstille en brandmur? Tilføje en skrive? PC-BSD kontrolpanel klarer alle indstillinger til dit system.</translation>
+        <source>Need to add a new user? Configure the firewall? Add a printer? The TrueOS control panel is your one-stop shop for managing your system.</source>
+        <translation>Skal du oprette en ny bruger? Indstille en brandmur? Tilføje en skrive? TrueOS kontrolpanel klarer alle indstillinger til dit system.</translation>
     </message>
     <message>
         <source>Preserve your files</source>
         <translation>Bevar dine filer</translation>
     </message>
     <message>
-        <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Uheld sker. Harddiske kan fejle, filer kan fortabes for altid. PC-BSD inkluderer programmet Life-Preserver (Redningskrans), som gør det let at synkronisere dine bruger data med et fjernt FreeNas system eller en anden datatjeneste.</translation>
+        <source>Accidents happen. Disk drives can crash, files can be lost forever. TrueOS includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
+        <translation>Uheld sker. Harddiske kan fejle, filer kan fortabes for altid. TrueOS inkluderer programmet Life-Preserver (Redningskrans), som gør det let at synkronisere dine bruger data med et fjernt FreeNas system eller en anden datatjeneste.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -76,7 +76,7 @@ p, li { white-space: pre-wrap; }
         <translation>Hjælp til</translation>
     </message>
     <message>
-        <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
+        <source>TrueOS is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
         <translation>PC_BSD er et fælles projekt, hvor nye tilbud muliggøres via flere af dine kammerater i open-source miljøet. Der er masser af måder at hjælpe på fra udvikling til at svare på spørgsmål i vores forum. Se hvor du ka starte i listen forneden.</translation>
     </message>
     <message>

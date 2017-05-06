@@ -280,8 +280,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Управление на потребителите</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Управление на потребителите</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -348,8 +348,8 @@
         <translation>Членове:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD Управление на потребители - Разширени настройки</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>TrueOS Управление на потребители - Разширени настройки</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -367,8 +367,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Управление на потребителите</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Управление на потребителите</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -544,8 +544,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Управление на потребителите</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS Управление на потребителите</translation>
     </message>
     <message>
         <source>&amp;Add</source>

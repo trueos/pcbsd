@@ -16,8 +16,8 @@
         <translation>&amp;Sekantis</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Sveiki atvykę į naują PC-BSD sistemą! Galite pasirinkti pageidaujamą kalbą ir paspausti &quot;Sekantis&quot;, kad pradėti sąrankos procesą.</translation>
+        <source>Welcome to your new TrueOS system! You may change your language above, and click next to begin the setup process.</source>
+        <translation>Sveiki atvykę į naują TrueOS sistemą! Galite pasirinkti pageidaujamą kalbą ir paspausti &quot;Sekantis&quot;, kad pradėti sąrankos procesą.</translation>
     </message>
     <message>
         <source>System Timezone</source>

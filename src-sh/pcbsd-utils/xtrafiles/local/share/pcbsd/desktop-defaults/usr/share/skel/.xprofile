@@ -10,7 +10,7 @@ export XDG_CONFIG_DIRS
 #Load any Xterm settings
 xrdb ~/.Xresources
 
-# Check for any specific PC-BSD apps we need to start at login
+# Check for any specific TrueOS apps we need to start at login
 for i in $(ls /usr/local/share/pcbsd/xstartup/*.sh)
 do
 	# Run some task in the background to run in parallel

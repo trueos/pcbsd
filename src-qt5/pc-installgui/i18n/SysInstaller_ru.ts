@@ -20,8 +20,8 @@
         <translation>&amp;Далее</translation>
     </message>
     <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Вас приветствует PC-BSD! Пожалуйста, выберите язык интерфейса и нажмите «Далее», чтобы продолжить.</translation>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
+        <translation>Вас приветствует TrueOS! Пожалуйста, выберите язык интерфейса и нажмите «Далее», чтобы продолжить.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -80,8 +80,8 @@
         <translation>Перечисленные мета-пакеты будут установлены:</translation>
     </message>
     <message>
-        <source>PC-BSD Installer</source>
-        <translation>Программа установки PC-BSD</translation>
+        <source>TrueOS Installer</source>
+        <translation>Программа установки TrueOS</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
@@ -160,8 +160,8 @@
         <translation>Выбор пакетов TrueOS</translation>
     </message>
     <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>Выбор пакетов PC-BSD</translation>
+        <source>TrueOS Package Selection</source>
+        <translation>Выбор пакетов TrueOS</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -186,8 +186,8 @@
         <translation>Загрузите установочный файл настроек с USB-накопителя</translation>
     </message>
     <message>
-        <source>Desktop (PC-BSD)</source>
-        <translation>Рабочий стол (PC-BSD)</translation>
+        <source>Desktop (TrueOS)</source>
+        <translation>Рабочий стол (TrueOS)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -712,8 +712,8 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Задействовать устройство ведения журнала событий</translation>
     </message>
     <message>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation>PC-BSD может произвести шифрование ваших дисков используя GELI. Это шифрование всего диска, требующее ввода пароля при загрузке. Если вы хотите произвести шифрование только данных пользователя, после установки будет доступно шифрование домашней папки пользователя.</translation>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation>TrueOS может произвести шифрование ваших дисков используя GELI. Это шифрование всего диска, требующее ввода пароля при загрузке. Если вы хотите произвести шифрование только данных пользователя, после установки будет доступно шифрование домашней папки пользователя.</translation>
     </message>
     <message>
         <source>Password</source>

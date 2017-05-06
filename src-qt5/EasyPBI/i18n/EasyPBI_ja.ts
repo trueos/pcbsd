@@ -347,8 +347,8 @@
         <translation>さらに port の情報を得るために freshports.org を開く</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>PC-BSD Wiki のPBI 開発者向けページを開く</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>TrueOS Wiki のPBI 開発者向けページを開く</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>

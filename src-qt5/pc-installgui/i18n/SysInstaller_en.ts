@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../installer.ui" line="256"/>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
+        <source>Welcome to TrueOS! Please select your language and click next to continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -138,7 +138,7 @@
     </message>
     <message>
         <location filename="../installer.ui" line="442"/>
-        <source>Desktop (PC-BSD)</source>
+        <source>Desktop (TrueOS)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -211,7 +211,7 @@
     </message>
     <message>
         <location filename="../installer.cpp" line="509"/>
-        <source>PC-BSD Package Selection</source>
+        <source>TrueOS Package Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -238,7 +238,7 @@
         <location filename="../installer.cpp" line="1779"/>
         <location filename="../installer.cpp" line="1792"/>
         <location filename="../installer.cpp" line="1797"/>
-        <source>PC-BSD Installer</source>
+        <source>TrueOS Installer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -726,7 +726,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <location filename="../wizardDisk.ui" line="843"/>
-        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <source>TrueOS can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

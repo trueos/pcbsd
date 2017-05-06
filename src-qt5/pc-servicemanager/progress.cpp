@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2006 - 2009 PC-BSD Software   *
+ *   Copyright (C) 2006 - 2009 TrueOS Software   *
  *   kris@pcbsd.org  *
  *                                                                         *
  *   Permission is hereby granted, free of charge, to any person obtaining *

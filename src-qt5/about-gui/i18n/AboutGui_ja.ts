@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>この PC-BSD の情報</translation>
+        <translation>この TrueOS の情報</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -72,12 +72,12 @@
         <translation>X.orgサーババージョン:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI ユーティリティー:</translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>TrueOS CLI ユーティリティー:</translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI ユーティリティー:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>TrueOS UI ユーティリティー:</translation>
     </message>
     <message>
         <source>Package set:</source>

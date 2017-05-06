@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>PC-BSD bug reporting tool</string>
+   <string>TrueOS bug reporting tool</string>
   </property>
   <property name="windowIcon">
    <iconset resource="bugreport.qrc">
@@ -76,7 +76,7 @@
       <item>
        <widget class="QRadioButton" name="PCBSDBaseRB">
         <property name="text">
-         <string>PC-BSD base system</string>
+         <string>TrueOS base system</string>
         </property>
        </widget>
       </item>
@@ -104,7 +104,7 @@
       <item>
        <widget class="QRadioButton" name="PBIRB">
         <property name="text">
-         <string>PC-BSD software (pbi)</string>
+         <string>TrueOS software (pbi)</string>
         </property>
        </widget>
       </item>
@@ -209,7 +209,7 @@
   </widget>
   <widget class="QWizardPage" name="wizardPage">
    <property name="title">
-    <string>PC-BSD base system</string>
+    <string>TrueOS base system</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
@@ -240,7 +240,7 @@
         <item>
          <widget class="QLabel" name="label_7">
           <property name="text">
-           <string>1. Submit a bug report using using PC-BSD's bug tracker</string>
+           <string>1. Submit a bug report using using TrueOS's bug tracker</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -260,7 +260,7 @@
         <item>
          <widget class="QLabel" name="label_8">
           <property name="text">
-           <string>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+           <string>If you are not sure it is a bug, you can ask about it on the TrueOS testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</string>
           </property>
           <property name="wordWrap">
@@ -370,7 +370,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_15">
           <property name="text">
-           <string>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</string>
+           <string>4. If you think that problem is TrueOS specific, please create a ticket on the bug tracker.</string>
           </property>
          </widget>
         </item>
@@ -464,7 +464,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_4">
           <property name="text">
-           <string>2. Create a ticket on the PC-BSD bug tracker.</string>
+           <string>2. Create a ticket on the TrueOS bug tracker.</string>
           </property>
          </widget>
         </item>
@@ -563,7 +563,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
+           <string>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -662,7 +662,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_18">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
+           <string>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -744,7 +744,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_19">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
+           <string>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -823,7 +823,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_28">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
+           <string>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -902,7 +902,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_30">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
+           <string>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -971,7 +971,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_23">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
+           <string>3.If you think that problem is TrueOS specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
          </widget>
         </item>
@@ -1139,7 +1139,7 @@ Visit the following web page to subscribe to or read the archives of this list</
         <item>
          <widget class="QLabel" name="label_26">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</string>
+           <string>2.If you think that problem is TrueOS specific please report to the PCBSD pbi-bugs mailing list</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>

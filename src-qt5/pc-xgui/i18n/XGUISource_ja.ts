@@ -99,8 +99,8 @@ If your screen does not appear, please wait and you will be returned to this scr
         <translation>警告!</translation>
     </message>
     <message>
-        <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD はモニターの自動検出に失敗しました。「詳細設定」タブでモニターの水平同期/垂直リフレッシュレートを設定して下さい。</translation>
+        <source>TrueOS was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
+        <translation>TrueOS はモニターの自動検出に失敗しました。「詳細設定」タブでモニターの水平同期/垂直リフレッシュレートを設定して下さい。</translation>
     </message>
     <message>
         <source>Unknown Monitor</source>

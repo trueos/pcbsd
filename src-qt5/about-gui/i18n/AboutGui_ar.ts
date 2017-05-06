@@ -72,12 +72,12 @@
         <translation>إصدار الخادم X.org:</translation>
     </message>
     <message>
-        <source>PC-BSD CLI utilities:</source>
-        <translation>خدميات الواجهة النصية PC-BSD: </translation>
+        <source>TrueOS CLI utilities:</source>
+        <translation>خدميات الواجهة النصية TrueOS: </translation>
     </message>
     <message>
-        <source>PC-BSD UI utilities:</source>
-        <translation>خدميات الواجهة الرسومية PC-BSD:</translation>
+        <source>TrueOS UI utilities:</source>
+        <translation>خدميات الواجهة الرسومية TrueOS:</translation>
     </message>
     <message>
         <source>Package set:</source>

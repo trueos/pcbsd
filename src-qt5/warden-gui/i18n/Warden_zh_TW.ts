@@ -808,8 +808,8 @@
         <translation>傳統 Jail (較安全，適合用來提供服務)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>安裝 PKGNG 和 PC-BSD 工具程式</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>安裝 PKGNG 和 TrueOS 工具程式</translation>
     </message>
     <message>
         <source>Jail Version</source>

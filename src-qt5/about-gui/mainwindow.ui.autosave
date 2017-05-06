@@ -476,7 +476,7 @@
             </font>
            </property>
            <property name="text">
-            <string>PC-BSD CLI utilities:</string>
+            <string>TrueOS CLI utilities:</string>
            </property>
           </widget>
          </item>
@@ -516,7 +516,7 @@
             </font>
            </property>
            <property name="text">
-            <string>PC-BSD UI utilities:</string>
+            <string>TrueOS UI utilities:</string>
            </property>
           </widget>
          </item>

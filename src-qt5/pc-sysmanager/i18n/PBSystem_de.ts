@@ -8,12 +8,12 @@
         <translation>CMD-Ausgabe</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Ports Tree</source>
-        <translation>PC-BSD-Portbaum anfordern</translation>
+        <source>Getting TrueOS Ports Tree</source>
+        <translation>TrueOS-Portbaum anfordern</translation>
     </message>
     <message>
-        <source>Getting PC-BSD Sources</source>
-        <translation>PC-BSD-Quelltexte anfordern</translation>
+        <source>Getting TrueOS Sources</source>
+        <translation>TrueOS-Quelltexte anfordern</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -35,8 +35,8 @@
 <context>
     <name>PBSystemTab</name>
     <message>
-        <source>PC-BSD System Configuration</source>
-        <translation>PC-BSD System-Konfiguration</translation>
+        <source>TrueOS System Configuration</source>
+        <translation>TrueOS System-Konfiguration</translation>
     </message>
     <message>
         <source>General</source>
@@ -79,8 +79,8 @@
         <translation>Systemaufgaben</translation>
     </message>
     <message>
-        <source>PC-BSD Versions</source>
-        <translation>PC-BSD-Versionen</translation>
+        <source>TrueOS Versions</source>
+        <translation>TrueOS-Versionen</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -103,12 +103,12 @@
         <translation>FreeBSD-Version:</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>PC-BSD &amp;System-Quellen anfordern</translation>
+        <source>Fetch TrueOS &amp;System Source</source>
+        <translation>TrueOS &amp;System-Quellen anfordern</translation>
     </message>
     <message>
-        <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>PC-BSD-P&amp;ortbaum anfordern</translation>
+        <source>Fetch TrueOS P&amp;orts Tree</source>
+        <translation>TrueOS-P&amp;ortbaum anfordern</translation>
     </message>
     <message>
         <source>Error</source>

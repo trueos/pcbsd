@@ -18,7 +18,7 @@ load_rc_config $name
 
 pcbsdinit_start()
 {
-	echo "Starting PC-BSD init.."
+	echo "Starting TrueOS init.."
 	if [ -e "/var/.pcbsd-firstboot" ] ; then
 		(/usr/local/share/pcbsd/scripts/first-boot.sh >/dev/null 2>/dev/null ; rm /var/.pcbsd-firstboot)&
 	fi

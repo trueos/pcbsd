@@ -281,8 +281,8 @@
 <context>
     <name>MainDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD:n käyttäjienhallinta</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS:n käyttäjienhallinta</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -349,8 +349,8 @@
         <translation>Jäsenet:</translation>
     </message>
     <message>
-        <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD:n käyttäjienhallinta - Monipuolinen tila</translation>
+        <source>TrueOS User Manager - Advanced Mode</source>
+        <translation>TrueOS:n käyttäjienhallinta - Monipuolinen tila</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -370,8 +370,8 @@
 <context>
     <name>PCBSDUserManager</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD käyttäjienhallinta</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS käyttäjienhallinta</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -559,8 +559,8 @@
 <context>
     <name>SimpleDlg</name>
     <message>
-        <source>PC-BSD User Manager</source>
-        <translation>PC-BSD käyttäjähallinta</translation>
+        <source>TrueOS User Manager</source>
+        <translation>TrueOS käyttäjähallinta</translation>
     </message>
     <message>
         <source>&amp;Add</source>

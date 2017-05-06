@@ -4,7 +4,7 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <source>PC-BSD Control Panel</source>
+        <source>TrueOS Control Panel</source>
         <translation type="unfinished">
             </translation>
     </message>

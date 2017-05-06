@@ -785,8 +785,8 @@
         <translation>Традиційна В&apos;язниця (захищена, найкраща для служб)</translation>
     </message>
     <message>
-        <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Встановити PKGNG та утиліти PC-BSD</translation>
+        <source>Install PKGNG and TrueOS utilities</source>
+        <translation>Встановити PKGNG та утиліти TrueOS</translation>
     </message>
     <message>
         <source>Jail Version</source>

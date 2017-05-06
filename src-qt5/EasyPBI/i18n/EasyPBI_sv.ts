@@ -387,8 +387,8 @@
         <translation>Öppna freshports.org för ytterligare information</translation>
     </message>
     <message>
-        <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Öppna PC-BSDs Wiki sida för PBI developers</translation>
+        <source>Open up the TrueOS Wiki page for PBI developers</source>
+        <translation>Öppna TrueOSs Wiki sida för PBI developers</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
