@@ -1,4 +1,4 @@
-# pcbsd
+# pcbsd [DEPRECATED]
 
 The official PC-BSD git repository
 
